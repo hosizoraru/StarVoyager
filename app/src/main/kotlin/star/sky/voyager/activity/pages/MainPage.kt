@@ -17,12 +17,6 @@ class MainPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.main_switch,
-                colorId = R.color.material_blue_100
-            ), SwitchV("main_switch", true)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.HideLauncherIcon,
                 colorId = R.color.blue
             ),

@@ -15,6 +15,7 @@ object Android : AppRegister() {
     override val packageName: String = "android"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+        star.sky.voyager.hook.hooks.DisableFlagSecure.DisableFlagSecure().handleLoadPackage(lpparam)
         autoInitHooks(
             lpparam,
             DisableFlagSecure,

@@ -1,8 +1,6 @@
 package star.sky.voyager.hook
 
-import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
-import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import star.sky.voyager.BuildConfig
 import star.sky.voyager.hook.apps.Aireco
 import star.sky.voyager.hook.apps.Android
@@ -70,15 +68,4 @@ class MainHook : EasyXposedInit() {
         TaPlus, // 传送门
     )
 
-    override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {
-        if (prefs.getBoolean("main_switch", true)) {
-            super.initZygote(startupParam)
-        }
-    }
-
-    override fun handleInitPackageResources(resparam: XC_InitPackageResources.InitPackageResourcesParam?) {
-        if (prefs.getBoolean("main_switch", true)) {
-            super.handleInitPackageResources(resparam)
-        }
-    }
 }

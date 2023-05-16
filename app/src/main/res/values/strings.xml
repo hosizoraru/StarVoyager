@@ -73,6 +73,7 @@
     <string name="status_bar_icon">Status bar icons</string>
     <string name="current_current">Current</string>
     <string name="only_official_default_themes_are_supported">Only official default themes are supported</string>
+    <string name="allow_screenshots">Allow screenshot</string>
 
     <string name="Unlock_HDR_Enhance">Display high dynamic range</string>
     <string name="Unlock_HDR_Enhance_summary">Use HDR to show more detail in highlights and shadows</string>
@@ -219,4 +220,16 @@
     <string name="enable_remover_2">Enable remover2</string>
     <string name="enable_magic_matting">Enable magic matting</string>
     <string name="enable_magic_sky">Enable magic sky</string>
+    <string name="core_pacth">Remove restrictions</string>
+    <string name="core_pacth_summary">Support downgrade/different signature/unsigned installation</string>
+    <string name="down_grade">Allow downgrade</string>
+    <string name="down_grade_summary">Allow downgrade applications.</string>
+    <string name="auth_creak">Disable digest verify</string>
+    <string name="auth_creak_summary">Allows install apps after modify file in apk (ignore invalid digest error).</string>
+    <string name="digestCreak">Disable compare signatures</string>
+    <string name="digestCreak_summary">Allow re-install app with different signatures.</string>
+    <string name="UsePreSig">Use installed signatures</string>
+    <string name="UsePreSig_summary">Always use signatures from already installed apps when installing.\nThis is extremely <b>dangerous</b>.\nOnly enable when really needed!</string>
+    <string name="enhancedMode">Enhanced Mode</string>
+    <string name="enhancedMode_summary">Pass some validation in the application</string>
 </resources>

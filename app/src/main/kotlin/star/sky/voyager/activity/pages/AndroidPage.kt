@@ -14,6 +14,38 @@ import star.sky.voyager.R
 class AndroidPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_android_summary)
+        TitleText(textId = R.string.core_pacth)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.down_grade,
+                tipsId = R.string.down_grade_summary
+            ), SwitchV("down_grade")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.auth_creak,
+                tipsId = R.string.auth_creak_summary
+            ), SwitchV("auth_creak")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.digestCreak,
+                tipsId = R.string.digestCreak_summary
+            ), SwitchV("digestCreak")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.UsePreSig,
+                tipsId = R.string.UsePreSig_summary
+            ), SwitchV("UsePreSig")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.enhancedMode,
+                tipsId = R.string.enhancedMode_summary
+            ), SwitchV("enhancedMode")
+        )
+        Line()
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.disable_flag_secure,

@@ -70,6 +70,7 @@
     <string name="status_bar_icon">状态栏图标</string>
     <string name="current_current">当前电流</string>
     <string name="only_official_default_themes_are_supported">仅支持官方默认主题</string>
+    <string name="allow_screenshots">允许截图</string>
 
     <string name="Unlock_HDR_Enhance">超动态显示</string>
     <string name="Unlock_HDR_Enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
@@ -216,4 +217,16 @@
     <string name="enable_remover_2">解锁魔法消除</string>
     <string name="enable_magic_matting">解锁魔法抠图</string>
     <string name="enable_magic_sky">解锁魔法换天</string>
+    <string name="core_pacth">解除安装限制</string>
+    <string name="core_pacth_summary">支持降级/不同签名/无签名安装</string>
+    <string name="down_grade">允许降级安装应用</string>
+    <string name="down_grade_summary">允许应用在安装新版本的情况下直接覆盖安装旧版本</string>
+    <string name="auth_creak">禁用软件包管理器签名验证</string>
+    <string name="auth_creak_summary">关闭安装应用时的签名验证，可以安装被篡改的应用</string>
+    <string name="digestCreak">禁用APK签名验证</string>
+    <string name="digestCreak_summary">允许直接覆盖安装同包名不同签名的应用</string>
+    <string name="UsePreSig">安装时始终使用已装app的签名</string>
+    <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
+    <string name="enhancedMode">增强模式</string>
+    <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
 </resources>
