@@ -31,3 +31,4 @@ google-services.json
 
 .DS_Store
 app/src/main/kotlin/star/sky/voyager/hook/hooks/.DS_Store
+app/src/main/.DS_Store
