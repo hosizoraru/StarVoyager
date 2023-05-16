@@ -30,3 +30,4 @@ google-services.json
 *.hprof
 
 .DS_Store
+app/src/main/java/star/sky/voyager/hook/hooks/.DS_Store
