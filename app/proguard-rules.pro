@@ -19,23 +19,23 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class * implements de.robv.android.xposed.IXposedHookLoadPackage {
-    public void *(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam);
-}
+#-keep class * implements de.robv.android.xposed.IXposedHookLoadPackage {
+#    public void *(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam);
+#}
+#
+#-keep class * implements de.robv.android.xposed.IXposedHookZygoteInit {
+#    public void *(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam);
+#}
+#
+#-keep class * extends star.sky.voyager.utils.init.EasyXposedInit
+#
+#-assumenosideeffects class kotlin.jvm.internal.Intrinsics {
+#    public static void check*(...);
+#    public static void throw*(...);
+#}
 
--keep class * implements de.robv.android.xposed.IXposedHookZygoteInit {
-    public void *(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam);
-}
-
--keep class * extends star.sky.voyager.utils.init.EasyXposedInit
-
--assumenosideeffects class kotlin.jvm.internal.Intrinsics {
-    public static void check*(...);
-    public static void throw*(...);
-}
-
--allowaccessmodification
--overloadaggressively
+#-allowaccessmodification
+#-overloadaggressively
 
 -keep class star.sky.voyager.hook.MainHook
 -keep class star.sky.voyager.hook.hooks.**.**

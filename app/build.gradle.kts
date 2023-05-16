@@ -43,10 +43,7 @@ android {
         release {
             isShrinkResources = true
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles("proguard-rules.pro")
         }
         debug {
             versionNameSuffix = "-debug-" + DateTimeFormatter.ofPattern("yyyyMMddHHmmss").format(
@@ -91,14 +88,8 @@ android {
 dependencies {
     implementation(project(":blockmiui"))
     implementation(libs.core.ktx)
-    implementation(libs.androidx.core.splashscreen)
-    implementation(libs.appcompat)
-    implementation(libs.material)
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
     compileOnly(libs.xposed)
 }

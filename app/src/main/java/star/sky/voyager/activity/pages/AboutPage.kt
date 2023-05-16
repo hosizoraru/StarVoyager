@@ -85,7 +85,7 @@ class AboutPage : BasePage() {
                 onClickListener = {
                     try {
                         val uri =
-                            Uri.parse("https://github.com/hosizoraru")
+                            Uri.parse("https://github.com/hosizoraru/StarVoyager")
                         val intent = Intent(Intent.ACTION_VIEW, uri)
                         activity.startActivity(intent)
                     } catch (e: Exception) {
