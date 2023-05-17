@@ -3,9 +3,9 @@ package star.sky.voyager.hook.hooks.home
 import android.content.Context
 import com.github.kyuubiran.ezxhelper.EzXHelper
 import de.robv.android.xposed.XC_MethodHook
-import star.sky.voyager.utils.api.callMethod
+import star.sky.voyager.utils.api.callMethodOrNull
 import star.sky.voyager.utils.api.callStaticMethod
-import star.sky.voyager.utils.api.findClass
+import star.sky.voyager.utils.api.findClassOrNull
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.getStaticObjectField
 import star.sky.voyager.utils.api.hookAfterAllMethods
@@ -19,26 +19,29 @@ import star.sky.voyager.utils.key.hasEnable
 object IconCellCount : HookRegister() {
     override fun init() = hasEnable("home_unlock_cell_count") {
         val deviceConfigClass =
-            "com.miui.home.launcher.DeviceConfig".findClass(EzXHelper.classLoader)
+            "com.miui.home.launcher.DeviceConfig".findClassOrNull(EzXHelper.classLoader)
         val launcherCellCountCompatDeviceClass =
-            "com.miui.home.launcher.compat.LauncherCellCountCompatDevice".findClass(EzXHelper.classLoader)
+            "com.miui.home.launcher.compat.LauncherCellCountCompatDevice".findClassOrNull(EzXHelper.classLoader)
         val launcherCellCountCompatResourceClass =
-            "com.miui.home.launcher.compat.LauncherCellCountCompatResource".findClass(EzXHelper.classLoader)
+            "com.miui.home.launcher.compat.LauncherCellCountCompatResource".findClassOrNull(
+                EzXHelper.classLoader
+            )
         val utilitiesClass =
-            "com.miui.home.launcher.common.Utilities".findClass(EzXHelper.classLoader)
-        val screenUtilsClass = "com.miui.home.launcher.ScreenUtils".findClass(EzXHelper.classLoader)
+            "com.miui.home.launcher.common.Utilities".findClassOrNull(EzXHelper.classLoader)
+        val screenUtilsClass =
+            "com.miui.home.launcher.ScreenUtils".findClassOrNull(EzXHelper.classLoader)
         val miuiHomeSettings =
-            "com.miui.home.settings.MiuiHomeSettings".findClass(EzXHelper.classLoader)
+            "com.miui.home.settings.MiuiHomeSettings".findClassOrNull(EzXHelper.classLoader)
 
-        launcherCellCountCompatDeviceClass.replaceMethod("shouldUseDeviceValue") {
+        launcherCellCountCompatDeviceClass?.replaceMethod("shouldUseDeviceValue") {
             return@replaceMethod false
         }
 
-        miuiHomeSettings.hookAfterMethod("onCreatePreferences") {
-            it.thisObject.getObjectField("mScreenCellsConfig")?.callMethod("setVisible", true)
+        miuiHomeSettings?.hookAfterMethod("onCreatePreferences") {
+            it.thisObject.getObjectField("mScreenCellsConfig")?.callMethodOrNull("setVisible", true)
         }
 
-        deviceConfigClass.hookAfterMethod(
+        deviceConfigClass?.hookAfterMethod(
             "loadCellsCountConfig",
             Context::class.java,
             Boolean::class.javaPrimitiveType
@@ -50,13 +53,13 @@ object IconCellCount : HookRegister() {
             }
         }
 
-        launcherCellCountCompatResourceClass.replaceMethod(
+        launcherCellCountCompatResourceClass?.replaceMethod(
             "getCellCountXMax",
             Context::class.java
         ) {
             return@replaceMethod 8
         }
-        launcherCellCountCompatResourceClass.replaceMethod(
+        launcherCellCountCompatResourceClass?.replaceMethod(
             "getCellCountYMax",
             Context::class.java
         ) {
@@ -64,12 +67,12 @@ object IconCellCount : HookRegister() {
         }
 
         var hook: Set<XC_MethodHook.Unhook>? = null
-        screenUtilsClass.hookBeforeAllMethods("getScreenCellsSizeOptions") {
-            hook = utilitiesClass.hookBeforeAllMethods("isNoWordModel") {
+        screenUtilsClass?.hookBeforeAllMethods("getScreenCellsSizeOptions") {
+            hook = utilitiesClass?.hookBeforeAllMethods("isNoWordModel") {
                 it.result = false
             }
         }
-        screenUtilsClass.hookAfterAllMethods("getScreenCellsSizeOptions") {
+        screenUtilsClass?.hookAfterAllMethods("getScreenCellsSizeOptions") {
             hook?.forEach {
                 it.unhook()
             }
