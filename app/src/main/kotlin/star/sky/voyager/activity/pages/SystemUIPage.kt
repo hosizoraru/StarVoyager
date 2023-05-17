@@ -24,6 +24,11 @@ class SystemUIPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.status_bar_icon)
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.hide_icon,
+                onClickListener = { showFragment("hide_icon") })
+        )
         TextWithSwitch(
             TextV(textId = R.string.show_wifi_standard),
             SwitchV("show_wifi_standard")

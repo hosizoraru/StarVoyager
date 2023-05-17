@@ -10,6 +10,7 @@ import star.sky.voyager.activity.pages.AboutPage
 import star.sky.voyager.activity.pages.AndroidPage
 import star.sky.voyager.activity.pages.AppManagerPage
 import star.sky.voyager.activity.pages.GalleryPage
+import star.sky.voyager.activity.pages.HideIconPage
 import star.sky.voyager.activity.pages.HomePage
 import star.sky.voyager.activity.pages.MainPage
 import star.sky.voyager.activity.pages.MenuPage
@@ -62,6 +63,7 @@ class MainActivity : MIUIActivity() {
         registerPage(PowerKeeperPage::class.java)
         registerPage(SecurityPage::class.java)
         registerPage(AndroidPage::class.java)
+        registerPage(HideIconPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
