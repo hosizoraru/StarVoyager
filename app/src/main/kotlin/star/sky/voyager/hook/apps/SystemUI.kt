@@ -6,6 +6,7 @@ import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
 import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
+import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
 import star.sky.voyager.hook.hooks.systemui.RestoreNearbyTile
 import star.sky.voyager.hook.hooks.systemui.ShowWifiStandard
 import star.sky.voyager.hook.hooks.systemui.StatusBarBattery
@@ -29,6 +30,7 @@ object SystemUI : AppRegister() {
             LockScreenClockDisplaySeconds,
             ShowWifiStandard,
             MaximumNumberOfNotificationIcons,
+            NotificationSettingsNoWhiteList,
         )
     }
 }

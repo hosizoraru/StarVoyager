@@ -46,6 +46,12 @@ class SystemUIPage : BasePage() {
             ),
             SwitchV("can_notification_slide"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.notification_settings_no_white_list
+            ),
+            SwitchV("notification_settings_no_white_list", false)
+        )
         Line()
         TitleText(textId = R.string.control_center)
         TextSummaryWithSwitch(

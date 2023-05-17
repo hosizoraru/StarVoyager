@@ -232,4 +232,5 @@
     <string name="UsePreSig_summary">Always use signatures from already installed apps when installing.\nThis is extremely <b>dangerous</b>.\nOnly enable when really needed!</string>
     <string name="enhancedMode">Enhanced Mode</string>
     <string name="enhancedMode_summary">Pass some validation in the application</string>
+    <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
 </resources>
