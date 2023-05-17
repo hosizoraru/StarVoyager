@@ -245,5 +245,72 @@ class SystemUIPage : BasePage() {
                 tipsId = R.string.no_need_to_enter_password_when_power_on_summary
             ), SwitchV("no_need_to_enter_password_when_power_on")
         )
+        Line()
+        TitleText(textId = R.string.old_quick_settings_panel)
+        val oldQSCustomSwitchBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "old_qs_custom_switch",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.old_qs_custom_switch,
+                colorId = R.color.blue
+            ),
+            SwitchV(
+                "old_qs_custom_switch",
+                dataBindingSend = oldQSCustomSwitchBinding.bindingSend
+            )
+        )
+        Text(
+            textId = R.string.qs_custom_rows,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "qs_custom_rows",
+            1,
+            6,
+            3,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.qs_custom_rows_horizontal,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "qs_custom_rows_horizontal",
+            1,
+            3,
+            2,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.qs_custom_columns,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "qs_custom_columns",
+            1,
+            7,
+            4,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.qs_custom_columns_unexpanded,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "qs_custom_columns_unexpanded",
+            1,
+            7,
+            5,
+            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
     }
 }

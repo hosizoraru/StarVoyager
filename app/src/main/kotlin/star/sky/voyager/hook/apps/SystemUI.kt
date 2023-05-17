@@ -20,6 +20,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
 import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
+import star.sky.voyager.hook.hooks.systemui.OldQSCustom
 import star.sky.voyager.hook.hooks.systemui.RemoveLockScreenCamera
 import star.sky.voyager.hook.hooks.systemui.RemoveTheLeftSideOfTheLockScreen
 import star.sky.voyager.hook.hooks.systemui.RestoreNearbyTile
@@ -52,13 +53,14 @@ object SystemUI : AppRegister() {
             RemoveLockScreenCamera, // 移除锁屏相机功能
             WaveCharge, // 启用Alpha充电动画
             LockScreenCurrent, // 充电时显示当前电流
+            LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕
             NoPasswordHook, // 开机免输密码
+            OldQSCustom, // 自定义行列数
             // 状态栏网络速度 Start
             StatusBarNetworkSpeedRefreshSpeed,
             HideStatusBarNetworkSpeedSecond,
             HideNetworkSpeedSplitter,
             DoubleLineNetworkSpeed,
-            LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕
             // 状态栏网络速度 End
             // 隐藏图标 Start
             HideStatusBarIcon,
