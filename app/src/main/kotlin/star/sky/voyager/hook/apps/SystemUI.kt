@@ -20,6 +20,7 @@ import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
 import star.sky.voyager.hook.hooks.systemui.RestoreNearbyTile
 import star.sky.voyager.hook.hooks.systemui.ShowWifiStandard
 import star.sky.voyager.hook.hooks.systemui.StatusBarBattery
+import star.sky.voyager.hook.hooks.systemui.StatusBarDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.StatusBarNetworkSpeedRefreshSpeed
 import star.sky.voyager.hook.hooks.systemui.UseNewHD
 import star.sky.voyager.hook.hooks.systemui.WaveCharge
@@ -31,6 +32,7 @@ object SystemUI : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
+            StatusBarDoubleTapToSleep, // 双击锁定屏幕
             StatusBarBattery, // 状态栏显示关于电池
             ShowWifiStandard, // 显示 WiFi 标准
             UseNewHD, // 强制使用新 HD 图标
