@@ -103,12 +103,6 @@ class HomePage : BasePage() {
             ), SwitchV("home_unlock_cell_count")
         )
         TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.home_blur_when_open_folder,
-                tipsId = R.string.home_blur_when_open_folder_summary
-            ), SwitchV("home_blur_when_open_folder")
-        )
-        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.home_blur_wallpaper),
             SwitchV("home_blur_wallpaper")
         )
@@ -321,6 +315,14 @@ class HomePage : BasePage() {
                         }
                     }.show()
                 }), dataBindingRecv = monoBinding.binding.getRecv(1)
+        )
+        Line()
+        TitleText(textId = R.string.already_no_necessary)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.home_blur_when_open_folder,
+                tipsId = R.string.home_blur_when_open_folder_summary
+            ), SwitchV("home_blur_when_open_folder")
         )
     }
 }

@@ -83,6 +83,9 @@
     <string name="status_bar_icon">Status bar icons</string>
     <string name="current_current">Current</string>
     <string name="allow_screenshots">Allow screenshot</string>
+    <string name="show_weather_main_switch">Show Weather - Main Switch</string>
+    <string name="already_can_not_use">This function has expired</string>
+    <string name="already_no_necessary">This function is no longer necessary</string>
 
     <string name="custom_mobile_type_text">Custom mobile type text</string>
     <string name="custom_mobile_type_text_switch">Custom mobile type text switch</string>

@@ -80,6 +80,9 @@
     <string name="status_bar_icon">状态栏图标</string>
     <string name="current_current">当前电流</string>
     <string name="allow_screenshots">允许截图</string>
+    <string name="show_weather_main_switch">显示天气-总开关</string>
+    <string name="already_can_not_use">该功能已失效</string>
+    <string name="already_no_necessary">该功能已没必要</string>
 
     <string name="custom_mobile_type_text">自定义移动类型文本</string>
     <string name="custom_mobile_type_text_switch">自定义移动类型文本开关</string>
