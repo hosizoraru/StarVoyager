@@ -77,6 +77,19 @@
     <string name="current_current">当前电流</string>
     <string name="allow_screenshots">允许截图</string>
 
+    <string name="core_patch">解除安装限制</string>
+    <string name="core_patch_summary">支持降级/不同签名/无签名安装</string>
+    <string name="down_grade">允许降级安装应用</string>
+    <string name="down_grade_summary">允许应用在安装新版本的情况下直接覆盖安装旧版本</string>
+    <string name="auth_creak">禁用软件包管理器签名验证</string>
+    <string name="auth_creak_summary">关闭安装应用时的签名验证，可以安装被篡改的应用</string>
+    <string name="digestCreak">禁用APK签名验证</string>
+    <string name="digestCreak_summary">允许直接覆盖安装同包名不同签名的应用</string>
+    <string name="UsePreSig">安装时始终使用已装app的签名</string>
+    <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
+    <string name="enhancedMode">增强模式</string>
+    <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
+
     <string name="hide_icon">隐藏图标</string>
     <string name="hide_battery_icon">隐藏 电池 图标</string>
     <string name="hide_battery_percentage_icon">隐藏电量（%）</string>
@@ -119,42 +132,85 @@
     <string name="status_bar_network_speed_dual_row_icon">双排图标</string>
     <string name="status_bar_network_speed_dual_row_gravity">双排对齐</string>
 
-    <string name="Unlock_HDR_Enhance">超动态显示</string>
-    <string name="Unlock_HDR_Enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
-    <string name="force_enable_native_playback_capture">强制启用原生录音支持</string>
-    <string name="change_bitrate_and_frame_rate_range">修改码率与帧率范围</string>
-    <string name="add_freeform_shortcut">快捷菜单添加小窗</string>
-    <string name="restore_google_app_icon">恢复Google图标</string>
-    <string name="restore_near_by_tile">恢复附近分享磁贴</string>
-    <string name="mono_chrome_icon">图标背景色</string>
-    <string name="monoet_color">默认颜色 -> 莫奈取色</string>
-    <string name="use_edit_color">修改成你喜欢的颜色</string>
-    <string name="your_color">你喜欢的颜色</string>
-    <string name="device_modify">移除限制</string>
-    <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
-    <string name="Market_As">伪装机型为:</string>
+    <string name="maximum_number_of_notification_icons">通知图标最大数量</string>
+    <string name="maximum_number_of_notification_dots">通知点数最大数量</string>
+    <string name="maximum_number_of_lockscreen_notification_icons">锁屏界面通知图标最大数量</string>
+
     <string name="No_Auto_Turn_Off">禁止小米互传自动关闭</string>
     <string name="No_Auto_Turn_Off_summary">小米互传将不会自动关闭\n(仅限 2.15.0+ 版本)</string>
-    <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
-    <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>
+
     <string name="force_support_send_app">强制所有应用支持在另一个设备打开</string>
+
+    <string name="device_modify">移除限制</string>
+    <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
+
+    <string name="enable_card">解锁扫名片</string>
+    <string name="enable_doc_ppt">解锁扫文件</string>
+    <string name="enable_document">解锁转文档</string>
+    <string name="enable_excel">解锁提取表格</string>
+    <string name="enable_ocr2">解锁识文字</string>
+    <string name="enable_ppt">解锁提取 PPT</string>
+    <string name="enable_translation">解锁翻译</string>
+
+    <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
+
+    <string name="Unlock_HDR_Enhance">超动态显示</string>
+    <string name="Unlock_HDR_Enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
+    <string name="enable_ocr">解锁提取文字</string>
+    <string name="enable_ocr_form">解锁提取表格</string>
+    <string name="enable_pdf">解锁生成PDF</string>
+    <string name="enable_id_photo">解锁证件照</string>
+    <string name="enable_photo_movie">解锁照片电影</string>
+    <string name="enable_video_post">解锁视频特效</string>
+    <string name="enable_video_editor">解锁 Mi 剪辑</string>
+    <string name="enable_text_yan_hua">解锁文字烟花</string>
+    <string name="enable_remover_2">解锁魔法消除</string>
+    <string name="enable_magic_matting">解锁魔法抠图</string>
+    <string name="enable_magic_sky">解锁魔法换天</string>
+
     <string name="filter_manager">大师滤镜</string>
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
-    <string name="custom_refresh_rate">自定义高刷新率应用</string>
-    <string name="do_not_clear_app">防止杀死后台应用</string>
-    <string name="do_not_clear_app_plus">更激进的防止杀死后台应用</string>
+
+    <string name="force_enable_native_playback_capture">强制启用原生录音支持</string>
+    <string name="change_bitrate_and_frame_rate_range">修改码率与帧率范围</string>
+
+    <string name="Market_As">伪装机型为:</string>
+
     <string name="show_notification_importance">显示通知重要程度</string>
     <string name="show_notification_importance_summary">显示 MIUI 12 及之后版本被隐藏的通知重要程度设置</string>
     <string name="speed_mode">显示极致模式选项</string>
     <string name="speed_mode_summary">在开发者选项里面</string>
     <string name="system_settings_permission_unknown_origin_app">安装未知应用权限免翻应用列表</string>
     <string name="system_settings_permission_unknown_origin_app_desc">使用国际版行为，直接跳转对应应用 \"安装未知应用\" 的权限开关</string>
+
     <string name="file_explorer_can_selectable">文件夹名字可以选择操作</string>
     <string name="file_explorer_is_single_line">文件夹名字以单行显示</string>
+
     <string name="No_Storage_Restrict">取消选择文件夹时的限制</string>
-    <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
+
+    <string name="custom_refresh_rate">自定义高刷新率应用</string>
+    <string name="do_not_clear_app">防止杀死后台应用</string>
+    <string name="do_not_clear_app_plus">更激进的防止杀死后台应用</string>
+    <string name="battery_optimization">电池优化</string>
+    <string name="battery_optimization_summary">快速打开被MIUI隐藏的电池优化功能</string>
+
+    <string name="skip_waiting_time">跳过 5/10 秒警告时间</string>
+    <string name="skip_waiting_time_summary">开启后可忽略MIUI在开启USB调试、\n未知来源、无障碍时的冻结时间</string>
+    <string name="remove_open_app_confirmation_popup">移除打开应用弹窗</string>
+    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打开 XXX\" 的弹窗</string>
+    <string name="lock_one_hundred">手机管家锁定100分</string>
+    <string name="lock_one_hundred_summary">锁定手机管家100分并屏蔽修复按钮</string>
     <string name="battery_life_function">电池页面显示当前温度</string>
+    <string name="app_link_open_always">允许应用打开支持的链接</string>
+    <string name="app_link_open_never">不允许应用打开链接</string>
+    <string name="open_by_default">默认打开</string>
+    <string name="open_by_default_setting">将应用详情中“消除默认操作”改为“默认打开”设置</string>
+    <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
+    <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
+    <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
+    <string name="try_to_fix_conversation_bubbles_summary">尝试重新启用气泡通知服务</string>
+
     <string name="disable_flag_secure">允许截图</string>
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图\n支持添加下拉控制中心快速开关，保障安全</string>
     <string name="delete_on_post_notification">移除上层显示通知</string>
@@ -166,26 +222,9 @@
     <string name="kill_domain_verification">禁用域验证</string>
     <string name="kill_domain_verification_summary">打开 http / https 链接时总是询问，而不是直接在 app 中打开\n副作用：手动设也没法直接用应用打开链接；Android 12+ 选择时会同时显示未“验证”的 app</string>
     <string name="max_free_form">解锁小窗数量限制</string>
-    <string name="home_scroll_icon_name">滚动显示应用名称</string>
-    <string name="home_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>
-    <string name="home_fold_dock">折叠屏底栏样式</string>
-    <string name="fold_dock_num">%d 个</string>
-    <string name="fold_dock_hot_seat">固定应用个数</string>
-    <string name="fold_dock_run">运行应用个数</string>
-    <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
-    <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
-    <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
-    <string name="try_to_fix_conversation_bubbles_summary">尝试重新启用气泡通知服务</string>
-    <string name="skip_waiting_time">跳过 5/10 秒警告时间</string>
-    <string name="skip_waiting_time_summary">开启后可忽略MIUI在开启USB调试、\n未知来源、无障碍时的冻结时间</string>
-    <string name="remove_open_app_confirmation_popup">移除打开应用弹窗</string>
-    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打开 XXX\" 的弹窗</string>
-    <string name="lock_one_hundred">手机管家锁定100分</string>
-    <string name="lock_one_hundred_summary">锁定手机管家100分并屏蔽修复按钮</string>
-    <string name="battery_optimization">电池优化</string>
-    <string name="battery_optimization_summary">快速打开被MIUI隐藏的电池优化功能</string>
-    <string name="home_real_memory">后台显示实际使用和总内存</string>
-    <string name="home_real_memory_summary">去TM MIUI虚假的内存</string>
+    <string name="media_volume_steps_switch">媒体音量阶数</string>
+    <string name="media_volume_steps_summary">打开可能会导致音量条的滚动卡顿或蓝牙音量异常。</string>
+
     <string name="home_time">始终显示桌面时钟</string>
     <string name="home_time_summary">开启后即使存在时钟小组件，\n也不会对状态栏隐藏时钟</string>
     <string name="double_tap_to_sleep">双击锁定屏幕</string>
@@ -194,6 +233,12 @@
     <string name="home_recent_view_wallpaper_darkening_summary">这将禁用进出最近任务时壁纸从压暗逐渐变亮的效果</string>
     <string name="home_recent_view_remove_card_animation">修改划卡动画</string>
     <string name="home_recent_view_remove_card_animation_summary">修改最近任务移除卡片的动画效果</string>
+    <string name="add_freeform_shortcut">快捷菜单添加小窗</string>
+    <string name="restore_google_app_icon">恢复Google图标</string>
+    <string name="home_scroll_icon_name">滚动显示应用名称</string>
+    <string name="home_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>
+    <string name="home_real_memory">后台显示实际使用和总内存</string>
+    <string name="home_real_memory_summary">去TM MIUI虚假的内存</string>
     <string name="Use_Transition_Animation">使用Miui小组件的动画</string>
     <string name="Overlap_Mode">Fold 样式智能助理</string>
     <string name="home_widget_to_minus">允许将安卓小部件移到负一屏</string>
@@ -214,11 +259,10 @@
     <string name="home_high_end_device">解除设备限制</string>
     <string name="home_high_end_device_summary">将被默认识别为高端，开启该选项并不会增加 GPU 性能开销同时去除部分日志</string>
     <string name="home_folder_columns">文件夹视图内图标的排数</string>
-    <string name="home_folder_anim">文件夹动画修改</string>
-    <string name="home_folder_anim_1">文件夹打开回弹(越小越明显)</string>
-    <string name="home_folder_anim_2">打开快慢(越大越慢)</string>
-    <string name="home_folder_anim_3">文件夹关闭回弹(越小越明显)</string>
-    <string name="home_folder_anim_4">关闭快慢(越大越慢)</string>
+    <string name="home_fold_dock">折叠屏底栏样式</string>
+    <string name="fold_dock_num">%d 个</string>
+    <string name="fold_dock_hot_seat">固定应用个数</string>
+    <string name="fold_dock_run">运行应用个数</string>
     <string name="home_anim_ratio_binding">自定义动画速度</string>
     <string name="home_anim_ratio_binding_summary">设置不同场景下过渡动画的速度</string>
     <string name="home_anim_ratio">过渡动画速度「开关应用」</string>
@@ -230,54 +274,28 @@
     <string name="home_task_view_card_size_vertical">瀑布卡片大小</string>
     <string name="home_task_view_card_size_horizontal1">平铺卡片大小「竖屏时」</string>
     <string name="home_task_view_card_size_horizontal2">平铺卡片大小「横屏时」</string>
-    <string name="enable_card">解锁扫名片</string>
-    <string name="enable_doc_ppt">解锁扫文件</string>
-    <string name="enable_document">解锁转文档</string>
-    <string name="enable_excel">解锁提取表格</string>
-    <string name="enable_ocr2">解锁识文字</string>
-    <string name="enable_ppt">解锁提取 PPT</string>
-    <string name="enable_translation">解锁翻译</string>
-    <string name="media_volume_steps_switch">媒体音量阶数</string>
-    <string name="media_volume_steps_summary">打开可能会导致音量条的滚动卡顿或蓝牙音量异常。</string>
-    <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
-    <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
+    <string name="home_folder_anim">文件夹动画修改</string>
+    <string name="home_folder_anim_1">文件夹打开回弹(越小越明显)</string>
+    <string name="home_folder_anim_2">打开快慢(越大越慢)</string>
+    <string name="home_folder_anim_3">文件夹关闭回弹(越小越明显)</string>
+    <string name="home_folder_anim_4">关闭快慢(越大越慢)</string>
+    <string name="mono_chrome_icon">图标背景色</string>
+    <string name="monet_color">默认颜色 -> 莫奈取色</string>
+    <string name="use_edit_color">修改成你喜欢的颜色</string>
+    <string name="your_color">你喜欢的颜色</string>
+
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
+    <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>
+    <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
+    <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
+    <string name="notification_settings_no_white_list">移除通知设置白名单</string>
+    <string name="restore_near_by_tile">恢复附近分享磁贴</string>
+    <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
+    <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>
+    <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
     <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
-    <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
-    <string name="show_wifi_standard">显示 WiFi 标准</string>
-    <string name="maximum_number_of_notification_icons">通知图标最大数量</string>
-    <string name="maximum_number_of_notification_dots">通知点数最大数量</string>
-    <string name="maximum_number_of_lockscreen_notification_icons">锁屏界面通知图标最大数量</string>
-    <string name="enable_ocr">解锁提取文字</string>
-    <string name="enable_ocr_form">解锁提取表格</string>
-    <string name="enable_pdf">解锁生成PDF</string>
-    <string name="enable_id_photo">解锁证件照</string>
-    <string name="enable_photo_movie">解锁照片电影</string>
-    <string name="enable_video_post">解锁视频特效</string>
-    <string name="enable_video_editor">解锁 Mi 剪辑</string>
-    <string name="enable_text_yan_hua">解锁文字烟花</string>
-    <string name="enable_remover_2">解锁魔法消除</string>
-    <string name="enable_magic_matting">解锁魔法抠图</string>
-    <string name="enable_magic_sky">解锁魔法换天</string>
-    <string name="core_pacth">解除安装限制</string>
-    <string name="core_pacth_summary">支持降级/不同签名/无签名安装</string>
-    <string name="down_grade">允许降级安装应用</string>
-    <string name="down_grade_summary">允许应用在安装新版本的情况下直接覆盖安装旧版本</string>
-    <string name="auth_creak">禁用软件包管理器签名验证</string>
-    <string name="auth_creak_summary">关闭安装应用时的签名验证，可以安装被篡改的应用</string>
-    <string name="digestCreak">禁用APK签名验证</string>
-    <string name="digestCreak_summary">允许直接覆盖安装同包名不同签名的应用</string>
-    <string name="UsePreSig">安装时始终使用已装app的签名</string>
-    <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
-    <string name="enhancedMode">增强模式</string>
-    <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
-    <string name="notification_settings_no_white_list">移除通知设置白名单</string>
-    <string name="app_link_open_always">允许应用打开支持的链接</string>
-    <string name="app_link_open_never">不允许应用打开链接</string>
-    <string name="open_by_default">默认打开</string>
-    <string name="open_by_default_setting">将应用详情中“消除默认操作”改为“默认打开”设置</string>
 </resources>

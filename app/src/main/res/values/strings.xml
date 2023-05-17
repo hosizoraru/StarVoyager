@@ -80,6 +80,19 @@
     <string name="current_current">Current</string>
     <string name="allow_screenshots">Allow screenshot</string>
 
+    <string name="core_patch">Remove restrictions</string>
+    <string name="core_patch_summary">Support downgrade/different signature/unsigned installation</string>
+    <string name="down_grade">Allow downgrade</string>
+    <string name="down_grade_summary">Allow downgrade applications.</string>
+    <string name="auth_creak">Disable digest verify</string>
+    <string name="auth_creak_summary">Allows install apps after modify file in apk (ignore invalid digest error).</string>
+    <string name="digestCreak">Disable compare signatures</string>
+    <string name="digestCreak_summary">Allow re-install app with different signatures.</string>
+    <string name="UsePreSig">Use installed signatures</string>
+    <string name="UsePreSig_summary">Always use signatures from already installed apps when installing.\nThis is extremely <b>dangerous</b>.\nOnly enable when really needed!</string>
+    <string name="enhancedMode">Enhanced Mode</string>
+    <string name="enhancedMode_summary">Pass some validation in the application</string>
+
     <string name="hide_icon">Hide Icon</string>
     <string name="hide_battery_icon">Hide battery icon</string>
     <string name="hide_battery_percentage_icon">Hide battery (%)</string>
@@ -122,42 +135,87 @@
     <string name="status_bar_network_speed_dual_row_icon">Dual row icon</string>
     <string name="status_bar_network_speed_dual_row_gravity">Dual row align</string>
 
-    <string name="Unlock_HDR_Enhance">Display high dynamic range</string>
-    <string name="Unlock_HDR_Enhance_summary">Use HDR to show more detail in highlights and shadows</string>
-    <string name="force_enable_native_playback_capture">Force enable native playback capture</string>
-    <string name="change_bitrate_and_frame_rate_range">Change bitrate and frame rate range</string>
-    <string name="add_freeform_shortcut">Add freeform shortcut</string>
-    <string name="restore_google_app_icon">Restore google app icon</string>
-    <string name="restore_near_by_tile">Restore NearBy Share tile</string>
-    <string name="mono_chrome_icon">Show mono chrome icon</string>
-    <string name="monoet_color">Default color -> monet color</string>
-    <string name="use_edit_color">Edit it into your favorite color</string>
-    <string name="your_color">Your favorite color</string>
-    <string name="device_modify">Remove the restriction</string>
-    <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>
-    <string name="Market_As">Disguise your model as what in the GetApps</string>
+    <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
+    <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>
+    <string name="maximum_number_of_lockscreen_notification_icons">Maximum number of notification icons on lockscreen</string>
+
     <string name="No_Auto_Turn_Off">Prohibition of MiShare is automatically closed</string>
     <string name="No_Auto_Turn_Off_summary">MiShare will not be automatically closed\n(Version 2.15.0+ only)</string>
-    <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
-    <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
+
     <string name="force_support_send_app">Force all apps support open on another device</string>
+
+    <string name="device_modify">Remove the restriction</string>
+    <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>
+
+    <string name="enable_card">Unlock card</string>
+    <string name="enable_doc_ppt">Unlock doc ppt</string>
+    <string name="enable_document">Unlock document</string>
+    <string name="enable_excel">Unlock excel</string>
+    <string name="enable_ocr2">Unlock ocr</string>
+    <string name="enable_ppt">Unlock ppt</string>
+    <string name="enable_translation">Unlock translation</string>
+
+    <string name="horizontal_content_extension">Horizontal content extension</string>
+
+    <string name="Unlock_HDR_Enhance">Display high dynamic range</string>
+    <string name="Unlock_HDR_Enhance_summary">Use HDR to show more detail in highlights and shadows</string>
+    <string name="enable_ocr">Enable ocr</string>
+    <string name="enable_ocr_form">Enable ocr form</string>
+    <string name="enable_pdf">Enable pdf</string>
+    <string name="enable_id_photo">Enable id photo</string>
+    <string name="enable_photo_movie">Enable photo movie</string>
+    <string name="enable_video_post">Enable video post</string>
+    <string name="enable_video_editor">Enable video editor</string>
+    <string name="enable_text_yan_hua">Enable text yanhua</string>
+    <string name="enable_remover_2">Enable remover2</string>
+    <string name="enable_magic_matting">Enable magic matting</string>
+    <string name="enable_magic_sky">Enable magic sky</string>
+
     <string name="filter_manager">Filter manager</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="unlock_unlimited_cropping_summary">Ignore the minimum limit on image cropping by MIUI</string>
-    <string name="custom_refresh_rate">Custom refresh rate</string>
-    <string name="do_not_clear_app">Prevent killing background apps</string>
-    <string name="do_not_clear_app_plus">Prevent killing background apps(more aggressive)</string>
+
+    <string name="force_enable_native_playback_capture">Force enable native playback capture</string>
+    <string name="change_bitrate_and_frame_rate_range">Change bitrate and frame rate range</string>
+
+    <string name="Market_As">Disguise your model as what in the GetApps</string>
+
     <string name="show_notification_importance">Show notification importance</string>
     <string name="show_notification_importance_summary">Show notification importance settings which are hidden in MIUI 12 and later versions</string>
     <string name="speed_mode">Show speed mode</string>
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>
     <string name="system_settings_permission_unknown_origin_app">Install unknown app permissions without searching the application list</string>
     <string name="system_settings_permission_unknown_origin_app_desc">Use the international build, jump directly to the permission switch of the corresponding application “displayed on top of other applications”</string>
+
     <string name="file_explorer_can_selectable">File Explorer Can Selectable</string>
     <string name="file_explorer_is_single_line">File Explorer Is Single Line</string>
+
     <string name="No_Storage_Restrict">Removes the restriction when selecting folders</string>
-    <string name="horizontal_content_extension">Horizontal content extension</string>
+
+    <string name="custom_refresh_rate">Custom refresh rate</string>
+    <string name="do_not_clear_app">Prevent killing background apps</string>
+    <string name="do_not_clear_app_plus">Prevent killing background apps(more aggressive)</string>
+    <string name="battery_optimization">Battery optimization</string>
+    <string name="battery_optimization_summary">Quickly open the battery optimization menu hidden by MIUI</string>
+
+    <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
+    <string name="skip_waiting_time_summary">Ignore the waiting time by MIUI when eanbling USB debugging, unknown sources and accessibility</string>
+    <string name="remove_open_app_confirmation_popup">Remove open app popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">Remove \"Allow XXX to open XXX\" Chain start popup</string>
+    <string name="lock_one_hundred">Set 100 points on Security app</string>
+    <string name="lock_one_hundred_summary">Set the score on Security app to 100 points and block the Optimize button</string>
     <string name="battery_life_function">Battery page shows the current temperature</string>
+    <string name="app_link_open_always">Allow app to open supported links</string>
+    <string name="app_link_open_never">Don\'t allow app to open links</string>
+    <string name="open_by_default">Open by default</string>
+    <string name="open_by_default_setting">Change App Info \"Clear defaults\" to \"Open by default\"</string>
+    <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
+    <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
+    <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
+    <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
+
+    <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
+    <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
     <string name="disable_flag_secure">Allow screenshot</string>
     <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
@@ -169,26 +227,9 @@
     <string name="kill_domain_verification">Kill domain verification</string>
     <string name="kill_domain_verification_summary">Prevents the system (and also yourself) from allowing apps to always open supported links.\nIt also enables you to open supported links in apps which are not "verified" on Android 12 and above.</string>
     <string name="max_free_form">Unlocked multi freeform number limit</string>
-    <string name="home_scroll_icon_name">Scroll app name</string>
-    <string name="home_scroll_icon_name_summary">The application name that is too long will be scrolled and displayed without any new line</string>
-    <string name="home_fold_dock">Dock for folded devices</string>
-    <string name="fold_dock_num">%d Num</string>
-    <string name="fold_dock_hot_seat">Number of fixed Apps</string>
-    <string name="fold_dock_run">Number of running Apps</string>
-    <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
-    <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
-    <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
-    <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
-    <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
-    <string name="skip_waiting_time_summary">Ignore the waiting time by MIUI when eanbling USB debugging, unknown sources and accessibility</string>
-    <string name="remove_open_app_confirmation_popup">Remove open app popup</string>
-    <string name="remove_open_app_confirmation_popup_summary">Remove \"Allow XXX to open XXX\" Chain start popup</string>
-    <string name="lock_one_hundred">Set 100 points on Security app</string>
-    <string name="lock_one_hundred_summary">Set the score on Security app to 100 points and block the Optimize button</string>
-    <string name="battery_optimization">Battery optimization</string>
-    <string name="battery_optimization_summary">Quickly open the battery optimization menu hidden by MIUI</string>
-    <string name="home_real_memory">Show Real Use and Total Memory</string>
-    <string name="home_real_memory_summary">Hacking fake MIUI memory</string>
+    <string name="media_volume_steps_switch">Media volume steps</string>
+    <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
+
     <string name="home_time">Always display Home screen clock</string>
     <string name="home_time_summary">When turned on, the clock will not be hidden on the status bar even if there is a clock widget</string>
     <string name="double_tap_to_sleep">Double tap to sleep</string>
@@ -197,6 +238,12 @@
     <string name="home_recent_view_wallpaper_darkening_summary">This will disable the effect that the wallpaper will gradually brighten from dimming when going in and out of the recent task</string>
     <string name="home_recent_view_remove_card_animation">Modify the card marking animation</string>
     <string name="home_recent_view_remove_card_animation_summary">Modify the animation effect of the recent task removal card</string>
+    <string name="add_freeform_shortcut">Add freeform shortcut</string>
+    <string name="restore_google_app_icon">Restore google app icon</string>
+    <string name="home_scroll_icon_name">Scroll app name</string>
+    <string name="home_scroll_icon_name_summary">The application name that is too long will be scrolled and displayed without any new line</string>
+    <string name="home_real_memory">Show Real Use and Total Memory</string>
+    <string name="home_real_memory_summary">Hacking fake MIUI memory</string>
     <string name="Use_Transition_Animation">Mandatory all widget use miui widget animation</string>
     <string name="Overlap_Mode">Fold style App Vault</string>
     <string name="home_widget_to_minus">Allow classic widget to be moved to the Minus One screen</string>
@@ -217,70 +264,46 @@
     <string name="home_high_end_device">Remove device restrictions</string>
     <string name="home_high_end_device_summary">It will be recognized as high-end by default. Turning this option on will not increase GPU performance overhead. Remove some logs at the same time.</string>
     <string name="home_folder_columns">Number of rows of icons in the folder view</string>
-    <string name="home_folder_anim">Anim mods</string>
-    <string name="home_folder_anim_1">Open speed 1</string>
-    <string name="home_folder_anim_2">Open speed 2</string>
-    <string name="home_folder_anim_3">Close speed 1</string>
-    <string name="home_folder_anim_4">Close speed 2</string>
+
+    <string name="home_fold_dock">Dock for folded devices</string>
+    <string name="fold_dock_num">%d Num</string>
+    <string name="fold_dock_hot_seat">Number of fixed Apps</string>
+    <string name="fold_dock_run">Number of running Apps</string>
+
     <string name="home_anim_ratio_binding">Custom animation speed</string>
     <string name="home_anim_ratio_binding_summary">Set the animation speed in different scenarios separately</string>
     <string name="home_anim_ratio">Transition animation speed「When the app is turned on or off」</string>
     <string name="home_anim_ratio_summary">The speed of the transition animation that takes effect when the application is opened and closed</string>
     <string name="home_anim_ratio_recent">Transition animation speed「In and out of the background」</string>
     <string name="home_anim_ratio_recent_summary">The speed of the transition animation that takes effect when entering and exiting the most recent task</string>
+
     <string name="home_task_view_card_size_binding">Customize task view card size</string>
     <string name="home_task_view_card_size_binding_summary">Set the size of task view cards in different styles</string>
     <string name="home_task_view_card_size_vertical">Thumbnail size for Vertically</string>
     <string name="home_task_view_card_size_horizontal1">Thumbnail size for Horizontally-Vertical</string>
     <string name="home_task_view_card_size_horizontal2">Thumbnail size for Horizontally-Horizontal</string>
-    <string name="enable_card">Unlock card</string>
-    <string name="enable_doc_ppt">Unlock doc ppt</string>
-    <string name="enable_document">Unlock document</string>
-    <string name="enable_excel">Unlock excel</string>
-    <string name="enable_ocr2">Unlock ocr</string>
-    <string name="enable_ppt">Unlock ppt</string>
-    <string name="enable_translation">Unlock translation</string>
-    <string name="media_volume_steps_switch">Media volume steps</string>
-    <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
-    <string name="can_notification_slide">Make most notifications can be slide to small window</string>
-    <string name="can_notification_slide_summary">Some notifications through Mi Push may not be supported.</string>
+
+    <string name="home_folder_anim">Anim mods</string>
+    <string name="home_folder_anim_1">Open speed 1</string>
+    <string name="home_folder_anim_2">Open speed 2</string>
+    <string name="home_folder_anim_3">Close speed 1</string>
+    <string name="home_folder_anim_4">Close speed 2</string>
+
+    <string name="mono_chrome_icon">Show mono chrome icon</string>
+    <string name="monet_color">Default color -> monet color</string>
+    <string name="use_edit_color">Edit it into your favorite color</string>
+    <string name="your_color">Your favorite color</string>
+
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>
+    <string name="show_wifi_standard">Show Wifi Standard</string>
     <string name="system_ui_use_new_hd">Force to use new HD icon</string>
     <string name="system_ui_use_new_summary">A recent system version is required, some models may not have been updated</string>
+    <string name="can_notification_slide">Make most notifications can be slide to small window</string>
+    <string name="can_notification_slide_summary">Some notifications through Mi Push may not be supported.</string>
+    <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
+    <string name="restore_near_by_tile">Restore NearBy Share tile</string>
+    <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
-    <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
-    <string name="show_wifi_standard">Show Wifi Standard</string>
-    <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
-    <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>
-    <string name="maximum_number_of_lockscreen_notification_icons">Maximum number of notification icons on lockscreen</string>
-    <string name="enable_ocr">Enable ocr</string>
-    <string name="enable_ocr_form">Enable ocr form</string>
-    <string name="enable_pdf">Enable pdf</string>
-    <string name="enable_id_photo">Enable id photo</string>
-    <string name="enable_photo_movie">Enable photo movie</string>
-    <string name="enable_video_post">Enable video post</string>
-    <string name="enable_video_editor">Enable video editor</string>
-    <string name="enable_text_yan_hua">Enable text yanhua</string>
-    <string name="enable_remover_2">Enable remover2</string>
-    <string name="enable_magic_matting">Enable magic matting</string>
-    <string name="enable_magic_sky">Enable magic sky</string>
-    <string name="core_pacth">Remove restrictions</string>
-    <string name="core_pacth_summary">Support downgrade/different signature/unsigned installation</string>
-    <string name="down_grade">Allow downgrade</string>
-    <string name="down_grade_summary">Allow downgrade applications.</string>
-    <string name="auth_creak">Disable digest verify</string>
-    <string name="auth_creak_summary">Allows install apps after modify file in apk (ignore invalid digest error).</string>
-    <string name="digestCreak">Disable compare signatures</string>
-    <string name="digestCreak_summary">Allow re-install app with different signatures.</string>
-    <string name="UsePreSig">Use installed signatures</string>
-    <string name="UsePreSig_summary">Always use signatures from already installed apps when installing.\nThis is extremely <b>dangerous</b>.\nOnly enable when really needed!</string>
-    <string name="enhancedMode">Enhanced Mode</string>
-    <string name="enhancedMode_summary">Pass some validation in the application</string>
-    <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
-    <string name="app_link_open_always">Allow app to open supported links</string>
-    <string name="app_link_open_never">Don\'t allow app to open links</string>
-    <string name="open_by_default">Open by default</string>
-    <string name="open_by_default_setting">Change App Info \"Clear defaults\" to \"Open by default\"</string>
 </resources>
