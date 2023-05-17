@@ -1,7 +1,11 @@
 package star.sky.voyager.activity.pages
 
+import android.view.View
+import android.widget.Switch
+import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
@@ -51,6 +55,101 @@ class SystemUIPage : BasePage() {
                 textId = R.string.notification_settings_no_white_list
             ),
             SwitchV("notification_settings_no_white_list", false)
+        )
+        Line()
+        TitleText(textId = R.string.status_bar_network_speed)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.status_bar_network_speed_refresh_speed,
+                tipsId = R.string.status_bar_network_speed_refresh_speed_summary
+            ), SwitchV("status_bar_network_speed_refresh_speed")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.hide_status_bar_network_speed_second,
+                tipsId = R.string.hide_status_bar_network_speed_second_summary
+            ), SwitchV("hide_status_bar_network_speed_second")
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.hide_network_speed_splitter),
+            SwitchV("hide_network_speed_splitter")
+        )
+        val statusBarDualRowNetworkSpeedBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "status_bar_dual_row_network_speed",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.status_bar_dual_row_network_speed,
+                tipsId = R.string.status_bar_dual_row_network_speed_summary
+            ),
+            SwitchV(
+                "status_bar_dual_row_network_speed",
+                dataBindingSend = statusBarDualRowNetworkSpeedBinding.bindingSend
+            )
+        )
+        val align: HashMap<Int, String> = hashMapOf()
+        align[0] = getString(R.string.left)
+        align[1] = getString(R.string.right)
+        TextWithSpinner(
+            TextV(textId = R.string.status_bar_network_speed_dual_row_gravity),
+            SpinnerV(
+                align[MIUIActivity.safeSP.getInt(
+                    "status_bar_network_speed_dual_row_gravity",
+                    0
+                )].toString()
+            ) {
+                add(align[0].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_gravity", 0)
+                }
+                add(align[1].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_gravity", 1)
+
+                }
+            },
+            dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
+        )
+        TextWithSpinner(
+            TextV(textId = R.string.status_bar_network_speed_dual_row_icon),
+            SpinnerV(
+                MIUIActivity.safeSP.getString(
+                    "status_bar_network_speed_dual_row_icon",
+                    getString(R.string.none)
+                )
+            ) {
+                add(getString(R.string.none)) {
+                    MIUIActivity.safeSP.putAny(
+                        "status_bar_network_speed_dual_row_icon",
+                        getString(R.string.none)
+                    )
+                }
+                add("▲▼") {
+                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
+                }
+                add("△▽") {
+                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
+                }
+                add("↑↓") {
+                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
+                }
+            })
+        Text(
+            textId = R.string.status_bar_network_speed_dual_row_size,
+            dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_network_speed_dual_row_size",
+            0,
+            9,
+            0,
+            dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
         )
         Line()
         TitleText(textId = R.string.control_center)
