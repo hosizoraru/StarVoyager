@@ -57,6 +57,7 @@
     <string name="HideLauncherIcon">Hide Launcher icon</string>
     <string name="only_official_default_themes_are_supported">Only official default themes are supported</string>
     <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
+    <string name="input_error">Input error</string>
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
     <string name="warning">Warning</string>
@@ -81,6 +82,9 @@
     <string name="status_bar_icon">Status bar icons</string>
     <string name="current_current">Current</string>
     <string name="allow_screenshots">Allow screenshot</string>
+
+    <string name="custom_mobile_type_text">Custom mobile type text</string>
+    <string name="custom_mobile_type_text_switch">Custom mobile type text switch</string>
 
     <string name="icon_position">Icon Position</string>
     <string name="at_right_status_bar_icon">Show icons on the right (next to the signal icon)</string>

@@ -3,6 +3,7 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
+import star.sky.voyager.hook.hooks.systemui.CustomMobileTypeText
 import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
 import star.sky.voyager.hook.hooks.systemui.DoubleLineNetworkSpeed
 import star.sky.voyager.hook.hooks.systemui.HideBatteryIcon
@@ -43,6 +44,7 @@ object SystemUI : AppRegister() {
             ShowWifiStandard, // 显示 WiFi 标准
             UseNewHD, // 强制使用新 HD 图标
             BatteryPercentage, // 电池百分比字体大小
+            CustomMobileTypeText, // 自定义移动类型文本
             MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单

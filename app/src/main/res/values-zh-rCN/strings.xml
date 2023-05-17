@@ -54,6 +54,7 @@
     <string name="HideLauncherIcon">隐藏桌面图标</string>
     <string name="only_official_default_themes_are_supported">仅支持官方默认主题</string>
     <string name="home_double_tap_to_sleep_summary">双击空白位置锁屏</string>
+    <string name="input_error">输入错误</string>
     <string name="menu">菜单</string>
     <string name="Tips">提示</string>
     <string name="warning">警告</string>
@@ -78,6 +79,9 @@
     <string name="status_bar_icon">状态栏图标</string>
     <string name="current_current">当前电流</string>
     <string name="allow_screenshots">允许截图</string>
+
+    <string name="custom_mobile_type_text">自定义移动类型文本</string>
+    <string name="custom_mobile_type_text_switch">自定义移动类型文本开关</string>
 
     <string name="icon_position">图标位置</string>
     <string name="at_right_status_bar_icon">在右侧显示图标（信号图标旁）</string>

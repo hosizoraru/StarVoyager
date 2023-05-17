@@ -2,6 +2,7 @@ package star.sky.voyager.activity.pages
 
 import android.view.View
 import android.widget.Switch
+import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -79,6 +80,45 @@ class SystemUIPage : BasePage() {
                     }.show()
                 })
         )
+        val customMobileTypeTextBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "custom_mobile_type_text_switch",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.custom_mobile_type_text_switch),
+            SwitchV(
+                "custom_mobile_type_text_switch",
+                dataBindingSend = customMobileTypeTextBinding.bindingSend
+            )
+        )
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
+            MIUIDialog(activity) {
+                setTitle(R.string.custom_mobile_type_text)
+                setEditText(MIUIActivity.safeSP.getString("custom_mobile_type_text", "5G"), "")
+                setLButton(textId = R.string.cancel) {
+                    dismiss()
+                }
+                setRButton(textId = R.string.done) {
+                    if (getEditText().isNotEmpty()) {
+                        try {
+                            MIUIActivity.safeSP.putAny("custom_mobile_type_text", getEditText())
+                            dismiss()
+                            return@setRButton
+                        } catch (_: Throwable) {
+                        }
+                    }
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }.show()
+        }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2))
         Text(textId = R.string.maximum_number_of_notification_icons)
         SeekBarWithText("maximum_number_of_notification_icons", 1, 20, 3)
         Text(textId = R.string.maximum_number_of_notification_dots)
