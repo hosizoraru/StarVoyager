@@ -4,8 +4,15 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
 import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
 import star.sky.voyager.hook.hooks.systemui.DoubleLineNetworkSpeed
+import star.sky.voyager.hook.hooks.systemui.HideBatteryIcon
+import star.sky.voyager.hook.hooks.systemui.HideHDIcon
+import star.sky.voyager.hook.hooks.systemui.HideMobileActivityIcon
+import star.sky.voyager.hook.hooks.systemui.HideMobileTypeIcon
 import star.sky.voyager.hook.hooks.systemui.HideNetworkSpeedSplitter
+import star.sky.voyager.hook.hooks.systemui.HideSimIcon
+import star.sky.voyager.hook.hooks.systemui.HideStatusBarIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarNetworkSpeedSecond
+import star.sky.voyager.hook.hooks.systemui.HideWifiActivityIcon
 import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
@@ -41,6 +48,15 @@ object SystemUI : AppRegister() {
             HideNetworkSpeedSplitter,
             DoubleLineNetworkSpeed,
             // 状态栏网络速度 End
+            // 隐藏图标 Start
+            HideStatusBarIcon,
+            HideBatteryIcon,
+            HideHDIcon,
+            HideSimIcon,
+            HideMobileActivityIcon,
+            HideMobileTypeIcon,
+            HideWifiActivityIcon,
+            // 隐藏图标 End
         )
     }
 }
