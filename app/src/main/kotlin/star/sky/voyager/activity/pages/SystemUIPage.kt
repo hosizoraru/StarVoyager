@@ -212,6 +212,18 @@ class SystemUIPage : BasePage() {
             ), SwitchV("lock_screen_clock_display_seconds")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remove_the_left_side_of_the_lock_screen,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("remove_the_left_side_of_the_lock_screen")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remove_lock_screen_camera,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("remove_lock_screen_camera")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.enable_wave_charge_animation),
             SwitchV("enable_wave_charge_animation")
         )
