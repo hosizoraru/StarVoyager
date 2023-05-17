@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
+import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
 import star.sky.voyager.hook.hooks.securitycenter.ShowBatteryTemperature
@@ -19,6 +20,7 @@ object SecurityCenter : AppRegister() {
             SkipWaitingTime,
             RemoveOpenAppConfirmationPopup,
             LockOneHundred,
+            OpenByDefaultSetting,
         )
     }
 }

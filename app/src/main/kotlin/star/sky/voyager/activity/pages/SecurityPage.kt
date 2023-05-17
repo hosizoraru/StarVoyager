@@ -38,6 +38,12 @@ class SecurityPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.open_by_default_setting
+            ),
+            SwitchV("open_by_default_setting", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.remove_conversation_bubble_settings_restriction,
                 tipsId = R.string.remove_conversation_bubble_settings_restriction_summary
             ), SwitchV("remove_conversation_bubble_settings_restriction")

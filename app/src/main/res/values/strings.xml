@@ -233,4 +233,8 @@
     <string name="enhancedMode">Enhanced Mode</string>
     <string name="enhancedMode_summary">Pass some validation in the application</string>
     <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
+    <string name="app_link_open_always">Allow app to open supported links</string>
+    <string name="app_link_open_never">Don\'t allow app to open links</string>
+    <string name="open_by_default">Open by default</string>
+    <string name="open_by_default_setting">Change App Info \"Clear defaults\" to \"Open by default\"</string>
 </resources>

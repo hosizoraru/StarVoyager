@@ -230,4 +230,8 @@
     <string name="enhancedMode">增强模式</string>
     <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
     <string name="notification_settings_no_white_list">移除通知设置白名单</string>
+    <string name="app_link_open_always">允许应用打开支持的链接</string>
+    <string name="app_link_open_never">不允许应用打开链接</string>
+    <string name="open_by_default">默认打开</string>
+    <string name="open_by_default_setting">将应用详情中“消除默认操作”改为“默认打开”设置</string>
 </resources>
