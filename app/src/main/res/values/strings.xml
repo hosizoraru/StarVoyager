@@ -81,8 +81,15 @@
     <string name="status_bar_icon">Status bar icons</string>
     <string name="current_current">Current</string>
     <string name="allow_screenshots">Allow screenshot</string>
-    <string name="old_quick_settings_panel">Old quick settings panel</string>
 
+    <string name="icon_position">Icon Position</string>
+    <string name="at_right_status_bar_icon">Show icons on the right (next to the signal icon)</string>
+    <string name="at_right_alarm_icon">Alarm icon</string>
+    <string name="at_right_nfc_icon">NFC icon</string>
+    <string name="at_right_volume_icon">Volume icon</string>
+    <string name="at_right_zen_icon">ZEN icon</string>
+
+    <string name="old_quick_settings_panel">Old quick settings panel</string>
     <string name="old_qs_custom_switch">Custom rows and columns</string>
     <string name="qs_custom_columns_unexpanded">Columns (Unexpanded)</string>
     <string name="qs_custom_rows">Rows</string>

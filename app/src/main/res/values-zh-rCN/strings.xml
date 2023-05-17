@@ -78,8 +78,15 @@
     <string name="status_bar_icon">状态栏图标</string>
     <string name="current_current">当前电流</string>
     <string name="allow_screenshots">允许截图</string>
-    <string name="old_quick_settings_panel">旧版快速设置面板</string>
 
+    <string name="icon_position">图标位置</string>
+    <string name="at_right_status_bar_icon">在右侧显示图标（信号图标旁）</string>
+    <string name="at_right_alarm_icon">闹钟 图标</string>
+    <string name="at_right_nfc_icon">NFC 图标</string>
+    <string name="at_right_volume_icon">音量 图标</string>
+    <string name="at_right_zen_icon">勿扰 图标</string>
+
+    <string name="old_quick_settings_panel">旧版快速设置面板</string>
     <string name="old_qs_custom_switch">自定义行列数</string>
     <string name="qs_custom_columns_unexpanded">列 (未展开)</string>
     <string name="qs_custom_rows">行</string>

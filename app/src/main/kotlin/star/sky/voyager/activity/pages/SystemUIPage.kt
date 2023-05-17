@@ -32,7 +32,14 @@ class SystemUIPage : BasePage() {
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.hide_icon,
-                onClickListener = { showFragment("hide_icon") })
+                onClickListener = { showFragment("hide_icon") }
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.icon_position,
+                onClickListener = { showFragment("icon_position") }
+            )
         )
         TextWithSwitch(
             TextV(textId = R.string.show_wifi_standard),
@@ -78,21 +85,6 @@ class SystemUIPage : BasePage() {
         SeekBarWithText("maximum_number_of_notification_dots", 0, 4, 3)
         Text(textId = R.string.maximum_number_of_lockscreen_notification_icons)
         SeekBarWithText("maximum_number_of_lockscreen_notification_icons", 1, 20, 3)
-        Line()
-        TitleText(textId = R.string.notification_center)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.can_notification_slide,
-                tipsId = R.string.can_notification_slide_summary,
-            ),
-            SwitchV("can_notification_slide"),
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.notification_settings_no_white_list
-            ),
-            SwitchV("notification_settings_no_white_list", false)
-        )
         Line()
         TitleText(textId = R.string.status_bar_network_speed)
         TextSummaryWithSwitch(
@@ -187,6 +179,21 @@ class SystemUIPage : BasePage() {
             9,
             0,
             dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
+        )
+        Line()
+        TitleText(textId = R.string.notification_center)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.can_notification_slide,
+                tipsId = R.string.can_notification_slide_summary,
+            ),
+            SwitchV("can_notification_slide"),
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.notification_settings_no_white_list
+            ),
+            SwitchV("notification_settings_no_white_list", false)
         )
         Line()
         TitleText(textId = R.string.control_center)
