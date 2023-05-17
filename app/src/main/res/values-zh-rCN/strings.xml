@@ -303,4 +303,6 @@
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
     <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
+    <string name="no_need_to_enter_password_when_power_on">开机免输密码</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">手机没启用加密才会生效</string>
 </resources>

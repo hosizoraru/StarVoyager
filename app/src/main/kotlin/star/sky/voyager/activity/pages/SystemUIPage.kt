@@ -239,5 +239,11 @@ class SystemUIPage : BasePage() {
                 tipsId = R.string.home_double_tap_to_sleep_summary
             ), SwitchV("lock_screen_double_tap_to_sleep")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.no_need_to_enter_password_when_power_on,
+                tipsId = R.string.no_need_to_enter_password_when_power_on_summary
+            ), SwitchV("no_need_to_enter_password_when_power_on")
+        )
     }
 }

@@ -311,4 +311,6 @@
     <string name="remove_lock_screen_camera">Remove the lock screen camera feature</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="no_need_to_enter_password_when_power_on">No need to enter password when power on</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">The phone is not encrypted to take effect</string>
 </resources>
