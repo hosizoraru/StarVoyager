@@ -119,6 +119,148 @@ class SystemUIPage : BasePage() {
                 }
             }.show()
         }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2))
+        val bigMobileTypeIconBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "big_mobile_type_icon",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.big_mobile_type_icon),
+            SwitchV(
+                "big_mobile_type_icon",
+                dataBindingSend = bigMobileTypeIconBinding.bindingSend
+            )
+        )
+        val bigMobileTypeLocation: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.left)
+            it[1] = getString(R.string.right)
+        }
+        TextWithSpinner(
+            TextV(textId = R.string.big_mobile_type_location),
+            SpinnerV(
+                bigMobileTypeLocation[MIUIActivity.safeSP.getInt(
+                    "big_mobile_type_location",
+                    1
+                )].toString()
+            ) {
+                add(bigMobileTypeLocation[0].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 0)
+                }
+                add(bigMobileTypeLocation[1].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 1)
+                }
+            },
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.big_mobile_type_only_show_network_card),
+            SwitchV("big_mobile_type_only_show_network_card", false),
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.big_mobile_type_icon_bold),
+            SwitchV("big_mobile_type_icon_bold", true),
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.big_mobile_type_icon_size,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.big_mobile_type_icon_size)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
+                                MIUIActivity.safeSP.getFloat("big_mobile_type_icon_size", 12.5f)
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                MIUIActivity.safeSP.putAny(
+                                    "big_mobile_type_icon_size",
+                                    getEditText().toFloat()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_up_and_down_position) {
+            MIUIDialog(activity) {
+                setTitle(R.string.big_mobile_type_icon_up_and_down_position)
+                setMessage("${activity.getString(R.string.range)} -15~15")
+                setEditText(
+                    "",
+                    "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                        MIUIActivity.safeSP.getInt("big_mobile_type_icon_up_and_down_position", 0)
+                    }"
+                )
+                setLButton(textId = R.string.cancel) {
+                    dismiss()
+                }
+                setRButton(textId = R.string.done) {
+                    if (getEditText().isNotEmpty()) {
+                        try {
+                            val value = getEditText().toInt()
+                            if (value in (-15..15)) {
+                                MIUIActivity.safeSP.putAny(
+                                    "big_mobile_type_icon_up_and_down_position",
+                                    value
+                                )
+                                dismiss()
+                                return@setRButton
+                            }
+                        } catch (_: Throwable) {
+                        }
+                    }
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }.show()
+        }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_left_and_right_margins) {
+            MIUIDialog(activity) {
+                setTitle(R.string.big_mobile_type_icon_left_and_right_margins)
+                setMessage("${activity.getString(R.string.range)} 0~30")
+                setEditText(
+                    "",
+                    "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                        MIUIActivity.safeSP.getInt("big_mobile_type_icon_left_and_right_margins", 0)
+                    }"
+                )
+                setLButton(textId = R.string.cancel) {
+                    dismiss()
+                }
+                setRButton(textId = R.string.done) {
+                    if (getEditText().isNotEmpty()) {
+                        try {
+                            val value = getEditText().toInt()
+                            if (value in (0..30)) {
+                                MIUIActivity.safeSP.putAny(
+                                    "big_mobile_type_icon_left_and_right_margins",
+                                    value
+                                )
+                                dismiss()
+                                return@setRButton
+                            }
+                        } catch (_: Throwable) {
+                        }
+                    }
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }.show()
+        }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
         Text(textId = R.string.maximum_number_of_notification_icons)
         SeekBarWithText("maximum_number_of_notification_icons", 1, 20, 3)
         Text(textId = R.string.maximum_number_of_notification_dots)

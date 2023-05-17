@@ -67,6 +67,7 @@
     <string name="def">"Default: "</string>
     <string name="current">Current:</string>
     <string name="zero_do_no_change">0: do not change</string>
+    <string name="range">Range: </string>
     <string name="sound">Sound</string>
     <string name="lock_screen">Lock screen</string>
     <string name="none">None</string>
@@ -85,6 +86,14 @@
 
     <string name="custom_mobile_type_text">Custom mobile type text</string>
     <string name="custom_mobile_type_text_switch">Custom mobile type text switch</string>
+
+    <string name="big_mobile_type_icon">Big Mobile Type Icon</string>
+    <string name="big_mobile_type_icon_size">Big mobile type icon size</string>
+    <string name="big_mobile_type_icon_bold">Big mobile type icon bold</string>
+    <string name="big_mobile_type_icon_up_and_down_position">Big mobile type icon up and down position</string>
+    <string name="big_mobile_type_icon_left_and_right_margins">Big mobile type icon left and right margins</string>
+    <string name="big_mobile_type_only_show_network_card">Big mobile type only show network card</string>
+    <string name="big_mobile_type_location">Big mobile type location</string>
 
     <string name="icon_position">Icon Position</string>
     <string name="at_right_status_bar_icon">Show icons on the right (next to the signal icon)</string>

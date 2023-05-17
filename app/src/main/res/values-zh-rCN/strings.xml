@@ -64,6 +64,7 @@
     <string name="def">"默认值："</string>
     <string name="current">当前值：</string>
     <string name="zero_do_no_change">0: 不更改</string>
+    <string name="range">范围：</string>
     <string name="sound">声音</string>
     <string name="lock_screen">锁屏</string>
     <string name="none">无</string>
@@ -82,6 +83,14 @@
 
     <string name="custom_mobile_type_text">自定义移动类型文本</string>
     <string name="custom_mobile_type_text_switch">自定义移动类型文本开关</string>
+
+    <string name="big_mobile_type_icon">大移动类型图标</string>
+    <string name="big_mobile_type_icon_size">大移动类型图标大小</string>
+    <string name="big_mobile_type_icon_bold">大移动类型图标加粗</string>
+    <string name="big_mobile_type_icon_up_and_down_position">大移动类型图标上下位置</string>
+    <string name="big_mobile_type_icon_left_and_right_margins">大移动类型图标左右边距</string>
+    <string name="big_mobile_type_only_show_network_card">大移动类型图标只显示上网卡</string>
+    <string name="big_mobile_type_location">大移动类型图标位置</string>
 
     <string name="icon_position">图标位置</string>
     <string name="at_right_status_bar_icon">在右侧显示图标（信号图标旁）</string>

@@ -27,6 +27,7 @@ import star.sky.voyager.hook.hooks.systemui.RemoveTheLeftSideOfTheLockScreen
 import star.sky.voyager.hook.hooks.systemui.RestoreNearbyTile
 import star.sky.voyager.hook.hooks.systemui.ShowWifiStandard
 import star.sky.voyager.hook.hooks.systemui.StatusBarBattery
+import star.sky.voyager.hook.hooks.systemui.StatusBarBigMobileTypeIcon
 import star.sky.voyager.hook.hooks.systemui.StatusBarDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.StatusBarNetworkSpeedRefreshSpeed
 import star.sky.voyager.hook.hooks.systemui.UseNewHD
@@ -45,6 +46,7 @@ object SystemUI : AppRegister() {
             UseNewHD, // 强制使用新 HD 图标
             BatteryPercentage, // 电池百分比字体大小
             CustomMobileTypeText, // 自定义移动类型文本
+            StatusBarBigMobileTypeIcon, // 大移动类型图标
             MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单
