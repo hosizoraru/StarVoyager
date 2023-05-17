@@ -1,5 +1,6 @@
 package star.sky.voyager.hook
 
+import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
 import star.sky.voyager.BuildConfig
 import star.sky.voyager.hook.apps.Aireco
@@ -20,6 +21,7 @@ import star.sky.voyager.hook.apps.SecurityCenter
 import star.sky.voyager.hook.apps.Settings
 import star.sky.voyager.hook.apps.SystemUI
 import star.sky.voyager.hook.apps.TaPlus
+import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
 
@@ -68,4 +70,10 @@ class MainHook : EasyXposedInit() {
         TaPlus, // 传送门
     )
 
+    override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {
+        super.initZygote(startupParam)
+        if (startupParam != null) {
+            CorePatchMainHook().initZygote(startupParam)
+        }
+    }
 }

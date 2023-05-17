@@ -10,6 +10,7 @@ import star.sky.voyager.hook.hooks.android.KillDomainVerification
 import star.sky.voyager.hook.hooks.android.MaxFreeFormA
 import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
 import star.sky.voyager.hook.hooks.android.SystemPropertiesHook
+import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 
 object Android : AppRegister() {
@@ -17,6 +18,7 @@ object Android : AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         DisableFlagSecureK().handleLoadPackage(lpparam)
+        CorePatchMainHook().handleLoadPackage(lpparam)
         autoInitHooks(
             lpparam,
             DisableFlagSecure,
