@@ -287,8 +287,8 @@ class HomePage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.monoet_color,
-            ), SwitchV("monoet_color", false), dataBindingRecv = monoBinding.binding.getRecv(1)
+                textId = R.string.monet_color,
+            ), SwitchV("monet_color", false), dataBindingRecv = monoBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
