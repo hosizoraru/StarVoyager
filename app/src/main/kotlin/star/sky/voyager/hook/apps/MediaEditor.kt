@@ -11,8 +11,8 @@ object MediaEditor : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            FilterManager,
-            UnlockUnlimitedCropping,
+            FilterManager, // 大师滤镜
+            UnlockUnlimitedCropping, // 移除裁剪图片/屏幕截图的限制
         )
     }
 }

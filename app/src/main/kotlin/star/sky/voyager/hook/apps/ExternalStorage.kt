@@ -10,7 +10,7 @@ object ExternalStorage : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            NoStorageRestrict,
+            NoStorageRestrict, // 取消选择文件夹时的限制
         )
     }
 }

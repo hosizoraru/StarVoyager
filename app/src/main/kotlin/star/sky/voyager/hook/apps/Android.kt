@@ -17,18 +17,18 @@ object Android : AppRegister() {
     override val packageName: String = "android"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        DisableFlagSecureK().handleLoadPackage(lpparam)
-        CorePatchMainHook().handleLoadPackage(lpparam)
+        CorePatchMainHook().handleLoadPackage(lpparam) // 核心破解
+        DisableFlagSecureK().handleLoadPackage(lpparam) // 允许截图
         autoInitHooks(
             lpparam,
-            DisableFlagSecure,
-            DeleteOnPostNotification,
-            MaxWallpaperScale,
-            AllowUntrustedTouches,
-            KillDomainVerification,
-            MaxFreeFormA,
-            DoNotClearAppPlusA,
-            SystemPropertiesHook,
+            DisableFlagSecure, // 允许截图
+            DeleteOnPostNotification, // 移除上层显示通知 // 强制使用小窗
+            MaxWallpaperScale, // 壁纸缩放比例
+            AllowUntrustedTouches, // 允许不受信任的触摸
+            KillDomainVerification, // 禁用域验证
+            MaxFreeFormA, // 解锁小窗数量限制
+            SystemPropertiesHook, // 媒体音量阶数
+            DoNotClearAppPlusA, // 更激进的防止杀死后台应用
         )
     }
 }

@@ -9,7 +9,7 @@ object Aireco : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            DeviceModify,
+            DeviceModify, // 移除限制
         )
     }
 }

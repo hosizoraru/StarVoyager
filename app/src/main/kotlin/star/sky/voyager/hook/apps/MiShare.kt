@@ -12,7 +12,7 @@ object MiShare : AppRegister() {
         versionCode = lpparam.getAppVersionCode()
         autoInitHooks(
             lpparam,
-            NoAutoTurnOff,
+            NoAutoTurnOff, // 禁止小米互传自动关闭
         )
     }
 }

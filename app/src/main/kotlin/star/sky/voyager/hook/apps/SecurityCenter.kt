@@ -15,12 +15,12 @@ object SecurityCenter : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            ShowBatteryTemperature,
-            RemoveConversationBubbleSettingsRestriction,
-            SkipWaitingTime,
-            RemoveOpenAppConfirmationPopup,
-            LockOneHundred,
-            OpenByDefaultSetting,
+            SkipWaitingTime, // 跳过 5/10 秒警告时间
+            RemoveOpenAppConfirmationPopup, // 移除打开应用弹窗
+            LockOneHundred, // 手机管家锁定100分
+            ShowBatteryTemperature, // 电池页面显示当前温度
+            OpenByDefaultSetting, // 将应用详情中“消除默认操作”改为“默认打开”设置
+            RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
         )
     }
 }

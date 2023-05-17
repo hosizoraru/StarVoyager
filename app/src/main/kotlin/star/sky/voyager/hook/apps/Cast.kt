@@ -10,7 +10,7 @@ object Cast : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            ForceSupportSendApp,
+            ForceSupportSendApp, // 强制所有应用支持在另一个设备打开
         )
     }
 }

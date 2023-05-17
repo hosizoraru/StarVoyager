@@ -10,7 +10,7 @@ object FileExplorer : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            SelectName,
+            SelectName, // 文件夹名字可以选择操作 // 文件夹名字以单行显示
         )
     }
 }

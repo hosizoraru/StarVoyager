@@ -10,7 +10,7 @@ object TaPlus : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            HorizontalContentExtension,
+            HorizontalContentExtension, // 允许在横屏方向下使用传送门
         )
     }
 }

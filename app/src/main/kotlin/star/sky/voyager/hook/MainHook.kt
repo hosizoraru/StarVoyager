@@ -26,24 +26,23 @@ import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
 
 val PACKAGE_NAME_HOOKED = listOf(
-    "com.miui.gallery",
-    "com.miui.screenrecorder",
-    "com.miui.home",
-    "com.android.systemui",
     "com.xiaomi.aireco",
-    "com.xiaomi.market",
-    "com.xiaomi.scanner",
-    "com.miui.mishare.connectivity",
     "com.milink.service",
-    "com.miui.mediaeditor",
-    "com.miui.powerkeeper",
-    "com.xiaomi.misettings",
-    "com.android.settings",
-    "com.android.fileexplorer",
     "com.android.externalstorage",
-    "com.miui.contentextension",
-    "com.miui.securitycenter",
+    "com.android.fileexplorer",
+    "com.miui.gallery",
+    "com.miui.home",
+    "com.xiaomi.market",
+    "com.miui.mediaeditor",
+    "com.xiaomi.misettings",
+    "com.miui.mishare.connectivity",
+    "com.miui.powerkeeper",
     "com.xiaomi.scanner",
+    "com.miui.screenrecorder",
+    "com.miui.securitycenter",
+    "com.android.settings",
+    "com.android.systemui",
+    "com.miui.contentextension",
 )
 
 class MainHook : EasyXposedInit() {

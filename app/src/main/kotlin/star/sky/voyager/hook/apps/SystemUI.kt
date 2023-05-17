@@ -31,17 +31,17 @@ object SystemUI : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            RestoreNearbyTile,
-            DisableBluetooth,
-            CanNotificationSlide,
-            StatusBarBattery,
-            UseNewHD,
-            WaveCharge,
-            LockScreenCurrent,
-            LockScreenClockDisplaySeconds,
-            ShowWifiStandard,
-            MaximumNumberOfNotificationIcons,
-            NotificationSettingsNoWhiteList,
+            StatusBarBattery, // 状态栏显示关于电池
+            ShowWifiStandard, // 显示 WiFi 标准
+            UseNewHD, // 强制使用新 HD 图标
+            MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
+            CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
+            NotificationSettingsNoWhiteList, // 移除通知设置白名单
+            RestoreNearbyTile, // 恢复附近分享磁贴
+            DisableBluetooth, // 禁用蓝牙临时关闭
+            LockScreenClockDisplaySeconds, // 时钟显示秒数
+            WaveCharge, // 启用Alpha充电动画
+            LockScreenCurrent, // 充电时显示当前电流
             // 状态栏网络速度 Start
             StatusBarNetworkSpeedRefreshSpeed,
             HideStatusBarNetworkSpeedSecond,

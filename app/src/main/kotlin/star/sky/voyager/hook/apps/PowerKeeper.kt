@@ -12,9 +12,9 @@ object PowerKeeper : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            CustomRefreshRateP,
-            DoNotClearApp,
-            DoNotClearAppPlusP,
+            CustomRefreshRateP, // 自定义高刷新率应用
+            DoNotClearApp, // 防止杀死后台应用
+            DoNotClearAppPlusP, // 更激进的防止杀死后台应用
         )
     }
 }

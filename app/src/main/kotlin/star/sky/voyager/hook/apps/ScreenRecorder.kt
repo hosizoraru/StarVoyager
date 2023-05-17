@@ -11,8 +11,8 @@ object ScreenRecorder : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            EnablePlaybackCapture,
-            ModifyScreenRecorderConfig,
+            EnablePlaybackCapture, // 强制启用原生录音支持
+            ModifyScreenRecorderConfig, // 修改码率与帧率范围
         )
     }
 }

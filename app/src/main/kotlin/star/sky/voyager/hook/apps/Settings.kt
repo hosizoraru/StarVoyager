@@ -12,9 +12,9 @@ object Settings : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            EnableSpeedMode,
-            ShowNotificationImportance,
-            QuickInstallPermission,
+            ShowNotificationImportance, // 显示通知重要程度
+            EnableSpeedMode, // 显示极致模式选项
+            QuickInstallPermission, // 安装未知应用权限免翻应用列表
         )
     }
 }

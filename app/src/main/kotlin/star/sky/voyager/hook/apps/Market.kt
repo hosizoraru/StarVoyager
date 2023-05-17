@@ -9,7 +9,7 @@ object Market : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            AsWhat,
+            AsWhat, // 伪装机型为:
         )
     }
 }

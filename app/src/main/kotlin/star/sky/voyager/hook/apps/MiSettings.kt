@@ -10,7 +10,7 @@ object MiSettings : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            CustomRefreshRateS,
+            CustomRefreshRateS, // 自定义高刷新率应用
         )
     }
 }
