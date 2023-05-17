@@ -61,6 +61,7 @@
     <string name="cancel">取消</string>
     <string name="def">"默认值："</string>
     <string name="current">当前值：</string>
+    <string name="zero_do_no_change">0: 不更改</string>
     <string name="sound">声音</string>
     <string name="lock_screen">锁屏</string>
     <string name="none">无</string>
@@ -289,6 +290,7 @@
     <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>
+    <string name="battery_percentage_font_size">电池百分比字体大小</string>
     <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
     <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
     <string name="notification_settings_no_white_list">移除通知设置白名单</string>

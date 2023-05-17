@@ -9,6 +9,7 @@ import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
+import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
 @BMPage("scope_system_ui", "System UI", hideMenu = false)
@@ -43,6 +44,33 @@ class SystemUIPage : BasePage() {
                 tipsId = R.string.system_ui_use_new_summary
             ),
             SwitchV("system_ui_use_new_hd", false)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.battery_percentage_font_size,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.battery_percentage_font_size)
+                        setMessage(R.string.zero_do_no_change)
+                        setEditText(
+                            "", "${activity.getString(R.string.current)}${
+                                MIUIActivity.safeSP.getFloat("battery_percentage_font_size", 0f)
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                MIUIActivity.safeSP.putAny(
+                                    "battery_percentage_font_size",
+                                    getEditText().toFloat()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                })
         )
         Text(textId = R.string.maximum_number_of_notification_icons)
         SeekBarWithText("maximum_number_of_notification_icons", 1, 20, 3)
