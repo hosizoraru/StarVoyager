@@ -56,6 +56,7 @@
     <string name="not_support">You seem to be using an outdated version of LSPosed or LSPosed is not active, please update LSPosed or activate it and try again.</string>
     <string name="HideLauncherIcon">Hide Launcher icon</string>
     <string name="only_official_default_themes_are_supported">Only official default themes are supported</string>
+    <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
     <string name="warning">Warning</string>

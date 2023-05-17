@@ -221,5 +221,11 @@ class SystemUIPage : BasePage() {
                 tipsId = R.string.only_official_default_themes_are_supported
             ), SwitchV("lock_screen_charging_current")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.double_tap_to_sleep,
+                tipsId = R.string.home_double_tap_to_sleep_summary
+            ), SwitchV("lock_screen_double_tap_to_sleep")
+        )
     }
 }

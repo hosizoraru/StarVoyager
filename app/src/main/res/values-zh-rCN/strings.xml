@@ -53,6 +53,7 @@
     <string name="not_support">您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。</string>
     <string name="HideLauncherIcon">隐藏桌面图标</string>
     <string name="only_official_default_themes_are_supported">仅支持官方默认主题</string>
+    <string name="home_double_tap_to_sleep_summary">双击空白位置锁屏</string>
     <string name="menu">菜单</string>
     <string name="Tips">提示</string>
     <string name="warning">警告</string>
