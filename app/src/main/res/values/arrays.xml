@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="xposed_scope">
-        <item>android</item>
-        <item>com.miui.gallery</item>
-        <item>com.miui.screenrecorder</item>
-        <item>com.miui.home</item>
-        <item>com.android.systemui</item>
         <item>com.xiaomi.aireco</item>
-        <item>com.xiaomi.market</item>
-        <item>com.xiaomi.scanner</item>
-        <item>com.miui.mishare.connectivity</item>
+        <item>android</item>
         <item>com.milink.service</item>
-        <item>com.miui.mediaeditor</item>
-        <item>com.miui.powerkeeper</item>
-        <item>com.xiaomi.misettings</item>
-        <item>com.android.settings</item>
-        <item>com.android.fileexplorer</item>
         <item>com.android.externalstorage</item>
-        <item>com.miui.contentextension</item>
-        <item>com.miui.securitycenter</item>
-        <item>com.xiaomi.scanner</item>
+        <item>com.android.fileexplorer</item>
+        <item>com.miui.gallery</item>
+        <item>com.miui.home</item>
+        <item>com.xiaomi.market</item>
+        <item>com.miui.mediaeditor</item>
+        <item>com.xiaomi.misettings</item>
+        <item>com.miui.mishare.connectivity</item>
+        <item>com.miui.powerkeeper</item>
         <item>com.xiaomi.misubscreenui</item>
+        <item>com.xiaomi.scanner</item>
+        <item>com.miui.screenrecorder</item>
+        <item>com.miui.securitycenter</item>
+        <item>com.android.settings</item>
+        <item>com.android.systemui</item>
+        <item>com.miui.contentextension</item>
     </string-array>
 </resources>
