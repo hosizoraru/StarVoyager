@@ -38,6 +38,8 @@
     <color name="popup_select_click">@android:color/system_accent1_200</color>
     <color name="popup_select_text">@android:color/system_accent1_300</color>
     <color name="spinner">@android:color/system_accent2_400</color>
+    <color name="card_light">@android:color/system_accent1_100</color>
+    <color name="card_black">@android:color/system_accent1_600</color>
     <!--    <color name="spinner">#999999</color>-->
     <!--blue-->
     <color name="material_blue_50">#E3F2FD</color>

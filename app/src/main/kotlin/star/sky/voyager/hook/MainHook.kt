@@ -17,6 +17,7 @@ import star.sky.voyager.hook.apps.Market
 import star.sky.voyager.hook.apps.MediaEditor
 import star.sky.voyager.hook.apps.MiSettings
 import star.sky.voyager.hook.apps.MiShare
+import star.sky.voyager.hook.apps.PackageInstaller
 import star.sky.voyager.hook.apps.PowerKeeper
 import star.sky.voyager.hook.apps.RearDisplay
 import star.sky.voyager.hook.apps.Scanner
@@ -45,6 +46,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.miui.mediaeditor",
     "com.xiaomi.misettings",
     "com.miui.mishare.connectivity",
+    "com.miui.packageinstaller",
     "com.miui.powerkeeper",
     "com.xiaomi.misubscreenui",
     "com.xiaomi.scanner",
@@ -75,6 +77,7 @@ class MainHook : EasyXposedInit() {
         MediaEditor, // 小米相册-编辑
         MiSettings, // 小米设置
         MiShare, // 小米互传
+        PackageInstaller, // 应用包管理组件
         PowerKeeper, // 电量与性能
         RearDisplay, // 背屏
         Scanner, // 小爱视觉

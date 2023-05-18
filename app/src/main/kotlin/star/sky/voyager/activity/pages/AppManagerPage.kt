@@ -38,6 +38,28 @@ class AppManagerPage : BasePage() {
             },
         )
         Line()
+        TitleText(textId = R.string.scope_pkg_installer)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.package_installer_remove_check),
+            SwitchV("package_installer_remove_check")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.package_installer_remove_ads),
+            SwitchV("package_installer_remove_ads")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.Disable_Safe_Model_Tip),
+            SwitchV("Disable_Safe_Model_Tip")
+        )
+//        TextSummaryWithSwitch(
+//            TextSummaryV(textId = R.string.package_installer_allow_update_system_app),
+//            SwitchV("package_installer_allow_update_system_app")
+//        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.package_installer_show_more_apk_info),
+            SwitchV("package_installer_show_more_apk_info")
+        )
+        Line()
         TitleText(textId = R.string.scope_settings)
         TextSummaryWithSwitch(
             TextSummaryV(
