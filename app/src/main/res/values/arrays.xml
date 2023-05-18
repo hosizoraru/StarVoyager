@@ -20,5 +20,6 @@
         <item>com.miui.contentextension</item>
         <item>com.miui.securitycenter</item>
         <item>com.xiaomi.scanner</item>
+        <item>com.xiaomi.misubscreenui</item>
     </string-array>
 </resources>

@@ -22,6 +22,7 @@
     <string name="scope_security_center">手机管家</string>
     <string name="scope_android">系统框架</string>
     <string name="scope_android_summary">首次激活模块 或 模块更新后，\n此处的功能需重启系统后才能生效</string>
+    <string name="scope_rear_display">背屏 (11Ultra)</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -83,6 +84,16 @@
     <string name="show_weather_main_switch">显示天气-总开关</string>
     <string name="already_can_not_use">该功能已失效</string>
     <string name="already_no_necessary">该功能已没必要</string>
+
+    <string name="status_bar_layout_mode">状态栏布局模式</string>
+    <string name="default1">默认</string>
+    <string name="clock_center">时钟居中</string>
+    <string name="clock_right">时钟居右</string>
+    <string name="clock_center_and_icon_left">时间居中+左侧图标</string>
+    <string name="left_margin">左边距 (0: 自动)</string>
+    <string name="right_margin">右边距 (0: 自动)</string>
+    <string name="layout_compatibility_mode">兼容模式</string>
+    <string name="layout_compatibility_mode_summary">强制完整屏布局（支持所有异形屏）</string>
 
     <string name="custom_mobile_type_text">自定义移动类型文本</string>
     <string name="custom_mobile_type_text_switch">自定义移动类型文本开关</string>

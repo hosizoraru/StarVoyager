@@ -25,6 +25,7 @@
     <string name="scope_security_center">Security Center</string>
     <string name="scope_android">System Framework</string>
     <string name="scope_android_summary">After enabling the module for the first time or the module is updated, the feature here will take effect after restarting the system</string>
+    <string name="scope_rear_display">Rear Display (11Ultra)</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -86,6 +87,16 @@
     <string name="show_weather_main_switch">Show Weather - Main Switch</string>
     <string name="already_can_not_use">This function has expired</string>
     <string name="already_no_necessary">This function is no longer necessary</string>
+
+    <string name="status_bar_layout_mode">Status bar layout mode</string>
+    <string name="default1">Default</string>
+    <string name="clock_center">Clock Center</string>
+    <string name="clock_right">Clock Right</string>
+    <string name="clock_center_and_icon_left">Clock Center and Icon Left</string>
+    <string name="left_margin">Left margin (0: Auto)</string>
+    <string name="right_margin">Right margin (0: Auto)</string>
+    <string name="layout_compatibility_mode">Compatibility mode</string>
+    <string name="layout_compatibility_mode_summary">Force full screen layout (supports all special-shaped screens)</string>
 
     <string name="custom_mobile_type_text">Custom mobile type text</string>
     <string name="custom_mobile_type_text_switch">Custom mobile type text switch</string>
