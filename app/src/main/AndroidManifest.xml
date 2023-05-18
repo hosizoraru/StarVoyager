@@ -20,7 +20,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/voyager_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/voyager_icon"
+        android:roundIcon="@drawable/voyager_splash_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.StarSkyVoyager">
         <meta-data
