@@ -51,10 +51,13 @@ class AppManagerPage : BasePage() {
             TextSummaryV(textId = R.string.Disable_Safe_Model_Tip),
             SwitchV("Disable_Safe_Model_Tip")
         )
-//        TextSummaryWithSwitch(
-//            TextSummaryV(textId = R.string.package_installer_allow_update_system_app),
-//            SwitchV("package_installer_allow_update_system_app")
-//        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.package_installer_allow_update_system_app,
+                tipsId = R.string.already_can_not_use
+            ),
+            SwitchV("package_installer_allow_update_system_app")
+        )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.package_installer_show_more_apk_info),
             SwitchV("package_installer_show_more_apk_info")

@@ -2,6 +2,7 @@ package star.sky.voyager.hook.hooks.packageinstaller
 
 import android.content.Context
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
@@ -30,11 +31,11 @@ object RemovePackageInstallerAds : HookRegister() {
             }
         }
         val qaq = listOf("s", "q", "f", "t", "r")
-        loadClass("m2.b").methodFinder().apply {
+        loadClassOrNull("m2.b")?.methodFinder().apply {
             qaq.forEach { qaq ->
-                first {
+                this?.first {
                     name == qaq
-                }.createHook {
+                }?.createHook {
                     returnConstant(false)
                 }
             }
