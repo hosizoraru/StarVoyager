@@ -26,7 +26,7 @@ object StatusBarBattery : HookRegister() {
     var context: Context? = null
 
     @SuppressLint("SetTextI18n")
-    override fun init() = hasEnable("systemui_show_statusbar_battery") {
+    override fun init() = hasEnable("system_ui_show_status_bar_battery") {
         loadClass("com.android.systemui.statusbar.phone.DarkIconDispatcherImpl").methodFinder()
             .first {
                 name == "applyIconTint"
@@ -52,23 +52,23 @@ object StatusBarBattery : HookRegister() {
             .first {
                 name == "onFinishInflate"
             }.createHook {
-            after {
-                val mStatusBarLeftContainer =
-                    it.thisObject.getObjectFieldAs<LinearLayout>("mStatusBarLeftContainer")
-                textview = TextView(context).apply {
-                    setTextSize(TypedValue.COMPLEX_UNIT_DIP, 8f)
-                    typeface = Typeface.DEFAULT_BOLD
-                    isSingleLine = false
-                    setLineSpacing(0F, 0.8F)
-                    setPadding(8, 0, 0, 0)
-                }
-                mStatusBarLeftContainer.addView(textview)
+                after {
+                    val mStatusBarLeftContainer =
+                        it.thisObject.getObjectFieldAs<LinearLayout>("mStatusBarLeftContainer")
+                    textview = TextView(context).apply {
+                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 8f)
+                        typeface = Typeface.DEFAULT_BOLD
+                        isSingleLine = false
+                        setLineSpacing(0F, 0.8F)
+                        setPadding(8, 0, 0, 0)
+                    }
+                    mStatusBarLeftContainer.addView(textview)
 
-                context!!.registerReceiver(
-                    BatteryReceiver(),
-                    IntentFilter().apply { addAction(Intent.ACTION_BATTERY_CHANGED) })
+                    context!!.registerReceiver(
+                        BatteryReceiver(),
+                        IntentFilter().apply { addAction(Intent.ACTION_BATTERY_CHANGED) })
+                }
             }
-        }
     }
 
     class BatteryReceiver : BroadcastReceiver() {
