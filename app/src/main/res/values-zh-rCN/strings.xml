@@ -232,6 +232,8 @@
 
     <string name="unlock_always_on_display_time">解锁息屏显示时长限制</string>
 
+    <string name="unlock_super_wallpaper">解锁超级壁纸</string>
+
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
 

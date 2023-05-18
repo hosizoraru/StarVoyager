@@ -32,5 +32,10 @@ class SmartHubPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.scope_wallpaper)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.unlock_super_wallpaper,
+            ), SwitchV("unlock_super_wallpaper")
+        )
     }
 }
