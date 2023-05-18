@@ -3,6 +3,7 @@
     <string-array name="xposed_scope">
         <item>com.xiaomi.aireco</item>
         <item>android</item>
+        <item>com.miui.aod</item>
         <item>com.milink.service</item>
         <item>com.android.externalstorage</item>
         <item>com.android.fileexplorer</item>
@@ -22,5 +23,6 @@
         <item>com.android.systemui</item>
         <item>com.miui.contentextension</item>
         <item>com.android.updater</item>
+        <item>com.miui.miwallpaper</item>
     </string-array>
 </resources>

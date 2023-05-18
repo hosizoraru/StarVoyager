@@ -28,6 +28,8 @@
     <string name="scope_rear_display">Rear Display (11Ultra)</string>
     <string name="scope_update">Update</string>
     <string name="scope_lbe">Lbe</string>
+    <string name="scope_aod">Always-on display</string>
+    <string name="scope_wallpaper">WallPaper</string>>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -230,6 +232,8 @@
     <string name="No_Auto_Turn_Off_summary">MiShare will not be automatically closed\n(Version 2.15.0+ only)</string>
 
     <string name="force_support_send_app">Force all apps support open on another device</string>
+
+    <string name="unlock_always_on_display_time">Unlock the display time limit of the always-on screen</string>
 
     <string name="device_modify">Remove the restriction</string>
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>

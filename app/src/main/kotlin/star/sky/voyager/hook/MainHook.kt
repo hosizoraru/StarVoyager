@@ -5,6 +5,7 @@ import de.robv.android.xposed.XSharedPreferences
 import star.sky.voyager.BuildConfig
 import star.sky.voyager.hook.apps.Aireco
 import star.sky.voyager.hook.apps.Android
+import star.sky.voyager.hook.apps.Aod
 import star.sky.voyager.hook.apps.Cast
 import star.sky.voyager.hook.apps.ExternalStorage
 import star.sky.voyager.hook.apps.FileExplorer
@@ -24,12 +25,14 @@ import star.sky.voyager.hook.apps.Settings
 import star.sky.voyager.hook.apps.SystemUI
 import star.sky.voyager.hook.apps.TaPlus
 import star.sky.voyager.hook.apps.Updater
+import star.sky.voyager.hook.apps.WallPaper
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
 
 val PACKAGE_NAME_HOOKED = listOf(
     "com.xiaomi.aireco",
+    "com.miui.aod",
     "com.milink.service",
     "com.android.externalstorage",
     "com.android.fileexplorer",
@@ -49,6 +52,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.android.systemui",
     "com.miui.contentextension",
     "com.android.updater",
+    "com.miui.miwallpaper",
 )
 
 class MainHook : EasyXposedInit() {
@@ -57,6 +61,7 @@ class MainHook : EasyXposedInit() {
     override val registeredApp: List<AppRegister> = listOf(
         Aireco, // 小爱建议
         Android, // 系统框架
+        Aod, // 万象息屏
         Cast, // 投屏
         ExternalStorage, // 外部存储服务
         FileExplorer, // 文件管理
@@ -76,6 +81,7 @@ class MainHook : EasyXposedInit() {
         SystemUI, // 系统界面
         TaPlus, // 传送门
         Updater, // 系统更新
+        WallPaper, // 壁纸
     )
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {

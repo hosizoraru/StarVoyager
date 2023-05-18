@@ -25,6 +25,8 @@
     <string name="scope_rear_display">背屏 (11Ultra)</string>
     <string name="scope_update">系统更新</string>
     <string name="scope_lbe">权限管理服务</string>
+    <string name="scope_aod">万象息屏</string>
+    <string name="scope_wallpaper">壁纸</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -227,6 +229,8 @@
     <string name="No_Auto_Turn_Off_summary">小米互传将不会自动关闭\n(仅限 2.15.0+ 版本)</string>
 
     <string name="force_support_send_app">强制所有应用支持在另一个设备打开</string>
+
+    <string name="unlock_always_on_display_time">解锁息屏显示时长限制</string>
 
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
