@@ -6,5 +6,9 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:forceDarkAllowed">true</item>
+        <item name="android:windowSplashScreenBackground">@android:color/system_accent1_900</item>
+        <item name="android:windowSplashScreenAnimationDuration">2500</item>
+        <!--        <item name="android:windowSplashScreenAnimatedIcon">@drawable/voyager_splash_icon</item>-->
+        <item name="android:windowSplashScreenBrandingImage">@drawable/voyager_background</item>
     </style>
 </resources>
