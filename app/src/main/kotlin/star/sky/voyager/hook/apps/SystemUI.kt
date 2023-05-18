@@ -31,6 +31,7 @@ import star.sky.voyager.hook.hooks.systemui.ShowWifiStandard
 import star.sky.voyager.hook.hooks.systemui.StatusBarBattery
 import star.sky.voyager.hook.hooks.systemui.StatusBarBigMobileTypeIcon
 import star.sky.voyager.hook.hooks.systemui.StatusBarDoubleTapToSleep
+import star.sky.voyager.hook.hooks.systemui.StatusBarLayout
 import star.sky.voyager.hook.hooks.systemui.StatusBarNetworkSpeedRefreshSpeed
 import star.sky.voyager.hook.hooks.systemui.UseNewHD
 import star.sky.voyager.hook.hooks.systemui.WaveCharge
@@ -44,6 +45,7 @@ object SystemUI : AppRegister() {
             lpparam,
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕
             StatusBarBattery, // 状态栏显示关于电池
+            StatusBarLayout, // 状态栏布局
             ShowWifiStandard, // 显示 WiFi 标准
             UseNewHD, // 强制使用新 HD 图标
             BatteryPercentage, // 电池百分比字体大小

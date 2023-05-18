@@ -29,6 +29,81 @@ class SystemUIPage : BasePage() {
             SwitchV("system_ui_show_status_bar_battery", false)
         )
         Line()
+        TitleText(textId = R.string.status_bar_layout)
+        val statusBarLayoutMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.default1)
+            it[1] = getString(R.string.clock_center)
+            it[2] = getString(R.string.clock_right)
+            it[3] = getString(R.string.clock_center_and_icon_left)
+        }
+        TextWithSpinner(
+            TextV(textId = R.string.status_bar_layout_mode),
+            SpinnerV(
+                statusBarLayoutMode[MIUIActivity.safeSP.getInt(
+                    "status_bar_layout_mode",
+                    0
+                )].toString()
+            ) {
+                add(statusBarLayoutMode[0].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 0)
+                }
+                add(statusBarLayoutMode[1].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 1)
+                }
+                add(statusBarLayoutMode[2].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 2)
+                }
+                add(statusBarLayoutMode[3].toString()) {
+                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 3)
+                }
+            })
+
+        val layoutCompatibilityBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "layout_compatibility_mode", false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+
+
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.layout_compatibility_mode,
+                tipsId = R.string.layout_compatibility_mode_summary
+            ),
+            SwitchV(
+                "layout_compatibility_mode",
+                dataBindingSend = layoutCompatibilityBinding.bindingSend
+            )
+        )
+
+        Text(
+            textId = R.string.left_margin,
+            dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_left_margin",
+            0,
+            300,
+            0,
+            dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.right_margin,
+            dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_right_margin",
+            0,
+            300,
+            0,
+            dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
+        )
+        Line()
         TitleText(textId = R.string.status_bar_icon)
         TextSummaryWithArrow(
             TextSummaryV(
@@ -558,6 +633,13 @@ class SystemUIPage : BasePage() {
             7,
             5,
             dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+        )
+        Line()
+        TitleText(textId = R.string.scope_rear_display)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_weather_main_switch,
+            ), SwitchV("rear_show_weather")
         )
     }
 }
