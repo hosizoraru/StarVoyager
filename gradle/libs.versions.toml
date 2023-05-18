@@ -1,6 +1,7 @@
 [versions]
 agp = "8.2.0-alpha04"
 al = "8.2.0-alpha04"
+constraintlayout = "2.2.0-alpha09"
 dexkit = "1.1.7"
 ezxhelper = "2.0.0"
 hidden-api-bypass = "4.3"
@@ -9,6 +10,7 @@ kotlin = "1.8.21"
 core-ktx = "1.10.1"
 
 [libraries]
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 dexkit = { module = "org.luckypray:DexKit", version.ref = "dexkit" }
 ezxhelper = { module = "com.github.kyuubiran:EzXHelper", version.ref = "ezxhelper" }
 lsposed-hidden-api-bypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hidden-api-bypass" }

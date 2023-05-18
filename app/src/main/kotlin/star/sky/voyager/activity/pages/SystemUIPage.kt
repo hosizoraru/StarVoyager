@@ -364,6 +364,34 @@ class SystemUIPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.notification_center)
+        val showWeatherMainSwitchBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "notification_weather",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_weather_main_switch,
+                colorId = R.color.blue
+            ),
+            SwitchV(
+                "notification_weather",
+                dataBindingSend = showWeatherMainSwitchBinding.bindingSend
+            )
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_city,
+            ),
+            SwitchV("notification_weather_city"),
+            dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.can_notification_slide,
@@ -379,6 +407,36 @@ class SystemUIPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.control_center)
+        // TODO: 控制中心天气在A13未修复，暂不可用
+        val controlCenterWeatherBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "control_center_weather",
+                false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_weather_main_switch,
+                colorId = R.color.blue,
+                tipsId = R.string.already_can_not_use,
+            ),
+            SwitchV(
+                "control_center_weather",
+                dataBindingSend = controlCenterWeatherBinding.bindingSend
+            )
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_city,
+            ),
+            SwitchV("control_center_weather_city"),
+            dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.restore_near_by_tile

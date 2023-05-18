@@ -21,6 +21,8 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
 import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
+import star.sky.voyager.hook.hooks.systemui.NotificationWeather
+import star.sky.voyager.hook.hooks.systemui.OldNotificationWeather
 import star.sky.voyager.hook.hooks.systemui.OldQSCustom
 import star.sky.voyager.hook.hooks.systemui.RemoveLockScreenCamera
 import star.sky.voyager.hook.hooks.systemui.RemoveTheLeftSideOfTheLockScreen
@@ -48,6 +50,8 @@ object SystemUI : AppRegister() {
             CustomMobileTypeText, // 自定义移动类型文本
             StatusBarBigMobileTypeIcon, // 大移动类型图标
             MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
+            OldNotificationWeather, // 通知中心天气
+            NotificationWeather, // 通知中心天气
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单
             RestoreNearbyTile, // 恢复附近分享磁贴

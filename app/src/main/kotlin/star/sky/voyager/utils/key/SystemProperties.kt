@@ -25,5 +25,4 @@ object SystemProperties {
         }
         return ret
     }
-
 }
