@@ -73,5 +73,13 @@ class AppManagerPage : BasePage() {
             TextSummaryV(textId = R.string.No_Storage_Restrict),
             SwitchV("No_Storage_Restrict")
         )
+        Line()
+        TitleText(textId = R.string.scope_update)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remove_ota_validate,
+                tipsId = R.string.remove_ota_validate_summary
+            ), SwitchV("remove_ota_validate")
+        )
     }
 }

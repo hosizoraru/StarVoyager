@@ -26,6 +26,7 @@
     <string name="scope_android">System Framework</string>
     <string name="scope_android_summary">After enabling the module for the first time or the module is updated, the feature here will take effect after restarting the system</string>
     <string name="scope_rear_display">Rear Display (11Ultra)</string>
+    <string name="scope_update">Update</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -87,6 +88,9 @@
     <string name="show_weather_main_switch">Show Weather - Main Switch</string>
     <string name="already_can_not_use">This function has expired</string>
     <string name="already_no_necessary">This function is no longer necessary</string>
+
+    <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
+    <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
 
     <string name="status_bar_layout_mode">Status bar layout mode</string>
     <string name="default1">Default</string>

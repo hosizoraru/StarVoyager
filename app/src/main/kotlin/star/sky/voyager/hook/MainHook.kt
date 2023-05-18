@@ -22,6 +22,7 @@ import star.sky.voyager.hook.apps.SecurityCenter
 import star.sky.voyager.hook.apps.Settings
 import star.sky.voyager.hook.apps.SystemUI
 import star.sky.voyager.hook.apps.TaPlus
+import star.sky.voyager.hook.apps.Updater
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
@@ -45,6 +46,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.android.settings",
     "com.android.systemui",
     "com.miui.contentextension",
+    "com.android.updater",
 )
 
 class MainHook : EasyXposedInit() {
@@ -70,6 +72,7 @@ class MainHook : EasyXposedInit() {
         Settings, // 设置
         SystemUI, // 系统界面
         TaPlus, // 传送门
+        Updater, // 系统更新
     )
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {

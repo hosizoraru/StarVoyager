@@ -23,6 +23,7 @@
     <string name="scope_android">系统框架</string>
     <string name="scope_android_summary">首次激活模块 或 模块更新后，\n此处的功能需重启系统后才能生效</string>
     <string name="scope_rear_display">背屏 (11Ultra)</string>
+    <string name="scope_update">系统更新</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -84,6 +85,9 @@
     <string name="show_weather_main_switch">显示天气-总开关</string>
     <string name="already_can_not_use">该功能已失效</string>
     <string name="already_no_necessary">该功能已没必要</string>
+
+    <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
+    <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
 
     <string name="status_bar_layout_mode">状态栏布局模式</string>
     <string name="default1">默认</string>

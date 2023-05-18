@@ -20,5 +20,6 @@
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
         <item>com.miui.contentextension</item>
+        <item>com.android.updater</item>
     </string-array>
 </resources>
