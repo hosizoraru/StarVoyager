@@ -89,8 +89,50 @@
     <string name="already_can_not_use">This function has expired</string>
     <string name="already_no_necessary">This function is no longer necessary</string>
 
+    <string name="scope_mi_pad">MiPad</string>
+    <string name="no_magic_pointer">No Magic Pointer</string>
+    <string name="no_magic_pointer_tips">Turn the round MIUI pointer to AOSP pointer.</string>
+    <string name="restore_esc">Restore ESC function</string>
+    <string name="restore_esc_tips">Restore ESC function which has been hard-mapped to \"back\" function by MIUI.</string>
+    <string name="remove_stylus_bluetooth_restriction">Remove stylus bluetooth restriction</string>
+    <string name="remove_stylus_bluetooth_restriction_tips">Make all compatible stylus work without the need of bluetooth connection to official stylus.</string>
+    <string name="ignore_stylus_key_gesture">Ignore stylus buttons gesture</string>
+    <string name="ignore_stylus_key_gesture_tips">Ignore the long press gesture on the stylus buttons.</string>
+    <string name="input">Input</string>
+    <string name="screen">Screen</string>
+    <string name="disable_fixed_orientation">Disable fixed orientation</string>
+    <string name="disable_fixed_orientation_tips">Disable some app\'s fixed orientation</string>
+    <string name="disable_fixed_orientation_scope">Disable fixed orientation scope</string>
+    <string name="disable_fixed_orientation_scope_tips">Take effect after reboot</string>
+    <string name="set_gesture_need_finger_num_to_4">Swap the number of fingers required for gestures</string>
+    <string name="set_gesture_need_finger_num_to_4_tips">Change screenshot gesture, partial screenshot gesture, and horizontal split screen gesture to be triggered by four fingers, and switch apps gesture to be triggered by three fingers</string>
+    <string name="remove_stylus_bluetooth_restriction_driver_version">Driver version</string>
+    <string name="remove_stylus_bluetooth_restriction_driver_version_tips">Driver version for removing stylus bluetooth restriction</string>
+
     <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
     <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
+
+    <string name="status_bar_clock_format">Status bar clock format</string>
+    <string name="status_bar_time_year">Display year</string>
+    <string name="status_bar_time_month">Display month</string>
+    <string name="status_bar_time_day">Display date</string>
+    <string name="status_bar_time_week">Display day</string>
+    <string name="status_bar_time_hide_space">Hide space</string>
+    <string name="custom_clock_mode">Custom clock mode</string>
+    <string name="custom_clock_format_geek">Clock format</string>
+    <string name="off">Off</string>
+    <string name="center">Center</string>
+    <string name="left_or_right">Left or Right</string>
+    <string name="preset">Preset</string>
+    <string name="geek">Geek</string>
+    <string name="status_bar_time_double_hour">Display chinese twelve hour</string>
+    <string name="custom_clock_switch">Custom Clock Switch</string>
+    <string name="status_bar_time_period">Display AM/PM</string>
+    <string name="status_bar_time_double_line">Dual row</string>
+    <string name="status_bar_clock_size">Clock size (0: do not change)</string>
+    <string name="status_bar_clock_double_line_size">Dual row size (0: do not change)</string>
+    <string name="status_bar_time_seconds">Display seconds</string>
+    <string name="status_bar_time_double_line_center_align">Dual row center align</string>
 
     <string name="status_bar_layout_mode">Status bar layout mode</string>
     <string name="default1">Default</string>

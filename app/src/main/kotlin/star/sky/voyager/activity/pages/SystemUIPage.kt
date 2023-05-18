@@ -104,6 +104,182 @@ class SystemUIPage : BasePage() {
             dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
         Line()
+        TitleText(textId = R.string.status_bar_clock_format)
+
+
+        val customClockPresetBinding = GetDataBinding({
+            MIUIActivity.safeSP.getInt(
+                "custom_clock_mode",
+                0
+            ) == 1
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+
+        val customClockGeekBinding =
+            GetDataBinding({ MIUIActivity.safeSP.getInt("custom_clock_mode", 0) == 2 }
+
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+
+        val customClockMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.off)
+            it[1] = getString(R.string.preset)
+            it[2] = getString(R.string.geek)
+        }
+        TextWithSpinner(
+            TextV(textId = R.string.custom_clock_mode),
+            SpinnerV(
+                customClockMode[MIUIActivity.safeSP.getInt(
+                    "custom_clock_mode",
+                    0
+                )].toString()
+            ) {
+                add(customClockMode[0].toString()) {
+                    MIUIActivity.safeSP.putAny("custom_clock_mode", 0)
+                    customClockPresetBinding.binding.Send().send(false)
+                    customClockGeekBinding.binding.Send().send(false)
+                }
+                add(customClockMode[1].toString()) {
+                    MIUIActivity.safeSP.putAny("custom_clock_mode", 1)
+                    customClockPresetBinding.binding.Send().send(true)
+                    customClockGeekBinding.binding.Send().send(false)
+                }
+                add(customClockMode[2].toString()) {
+                    MIUIActivity.safeSP.putAny("custom_clock_mode", 2)
+                    customClockPresetBinding.binding.Send().send(false)
+                    customClockGeekBinding.binding.Send().send(true)
+                }
+            })
+
+        //预设模式起始
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_year),
+            SwitchV("status_bar_time_year"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_month),
+            SwitchV("status_bar_time_month"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_day),
+            SwitchV("status_bar_time_day"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_week),
+            SwitchV("status_bar_time_week"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_double_hour),
+            SwitchV("status_bar_time_double_hour"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_period),
+            SwitchV("status_bar_time_period", true),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_seconds),
+            SwitchV("status_bar_time_seconds"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_hide_space),
+            SwitchV("status_bar_time_hide_space"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_double_line),
+            SwitchV("status_bar_time_double_line"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_double_line_center_align),
+            SwitchV("status_bar_time_double_line_center_align"),
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.status_bar_clock_size,
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_clock_size",
+            0,
+            18,
+            0,
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.status_bar_clock_double_line_size,
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_clock_double_line_size",
+            0,
+            9,
+            0,
+            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+        )
+        //预设模式结束
+
+        //极客模式起始
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
+            MIUIDialog(activity) {
+                setTitle(R.string.custom_clock_format_geek)
+                setEditText(
+                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"),
+                    "",
+                    isSingleLine = false
+                )
+                setLButton(textId = R.string.cancel) {
+                    dismiss()
+                }
+                setRButton(textId = R.string.done) {
+                    if (getEditText().isNotEmpty()) {
+                        try {
+                            MIUIActivity.safeSP.putAny("custom_clock_format_geek", getEditText())
+                            dismiss()
+                            return@setRButton
+                        } catch (_: Throwable) {
+                        }
+                    }
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }.show()
+        }, dataBindingRecv = customClockGeekBinding.binding.getRecv(2))
+        TextWithSwitch(
+            TextV(textId = R.string.status_bar_time_double_line_center_align),
+            SwitchV("status_bar_time_center_align_geek"),
+            dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+        )
+        Text(
+            textId = R.string.status_bar_clock_size,
+            dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+        )
+        SeekBarWithText(
+            "status_bar_clock_size_geek",
+            0,
+            18,
+            0,
+            dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+        )
+        //极客模式结束
+
+
+        Line()
         TitleText(textId = R.string.status_bar_icon)
         TextSummaryWithArrow(
             TextSummaryV(
