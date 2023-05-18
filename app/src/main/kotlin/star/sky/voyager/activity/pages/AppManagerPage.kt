@@ -87,5 +87,11 @@ class AppManagerPage : BasePage() {
                 tipsId = R.string.remove_ota_validate_summary
             ), SwitchV("remove_ota_validate")
         )
+        Line()
+        TitleText(textId = R.string.scope_guard_provider)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.Anti_Defraud_App_Manager),
+            SwitchV("Anti_Defraud_App_Manager")
+        )
     }
 }

@@ -10,6 +10,7 @@ import star.sky.voyager.hook.apps.Cast
 import star.sky.voyager.hook.apps.ExternalStorage
 import star.sky.voyager.hook.apps.FileExplorer
 import star.sky.voyager.hook.apps.Gallery
+import star.sky.voyager.hook.apps.GuardProvider
 import star.sky.voyager.hook.apps.Home
 import star.sky.voyager.hook.apps.Lbe
 import star.sky.voyager.hook.apps.Market
@@ -37,6 +38,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.android.externalstorage",
     "com.android.fileexplorer",
     "com.miui.gallery",
+    "com.miui.guardprovider",
     "com.miui.home",
     "com.lbe.security.miui",
     "com.xiaomi.market",
@@ -66,6 +68,7 @@ class MainHook : EasyXposedInit() {
         ExternalStorage, // 外部存储服务
         FileExplorer, // 文件管理
         Gallery, // 相册
+        GuardProvider, // MIUI安全组件
         Home, // 系统桌面
         Lbe, // 权限管理服务
         Market, // 应用商店

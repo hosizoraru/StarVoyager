@@ -27,6 +27,7 @@
     <string name="scope_lbe">权限管理服务</string>
     <string name="scope_aod">万象息屏</string>
     <string name="scope_wallpaper">壁纸</string>
+    <string name="scope_guard_provider">Miui安全组件</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -286,6 +287,8 @@
     <string name="file_explorer_is_single_line">文件夹名字以单行显示</string>
 
     <string name="No_Storage_Restrict">取消选择文件夹时的限制</string>
+
+    <string name="Anti_Defraud_App_Manager">阻止上传应用列表</string>
 
     <string name="custom_refresh_rate">自定义高刷新率应用</string>
     <string name="do_not_clear_app">防止杀死后台应用</string>

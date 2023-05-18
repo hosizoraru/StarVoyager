@@ -8,6 +8,7 @@
         <item>com.android.externalstorage</item>
         <item>com.android.fileexplorer</item>
         <item>com.miui.gallery</item>
+        <item>"com.miui.guardprovider"</item>
         <item>com.miui.home</item>
         <item>com.lbe.security.miui</item>
         <item>com.xiaomi.market</item>
