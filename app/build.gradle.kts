@@ -88,6 +88,7 @@ android {
 dependencies {
     implementation(project(":blockmiui"))
     implementation(libs.core.ktx)
+    implementation(libs.constraintlayout)
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
