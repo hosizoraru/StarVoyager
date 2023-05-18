@@ -14,6 +14,7 @@ import star.sky.voyager.activity.pages.HideIconPage
 import star.sky.voyager.activity.pages.HomePage
 import star.sky.voyager.activity.pages.IconPositionPage
 import star.sky.voyager.activity.pages.MainPage
+import star.sky.voyager.activity.pages.MaxMiPadPage
 import star.sky.voyager.activity.pages.MenuPage
 import star.sky.voyager.activity.pages.MiAiPage
 import star.sky.voyager.activity.pages.PowerKeeperPage
@@ -64,6 +65,7 @@ class MainActivity : MIUIActivity() {
         registerPage(GalleryPage::class.java)
         registerPage(MiAiPage::class.java)
         registerPage(SmartHubPage::class.java)
+        registerPage(MaxMiPadPage::class.java)
         registerPage(HideIconPage::class.java)
         registerPage(IconPositionPage::class.java)
     }

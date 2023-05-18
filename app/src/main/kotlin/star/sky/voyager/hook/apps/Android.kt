@@ -11,6 +11,14 @@ import star.sky.voyager.hook.hooks.android.MaxFreeFormA
 import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
 import star.sky.voyager.hook.hooks.android.SystemPropertiesHook
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
+import star.sky.voyager.hook.hooks.maxmipad.BaseMiuiMultiFingerGesture
+import star.sky.voyager.hook.hooks.maxmipad.MiuiFixedOrientationController
+import star.sky.voyager.hook.hooks.maxmipad.MiuiMagicPointerUtils
+import star.sky.voyager.hook.hooks.maxmipad.MiuiStylusDeviceListener
+import star.sky.voyager.hook.hooks.maxmipad.MiuiStylusPageKeyListener
+import star.sky.voyager.hook.hooks.maxmipad.SetPadMode
+import star.sky.voyager.hook.hooks.maxmipad.SwitchPadMode
+import star.sky.voyager.hook.hooks.maxmipad.SystemServerImpl
 import star.sky.voyager.utils.init.AppRegister
 
 object Android : AppRegister() {
@@ -29,6 +37,16 @@ object Android : AppRegister() {
             MaxFreeFormA, // 解锁小窗数量限制
             SystemPropertiesHook, // 媒体音量阶数
             DoNotClearAppPlusA, // 更激进的防止杀死后台应用
+            // max mi pad
+            MiuiFixedOrientationController,
+            MiuiMagicPointerUtils,
+            MiuiStylusDeviceListener,
+            MiuiStylusPageKeyListener,
+            SetPadMode,
+            SwitchPadMode,
+            SystemServerImpl,
+            BaseMiuiMultiFingerGesture,
+            // max mi pad
         )
     }
 }

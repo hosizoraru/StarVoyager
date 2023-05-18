@@ -80,6 +80,11 @@ class MainPage : BasePage() {
             pageNameId = R.string.scope_mi_smart_hub, round = 8f,
             onClickListener = { showFragment("scope_mi_smart_hub") }
         )
+        Page(
+            activity.getDrawable(R.drawable.ic_maxmipad)!!,
+            pageNameId = R.string.scope_mi_pad, round = 8f,
+            onClickListener = { showFragment("scope_mi_pad") }
+        )
         Line()
         TitleText(textId = R.string.about)
         TextSummaryWithArrow(

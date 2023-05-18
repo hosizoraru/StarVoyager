@@ -31,6 +31,7 @@ import star.sky.voyager.hook.hooks.home.TaskViewCardSize
 import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
+import star.sky.voyager.hook.hooks.maxmipad.GestureOperationHelper
 import star.sky.voyager.utils.init.AppRegister
 
 object Home : AppRegister() {
@@ -67,6 +68,9 @@ object Home : AppRegister() {
             FolderAnim, // 文件夹动画修改
             MonoChromeIcon, // 图标背景色 // 默认颜色 -> 莫奈取色
             MaxFreeFormH, // 解锁小窗数量限制
+            // max mi pad
+            GestureOperationHelper,
+            // max mi pad
         )
     }
 
