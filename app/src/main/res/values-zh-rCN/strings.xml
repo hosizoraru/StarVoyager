@@ -24,6 +24,7 @@
     <string name="scope_android_summary">首次激活模块 或 模块更新后，\n此处的功能需重启系统后才能生效</string>
     <string name="scope_rear_display">背屏 (11Ultra)</string>
     <string name="scope_update">系统更新</string>
+    <string name="scope_lbe">权限管理服务</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -105,9 +106,6 @@
     <string name="set_gesture_need_finger_num_to_4_tips">将三指截屏、三指长按区域截屏、三指横向分屏手势改为四指触发，切换应用手势改为三指触发</string>
     <string name="remove_stylus_bluetooth_restriction_driver_version">驱动版本</string>
     <string name="remove_stylus_bluetooth_restriction_driver_version_tips">移除触控笔蓝牙限制所使用的驱动版本</string>
-
-    <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
-    <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
 
     <string name="status_bar_clock_format">状态栏时钟格式</string>
     <string name="status_bar_time_year">显示年份</string>
@@ -272,6 +270,11 @@
     <string name="speed_mode_summary">在开发者选项里面</string>
     <string name="system_settings_permission_unknown_origin_app">安装未知应用权限免翻应用列表</string>
     <string name="system_settings_permission_unknown_origin_app_desc">使用国际版行为，直接跳转对应应用 \"安装未知应用\" 的权限开关</string>
+
+    <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
+    <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
+
+    <string name="hide_miui_clipboard_dialog">隐藏miui剪贴板对话框</string>
 
     <string name="file_explorer_can_selectable">文件夹名字可以选择操作</string>
     <string name="file_explorer_is_single_line">文件夹名字以单行显示</string>

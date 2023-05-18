@@ -27,6 +27,7 @@
     <string name="scope_android_summary">After enabling the module for the first time or the module is updated, the feature here will take effect after restarting the system</string>
     <string name="scope_rear_display">Rear Display (11Ultra)</string>
     <string name="scope_update">Update</string>
+    <string name="scope_lbe">Lbe</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -108,9 +109,6 @@
     <string name="set_gesture_need_finger_num_to_4_tips">Change screenshot gesture, partial screenshot gesture, and horizontal split screen gesture to be triggered by four fingers, and switch apps gesture to be triggered by three fingers</string>
     <string name="remove_stylus_bluetooth_restriction_driver_version">Driver version</string>
     <string name="remove_stylus_bluetooth_restriction_driver_version_tips">Driver version for removing stylus bluetooth restriction</string>
-
-    <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
-    <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
 
     <string name="status_bar_clock_format">Status bar clock format</string>
     <string name="status_bar_time_year">Display year</string>
@@ -275,6 +273,11 @@
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>
     <string name="system_settings_permission_unknown_origin_app">Install unknown app permissions without searching the application list</string>
     <string name="system_settings_permission_unknown_origin_app_desc">Use the international build, jump directly to the permission switch of the corresponding application “displayed on top of other applications”</string>
+
+    <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
+    <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
+
+    <string name="hide_miui_clipboard_dialog">Hide Miui Clipboard Dialog</string>
 
     <string name="file_explorer_can_selectable">File Explorer Can Selectable</string>
     <string name="file_explorer_is_single_line">File Explorer Is Single Line</string>

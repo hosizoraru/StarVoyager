@@ -74,6 +74,12 @@ class AppManagerPage : BasePage() {
             SwitchV("No_Storage_Restrict")
         )
         Line()
+        TitleText(textId = R.string.scope_lbe)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.hide_miui_clipboard_dialog),
+            SwitchV("hide_miui_clipboard_dialog")
+        )
+        Line()
         TitleText(textId = R.string.scope_update)
         TextSummaryWithSwitch(
             TextSummaryV(
