@@ -9,6 +9,7 @@ import star.sky.voyager.R
 import star.sky.voyager.activity.pages.AboutPage
 import star.sky.voyager.activity.pages.AndroidPage
 import star.sky.voyager.activity.pages.AppManagerPage
+import star.sky.voyager.activity.pages.DisableFixedOrientationPage
 import star.sky.voyager.activity.pages.GalleryPage
 import star.sky.voyager.activity.pages.HideIconPage
 import star.sky.voyager.activity.pages.HomePage
@@ -66,6 +67,7 @@ class MainActivity : MIUIActivity() {
         registerPage(MiAiPage::class.java)
         registerPage(SmartHubPage::class.java)
         registerPage(MaxMiPadPage::class.java)
+        registerPage(DisableFixedOrientationPage::class.java)
         registerPage(HideIconPage::class.java)
         registerPage(IconPositionPage::class.java)
     }
