@@ -276,7 +276,7 @@
     <string name="package_installer_remove_check">禁用频繁安装应用检查</string>
     <string name="package_installer_remove_ads">去广告/移除安全守护提示</string>
     <string name="Disable_Safe_Model_Tip">禁用安全守护提示</string>
-    <string name="package_installer_allow_update_system_app">允许更新系统应用</string>
+    <string name="package_installer_all_as_system_app">将所有应用视为系统应用</string>
     <string name="package_installer_show_more_apk_info">显示更多应用信息</string>
     <string name="package_installer_app_version_name_title">版本名</string>
     <string name="package_installer_app_version_code_title">版本号</string>

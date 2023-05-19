@@ -53,10 +53,9 @@ class AppManagerPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.package_installer_allow_update_system_app,
-                tipsId = R.string.already_can_not_use
+                textId = R.string.package_installer_all_as_system_app,
             ),
-            SwitchV("package_installer_allow_update_system_app")
+            SwitchV("package_installer_all_as_system_app")
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.package_installer_show_more_apk_info),
