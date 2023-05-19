@@ -36,6 +36,13 @@ object DoNotClearAppPlusA : HookRegister() {
                 it.result = null
             }
         }
+        loadClass("com.android.server.am.ProcessMemoryCleaner").methodFinder().first {
+            name == "checkBackgroundProcCompact"
+        }.createHook {
+            before {
+                it.result = null
+            }
+        }
         loadClass("com.android.server.am.SystemPressureController").methodFinder().first {
             name == "nStartPressureMonitor"
         }.createHook {
