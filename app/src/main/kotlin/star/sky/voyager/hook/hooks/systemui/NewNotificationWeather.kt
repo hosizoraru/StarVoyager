@@ -22,43 +22,43 @@ object NewNotificationWeather : HookRegister() {
     override fun init() = hasEnable("control_center_weather") {
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
 
-//        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
-//            .findSuper().first {
-//            name == "onDetachedFromWindow"
-//        }.createHook {
-//            before {
-//                if ((it.thisObject as TextView).id == clockId && this::weather.isInitialized) {
-//                    weather.onDetachedFromWindow()
-//                }
-//            }
-//        }
-//
-//        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
-//            .findSuper().first {
-//                name == "onDetachedFromWindow"
-//            }.createHook {
-//                before {
-//                    if ((it.thisObject as TextView).id == clockId && this::weather.isInitialized) {
-//                        weather.onDetachedFromWindow()
-//                    }
-//                }
-//            }
+        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+            .findSuper().first {
+                name == "onDetachedFromWindow"
+            }.createHook {
+                before {
+                    if ((it.thisObject as TextView).id == clockId && this@NewNotificationWeather::weather.isInitialized) {
+                        weather.onDetachedFromWindow()
+                    }
+                }
+            }
 
-//        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
-//            .findSuper().first {
-//            name == "setText"
-//        }.createHook {
-//            before {
-//                val time = it.args[0]?.toString()
-//                val view = it.thisObject as TextView
-//                if (view.id == clockId && time != null && this::weather.isInitialized) {
-////                val layout = view.layoutParams as ViewGroup.MarginLayoutParams
-////                val y = view.height / 2
-////                layout.topMargin = -y
-//                    it.args[0] = "${weather.weatherData}$time"
-//                }
-//            }
-//        }
+        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+            .findSuper().first {
+                name == "onDetachedFromWindow"
+            }.createHook {
+                before {
+                    if ((it.thisObject as TextView).id == clockId && this@NewNotificationWeather::weather.isInitialized) {
+                        weather.onDetachedFromWindow()
+                    }
+                }
+            }
+
+        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+            .findSuper().first {
+                name == "setText"
+            }.createHook {
+                before {
+                    val time = it.args[0]?.toString()
+                    val view = it.thisObject as TextView
+                    if (view.id == clockId && time != null && this@NewNotificationWeather::weather.isInitialized) {
+//                val layout = view.layoutParams as ViewGroup.MarginLayoutParams
+//                val y = view.height / 2
+//                layout.topMargin = -y
+                        it.args[0] = "${weather.weatherData}$time"
+                    }
+                }
+            }
 
         loadClass("com.android.systemui.shared.plugins.PluginManagerImpl").methodFinder().first {
             name == "getClassLoader"

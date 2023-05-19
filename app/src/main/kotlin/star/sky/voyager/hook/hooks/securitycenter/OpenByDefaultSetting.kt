@@ -33,9 +33,7 @@ object OpenByDefaultSetting : HookRegister() {
             name == "onClick"
         }.createHook {
             before { param ->
-                if (!EzXHelper.isAppContextInited) {
-                    EzXHelper.initAppContext(param.thisObject as Activity)
-                }
+                EzXHelper.initAppContext(param.thisObject as Activity)
                 val clickedView = param.args[0]
                 val cleanOpenByDefaultView = (param.thisObject as Activity).findViewById<View>(
                     appContext.resources.getIdentifier(
@@ -66,9 +64,7 @@ object OpenByDefaultSetting : HookRegister() {
             methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
         }.firstOrNull()?.getMethodInstance(EzXHelper.safeClassLoader)?.createHook {
             after { param ->
-                if (!EzXHelper.isAppContextInited) {
-                    EzXHelper.initAppContext(param.thisObject as Activity)
-                }
+                EzXHelper.initAppContext(param.thisObject as Activity)
                 val cleanOpenByDefaultView = (param.thisObject as Activity).findViewById<View>(
                     appContext.resources.getIdentifier(
                         "am_detail_default", "id", hostPackageName
