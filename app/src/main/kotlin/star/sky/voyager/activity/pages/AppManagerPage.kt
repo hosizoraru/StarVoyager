@@ -1,11 +1,13 @@
 package star.sky.voyager.activity.pages
 
+import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
 @BMPage("scope_pkg_installer", "App Manager", hideMenu = false)
@@ -53,9 +55,57 @@ class AppManagerPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.package_installer_all_as_system_app,
+                textId = R.string.all_as_system_app,
             ),
-            SwitchV("package_installer_all_as_system_app")
+            SwitchV("all_as_system_app")
+        )
+        val yourSourceBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "custom_installation_source",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.custom_installation_source,
+            ),
+            SwitchV(
+                "custom_installation_source",
+                false,
+                dataBindingSend = yourSourceBinding.bindingSend
+            ),
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.your_source,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.your_source)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                MIUIActivity.safeSP.getString(
+                                    "your_source",
+                                    "com.android.fileexplorer"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                MIUIActivity.safeSP.putAny(
+                                    "your_source",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = yourSourceBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.package_installer_show_more_apk_info),

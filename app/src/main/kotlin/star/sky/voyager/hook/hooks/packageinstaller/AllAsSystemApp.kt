@@ -8,8 +8,8 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
 
-object AllowUpdateSystemApp : HookRegister() {
-    override fun init() = hasEnable("package_installer_allow_update_system_app") {
+object AllAsSystemApp : HookRegister() {
+    override fun init() = hasEnable("all_as_system_app") {
         loadDexKit()
         dexKitBridge.findMethod {
             methodParamTypes = arrayOf("Landroid/content/pm/ApplicationInfo;")

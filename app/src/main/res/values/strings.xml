@@ -279,7 +279,9 @@
     <string name="package_installer_remove_check">Disable the app installation\'s count checking</string>
     <string name="package_installer_remove_ads">Remove ads</string>
     <string name="Disable_Safe_Model_Tip">Disable Safe Model Tip</string>
-    <string name="package_installer_all_as_system_app">Treat all applications as system applications</string>
+    <string name="all_as_system_app">Treat all applications as system applications</string>
+    <string name="custom_installation_source">Custom installation source</string>
+    <string name="your_source">Your source</string>
     <string name="package_installer_show_more_apk_info">Show more apk info</string>
     <string name="package_installer_app_version_name_title">Version Name</string>
     <string name="package_installer_app_version_code_title">Version Code</string>
