@@ -1,5 +1,6 @@
 package star.sky.voyager.hook.hooks.packageinstaller
 
+import android.content.pm.ApplicationInfo
 import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
@@ -15,8 +16,13 @@ object AllAsSystemApp : HookRegister() {
             methodParamTypes = arrayOf("Landroid/content/pm/ApplicationInfo;")
             methodReturnType = "boolean"
         }.forEach {
-            it.getMethodInstance(EzXHelper.classLoader).createHook {
-                returnConstant(true)
+            it.getMethodInstance(EzXHelper.safeClassLoader).createHook {
+                before { param ->
+                    (param.args[0] as ApplicationInfo).flags =
+                        (param.args[0] as ApplicationInfo).flags.or(ApplicationInfo.FLAG_SYSTEM)
+//                    Log.i("看看行不行，被叫方法：" + param.method.declaringClass + "." + param.method.name)
+                }
+//                returnConstant(true)
             }
         }
     }
