@@ -23,7 +23,7 @@
 暂时通过我手动 `Release` 的方式发布  
 可以前往我的 `Telegram` 频道进行下载:  
 [Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
-也可以在 `GitHub` 仓库的 [Releases](https://github.com/hosizoraru/WooBoxForMIUI/releases) 页面下载
+也可以在 `GitHub` 仓库的 [Releases](https://github.com/hosizoraru/StarVoyager/releases) 页面下载
 
 ---
 
