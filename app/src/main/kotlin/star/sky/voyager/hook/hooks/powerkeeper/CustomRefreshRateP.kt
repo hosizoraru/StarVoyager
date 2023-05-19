@@ -14,8 +14,10 @@ object CustomRefreshRateP : HookRegister() {
             name == "parseCustomModeSwitchFromDb" && paramCount == 1 && parameterTypes[0] == String::class.java
         }.createHook {
             before {
-                setObject(it.thisObject,"mIsCustomFpsSwitch", true)
-                setObject(it.thisObject,"fucSwitch", true)
+//                setObject(it.thisObject, "fucSwitch", true)
+                setObject(it.thisObject, "mIsCustomFpsSwitch", "true")
+//                val qwq = getObjectOrNull(it.thisObject, "mIsCustomFpsSwitch")
+//                Log.i("hook mIsCustomFpsSwitch success, its:$qwq")
             }
         }
     }
