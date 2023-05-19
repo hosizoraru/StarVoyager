@@ -1,5 +1,6 @@
 ### StarVoyager
 
+![version](https://img.shields.io/github/v/release/hosizoraru/StarVoyager?style=for-the-badge) ![stars](https://img.shields.io/github/stars/hosizoraru/StarVoyager?style=for-the-badge) ![download-all](https://img.shields.io/github/downloads/hosizoraru/StarVoyager/total?style=for-the-badge) ![kotlin](https://img.shields.io/github/languages/top/hosizoraru/StarVoyager?style=for-the-badge)   
 全名为 StarSkyVoyager  
 基于 [我的分支的WooBoxForMIUI](https://github.com/hosizoraru/WooBoxForMIUI)  
 使用了 [EzXHelper2](https://github.com/KyuubiRan/EzXHelper)
