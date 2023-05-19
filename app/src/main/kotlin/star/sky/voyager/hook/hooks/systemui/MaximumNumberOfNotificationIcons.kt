@@ -17,18 +17,18 @@ object MaximumNumberOfNotificationIcons : HookRegister() {
             .first {
                 name == "miuiShowNotificationIcons" && parameterCount == 1
             }.createHook {
-            replace {
-                if (it.args[0] as Boolean) {
-                    it.thisObject.setObjectField("MAX_DOTS", dots)
-                    it.thisObject.setObjectField("MAX_STATIC_ICONS", icons)
-                    it.thisObject.setObjectField("MAX_MAX_ICONS_ON_LOCKSCREEN", icons2)
-                } else {
-                    it.thisObject.setObjectField("MAX_DOTS", 0)
-                    it.thisObject.setObjectField("MAX_STATIC_ICONS", 0)
-                    it.thisObject.setObjectField("MAX_MAX_ICONS_ON_LOCKSCREEN", 0)
+                replace {
+                    if (it.args[0] as Boolean) {
+                        it.thisObject.setObjectField("MAX_DOTS", dots)
+                        it.thisObject.setObjectField("MAX_STATIC_ICONS", icons)
+                        it.thisObject.setObjectField("MAX_ICONS_ON_LOCKSCREEN", icons2)
+                    } else {
+                        it.thisObject.setObjectField("MAX_DOTS", 0)
+                        it.thisObject.setObjectField("MAX_STATIC_ICONS", 0)
+                        it.thisObject.setObjectField("MAX_ICONS_ON_LOCKSCREEN", 0)
+                    }
+                    it.thisObject.callMethod("updateState")
                 }
-                it.thisObject.callMethod("updateState")
             }
-        }
     }
 }
