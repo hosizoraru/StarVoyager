@@ -5,7 +5,7 @@
                 android:width="30dp"
                 android:height="30dp" />
             <corners android:radius="8dp" />
-            <solid android:color="@android:color/system_accent3_400" />
+            <solid android:color="@android:color/system_accent1_200" />
         </shape>
     </item>
     <item>

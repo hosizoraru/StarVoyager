@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.StarSkyVoyager" parent="android:Theme.DeviceDefault.DayNight">
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@android:color/system_accent1_50</item>
+        <!-- change navigation bar color -->
+        <item name="android:navigationBarColor">@android:color/system_accent1_50</item>
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:forceDarkAllowed">true</item>
