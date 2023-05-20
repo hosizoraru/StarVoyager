@@ -131,6 +131,11 @@ class AppManagerPage : BasePage() {
                 tipsId = R.string.system_settings_permission_unknown_origin_app_desc
             ), SwitchV("system_settings_permission_unknown_origin_app")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.no_through_the_list,
+            ), SwitchV("no_through_the_list")
+        )
         Line()
         TitleText(textId = R.string.scope_file_explorer)
         TextSSw(
