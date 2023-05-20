@@ -1,6 +1,6 @@
 [versions]
 agp = "8.2.0-alpha04"
-al = "8.2.0-alpha04"
+#al = "8.2.0-alpha04"
 constraintlayout = "2.2.0-alpha09"
 dexkit = "1.1.7"
 ezxhelper = "2.0.1"
@@ -21,7 +21,7 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "al" }
+#androidLibrary = { id = "com.android.library", version.ref = "al" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [bundles]
