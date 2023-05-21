@@ -326,6 +326,7 @@
     <string name="app_link_open_never">Don\'t allow app to open links</string>
     <string name="open_by_default">Open by default</string>
     <string name="open_by_default_setting">Change App Info \"Clear defaults\" to \"Open by default\"</string>
+    <string name="remove_report">remove report inn app info</string>
     <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>

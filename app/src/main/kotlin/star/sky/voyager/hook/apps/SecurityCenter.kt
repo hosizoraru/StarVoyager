@@ -5,6 +5,7 @@ import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
+import star.sky.voyager.hook.hooks.securitycenter.RemoveReport
 import star.sky.voyager.hook.hooks.securitycenter.ShowBatteryTemperature
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
 import star.sky.voyager.utils.init.AppRegister
@@ -20,6 +21,7 @@ object SecurityCenter : AppRegister() {
             LockOneHundred, // 手机管家锁定100分
             ShowBatteryTemperature, // 电池页面显示当前温度
             OpenByDefaultSetting, // 将应用详情中“消除默认操作”改为“默认打开”设置
+            RemoveReport, // 移除应用详情界面的举报
             RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
         )
     }
