@@ -71,6 +71,7 @@
     <string name="done">OK</string>
     <string name="finished">Finished</string>
     <string name="cancel">Cancel</string>
+    <string name="fail">Fail</string>
     <string name="def">"Default: "</string>
     <string name="current">Current:</string>
     <string name="zero_do_no_change">0: do not change</string>
@@ -331,6 +332,8 @@
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
+    <string name="disable_app_settings">Disable app settings in app info</string>
+    <string name="disable_app_text">Are you really want to disable system app?</string>
 
     <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
     <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>

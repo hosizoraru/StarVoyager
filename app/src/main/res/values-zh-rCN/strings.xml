@@ -68,6 +68,7 @@
     <string name="done">确定</string>
     <string name="finished">运行完成</string>
     <string name="cancel">取消</string>
+    <string name="fail">失败</string>
     <string name="def">"默认值："</string>
     <string name="current">当前值：</string>
     <string name="zero_do_no_change">0: 不更改</string>
@@ -324,6 +325,8 @@
     <string name="open_by_default">默认打开</string>
     <string name="open_by_default_setting">将应用详情中“消除默认操作”改为“默认打开”设置</string>
     <string name="remove_report">移除应用详情界面的举报</string>
+    <string name="disable_app_settings">在应用详情界面显示停用App</string>
+    <string name="disable_app_text">你真的确定要停用系统应用吗？</string>
     <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
     <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
