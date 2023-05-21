@@ -1,5 +1,6 @@
 package star.sky.voyager.utils.api
 
+import com.github.kyuubiran.ezxhelper.ClassUtils
 import java.lang.reflect.Field
 import java.lang.reflect.Method
 
@@ -54,3 +55,8 @@ fun Any.invokeMethod(vararg args: Any?, condition: MethodCondition): Any? {
         ?.let { it.isAccessible = true;return it(this, *args) }
     throw NoSuchMethodException()
 }
+
+fun isPad() =
+    ClassUtils.loadClass("miui.os.Build")
+        .getField("IS_TABLET")
+        .getBoolean(null)

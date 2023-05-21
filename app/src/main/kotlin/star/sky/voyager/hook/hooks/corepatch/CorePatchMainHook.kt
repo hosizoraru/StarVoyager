@@ -15,10 +15,7 @@ open class CorePatchMainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
         if ("android" == lpparam.packageName && lpparam.processName == "android") {
             Log.d(TAG, "Current sdk version " + Build.VERSION.SDK_INT)
             when (Build.VERSION.SDK_INT) {
-                Build.VERSION_CODES.TIRAMISU -> {
-                    CorePatchForT().handleLoadPackage(lpparam)
-                }
-
+                Build.VERSION_CODES.TIRAMISU -> CorePatchForT().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.S_V2 -> CorePatchForSv2().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.S -> CorePatchForS().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.R -> CorePatchForR().handleLoadPackage(lpparam)
