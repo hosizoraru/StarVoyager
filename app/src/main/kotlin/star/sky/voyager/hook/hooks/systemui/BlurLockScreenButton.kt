@@ -17,7 +17,7 @@ object BlurLockScreenButton : HookRegister() {
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
         )?.methodFinder()?.forEach { method ->
-            if (method.name != "onAttachedToWindow") {
+            if (method.name == "onAttachedToWindow") {
                 method.createHook {
                     after { param ->
                         val mLeftAffordanceView = getValueByField(
