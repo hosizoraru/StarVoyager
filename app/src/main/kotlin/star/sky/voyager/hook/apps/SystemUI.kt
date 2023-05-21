@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
+import star.sky.voyager.hook.hooks.systemui.BlurLockScreenButton
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
 import star.sky.voyager.hook.hooks.systemui.CustomMobileTypeText
 import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
@@ -61,6 +62,7 @@ object SystemUI : AppRegister() {
             RestoreNearbyTile, // 恢复附近分享磁贴
             DisableBluetooth, // 禁用蓝牙临时关闭
             LockScreenClockDisplaySeconds, // 时钟显示秒数
+            BlurLockScreenButton, // 模糊锁屏界面按钮
             RemoveTheLeftSideOfTheLockScreen, // 移除锁屏负一屏功能
             RemoveLockScreenCamera, // 移除锁屏相机功能
             WaveCharge, // 启用Alpha充电动画

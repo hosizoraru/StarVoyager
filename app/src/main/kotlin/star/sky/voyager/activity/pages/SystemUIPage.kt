@@ -711,6 +711,11 @@ class SystemUIPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.blur_lock_screen_button,
+            ), SwitchV("blur_lock_screen_button")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.remove_the_left_side_of_the_lock_screen,
                 tipsId = R.string.only_official_default_themes_are_supported
             ), SwitchV("remove_the_left_side_of_the_lock_screen")

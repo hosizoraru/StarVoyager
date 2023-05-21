@@ -426,6 +426,7 @@
     <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
     <string name="restore_near_by_tile">Restore NearBy Share tile</string>
     <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
+    <string name="blur_lock_screen_button">Blur lock screen button</string>
     <string name="remove_the_left_side_of_the_lock_screen">Remove the lock screen side panel</string>
     <string name="remove_lock_screen_camera">Remove the lock screen camera feature</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>

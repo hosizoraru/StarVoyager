@@ -418,6 +418,7 @@
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
     <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>
     <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
+    <string name="blur_lock_screen_button">模糊锁屏界面按钮</string>
     <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
     <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
