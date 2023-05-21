@@ -17,36 +17,38 @@ object BlurLockScreenButton : HookRegister() {
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
         )?.methodFinder()?.forEach { method ->
-            method.createHook {
-                after { param ->
-                    val mLeftAffordanceView = getValueByField(
-                        param.thisObject,
-                        "mLeftAffordanceView"
-                    ) as ImageView
-                    val mRightAffordanceView = getValueByField(
-                        param.thisObject,
-                        "mRightAffordanceView"
-                    ) as ImageView
+            if (method.name != "onAttachedToWindow") {
+                method.createHook {
+                    after { param ->
+                        val mLeftAffordanceView = getValueByField(
+                            param.thisObject,
+                            "mLeftAffordanceView"
+                        ) as ImageView
+                        val mRightAffordanceView = getValueByField(
+                            param.thisObject,
+                            "mRightAffordanceView"
+                        ) as ImageView
 
-                    val keyguardBottomAreaView = param.thisObject as View
-                    val leftBlurDrawable = createBlurDrawable(
-                        keyguardBottomAreaView,
-                        40,
-                        100,
-                        Color.argb(60, 255, 255, 255)
-                    )
-                    val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
-                    val rightBlurDrawable = createBlurDrawable(
-                        keyguardBottomAreaView,
-                        40,
-                        100,
-                        Color.argb(60, 255, 255, 255)
-                    )
-                    val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
-                    leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
-                    rightLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
-                    mLeftAffordanceView.background = leftLayerDrawable
-                    mRightAffordanceView.background = rightLayerDrawable
+                        val keyguardBottomAreaView = param.thisObject as View
+                        val leftBlurDrawable = createBlurDrawable(
+                            keyguardBottomAreaView,
+                            40,
+                            100,
+                            Color.argb(60, 255, 255, 255)
+                        )
+                        val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
+                        val rightBlurDrawable = createBlurDrawable(
+                            keyguardBottomAreaView,
+                            40,
+                            100,
+                            Color.argb(60, 255, 255, 255)
+                        )
+                        val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
+                        leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
+                        rightLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
+                        mLeftAffordanceView.background = leftLayerDrawable
+                        mRightAffordanceView.background = rightLayerDrawable
+                    }
                 }
             }
         }

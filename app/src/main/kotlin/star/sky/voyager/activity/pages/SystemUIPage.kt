@@ -16,6 +16,74 @@ import star.sky.voyager.R
 @BMPage("scope_system_ui", "System UI", hideMenu = false)
 class SystemUIPage : BasePage() {
     override fun onCreate() {
+        val monetBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "monet_theme",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.monet_theme,
+            ), SwitchV("monet_theme", false, dataBindingSend = monetBinding.bindingSend)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.your_theme_accent_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.your_theme_accent_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                MIUIActivity.safeSP.getString("your_theme_accent_color", "#0d84ff")
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                MIUIActivity.safeSP.putAny(
+                                    "your_theme_accent_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = monetBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.your_theme_neutral_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.your_theme_neutral_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                MIUIActivity.safeSP.getString("your_theme_neutral_color", "#A6CDE7")
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                MIUIActivity.safeSP.putAny(
+                                    "your_theme_neutral_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = monetBinding.binding.getRecv(1)
+        )
+        Line()
         TitleText(textId = R.string.status_bar)
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.double_tap_to_sleep),
@@ -712,6 +780,7 @@ class SystemUIPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.blur_lock_screen_button,
+                tipsId = R.string.only_official_default_themes_are_supported
             ), SwitchV("blur_lock_screen_button")
         )
         TextSummaryWithSwitch(

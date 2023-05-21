@@ -20,6 +20,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
+import star.sky.voyager.hook.hooks.systemui.MonetTheme
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
 import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
 import star.sky.voyager.hook.hooks.systemui.NotificationWeather
@@ -45,6 +46,7 @@ object SystemUI : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
+            MonetTheme, // 自定义系统主题色
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕
             StatusBarBattery, // 状态栏显示关于电池
             StatusBarLayout, // 状态栏布局

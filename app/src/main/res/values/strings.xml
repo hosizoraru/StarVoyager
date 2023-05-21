@@ -414,6 +414,9 @@
     <string name="monet_color">Default color -> monet color</string>
     <string name="use_edit_color">Edit it into your favorite color</string>
     <string name="your_color">Your favorite color</string>
+    <string name="monet_theme">Edit system monet theme color into your favorite color</string>
+    <string name="your_theme_accent_color">Your favorite accent color</string>
+    <string name="your_theme_neutral_color">Your favorite neutral color</string>
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>
