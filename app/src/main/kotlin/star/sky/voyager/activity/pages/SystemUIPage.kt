@@ -83,6 +83,37 @@ class SystemUIPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = monetBinding.binding.getRecv(1)
         )
+//        TextSummaryWithSpinner(
+//            TextSummaryV(
+//                textId = R.string.your_theme_style,
+//            ),
+//            SpinnerV(
+//                MIUIActivity.safeSP.getString("your_theme_style", "TONAL_SPOT"),
+//                dropDownWidth = 190F
+//            ) {
+//                add("TONAL_SPOT") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "TONAL_SPOT")
+//                }
+//                add("SPRITZ") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "SPRITZ")
+//                }
+//                add("VIBRANT") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "VIBRANT")
+//                }
+//                add("EXPRESSIVE") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "EXPRESSIVE")
+//                }
+//                add("RAINBOW") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "RAINBOW")
+//                }
+//                add("FRUIT_SALAD") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "FRUIT_SALAD")
+//                }
+//                add("CONTENT") {
+//                    MIUIActivity.safeSP.putAny("your_theme_style", "CONTENT")
+//                }
+//            }, dataBindingRecv = monetBinding.binding.getRecv(1)
+//        )
         Line()
         TitleText(textId = R.string.status_bar)
         TextSummaryWithSwitch(

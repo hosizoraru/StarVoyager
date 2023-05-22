@@ -406,8 +406,9 @@
     <string name="use_edit_color">修改成你喜欢的颜色</string>
     <string name="your_color">你喜欢的颜色</string>
     <string name="monet_theme">自定义系统主题色</string>
-    <string name="your_theme_accent_color">你喜欢的系统强调色</string>
-    <string name="your_theme_neutral_color">你喜欢的系统中性色</string>
+    <string name="your_theme_accent_color">系统强调色</string>
+    <string name="your_theme_neutral_color">系统中性色</string>
+    <string name="your_theme_style">取色风格</string>
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
