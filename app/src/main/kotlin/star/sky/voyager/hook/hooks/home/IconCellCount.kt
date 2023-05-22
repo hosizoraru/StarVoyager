@@ -1,11 +1,14 @@
 package star.sky.voyager.hook.hooks.home
 
 import android.content.Context
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import android.os.Bundle
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
 import star.sky.voyager.utils.api.callMethodOrNull
 import star.sky.voyager.utils.api.callStaticMethod
-import star.sky.voyager.utils.api.findClassOrNull
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.getStaticObjectField
 import star.sky.voyager.utils.api.hookAfterAllMethods
@@ -19,37 +22,35 @@ import star.sky.voyager.utils.key.hasEnable
 object IconCellCount : HookRegister() {
     override fun init() = hasEnable("home_unlock_cell_count") {
         val deviceConfigClass =
-            "com.miui.home.launcher.DeviceConfig".findClassOrNull(EzXHelper.classLoader)
+            loadClassOrNull("com.miui.home.launcher.DeviceConfig")
         val launcherCellCountCompatDeviceClass =
-            "com.miui.home.launcher.compat.LauncherCellCountCompatDevice".findClassOrNull(EzXHelper.classLoader)
+            loadClassOrNull("com.miui.home.launcher.compat.LauncherCellCountCompatDevice")
         val launcherCellCountCompatResourceClass =
-            "com.miui.home.launcher.compat.LauncherCellCountCompatResource".findClassOrNull(
-                EzXHelper.classLoader
-            )
+            loadClassOrNull("com.miui.home.launcher.compat.LauncherCellCountCompatResource")
         val utilitiesClass =
-            "com.miui.home.launcher.common.Utilities".findClassOrNull(EzXHelper.classLoader)
+            loadClassOrNull("com.miui.home.launcher.common.Utilities")
         val screenUtilsClass =
-            "com.miui.home.launcher.ScreenUtils".findClassOrNull(EzXHelper.classLoader)
+            loadClassOrNull("com.miui.home.launcher.ScreenUtils")
         val miuiHomeSettings =
-            "com.miui.home.settings.MiuiHomeSettings".findClassOrNull(EzXHelper.classLoader)
+            loadClassOrNull("com.miui.home.settings.MiuiHomeSettings")
 
-        try {
-            launcherCellCountCompatDeviceClass?.replaceMethod("shouldUseDeviceValue") {
-                return@replaceMethod false
-            }
-        } catch (_: Throwable) {
-
+        launcherCellCountCompatDeviceClass?.methodFinder()?.filter {
+            name == "shouldUseDeviceValue"
+        }?.toList()?.createHooks {
+            returnConstant(false)
         }
 
-        try {
-            miuiHomeSettings?.hookAfterMethod("onCreatePreferences") {
+        miuiHomeSettings?.methodFinder()?.first {
+            name == "onCreatePreferences"
+                    && parameterCount == 2
+                    && parameterTypes[0] == Bundle::class.java
+                    && parameterTypes[1] == String::class.java
+        }?.createHook {
+            after {
                 it.thisObject.getObjectField("mScreenCellsConfig")
                     ?.callMethodOrNull("setVisible", true)
             }
-        } catch (_: Throwable) {
-
         }
-
 
         deviceConfigClass?.hookAfterMethod(
             "loadCellsCountConfig",
