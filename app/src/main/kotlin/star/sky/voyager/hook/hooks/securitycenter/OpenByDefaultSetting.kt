@@ -12,8 +12,9 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNull
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import de.robv.android.xposed.XposedHelpers
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
@@ -49,7 +50,7 @@ object OpenByDefaultSetting : HookRegister() {
                         addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
                         addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
                     }
-                    XposedHelpers.callMethod(param.thisObject, "startActivity", intent)
+                    invokeMethodBestMatch(param.thisObject, "startActivity", null, intent)
                     param.result = null
                 }
             }
@@ -78,17 +79,19 @@ object OpenByDefaultSetting : HookRegister() {
                 val subTextId =
                     if (isLinkHandlingAllowed) R.string.app_link_open_always else R.string.app_link_open_never
                 cleanOpenByDefaultView::class.java.declaredFields.forEach {
-                    val view = XposedHelpers.getObjectField(cleanOpenByDefaultView, it.name)
+                    val view = getObjectOrNull(cleanOpenByDefaultView, it.name)
                     if (view !is TextView) return@forEach
-                    XposedHelpers.callMethod(
+                    invokeMethodBestMatch(
                         view,
                         "setText",
+                        null,
                         moduleRes.getString(R.string.open_by_default)
                     )
                 }
-                XposedHelpers.callMethod(
+                invokeMethodBestMatch(
                     cleanOpenByDefaultView,
                     "setSummary",
+                    null,
                     moduleRes.getString(subTextId)
                 )
             }

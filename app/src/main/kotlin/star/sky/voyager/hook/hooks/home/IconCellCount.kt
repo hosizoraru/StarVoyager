@@ -33,13 +33,23 @@ object IconCellCount : HookRegister() {
         val miuiHomeSettings =
             "com.miui.home.settings.MiuiHomeSettings".findClassOrNull(EzXHelper.classLoader)
 
-        launcherCellCountCompatDeviceClass?.replaceMethod("shouldUseDeviceValue") {
-            return@replaceMethod false
+        try {
+            launcherCellCountCompatDeviceClass?.replaceMethod("shouldUseDeviceValue") {
+                return@replaceMethod false
+            }
+        } catch (_: Throwable) {
+
         }
 
-        miuiHomeSettings?.hookAfterMethod("onCreatePreferences") {
-            it.thisObject.getObjectField("mScreenCellsConfig")?.callMethodOrNull("setVisible", true)
+        try {
+            miuiHomeSettings?.hookAfterMethod("onCreatePreferences") {
+                it.thisObject.getObjectField("mScreenCellsConfig")
+                    ?.callMethodOrNull("setVisible", true)
+            }
+        } catch (_: Throwable) {
+
         }
+
 
         deviceConfigClass?.hookAfterMethod(
             "loadCellsCountConfig",

@@ -3,9 +3,9 @@ package star.sky.voyager.hook.hooks.android
 import android.content.Context
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.findField
-import star.sky.voyager.utils.api.hookBeforeAllConstructors
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
@@ -18,8 +18,10 @@ object DisableFlagSecure : HookRegister() {
                 it.result = false
             }
         }
+        val WindowSurfaceControllerClass =
+            loadClass("com.android.server.wm.WindowSurfaceController")
 
-        loadClass("com.android.server.wm.WindowSurfaceController").methodFinder().first {
+        WindowSurfaceControllerClass.methodFinder().first {
             name == "setSecure"
         }.createHook {
             before {
@@ -27,11 +29,13 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("com.android.server.wm.WindowSurfaceController").hookBeforeAllConstructors {
-            var flags = it.args[2] as Int
-            val secureFlag = 128
-            flags = flags and secureFlag.inv()
-            it.args[2] = flags
+        WindowSurfaceControllerClass.constructors.createHooks {
+            before {
+                var flags = it.args[2] as Int
+                val secureFlag = 128
+                flags = flags and secureFlag.inv()
+                it.args[2] = flags
+            }
         }
 
         loadClass("com.android.server.wm.Task").methodFinder().first {
@@ -42,7 +46,9 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("android.util.MiuiMultiWindowAdapter").methodFinder().first {
+        val MiuiMultiWindowAdapterClass = loadClass("android.util.MiuiMultiWindowAdapter")
+
+        MiuiMultiWindowAdapterClass.methodFinder().first {
             name == "getFreeformBlackList"
         }.createHook {
             after {
@@ -50,7 +56,7 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("android.util.MiuiMultiWindowAdapter").methodFinder().first {
+        MiuiMultiWindowAdapterClass.methodFinder().first {
             name == "getFreeformBlackListFromCloud" && parameterTypes[0] == Context::class.java
         }.createHook {
             after {
@@ -58,7 +64,9 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("android.util.MiuiMultiWindowUtils").methodFinder().first {
+        val MiuiMultiWindowUtilsClass = loadClass("android.util.MiuiMultiWindowUtils")
+
+        MiuiMultiWindowUtilsClass.methodFinder().first {
             name == "supportFreeform"
         }.createHook {
             after {
@@ -66,13 +74,16 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("android.util.MiuiMultiWindowUtils").methodFinder().first {
+        MiuiMultiWindowUtilsClass.methodFinder().first {
             name == "isForceResizeable"
         }.createHook {
             returnConstant(true)
         }
 
-        loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver").methodFinder()
+        val SettingsObserverClass =
+            loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver")
+
+        SettingsObserverClass.methodFinder()
             .first {
                 name == "onChange"
             }.createHook {
@@ -85,17 +96,18 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver").methodFinder()
+        SettingsObserverClass.methodFinder()
             .first {
                 name == "updateDevEnableNonResizableMultiWindow"
             }.createHook {
-            after { param ->
-                val this0 = param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
-                val mAtmService = this0.javaClass.findField("mAtmService").get(this0)
-                mAtmService.javaClass.findField("mDevEnableNonResizableMultiWindow")
-                    .setBoolean(mAtmService, true)
+                after { param ->
+                    val this0 =
+                        param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
+                    val mAtmService = this0.javaClass.findField("mAtmService").get(this0)
+                    mAtmService.javaClass.findField("mDevEnableNonResizableMultiWindow")
+                        .setBoolean(mAtmService, true)
+                }
             }
-        }
 
         loadClass("com.android.server.wm.ActivityTaskManagerService").methodFinder().first {
             name == "retrieveSettings"

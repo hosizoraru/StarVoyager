@@ -16,12 +16,15 @@ object MonetTheme : HookRegister() {
                 name == "getOverlay" && parameterCount == 3 && parameterTypes[0] == Int::class.java && parameterTypes[1] == Int::class.java
             }?.createHook {
                 before { param ->
+                    Log.i("System theme color1:" + param.args[0].toString())
                     param.args[0] =
                         Color.parseColor(XSPUtils.getString("your_theme_accent_color", "#0d84ff"))
-                    Log.i("Your monet theme color1:" + param.args[0])
+                    Log.i("Your monet theme color1:" + param.args[0].toString())
+                    Log.i("System monet theme color2:" + param.args[1].toString())
                     param.args[1] =
                         Color.parseColor(XSPUtils.getString("your_theme_neutral_color", "#0d84ff"))
-                    Log.i("Your monet theme color2:" + param.args[1])
+                    Log.i("Your monet theme color2:" + param.args[1].toString())
+                    Log.i("System monet theme style:" + param.args[2])
 //                    param.args[2] = XSPUtils.getString("your_theme_style", "TONAL_SPOT")
                     Log.i("Your monet theme style:" + param.args[2])
                 }

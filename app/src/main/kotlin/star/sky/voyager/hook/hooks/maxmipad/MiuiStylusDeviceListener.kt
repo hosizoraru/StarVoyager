@@ -1,11 +1,10 @@
 package star.sky.voyager.hook.hooks.maxmipad
 
+import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
-import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import star.sky.voyager.utils.api.invokeMethod
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.XSharedPreferences
@@ -15,30 +14,27 @@ object MiuiStylusDeviceListener : HookRegister() {
         val driverVersion =
             XSharedPreferences.getString("remove_stylus_bluetooth_restriction_driver_version", "2")
                 .toInt()
-        loadClass("com.miui.server.input.stylus.MiuiStylusDeviceListener").constructorFinder()
-            .first {
-                true
-            }.createHook {
+        val MiuiStylusDeviceListenerClass =
+            loadClass("com.miui.server.input.stylus.MiuiStylusDeviceListener")
+        MiuiStylusDeviceListenerClass.constructors.createHooks {
             after {
-                val ITouchFeature = loadClass("miui.util.ITouchFeature")
-                val mTouchFeature = ITouchFeature.methodFinder().first {
-                    name == "getInstance"
-                }.invoke(null)
-                mTouchFeature?.invokeMethod(0, 20, 0x10 or driverVersion) {
-                    name == "setTouchMode" && paramCount == 3
+                invokeStaticMethodBestMatch(
+                    loadClass("miui.util.ITouchFeature"),
+                    "getInstance"
+                )?.let {
+                    invokeMethodBestMatch(it, "setTouchMode", null, 0, 20, 0x10 or driverVersion)
                 }
             }
         }
-        loadClass("com.miui.server.input.stylus.MiuiStylusDeviceListener").methodFinder().first {
+        MiuiStylusDeviceListenerClass.methodFinder().filter {
             true
-        }.createHook {
+        }.toList().createHooks {
             replace {
-                val ITouchFeature = loadClass("miui.util.ITouchFeature")
-                val mTouchFeature = ITouchFeature.methodFinder().first {
-                    name == "getInstance"
-                }.invoke(null)
-                mTouchFeature?.invokeMethod(0, 20, 0x10 or driverVersion) {
-                    name == "setTouchMode" && paramCount == 3
+                invokeStaticMethodBestMatch(
+                    loadClass("miui.util.ITouchFeature"),
+                    "getInstance"
+                )?.let {
+                    invokeMethodBestMatch(it, "setTouchMode", null, 0, 20, 0x10 or driverVersion)
                 }
             }
         }
