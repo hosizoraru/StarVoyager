@@ -172,5 +172,11 @@ class AppManagerPage : BasePage() {
             TextSummaryV(textId = R.string.Anti_Defraud_App_Manager),
             SwitchV("Anti_Defraud_App_Manager")
         )
+        Line()
+        TitleText(textId = R.string.scope_music)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.remove_open_ad),
+            SwitchV("remove_open_ad")
+        )
     }
 }
