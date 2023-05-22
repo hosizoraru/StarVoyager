@@ -21,8 +21,9 @@ object NewNotificationWeather : HookRegister() {
 
     override fun init() = hasEnable("control_center_weather") {
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
-
-        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+        val ControlCenterDateViewClass =
+            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView")
+        ControlCenterDateViewClass.methodFinder()
             .findSuper().first {
                 name == "onDetachedFromWindow"
             }.createHook {
@@ -33,7 +34,7 @@ object NewNotificationWeather : HookRegister() {
                 }
             }
 
-        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+        ControlCenterDateViewClass.methodFinder()
             .findSuper().first {
                 name == "onDetachedFromWindow"
             }.createHook {
@@ -44,7 +45,7 @@ object NewNotificationWeather : HookRegister() {
                 }
             }
 
-        loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView").methodFinder()
+        ControlCenterDateViewClass.methodFinder()
             .findSuper().first {
                 name == "setText"
             }.createHook {

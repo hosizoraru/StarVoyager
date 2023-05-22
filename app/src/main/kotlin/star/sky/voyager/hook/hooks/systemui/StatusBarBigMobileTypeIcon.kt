@@ -29,7 +29,9 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
 
     override fun init() = hasEnable("big_mobile_type_icon") {
         //使网络类型单独显示
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
+        val StatusBarMobileViewClass =
+            loadClass("com.android.systemui.statusbar.StatusBarMobileView")
+        StatusBarMobileViewClass.methodFinder().first {
             name == "applyMobileState"
         }.createHook {
             before {
@@ -38,7 +40,7 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
             }
         }
 
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
+        StatusBarMobileViewClass.methodFinder().first {
             name == "initViewState"
         }.createHook {
             after {
@@ -84,7 +86,7 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
         }
         //显示非上网卡的大图标
         if (!isOnlyShowNetwork) {
-            loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
+            StatusBarMobileViewClass.methodFinder().first {
                 name == "updateState"
             }.createHook {
                 after {
