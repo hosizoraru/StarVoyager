@@ -3,7 +3,7 @@ package star.sky.voyager.hook.hooks.home
 import android.app.Activity
 import android.view.MotionEvent
 import android.view.View
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.callStaticMethod
 import star.sky.voyager.utils.api.callStaticMethodOrNull
@@ -19,25 +19,25 @@ import star.sky.voyager.utils.key.hasEnable
 object BlurWhenOpenFolder : HookRegister() {
     override fun init() = hasEnable("home_blur_when_open_folder") {
         val isUserBlurWhenOpenFolder =
-            "com.miui.home.launcher.common.BlurUtils".findClass(EzXHelper.classLoader)
+            "com.miui.home.launcher.common.BlurUtils".findClass(classLoader)
                 .callStaticMethodOrNull("isUserBlurWhenOpenFolder")
         if (isUserBlurWhenOpenFolder != null) {
             "com.miui.home.launcher.common.BlurUtils".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "isUserBlurWhenOpenFolder"
             ) {
                 it.result = true
             }
         } else {
             var isShouldBlur = false
-            val folderInfo = "com.miui.home.launcher.FolderInfo".findClass(EzXHelper.classLoader)
-            val launcherClass = "com.miui.home.launcher.Launcher".findClass(EzXHelper.classLoader)
+            val folderInfo = "com.miui.home.launcher.FolderInfo".findClass(classLoader)
+            val launcherClass = "com.miui.home.launcher.Launcher".findClass(classLoader)
             val blurUtilsClass =
-                "com.miui.home.launcher.common.BlurUtils".findClass(EzXHelper.classLoader)
+                "com.miui.home.launcher.common.BlurUtils".findClass(classLoader)
             val navStubViewClass =
-                "com.miui.home.recents.NavStubView".findClass(EzXHelper.classLoader)
+                "com.miui.home.recents.NavStubView".findClass(classLoader)
             val cancelShortcutMenuReasonClass =
-                "com.miui.home.launcher.shortcuts.CancelShortcutMenuReason".findClass(EzXHelper.classLoader)
+                "com.miui.home.launcher.shortcuts.CancelShortcutMenuReason".findClass(classLoader)
 
             launcherClass.hookAfterMethod("openFolder", folderInfo, View::class.java) {
                 val mLauncher = it.thisObject as Activity

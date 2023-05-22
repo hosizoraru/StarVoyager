@@ -6,7 +6,6 @@ import android.content.Context
 import android.text.format.Formatter
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -20,11 +19,8 @@ object RealMemory : HookRegister() {
     override fun init() = hasEnable("home_real_memory") {
         var context: Context? = null
         fun Any.formatSize(): String = Formatter.formatFileSize(context, this as Long)
-
-        loadClass(
-            "com.miui.home.recents.views.RecentsContainer",
-            EzXHelper.classLoader
-        ).declaredConstructors.constructorFinder().first {
+        val RecentsContainerClass = loadClass("com.miui.home.recents.views.RecentsContainer")
+        RecentsContainerClass.declaredConstructors.constructorFinder().first {
             parameterCount == 2
         }.createHook {
             after {
@@ -32,7 +28,7 @@ object RealMemory : HookRegister() {
             }
         }
 
-        loadClass("com.miui.home.recents.views.RecentsContainer").methodFinder().first {
+        RecentsContainerClass.methodFinder().first {
             name == "refreshMemoryInfo"
         }.createHook {
             before {

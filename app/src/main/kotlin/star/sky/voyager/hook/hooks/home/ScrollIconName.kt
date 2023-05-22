@@ -6,10 +6,10 @@ import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.Log
 import star.sky.voyager.utils.api.callMethod
-import star.sky.voyager.utils.api.findClass
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.hookAfterMethod
 import star.sky.voyager.utils.init.HookRegister
@@ -18,41 +18,40 @@ import star.sky.voyager.utils.key.hasEnable
 object ScrollIconName : HookRegister() {
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("home_scroll_icon_name") {
-        val launcherClass = "com.miui.home.launcher.Launcher".findClass(EzXHelper.classLoader)
-        val shortcutInfoClass =
-            "com.miui.home.launcher.ShortcutInfo".findClass(EzXHelper.classLoader)
+        val launcherClass = loadClass("com.miui.home.launcher.Launcher")
+        val shortcutInfoClass = loadClass("com.miui.home.launcher.ShortcutInfo")
 
         try {
             "com.miui.home.launcher.ItemIcon".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "onFinishInflate"
             ) {
                 val mTitle = it.thisObject.getObjectField("mTitle") as TextView
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.maml.MaMlWidgetView".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "onFinishInflate"
             ) {
                 val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.LauncherMtzGadgetView".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "onFinishInflate"
             ) {
                 val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.LauncherWidgetView".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "onFinishInflate"
             ) {
                 val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.ShortcutIcon".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "fromXml",
                 Int::class.javaPrimitiveType,
                 launcherClass,
@@ -64,7 +63,7 @@ object ScrollIconName : HookRegister() {
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.ShortcutIcon".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "createShortcutIcon",
                 Int::class.javaPrimitiveType,
                 launcherClass,
@@ -75,7 +74,7 @@ object ScrollIconName : HookRegister() {
                 mTitleScrolling(mTitle)
             }
             "com.miui.home.launcher.common.Utilities".hookAfterMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "adaptTitleStyleToWallpaper",
                 Context::class.java,
                 TextView::class.java,

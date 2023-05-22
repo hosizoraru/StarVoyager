@@ -9,7 +9,8 @@ import star.sky.voyager.utils.key.hasEnable
 
 object ShortcutItemCount : HookRegister() {
     override fun init() = hasEnable("shortcut_remove_restrictions") {
-        loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu").methodFinder().first {
+        val AppShortcutMenuClass = loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu")
+        AppShortcutMenuClass.methodFinder().first {
             name == "getMaxCountInCurrentOrientation"
         }.createHook {
             after {
@@ -17,7 +18,7 @@ object ShortcutItemCount : HookRegister() {
             }
         }
 
-        loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu").methodFinder().first {
+        AppShortcutMenuClass.methodFinder().first {
             name == "getMaxShortcutItemCount"
         }.createHook {
             after {
@@ -25,7 +26,7 @@ object ShortcutItemCount : HookRegister() {
             }
         }
 
-        loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu").methodFinder().first {
+        AppShortcutMenuClass.methodFinder().first {
             name == "getMaxVisualHeight"
         }.createHook {
             after {

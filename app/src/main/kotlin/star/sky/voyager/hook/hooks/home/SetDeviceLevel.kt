@@ -1,8 +1,9 @@
 package star.sky.voyager.hook.hooks.home
 
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.findClass
@@ -13,6 +14,9 @@ import star.sky.voyager.utils.key.hasEnable
 
 object SetDeviceLevel : HookRegister() {
     override fun init() = hasEnable("home_high_end_device") {
+        val DeviceLevelUtilsClass = loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
+        val SystemPropertiesClass = loadClass("android.os.SystemProperties")
+        val DeviceConfigClass = loadClass("com.miui.home.launcher.DeviceConfig")
         try {
             loadClass("com.miui.home.launcher.common.CpuLevelUtils").methodFinder().first {
                 name == "getQualcommCpuLevel" && parameterCount == 1
@@ -25,48 +29,52 @@ object SetDeviceLevel : HookRegister() {
             returnConstant(2)
         }
         try {
-            "com.miui.home.launcher.common.DeviceLevelUtils".hookBeforeMethod(
-                EzXHelper.classLoader,
-                "getDeviceLevel"
-            ) {
-                it.result = 2
+            DeviceLevelUtilsClass.methodFinder().first {
+                name == "getDeviceLevel"
+            }.createHook {
+                before {
+                    it.result = 2
+                }
             }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            "com.miui.home.launcher.DeviceConfig".hookBeforeMethod(
-                EzXHelper.classLoader,
-                "isSupportCompleteAnimation"
-            ) {
-                it.result = true
+            DeviceConfigClass.methodFinder().first {
+                name == "isSupportCompleteAnimation"
+            }.createHook {
+                before {
+                    it.result = true
+                }
             }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            "com.miui.home.launcher.common.DeviceLevelUtils".hookBeforeMethod(
-                EzXHelper.classLoader,
-                "isLowLevelOrLiteDevice"
-            ) {
-                it.result = false
+            DeviceLevelUtilsClass.methodFinder().first {
+                name == "isLowLevelOrLiteDevice"
+            }.createHook {
+                before {
+                    it.result = false
+                }
             }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            "com.miui.home.launcher.DeviceConfig".hookBeforeMethod(
-                EzXHelper.classLoader,
-                "isMiuiLiteVersion"
-            ) {
-                it.result = false
+            DeviceConfigClass.methodFinder().first {
+                name == "isMiuiLiteVersion"
+            }.createHook {
+                before {
+                    it.result = false
+                }
             }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
             "com.miui.home.launcher.util.noword.NoWordSettingHelperKt".hookBeforeMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "isNoWordAvailable"
             ) {
                 it.result = true
@@ -76,26 +84,20 @@ object SetDeviceLevel : HookRegister() {
         }
 
         try {
-            "android.os.SystemProperties".hookBeforeMethod(
-                EzXHelper.classLoader, "getBoolean", String::class.java, Boolean::class.java
-            ) {
-                if (it.args[0] == "ro.config.low_ram.threshold_gb") it.result = false
-            }
-        } catch (e: Throwable) {
-            Log.ex(e)
-        }
-        try {
-            "android.os.SystemProperties".hookBeforeMethod(
-                EzXHelper.classLoader, "getBoolean", String::class.java, Boolean::class.java
-            ) {
-                if (it.args[0] == "ro.miui.backdrop_sampling_enabled") it.result = true
+            SystemPropertiesClass.methodFinder().filter {
+                name == "getBoolean" && parameterTypes[0] == String::class.java && parameterTypes[1] == Boolean::class.java
+            }.toList().createHooks {
+                before {
+                    if (it.args[0] == "ro.config.low_ram.threshold_gb") it.result = false
+                    if (it.args[0] == "ro.miui.backdrop_sampling_enabled") it.result = true
+                }
             }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
             "com.miui.home.launcher.common.Utilities".hookBeforeMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "canLockTaskView"
             ) {
                 it.result = true
@@ -105,7 +107,7 @@ object SetDeviceLevel : HookRegister() {
         }
         try {
             "com.miui.home.launcher.MIUIWidgetUtil".hookBeforeMethod(
-                EzXHelper.classLoader,
+                classLoader,
                 "isMIUIWidgetSupport"
             ) {
                 it.result = true
@@ -114,7 +116,7 @@ object SetDeviceLevel : HookRegister() {
             Log.ex(e)
         }
         try {
-            "com.miui.home.launcher.MiuiHomeLog".findClass(EzXHelper.classLoader).replaceMethod(
+            "com.miui.home.launcher.MiuiHomeLog".findClass(classLoader).replaceMethod(
                 "log", String::class.java, String::class.java
             ) {
                 return@replaceMethod null
@@ -123,7 +125,7 @@ object SetDeviceLevel : HookRegister() {
             Log.ex(e)
         }
         try {
-            "com.xiaomi.onetrack.OneTrack".hookBeforeMethod(EzXHelper.classLoader, "isDisable") {
+            "com.xiaomi.onetrack.OneTrack".hookBeforeMethod(classLoader, "isDisable") {
                 it.result = true
             }
         } catch (e: Throwable) {

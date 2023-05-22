@@ -18,7 +18,8 @@ object IconCorner : HookRegister() {
             }
         }
 
-        loadClass("com.miui.home.launcher.maml.MaMlHostView").methodFinder().first {
+        val MaMlHostViewClass = loadClass("com.miui.home.launcher.maml.MaMlHostView")
+        MaMlHostViewClass.methodFinder().first {
             name == "getCornerRadius"
         }.createHook {
             before {
@@ -26,7 +27,7 @@ object IconCorner : HookRegister() {
             }
         }
 
-        loadClass("com.miui.home.launcher.maml.MaMlHostView").methodFinder().first {
+        MaMlHostViewClass.methodFinder().first {
             name == "computeRoundedCornerRadius" && parameterCount == 1
         }.createHook {
             before {

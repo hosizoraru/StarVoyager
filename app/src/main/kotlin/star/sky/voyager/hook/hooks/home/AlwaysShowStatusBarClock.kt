@@ -8,16 +8,17 @@ import star.sky.voyager.utils.key.hasEnable
 
 object AlwaysShowStatusBarClock : HookRegister() {
     override fun init() = hasEnable("home_time") {
+        val WorkspaceClass = loadClass("com.miui.home.launcher.Workspace")
         try {
-            loadClass("com.miui.home.launcher.Workspace").methodFinder().first {
+            WorkspaceClass.methodFinder().first {
                 name == "isScreenHasClockGadget"
             }
         } catch (e: Exception) {
-            loadClass("com.miui.home.launcher.Workspace").methodFinder().first {
+            WorkspaceClass.methodFinder().first {
                 name == "isScreenHasClockWidget"
             }
         } catch (e: Exception) {
-            loadClass("com.miui.home.launcher.Workspace").methodFinder().first {
+            WorkspaceClass.methodFinder().first {
                 name == "isClockWidget"
             }
         }.createHook {
