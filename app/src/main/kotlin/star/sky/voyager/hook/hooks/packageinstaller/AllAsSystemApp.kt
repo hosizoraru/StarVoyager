@@ -1,7 +1,7 @@
 package star.sky.voyager.hook.hooks.packageinstaller
 
 import android.content.pm.ApplicationInfo
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -16,7 +16,7 @@ object AllAsSystemApp : HookRegister() {
             methodParamTypes = arrayOf("Landroid/content/pm/ApplicationInfo;")
             methodReturnType = "boolean"
         }.forEach {
-            it.getMethodInstance(EzXHelper.safeClassLoader).createHook {
+            it.getMethodInstance(safeClassLoader).createHook {
                 before { param ->
                     (param.args[0] as ApplicationInfo).flags =
                         (param.args[0] as ApplicationInfo).flags.or(ApplicationInfo.FLAG_SYSTEM)

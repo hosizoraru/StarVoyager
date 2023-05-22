@@ -10,7 +10,8 @@ import star.sky.voyager.utils.key.hasEnable
 
 object UnlockSuperWallpaper : HookRegister() {
     override fun init() = hasEnable("unlock_super_wallpaper") {
-        loadClass("com.miui.superwallpaper.SuperWallpaperUtils").methodFinder().first {
+        val SuperWallpaperUtilsClass = loadClass("com.miui.superwallpaper.SuperWallpaperUtils")
+        SuperWallpaperUtilsClass.methodFinder().first {
             name == "initEnableSuperWallpaper" && parameterTypes[0] == Context::class.java
         }.createHook {
             before { param ->
@@ -18,7 +19,7 @@ object UnlockSuperWallpaper : HookRegister() {
             }
         }
         setStaticObject(
-            loadClass("com.miui.superwallpaper.SuperWallpaperUtils"),
+            SuperWallpaperUtilsClass,
             "sEnableSuperWallpaper",
             true
         )

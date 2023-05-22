@@ -8,14 +8,16 @@ import star.sky.voyager.utils.key.hasEnable
 
 object EnableOcr : HookRegister() {
     override fun init() = hasEnable("enable_ocr") {
-        loadClass("com.miui.gallery.ui.photoPage.ocr.OCRHelper").methodFinder().first {
+        val OCRHelprerClass = loadClass("com.miui.gallery.ui.photoPage.ocr.OCRHelper")
+
+        OCRHelprerClass.methodFinder().first {
             name == "isSupportLocalOCR"
         }.createHook {
             after {
                 it.result = true
             }
         }
-        loadClass("com.miui.gallery.ui.photoPage.ocr.OCRHelper").methodFinder().first {
+        OCRHelprerClass.methodFinder().first {
             name == "isSupportOCR"
         }.createHook {
             after {

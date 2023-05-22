@@ -2,11 +2,11 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodReplacement
-import de.robv.android.xposed.XposedBridge
+import de.robv.android.xposed.XposedBridge.hookMethod
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -30,8 +30,8 @@ object LockOneHundred : HookRegister() {
             methodDeclareClass = "com.miui.securityscan.scanner.ScoreManager"
         }.single()
 
-        XposedBridge.hookMethod(
-            minusScoreMethod.getMethodInstance(EzXHelper.classLoader),
+        hookMethod(
+            minusScoreMethod.getMethodInstance(classLoader),
             XC_MethodReplacement.returnConstant(0)
         )
     }

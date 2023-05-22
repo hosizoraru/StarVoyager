@@ -14,14 +14,16 @@ import star.sky.voyager.utils.key.hasEnable
 
 object RemovePackageInstallerAds : HookRegister() {
     override fun init() = hasEnable("package_installer_remove_ads") {
-        loadClass("com.android.packageinstaller.compat.MiuiSettingsCompat").methodFinder().first {
+        val MiuiSettingsCompatClass =
+            loadClass("com.android.packageinstaller.compat.MiuiSettingsCompat")
+        MiuiSettingsCompatClass.methodFinder().first {
             name == "isPersonalizedAdEnabled" && returnType == Boolean::class.java
         }.createHook {
             after {
                 it.result = false
             }
         }
-        loadClass("com.android.packageinstaller.compat.MiuiSettingsCompat").methodFinder().first {
+        MiuiSettingsCompatClass.methodFinder().first {
             name == "isInstallRiskEnabled" &&
                     paramCount == 1 &&
                     parameterTypes[0] == Context::class.java

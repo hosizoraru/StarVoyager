@@ -2,6 +2,7 @@ package star.sky.voyager.hook.hooks.packageinstaller
 
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.FieldFinder.`-Static`.fieldFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
@@ -15,13 +16,15 @@ object DisableSafeModelTip : HookRegister() {
             }?.createHook {
                 returnConstant(true)
             }
-            loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")?.methodFinder()
+            val InstallProgressActivityClass =
+                loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")
+            InstallProgressActivityClass?.methodFinder()
                 ?.first {
                     name == "g0"
                 }?.createHook {
                     returnConstant(false)
                 }
-            loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")?.methodFinder()
+            InstallProgressActivityClass?.methodFinder()
                 ?.first {
                     name == "Q1"
                 }?.createHook {
@@ -29,10 +32,10 @@ object DisableSafeModelTip : HookRegister() {
                         it.result = null
                     }
                 }
-            loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")?.methodFinder()
-                ?.first {
+            InstallProgressActivityClass?.methodFinder()
+                ?.filter {
                     true
-                }?.createHook {
+                }?.toList()?.createHooks {
                     after { param ->
                         param.thisObject.javaClass.fieldFinder().first {
                             type == Boolean::class.java

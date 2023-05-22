@@ -8,13 +8,16 @@ import star.sky.voyager.utils.key.hasEnable
 
 object MaxFreeFormA : HookRegister() {
     override fun init() = hasEnable("max_free_form") {
-        loadClass("com.android.server.wm.MiuiFreeFormStackDisplayStrategy").methodFinder().first {
+        val MiuiFreeFormStackDisplayStrategyClass =
+            loadClass("com.android.server.wm.MiuiFreeFormStackDisplayStrategy")
+
+        MiuiFreeFormStackDisplayStrategyClass.methodFinder().first {
             name == "getMaxMiuiFreeFormStackCount"
         }.createHook {
             returnConstant(256)
         }
 
-        loadClass("com.android.server.wm.MiuiFreeFormStackDisplayStrategy").methodFinder().first {
+        MiuiFreeFormStackDisplayStrategyClass.methodFinder().first {
             name == "getMaxMiuiFreeFormStackCountForFlashBack"
         }.createHook {
             returnConstant(256)

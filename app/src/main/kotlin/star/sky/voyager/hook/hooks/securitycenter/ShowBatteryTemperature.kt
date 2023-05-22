@@ -15,7 +15,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
@@ -28,7 +28,7 @@ import star.sky.voyager.utils.key.hasEnable
 object ShowBatteryTemperature : HookRegister() {
     override fun init() = hasEnable("battery_life_function") {
         val batteryFragmentClass =
-            "com.miui.powercenter.BatteryFragment".findClassOrNull(EzXHelper.classLoader)
+            "com.miui.powercenter.BatteryFragment".findClassOrNull(classLoader)
         if (batteryFragmentClass != null) {
             loadClass("com.miui.powercenter.BatteryFragment").methodFinder().first {
                 paramCount == 1 && returnType == String::class.java && isStatic

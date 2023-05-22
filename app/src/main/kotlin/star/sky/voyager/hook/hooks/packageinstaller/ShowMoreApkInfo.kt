@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.Log
 import de.robv.android.xposed.XposedHelpers
@@ -35,14 +35,16 @@ object ShowMoreApkInfo : HookRegister() {
 
     @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("package_installer_show_more_apk_info") {
-        mApkInfo = "com.miui.packageInstaller.model.ApkInfo".findClassOrNull(EzXHelper.classLoader)
+        mApkInfo = "com.miui.packageInstaller.model.ApkInfo".findClassOrNull(classLoader)
         mAppInfoViewObject =
-            "com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject".findClassOrNull(EzXHelper.classLoader)
+            "com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject".findClassOrNull(
+                classLoader
+            )
 
         if (mAppInfoViewObject != null) {
             mAppInfoViewObjectViewHolder =
                 "com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject\$ViewHolder".findClassOrNull(
-                    EzXHelper.classLoader
+                    classLoader
                 )
             val methods: Array<Method> = XposedHelpers.findMethodsByExactParameters(
                 mAppInfoViewObject,
