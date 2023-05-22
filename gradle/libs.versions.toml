@@ -2,7 +2,7 @@
 agp = "8.2.0-alpha04"
 #al = "8.2.0-alpha04"
 constraintlayout = "2.2.0-alpha09"
-dexkit = "1.1.7"
+dexkit = "1.1.8"
 ezxhelper = "2.0.3"
 hidden-api-bypass = "4.3"
 jpinyin = "1.0.1"
