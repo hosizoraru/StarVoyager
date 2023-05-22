@@ -23,7 +23,6 @@ import star.sky.voyager.activity.pages.SecurityPage
 import star.sky.voyager.activity.pages.SmartHubPage
 import star.sky.voyager.activity.pages.SystemUIPage
 import star.sky.voyager.utils.key.BackupUtils
-import kotlin.system.exitProcess
 
 class MainActivity : MIUIActivity() {
     private val activity = this
@@ -39,16 +38,17 @@ class MainActivity : MIUIActivity() {
             setSP(getSharedPreferences("voyager_config", MODE_WORLD_READABLE))
             return true
         } catch (exception: SecurityException) {
-            isLoad = false
+            isLoad = true
             MIUIDialog(this) {
                 setTitle(R.string.warning)
                 setMessage(R.string.not_support)
                 setCancelable(false)
                 setRButton(R.string.done) {
-                    exitProcess(0)
+//                    exitProcess(0)
+                    dismiss()
                 }
             }.show()
-            return false
+            return true
         }
     }
 
