@@ -227,6 +227,8 @@
     <string name="status_bar_network_speed_dual_row_size">双排大小（0：不更改）</string>
     <string name="status_bar_network_speed_dual_row_icon">双排图标</string>
     <string name="status_bar_network_speed_dual_row_gravity">双排对齐</string>
+    <string name="hide_slow_speed_network_speed">当网速较慢时隐藏网速\n(单位为0.5/s)</string>
+    <string name="slow_speed_degree">网速较慢的程度</string>
 
     <string name="maximum_number_of_notification_icons">通知图标最大数量</string>
     <string name="maximum_number_of_notification_dots">通知点数最大数量</string>

@@ -230,6 +230,8 @@
     <string name="status_bar_network_speed_dual_row_size">Dual row size (0: do not change)</string>
     <string name="status_bar_network_speed_dual_row_icon">Dual row icon</string>
     <string name="status_bar_network_speed_dual_row_gravity">Dual row align</string>
+    <string name="hide_slow_speed_network_speed">Hide network speed when slow speed\n(The unit is 0.5/s)</string>
+    <string name="slow_speed_degree">Slow speed degree</string>
 
     <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
     <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>

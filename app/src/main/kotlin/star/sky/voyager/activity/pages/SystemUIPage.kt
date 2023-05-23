@@ -712,6 +712,15 @@ class SystemUIPage : BasePage() {
             0,
             dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.hide_slow_speed_network_speed,
+            ),
+            SwitchV(
+                "hide_slow_speed_network_speed",
+            )
+        )
+        SeekBarWithText("slow_speed_degree", 0, 100, 1)
         Line()
         TitleText(textId = R.string.notification_center)
         val showWeatherMainSwitchBinding = GetDataBinding({

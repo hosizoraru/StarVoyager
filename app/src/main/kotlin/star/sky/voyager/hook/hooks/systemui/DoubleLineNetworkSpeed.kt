@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
@@ -47,38 +48,38 @@ object DoubleLineNetworkSpeed : HookRegister() {
             .first {
                 parameterCount == 2
             }.createHook {
-            after {
-                val mView = it.thisObject as TextView
-                mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 7f)
-                if (getDualSize != 0) {
-                    mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getDualSize.toFloat())
-                }
-                mView.isSingleLine = false
-                mView.setLineSpacing(0F, 0.8F)
-                if (getDualAlign == 0) {
-                    mView.gravity = Gravity.START or Gravity.CENTER_VERTICAL
-                } else {
-                    mView.gravity = Gravity.END or Gravity.CENTER_VERTICAL
+                after {
+                    val mView = it.thisObject as TextView
+                    mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 7f)
+                    if (getDualSize != 0) {
+                        mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getDualSize.toFloat())
+                    }
+                    mView.isSingleLine = false
+                    mView.setLineSpacing(0F, 0.8F)
+                    if (getDualAlign == 0) {
+                        mView.gravity = Gravity.START or Gravity.CENTER_VERTICAL
+                    } else {
+                        mView.gravity = Gravity.END or Gravity.CENTER_VERTICAL
+                    }
                 }
             }
-        }
 
         loadClass("com.android.systemui.statusbar.policy.NetworkSpeedController").methodFinder()
             .first {
                 name == "formatSpeed" && parameterCount == 2
             }.createHook {
-            before {
-                if (getDualAlign == 0) {
-                    it.result = "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n$downIcon ${
-                        getTotalDownloadSpeed(it.args[0] as Context)
-                    }"
-                } else {
-                    it.result = "${getTotalUpSpeed(it.args[0] as Context)} $upIcon\n${
-                        getTotalDownloadSpeed(it.args[0] as Context)
-                    } $downIcon"
+                before {
+                    if (getDualAlign == 0) {
+                        it.result = "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n$downIcon ${
+                            getTotalDownloadSpeed(it.args[0] as Context)
+                        }"
+                    } else {
+                        it.result = "${getTotalUpSpeed(it.args[0] as Context)} $upIcon\n${
+                            getTotalDownloadSpeed(it.args[0] as Context)
+                        } $downIcon"
+                    }
                 }
             }
-        }
     }
 
     //获取总的上行速度
@@ -92,6 +93,8 @@ object DoubleLineNetworkSpeed : HookRegister() {
         val bytes =
             (currentTotalTxBytes - mLastTotalUp) * 1000 / (nowTimeStampTotalUp - lastTimeStampTotalUp).toFloat()
         val unit: String
+
+        Log.i("upload: $bytes")
 
         if (bytes >= 1048576) {
             totalUpSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
@@ -117,10 +120,20 @@ object DoubleLineNetworkSpeed : HookRegister() {
         mLastTotalUp = currentTotalTxBytes
         lastTimeStampTotalUp = nowTimeStampTotalUp
 
-        return if (totalUpSpeed >= 100) {
-            "${totalUpSpeed.toInt()}$unit"
+        // 隐藏慢速
+        val hideLow = XSPUtils.getBoolean("hide_slow_speed_network_speed", false)
+
+        // 慢速水平
+        val lowLevel = XSPUtils.getInt("slow_speed_degree", 1) * 512.toFloat()
+
+        return if (hideLow && bytes < lowLevel) {
+            ""
         } else {
-            "${totalUpSpeed}$unit"
+            if (totalUpSpeed >= 100) {
+                "${totalUpSpeed.toInt()}$unit"
+            } else {
+                "${totalUpSpeed}$unit"
+            }
         }
     }
 
@@ -135,6 +148,8 @@ object DoubleLineNetworkSpeed : HookRegister() {
             (currentTotalRxBytes - mLastTotalDown) * 1000 / (nowTimeStampTotalDown - lastTimeStampTotalDown).toFloat()
 
         val unit: String
+
+        Log.i("download: $bytes")
 
         if (bytes >= 1048576) {
             totalDownSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
@@ -159,11 +174,20 @@ object DoubleLineNetworkSpeed : HookRegister() {
         mLastTotalDown = currentTotalRxBytes
         lastTimeStampTotalDown = nowTimeStampTotalDown
 
-        return if (totalDownSpeed >= 100) {
-            "${totalDownSpeed.toInt()}$unit"
-        } else {
-            "${totalDownSpeed}$unit"
-        }
+        // 隐藏慢速
+        val hideLow = XSPUtils.getBoolean("hide_slow_speed_network_speed", false)
 
+        // 慢速水平
+        val lowLevel = XSPUtils.getInt("slow_speed_degree", 1) * 512.toFloat()
+
+        return if (hideLow && bytes < lowLevel) {
+            ""
+        } else {
+            if (totalDownSpeed >= 100) {
+                "${totalDownSpeed.toInt()}$unit"
+            } else {
+                "${totalDownSpeed}$unit"
+            }
+        }
     }
 }
