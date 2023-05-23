@@ -46,6 +46,7 @@
     <string name="restart_scope_miui_home_tips">Are you sure to restart MiuiHome?</string>
 
     <string name="main_switch">Module main switch</string>
+    <string name="su_permission">Please give this module Su/Root permission</string>
     <string name="about">About</string>
     <string name="about_module">About Module</string>
     <string name="about_module_summary">View module related information</string>

@@ -46,15 +46,24 @@ class MenuPage : BasePage() {
                         dismiss()
                     }
                     setRButton(R.string.done) {
-                        PACKAGE_NAME_HOOKED.forEach {
-                            if (it != "android") Terminal.exec("killall $it")
+                        try {
+                            PACKAGE_NAME_HOOKED.forEach {
+                                if (it != "android") Terminal.exec("killall $it")
+                            }
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.finished),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            dismiss()
+                        } catch (_: Throwable) {
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.su_permission),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            dismiss()
                         }
-                        Toast.makeText(
-                            activity,
-                            getString(R.string.finished),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        dismiss()
                     }
                 }.show()
             }
@@ -70,13 +79,22 @@ class MenuPage : BasePage() {
                         dismiss()
                     }
                     setRButton(R.string.done) {
-                        Terminal.exec("killall com.android.systemui")
-                        Toast.makeText(
-                            activity,
-                            getString(R.string.finished),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        dismiss()
+                        try {
+                            Terminal.exec("killall com.android.systemui")
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.finished),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            dismiss()
+                        } catch (_: Throwable) {
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.su_permission),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            dismiss()
+                        }
                     }
                 }.show()
             }
@@ -92,25 +110,44 @@ class MenuPage : BasePage() {
                         dismiss()
                     }
                     setRButton(R.string.done) {
-                        Terminal.exec("killall com.miui.home")
-                        Toast.makeText(
-                            activity,
-                            getString(R.string.finished),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        dismiss()
+                        try {
+                            Terminal.exec("killall com.miui.home")
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.finished),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            dismiss()
+                        } catch (_: Throwable) {
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.su_permission),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            dismiss()
+                        }
                     }
                 }.show()
             }
         )
         Line()
-        TextSummaryWithArrow(TextSummaryV(
-            textId = R.string.backup, onClickListener = {
-                BackupUtils.backup(activity, activity.createDeviceProtectedStorageContext().getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE))
-            }))
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.backup, onClickListener = {
+                    BackupUtils.backup(
+                        activity,
+                        activity.createDeviceProtectedStorageContext()
+                            .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
+                    )
+                })
+        )
 
         TextSummaryWithArrow(TextSummaryV(textId = R.string.recovery, onClickListener = {
-            BackupUtils.recovery(activity, activity.createDeviceProtectedStorageContext().getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE))
+            BackupUtils.recovery(
+                activity,
+                activity.createDeviceProtectedStorageContext()
+                    .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
+            )
         }))
 
         TextWithArrow(TextV(textId = R.string.ResetModule, onClickListener = {
@@ -118,8 +155,13 @@ class MenuPage : BasePage() {
                 setTitle(R.string.ResetModuleDialog)
                 setMessage(R.string.ResetModuleDialogTips)
                 setLButton(R.string.done) {
-                    activity.getSharedPreferences("voyager_config", Activity.MODE_WORLD_READABLE).edit().clear().apply()
-                    Toast.makeText(activity, activity.getString(R.string.ResetSuccess), Toast.LENGTH_LONG).show()
+                    activity.getSharedPreferences("voyager_config", Activity.MODE_WORLD_READABLE)
+                        .edit().clear().apply()
+                    Toast.makeText(
+                        activity,
+                        activity.getString(R.string.ResetSuccess),
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
                 setRButton(R.string.cancel)
                 finally { dismiss() }
