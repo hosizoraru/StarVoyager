@@ -52,5 +52,13 @@ class PowerKeeperPage : BasePage() {
                     }
                 })
         )
+        Line()
+        TitleText(textId = R.string.scope_mi_settings)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.dc_fps,
+                tipsId = R.string.dc_fps_summary
+            ), SwitchV("dc_fps")
+        )
     }
 }

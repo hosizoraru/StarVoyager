@@ -33,6 +33,7 @@
     <string name="scope_guard_provider">MiuiGuardProvider</string>
     <string name="scope_pkg_installer">Package Installer</string>
     <string name="scope_music">Music</string>
+    <string name="scope_mi_settings">Mi Settings</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -312,6 +313,9 @@
     <string name="Anti_Defraud_App_Manager">Anti Defraud App Manager</string>
 
     <string name="remove_open_ad">Remove AD on Start Activity</string>
+
+    <string name="dc_fps">Support DC + HighFps</string>
+    <string name="dc_fps_summary">for mix4/mi12/mi12s</string>
 
     <string name="custom_refresh_rate">Custom refresh rate</string>
     <string name="do_not_clear_app">Prevent killing background apps</string>

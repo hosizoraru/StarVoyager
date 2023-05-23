@@ -30,6 +30,7 @@
     <string name="scope_guard_provider">Miui安全组件</string>
     <string name="scope_pkg_installer">应用包管理组件</string>
     <string name="scope_music">音乐</string>
+    <string name="scope_mi_settings">小米设置</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -309,6 +310,9 @@
     <string name="Anti_Defraud_App_Manager">阻止上传应用列表</string>
 
     <string name="remove_open_ad">移除开屏广告</string>
+
+    <string name="dc_fps">允许DC+高刷同开</string>
+    <string name="dc_fps_summary">比如mix4/mi12/mi12s无法高刷dc的机型</string>
 
     <string name="custom_refresh_rate">自定义高刷新率应用</string>
     <string name="do_not_clear_app">防止杀死后台应用</string>
