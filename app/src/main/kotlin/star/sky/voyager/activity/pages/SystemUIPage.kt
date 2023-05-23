@@ -720,7 +720,7 @@ class SystemUIPage : BasePage() {
                 "hide_slow_speed_network_speed",
             )
         )
-        SeekBarWithText("slow_speed_degree", 0, 100, 1)
+        SeekBarWithText("slow_speed_degree", 0, 200, 1)
         Line()
         TitleText(textId = R.string.notification_center)
         val showWeatherMainSwitchBinding = GetDataBinding({
