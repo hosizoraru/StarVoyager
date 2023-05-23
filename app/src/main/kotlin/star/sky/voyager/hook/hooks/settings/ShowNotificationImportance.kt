@@ -4,9 +4,11 @@ import android.app.NotificationChannel
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField
+import de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField
 import star.sky.voyager.utils.api.callMethod
-import star.sky.voyager.utils.api.callMethodAs
+import star.sky.voyager.utils.api.callMethodOrNull
+import star.sky.voyager.utils.api.callMethodOrNullAs
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
@@ -19,17 +21,16 @@ object ShowNotificationImportance : HookRegister() {
                 name == "removeDefaultPrefs"
             }.createHook {
                 before {
-                    val importance =
-                        it.thisObject.callMethod("findPreference", "importance")
-                            ?: return@before
-                    val mChannel = it.thisObject.getObjectField("mChannel") as NotificationChannel
-                    val index = importance.callMethodAs<Int>(
+                    val importance = it.thisObject.callMethodOrNull("findPreference", "importance")
+                        ?: return@before
+                    val mChannel = it.thisObject.getObjectFieldAs<NotificationChannel>("mChannel")
+                    val index = importance.callMethodOrNullAs<Int>(
                         "findSpinnerIndexOfValue",
                         mChannel.importance.toString()
-                    )
+                    )!!
                     if (index < 0) return@before
                     importance.callMethod("setValueIndex", index)
-                    XposedHelpers.setAdditionalInstanceField(
+                    setAdditionalInstanceField(
                         importance,
                         "channelNotificationSettings",
                         it.thisObject
@@ -42,17 +43,13 @@ object ShowNotificationImportance : HookRegister() {
             name == "callChangeListener" && parameterTypes[0] == Any::class.java
         }.createHook {
             after {
-                val channelNotificationSettings = XposedHelpers.getAdditionalInstanceField(
+                val channelNotificationSettings = getAdditionalInstanceField(
                     it.thisObject,
                     "channelNotificationSettings"
                 ) ?: return@after
                 val mChannel =
-                    channelNotificationSettings.getObjectField("mChannel") as NotificationChannel
-                mChannel.callMethod(
-                    "setImportance",
-                    null,
-                    (it.args[0] as String).toInt()
-                )
+                    channelNotificationSettings.getObjectFieldAs<NotificationChannel>("mChannel")
+                mChannel.callMethod("setImportance", (it.args[0] as String).toInt())
                 val mBackend =
                     channelNotificationSettings.getObjectField("mBackend") ?: return@after
                 val mPkg = channelNotificationSettings.getObjectFieldAs<String>("mPkg")
