@@ -325,6 +325,9 @@
     <string name="prevent_recovery_of_battery_optimization_white_list">Prevent recovery of battery optimization whitelist</string>
     <string name="battery_optimization">Battery optimization</string>
     <string name="battery_optimization_summary">Quickly open the battery optimization menu hidden by MIUI</string>
+    <string name="exported">Exported</string>
+    <string name="exported_summary">Quickly open the Exported</string>
+    <string name="original_notification">Original Notification</string>
 
     <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
     <string name="skip_waiting_time_summary">Ignore the waiting time by MIUI when eanbling USB debugging, unknown sources and accessibility</string>

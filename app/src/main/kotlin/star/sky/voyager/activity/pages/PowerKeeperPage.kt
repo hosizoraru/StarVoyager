@@ -60,5 +60,40 @@ class PowerKeeperPage : BasePage() {
                 tipsId = R.string.dc_fps_summary
             ), SwitchV("dc_fps")
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.exported,
+                tipsId = R.string.exported_summary,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.android.settings",
+                            "com.android.settings.Settings\$ReduceBrightColorsSettingsActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                    }
+                })
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.original_notification,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.android.settings",
+                            "com.android.settings.Settings\$ConfigureNotificationSettingsActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                    }
+                })
+        )
     }
 }
