@@ -222,8 +222,8 @@
 
     <string name="status_bar_network_speed_refresh_speed">Network speed refresh in seconds</string>
     <string name="status_bar_network_speed_refresh_speed_summary">Change the refresh frequency of the status bar network speed component to 1s</string>
-    <string name="hide_status_bar_network_speed_second">Hide network speed (/s) units</string>
-    <string name="hide_status_bar_network_speed_second_summary">Hide the (/s) units of the status bar network speed component</string>
+    <string name="hide_status_bar_network_speed_second">Hide network speed (B/s) units</string>
+    <string name="hide_status_bar_network_speed_second_summary">Hide the (B/s) units of the status bar network speed component</string>
     <string name="hide_network_speed_splitter">Hide network speed splitter</string>
     <string name="status_bar_dual_row_network_speed">Dual row network speed</string>
     <string name="status_bar_dual_row_network_speed_summary">Up and down network speed display</string>

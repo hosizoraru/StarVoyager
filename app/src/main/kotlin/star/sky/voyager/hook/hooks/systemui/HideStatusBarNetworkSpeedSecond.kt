@@ -18,6 +18,8 @@ object HideStatusBarNetworkSpeedSecond : HookRegister() {
                         .replace("s", "")
                         .replace("\'", "")
                         .replace("วิ", "")
+                        .replace("秒", "")
+                        .replace("B", "")
                     it.args[0] = mText
                 }
             }

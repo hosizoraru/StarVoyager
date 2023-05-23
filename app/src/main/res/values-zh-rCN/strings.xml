@@ -219,8 +219,8 @@
 
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
     <string name="status_bar_network_speed_refresh_speed_summary">将状态栏网速组件的刷新频率改成1s</string>
-    <string name="hide_status_bar_network_speed_second">隐藏网速（/s）单位</string>
-    <string name="hide_status_bar_network_speed_second_summary">隐藏状态栏网速组件的（/s）单位</string>
+    <string name="hide_status_bar_network_speed_second">隐藏网速（B/s）单位</string>
+    <string name="hide_status_bar_network_speed_second_summary">隐藏状态栏网速组件的（B/s）单位</string>
     <string name="hide_network_speed_splitter">隐藏网速分隔符</string>
     <string name="status_bar_dual_row_network_speed">双排网络速度</string>
     <string name="status_bar_dual_row_network_speed_summary">上下行网络速度显示</string>
