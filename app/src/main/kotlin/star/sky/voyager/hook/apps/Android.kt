@@ -39,7 +39,7 @@ object Android : AppRegister() {
             DoNotClearAppPlusA, // 更激进的防止杀死后台应用
             // max mi pad
             MiuiFixedOrientationController,
-            MiuiMagicPointerUtils,
+            MiuiMagicPointerUtils, // 老版本系统hook的，新版本已经找不到此Class 关闭Magic Pointer
             MiuiStylusDeviceListener,
             MiuiStylusPageKeyListener,
             SetPadMode,

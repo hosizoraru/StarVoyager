@@ -22,11 +22,12 @@ object GestureOperationHelper : HookRegister() {
             before { param ->
                 val motionEvent = param.args[0] as MotionEvent
                 val swipeFlag = param.args[1] as Int
-                val flagSwipeLeft = clazzGestureOperationHelper.field("SWIPE_DIRECTION_LEFT", true)
+                val flagSwipeLeft = clazzGestureOperationHelper
+                    .field("SWIPE_DIRECTION_LEFT", true)
                     .getInt(null)
-                val flagSwipeRight =
-                    clazzGestureOperationHelper.field("SWIPE_DIRECTION_RIGHT", true)
-                        .getInt(null)
+                val flagSwipeRight = clazzGestureOperationHelper
+                    .field("SWIPE_DIRECTION_RIGHT", true)
+                    .getInt(null)
                 val flagsSwipeLeftAndRight = setOf(flagSwipeLeft, flagSwipeRight)
                 val z = if (motionEvent.device == null) {
                     true
@@ -34,7 +35,7 @@ object GestureOperationHelper : HookRegister() {
                     motionEvent.device.sources and 4098 == 4098
                 }
                 param.result =
-                    true && z && (swipeFlag in flagsSwipeLeftAndRight) && motionEvent.pointerCount == 4
+                    z && (swipeFlag in flagsSwipeLeftAndRight) && motionEvent.pointerCount == 4
             }
         }
     }
