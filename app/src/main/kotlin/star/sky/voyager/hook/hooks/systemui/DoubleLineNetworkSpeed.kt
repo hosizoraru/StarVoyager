@@ -8,7 +8,6 @@ import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
@@ -94,8 +93,6 @@ object DoubleLineNetworkSpeed : HookRegister() {
             (currentTotalTxBytes - mLastTotalUp) * 1000 / (nowTimeStampTotalUp - lastTimeStampTotalUp).toFloat()
         val unit: String
 
-        Log.i("upload: $bytes")
-
         if (bytes >= 1048576) {
             totalUpSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
             unit = context.resources.getString(
@@ -148,8 +145,6 @@ object DoubleLineNetworkSpeed : HookRegister() {
             (currentTotalRxBytes - mLastTotalDown) * 1000 / (nowTimeStampTotalDown - lastTimeStampTotalDown).toFloat()
 
         val unit: String
-
-        Log.i("download: $bytes")
 
         if (bytes >= 1048576) {
             totalDownSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
