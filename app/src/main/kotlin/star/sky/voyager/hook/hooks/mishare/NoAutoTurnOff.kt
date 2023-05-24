@@ -12,9 +12,9 @@ object NoAutoTurnOff : HookRegister() {
     override fun init() = hasEnable("No_Auto_Turn_Off") {
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", listOf("EnabledState","mishare_enabled"))
+            addQuery("qwq", listOf("EnabledState", "mishare_enabled"))
             matchType = MatchType.FULL
-        }.forEach { ( _, classes) ->
+        }.forEach { (_, classes) ->
             classes.map {
                 it.getMethodInstance(classLoader)
             }.createHooks {
