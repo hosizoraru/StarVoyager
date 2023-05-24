@@ -317,6 +317,31 @@ class HomePage : BasePage() {
                 }), dataBindingRecv = monoBinding.binding.getRecv(1)
         )
         Line()
+        TitleText(textId = R.string.scope_personal_assistant)
+        val blurPersonalAssistantBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "blur_personal_assistant",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.blur_personal_assistant,
+            ),
+            SwitchV(
+                "blur_personal_assistant",
+                false,
+                dataBindingSend = blurPersonalAssistantBinding.bindingSend
+            )
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.blur_personal_assistant_radius),
+            SeekBarWithTextV("blur_personal_assistant_radius", 30, 99, 80),
+            dataBindingRecv = blurPersonalAssistantBinding.binding.getRecv(1)
+        )
+        Line()
         TitleText(textId = R.string.already_no_necessary)
         TextSummaryWithSwitch(
             TextSummaryV(

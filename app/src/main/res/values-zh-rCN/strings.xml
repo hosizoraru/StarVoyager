@@ -31,6 +31,7 @@
     <string name="scope_pkg_installer">应用包管理组件</string>
     <string name="scope_music">音乐</string>
     <string name="scope_mi_settings">小米设置</string>
+    <string name="scope_personal_assistant">智能助理</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -408,6 +409,7 @@
     <string name="home_task_view_card_size_vertical">瀑布卡片大小</string>
     <string name="home_task_view_card_size_horizontal1">平铺卡片大小「竖屏时」</string>
     <string name="home_task_view_card_size_horizontal2">平铺卡片大小「横屏时」</string>
+
     <string name="home_folder_anim">文件夹动画修改</string>
     <string name="home_folder_anim_1">文件夹打开回弹(越小越明显)</string>
     <string name="home_folder_anim_2">打开快慢(越大越慢)</string>
@@ -422,6 +424,9 @@
     <string name="your_theme_accent_color">系统强调色</string>
     <string name="your_theme_neutral_color">系统中性色</string>
     <string name="your_theme_style">取色风格</string>
+
+    <string name="blur_personal_assistant">负一屏模糊</string>
+    <string name="blur_personal_assistant_radius">模糊程度</string>
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>

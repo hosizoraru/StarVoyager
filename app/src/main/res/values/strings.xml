@@ -34,6 +34,7 @@
     <string name="scope_pkg_installer">Package Installer</string>
     <string name="scope_music">Music</string>
     <string name="scope_mi_settings">Mi Settings</string>
+    <string name="scope_personal_assistant">Personal Assistant</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -431,6 +432,9 @@
     <string name="your_theme_accent_color">Accent color</string>
     <string name="your_theme_neutral_color">Neutral color</string>
     <string name="your_theme_style">Color style</string>
+
+    <string name="blur_personal_assistant">Blur for App Vault</string>
+    <string name="blur_personal_assistant_radius">Blur Radius</string>
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>

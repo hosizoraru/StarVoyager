@@ -39,6 +39,5 @@ object TaskViewCardSize : HookRegister() {
                 )
             }
         }
-
     }
 }

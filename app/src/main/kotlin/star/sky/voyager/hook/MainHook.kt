@@ -19,6 +19,7 @@ import star.sky.voyager.hook.apps.MiSettings
 import star.sky.voyager.hook.apps.MiShare
 import star.sky.voyager.hook.apps.Music
 import star.sky.voyager.hook.apps.PackageInstaller
+import star.sky.voyager.hook.apps.PersonalAssistant
 import star.sky.voyager.hook.apps.PowerKeeper
 import star.sky.voyager.hook.apps.RearDisplay
 import star.sky.voyager.hook.apps.Scanner
@@ -49,6 +50,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.miui.mishare.connectivity",
     "com.miui.player",
     "com.miui.packageinstaller",
+    "com.miui.personalassistant",
     "com.miui.powerkeeper",
     "com.xiaomi.misubscreenui",
     "com.xiaomi.scanner",
@@ -81,6 +83,7 @@ class MainHook : EasyXposedInit() {
         MiShare, // 小米互传
         Music, // 音乐
         PackageInstaller, // 应用包管理组件
+        PersonalAssistant, // 智能助理
         PowerKeeper, // 电量与性能
         RearDisplay, // 背屏
         Scanner, // 小爱视觉
