@@ -11,7 +11,7 @@ import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object TaskViewCardSize : HookRegister() {
-    override fun init() = hasEnable("home_anim_ratio_binding") {
+    override fun init() = hasEnable("home_task_view_card_size_binding") {
         // TODO: 改写这里为什么会失败呢？
         val value = getInt("home_task_view_card_size_vertical", 100).toFloat() / 100f
         val value1 = getInt("home_task_view_card_size_horizontal1", 100).toFloat() / 100f
