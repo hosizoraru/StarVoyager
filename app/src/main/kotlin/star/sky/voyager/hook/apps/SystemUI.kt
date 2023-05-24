@@ -17,9 +17,9 @@ import star.sky.voyager.hook.hooks.systemui.HideStatusBarIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarNetworkSpeedSecond
 import star.sky.voyager.hook.hooks.systemui.HideWifiActivityIcon
 import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
-import star.sky.voyager.hook.hooks.systemui.LockScreenClockUseSystemFont
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
+import star.sky.voyager.hook.hooks.systemui.LockScreenTimeUseSystemFont
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.MonetTheme
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
@@ -65,7 +65,7 @@ object SystemUI : AppRegister() {
             RestoreNearbyTile, // 恢复附近分享磁贴
             DisableBluetooth, // 禁用蓝牙临时关闭
             LockScreenClockDisplaySeconds, // 时钟显示秒数
-            LockScreenClockUseSystemFont, // 锁屏界面时钟使用系统字体
+            LockScreenTimeUseSystemFont, // 锁屏界面时钟使用系统字体
             BlurLockScreenButton, // 模糊锁屏界面按钮
             RemoveTheLeftSideOfTheLockScreen, // 移除锁屏负一屏功能
             RemoveLockScreenCamera, // 移除锁屏相机功能

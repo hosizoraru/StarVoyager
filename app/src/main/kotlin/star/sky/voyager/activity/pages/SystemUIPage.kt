@@ -819,9 +819,15 @@ class SystemUIPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.lock_screen_time_use_system_font,
+                textId = R.string.lock_screen_clock_use_system_font,
                 tipsId = R.string.only_official_default_themes_are_supported
-            ), SwitchV("lock_screen_time_use_system_font")
+            ), SwitchV("lock_screen_clock_use_system_font")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.lock_screen_date_use_system_font,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("lock_screen_date_use_system_font")
         )
         TextSummaryWithSwitch(
             TextSummaryV(

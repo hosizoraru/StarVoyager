@@ -9,14 +9,16 @@ import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object LockScreenClockUseSystemFont : HookRegister() {
-    override fun init() = hasEnable("lock_screen_time_use_system_font") {
+object LockScreenTimeUseSystemFont : HookRegister() {
+    override fun init() {
         loadClass("com.miui.clock.MiuiBaseClock").methodFinder()
             .filterByName("updateViewsTextSize")
             .toList().createHooks {
                 after { param ->
-                    val mTimeText = param.thisObject.getObjectFieldAs<TextView>("mTimeText")
-                    mTimeText.typeface = Typeface.DEFAULT
+                    hasEnable("lock_screen_clock_use_system_font") {
+                        val mTimeText = param.thisObject.getObjectFieldAs<TextView>("mTimeText")
+                        mTimeText.typeface = Typeface.DEFAULT
+                    }
                 }
             }
         loadClass("com.miui.clock.MiuiLeftTopLargeClock").methodFinder()
@@ -24,8 +26,11 @@ object LockScreenClockUseSystemFont : HookRegister() {
                 name == "onLanguageChanged" && parameterTypes[0] == String::class.java
             }.toList().createHooks {
                 after { param ->
-                    val mTimeText = param.thisObject.getObjectFieldAs<TextView>("mCurrentDateLarge")
-                    mTimeText.typeface = Typeface.DEFAULT
+                    hasEnable("lock_screen_date_use_system_font") {
+                        val mTimeText =
+                            param.thisObject.getObjectFieldAs<TextView>("mCurrentDateLarge")
+                        mTimeText.typeface = Typeface.DEFAULT
+                    }
                 }
             }
     }
