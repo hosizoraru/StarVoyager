@@ -314,7 +314,7 @@
     <string name="remove_open_ad">移除开屏广告</string>
 
     <string name="dc_fps">允许DC+高刷同开</string>
-    <string name="dc_fps_summary">比如mix4/mi12/mi12s无法高刷dc的机型</string>
+    <string name="dc_fps_summary">for mix4</string>
 
     <string name="custom_refresh_rate">自定义高刷新率应用</string>
     <string name="do_not_clear_app">防止杀死后台应用</string>
