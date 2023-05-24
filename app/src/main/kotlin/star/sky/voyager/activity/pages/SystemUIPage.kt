@@ -819,6 +819,12 @@ class SystemUIPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.lock_screen_time_use_system_font,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("lock_screen_time_use_system_font")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.blur_lock_screen_button,
                 tipsId = R.string.only_official_default_themes_are_supported
             ), SwitchV("blur_lock_screen_button")
