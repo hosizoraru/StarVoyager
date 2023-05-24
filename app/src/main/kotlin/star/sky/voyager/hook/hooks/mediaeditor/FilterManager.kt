@@ -4,6 +4,7 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.FieldFinder.`-Static`.fieldFinder
+import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -15,6 +16,7 @@ object FilterManager : HookRegister() {
         dexKitBridge.findMethodUsingString {
             usingString = "wayne"
             methodReturnType = "Ljava/util/List;"
+            matchType = MatchType.FULL
         }.single().getMethodInstance(classLoader).createHook {
             before {
                 loadClass("android.os.Build").fieldFinder().first {
