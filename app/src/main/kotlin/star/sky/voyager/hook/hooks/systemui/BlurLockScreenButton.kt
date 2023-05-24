@@ -1,5 +1,7 @@
 package star.sky.voyager.hook.hooks.systemui
 
+import android.app.KeyguardManager
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.LayerDrawable
 import android.view.View
@@ -11,8 +13,15 @@ import star.sky.voyager.utils.api.createBlurDrawable
 import star.sky.voyager.utils.api.getValueByField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import java.lang.ref.WeakReference
+import java.util.Timer
+import java.util.TimerTask
 
 object BlurLockScreenButton : HookRegister() {
+    private var mLeftAffordanceView: WeakReference<ImageView>? = null
+    private var mRightAffordanceView: WeakReference<ImageView>? = null
+    private var keyguardBottomAreaView: WeakReference<View>? = null
+
     override fun init() = hasEnable("blur_lock_screen_button") {
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
@@ -20,35 +29,53 @@ object BlurLockScreenButton : HookRegister() {
             name == "onAttachedToWindow"
         }?.toList()?.createHooks {
             after { param ->
-                val mLeftAffordanceView = getValueByField(
-                    param.thisObject,
-                    "mLeftAffordanceView"
-                ) as ImageView
-                val mRightAffordanceView = getValueByField(
-                    param.thisObject,
-                    "mRightAffordanceView"
-                ) as ImageView
-
-                val keyguardBottomAreaView = param.thisObject as View
-                val leftBlurDrawable = createBlurDrawable(
-                    keyguardBottomAreaView,
-                    40,
-                    100,
-                    Color.argb(60, 255, 255, 255)
+                mLeftAffordanceView = WeakReference(
+                    getValueByField(
+                        param.thisObject,
+                        "mLeftAffordanceView"
+                    ) as ImageView
                 )
-                val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
-                val rightBlurDrawable = createBlurDrawable(
-                    keyguardBottomAreaView,
-                    40,
-                    100,
-                    Color.argb(60, 255, 255, 255)
+                mRightAffordanceView = WeakReference(
+                    getValueByField(
+                        param.thisObject,
+                        "mRightAffordanceView"
+                    ) as ImageView
                 )
-                val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
-                leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
-                rightLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
-                mLeftAffordanceView.background = leftLayerDrawable
-                mRightAffordanceView.background = rightLayerDrawable
+                keyguardBottomAreaView = WeakReference(param.thisObject as View)
             }
         }
+
+        val timer = Timer()
+        timer.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                val context = keyguardBottomAreaView?.get()?.context ?: return
+                val keyguardManager =
+                    context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+
+                if (keyguardManager.isKeyguardLocked) {
+                    val leftBlurDrawable = createBlurDrawable(
+                        keyguardBottomAreaView!!.get()!!,
+                        40,
+                        100,
+                        Color.argb(60, 255, 255, 255)
+                    )
+                    val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
+                    val rightBlurDrawable = createBlurDrawable(
+                        keyguardBottomAreaView!!.get()!!,
+                        40,
+                        100,
+                        Color.argb(60, 255, 255, 255)
+                    )
+                    val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
+                    leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
+                    rightLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
+                    mLeftAffordanceView?.get()?.background = leftLayerDrawable
+                    mRightAffordanceView?.get()?.background = rightLayerDrawable
+                } else {
+                    mLeftAffordanceView?.get()?.background = null
+                    mRightAffordanceView?.get()?.background = null
+                }
+            }
+        }, 0, 100)
     }
 }
