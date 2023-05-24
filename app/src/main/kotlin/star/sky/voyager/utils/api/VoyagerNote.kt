@@ -2,7 +2,8 @@ package star.sky.voyager.utils.api
 
 import android.graphics.drawable.Drawable
 import android.view.View
-import com.github.kyuubiran.ezxhelper.ClassUtils
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.Log
 import de.robv.android.xposed.XposedHelpers
 import java.lang.reflect.Field
@@ -61,7 +62,7 @@ fun Any.invokeMethod(vararg args: Any?, condition: MethodCondition): Any? {
 }
 
 fun isPad() =
-    ClassUtils.loadClass("miui.os.Build")
+    loadClass("miui.os.Build")
         .getField("IS_TABLET")
         .getBoolean(null)
 
@@ -121,4 +122,53 @@ fun isBlurDrawable(drawable: Drawable?): Boolean {
     }
     val drawableClassName = drawable.javaClass.name
     return drawableClassName.contains("BackgroundBlurDrawable")
+}
+
+/**
+ * 扩展函数 通过遍历方法数组 返回符合条件的方法数组
+ * @param condition 条件
+ * @return 符合条件的方法数组
+ */
+fun Array<Method>.findAllMethods(condition: MethodCondition): Array<Method> {
+    return this.filter { it.condition() }.onEach { it.isAccessible = true }.toTypedArray()
+}
+
+/**
+ * 通过条件获取方法数组
+ * @param clz 类
+ * @param findSuper 是否查找父类
+ * @param condition 条件
+ * @return 符合条件的方法数组
+ */
+fun findAllMethods(
+    clz: Class<*>,
+    findSuper: Boolean = false,
+    condition: MethodCondition
+): List<Method> {
+    var c = clz
+    val arr = ArrayList<Method>()
+    arr.addAll(c.declaredMethods.findAllMethods(condition))
+    if (findSuper) {
+        while (c.superclass?.also { c = it } != null) {
+            arr.addAll(c.declaredMethods.findAllMethods(condition))
+        }
+    }
+    return arr
+}
+
+/**
+ * 通过条件获取方法数组
+ * @param clzName 类名
+ * @param classLoader 类加载器
+ * @param findSuper 是否查找父类
+ * @param condition 条件
+ * @return 符合条件的方法数组
+ */
+fun findAllMethods(
+    clzName: String,
+    classLoader: ClassLoader = EzXHelper.classLoader,
+    findSuper: Boolean = false,
+    condition: MethodCondition
+): List<Method> {
+    return findAllMethods(loadClass(clzName, classLoader), findSuper, condition)
 }
