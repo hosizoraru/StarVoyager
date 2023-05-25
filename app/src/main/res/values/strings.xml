@@ -100,6 +100,7 @@
     <string name="already_no_necessary">This function is no longer necessary</string>
     <string name="failed_after_restart">It will be restored after system restart</string>
     <string name="blur">Blur</string>
+    <string name="mod">Customization</string>
 
     <string name="scope_mi_pad">MiPad</string>
     <string name="no_magic_pointer">No Magic Pointer</string>
