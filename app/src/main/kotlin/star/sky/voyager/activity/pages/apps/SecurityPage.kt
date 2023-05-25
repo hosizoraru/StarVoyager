@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages
+package star.sky.voyager.activity.pages.apps
 
 import android.widget.Toast
 import cn.fkj233.ui.activity.annotation.BMPage

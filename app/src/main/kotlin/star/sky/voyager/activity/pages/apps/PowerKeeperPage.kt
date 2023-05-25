@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages
+package star.sky.voyager.activity.pages.apps
 
 import android.content.ComponentName
 import android.content.Intent

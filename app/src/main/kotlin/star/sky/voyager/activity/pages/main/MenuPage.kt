@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages
+package star.sky.voyager.activity.pages.main
 
 import android.annotation.SuppressLint
 import android.app.Activity

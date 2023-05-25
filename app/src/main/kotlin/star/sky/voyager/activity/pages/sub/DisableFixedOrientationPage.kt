@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages
+package star.sky.voyager.activity.pages.sub
 
 import android.content.pm.ApplicationInfo
 import cn.fkj233.ui.activity.MIUIActivity

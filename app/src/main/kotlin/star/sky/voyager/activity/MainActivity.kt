@@ -6,22 +6,23 @@ import android.os.Bundle
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
-import star.sky.voyager.activity.pages.AboutPage
-import star.sky.voyager.activity.pages.AndroidPage
-import star.sky.voyager.activity.pages.AppManagerPage
-import star.sky.voyager.activity.pages.DisableFixedOrientationPage
-import star.sky.voyager.activity.pages.GalleryPage
-import star.sky.voyager.activity.pages.HideIconPage
-import star.sky.voyager.activity.pages.HomePage
-import star.sky.voyager.activity.pages.IconPositionPage
-import star.sky.voyager.activity.pages.MainPage
-import star.sky.voyager.activity.pages.MaxMiPadPage
-import star.sky.voyager.activity.pages.MenuPage
-import star.sky.voyager.activity.pages.MiAiPage
-import star.sky.voyager.activity.pages.PowerKeeperPage
-import star.sky.voyager.activity.pages.SecurityPage
-import star.sky.voyager.activity.pages.SmartHubPage
-import star.sky.voyager.activity.pages.SystemUIPage
+import star.sky.voyager.activity.pages.apps.AndroidPage
+import star.sky.voyager.activity.pages.apps.AppManagerPage
+import star.sky.voyager.activity.pages.apps.GalleryPage
+import star.sky.voyager.activity.pages.apps.HomePage
+import star.sky.voyager.activity.pages.apps.MaxMiPadPage
+import star.sky.voyager.activity.pages.apps.MiAiPage
+import star.sky.voyager.activity.pages.apps.PowerKeeperPage
+import star.sky.voyager.activity.pages.apps.SecurityPage
+import star.sky.voyager.activity.pages.apps.SmartHubPage
+import star.sky.voyager.activity.pages.apps.SystemUIPage
+import star.sky.voyager.activity.pages.main.AboutPage
+import star.sky.voyager.activity.pages.main.MainPage
+import star.sky.voyager.activity.pages.main.MenuPage
+import star.sky.voyager.activity.pages.sub.DisableFixedOrientationPage
+import star.sky.voyager.activity.pages.sub.HideIconPage
+import star.sky.voyager.activity.pages.sub.IconPositionPage
+import star.sky.voyager.activity.pages.sub.PersonalAssistantPage
 import star.sky.voyager.utils.key.BackupUtils
 
 class MainActivity : MIUIActivity() {
@@ -70,6 +71,7 @@ class MainActivity : MIUIActivity() {
         registerPage(DisableFixedOrientationPage::class.java)
         registerPage(HideIconPage::class.java)
         registerPage(IconPositionPage::class.java)
+        registerPage(PersonalAssistantPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

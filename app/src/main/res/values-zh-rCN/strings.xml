@@ -96,6 +96,7 @@
     <string name="already_can_not_use">该功能已失效</string>
     <string name="already_no_necessary">该功能已没必要</string>
     <string name="failed_after_restart">系统重启后仍会还原</string>
+    <string name="blur">模糊</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="no_magic_pointer">关闭Magic Pointer</string>
