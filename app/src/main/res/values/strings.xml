@@ -383,25 +383,24 @@
     <string name="home_real_memory">Show Real Use and Total Memory</string>
     <string name="home_real_memory_summary">Hacking fake MIUI memory</string>
     <string name="Use_Transition_Animation">Mandatory all widget use miui widget animation</string>
-    <string name="Overlap_Mode">Fold style App Vault</string>
-    <string name="home_widget_to_minus">Allow classic widget to be moved to the Minus One screen</string>
     <string name="Show_MIUI_Widget">Show MIUI widgets on the Classic widgets page</string>
     <string name="shortcut_remove_restrictions">Remove restrictions on shortcuts</string>
     <string name="unlock_hot_seat">Remove icon number restriction from dock</string>
     <string name="optimize_unlock_anim">Optimize unlock anim</string>
     <string name="icon_corner">Medium icon round corner follow</string>
     <string name="home_unlock_cell_count">Unlock launcher icon grids</string>
-    <string name="home_blur_when_open_folder">Folder View Blur</string>
-    <string name="home_blur_when_open_folder_summary">Enable Blur When Open Folder</string>
-    <string name="home_blur_wallpaper">Always blur launcher wallpaper</string>
     <string name="home_folder_width">Using the full width of the folder view</string>
+    <string name="home_folder_columns">Number of rows of icons in the folder view</string>
+
+    <string name="home_high_end_device">Remove device restrictions</string>
+    <string name="home_high_end_device_summary">It will be recognized as high-end by default. Turning this option on will not increase GPU performance overhead. Remove some logs at the same time.</string>
     <string name="home_use_complete_blur">Complete blur</string>
     <string name="home_use_complete_blur_summary">Use the official half-finished complete blur feature</string>
     <string name="home_complete_blur_fix">Complete Blur Complement</string>
     <string name="home_complete_blur_fix_summary">Complements blur when swiping up from the App, which may cause visual flicker</string>
-    <string name="home_high_end_device">Remove device restrictions</string>
-    <string name="home_high_end_device_summary">It will be recognized as high-end by default. Turning this option on will not increase GPU performance overhead. Remove some logs at the same time.</string>
-    <string name="home_folder_columns">Number of rows of icons in the folder view</string>
+    <string name="home_blur_wallpaper">Always blur launcher wallpaper</string>
+    <string name="home_blur_when_open_folder">Folder View Blur</string>
+    <string name="home_blur_when_open_folder_summary">Enable Blur When Open Folder</string>
 
     <string name="home_fold_dock">Dock for folded devices</string>
     <string name="fold_dock_num">%d Num</string>
@@ -436,6 +435,8 @@
     <string name="your_theme_neutral_color">Neutral color</string>
     <string name="your_theme_style">Color style</string>
 
+    <string name="Overlap_Mode">Fold style App Vault</string>
+    <string name="home_widget_to_minus">Allow classic widget to be moved to the Minus One screen</string>
     <string name="blur_personal_assistant">Blur for App Vault</string>
     <string name="blur_personal_assistant_radius">Blur Radius</string>
 
