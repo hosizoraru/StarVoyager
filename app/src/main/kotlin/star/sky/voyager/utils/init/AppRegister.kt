@@ -25,7 +25,7 @@ abstract class AppRegister : IXposedHookLoadPackage, IXposedHookInitPackageResou
                 it.setLoadPackageParam(lpparam)
                 it.init()
                 it.isInit = true
-            }.logexIfThrow("Failed to Hook [$packageName]")
+            }.logexIfThrow("Failed to Hook [$packageName]: ${it.javaClass.simpleName}")
         }
     }
 
@@ -44,7 +44,7 @@ abstract class AppRegister : IXposedHookLoadPackage, IXposedHookInitPackageResou
                 it.init()
                 it.isInit = true
                 Log.i("Inited hook: ${it.javaClass.simpleName}")
-            }.logexIfThrow("Failed to Hook [$packageName]")
+            }.logexIfThrow("Failed to Hook [$packageName]: ${it.javaClass.simpleName}")
         }
     }
 }
