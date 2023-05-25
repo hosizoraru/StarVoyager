@@ -316,6 +316,8 @@
 
     <string name="dc_fps">允许DC+高刷同开</string>
     <string name="dc_fps_summary">for mix4</string>
+    <string name="show_all_fps">显示所有档位的刷新率</string>
+    <string name="show_all_fps_summary">但不是全部都可以用</string>
 
     <string name="custom_refresh_rate">自定义高刷新率应用</string>
     <string name="do_not_clear_app">防止杀死后台应用</string>

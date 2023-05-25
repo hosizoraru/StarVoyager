@@ -60,6 +60,12 @@ class PowerKeeperPage : BasePage() {
                 tipsId = R.string.dc_fps_summary
             ), SwitchV("dc_fps")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_all_fps,
+                tipsId = R.string.show_all_fps_summary
+            ), SwitchV("show_all_fps")
+        )
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.exported,
