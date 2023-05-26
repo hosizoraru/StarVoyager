@@ -6,12 +6,12 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableIdPhoto : HookRegister() {
-    override fun init() = hasEnable("enable_id_photo") {
-        loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
-            name == "isIDPhotoAvailable"
+object OcrForm : HookRegister() {
+    override fun init() = hasEnable("enable_ocr_form") {
+        loadClass("com.miui.gallery.util.RecognizeFormUtil").methodFinder().first {
+            name == "isAvailable"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

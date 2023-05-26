@@ -6,14 +6,15 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableMagicSky : HookRegister() {
-    override fun init() = hasEnable("enable_magic_sky") {
-        loadClass("com.miui.gallery.util.FilterSkyEntranceUtils").methodFinder().first {
-            name == "showSingleFilterSky"
-        }.createHook {
-            after {
-                it.result = true
+object Remover2 : HookRegister() {
+    override fun init() = hasEnable("enable_remover2") {
+        loadClass("com.miui.gallery.editor.photo.app.remover2.sdk.Remover2CheckHelper").methodFinder()
+            .first {
+                name == "isRemover2Support"
+            }.createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
     }
 }

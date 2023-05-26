@@ -6,10 +6,18 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableVideoPost : HookRegister() {
-    override fun init() = hasEnable("enable_video_post") {
-        loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
-            name == "isVideoPostAvailable"
+object VideoEditor : HookRegister() {
+    override fun init() = hasEnable("enable_video_editor") {
+        val qwq = loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper")
+        qwq.methodFinder().first {
+            name == "isVideoEditorAvailable"
+        }.createHook {
+            after {
+                it.result = true
+            }
+        }
+        qwq.methodFinder().first {
+            name == "isVlogAvailable"
         }.createHook {
             after {
                 it.result = true

@@ -6,12 +6,12 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableOcrForm : HookRegister() {
-    override fun init() = hasEnable("enable_ocr_form") {
-        loadClass("com.miui.gallery.util.RecognizeFormUtil").methodFinder().first {
-            name == "isAvailable"
+object TextYanHua : HookRegister() {
+    override fun init() = hasEnable("enable_text_yan_hua") {
+        loadClass("com.miui.gallery.domain.SkyCheckHelper").methodFinder().first {
+            name == "isSupportTextYanhua"
         }.createHook {
-            before {
+            after {
                 it.result = true
             }
         }

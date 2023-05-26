@@ -6,19 +6,10 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableOcr : HookRegister() {
-    override fun init() = hasEnable("enable_ocr") {
-        val OCRHelprerClass = loadClass("com.miui.gallery.ui.photoPage.ocr.OCRHelper")
-
-        OCRHelprerClass.methodFinder().first {
-            name == "isSupportLocalOCR"
-        }.createHook {
-            after {
-                it.result = true
-            }
-        }
-        OCRHelprerClass.methodFinder().first {
-            name == "isSupportOCR"
+object PhotoMovie : HookRegister() {
+    override fun init() = hasEnable("enable_photo_movie") {
+        loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
+            name == "isPhotoMovieAvailable"
         }.createHook {
             after {
                 it.result = true

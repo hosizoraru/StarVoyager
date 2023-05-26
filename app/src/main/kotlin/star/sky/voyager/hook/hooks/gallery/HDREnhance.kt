@@ -6,10 +6,10 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnablePdf : HookRegister() {
-    override fun init() = hasEnable("enable_pdf") {
-        loadClass("com.miui.gallery.request.PicToPdfHelper").methodFinder().first {
-            name == "isPicToPdfSupport"
+object HDREnhance : HookRegister() {
+    override fun init() = hasEnable("Unlock_HDR_Enhance") {
+        loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder().first {
+            name == "isSupportHDREnhance"
         }.createHook {
             after {
                 it.result = true

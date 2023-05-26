@@ -11,60 +11,60 @@ class GalleryUnlockPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_pdf,
-            ), SwitchV("enable_pdf")
+                textId = R.string.pdf,
+            ), SwitchV("pdf")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_ocr,
-            ), SwitchV("enable_ocr")
+                textId = R.string.ocr,
+            ), SwitchV("ocr")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_ocr_form,
-            ), SwitchV("enable_ocr_form")
-        )
-        Line()
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_id_photo,
-            ), SwitchV("enable_id_photo")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_photo_movie,
-            ), SwitchV("enable_photo_movie")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_video_post,
-            ), SwitchV("enable_video_post")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_video_editor,
-            ), SwitchV("enable_video_editor")
+                textId = R.string.ocr_form,
+            ), SwitchV("ocr_form")
         )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_text_yan_hua,
-            ), SwitchV("enable_text_yan_hua")
+                textId = R.string.id_photo,
+            ), SwitchV("id_photo")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_remover_2,
-            ), SwitchV("enable_remover_2")
+                textId = R.string.photo_movie,
+            ), SwitchV("photo_movie")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_magic_matting,
-            ), SwitchV("enable_magic_matting")
+                textId = R.string.video_post,
+            ), SwitchV("video_post")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_magic_sky,
-            ), SwitchV("enable_magic_sky")
+                textId = R.string.video_editor,
+            ), SwitchV("video_editor")
+        )
+        Line()
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.text_yan_hua,
+            ), SwitchV("text_yan_hua")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remover_2,
+            ), SwitchV("remover_2")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.magic_matting,
+            ), SwitchV("magic_matting")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.magic_sky,
+            ), SwitchV("magic_sky")
         )
     }
 }

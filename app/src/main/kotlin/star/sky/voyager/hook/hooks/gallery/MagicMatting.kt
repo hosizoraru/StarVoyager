@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableMagicMatting : HookRegister() {
+object MagicMatting : HookRegister() {
     override fun init() = hasEnable("enable_magic_matting") {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isMagicMattingAvailable"
