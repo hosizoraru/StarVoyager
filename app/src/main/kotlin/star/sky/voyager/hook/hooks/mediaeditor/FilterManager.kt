@@ -13,15 +13,29 @@ import star.sky.voyager.utils.yife.DexKit.loadDexKit
 object FilterManager : HookRegister() {
     override fun init() = hasEnable("filter_manager") {
         loadDexKit()
-        dexKitBridge.findMethodUsingString {
-            usingString = "wayne"
-            methodReturnType = "Ljava/util/List;"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader).createHook {
-            before {
-                loadClass("android.os.Build").fieldFinder().first {
-                    type == String::class.java && name == "DEVICE"
-                }.set(null, "wayne")
+        try {
+            dexKitBridge.findMethodUsingString {
+                usingString = "wayne"
+                methodReturnType = "Ljava/util/List;"
+                matchType = MatchType.FULL
+            }.single().getMethodInstance(classLoader).createHook {
+                before {
+                    loadClass("android.os.Build").fieldFinder().first {
+                        type == String::class.java && name == "DEVICE"
+                    }.set(null, "wayne")
+                }
+            }
+        } catch (_: Throwable) {
+            dexKitBridge.findMethodUsingString {
+                usingString = "wayne"
+                methodParamTypes = arrayOf("android.os.Bundle")
+                matchType = MatchType.FULL
+            }.single().getMethodInstance(classLoader).createHook {
+                before {
+                    loadClass("android.os.Build").fieldFinder().first {
+                        type == String::class.java && name == "DEVICE"
+                    }.set(null, "wayne")
+                }
             }
         }
     }
