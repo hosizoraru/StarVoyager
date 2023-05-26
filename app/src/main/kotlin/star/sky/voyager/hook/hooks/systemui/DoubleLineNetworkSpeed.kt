@@ -6,11 +6,9 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.XSPUtils.getInt
@@ -191,7 +189,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
     }
 
     private fun getUpIcon() {
-        val none = moduleRes.getString(R.string.none)
+        val none = ""
 
         if (getString("status_bar_network_speed_dual_row_icon", none) != none) {
             upIcon =
@@ -201,7 +199,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
     }
 
     private fun getDownIcon() {
-        val none = moduleRes.getString(R.string.none)
+        val none = ""
 
         if (getString("status_bar_network_speed_dual_row_icon", none) != none) {
             downIcon =
