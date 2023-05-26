@@ -12,7 +12,9 @@ import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constr
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
+import star.sky.voyager.utils.key.XSPUtils.getInt
+import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 import java.text.DecimalFormat
 
@@ -27,21 +29,13 @@ object DoubleLineNetworkSpeed : HookRegister() {
     private var upIcon = ""
     private var downIcon = ""
 
-    private val getDualSize = XSPUtils.getInt("status_bar_network_speed_dual_row_size", 0)
-    private val getDualAlign = XSPUtils.getInt("status_bar_network_speed_dual_row_gravity", 0)
+    private val getDualSize = getInt("status_bar_network_speed_dual_row_size", 0)
+    private val getDualAlign = getInt("status_bar_network_speed_dual_row_gravity", 0)
 
     override fun init() = hasEnable("status_bar_dual_row_network_speed") {
 
-        val none = moduleRes.getString(R.string.none)
-
-        if (XSPUtils.getString("status_bar_network_speed_dual_row_icon", none) != none) {
-            upIcon =
-                XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)?.firstOrNull()
-                    .toString()
-            downIcon =
-                XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)?.lastOrNull()
-                    .toString()
-        }
+        getUpIcon()
+        getDownIcon()
 
         loadClass("com.android.systemui.statusbar.views.NetworkSpeedView").constructorFinder()
             .first {
@@ -118,12 +112,17 @@ object DoubleLineNetworkSpeed : HookRegister() {
         lastTimeStampTotalUp = nowTimeStampTotalUp
 
         // 隐藏慢速
-        val hideLow = XSPUtils.getBoolean("hide_slow_speed_network_speed", false)
+        val hideLow = getBoolean("hide_slow_speed_network_speed", false)
 
         // 慢速水平
-        val lowLevel = XSPUtils.getInt("slow_speed_degree", 1) * 512.toFloat()
+        val lowLevel = getInt("slow_speed_degree", 1) * 512.toFloat()
+
+        if (!hideLow || bytes >= lowLevel) {
+            getUpIcon()
+        }
 
         return if (hideLow && bytes < lowLevel) {
+            upIcon = ""
             ""
         } else {
             if (totalUpSpeed >= 100) {
@@ -170,12 +169,17 @@ object DoubleLineNetworkSpeed : HookRegister() {
         lastTimeStampTotalDown = nowTimeStampTotalDown
 
         // 隐藏慢速
-        val hideLow = XSPUtils.getBoolean("hide_slow_speed_network_speed", false)
+        val hideLow = getBoolean("hide_slow_speed_network_speed", false)
 
         // 慢速水平
-        val lowLevel = XSPUtils.getInt("slow_speed_degree", 1) * 512.toFloat()
+        val lowLevel = getInt("slow_speed_degree", 1) * 512.toFloat()
+
+        if (!hideLow || bytes >= lowLevel) {
+            getDownIcon()
+        }
 
         return if (hideLow && bytes < lowLevel) {
+            downIcon = ""
             ""
         } else {
             if (totalDownSpeed >= 100) {
@@ -183,6 +187,26 @@ object DoubleLineNetworkSpeed : HookRegister() {
             } else {
                 "${totalDownSpeed}$unit"
             }
+        }
+    }
+
+    private fun getUpIcon() {
+        val none = moduleRes.getString(R.string.none)
+
+        if (getString("status_bar_network_speed_dual_row_icon", none) != none) {
+            upIcon =
+                getString("status_bar_network_speed_dual_row_icon", none)?.firstOrNull()
+                    .toString()
+        }
+    }
+
+    private fun getDownIcon() {
+        val none = moduleRes.getString(R.string.none)
+
+        if (getString("status_bar_network_speed_dual_row_icon", none) != none) {
+            downIcon =
+                getString("status_bar_network_speed_dual_row_icon", none)?.lastOrNull()
+                    .toString()
         }
     }
 }

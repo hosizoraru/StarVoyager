@@ -13,10 +13,10 @@ object HideNetworkSpeedSplitter : HookRegister() {
             .first {
                 name == "init"
             }.createHook {
-            after {
-                val textView = it.thisObject as TextView
-                textView.text = " "
+                after {
+                    val textView = it.thisObject as TextView
+                    textView.text = " "
+                }
             }
-        }
     }
 }
