@@ -178,4 +178,3 @@ fun findAllMethods(
 fun dp2px(dpValue: Float): Int = TypedValue.applyDimension(
     TypedValue.COMPLEX_UNIT_DIP, dpValue, appContext.resources.displayMetrics
 ).toInt()
-
