@@ -49,24 +49,24 @@ object Home : AppRegister() {
             ScrollIconName, // 滚动显示应用名称
             RealMemory, // 后台显示实际使用和总内存
             UseTransitionAnimation, // 使用Miui小组件的动画
-            OverlapMode, // Fold 样式智能助理
-            AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏<
             AlwaysShowMiuiWidget, // 在安卓小部件页面显示 MIUI 小部件
             ShortcutItemCount, // 解除Shortcuts数量限制
             UnlockHotSeatIcon, // 解锁底栏图标数量限制
             OptimizeUnlockAnim, // 优化解锁动画
             IconCorner, // 中等图标圆角跟随
-            IconCellCount, // 解锁图标网格布局
-            BlurWhenOpenFolder, // 文件夹视图模糊
-            AlwaysBlurWallpaper, // 始终模糊桌面壁纸
-            UseCompleteBlur, // 完整模糊 // 完整模糊补全
-            SetDeviceLevel, // 解除设备限制
             FolderColumnsCount, // 利用整个文件夹视图的宽度 // 文件夹视图内图标的排数
+            MonoChromeIcon, // 图标背景色 // 默认颜色 -> 莫奈取色
+            IconCellCount, // 解锁图标网格布局
+            SetDeviceLevel, // 解除设备限制
+            UseCompleteBlur, // 完整模糊 // 完整模糊补全
+            AlwaysBlurWallpaper, // 始终模糊桌面壁纸
+            BlurWhenOpenFolder, // 文件夹视图模糊
+            OverlapMode, // Fold 样式智能助理
+            AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏
             FoldDeviceDock, // 折叠屏底栏样式
             AnimDurationRatio, // 自定义动画速度
             TaskViewCardSize, // 自定义最近任务卡片大小
             FolderAnim, // 文件夹动画修改
-            MonoChromeIcon, // 图标背景色 // 默认颜色 -> 莫奈取色
             MaxFreeFormH, // 解锁小窗数量限制
             // max mi pad
             GestureOperationHelper,
