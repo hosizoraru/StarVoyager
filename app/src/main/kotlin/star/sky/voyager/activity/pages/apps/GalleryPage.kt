@@ -13,9 +13,14 @@ class GalleryPage : BasePage() {
         TitleText(textId = R.string.scope_gallery)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.Unlock_HDR_Enhance,
-                tipsId = R.string.Unlock_HDR_Enhance_summary
-            ), SwitchV("Unlock_HDR_Enhance", false)
+                textId = R.string.hdr_enhance,
+                tipsId = R.string.hdr_enhance_summary
+            ), SwitchV("hdr_enhance", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.super_clipboard,
+            ), SwitchV("super_clipboard", false)
         )
         TextSummaryWithArrow(
             TextSummaryV(

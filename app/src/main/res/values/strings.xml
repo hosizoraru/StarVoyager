@@ -263,19 +263,20 @@
 
     <string name="horizontal_content_extension">Horizontal content extension</string>
 
-    <string name="Unlock_HDR_Enhance">Display high dynamic range</string>
-    <string name="Unlock_HDR_Enhance_summary">Use HDR to show more detail in highlights and shadows</string>
-    <string name="enable_ocr">Enable ocr</string>
-    <string name="enable_ocr_form">Enable ocr form</string>
-    <string name="enable_pdf">Enable pdf</string>
-    <string name="enable_id_photo">Enable id photo</string>
-    <string name="enable_photo_movie">Enable photo movie</string>
-    <string name="enable_video_post">Enable video post</string>
-    <string name="enable_video_editor">Enable video editor</string>
-    <string name="enable_text_yan_hua">Enable text yanhua</string>
-    <string name="enable_remover_2">Enable remover2</string>
-    <string name="enable_magic_matting">Enable magic matting</string>
-    <string name="enable_magic_sky">Enable magic sky</string>
+    <string name="hdr_enhance">Display high dynamic range</string>
+    <string name="hdr_enhance_summary">Use HDR to show more detail in highlights and shadows</string>
+    <string name="super_clipboard">Super Clipboard</string>
+    <string name="ocr">Enable ocr</string>
+    <string name="ocr_form">Enable ocr form</string>
+    <string name="pdf">Enable pdf</string>
+    <string name="id_photo">Enable id photo</string>
+    <string name="photo_movie">Enable photo movie</string>
+    <string name="video_post">Enable video post</string>
+    <string name="video_editor">Enable video editor</string>
+    <string name="text_yan_hua">Enable text yanhua</string>
+    <string name="remover_2">Enable remover2</string>
+    <string name="magic_matting">Enable magic matting</string>
+    <string name="magic_sky">Enable magic sky</string>
 
     <string name="filter_manager">Filter manager</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
