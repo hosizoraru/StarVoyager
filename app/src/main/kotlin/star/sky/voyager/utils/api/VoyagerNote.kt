@@ -1,9 +1,11 @@
 package star.sky.voyager.utils.api
 
 import android.graphics.drawable.Drawable
+import android.util.TypedValue
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
 import com.github.kyuubiran.ezxhelper.Log
 import de.robv.android.xposed.XposedHelpers
 import java.lang.reflect.Field
@@ -172,3 +174,8 @@ fun findAllMethods(
 ): List<Method> {
     return findAllMethods(loadClass(clzName, classLoader), findSuper, condition)
 }
+
+fun dp2px(dpValue: Float): Int = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_DIP, dpValue, appContext.resources.displayMetrics
+).toInt()
+

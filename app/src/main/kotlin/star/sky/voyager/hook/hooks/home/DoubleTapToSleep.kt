@@ -9,6 +9,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField
 import de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField
+import star.sky.voyager.utils.api.DoubleTapController
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.callMethodAs
 import star.sky.voyager.utils.api.getObjectFieldAs

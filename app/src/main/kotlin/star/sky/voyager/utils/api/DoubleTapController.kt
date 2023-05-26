@@ -1,4 +1,4 @@
-package star.sky.voyager.hook.hooks.home
+package star.sky.voyager.utils.api
 
 import android.content.Context
 import android.os.SystemClock
