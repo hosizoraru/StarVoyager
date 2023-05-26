@@ -11,7 +11,15 @@ object PhotoMovie : HookRegister() {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isPhotoMovieAvailable"
         }.createHook {
-            after {
+            before {
+                it.result = true
+            }
+        }
+
+        loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder().first {
+            name == "isDeviceSupportPhotoMovie"
+        }.createHook {
+            before {
                 it.result = true
             }
         }

@@ -11,7 +11,7 @@ object TextYanHua : HookRegister() {
         loadClass("com.miui.gallery.domain.SkyCheckHelper").methodFinder().first {
             name == "isSupportTextYanhua"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

@@ -11,7 +11,7 @@ object HDREnhance : HookRegister() {
         loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder().first {
             name == "isSupportHDREnhance"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

@@ -12,14 +12,14 @@ object VideoEditor : HookRegister() {
         qwq.methodFinder().first {
             name == "isVideoEditorAvailable"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }
         qwq.methodFinder().first {
             name == "isVlogAvailable"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

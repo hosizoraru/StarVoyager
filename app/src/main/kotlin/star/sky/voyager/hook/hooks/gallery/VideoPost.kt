@@ -11,7 +11,7 @@ object VideoPost : HookRegister() {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isVideoPostAvailable"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

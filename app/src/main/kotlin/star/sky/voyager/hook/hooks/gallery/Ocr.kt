@@ -13,14 +13,14 @@ object Ocr : HookRegister() {
         OCRHelprerClass.methodFinder().first {
             name == "isSupportLocalOCR"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }
         OCRHelprerClass.methodFinder().first {
             name == "isSupportOCR"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

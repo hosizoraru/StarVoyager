@@ -12,7 +12,7 @@ object Remover2 : HookRegister() {
             .first {
                 name == "isRemover2Support"
             }.createHook {
-                after {
+                before {
                     it.result = true
                 }
             }

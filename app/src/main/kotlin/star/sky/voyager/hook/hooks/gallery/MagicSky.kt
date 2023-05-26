@@ -11,7 +11,7 @@ object MagicSky : HookRegister() {
         loadClass("com.miui.gallery.util.FilterSkyEntranceUtils").methodFinder().first {
             name == "showSingleFilterSky"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }

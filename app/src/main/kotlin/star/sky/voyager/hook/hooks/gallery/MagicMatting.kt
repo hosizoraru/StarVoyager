@@ -11,7 +11,7 @@ object MagicMatting : HookRegister() {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isMagicMattingAvailable"
         }.createHook {
-            after {
+            before {
                 it.result = true
             }
         }
