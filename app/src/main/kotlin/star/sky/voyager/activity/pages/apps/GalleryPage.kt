@@ -17,60 +17,11 @@ class GalleryPage : BasePage() {
                 tipsId = R.string.Unlock_HDR_Enhance_summary
             ), SwitchV("Unlock_HDR_Enhance", false)
         )
-        TextSummaryWithSwitch(
+        TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.enable_pdf,
-            ), SwitchV("enable_pdf")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_ocr,
-            ), SwitchV("enable_ocr")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_ocr_form,
-            ), SwitchV("enable_ocr_form")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_id_photo,
-            ), SwitchV("enable_id_photo")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_photo_movie,
-            ), SwitchV("enable_photo_movie")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_video_post,
-            ), SwitchV("enable_video_post")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_video_editor,
-            ), SwitchV("enable_video_editor")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_text_yan_hua,
-            ), SwitchV("enable_text_yan_hua")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_remover_2,
-            ), SwitchV("enable_remover_2")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_magic_matting,
-            ), SwitchV("enable_magic_matting")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enable_magic_sky,
-            ), SwitchV("enable_magic_sky")
+                textId = R.string.unlock,
+                onClickListener = { showFragment("gallery_unlock") }
+            )
         )
         Line()
         TitleText(textId = R.string.scope_media_editor)

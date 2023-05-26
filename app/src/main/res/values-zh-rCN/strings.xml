@@ -98,6 +98,7 @@
     <string name="failed_after_restart">系统重启后仍会还原</string>
     <string name="blur">模糊</string>
     <string name="mod">自定义</string>
+    <string name="unlock">解锁</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="no_magic_pointer">关闭Magic Pointer</string>
