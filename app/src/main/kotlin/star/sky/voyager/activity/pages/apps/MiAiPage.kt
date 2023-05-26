@@ -22,27 +22,27 @@ class MiAiPage : BasePage() {
         TitleText(textId = R.string.scope_scanner)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_card,
-            ), SwitchV("enable_card")
+                textId = R.string.card,
+            ), SwitchV("card")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_doc_ppt,
-            ), SwitchV("enable_doc_ppt")
+                textId = R.string.doc_ppt,
+            ), SwitchV("doc_ppt")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_ocr2,
-            ), SwitchV("enable_ocr2")
+                textId = R.string.ocr2,
+            ), SwitchV("ocr2")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_translation,
-            ), SwitchV("enable_translation")
+                textId = R.string.translation,
+            ), SwitchV("translation")
         )
         val documentBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "enable_document",
+                "document",
                 false
             )
         }) { view, flags, data ->
@@ -50,21 +50,21 @@ class MiAiPage : BasePage() {
         }
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enable_document
+                textId = R.string.document
             ), SwitchV(
-                "enable_document",
+                "document",
                 false,
                 dataBindingSend = documentBinding.bindingSend
             )
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.enable_excel),
-            SwitchV("enable_excel", false),
+            TextSummaryV(textId = R.string.excel),
+            SwitchV("excel", false),
             dataBindingRecv = documentBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.enable_ppt),
-            SwitchV("enable_ppt", false),
+            TextSummaryV(textId = R.string.ppt),
+            SwitchV("ppt", false),
             dataBindingRecv = documentBinding.binding.getRecv(1)
         )
         Line()

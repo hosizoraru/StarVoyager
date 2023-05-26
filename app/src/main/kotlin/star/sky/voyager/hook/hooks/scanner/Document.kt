@@ -6,10 +6,10 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableDocPpt : HookRegister() {
-    override fun init() = hasEnable("enable_doc_ppt") {
+object Document : HookRegister() {
+    override fun init() = hasEnable("enable_document") {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
-            name == "isPPTModuleAvailable"
+            name == "isAddDocumentModule"
         }.createHook {
             before {
                 it.result = true

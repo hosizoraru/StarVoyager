@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableTranslation : HookRegister() {
+object Translation : HookRegister() {
     override fun init() = hasEnable("enable_translation") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
         qwq.methodFinder().first {

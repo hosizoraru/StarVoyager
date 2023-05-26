@@ -250,13 +250,13 @@
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
 
-    <string name="enable_card">解锁扫名片</string>
-    <string name="enable_doc_ppt">解锁扫文件</string>
-    <string name="enable_document">解锁转文档</string>
-    <string name="enable_excel">解锁提取表格</string>
-    <string name="enable_ocr2">解锁识文字</string>
-    <string name="enable_ppt">解锁提取 PPT</string>
-    <string name="enable_translation">解锁翻译</string>
+    <string name="card">解锁扫名片</string>
+    <string name="doc_ppt">解锁扫文件</string>
+    <string name="document">解锁转文档</string>
+    <string name="excel">解锁提取表格</string>
+    <string name="ocr2">解锁识文字</string>
+    <string name="ppt">解锁提取 PPT</string>
+    <string name="translation">解锁翻译</string>
 
     <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
 

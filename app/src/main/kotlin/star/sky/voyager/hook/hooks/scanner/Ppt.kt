@@ -6,18 +6,10 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableCard : HookRegister() {
-    override fun init() = hasEnable("enable_card") {
-        val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
-        qwq.methodFinder().first {
-            name == "isAddBusinessCard"
-        }.createHook {
-            before {
-                it.result = true
-            }
-        }
-        qwq.methodFinder().first {
-            name == "isBusinessCardModuleAvailable"
+object Ppt : HookRegister() {
+    override fun init() = hasEnable("enable_ocr2") {
+        loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
+            name == "isAddTextExtractionFunction"
         }.createHook {
             before {
                 it.result = true

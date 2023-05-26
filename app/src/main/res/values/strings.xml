@@ -253,13 +253,13 @@
     <string name="device_modify">Remove the restriction</string>
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>
 
-    <string name="enable_card">Unlock card</string>
-    <string name="enable_doc_ppt">Unlock doc ppt</string>
-    <string name="enable_document">Unlock document</string>
-    <string name="enable_excel">Unlock excel</string>
-    <string name="enable_ocr2">Unlock ocr</string>
-    <string name="enable_ppt">Unlock ppt</string>
-    <string name="enable_translation">Unlock translation</string>
+    <string name="card">Unlock card</string>
+    <string name="doc_ppt">Unlock doc ppt</string>
+    <string name="document">Unlock document</string>
+    <string name="excel">Unlock excel</string>
+    <string name="ocr2">Unlock ocr</string>
+    <string name="ppt">Unlock ppt</string>
+    <string name="translation">Unlock translation</string>
 
     <string name="horizontal_content_extension">Horizontal content extension</string>
 

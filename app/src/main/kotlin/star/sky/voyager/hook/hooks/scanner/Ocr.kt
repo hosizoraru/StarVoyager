@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnablePpt : HookRegister() {
+object Ocr : HookRegister() {
     override fun init() = hasEnable("enable_ocr2") {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
             name == "isAddTextExtractionFunction"

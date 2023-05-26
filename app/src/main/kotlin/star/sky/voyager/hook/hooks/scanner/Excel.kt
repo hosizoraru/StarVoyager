@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableExcel : HookRegister() {
+object Excel : HookRegister() {
     override fun init() = hasEnable("enable_excel") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
         loadClass("com.xiaomi.scanner.util.SPUtils").methodFinder().first {
