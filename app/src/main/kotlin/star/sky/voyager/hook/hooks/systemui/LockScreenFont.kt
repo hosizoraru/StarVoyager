@@ -9,7 +9,7 @@ import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object LockScreenTimeUseSystemFont : HookRegister() {
+object LockScreenFont : HookRegister() {
     override fun init() {
         loadClass("com.miui.clock.MiuiBaseClock").methodFinder()
             .filterByName("updateViewsTextSize")
