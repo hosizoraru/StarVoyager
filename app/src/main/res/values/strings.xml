@@ -102,6 +102,22 @@
     <string name="blur">Blur</string>
     <string name="mod">Customization</string>
     <string name="unlock">Unlock</string>
+    <string name="system_font">System font</string>
+    <string name="font_size">Font size</string>
+    <string name="color">Color</string>
+
+    <string name="notification_time_font">notification time use system font</string>
+    <string name="notification_time_bold">notification time use system bold</string>
+    <string name="notification_time_size">notification time size</string>
+    <string name="notification_time_color">notification time color</string>
+    <string name="notification_date_font">notification date use system font</string>
+    <string name="notification_date_bold">notification date use system bold</string>
+    <string name="notification_date_size">notification date size</string>
+    <string name="notification_date_color">notification date color</string>
+    <string name="notification_land_clock_font">notification land clock use system font</string>
+    <string name="notification_land_clock_bold">notification land clock use system bold</string>
+    <string name="notification_land_clock_size">notification land clock size</string>
+    <string name="notification_land_clock_color">notification land clock color</string>
 
     <string name="scope_mi_pad">MiPad</string>
     <string name="no_magic_pointer">No Magic Pointer</string>

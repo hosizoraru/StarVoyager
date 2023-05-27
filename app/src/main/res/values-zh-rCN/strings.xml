@@ -99,6 +99,22 @@
     <string name="blur">模糊</string>
     <string name="mod">自定义</string>
     <string name="unlock">解锁</string>
+    <string name="system_font">系统字体</string>
+    <string name="font_size">字体大小</string>
+    <string name="color">颜色</string>
+
+    <string name="notification_time_font">通知中心时间使用系统字体</string>
+    <string name="notification_time_bold">通知中心时间使用加粗系统字体</string>
+    <string name="notification_time_size">通知中心时间字体大小</string>
+    <string name="notification_time_color">通知中心时间颜色</string>
+    <string name="notification_date_font">通知中心日期使用系统字体</string>
+    <string name="notification_date_bold">通知中心日期使用加粗系统字体</string>
+    <string name="notification_date_size">通知中心日期字体大小</string>
+    <string name="notification_date_color">通知中心日期颜色</string>
+    <string name="notification_land_clock_font">通知中心横屏时间日期使用系统字体</string>
+    <string name="notification_land_clock_bold">通知中心横屏时间日期使用加粗系统字体</string>
+    <string name="notification_land_clock_size">通知中心横屏时间日期字体大小</string>
+    <string name="notification_land_clock_color">通知中心横屏时间日期颜色</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="no_magic_pointer">关闭Magic Pointer</string>

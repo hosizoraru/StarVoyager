@@ -114,6 +114,12 @@ class SystemUIPage : BasePage() {
 //                }
 //            }, dataBindingRecv = monetBinding.binding.getRecv(1)
 //        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.notification_center,
+                onClickListener = { showFragment("notification_center") }
+            )
+        )
         Line()
         TitleText(textId = R.string.status_bar)
         TextSummaryWithSwitch(
@@ -682,13 +688,13 @@ class SystemUIPage : BasePage() {
             SpinnerV(
                 MIUIActivity.safeSP.getString(
                     "status_bar_network_speed_dual_row_icon",
-                    getString(R.string.none)
+                    ""
                 )
             ) {
-                add(getString(R.string.none)) {
+                add("") {
                     MIUIActivity.safeSP.putAny(
                         "status_bar_network_speed_dual_row_icon",
-                        getString(R.string.none)
+                        ""
                     )
                 }
                 add("▲▼") {
@@ -721,49 +727,6 @@ class SystemUIPage : BasePage() {
             )
         )
         SeekBarWithText("slow_speed_degree", 0, 200, 1)
-        Line()
-        TitleText(textId = R.string.notification_center)
-        val showWeatherMainSwitchBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
-                "notification_weather",
-                false
-            )
-        }) { view, flags, data ->
-            when (flags) {
-                1 -> (view as Switch).isEnabled = data as Boolean
-                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
-            }
-        }
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.show_weather_main_switch,
-                colorId = R.color.blue
-            ),
-            SwitchV(
-                "notification_weather",
-                dataBindingSend = showWeatherMainSwitchBinding.bindingSend
-            )
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.show_city,
-            ),
-            SwitchV("notification_weather_city"),
-            dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.can_notification_slide,
-                tipsId = R.string.can_notification_slide_summary,
-            ),
-            SwitchV("can_notification_slide"),
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.notification_settings_no_white_list
-            ),
-            SwitchV("notification_settings_no_white_list", false)
-        )
         Line()
         TitleText(textId = R.string.control_center)
         // TODO: 控制中心天气在A13未修复，暂不可用

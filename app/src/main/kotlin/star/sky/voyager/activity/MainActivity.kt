@@ -25,6 +25,7 @@ import star.sky.voyager.activity.pages.sub.HideIconPage
 import star.sky.voyager.activity.pages.sub.HomeBlurPage
 import star.sky.voyager.activity.pages.sub.HomeModPage
 import star.sky.voyager.activity.pages.sub.IconPositionPage
+import star.sky.voyager.activity.pages.sub.NotificationCenterPage
 import star.sky.voyager.activity.pages.sub.PersonalAssistantPage
 import star.sky.voyager.utils.key.BackupUtils
 
@@ -78,6 +79,7 @@ class MainActivity : MIUIActivity() {
         registerPage(HomeBlurPage::class.java)
         registerPage(HomeModPage::class.java)
         registerPage(GalleryUnlockPage::class.java)
+        registerPage(NotificationCenterPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
