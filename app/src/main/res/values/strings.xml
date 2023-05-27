@@ -120,6 +120,8 @@
     <string name="notification_land_clock_color">notification land clock color</string>
 
     <string name="scope_mi_pad">MiPad</string>
+    <string name="input">Input</string>
+    <string name="screen">Screen</string>
     <string name="no_magic_pointer">No Magic Pointer</string>
     <string name="no_magic_pointer_tips">Turn the round MIUI pointer to AOSP pointer.</string>
     <string name="restore_esc">Restore ESC function</string>
@@ -128,8 +130,6 @@
     <string name="remove_stylus_bluetooth_restriction_tips">Make all compatible stylus work without the need of bluetooth connection to official stylus.</string>
     <string name="ignore_stylus_key_gesture">Ignore stylus buttons gesture</string>
     <string name="ignore_stylus_key_gesture_tips">Ignore the long press gesture on the stylus buttons.</string>
-    <string name="input">Input</string>
-    <string name="screen">Screen</string>
     <string name="disable_fixed_orientation">Disable fixed orientation</string>
     <string name="disable_fixed_orientation_tips">Disable some app\'s fixed orientation</string>
     <string name="disable_fixed_orientation_scope">Disable fixed orientation scope</string>

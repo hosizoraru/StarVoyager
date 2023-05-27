@@ -31,7 +31,7 @@ import star.sky.voyager.hook.hooks.home.TaskViewCardSize
 import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
-import star.sky.voyager.hook.hooks.maxmipad.GestureOperationHelper
+import star.sky.voyager.hook.hooks.newmaxmipad.SetGestureNeedFingerNumTo4
 import star.sky.voyager.utils.init.AppRegister
 
 object Home : AppRegister() {
@@ -69,7 +69,7 @@ object Home : AppRegister() {
             FolderAnim, // 文件夹动画修改
             MaxFreeFormH, // 解锁小窗数量限制
             // max mi pad
-            GestureOperationHelper,
+            SetGestureNeedFingerNumTo4, // 交换手势所需的手指数量-Home部分
             // max mi pad
         )
     }

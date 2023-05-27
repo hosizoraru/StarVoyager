@@ -12,14 +12,12 @@ import star.sky.voyager.hook.hooks.android.MaxFreeFormA
 import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
 import star.sky.voyager.hook.hooks.android.SystemPropertiesHook
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
-import star.sky.voyager.hook.hooks.maxmipad.BaseMiuiMultiFingerGesture
-import star.sky.voyager.hook.hooks.maxmipad.MiuiFixedOrientationController
-import star.sky.voyager.hook.hooks.maxmipad.MiuiMagicPointerUtils
-import star.sky.voyager.hook.hooks.maxmipad.MiuiStylusDeviceListener
-import star.sky.voyager.hook.hooks.maxmipad.MiuiStylusPageKeyListener
-import star.sky.voyager.hook.hooks.maxmipad.SetPadMode
-import star.sky.voyager.hook.hooks.maxmipad.SwitchPadMode
-import star.sky.voyager.hook.hooks.maxmipad.SystemServerImpl
+import star.sky.voyager.hook.hooks.newmaxmipad.DisableFixedOrientation
+import star.sky.voyager.hook.hooks.newmaxmipad.IgnoreStylusKeyGesture
+import star.sky.voyager.hook.hooks.newmaxmipad.NoMagicPointer
+import star.sky.voyager.hook.hooks.newmaxmipad.RemoveStylusBluetoothRestriction
+import star.sky.voyager.hook.hooks.newmaxmipad.RestoreEsc
+import star.sky.voyager.hook.hooks.newmaxmipad.SetGestureNeedFingerNumTo4
 import star.sky.voyager.utils.init.AppRegister
 
 object Android : AppRegister() {
@@ -40,14 +38,12 @@ object Android : AppRegister() {
             SystemPropertiesHook, // 媒体音量阶数
             DoNotClearAppPlusA, // 更激进的防止杀死后台应用
             // max mi pad
-            MiuiFixedOrientationController,
-            MiuiMagicPointerUtils, // 老版本系统hook的，新版本已经找不到此Class 关闭Magic Pointer
-            MiuiStylusDeviceListener,
-            MiuiStylusPageKeyListener,
-            SetPadMode,
-            SwitchPadMode,
-            SystemServerImpl,
-            BaseMiuiMultiFingerGesture,
+            DisableFixedOrientation, // 禁用固定屏幕方向
+            IgnoreStylusKeyGesture, // 忽略触控笔按键手势
+            NoMagicPointer, // 关闭Magic Pointer
+            RemoveStylusBluetoothRestriction, // 去除触控笔蓝牙限制
+            RestoreEsc, // 恢复ESC键功能
+            SetGestureNeedFingerNumTo4, // 交换手势所需的手指数量-Android部分
             // max mi pad
         )
     }

@@ -117,6 +117,8 @@
     <string name="notification_land_clock_color">通知中心横屏时间日期颜色</string>
 
     <string name="scope_mi_pad">小米平板</string>
+    <string name="input">输入</string>
+    <string name="screen">屏幕</string>
     <string name="no_magic_pointer">关闭Magic Pointer</string>
     <string name="no_magic_pointer_tips">关掉MIUI for Pad的圆形鼠标，恢复为安卓原生鼠标指针。</string>
     <string name="restore_esc_tips">恢复被MIUI强映射为“返回”功能的ESC键。</string>
@@ -125,8 +127,6 @@
     <string name="restore_esc">恢复ESC键功能</string>
     <string name="ignore_stylus_key_gesture">忽略触控笔按键手势</string>
     <string name="ignore_stylus_key_gesture_tips">忽略触控笔按键的长按手势。</string>
-    <string name="input">输入</string>
-    <string name="screen">屏幕</string>
     <string name="disable_fixed_orientation">禁用固定屏幕方向</string>
     <string name="disable_fixed_orientation_tips">针对部分应用禁用横屏优化</string>
     <string name="disable_fixed_orientation_scope">禁用固定屏幕方向作用域</string>
