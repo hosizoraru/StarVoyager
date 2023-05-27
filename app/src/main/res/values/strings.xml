@@ -384,6 +384,7 @@
     <string name="kill_domain_verification">Kill domain verification</string>
     <string name="kill_domain_verification_summary">Prevents the system (and also yourself) from allowing apps to always open supported links.\nIt also enables you to open supported links in apps which are not "verified" on Android 12 and above.</string>
     <string name="max_free_form">Unlocked multi freeform number limit</string>
+    <string name="disable_72h_verify">Disable the verification of lock screen password every 72 hours</string>
     <string name="media_volume_steps_switch">Media volume steps</string>
     <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
 

@@ -105,6 +105,11 @@ class AndroidPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.disable_72h_verify
+            ), SwitchV("disable_72h_verify")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.max_free_form
             ), SwitchV("max_free_form")
         )

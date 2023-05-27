@@ -61,7 +61,7 @@ object SystemUI : AppRegister() {
             MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
             OldNotificationWeather, // 通知中心天气
             NotificationWeather, // 通知中心天气
-            NotificationMod, // 通知中心使用默认字体
+            NotificationMod, // 通知中心 时间日期横屏时钟自定义
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单
             RestoreNearbyTile, // 恢复附近分享磁贴

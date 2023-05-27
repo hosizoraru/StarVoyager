@@ -379,6 +379,7 @@
     <string name="kill_domain_verification">禁用域验证</string>
     <string name="kill_domain_verification_summary">打开 http / https 链接时总是询问，而不是直接在 app 中打开\n副作用：手动设也没法直接用应用打开链接；Android 12+ 选择时会同时显示未“验证”的 app</string>
     <string name="max_free_form">解锁小窗数量限制</string>
+    <string name="disable_72h_verify">禁用每 72h 验证锁屏密码</string>
     <string name="media_volume_steps_switch">媒体音量阶数</string>
     <string name="media_volume_steps_summary">打开可能会导致音量条的滚动卡顿或蓝牙音量异常。</string>
 
