@@ -11,9 +11,9 @@ import star.sky.voyager.utils.key.hasEnable
 object RemoveOpenAd : HookRegister() {
     override fun init() = hasEnable("remove_open_ad") {
         loadClass("com.tencent.qqmusiclite.activity.SplashAdActivity").methodFinder()
-            .filter {
-                name == "onCreate" && parameterTypes[0] == Bundle::class.java
-            }.toList().createHooks {
+            .filterByName("onCreate")
+            .filterByParamTypes(Bundle::class.java)
+            .toList().createHooks {
                 after { param ->
                     loadClassOrNull("android.app.Activity")
                         ?.getMethod("finish")
