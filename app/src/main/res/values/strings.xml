@@ -118,6 +118,7 @@
     <string name="notification_land_clock_bold">notification land clock use system bold</string>
     <string name="notification_land_clock_size">notification land clock size</string>
     <string name="notification_land_clock_color">notification land clock color</string>
+    <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
 
     <string name="scope_mi_pad">MiPad</string>
     <string name="input">Input</string>

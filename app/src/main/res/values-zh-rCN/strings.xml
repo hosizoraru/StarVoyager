@@ -115,6 +115,7 @@
     <string name="notification_land_clock_bold">通知中心横屏时间日期使用加粗系统字体</string>
     <string name="notification_land_clock_size">通知中心横屏时间日期字体大小</string>
     <string name="notification_land_clock_color">通知中心横屏时间日期颜色</string>
+    <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="input">输入</string>

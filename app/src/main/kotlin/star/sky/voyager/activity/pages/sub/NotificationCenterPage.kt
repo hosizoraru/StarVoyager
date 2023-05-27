@@ -59,6 +59,7 @@ class NotificationCenterPage : BasePage() {
             SwitchV("notification_settings_no_white_list", false)
         )
         Line()
+        TitleText(textId = R.string.notification_mod_tips)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_time_font,
