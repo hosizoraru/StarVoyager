@@ -282,6 +282,7 @@
     <string name="hdr_enhance">Display high dynamic range</string>
     <string name="hdr_enhance_summary">Use HDR to show more detail in highlights and shadows</string>
     <string name="super_clipboard">Super Clipboard</string>
+    <string name="super_clipboard_summary">The pictures in the album can be manually copied into the clipboard</string>
     <string name="ocr">Enable ocr</string>
     <string name="ocr_form">Enable ocr form</string>
     <string name="pdf">Enable pdf</string>

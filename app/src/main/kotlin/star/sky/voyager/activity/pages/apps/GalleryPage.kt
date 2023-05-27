@@ -20,6 +20,7 @@ class GalleryPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.super_clipboard,
+                tipsId = R.string.super_clipboard_summary
             ), SwitchV("super_clipboard", false)
         )
         TextSummaryWithArrow(
