@@ -478,6 +478,7 @@
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>
+    <string name="show_status_bar_battery_any">StatusBar Always Show about Battery</string>
     <string name="show_wifi_standard">Show Wifi Standard</string>
     <string name="system_ui_use_new_hd">Force to use new HD icon</string>
     <string name="system_ui_use_new_summary">A recent system version is required, some models may not have been updated</string>

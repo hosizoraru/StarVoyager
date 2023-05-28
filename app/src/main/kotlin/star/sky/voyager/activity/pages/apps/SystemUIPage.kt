@@ -132,12 +132,31 @@ class SystemUIPage : BasePage() {
             TextSummaryV(textId = R.string.double_tap_to_sleep),
             SwitchV("status_bar_double_tap_to_sleep")
         )
+        val batteryBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "system_ui_show_status_bar_battery",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.system_ui_show_status_bar_battery,
                 tipsId = R.string.system_ui_show_status_bar_battery_summary
             ),
-            SwitchV("system_ui_show_status_bar_battery", false)
+            SwitchV(
+                "system_ui_show_status_bar_battery",
+                false,
+                dataBindingSend = batteryBinding.bindingSend
+            )
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.show_status_bar_battery_any
+            ),
+            SwitchV("show_status_bar_battery_any", false),
+            dataBindingRecv = batteryBinding.binding.getRecv(1)
         )
         Line()
         TitleText(textId = R.string.status_bar_layout)

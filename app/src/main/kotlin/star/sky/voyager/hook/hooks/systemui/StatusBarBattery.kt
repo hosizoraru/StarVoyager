@@ -20,6 +20,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.api.isPad
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 import kotlin.math.abs
 
@@ -27,8 +28,6 @@ import kotlin.math.abs
 object StatusBarBattery : HookRegister() {
     var textview: TextView? = null
     var context: Context? = null
-
-    private var your_device = isPad()
 
     @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
@@ -74,7 +73,7 @@ object StatusBarBattery : HookRegister() {
                     )
                     params.gravity = Gravity.CENTER_VERTICAL
                     textview!!.layoutParams = params
-                    if (your_device) {
+                    if (isPad()) {
                         params.topMargin = 7 // 调整上边距
                     }
                     frameLayout?.addView(textview)
@@ -91,17 +90,24 @@ object StatusBarBattery : HookRegister() {
     class BatteryReceiver : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context, intent: Intent) {
+            val any = getBoolean("show_status_bar_battery_any", false)
             val batteryManager = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
             val temperature = (intent.getIntExtra("temperature", 0) / 10.0)
             val current =
                 abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000 / 1000.0)
             val status = intent.getIntExtra("status", 0)
             if (textview !== null) {
-                if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
+                if (any) {
                     textview!!.text = "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
                     textview!!.visibility = View.VISIBLE
                 } else {
-                    textview!!.visibility = View.GONE
+                    if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
+                        textview!!.text =
+                            "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
+                        textview!!.visibility = View.VISIBLE
+                    } else {
+                        textview!!.visibility = View.GONE
+                    }
                 }
             }
         }

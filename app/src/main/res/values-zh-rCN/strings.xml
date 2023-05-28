@@ -473,6 +473,7 @@
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
+    <string name="show_status_bar_battery_any">状态栏始终显示关于电池</string>
     <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>
