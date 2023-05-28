@@ -76,11 +76,6 @@ android {
         }
     }
 
-    dependenciesInfo {
-        includeInApk = false
-        includeInBundle = false
-    }
-
     applicationVariants.all {
         outputs.all {
             (this as BaseVariantOutputImpl).outputFileName = "StarVoyager-$versionName-$name.apk"
