@@ -106,6 +106,7 @@
     <string name="font_size">Font size</string>
     <string name="color">Color</string>
 
+    <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">notification time use system font</string>
     <string name="notification_time_bold">notification time use system bold</string>
     <string name="notification_time_size">notification time size</string>
@@ -118,7 +119,16 @@
     <string name="notification_land_clock_bold">notification land clock use system bold</string>
     <string name="notification_land_clock_size">notification land clock size</string>
     <string name="notification_land_clock_color">notification land clock color</string>
-    <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
+
+    <string name="control_center_mod_tips">Mix4 TextSize def: 132.65894 42.85894\nMiPad5Pro TextSize def: 97.79535 31.595348</string>
+    <string name="control_center_clock_font">control center time use system font</string>
+    <string name="control_center_clock_bold">control center time use system bold</string>
+    <string name="control_center_clock_size">control center time size</string>
+    <string name="control_center_clock_color">control center time bold</string>
+    <string name="control_center_date_font">control center date use system font</string>
+    <string name="control_center_date_bold">control center date use system bold</string>
+    <string name="control_center_date_size">control center date size</string>
+    <string name="control_center_date_color">control center date color</string>
 
     <string name="scope_mi_pad">MiPad</string>
     <string name="input">Input</string>

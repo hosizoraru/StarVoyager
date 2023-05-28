@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.hook.views.WeatherData
 import star.sky.voyager.utils.api.callMethod
@@ -22,11 +23,9 @@ object NewNotificationWeather : HookRegister() {
     override fun init() = hasEnable("control_center_weather") {
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
         val ControlCenterDateViewClass =
-            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterDateView")
-        ControlCenterDateViewClass.methodFinder()
-            .findSuper().first {
-                name == "onDetachedFromWindow"
-            }.createHook {
+            loadClass("com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView")
+        ControlCenterDateViewClass.methodFinder().findSuper().filterByName("onDetachedFromWindow")
+            .toList().createHooks {
                 before {
                     if ((it.thisObject as TextView).id == clockId && this@NewNotificationWeather::weather.isInitialized) {
                         weather.onDetachedFromWindow()
@@ -34,21 +33,8 @@ object NewNotificationWeather : HookRegister() {
                 }
             }
 
-        ControlCenterDateViewClass.methodFinder()
-            .findSuper().first {
-                name == "onDetachedFromWindow"
-            }.createHook {
-                before {
-                    if ((it.thisObject as TextView).id == clockId && this@NewNotificationWeather::weather.isInitialized) {
-                        weather.onDetachedFromWindow()
-                    }
-                }
-            }
-
-        ControlCenterDateViewClass.methodFinder()
-            .findSuper().first {
-                name == "setText"
-            }.createHook {
+        ControlCenterDateViewClass.methodFinder().findSuper().filterByName("setText")
+            .toList().createHooks {
                 before {
                     val time = it.args[0]?.toString()
                     val view = it.thisObject as TextView

@@ -4,6 +4,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
 import star.sky.voyager.hook.hooks.systemui.BlurLockScreenButton
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
+import star.sky.voyager.hook.hooks.systemui.ControlCenterMod
 import star.sky.voyager.hook.hooks.systemui.CustomMobileTypeText
 import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
 import star.sky.voyager.hook.hooks.systemui.DoubleLineNetworkSpeed
@@ -49,6 +50,8 @@ object SystemUI : AppRegister() {
         autoInitHooks(
             lpparam,
             MonetTheme, // 自定义系统主题色
+            NotificationMod, // 通知中心 时间日期横屏时钟自定义
+            ControlCenterMod, // 控制中心 时间日期自定义
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕
             StatusBarBattery, // 状态栏显示关于电池
             StatusBarLayout, // 状态栏布局
@@ -61,7 +64,7 @@ object SystemUI : AppRegister() {
             MaximumNumberOfNotificationIcons, // 通知图标/通知点数/锁屏界面通知图标最大数量
             OldNotificationWeather, // 通知中心天气
             NotificationWeather, // 通知中心天气
-            NotificationMod, // 通知中心 时间日期横屏时钟自定义
+//            NewNotificationWeather, // XX中心天气
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单
             RestoreNearbyTile, // 恢复附近分享磁贴

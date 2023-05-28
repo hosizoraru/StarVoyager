@@ -1,12 +1,12 @@
 package star.sky.voyager.utils.api
 
+import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper
-import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -183,8 +183,10 @@ fun findAllMethods(
     return findAllMethods(loadClass(clzName, classLoader), findSuper, condition)
 }
 
-fun dp2px(dpValue: Float): Int = TypedValue.applyDimension(
-    TypedValue.COMPLEX_UNIT_DIP, dpValue, appContext.resources.displayMetrics
+fun dp2px(context: Context, dpValue: Float): Int = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_DIP,
+    dpValue,
+    context.resources.displayMetrics
 ).toInt()
 
 /**

@@ -1,6 +1,6 @@
 package star.sky.voyager.hook.hooks.systemui
 
-import android.graphics.Color
+import android.graphics.Color.parseColor
 import android.graphics.Typeface
 import android.util.TypedValue
 import android.widget.TextView
@@ -30,9 +30,9 @@ object NotificationMod : HookRegister() {
             clockSize = getInt("notification_land_clock_size", 30).toFloat()
         }
 
-        val timeColor = Color.parseColor(getString("notification_time_color", "#FFFFFF"))
-        val dateColor = Color.parseColor(getString("notification_date_color", "#FFFFFF"))
-        val clockColor = Color.parseColor(getString("notification_land_clock_color", "#FFFFFF"))
+        val timeColor = parseColor(getString("notification_time_color", "#FFFFFF"))
+        val dateColor = parseColor(getString("notification_date_color", "#FFFFFF"))
+        val clockColor = parseColor(getString("notification_land_clock_color", "#FFFFFF"))
 
         val notificationClass =
             loadClass("com.android.systemui.qs.MiuiNotificationHeaderView")

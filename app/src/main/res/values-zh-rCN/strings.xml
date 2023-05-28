@@ -103,6 +103,7 @@
     <string name="font_size">字体大小</string>
     <string name="color">颜色</string>
 
+    <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">通知中心时间使用系统字体</string>
     <string name="notification_time_bold">通知中心时间使用加粗系统字体</string>
     <string name="notification_time_size">通知中心时间字体大小</string>
@@ -115,7 +116,16 @@
     <string name="notification_land_clock_bold">通知中心横屏时间日期使用加粗系统字体</string>
     <string name="notification_land_clock_size">通知中心横屏时间日期字体大小</string>
     <string name="notification_land_clock_color">通知中心横屏时间日期颜色</string>
-    <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
+
+    <string name="control_center_mod_tips">Mix4 字体大小默认值: 132.65894 42.85894\nMiPad5Pro 字体大小默认值: 97.79535 31.595348</string>
+    <string name="control_center_clock_font">控制中心时间使用系统字体</string>
+    <string name="control_center_clock_bold">控制中心时间使用加粗系统字体</string>
+    <string name="control_center_clock_size">控制中心时间字体大小</string>
+    <string name="control_center_clock_color">控制中心时间颜色</string>
+    <string name="control_center_date_font">控制中心日期使用系统字体</string>
+    <string name="control_center_date_bold">控制中心日期使用加粗系统字体</string>
+    <string name="control_center_date_size">控制中心日期字体大小</string>
+    <string name="control_center_date_color">控制中心日期颜色</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="input">输入</string>

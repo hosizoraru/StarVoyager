@@ -120,6 +120,12 @@ class SystemUIPage : BasePage() {
                 onClickListener = { showFragment("notification_center") }
             )
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.control_center,
+                onClickListener = { showFragment("control_center") }
+            )
+        )
         Line()
         TitleText(textId = R.string.status_bar)
         TextSummaryWithSwitch(
@@ -727,51 +733,6 @@ class SystemUIPage : BasePage() {
             )
         )
         SeekBarWithText("slow_speed_degree", 0, 200, 1)
-        Line()
-        TitleText(textId = R.string.control_center)
-        // TODO: 控制中心天气在A13未修复，暂不可用
-        val controlCenterWeatherBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
-                "control_center_weather",
-                false
-            )
-        }) { view, flags, data ->
-            when (flags) {
-                1 -> (view as Switch).isEnabled = data as Boolean
-                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
-            }
-        }
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.show_weather_main_switch,
-                colorId = R.color.blue,
-                tipsId = R.string.already_can_not_use,
-            ),
-            SwitchV(
-                "control_center_weather",
-                dataBindingSend = controlCenterWeatherBinding.bindingSend
-            )
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.show_city,
-            ),
-            SwitchV("control_center_weather_city"),
-            dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.restore_near_by_tile
-            ),
-            SwitchV("restore_near_by_tile", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.Disable_Bluetooth,
-                tipsId = R.string.Disable_Bluetooth_summary,
-            ),
-            SwitchV("Disable_Bluetooth"),
-        )
         Line()
         TitleText(textId = R.string.lock_screen)
         TextSummaryWithSwitch(

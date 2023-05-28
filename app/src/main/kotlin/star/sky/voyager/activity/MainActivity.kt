@@ -19,6 +19,7 @@ import star.sky.voyager.activity.pages.apps.SystemUIPage
 import star.sky.voyager.activity.pages.main.AboutPage
 import star.sky.voyager.activity.pages.main.MainPage
 import star.sky.voyager.activity.pages.main.MenuPage
+import star.sky.voyager.activity.pages.sub.ControlCenterPage
 import star.sky.voyager.activity.pages.sub.DisableFixedOrientationPage
 import star.sky.voyager.activity.pages.sub.GalleryUnlockPage
 import star.sky.voyager.activity.pages.sub.HideIconPage
@@ -80,6 +81,7 @@ class MainActivity : MIUIActivity() {
         registerPage(HomeModPage::class.java)
         registerPage(GalleryUnlockPage::class.java)
         registerPage(NotificationCenterPage::class.java)
+        registerPage(ControlCenterPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
