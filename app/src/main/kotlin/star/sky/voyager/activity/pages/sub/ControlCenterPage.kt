@@ -165,5 +165,57 @@ class ControlCenterPage : BasePage() {
                     }.show()
                 })
         )
+//        Line()
+//        TextSummaryWithSwitch(
+//            TextSummaryV(
+//                textId = R.string.control_center_carrier_font,
+//            ), SwitchV("control_center_carrier_font", false)
+//        )
+//        TextSummaryWithSwitch(
+//            TextSummaryV(
+//                textId = R.string.control_center_carrier_bold,
+//            ), SwitchV("control_center_carrier_bold", false)
+//        )
+//        if (!isPad()) {
+//            TextWithSeekBar(
+//                TextV(textId = R.string.control_center_carrier_size),
+//                SeekBarWithTextV("control_center_carrier_size", 10, 74, 37)
+//            )
+//        } else {
+//            TextWithSeekBar(
+//                TextV(textId = R.string.control_center_carrier_size),
+//                SeekBarWithTextV("control_center_carrier_size", 10, 60, 30)
+//            )
+//        }
+//        TextSummaryWithArrow(
+//            TextSummaryV(
+//                textId = R.string.control_center_carrier_color,
+//                onClickListener = {
+//                    MIUIDialog(activity) {
+//                        setTitle(R.string.control_center_carrier_color)
+//                        setEditText(
+//                            "",
+//                            "${activity.getString(R.string.current)}${
+//                                MIUIActivity.safeSP.getString(
+//                                    "control_center_carrier_color",
+//                                    "#FFFFFF"
+//                                )
+//                            }"
+//                        )
+//                        setLButton(textId = R.string.cancel) {
+//                            dismiss()
+//                        }
+//                        setRButton(textId = R.string.done) {
+//                            if (getEditText() != "") {
+//                                MIUIActivity.safeSP.putAny(
+//                                    "control_center_carrier_color",
+//                                    getEditText()
+//                                )
+//                            }
+//                            dismiss()
+//                        }
+//                    }.show()
+//                })
+//        )
     }
 }

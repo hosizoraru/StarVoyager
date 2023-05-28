@@ -126,6 +126,10 @@
     <string name="control_center_date_bold">控制中心日期使用加粗系统字体</string>
     <string name="control_center_date_size">控制中心日期字体大小</string>
     <string name="control_center_date_color">控制中心日期颜色</string>
+    <string name="control_center_carrier_font">控制中心运营商信息使用系统字体</string>
+    <string name="control_center_carrier_bold">控制中心运营商信息使用加粗系统字体</string>
+    <string name="control_center_carrier_size">控制中心运营商信息字体大小</string>
+    <string name="control_center_carrier_color">控制中心运营商信息颜色</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="input">输入</string>
