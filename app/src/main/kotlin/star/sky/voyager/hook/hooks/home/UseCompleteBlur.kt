@@ -2,8 +2,10 @@ package star.sky.voyager.hook.hooks.home
 
 import android.app.Activity
 import android.view.MotionEvent
+import com.github.kyuubiran.ezxhelper.ClassUtils
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.ObjectUtils
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.callStaticMethod
 import star.sky.voyager.utils.api.getObjectField
@@ -14,6 +16,7 @@ object UseCompleteBlur : HookRegister() {
     override fun init() = hasEnable("home_use_complete_blur") {
         val blurUtilsClass = loadClass("com.miui.home.launcher.common.BlurUtils")
         val navStubViewClass = loadClass("com.miui.home.recents.NavStubView")
+        val applicationClass = loadClass("com.miui.home.launcher.Application")
 
         blurUtilsClass.methodFinder().first {
             name == "getBlurType"
@@ -29,6 +32,26 @@ object UseCompleteBlur : HookRegister() {
                 before {
                     val mLauncher = it.thisObject.getObjectField("mLauncher") as Activity?
                     blurUtilsClass.callStaticMethod("fastBlurDirectly", 1.0f, mLauncher?.window)
+                }
+            }
+            navStubViewClass.methodFinder().first {
+                name == "onTouchEvent" && parameterTypes[0] == MotionEvent::class.java
+            }.createHook {
+                after {
+                    val mLauncher =
+                        ClassUtils.invokeStaticMethodBestMatch(
+                            applicationClass,
+                            "getLauncher"
+                        ) as Activity
+                    ObjectUtils.invokeMethodBestMatch(
+                        blurUtilsClass,
+                        "fastBlur",
+                        null,
+                        1.0f,
+                        mLauncher.window,
+                        true,
+                        500L
+                    )
                 }
             }
         }

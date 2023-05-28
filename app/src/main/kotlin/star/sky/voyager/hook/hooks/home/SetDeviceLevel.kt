@@ -29,6 +29,17 @@ object SetDeviceLevel : HookRegister() {
             returnConstant(2)
         }
         try {
+            DeviceConfigClass.methodFinder().first {
+                name == "isUseSimpleAnim"
+            }.createHook {
+                before {
+                    it.result = false
+                }
+            }
+        } catch (_: Throwable) {
+
+        }
+        try {
             DeviceLevelUtilsClass.methodFinder().first {
                 name == "getDeviceLevel"
             }.createHook {
