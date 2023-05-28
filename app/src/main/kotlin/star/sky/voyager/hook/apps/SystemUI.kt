@@ -21,6 +21,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.LockScreenFont
+import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.MonetTheme
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
@@ -50,6 +51,7 @@ object SystemUI : AppRegister() {
         autoInitHooks(
             lpparam,
             MonetTheme, // 自定义系统主题色
+            LockscreenChargingInfo, // Yife-锁屏界面电池信息
             NotificationMod, // 通知中心 时间日期横屏时钟自定义
             ControlCenterMod, // 控制中心 时间日期自定义
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕

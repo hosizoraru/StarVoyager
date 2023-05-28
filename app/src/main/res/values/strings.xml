@@ -105,6 +105,7 @@
     <string name="system_font">System font</string>
     <string name="font_size">Font size</string>
     <string name="color">Color</string>
+    <string name="only_one_choose">Choose only one of them</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">notification time use system font</string>
@@ -475,6 +476,9 @@
     <string name="home_widget_to_minus">Allow classic widget to be moved to the Minus One screen</string>
     <string name="blur_personal_assistant">Blur for App Vault</string>
     <string name="blur_personal_assistant_radius">Blur Radius</string>
+
+    <string name="lockscreen_charging_info">Display charging power on lock screen</string>
+    <string name="lockscreen_charging_info_not_supported">Device currently unsupported</string>
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>

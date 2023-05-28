@@ -802,6 +802,13 @@ class SystemUIPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.lockscreen_charging_info,
+                tipsId = R.string.only_one_choose
+            ),
+            SwitchV("lockscreen_charging_info", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.double_tap_to_sleep,
                 tipsId = R.string.home_double_tap_to_sleep_summary
             ), SwitchV("lock_screen_double_tap_to_sleep")

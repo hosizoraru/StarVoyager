@@ -102,6 +102,7 @@
     <string name="system_font">系统字体</string>
     <string name="font_size">字体大小</string>
     <string name="color">颜色</string>
+    <string name="only_one_choose">只建议选其中一项</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">通知中心时间使用系统字体</string>
@@ -470,6 +471,9 @@
     <string name="home_widget_to_minus">允许将安卓小部件移到负一屏</string>
     <string name="blur_personal_assistant">负一屏模糊</string>
     <string name="blur_personal_assistant_radius">模糊程度</string>
+
+    <string name="lockscreen_charging_info">锁屏显示充电功率</string>
+    <string name="lockscreen_charging_info_not_supported">暂不支持此设备</string>
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
