@@ -7,7 +7,7 @@ ezxhelper = "2.0.5"
 hidden-api-bypass = "4.3"
 jpinyin = "1.0.1"
 xposed-api = "82"
-kotlin = "1.8.21"
+kotlin = "1.9.0-Beta"
 core-ktx = "1.10.1"
 
 [libraries]
