@@ -22,8 +22,8 @@ object ControlCenterMod : HookRegister() {
 //    private var carrierSize: Float = 0.0f
 
     override fun init() {
-        val controlCenterStatusBarClass =
-            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
+//        val controlCenterStatusBarClass =
+//            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
         if (!isPad()) {
             clockSize = getInt("control_center_clock_size", 133).toFloat()
             dateSize = getInt("control_center_date_size", 43).toFloat()
