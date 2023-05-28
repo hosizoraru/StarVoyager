@@ -1,12 +1,15 @@
 package star.sky.voyager.utils.api
 
+import android.content.pm.ApplicationInfo
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
+import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XposedHelpers
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -63,6 +66,11 @@ fun Any.invokeMethod(vararg args: Any?, condition: MethodCondition): Any? {
     throw NoSuchMethodException()
 }
 
+/**
+ * 判断运行模块的机型是否是平板
+ * @return 一个 Boolean 值，true 代表是平板，false 代表不是平板
+ * @author Voyager
+ */
 fun isPad() =
     loadClass("miui.os.Build")
         .getField("IS_TABLET")
@@ -178,3 +186,36 @@ fun findAllMethods(
 fun dp2px(dpValue: Float): Int = TypedValue.applyDimension(
     TypedValue.COMPLEX_UNIT_DIP, dpValue, appContext.resources.displayMetrics
 ).toInt()
+
+/**
+ * 可以从 SystemUI 里获取 SystemUIPlugin 的 AppInfo 和 ClassLoader
+ *
+ * 使用方法:
+ *
+ *     hookPluginClassLoader { appInfo, classLoader ->
+ *         // 在这里使用 appInfo 和 classLoader 变量
+ *     }
+ *
+ * 仅适用于 Mix4 A13 Miui14 V14.0.23.5.22.Dev 开发版
+ * @author Voyager
+ * @return appInfo & classLoaderP
+ */
+fun hookPluginClassLoader(onGetClassLoader: (appInfo: ApplicationInfo, classLoader: ClassLoader) -> Unit) {
+    val classLoaderClass = loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory")
+    classLoaderClass.methodFinder().first {
+        name == "getClassLoader"
+                && parameterCount == 2
+                && parameterTypes[0] == ApplicationInfo::class.java
+                && parameterTypes[1] == ClassLoader::class.java
+    }.createHook {
+        after { getClassLoader ->
+            val appInfo = getClassLoader.args[0] as ApplicationInfo
+            val classLoaderP = getClassLoader.result as ClassLoader
+//            Log.i("get classLoader: $appInfo $classLoaderP")
+            if (appInfo.packageName == "miui.systemui.plugin") {
+                onGetClassLoader(appInfo, classLoaderP)
+            }
+        }
+    }
+}
+

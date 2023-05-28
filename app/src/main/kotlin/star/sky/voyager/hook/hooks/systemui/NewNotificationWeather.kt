@@ -1,7 +1,6 @@
 package star.sky.voyager.hook.hooks.systemui
 
 import android.annotation.SuppressLint
-import android.content.pm.ApplicationInfo
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
@@ -9,6 +8,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.hook.views.WeatherData
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.getObjectFieldAs
+import star.sky.voyager.utils.api.hookPluginClassLoader
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils
 import star.sky.voyager.utils.key.hasEnable
@@ -61,28 +61,23 @@ object NewNotificationWeather : HookRegister() {
                 }
             }
 
-        loadClass("com.android.systemui.shared.plugins.PluginManagerImpl").methodFinder().first {
-            name == "getClassLoader"
-        }.createHook {
-            after { getClassLoader ->
-                val appInfo = getClassLoader.args[0] as ApplicationInfo
-                val classLoader = getClassLoader.result as ClassLoader
-                if (appInfo.packageName == "miui.systemui.plugin") {
-                    loadClass("miui.systemui.controlcenter.windowview.MainPanelHeaderController").methodFinder()
-                        .first {
-                            name == "addClockViews"
-                        }.createHook {
-                            after {
-                                val dateView = it.thisObject.getObjectFieldAs<TextView>("dateView")
-                                clockId = dateView.id
-                                weather = WeatherData(dateView.context, isDisplayCity)
-                                weather.callBacks = {
-                                    dateView.callMethod("updateTime")
-                                }
-                            }
+        hookPluginClassLoader { appInfo, classLoader ->
+            loadClass(
+                "miui.systemui.controlcenter.windowview.MainPanelHeaderController",
+                classLoader
+            ).methodFinder()
+                .first {
+                    name == "addClockViews"
+                }.createHook {
+                    after {
+                        val dateView = it.thisObject.getObjectFieldAs<TextView>("dateView")
+                        clockId = dateView.id
+                        weather = WeatherData(dateView.context, isDisplayCity)
+                        weather.callBacks = {
+                            dateView.callMethod("updateTime")
                         }
+                    }
                 }
-            }
         }
     }
 }
