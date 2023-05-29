@@ -64,21 +64,30 @@ android {
         jvmTarget = "17"
     }
 
+    kotlin {
+        sourceSets.all {
+            languageSettings {
+                languageVersion = "2.0"
+            }
+        }
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/**"
             excludes += "/kotlin/**"
             excludes += "/*.txt"
             excludes += "/*.bin"
+            excludes += "/*.json"
         }
         dex {
             useLegacyPackaging = true
         }
-    }
-
-    applicationVariants.all {
-        outputs.all {
-            (this as BaseVariantOutputImpl).outputFileName = "StarVoyager-$versionName-$name.apk"
+        applicationVariants.all {
+            outputs.all {
+                (this as BaseVariantOutputImpl).outputFileName =
+                    "StarVoyager-$versionName-$name.apk"
+            }
         }
     }
 }
