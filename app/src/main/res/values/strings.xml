@@ -109,32 +109,32 @@
     <string name="sunshine_mode">Sunshine Mode</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
-    <string name="notification_time_font">notification time use system font</string>
-    <string name="notification_time_bold">notification time use system bold</string>
-    <string name="notification_time_size">notification time size</string>
-    <string name="notification_time_color">notification time color</string>
-    <string name="notification_date_font">notification date use system font</string>
-    <string name="notification_date_bold">notification date use system bold</string>
-    <string name="notification_date_size">notification date size</string>
-    <string name="notification_date_color">notification date color</string>
-    <string name="notification_land_clock_font">notification land clock use system font</string>
-    <string name="notification_land_clock_bold">notification land clock use system bold</string>
-    <string name="notification_land_clock_size">notification land clock size</string>
-    <string name="notification_land_clock_color">notification land clock color</string>
+    <string name="notification_time_font">time use system font</string>
+    <string name="notification_time_bold">time use system bold</string>
+    <string name="notification_time_size">time size</string>
+    <string name="notification_time_color">time color</string>
+    <string name="notification_date_font">date use system font</string>
+    <string name="notification_date_bold">date use system bold</string>
+    <string name="notification_date_size">date size</string>
+    <string name="notification_date_color">date color</string>
+    <string name="notification_land_clock_font">land clock use system font</string>
+    <string name="notification_land_clock_bold">land clock use system bold</string>
+    <string name="notification_land_clock_size">land clock size</string>
+    <string name="notification_land_clock_color">land clock color</string>
 
     <string name="control_center_mod_tips">Mix4 TextSize def: 132.65894 42.85894\nMiPad5Pro TextSize def: 97.79535 31.595348</string>
-    <string name="control_center_clock_font">control center time use system font</string>
-    <string name="control_center_clock_bold">control center time use system bold</string>
-    <string name="control_center_clock_size">control center time size</string>
-    <string name="control_center_clock_color">control center time bold</string>
-    <string name="control_center_date_font">control center date use system font</string>
-    <string name="control_center_date_bold">control center date use system bold</string>
-    <string name="control_center_date_size">control center date size</string>
-    <string name="control_center_date_color">control center date color</string>
-    <string name="control_center_carrier_font">control center carrier use system font</string>
-    <string name="control_center_carrier_bold">control center carrier use system bold</string>
-    <string name="control_center_carrier_size">control center carrier size</string>
-    <string name="control_center_carrier_color">control center carrier color</string>
+    <string name="control_center_clock_font">time use system font</string>
+    <string name="control_center_clock_bold">time use system bold</string>
+    <string name="control_center_clock_size">time size</string>
+    <string name="control_center_clock_color">time bold</string>
+    <string name="control_center_date_font">date use system font</string>
+    <string name="control_center_date_bold">date use system bold</string>
+    <string name="control_center_date_size">date size</string>
+    <string name="control_center_date_color">date color</string>
+    <string name="control_center_carrier_font">carrier use system font</string>
+    <string name="control_center_carrier_bold">carrier use system bold</string>
+    <string name="control_center_carrier_size">carrier size</string>
+    <string name="control_center_carrier_color">carrier color</string>
 
     <string name="scope_mi_pad">MiPad</string>
     <string name="input">Input</string>
@@ -480,7 +480,7 @@
     <string name="blur_personal_assistant">Blur for App Vault</string>
     <string name="blur_personal_assistant_radius">Blur Radius</string>
 
-    <string name="lockscreen_charging_info">Display charging power on lock screen</string>
+    <string name="lockscreen_charging_info">Display charging power</string>
     <string name="lockscreen_charging_info_not_supported">Device currently unsupported</string>
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
@@ -495,9 +495,9 @@
     <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
     <string name="restore_near_by_tile">Restore NearBy Share tile</string>
     <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
-    <string name="lock_screen_clock_use_system_font">Lock screen interface clock uses system fonts</string>
-    <string name="lock_screen_date_use_system_font">Lock screen interface date uses system fonts</string>
-    <string name="blur_lock_screen_button">Blur lock screen button</string>
+    <string name="lock_screen_clock_use_system_font">Interface clock uses system fonts</string>
+    <string name="lock_screen_date_use_system_font">Interface date uses system fonts</string>
+    <string name="blur_lock_screen_button">Blur button</string>
     <string name="remove_the_left_side_of_the_lock_screen">Remove the lock screen side panel</string>
     <string name="remove_lock_screen_camera">Remove the lock screen camera feature</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>

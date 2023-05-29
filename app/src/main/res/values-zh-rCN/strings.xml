@@ -106,32 +106,32 @@
     <string name="sunshine_mode">阳光模式</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
-    <string name="notification_time_font">通知中心时间使用系统字体</string>
-    <string name="notification_time_bold">通知中心时间使用加粗系统字体</string>
-    <string name="notification_time_size">通知中心时间字体大小</string>
-    <string name="notification_time_color">通知中心时间颜色</string>
-    <string name="notification_date_font">通知中心日期使用系统字体</string>
-    <string name="notification_date_bold">通知中心日期使用加粗系统字体</string>
-    <string name="notification_date_size">通知中心日期字体大小</string>
-    <string name="notification_date_color">通知中心日期颜色</string>
-    <string name="notification_land_clock_font">通知中心横屏时间日期使用系统字体</string>
-    <string name="notification_land_clock_bold">通知中心横屏时间日期使用加粗系统字体</string>
-    <string name="notification_land_clock_size">通知中心横屏时间日期字体大小</string>
-    <string name="notification_land_clock_color">通知中心横屏时间日期颜色</string>
+    <string name="notification_time_font">时间使用系统字体</string>
+    <string name="notification_time_bold">时间使用加粗系统字体</string>
+    <string name="notification_time_size">时间字体大小</string>
+    <string name="notification_time_color">时间颜色</string>
+    <string name="notification_date_font">日期使用系统字体</string>
+    <string name="notification_date_bold">日期使用加粗系统字体</string>
+    <string name="notification_date_size">日期字体大小</string>
+    <string name="notification_date_color">日期颜色</string>
+    <string name="notification_land_clock_font">横屏时间日期使用系统字体</string>
+    <string name="notification_land_clock_bold">横屏时间日期使用加粗系统字体</string>
+    <string name="notification_land_clock_size">横屏时间日期字体大小</string>
+    <string name="notification_land_clock_color">横屏时间日期颜色</string>
 
     <string name="control_center_mod_tips">Mix4 字体大小默认值: 132.65894 42.85894\nMiPad5Pro 字体大小默认值: 97.79535 31.595348</string>
-    <string name="control_center_clock_font">控制中心时间使用系统字体</string>
-    <string name="control_center_clock_bold">控制中心时间使用加粗系统字体</string>
-    <string name="control_center_clock_size">控制中心时间字体大小</string>
-    <string name="control_center_clock_color">控制中心时间颜色</string>
-    <string name="control_center_date_font">控制中心日期使用系统字体</string>
-    <string name="control_center_date_bold">控制中心日期使用加粗系统字体</string>
-    <string name="control_center_date_size">控制中心日期字体大小</string>
-    <string name="control_center_date_color">控制中心日期颜色</string>
-    <string name="control_center_carrier_font">控制中心运营商信息使用系统字体</string>
-    <string name="control_center_carrier_bold">控制中心运营商信息使用加粗系统字体</string>
-    <string name="control_center_carrier_size">控制中心运营商信息字体大小</string>
-    <string name="control_center_carrier_color">控制中心运营商信息颜色</string>
+    <string name="control_center_clock_font">时间使用系统字体</string>
+    <string name="control_center_clock_bold">时间使用加粗系统字体</string>
+    <string name="control_center_clock_size">时间字体大小</string>
+    <string name="control_center_clock_color">时间颜色</string>
+    <string name="control_center_date_font">日期使用系统字体</string>
+    <string name="control_center_date_bold">日期使用加粗系统字体</string>
+    <string name="control_center_date_size">日期字体大小</string>
+    <string name="control_center_date_color">日期颜色</string>
+    <string name="control_center_carrier_font">运营商信息使用系统字体</string>
+    <string name="control_center_carrier_bold">运营商信息使用加粗系统字体</string>
+    <string name="control_center_carrier_size">运营商信息字体大小</string>
+    <string name="control_center_carrier_color">运营商信息颜色</string>
 
     <string name="scope_mi_pad">小米平板</string>
     <string name="input">输入</string>
@@ -475,7 +475,7 @@
     <string name="blur_personal_assistant">负一屏模糊</string>
     <string name="blur_personal_assistant_radius">模糊程度</string>
 
-    <string name="lockscreen_charging_info">锁屏显示充电功率</string>
+    <string name="lockscreen_charging_info">显示充电功率</string>
     <string name="lockscreen_charging_info_not_supported">暂不支持此设备</string>
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
@@ -492,9 +492,9 @@
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
     <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>
     <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
-    <string name="lock_screen_clock_use_system_font">锁屏界面时钟使用系统字体</string>
-    <string name="lock_screen_date_use_system_font">锁屏界面日期使用系统字体</string>
-    <string name="blur_lock_screen_button">模糊锁屏界面按钮</string>
+    <string name="lock_screen_clock_use_system_font">时钟使用系统字体</string>
+    <string name="lock_screen_date_use_system_font">日期使用系统字体</string>
+    <string name="blur_lock_screen_button">模糊按钮</string>
     <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
     <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
