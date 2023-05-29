@@ -65,6 +65,18 @@
             </intent-filter>
         </service>
 
+        <!-- 添加新的 HighBrightnessMode 服务声明 -->
+        <service
+            android:name=".tiles.HighBrightnessMode"
+            android:exported="true"
+            android:icon="@drawable/baseline_wb_sunny_24"
+            android:label="@string/sunshine_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

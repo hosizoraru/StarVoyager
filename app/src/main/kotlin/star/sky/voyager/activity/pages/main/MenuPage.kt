@@ -12,7 +12,7 @@ import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 import star.sky.voyager.hook.PACKAGE_NAME_HOOKED
 import star.sky.voyager.utils.key.BackupUtils
-import star.sky.voyager.utils.yife.Terminal
+import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMMenuPage("Menu")
 class MenuPage : BasePage() {
@@ -30,7 +30,7 @@ class MenuPage : BasePage() {
                         dismiss()
                     }
                     setRButton(R.string.done) {
-                        Terminal.exec("/system/bin/sync;/system/bin/svc power reboot || reboot")
+                        exec("/system/bin/sync;/system/bin/svc power reboot || reboot")
                     }
                 }.show()
             }
@@ -48,7 +48,7 @@ class MenuPage : BasePage() {
                     setRButton(R.string.done) {
                         try {
                             PACKAGE_NAME_HOOKED.forEach {
-                                if (it != "android") Terminal.exec("killall $it")
+                                if (it != "android") exec("killall $it")
                             }
                             Toast.makeText(
                                 activity,
@@ -80,7 +80,7 @@ class MenuPage : BasePage() {
                     }
                     setRButton(R.string.done) {
                         try {
-                            Terminal.exec("killall com.android.systemui")
+                            exec("killall com.android.systemui")
                             Toast.makeText(
                                 activity,
                                 getString(R.string.finished),
@@ -111,7 +111,7 @@ class MenuPage : BasePage() {
                     }
                     setRButton(R.string.done) {
                         try {
-                            Terminal.exec("killall com.miui.home")
+                            exec("killall com.miui.home")
                             Toast.makeText(
                                 activity,
                                 getString(R.string.finished),

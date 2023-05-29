@@ -94,7 +94,7 @@
     <string name="status_bar_layout">Status bar layout</string>
     <string name="status_bar_icon">Status bar icons</string>
     <string name="current_current">Current</string>
-    <string name="allow_screenshots">Allow screenshot</string>
+    <string name="allow_screenshots">Allow Screenshots</string>
     <string name="show_weather_main_switch">Show Weather - Main Switch</string>
     <string name="already_can_not_use">This function has expired</string>
     <string name="already_no_necessary">This function is no longer necessary</string>
@@ -106,6 +106,7 @@
     <string name="font_size">Font size</string>
     <string name="color">Color</string>
     <string name="only_one_choose">Choose only one of them</string>
+    <string name="sunshine_mode">Sunshine Mode</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">notification time use system font</string>

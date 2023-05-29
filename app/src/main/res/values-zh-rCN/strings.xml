@@ -103,6 +103,7 @@
     <string name="font_size">字体大小</string>
     <string name="color">颜色</string>
     <string name="only_one_choose">只建议选其中一项</string>
+    <string name="sunshine_mode">阳光模式</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">通知中心时间使用系统字体</string>
