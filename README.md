@@ -19,8 +19,8 @@
 
 ### 下载地址
 
-由于GitHub Actions对于新Api暂时我不知道如何使用  
-暂时通过我手动 `Release` 的方式发布  
+目前暂时通过我手动 `Release` 的方式发布  
+后续会写GitHub Actions跑CI  
 可以前往我的 `Telegram` 频道进行下载:  
 [Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
 也可以在 `GitHub` 仓库的 [Releases](https://github.com/hosizoraru/StarVoyager/releases) 页面下载
