@@ -430,6 +430,8 @@
     <string name="home_use_complete_blur_summary">使用米米官方搞的半成品完整模糊功能</string>
     <string name="home_complete_blur_fix">完整模糊补全</string>
     <string name="home_complete_blur_fix_summary">补全从应用向上滑动时的模糊效果，这可能导致视觉闪烁和瞬时丢帧</string>
+    <string name="recent_blur_for_pad6">恢复最近任务模糊</string>
+    <string name="recent_blur_for_pad6_summary">比如给 MiPad6</string>
     <string name="home_blur_wallpaper">始终模糊桌面壁纸</string>
     <string name="home_blur_when_open_folder">文件夹视图模糊</string>
     <string name="home_blur_when_open_folder_summary">打开文件夹时启用模糊</string>

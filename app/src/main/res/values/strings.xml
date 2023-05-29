@@ -435,6 +435,8 @@
     <string name="home_use_complete_blur_summary">Use the official half-finished complete blur feature</string>
     <string name="home_complete_blur_fix">Complete Blur Complement</string>
     <string name="home_complete_blur_fix_summary">Complements blur when swiping up from the App, which may cause visual flicker</string>
+    <string name="recent_blur_for_pad6">Resume recent blur</string>
+    <string name="recent_blur_for_pad6_summary">Example for MiPad6</string>
     <string name="home_blur_wallpaper">Always blur launcher wallpaper</string>
     <string name="home_blur_when_open_folder">Folder View Blur</string>
     <string name="home_blur_when_open_folder_summary">Enable Blur When Open Folder</string>

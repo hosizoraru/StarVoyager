@@ -42,6 +42,14 @@ class HomeBlurPage : BasePage() {
             dataBindingRecv = blurBindingBlur.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.recent_blur_for_pad6,
+                tipsId = R.string.recent_blur_for_pad6_summary
+            ),
+            SwitchV("recent_blur_for_pad6", false),
+            dataBindingRecv = blurBindingBlur.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.home_blur_wallpaper),
             SwitchV("home_blur_wallpaper")
         )

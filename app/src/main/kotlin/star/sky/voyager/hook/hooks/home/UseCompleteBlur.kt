@@ -2,10 +2,9 @@ package star.sky.voyager.hook.hooks.home
 
 import android.app.Activity
 import android.view.MotionEvent
-import com.github.kyuubiran.ezxhelper.ClassUtils
+import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.ObjectUtils
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.callStaticMethod
 import star.sky.voyager.utils.api.getObjectField
@@ -34,24 +33,26 @@ object UseCompleteBlur : HookRegister() {
                     blurUtilsClass.callStaticMethod("fastBlurDirectly", 1.0f, mLauncher?.window)
                 }
             }
-            navStubViewClass.methodFinder().first {
-                name == "onTouchEvent" && parameterTypes[0] == MotionEvent::class.java
-            }.createHook {
-                after {
-                    val mLauncher =
-                        ClassUtils.invokeStaticMethodBestMatch(
-                            applicationClass,
-                            "getLauncher"
-                        ) as Activity
-                    ObjectUtils.invokeMethodBestMatch(
-                        blurUtilsClass,
-                        "fastBlur",
-                        null,
-                        1.0f,
-                        mLauncher.window,
-                        true,
-                        500L
-                    )
+            hasEnable("recent_blur_for_pad6") {
+                navStubViewClass.methodFinder().first {
+                    name == "onTouchEvent" && parameterTypes[0] == MotionEvent::class.java
+                }.createHook {
+                    after {
+                        val mLauncher =
+                            invokeStaticMethodBestMatch(
+                                applicationClass,
+                                "getLauncher"
+                            ) as Activity
+                        invokeStaticMethodBestMatch(
+                            blurUtilsClass,
+                            "fastBlur",
+                            null,
+                            1.0f,
+                            mLauncher.window,
+                            true,
+                            500L
+                        )
+                    }
                 }
             }
         }
