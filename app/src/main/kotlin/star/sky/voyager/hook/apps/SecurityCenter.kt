@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.securitycenter.AppDisable
+import star.sky.voyager.hook.hooks.securitycenter.EnhanceD4K
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
@@ -30,6 +31,7 @@ object SecurityCenter : AppRegister() {
             RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
             ScreenHoldOn, // 解锁熄屏挂机和息屏听剧
             Sport, // 全局开放动态画面补偿
+            EnhanceD4K, // 全局开放影像轮廓增强
             X2K, // 全局开放极清播放
         )
     }
