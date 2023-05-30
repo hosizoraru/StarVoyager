@@ -108,6 +108,7 @@
     <string name="only_one_choose">Choose only one of them</string>
     <string name="sunshine_mode">Sunshine Mode</string>
     <string name="unlock_for_pad">It is mainly for the Pad to be unlocked</string>
+    <string name="require_hardware_support">Hardware support is required</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">time use system font</string>

@@ -63,19 +63,22 @@ class SecurityPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.MEMC
+                textId = R.string.MEMC,
+                tipsId = R.string.require_hardware_support
             ),
             SwitchV("MEMC", false)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.enhance_contours
+                textId = R.string.enhance_contours,
+                tipsId = R.string.require_hardware_support
             ),
             SwitchV("enhance_contours", false)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.super_resolution
+                textId = R.string.super_resolution,
+                tipsId = R.string.require_hardware_support
             ),
             SwitchV("super_resolution", false)
         )
