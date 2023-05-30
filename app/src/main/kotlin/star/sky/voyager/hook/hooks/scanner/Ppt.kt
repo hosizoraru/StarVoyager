@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Ppt : HookRegister() {
-    override fun init() = hasEnable("enable_ocr2") {
+    override fun init() = hasEnable("ocr2") {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
             name == "isAddTextExtractionFunction"
         }.createHook {

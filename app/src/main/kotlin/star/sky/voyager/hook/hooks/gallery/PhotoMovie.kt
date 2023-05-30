@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object PhotoMovie : HookRegister() {
-    override fun init() = hasEnable("enable_photo_movie") {
+    override fun init() = hasEnable("photo_movie") {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isPhotoMovieAvailable"
         }.createHook {

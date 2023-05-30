@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object MagicMatting : HookRegister() {
-    override fun init() = hasEnable("enable_magic_matting") {
+    override fun init() = hasEnable("magic_matting") {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isMagicMattingAvailable"
         }.createHook {

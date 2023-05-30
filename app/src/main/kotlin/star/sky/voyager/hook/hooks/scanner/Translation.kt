@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Translation : HookRegister() {
-    override fun init() = hasEnable("enable_translation") {
+    override fun init() = hasEnable("translation") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
         qwq.methodFinder().first {
             name == "isAddTranslation"

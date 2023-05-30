@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Card : HookRegister() {
-    override fun init() = hasEnable("enable_card") {
+    override fun init() = hasEnable("card") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
         qwq.methodFinder().first {
             name == "isAddBusinessCard"

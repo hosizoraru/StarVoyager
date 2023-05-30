@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object VideoEditor : HookRegister() {
-    override fun init() = hasEnable("enable_video_editor") {
+    override fun init() = hasEnable("video_editor") {
         val qwq = loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper")
         qwq.methodFinder().first {
             name == "isVideoEditorAvailable"

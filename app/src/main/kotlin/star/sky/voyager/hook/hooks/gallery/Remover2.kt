@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Remover2 : HookRegister() {
-    override fun init() = hasEnable("enable_remover2") {
+    override fun init() = hasEnable("remover2") {
         loadClass("com.miui.gallery.editor.photo.app.remover2.sdk.Remover2CheckHelper").methodFinder()
             .first {
                 name == "isRemover2Support"

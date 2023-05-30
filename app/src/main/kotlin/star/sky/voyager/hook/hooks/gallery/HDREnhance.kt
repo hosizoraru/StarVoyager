@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object HDREnhance : HookRegister() {
-    override fun init() = hasEnable("Unlock_HDR_Enhance") {
+    override fun init() = hasEnable("hdr_enhance") {
         loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder().first {
             name == "isSupportHDREnhance"
         }.createHook {

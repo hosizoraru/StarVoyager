@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object DocPpt : HookRegister() {
-    override fun init() = hasEnable("enable_doc_ppt") {
+    override fun init() = hasEnable("doc_ppt") {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
             name == "isPPTModuleAvailable"
         }.createHook {

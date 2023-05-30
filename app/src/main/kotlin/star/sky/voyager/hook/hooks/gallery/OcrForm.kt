@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object OcrForm : HookRegister() {
-    override fun init() = hasEnable("enable_ocr_form") {
+    override fun init() = hasEnable("ocr_form") {
         loadClass("com.miui.gallery.util.RecognizeFormUtil").methodFinder().first {
             name == "isAvailable"
         }.createHook {

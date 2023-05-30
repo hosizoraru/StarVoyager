@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Excel : HookRegister() {
-    override fun init() = hasEnable("enable_excel") {
+    override fun init() = hasEnable("excel") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
         loadClass("com.xiaomi.scanner.util.SPUtils").methodFinder().first {
             name == "getFormModule"

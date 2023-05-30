@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object VideoPost : HookRegister() {
-    override fun init() = hasEnable("enable_video_post") {
+    override fun init() = hasEnable("video_post") {
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
             name == "isVideoPostAvailable"
         }.createHook {

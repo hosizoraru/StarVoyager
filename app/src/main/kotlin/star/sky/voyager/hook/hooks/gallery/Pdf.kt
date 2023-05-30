@@ -7,7 +7,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object Pdf : HookRegister() {
-    override fun init() = hasEnable("enable_pdf") {
+    override fun init() = hasEnable("pdf") {
         loadClass("com.miui.gallery.request.PicToPdfHelper").methodFinder().first {
             name == "isPicToPdfSupport"
         }.createHook {
