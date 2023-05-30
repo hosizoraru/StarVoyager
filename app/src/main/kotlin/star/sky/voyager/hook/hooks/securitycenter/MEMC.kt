@@ -3,11 +3,12 @@ package star.sky.voyager.hook.hooks.securitycenter
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
-object X2K : HookRegister() {
-    override fun init() {
+object MEMC : HookRegister() {
+    override fun init() = hasEnable("MEMC") {
         loadDexKit()
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", listOf("ro.vendor.media.video.frc.support"))
@@ -21,17 +22,11 @@ object X2K : HookRegister() {
                     methodParamTypes = arrayOf("java.lang.String")
                 }.forEach { methods ->
                     counter++
-                    if (counter == 1) {
+                    if (counter == 5) {
                         methods.getMethodInstance(classLoader).createHook {
                             returnConstant(true)
                         }
                     }
-                }
-                dexKitBridge.findMethodUsingString {
-                    methodDeclareClass = qaq.name
-                    usingString = "debug.config.media.video.ais.support"
-                }.single().getMethodInstance(classLoader).createHook {
-                    returnConstant(true)
                 }
             }
         }

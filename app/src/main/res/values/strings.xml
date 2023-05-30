@@ -107,6 +107,7 @@
     <string name="color">Color</string>
     <string name="only_one_choose">Choose only one of them</string>
     <string name="sunshine_mode">Sunshine Mode</string>
+    <string name="unlock_for_pad">It is mainly for the Pad to be unlocked</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">time use system font</string>
@@ -382,12 +383,16 @@
     <string name="open_by_default">Open by default</string>
     <string name="open_by_default_setting">Change App Info \"Clear defaults\" to \"Open by default\"</string>
     <string name="remove_report">remove report inn app info</string>
+    <string name="disable_app_settings">Disable app settings in app info</string>
+    <string name="disable_app_text">Are you really want to disable system app?</string>
+    <string name="screen_hold_on">Unlock Play video sound with screen of and Turn off screen</string>
+    <string name="MEMC">Anywhere MEMC</string>
+    <string name="enhance_contours">Anywhere Enhance Contours</string>
+    <string name="super_resolution">Anywhere Super Resolution</string>
     <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
-    <string name="disable_app_settings">Disable app settings in app info</string>
-    <string name="disable_app_text">Are you really want to disable system app?</string>
 
     <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
     <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>

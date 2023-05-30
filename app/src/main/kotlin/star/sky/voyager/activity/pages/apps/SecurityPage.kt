@@ -56,6 +56,31 @@ class SecurityPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.screen_hold_on,
+                tipsId = R.string.unlock_for_pad
+            ),
+            SwitchV("screen_hold_on", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.MEMC
+            ),
+            SwitchV("MEMC", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.enhance_contours
+            ),
+            SwitchV("enhance_contours", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.super_resolution
+            ),
+            SwitchV("super_resolution", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.remove_conversation_bubble_settings_restriction,
                 tipsId = R.string.remove_conversation_bubble_settings_restriction_summary
             ), SwitchV("remove_conversation_bubble_settings_restriction")

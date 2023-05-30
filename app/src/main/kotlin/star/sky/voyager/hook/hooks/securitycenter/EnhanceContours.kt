@@ -4,11 +4,12 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
-object EnhanceD4K : HookRegister() {
-    override fun init() {
+object EnhanceContours : HookRegister() {
+    override fun init() = hasEnable("enhance_contours") {
         loadDexKit()
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", listOf("ro.vendor.media.video.frc.support"))

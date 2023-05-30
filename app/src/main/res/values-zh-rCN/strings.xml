@@ -104,6 +104,7 @@
     <string name="color">颜色</string>
     <string name="only_one_choose">只建议选其中一项</string>
     <string name="sunshine_mode">阳光模式</string>
+    <string name="unlock_for_pad">主要是给Pad解锁的</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>
@@ -381,6 +382,10 @@
     <string name="remove_report">移除应用详情界面的举报</string>
     <string name="disable_app_settings">在应用详情界面显示停用App</string>
     <string name="disable_app_text">你真的确定要停用系统应用吗？</string>
+    <string name="screen_hold_on">解锁熄屏挂机和息屏听剧</string>
+    <string name="MEMC">全局开放动态画面补偿</string>
+    <string name="enhance_contours">全局开放影像轮廓增强</string>
+    <string name="super_resolution">全局开放极清播放</string>
     <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
     <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>

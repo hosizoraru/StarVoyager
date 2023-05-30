@@ -2,8 +2,9 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.securitycenter.AppDisable
-import star.sky.voyager.hook.hooks.securitycenter.EnhanceD4K
+import star.sky.voyager.hook.hooks.securitycenter.EnhanceContours
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
+import star.sky.voyager.hook.hooks.securitycenter.MEMC
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
@@ -11,8 +12,7 @@ import star.sky.voyager.hook.hooks.securitycenter.RemoveReport
 import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
 import star.sky.voyager.hook.hooks.securitycenter.ShowBatteryTemperature
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
-import star.sky.voyager.hook.hooks.securitycenter.Sport
-import star.sky.voyager.hook.hooks.securitycenter.X2K
+import star.sky.voyager.hook.hooks.securitycenter.SuperResolution
 import star.sky.voyager.utils.init.AppRegister
 
 object SecurityCenter : AppRegister() {
@@ -28,11 +28,11 @@ object SecurityCenter : AppRegister() {
             OpenByDefaultSetting, // 将应用详情中“消除默认操作”改为“默认打开”设置
             RemoveReport, // 移除应用详情界面的举报
             AppDisable, // 在应用详情界面显示停用App
-            RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
             ScreenHoldOn, // 解锁熄屏挂机和息屏听剧
-            Sport, // 全局开放动态画面补偿
-            EnhanceD4K, // 全局开放影像轮廓增强
-            X2K, // 全局开放极清播放
+            MEMC, // 全局开放动态画面补偿
+            EnhanceContours, // 全局开放影像轮廓增强
+            SuperResolution, // 全局开放极清播放
+            RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
         )
     }
 }
