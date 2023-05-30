@@ -1,0 +1,42 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "star" ]
+  pull_request:
+    branches: [ "star" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        submodules: true
+    - name: set up JDK 19
+      uses: actions/setup-java@v3
+      with:
+        java-version: '19'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Build with Gradle
+      run: ./gradlew assembleRelease
+      
+    - name: Sign APK
+      if: success()
+      id: sign_Apk
+      uses: r0adkll/sign-android-release@v1.0.4
+      with:
+        releaseDirectory: ./app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.SIGNINGKEYBASE64 }}
+        alias: ${{ secrets.ALIAS }}
+        keyStorePassword: ${{ secrets.KEYSTOREPASSWORD }}
+        keyPassword: ${{ secrets.KEYPASSWORD }}
+      env:
+        BUILD_TOOLS_VERSION: "34.0.0 rc4"
