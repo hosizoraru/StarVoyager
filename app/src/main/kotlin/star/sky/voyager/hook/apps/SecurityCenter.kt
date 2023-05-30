@@ -10,6 +10,7 @@ import star.sky.voyager.hook.hooks.securitycenter.RemoveReport
 import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
 import star.sky.voyager.hook.hooks.securitycenter.ShowBatteryTemperature
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
+import star.sky.voyager.hook.hooks.securitycenter.Sport
 import star.sky.voyager.utils.init.AppRegister
 
 object SecurityCenter : AppRegister() {
@@ -27,6 +28,7 @@ object SecurityCenter : AppRegister() {
             AppDisable, // 在应用详情界面显示停用App
             RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
             ScreenHoldOn, // 解锁熄屏挂机和息屏听剧
+            Sport,
         )
     }
 }
