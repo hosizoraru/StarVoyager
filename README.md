@@ -1,6 +1,6 @@
 ### StarVoyager
 
-![version](https://img.shields.io/github/v/release/hosizoraru/StarVoyager?style=for-the-badge) ![stars](https://img.shields.io/github/stars/hosizoraru/StarVoyager?style=for-the-badge) ![download-all](https://img.shields.io/github/downloads/hosizoraru/StarVoyager/total?style=for-the-badge) ![kotlin](https://img.shields.io/github/languages/top/hosizoraru/StarVoyager?style=for-the-badge)   
+![version](https://img.shields.io/github/v/release/hosizoraru/StarVoyager?style=for-the-badge) ![stars](https://img.shields.io/github/stars/hosizoraru/StarVoyager?style=for-the-badge) ![download-all](https://img.shields.io/github/downloads/hosizoraru/StarVoyager/total?style=for-the-badge) ![kotlin](https://img.shields.io/github/languages/top/hosizoraru/StarVoyager?style=for-the-badge) ![CI   
 全名为 StarSkyVoyager  
 基于 [我的分支的WooBoxForMIUI](https://github.com/hosizoraru/WooBoxForMIUI)  
 使用了 [EzXHelper2](https://github.com/KyuubiRan/EzXHelper)
@@ -19,11 +19,9 @@
 
 ### 下载地址
 
-目前暂时通过我手动 `Release` 的方式发布  
-后续会写 `GitHub Actions` 跑 `CI`  
-可以前往我的 `Telegram` 频道进行下载:  
-[Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
-也可以在 `GitHub` 仓库的 [Releases](https://github.com/hosizoraru/StarVoyager/releases) 页面下载
+`Telegram Channel` :   [Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
+`GitHub` 的 [`Releases`页面](https://github.com/hosizoraru/StarVoyager/releases)  
+`GitHub Actions` 的 [`CI构建`](https://github.com/hosizoraru/StarVoyager/actions)  
 
 ---
 
