@@ -322,6 +322,8 @@
     <string name="force_enable_native_playback_capture">Force enable native playback capture</string>
     <string name="change_bitrate_and_frame_rate_range">Change bitrate and frame rate range</string>
 
+    <string name="save_to_pictures">Save screenshots to Pictures/Screenshots</string>
+
     <string name="Market_As">Disguise your model as what in the GetApps</string>
 
     <string name="package_installer_remove_check">Disable the app installation\'s count checking</string>
