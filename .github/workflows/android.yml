@@ -5,6 +5,7 @@ on:
     branches: [ "star" ]
   pull_request:
     branches: [ "star" ]
+  workflow_dispatch:
 
 jobs:
   build:
