@@ -24,6 +24,7 @@ import star.sky.voyager.hook.apps.PowerKeeper
 import star.sky.voyager.hook.apps.RearDisplay
 import star.sky.voyager.hook.apps.Scanner
 import star.sky.voyager.hook.apps.ScreenRecorder
+import star.sky.voyager.hook.apps.ScreenShot
 import star.sky.voyager.hook.apps.SecurityCenter
 import star.sky.voyager.hook.apps.Settings
 import star.sky.voyager.hook.apps.SystemUI
@@ -55,6 +56,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.xiaomi.misubscreenui",
     "com.xiaomi.scanner",
     "com.miui.screenrecorder",
+    "com.miui.screenshot",
     "com.miui.securitycenter",
     "com.android.settings",
     "com.android.systemui",
@@ -88,6 +90,7 @@ class MainHook : EasyXposedInit() {
         RearDisplay, // 背屏
         Scanner, // 小爱视觉
         ScreenRecorder, // 屏幕录制
+        ScreenShot, // 截屏
         SecurityCenter, // 手机管家
         Settings, // 设置
         SystemUI, // 系统界面

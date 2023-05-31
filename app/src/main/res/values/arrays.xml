@@ -22,6 +22,7 @@
         <item>com.xiaomi.misubscreenui</item>
         <item>com.xiaomi.scanner</item>
         <item>com.miui.screenrecorder</item>
+        <item>com.miui.screenshot</item>
         <item>com.miui.securitycenter</item>
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
