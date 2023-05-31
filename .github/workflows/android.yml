@@ -5,6 +5,8 @@ on:
     branches: [ "star" ]
   pull_request:
     branches: [ "star" ]
+  watch:
+    types: started
 
 jobs:
   build:
