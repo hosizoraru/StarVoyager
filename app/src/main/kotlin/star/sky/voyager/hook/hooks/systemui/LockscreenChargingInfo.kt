@@ -36,6 +36,7 @@ object LockscreenChargingInfo : HookRegister() {
         kotlin.runCatching {
             var current = 0.0
             var voltage = 0.0
+            var temperature = 0.0
             val watt: Double by lazy {
                 current * voltage
             }
@@ -51,6 +52,12 @@ object LockscreenChargingInfo : HookRegister() {
                     bufferedReader.readLine().toDouble() / 1000000.0
                 }
             }
+            temperature =
+                FileReader("/sys/class/power_supply/battery/temp").use { fileReader ->
+                    BufferedReader(fileReader).use { bufferedReader ->
+                        bufferedReader.readLine().toDouble() / 10.0
+                    }
+                }
 
             // val clazzMiuiChargeManager = loadClass("com.android.keyguard.charge.MiuiChargeManager")
             // val plugState = loadClass("com.android.systemui.Dependency").classHelper()
@@ -85,7 +92,13 @@ object LockscreenChargingInfo : HookRegister() {
             //         }
             //     }
             // }
-            return String.format("%.2f A · %.2f V · %.2f W", current, voltage, watt)
+            return String.format(
+                "%.2f A · %.2f V · %.2f W\n%.1f °C",
+                current,
+                voltage,
+                watt,
+                temperature
+            )
         }
         return EzXHelper.moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
     }
