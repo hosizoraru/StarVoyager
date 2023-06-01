@@ -315,6 +315,7 @@
     <string name="filter_manager">大师滤镜</string>
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
+    <string name="save_to_movies">视频保存到 Movies/ScreenRecorder</string>
 
     <string name="force_enable_native_playback_capture">强制启用原生录音支持</string>
     <string name="change_bitrate_and_frame_rate_range">修改码率与帧率范围</string>

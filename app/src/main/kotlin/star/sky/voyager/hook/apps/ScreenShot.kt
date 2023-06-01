@@ -11,8 +11,8 @@ object ScreenShot : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
-            SaveToPictures,
-            UnlockUnlimitedCropping
+            SaveToPictures, // 截图保存到 Pictures/Screenshots
+            UnlockUnlimitedCropping // 移除裁剪图片/屏幕截图的限制
         )
     }
 }

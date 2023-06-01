@@ -3,6 +3,7 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.screenrecorder.EnablePlaybackCapture
 import star.sky.voyager.hook.hooks.screenrecorder.ModifyScreenRecorderConfig
+import star.sky.voyager.hook.hooks.screenrecorder.SaveToMovies
 import star.sky.voyager.utils.init.AppRegister
 
 object ScreenRecorder : AppRegister() {
@@ -13,6 +14,7 @@ object ScreenRecorder : AppRegister() {
             lpparam,
             EnablePlaybackCapture, // 强制启用原生录音支持
             ModifyScreenRecorderConfig, // 修改码率与帧率范围
+            SaveToMovies, // 视频保存到 Movies/ScreenRecorder
         )
     }
 }
