@@ -56,5 +56,19 @@ class GalleryPage : BasePage() {
             ),
             SwitchV("modify_screen_recorder_config", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.save_to_movies
+            ),
+            SwitchV("save_to_movies", false)
+        )
+        Line()
+        TitleText(textId = R.string.scope_screen_shot)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.save_to_pictures
+            ),
+            SwitchV("save_to_pictures", false)
+        )
     }
 }
