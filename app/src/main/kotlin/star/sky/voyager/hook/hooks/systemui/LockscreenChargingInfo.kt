@@ -9,6 +9,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 import java.io.BufferedReader
 import java.io.FileReader
@@ -92,13 +93,22 @@ object LockscreenChargingInfo : HookRegister() {
             //         }
             //     }
             // }
-            return String.format(
-                "%.2f A · %.2f V · %.2f W\n%.1f °C",
-                current,
-                voltage,
-                watt,
-                temperature
-            )
+            if (getBoolean("current_mA", false)) {
+                return "${
+                    if (current < 10) String.format(
+                        "%.0fm",
+                        current * 1000
+                    ) else "%.2f".format(current)
+                }A · %.2fV · %.2fW\n%.1f℃".format(voltage, watt, temperature)
+            } else {
+                return String.format(
+                    "%.2f A · %.2f V · %.2f W\n%.1f ℃",
+                    current,
+                    voltage,
+                    watt,
+                    temperature
+                )
+            }
         }
         return EzXHelper.moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
     }

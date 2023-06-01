@@ -108,6 +108,7 @@
     <string name="color">Color</string>
     <string name="only_one_choose">Choose only one of them</string>
     <string name="sunshine_mode">Sunshine Mode</string>
+    <string name="sunshine_mode_key">Sunshine Mode Titles Key</string>
     <string name="unlock_for_pad">It is mainly for the Pad to be unlocked</string>
     <string name="require_hardware_support">Hardware support is required</string>
 
@@ -513,6 +514,7 @@
     <string name="remove_lock_screen_camera">Remove the lock screen camera feature</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="current_mA">The current unit uses mA</string>
     <string name="no_need_to_enter_password_when_power_on">No need to enter password when power on</string>
     <string name="no_need_to_enter_password_when_power_on_summary">The phone is not encrypted to take effect</string>
 </resources>

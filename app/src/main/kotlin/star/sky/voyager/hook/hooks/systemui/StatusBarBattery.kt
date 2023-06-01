@@ -91,19 +91,31 @@ object StatusBarBattery : HookRegister() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context, intent: Intent) {
             val any = getBoolean("show_status_bar_battery_any", false)
+            val mA = getBoolean("current_mA", false)
+            val current: Double
             val batteryManager = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
             val temperature = (intent.getIntExtra("temperature", 0) / 10.0)
-            val current =
+            current = if (mA) {
+                abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000.0)
+            } else {
                 abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000 / 1000.0)
+            }
             val status = intent.getIntExtra("status", 0)
             if (textview !== null) {
                 if (any) {
-                    textview!!.text = "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
+                    textview!!.text = if (mA) {
+                        "${"%.0f".format(current)}mA\n${"%.1f".format(temperature)}℃"
+                    } else {
+                        "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
+                    }
                     textview!!.visibility = View.VISIBLE
                 } else {
                     if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
-                        textview!!.text =
+                        textview!!.text = if (mA) {
+                            "${"%.0f".format(current)}mA\n${"%.1f".format(temperature)}℃"
+                        } else {
                             "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
+                        }
                         textview!!.visibility = View.VISIBLE
                     } else {
                         textview!!.visibility = View.GONE

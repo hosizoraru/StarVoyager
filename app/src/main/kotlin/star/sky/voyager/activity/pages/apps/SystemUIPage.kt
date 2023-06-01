@@ -164,6 +164,12 @@ class SystemUIPage : BasePage() {
             SwitchV("show_status_bar_battery_any", false),
             dataBindingRecv = batteryBinding.binding.getRecv(1)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.current_mA
+            ), SwitchV("current_mA", false),
+            dataBindingRecv = batteryBinding.binding.getRecv(1)
+        )
         Line()
         TitleText(textId = R.string.status_bar_layout)
         val statusBarLayoutMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
