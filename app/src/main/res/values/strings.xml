@@ -394,6 +394,7 @@
     <string name="MEMC">Anywhere MEMC</string>
     <string name="enhance_contours">Anywhere Enhance Contours</string>
     <string name="super_resolution">Anywhere Super Resolution</string>
+    <string name="gun_service">Anywhere Sight</string>
     <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
