@@ -24,6 +24,7 @@ import star.sky.voyager.hook.hooks.home.OptimizeUnlockAnim
 import star.sky.voyager.hook.hooks.home.OverlapMode
 import star.sky.voyager.hook.hooks.home.RealMemory
 import star.sky.voyager.hook.hooks.home.RestoreGoogleAppIcon
+import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
 import star.sky.voyager.hook.hooks.home.SetDeviceLevel
 import star.sky.voyager.hook.hooks.home.ShortcutItemCount
@@ -64,6 +65,7 @@ object Home : AppRegister() {
             BlurWhenOpenFolder, // 文件夹视图模糊
             OverlapMode, // Fold 样式智能助理
             AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏
+            RestoreSwitchMinusScreen, // 恢复切换负一屏
             FoldDeviceDock, // 折叠屏底栏样式
             AnimDurationRatio, // 自定义动画速度
             TaskViewCardSize, // 自定义最近任务卡片大小

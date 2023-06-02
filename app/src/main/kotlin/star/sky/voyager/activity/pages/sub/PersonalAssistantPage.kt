@@ -23,6 +23,12 @@ class PersonalAssistantPage : BasePage() {
             TextSummaryV(textId = R.string.home_widget_to_minus),
             SwitchV("home_widget_to_minus")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.restore_switch_minus_screen
+            ),
+            SwitchV("restore_switch_minus_screen", false)
+        )
         Line()
         TitleText(textId = R.string.scope_personal_assistant)
         val blurPersonalAssistantBinding = GetDataBinding({
