@@ -18,17 +18,31 @@ object RealMemory : HookRegister() {
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("home_real_memory") {
         var context: Context? = null
+        var memoryInfo1StringId: Int? = null
+        var memoryInfo2StringId: Int? = null
+
         fun Any.formatSize(): String = Formatter.formatFileSize(context, this as Long)
-        val RecentsContainerClass = loadClass("com.miui.home.recents.views.RecentsContainer")
-        RecentsContainerClass.declaredConstructors.constructorFinder().first {
+
+        val recentContainerClass = loadClass("com.miui.home.recents.views.RecentsContainer")
+        recentContainerClass.declaredConstructors.constructorFinder().first {
             parameterCount == 2
         }.createHook {
             after {
                 context = it.args[0] as Context
+                memoryInfo1StringId = context!!.resources.getIdentifier(
+                    "status_bar_recent_memory_info1",
+                    "string",
+                    "com.miui.home"
+                )
+                memoryInfo2StringId = context!!.resources.getIdentifier(
+                    "status_bar_recent_memory_info2",
+                    "string",
+                    "com.miui.home"
+                )
             }
         }
 
-        RecentsContainerClass.methodFinder().first {
+        recentContainerClass.methodFinder().first {
             name == "refreshMemoryInfo"
         }.createHook {
             before {
@@ -40,21 +54,9 @@ object RealMemory : HookRegister() {
                 val totalMem = memoryInfo.totalMem.formatSize()
                 val availMem = memoryInfo.availMem.formatSize()
                 (it.thisObject.getObjectField("mTxtMemoryInfo1") as TextView).text =
-                    context!!.getString(
-                        context!!.resources.getIdentifier(
-                            "status_bar_recent_memory_info1",
-                            "string",
-                            "com.miui.home"
-                        ), availMem, totalMem
-                    )
+                    context!!.getString(memoryInfo1StringId!!, availMem, totalMem)
                 (it.thisObject.getObjectField("mTxtMemoryInfo2") as TextView).text =
-                    context!!.getString(
-                        context!!.resources.getIdentifier(
-                            "status_bar_recent_memory_info2",
-                            "string",
-                            "com.miui.home"
-                        ), availMem, totalMem
-                    )
+                    context!!.getString(memoryInfo2StringId!!, availMem, totalMem)
             }
         }
     }
