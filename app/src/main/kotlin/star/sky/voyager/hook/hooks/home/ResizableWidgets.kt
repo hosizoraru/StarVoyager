@@ -6,9 +6,10 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.hasEnable
 
 object ResizableWidgets : HookRegister() {
-    override fun init() {
+    override fun init() = hasEnable("resizable_widgets") {
         loadClass("android.appwidget.AppWidgetHostView", null).methodFinder()
             .filterByName("getAppWidgetInfo").toList().createHooks {
                 after { param ->

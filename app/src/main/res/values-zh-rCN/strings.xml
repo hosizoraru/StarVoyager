@@ -429,6 +429,7 @@
     <string name="home_real_memory_summary">去TM MIUI虚假的内存</string>
     <string name="Use_Transition_Animation">使用Miui小组件的动画</string>
     <string name="Show_MIUI_Widget">在安卓小部件页面显示 MIUI 小部件</string>
+    <string name="resizable_widgets">解除小部件大小限制</string>
     <string name="shortcut_remove_restrictions">解除Shortcuts数量限制</string>
     <string name="unlock_hot_seat">解锁底栏图标数量限制</string>
     <string name="optimize_unlock_anim">优化解锁动画</string>

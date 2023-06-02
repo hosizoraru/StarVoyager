@@ -23,6 +23,7 @@ import star.sky.voyager.hook.hooks.home.MonoChromeIcon
 import star.sky.voyager.hook.hooks.home.OptimizeUnlockAnim
 import star.sky.voyager.hook.hooks.home.OverlapMode
 import star.sky.voyager.hook.hooks.home.RealMemory
+import star.sky.voyager.hook.hooks.home.ResizableWidgets
 import star.sky.voyager.hook.hooks.home.RestoreGoogleAppIcon
 import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
@@ -51,7 +52,7 @@ object Home : AppRegister() {
             RealMemory, // 后台显示实际使用和总内存
             UseTransitionAnimation, // 使用Miui小组件的动画
             AlwaysShowMiuiWidget, // 在安卓小部件页面显示 MIUI 小部件
-//            ResizableWidgets, // 解除小部件大小限制
+            ResizableWidgets, // 解除小部件大小限制
             ShortcutItemCount, // 解除Shortcuts数量限制
             UnlockHotSeatIcon, // 解锁底栏图标数量限制
             OptimizeUnlockAnim, // 优化解锁动画

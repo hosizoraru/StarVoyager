@@ -434,6 +434,7 @@
     <string name="home_real_memory_summary">Hacking fake MIUI memory</string>
     <string name="Use_Transition_Animation">Mandatory all widget use miui widget animation</string>
     <string name="Show_MIUI_Widget">Show MIUI widgets on the Classic widgets page</string>
+    <string name="resizable_widgets">Resizable miui widgets</string>
     <string name="shortcut_remove_restrictions">Remove restrictions on shortcuts</string>
     <string name="unlock_hot_seat">Remove icon number restriction from dock</string>
     <string name="optimize_unlock_anim">Optimize unlock anim</string>
