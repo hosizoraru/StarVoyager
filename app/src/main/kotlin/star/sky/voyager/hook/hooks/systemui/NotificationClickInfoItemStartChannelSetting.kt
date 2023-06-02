@@ -10,9 +10,9 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import dev.rikka.tools.refine.Refine.unsafeCast
-import star.sky.voyager.utils.api.ContextHidden
-import star.sky.voyager.utils.api.UserHandleHidden
+//import dev.rikka.tools.refine.Refine.unsafeCast
+//import star.sky.voyager.utils.api.ContextHidden
+//import star.sky.voyager.utils.api.UserHandleHidden
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
@@ -83,7 +83,7 @@ object NotificationClickInfoItemStartChannelSetting : HookRegister() {
         Log.i("context class: ${context.javaClass.name}")
         Log.i("context package: ${context.packageName}")
         Log.i("intent: $intent")
-        unsafeCast<ContextHidden>(context)
-            .startActivityAsUser(intent, UserHandleHidden.CURRENT)
+//        unsafeCast<ContextHidden>(context)
+//            .startActivityAsUser(intent, UserHandleHidden.CURRENT)
     }
 }
