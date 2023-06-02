@@ -1,7 +1,7 @@
 package star.sky.voyager.activity.pages.apps
 
 import android.view.View
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SpinnerV
@@ -18,24 +18,24 @@ class AppManagerPage : BasePage() {
             TextSummaryV(
                 textId = R.string.Market_As,
             ),
-            SpinnerV(MIUIActivity.safeSP.getString("Market_As", "Default"), dropDownWidth = 200F) {
+            SpinnerV(safeSP.getString("Market_As", "Default"), dropDownWidth = 200F) {
                 add("Default") {
-                    MIUIActivity.safeSP.putAny("Market_As", "Default")
+                    safeSP.putAny("Market_As", "Default")
                 }
                 add("Mi13Pro") {
-                    MIUIActivity.safeSP.putAny("Market_As", "Mi13Pro")
+                    safeSP.putAny("Market_As", "Mi13Pro")
                 }
                 add("Mi13Ultra") {
-                    MIUIActivity.safeSP.putAny("Market_As", "Mi13Ultra")
+                    safeSP.putAny("Market_As", "Mi13Ultra")
                 }
                 add("MiPad5Pro12.4") {
-                    MIUIActivity.safeSP.putAny("Market_As", "MiPad5Pro12.4")
+                    safeSP.putAny("Market_As", "MiPad5Pro12.4")
                 }
                 add("MiPad6Pro") {
-                    MIUIActivity.safeSP.putAny("Market_As", "MiPad6Pro")
+                    safeSP.putAny("Market_As", "MiPad6Pro")
                 }
                 add("MixFold2") {
-                    MIUIActivity.safeSP.putAny("Market_As", "MixFold2")
+                    safeSP.putAny("Market_As", "MixFold2")
                 }
             },
         )
@@ -60,7 +60,7 @@ class AppManagerPage : BasePage() {
             SwitchV("all_as_system_app")
         )
         val yourSourceBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "custom_installation_source",
                 false
             )
@@ -83,10 +83,22 @@ class AppManagerPage : BasePage() {
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.your_source)
+                        setMessage(
+                            "${activity.getString(R.string.def)}com.android.fileexplorer\n${
+                                activity.getString(
+                                    R.string.current
+                                )
+                            }${
+                                safeSP.getString(
+                                    "your_source",
+                                    "com.android.fileexplorer"
+                                )
+                            }"
+                        )
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString(
+                                safeSP.getString(
                                     "your_source",
                                     "com.android.fileexplorer"
                                 )
@@ -97,7 +109,7 @@ class AppManagerPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "your_source",
                                     getEditText()
                                 )

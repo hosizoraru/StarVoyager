@@ -1,7 +1,7 @@
 package star.sky.voyager.activity.pages.apps
 
 import android.view.View
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SeekBarWithTextV
@@ -122,7 +122,7 @@ class HomePage : BasePage() {
             SeekBarWithTextV("home_folder_columns", 2, 7, 3)
         )
         val monoBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "mono_chrome_icon",
                 false
             )
@@ -150,10 +150,18 @@ class HomePage : BasePage() {
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.your_color)
+                        setMessage(
+                            "${activity.getString(R.string.def)}#0d84ff\n${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "your_color",
+                                    "#0d84ff"
+                                )
+                            }"
+                        )
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString("your_color", "#0d84ff")
+                                safeSP.getString("your_color", "#0d84ff")
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -161,7 +169,7 @@ class HomePage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "your_color",
                                     getEditText()
                                 )
