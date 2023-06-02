@@ -1,8 +1,10 @@
 package star.sky.voyager.utils.api
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.graphics.drawable.Drawable
+import android.os.UserHandle
 import android.util.TypedValue
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
@@ -11,6 +13,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XposedHelpers
+import dev.rikka.tools.refine.RefineAs
 import java.lang.reflect.Field
 import java.lang.reflect.Method
 
@@ -221,3 +224,24 @@ fun hookPluginClassLoader(onGetClassLoader: (appInfo: ApplicationInfo, classLoad
     }
 }
 
+
+@RefineAs(Context::class)
+class ContextHidden {
+    fun startActivityAsUser(
+        intent: Intent?,
+        user: UserHandle?
+    ) {
+        throw RuntimeException("Stub!")
+    }
+}
+
+
+@RefineAs(UserHandle::class)
+object UserHandleHidden {
+    const val USER_ALL = -1
+    const val USER_CURRENT = -2
+    val CURRENT: UserHandle? = null /*new UserHandle(USER_CURRENT) */
+    fun of(userId: Int): UserHandle {
+        throw java.lang.RuntimeException("Stub!")
+    }
+}

@@ -1,11 +1,12 @@
 [versions]
 agp = "8.2.0-alpha06"
-#al = "8.2.0-alpha04"
+#al = "8.2.0-alpha06"
 constraintlayout = "2.2.0-alpha10"
 dexkit = "1.1.8"
 ezxhelper = "2.0.5"
 hidden-api-bypass = "4.3"
 jpinyin = "1.0.1"
+refine = "4.3.0"
 xposed-api = "82"
 kotlin = "1.9.0-Beta"
 core-ktx = "1.10.1"
@@ -16,6 +17,9 @@ dexkit = { module = "org.luckypray:DexKit", version.ref = "dexkit" }
 ezxhelper = { module = "com.github.kyuubiran:EzXHelper", version.ref = "ezxhelper" }
 jpinyin = { module = "io.github.ranlee1:jpinyin", version.ref = "jpinyin" }
 lsposed-hidden-api-bypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hidden-api-bypass" }
+rikka-tools-refine-runtime = { module = "dev.rikka.tools.refine:runtime", version.ref = "refine" }
+rikka-tools-refine-annotation = { module = "dev.rikka.tools.refine:annotation", version.ref = "refine" }
+rikka-tools-refine-annotation-processor = { module = "dev.rikka.tools.refine:annotation-processor", version.ref = "refine" }
 xposed = { module = "de.robv.android.xposed:api", version.ref = "xposed-api" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 
