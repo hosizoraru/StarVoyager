@@ -410,6 +410,7 @@
     <string name="remove_small_window_restrictions">Force small windows</string>
     <string name="remove_small_window_restrictions_summary">Ignore system blacklist and software prohibition of small windows</string>
     <string name="max_wallpaper_scale">Max wallpaper scale</string>
+    <string name="max_wallpaper_scale_summary">The wallpaper zoom magnification when the system desktop switch is applied</string>
     <string name="allow_untrusted_touches">Allow untrusted touches(It is not necessary to open on A13)</string>
     <string name="kill_domain_verification">Kill domain verification</string>
     <string name="kill_domain_verification_summary">Prevents the system (and also yourself) from allowing apps to always open supported links.\nIt also enables you to open supported links in apps which are not "verified" on Android 12 and above.</string>

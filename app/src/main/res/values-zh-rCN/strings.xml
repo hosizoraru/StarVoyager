@@ -405,6 +405,7 @@
     <string name="remove_small_window_restrictions">强制使用小窗</string>
     <string name="remove_small_window_restrictions_summary">忽略系统黑名单与软件禁止小窗</string>
     <string name="max_wallpaper_scale">壁纸缩放比例</string>
+    <string name="max_wallpaper_scale_summary">系统桌面开关应用时的壁纸缩放倍率</string>
     <string name="allow_untrusted_touches">允许不受信任的触摸</string>
     <string name="kill_domain_verification">禁用域验证</string>
     <string name="kill_domain_verification_summary">打开 http / https 链接时总是询问，而不是直接在 app 中打开\n副作用：手动设也没法直接用应用打开链接；Android 12+ 选择时会同时显示未“验证”的 app</string>

@@ -2,7 +2,7 @@ package star.sky.voyager.activity.pages.apps
 
 import android.view.View
 import android.widget.Switch
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
@@ -67,21 +67,22 @@ class AndroidPage : BasePage() {
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.max_wallpaper_scale,
+                tipsId = R.string.max_wallpaper_scale_summary,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.max_wallpaper_scale)
-                        setEditText(
-                            "",
-                            "${activity.getString(R.string.def)}1.2, ${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getFloat("max_wallpaper_scale", 1.2f)
+                        setMessage(
+                            "${activity.getString(R.string.def)}1.2，${activity.getString(R.string.current)}${
+                                safeSP.getFloat("max_wallpaper_scale", 1.2f)
                             }"
                         )
+                        setEditText("", "${activity.getString(R.string.range)}1.0-2.0")
                         setLButton(textId = R.string.cancel) {
                             dismiss()
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "max_wallpaper_scale",
                                     getEditText().toFloat()
                                 )
@@ -116,7 +117,7 @@ class AndroidPage : BasePage() {
         Line()
         TitleText(textId = R.string.sound)
         val mediaVolumeStepsSwitchBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "media_volume_steps_switch",
                 false
             )
