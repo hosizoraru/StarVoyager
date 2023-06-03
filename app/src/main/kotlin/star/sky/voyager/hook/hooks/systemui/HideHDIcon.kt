@@ -12,30 +12,32 @@ import star.sky.voyager.utils.key.hasEnable
 
 object HideHDIcon : HookRegister() {
     override fun init() {
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "initViewState" && parameterCount == 1
-        }.createHook {
-            after {
-                hide(it)
-            }
-        }
-
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "updateState" && parameterCount == 1
-        }.createHook {
-            after {
-                hide(it)
-            }
-        }
-
-        hasEnable("hide_new_hd_icon") {
-            loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder().first {
-                name == "update"
-            }.createHook {
-                before {
-                    it.result = null
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("initViewState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hide(it)
                 }
             }
+
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("updateState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hide(it)
+                }
+            }
+
+        hasEnable("hide_new_hd_icon") {
+            loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder()
+                .filterByName("update")
+                .first().createHook {
+                    before {
+                        it.result = null
+                    }
+                }
         }
     }
 

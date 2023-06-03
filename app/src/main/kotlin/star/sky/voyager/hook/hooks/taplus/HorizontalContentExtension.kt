@@ -9,12 +9,11 @@ import star.sky.voyager.utils.key.hasEnable
 object HorizontalContentExtension : HookRegister() {
     override fun init() = hasEnable("horizontal_content_extension") {
         loadClass("com.miui.contentextension.services.TextContentExtensionService").methodFinder()
-            .first {
-                name == "isScreenPortrait"
-            }.createHook {
-            after {
-                it.result = true
+            .filterByName("isScreenPortrait")
+            .first().createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
     }
 }

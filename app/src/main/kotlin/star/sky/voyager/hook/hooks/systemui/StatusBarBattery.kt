@@ -32,9 +32,8 @@ object StatusBarBattery : HookRegister() {
     @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
         loadClass("com.android.systemui.statusbar.phone.DarkIconDispatcherImpl").methodFinder()
-            .first {
-                name == "applyIconTint"
-            }.createHook {
+            .filterByName("applyIconTint")
+            .first().createHook {
                 after {
                     val color = it.thisObject.getObjectFieldAs<Int>("mIconTint")
                     if (textview != null) {
@@ -44,18 +43,16 @@ object StatusBarBattery : HookRegister() {
             }
 
         loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView").constructorFinder()
-            .first {
-                parameterCount == 2
-            }.createHook {
+            .filterByParamCount(2)
+            .first().createHook {
                 after {
                     context = it.args[0] as Context
                 }
             }
 
         loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView").methodFinder()
-            .first {
-                name == "onFinishInflate"
-            }.createHook {
+            .filterByName("onFinishInflate")
+            .first().createHook {
                 after {
                     val mStatusBarLeftContainer =
                         it.thisObject.getObjectFieldAs<LinearLayout>("mStatusBarLeftContainer")

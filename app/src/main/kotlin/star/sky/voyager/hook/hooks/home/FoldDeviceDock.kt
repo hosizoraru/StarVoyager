@@ -18,31 +18,31 @@ object FoldDeviceDock : HookRegister() {
         var hook2: XC_MethodHook.Unhook? = null
         var hook3: XC_MethodHook.Unhook? = null
 
-        val HotSeatsClass = loadClass("com.miui.home.launcher.hotseats.HotSeats")
-        HotSeatsClass.methodFinder().first {
-            name == "initContent"
-        }.createHook {
-            before {
-                hook1 = "com.miui.home.launcher.DeviceConfig".hookBeforeMethod(
-                    classLoader,
-                    "isFoldDevice"
-                ) { hookParam ->
-                    hookParam.result = true
+        val hotSeatsClass = loadClass("com.miui.home.launcher.hotseats.HotSeats")
+        hotSeatsClass.methodFinder()
+            .filterByName("initContent")
+            .first().createHook {
+                before {
+                    hook1 = "com.miui.home.launcher.DeviceConfig".hookBeforeMethod(
+                        classLoader,
+                        "isFoldDevice"
+                    ) { hookParam ->
+                        hookParam.result = true
+                    }
+                }
+                after {
+                    hook1?.unhook()
                 }
             }
-            after {
-                hook1?.unhook()
-            }
-        }
 
         try {
-            HotSeatsClass.methodFinder().first {
-                name == "updateContent"
-            }
+            hotSeatsClass.methodFinder()
+                .filterByName("updateContent")
+                .first()
         } catch (e: Exception) {
-            HotSeatsClass.methodFinder().first {
-                name == "updateContentView"
-            }
+            hotSeatsClass.methodFinder()
+                .filterByName("updateContentView")
+                .first()
         }.createHook {
             before {
                 hook2 = "com.miui.home.launcher.Application".hookBeforeMethod(
@@ -57,19 +57,19 @@ object FoldDeviceDock : HookRegister() {
             }
         }
 
-        HotSeatsClass.methodFinder().first {
-            name == "isNeedUpdateItemInfo"
-        }.createHook {
-            before {
-                hook3 = "com.miui.home.launcher.Application".hookBeforeMethod(
-                    classLoader,
-                    "isInFoldLargeScreen"
-                ) { hookParam -> hookParam.result = true }
+        hotSeatsClass.methodFinder()
+            .filterByName("isNeedUpdateItemInfo")
+            .first().createHook {
+                before {
+                    hook3 = "com.miui.home.launcher.Application".hookBeforeMethod(
+                        classLoader,
+                        "isInFoldLargeScreen"
+                    ) { hookParam -> hookParam.result = true }
+                }
+                after {
+                    hook3?.unhook()
+                }
             }
-            after {
-                hook3?.unhook()
-            }
-        }
 
         "com.miui.home.launcher.DeviceConfig".hookAfterMethod(
             classLoader,

@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object TextYanHua : HookRegister() {
     override fun init() = hasEnable("text_yan_hua") {
-        loadClass("com.miui.gallery.domain.SkyCheckHelper").methodFinder().first {
-            name == "isSupportTextYanhua"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.miui.gallery.domain.SkyCheckHelper").methodFinder()
+            .filterByName("isSupportTextYanhua")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
     }
 }

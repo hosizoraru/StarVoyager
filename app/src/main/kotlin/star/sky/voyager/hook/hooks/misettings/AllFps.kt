@@ -8,8 +8,7 @@ import star.sky.voyager.utils.key.hasEnable
 
 object AllFps : HookRegister() {
     override fun init() = hasEnable("show_all_fps") {
-        loadClass("miui.util.FeatureParser")
-            .methodFinder()
+        loadClass("miui.util.FeatureParser").methodFinder()
             .filterByName("getIntArray")
             .toList()
             .createHooks {

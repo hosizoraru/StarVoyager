@@ -14,9 +14,9 @@ object MaximumNumberOfNotificationIcons : HookRegister() {
         val dots = XSPUtils.getInt("maximum_number_of_notification_dots", 3)
         val icons2 = XSPUtils.getInt("maximum_number_of_lockscreen_notification_icons", 3)
         loadClass("com.android.systemui.statusbar.phone.NotificationIconContainer").methodFinder()
-            .first {
-                name == "miuiShowNotificationIcons" && parameterCount == 1
-            }.createHook {
+            .filterByName("miuiShowNotificationIcons")
+            .filterByParamCount(1)
+            .first().createHook {
                 replace {
                     if (it.args[0] as Boolean) {
                         it.thisObject.setObjectField("MAX_DOTS", dots)

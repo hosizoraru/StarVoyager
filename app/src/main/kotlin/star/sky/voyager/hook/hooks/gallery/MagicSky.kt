@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object MagicSky : HookRegister() {
     override fun init() = hasEnable("magic_sky") {
-        loadClass("com.miui.gallery.util.FilterSkyEntranceUtils").methodFinder().first {
-            name == "showSingleFilterSky"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.miui.gallery.util.FilterSkyEntranceUtils").methodFinder()
+            .filterByName("showSingleFilterSky")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
     }
 }

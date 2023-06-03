@@ -22,9 +22,10 @@ object NewNotificationWeather : HookRegister() {
 
     override fun init() = hasEnable("control_center_weather") {
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
-        val ControlCenterDateViewClass =
+        val controlCenterDateViewClass =
             loadClass("com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView")
-        ControlCenterDateViewClass.methodFinder().findSuper().filterByName("onDetachedFromWindow")
+        controlCenterDateViewClass.methodFinder().findSuper()
+            .filterByName("onDetachedFromWindow")
             .toList().createHooks {
                 before {
                     if ((it.thisObject as TextView).id == clockId && this@NewNotificationWeather::weather.isInitialized) {
@@ -33,7 +34,8 @@ object NewNotificationWeather : HookRegister() {
                 }
             }
 
-        ControlCenterDateViewClass.methodFinder().findSuper().filterByName("setText")
+        controlCenterDateViewClass.methodFinder().findSuper()
+            .filterByName("setText")
             .toList().createHooks {
                 before {
                     val time = it.args[0]?.toString()
@@ -52,9 +54,8 @@ object NewNotificationWeather : HookRegister() {
                 "miui.systemui.controlcenter.windowview.MainPanelHeaderController",
                 classLoader
             ).methodFinder()
-                .first {
-                    name == "addClockViews"
-                }.createHook {
+                .filterByName("addClockViews")
+                .first().createHook {
                     after {
                         val dateView = it.thisObject.getObjectFieldAs<TextView>("dateView")
                         clockId = dateView.id

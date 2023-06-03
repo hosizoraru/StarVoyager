@@ -8,8 +8,8 @@ import star.sky.voyager.utils.key.hasEnable
 
 object SuperClipboard : HookRegister() {
     override fun init() = hasEnable("super_clipboard") {
-        loadClass("com.miui.gallery.util.MiscUtil")
-            .methodFinder().filterByName("isSupportSuperClipboard")
+        loadClass("com.miui.gallery.util.MiscUtil").methodFinder()
+            .filterByName("isSupportSuperClipboard")
             .toList().createHooks {
                 before { param ->
                     param.result = true

@@ -17,21 +17,23 @@ object HideMobileTypeIcon : HookRegister() {
     private val isBigType = XSPUtils.getBoolean("big_mobile_type_icon", false)
 
     override fun init() = hasEnable("hide_mobile_type_icon") {
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "initViewState" && parameterCount == 1
-        }.createHook {
-            after {
-                hideMobileTypeIcon(it)
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("initViewState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hideMobileTypeIcon(it)
+                }
             }
-        }
 
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "updateState" && parameterCount == 1
-        }.createHook {
-            after {
-                hideMobileTypeIcon(it)
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("updateState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hideMobileTypeIcon(it)
+                }
             }
-        }
     }
 
     private fun hideMobileTypeIcon(it: XC_MethodHook.MethodHookParam) {

@@ -12,21 +12,23 @@ import star.sky.voyager.utils.key.hasEnable
 
 object HideMobileActivityIcon : HookRegister() {
     override fun init() = hasEnable("hide_mobile_activity_icon") {
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "initViewState" && parameterCount == 1
-        }.createHook {
-            after {
-                hide(it)
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("initViewState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hide(it)
+                }
             }
-        }
 
-        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder().first {
-            name == "updateState" && parameterCount == 1
-        }.createHook {
-            after {
-                hide(it)
+        loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
+            .filterByName("updateState")
+            .filterByParamCount(1)
+            .first().createHook {
+                after {
+                    hide(it)
+                }
             }
-        }
     }
 
     private fun hide(it: XC_MethodHook.MethodHookParam) {

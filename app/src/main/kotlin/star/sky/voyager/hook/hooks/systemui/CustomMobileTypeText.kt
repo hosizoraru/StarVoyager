@@ -10,12 +10,12 @@ import star.sky.voyager.utils.key.hasEnable
 object CustomMobileTypeText : HookRegister() {
     override fun init() = hasEnable("custom_mobile_type_text_switch") {
         loadClass("com.android.systemui.statusbar.connectivity.MobileSignalController").methodFinder()
-            .first {
-                name == "getMobileTypeName" && parameterTypes[0] == Int::class.java
-            }.createHook {
-            after {
-                it.result = XSPUtils.getString("custom_mobile_type_text", "5G")
+            .filterByName("getMobileTypeName")
+            .filterByParamTypes(Int::class.java)
+            .first().createHook {
+                after {
+                    it.result = XSPUtils.getString("custom_mobile_type_text", "5G")
+                }
             }
-        }
     }
 }

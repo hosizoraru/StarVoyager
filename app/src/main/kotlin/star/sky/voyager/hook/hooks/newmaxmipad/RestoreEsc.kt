@@ -8,15 +8,15 @@ import star.sky.voyager.utils.key.hasEnable
 
 object RestoreEsc : HookRegister() {
     override fun init() = hasEnable("restore_esc") {
-        loadClass("com.android.server.input.config.InputCommonConfig")
-            .methodFinder().filterByName("setPadMode")
+        loadClass("com.android.server.input.config.InputCommonConfig").methodFinder()
+            .filterByName("setPadMode")
             .first().createHook {
                 before {
                     it.args[0] = false
                 }
             }
-        loadClass("com.android.server.input.InputManagerServiceStubImpl")
-            .methodFinder().filterByName("switchPadMode")
+        loadClass("com.android.server.input.InputManagerServiceStubImpl").methodFinder()
+            .filterByName("switchPadMode")
             .first().createHook {
                 before {
                     it.args[0] = false

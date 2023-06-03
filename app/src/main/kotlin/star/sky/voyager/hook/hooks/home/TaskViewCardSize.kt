@@ -16,28 +16,30 @@ object TaskViewCardSize : HookRegister() {
         val value = getInt("home_task_view_card_size_vertical", 100).toFloat() / 100f
         val value1 = getInt("home_task_view_card_size_horizontal1", 100).toFloat() / 100f
         val value2 = getInt("home_task_view_card_size_horizontal2", 100).toFloat() / 100f
-        val TaskStackViewsAlgorithmHorizontalClass =
+        val taskStackViewsAlgorithmHorizontalClass =
             loadClass("com.miui.home.recents.views.TaskStackViewsAlgorithmHorizontal")
-        val UtilitiesClass = loadClass("com.miui.home.recents.util.Utilities")
-        TaskStackViewsAlgorithmHorizontalClass.methodFinder().first {
-            name == "scaleTaskView" && parameterTypes[0] == RectF::class.java
-        }.createHook {
-            after {
-                UtilitiesClass.callStaticMethod(
-                    "scaleRectAboutCenter", it.args[0], value
-                )
+        val utilitiesClass = loadClass("com.miui.home.recents.util.Utilities")
+        taskStackViewsAlgorithmHorizontalClass.methodFinder()
+            .filterByName("scaleTaskView")
+            .filterByParamTypes(RectF::class.java)
+            .first().createHook {
+                after {
+                    utilitiesClass.callStaticMethod(
+                        "scaleRectAboutCenter", it.args[0], value
+                    )
+                }
             }
-        }
-        TaskStackViewsAlgorithmHorizontalClass.methodFinder().first {
-            name == "scaleTaskView" && parameterTypes[0] == RectF::class.java
-        }.createHook {
-            after {
-                UtilitiesClass.callStaticMethod(
-                    "scaleRectAboutCenter",
-                    it.args[0],
-                    if (it.thisObject.callMethod("isLandscapeVisually") as Boolean) value2 else value1
-                )
+        taskStackViewsAlgorithmHorizontalClass.methodFinder()
+            .filterByName("scaleTaskView")
+            .filterByParamTypes(RectF::class.java)
+            .first().createHook {
+                after {
+                    utilitiesClass.callStaticMethod(
+                        "scaleRectAboutCenter",
+                        it.args[0],
+                        if (it.thisObject.callMethod("isLandscapeVisually") as Boolean) value2 else value1
+                    )
+                }
             }
-        }
     }
 }

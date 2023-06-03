@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DoNotClearApp : HookRegister() {
     override fun init() = hasEnable("do_not_clear_app") {
-        loadClass("miui.process.ProcessManager").methodFinder().first {
-            name == "kill"
-        }.createHook {
-            before {
-                it.result = false
+        loadClass("miui.process.ProcessManager").methodFinder()
+            .filterByName("kill")
+            .first().createHook {
+                before {
+                    it.result = false
+                }
             }
-        }
     }
 }

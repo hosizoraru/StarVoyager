@@ -9,12 +9,11 @@ import star.sky.voyager.utils.key.hasEnable
 object CanNotificationSlide : HookRegister() {
     override fun init() = hasEnable("can_notification_slide") {
         loadClass("com.android.systemui.statusbar.notification.NotificationSettingsManager").methodFinder()
-            .first {
-                name == "canSlide"
-            }.createHook {
-            after {
-                it.result = true
+            .filterByName("canSlide")
+            .first().createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
     }
 }

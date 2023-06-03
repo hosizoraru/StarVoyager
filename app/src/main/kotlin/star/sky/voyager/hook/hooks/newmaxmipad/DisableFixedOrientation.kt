@@ -11,8 +11,8 @@ object DisableFixedOrientation : HookRegister() {
     override fun init() = hasEnable("disable_fixed_orientation") {
         val shouldDisableFixedOrientationList =
             getStringSet("should_disable_fixed_orientation_list", mutableSetOf())
-        loadClass("com.android.server.wm.MiuiFixedOrientationController")
-            .methodFinder().filterByName("shouldDisableFixedOrientation")
+        loadClass("com.android.server.wm.MiuiFixedOrientationController").methodFinder()
+            .filterByName("shouldDisableFixedOrientation")
             .first().createHook {
                 before {
                     if (it.args[0] in shouldDisableFixedOrientationList) {

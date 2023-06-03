@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object PreventRecoveryOfBatteryOptimizationWhitelist : HookRegister() {
     override fun init() = hasEnable("prevent_recovery_of_battery_optimization_white_list") {
-        loadClass("com.miui.powerkeeper.statemachine.ForceDozeController").methodFinder().first {
-            name == "restoreWhiteListAppsIfQuitForceIdle"
-        }.createHook {
-            before {
-                it.result = null
+        loadClass("com.miui.powerkeeper.statemachine.ForceDozeController").methodFinder()
+            .filterByName("restoreWhiteListAppsIfQuitForceIdle")
+            .first().createHook {
+                before {
+                    it.result = null
+                }
             }
-        }
     }
 }

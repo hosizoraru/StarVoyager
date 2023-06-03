@@ -14,72 +14,74 @@ import star.sky.voyager.utils.key.hasEnable
 
 object SetDeviceLevel : HookRegister() {
     override fun init() = hasEnable("home_high_end_device") {
-        val DeviceLevelUtilsClass = loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
-        val SystemPropertiesClass = loadClass("android.os.SystemProperties")
-        val DeviceConfigClass = loadClass("com.miui.home.launcher.DeviceConfig")
+        val deviceLevelUtilsClass = loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
+        val systemPropertiesClass = loadClass("android.os.SystemProperties")
+        val deviceConfigClass = loadClass("com.miui.home.launcher.DeviceConfig")
         try {
-            loadClass("com.miui.home.launcher.common.CpuLevelUtils").methodFinder().first {
-                name == "getQualcommCpuLevel" && parameterCount == 1
-            }
+            loadClass("com.miui.home.launcher.common.CpuLevelUtils").methodFinder()
+                .filterByName("getQualcommCpuLevel")
+                .filterByParamCount(1)
+                .first()
         } catch (e: Exception) {
-            loadClass("miuix.animation.utils.DeviceUtils").methodFinder().first {
-                name == "getQualcommCpuLevel" && parameterCount == 1
-            }
+            loadClass("miuix.animation.utils.DeviceUtils").methodFinder()
+                .filterByName("getQualcommCpuLevel")
+                .filterByParamCount(1)
+                .first()
         }.createHook {
             returnConstant(2)
         }
         try {
-            DeviceConfigClass.methodFinder().first {
-                name == "isUseSimpleAnim"
-            }.createHook {
-                before {
-                    it.result = false
+            deviceConfigClass.methodFinder()
+                .filterByName("isUseSimpleAnim")
+                .first().createHook {
+                    before {
+                        it.result = false
+                    }
                 }
-            }
         } catch (_: Throwable) {
 
         }
         try {
-            DeviceLevelUtilsClass.methodFinder().first {
-                name == "getDeviceLevel"
-            }.createHook {
-                before {
-                    it.result = 2
+            deviceLevelUtilsClass.methodFinder()
+                .filterByName("getDeviceLevel")
+                .first().createHook {
+                    before {
+                        it.result = 2
+                    }
                 }
-            }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            DeviceConfigClass.methodFinder().first {
-                name == "isSupportCompleteAnimation"
-            }.createHook {
-                before {
-                    it.result = true
+            deviceConfigClass.methodFinder()
+                .filterByName("isSupportCompleteAnimation")
+                .first().createHook {
+                    before {
+                        it.result = true
+                    }
                 }
-            }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            DeviceLevelUtilsClass.methodFinder().first {
-                name == "isLowLevelOrLiteDevice"
-            }.createHook {
-                before {
-                    it.result = false
+            deviceLevelUtilsClass.methodFinder()
+                .filterByName("isLowLevelOrLiteDevice")
+                .first().createHook {
+                    before {
+                        it.result = false
+                    }
                 }
-            }
         } catch (e: Throwable) {
             Log.ex(e)
         }
         try {
-            DeviceConfigClass.methodFinder().first {
-                name == "isMiuiLiteVersion"
-            }.createHook {
-                before {
-                    it.result = false
+            deviceConfigClass.methodFinder()
+                .filterByName("isMiuiLiteVersion")
+                .first().createHook {
+                    before {
+                        it.result = false
+                    }
                 }
-            }
         } catch (e: Throwable) {
             Log.ex(e)
         }
@@ -95,14 +97,15 @@ object SetDeviceLevel : HookRegister() {
         }
 
         try {
-            SystemPropertiesClass.methodFinder().filter {
-                name == "getBoolean" && parameterTypes[0] == String::class.java && parameterTypes[1] == Boolean::class.java
-            }.toList().createHooks {
-                before {
-                    if (it.args[0] == "ro.config.low_ram.threshold_gb") it.result = false
-                    if (it.args[0] == "ro.miui.backdrop_sampling_enabled") it.result = true
+            systemPropertiesClass.methodFinder()
+                .filterByName("getBoolean")
+                .filterByParamTypes(String::class.java, Boolean::class.java)
+                .toList().createHooks {
+                    before {
+                        if (it.args[0] == "ro.config.low_ram.threshold_gb") it.result = false
+                        if (it.args[0] == "ro.miui.backdrop_sampling_enabled") it.result = true
+                    }
                 }
-            }
         } catch (e: Throwable) {
             Log.ex(e)
         }

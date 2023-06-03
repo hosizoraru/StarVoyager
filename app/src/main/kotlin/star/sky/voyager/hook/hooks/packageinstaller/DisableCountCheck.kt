@@ -9,13 +9,13 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DisableCountCheck : HookRegister() {
     override fun init() = hasEnable("package_installer_remove_check") {
-        loadClass("com.miui.packageInstaller.model.RiskControlRules").methodFinder().first {
-            name == "getCurrentLevel"
-        }.createHook {
-            before { param ->
-                Log.i("Hooked getCurrentLevel, param result = ${param.result}")
-                param.result = 0
+        loadClass("com.miui.packageInstaller.model.RiskControlRules").methodFinder()
+            .filterByName("getCurrentLevel")
+            .first().createHook {
+                before { param ->
+                    Log.i("Hooked getCurrentLevel, param result = ${param.result}")
+                    param.result = 0
+                }
             }
-        }
     }
 }

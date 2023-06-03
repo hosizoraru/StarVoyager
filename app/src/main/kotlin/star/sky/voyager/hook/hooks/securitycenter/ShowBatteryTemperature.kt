@@ -15,20 +15,18 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import star.sky.voyager.utils.api.findClassOrNull
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object ShowBatteryTemperature : HookRegister() {
     override fun init() = hasEnable("battery_life_function") {
-        val batteryFragmentClass =
-            "com.miui.powercenter.BatteryFragment".findClassOrNull(classLoader)
+        val batteryFragmentClass = loadClassOrNull("com.miui.powercenter.BatteryFragment")
         if (batteryFragmentClass != null) {
             loadClass("com.miui.powercenter.BatteryFragment").methodFinder().first {
                 paramCount == 1 && returnType == String::class.java && isStatic
@@ -44,13 +42,11 @@ object ShowBatteryTemperature : HookRegister() {
         }
 
         if (batteryFragmentClass != null) {
-            loadClass("com.miui.powercenter.BatteryFragment\$a").methodFinder().first {
-                name == "run"
-            }
+            loadClass("com.miui.powercenter.BatteryFragment\$a").methodFinder()
+                .filterByName("run").first()
         } else {
-            loadClass("com.miui.powercenter.a\$a").methodFinder().first {
-                name == "run"
-            }
+            loadClass("com.miui.powercenter.a\$a").methodFinder()
+                .filterByName("run").first()
         }.createHook {
             after { hookParam ->
                 val context = AndroidAppHelper.currentApplication().applicationContext

@@ -8,21 +8,22 @@ import star.sky.voyager.utils.key.hasEnable
 
 object HideStatusBarNetworkSpeedSecond : HookRegister() {
     override fun init() = hasEnable("hide_status_bar_network_speed_second") {
-        loadClass("com.android.systemui.statusbar.views.NetworkSpeedView").methodFinder().first {
-            name == "setNetworkSpeed" && parameterCount == 1
-        }.createHook {
-            before {
-                if (it.args[0] != null) {
-                    val mText = (it.args[0] as String)
-                        .replace("/", "")
-                        .replace("s", "")
-                        .replace("\'", "")
-                        .replace("วิ", "")
-                        .replace("秒", "")
-                        .replace("B", "")
-                    it.args[0] = mText
+        loadClass("com.android.systemui.statusbar.views.NetworkSpeedView").methodFinder()
+            .filterByName("setNetworkSpeed")
+            .filterByParamCount(1)
+            .first().createHook {
+                before {
+                    if (it.args[0] != null) {
+                        val mText = (it.args[0] as String)
+                            .replace("/", "")
+                            .replace("s", "")
+                            .replace("\'", "")
+                            .replace("วิ", "")
+                            .replace("秒", "")
+                            .replace("B", "")
+                        it.args[0] = mText
+                    }
                 }
             }
-        }
     }
 }

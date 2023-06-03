@@ -36,9 +36,8 @@ object DoubleLineNetworkSpeed : HookRegister() {
         getDownIcon()
 
         loadClass("com.android.systemui.statusbar.views.NetworkSpeedView").constructorFinder()
-            .first {
-                parameterCount == 2
-            }.createHook {
+            .filterByParamCount(2)
+            .first().createHook {
                 after {
                     val mView = it.thisObject as TextView
                     mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 7f)
@@ -56,9 +55,9 @@ object DoubleLineNetworkSpeed : HookRegister() {
             }
 
         loadClass("com.android.systemui.statusbar.policy.NetworkSpeedController").methodFinder()
-            .first {
-                name == "formatSpeed" && parameterCount == 2
-            }.createHook {
+            .filterByName("formatSpeed")
+            .filterByParamCount(2)
+            .first().createHook {
                 before {
                     if (getDualAlign == 0) {
                         it.result = "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n$downIcon ${

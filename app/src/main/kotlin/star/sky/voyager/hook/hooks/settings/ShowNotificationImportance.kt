@@ -17,9 +17,8 @@ import star.sky.voyager.utils.key.hasEnable
 object ShowNotificationImportance : HookRegister() {
     override fun init() = hasEnable("show_notification_importance") {
         loadClass("com.android.settings.notification.ChannelNotificationSettings").methodFinder()
-            .first {
-                name == "removeDefaultPrefs"
-            }.createHook {
+            .filterByName("removeDefaultPrefs")
+            .first().createHook {
                 before {
                     val importance = it.thisObject.callMethodOrNull("findPreference", "importance")
                         ?: return@before
@@ -39,23 +38,24 @@ object ShowNotificationImportance : HookRegister() {
                 }
             }
 
-        loadClass("androidx.preference.Preference").methodFinder().first {
-            name == "callChangeListener" && parameterTypes[0] == Any::class.java
-        }.createHook {
-            after {
-                val channelNotificationSettings = getAdditionalInstanceField(
-                    it.thisObject,
-                    "channelNotificationSettings"
-                ) ?: return@after
-                val mChannel =
-                    channelNotificationSettings.getObjectFieldAs<NotificationChannel>("mChannel")
-                mChannel.callMethod("setImportance", (it.args[0] as String).toInt())
-                val mBackend =
-                    channelNotificationSettings.getObjectField("mBackend") ?: return@after
-                val mPkg = channelNotificationSettings.getObjectFieldAs<String>("mPkg")
-                val mUid = channelNotificationSettings.getObjectFieldAs<Int>("mUid")
-                mBackend.callMethod("updateChannel", mPkg, mUid, mChannel)
+        loadClass("androidx.preference.Preference").methodFinder()
+            .filterByName("callChangeListener")
+            .filterByParamTypes(Any::class.java)
+            .first().createHook {
+                after {
+                    val channelNotificationSettings = getAdditionalInstanceField(
+                        it.thisObject,
+                        "channelNotificationSettings"
+                    ) ?: return@after
+                    val mChannel =
+                        channelNotificationSettings.getObjectFieldAs<NotificationChannel>("mChannel")
+                    mChannel.callMethod("setImportance", (it.args[0] as String).toInt())
+                    val mBackend =
+                        channelNotificationSettings.getObjectField("mBackend") ?: return@after
+                    val mPkg = channelNotificationSettings.getObjectFieldAs<String>("mPkg")
+                    val mUid = channelNotificationSettings.getObjectFieldAs<Int>("mUid")
+                    mBackend.callMethod("updateChannel", mPkg, mUid, mChannel)
+                }
             }
-        }
     }
 }

@@ -8,12 +8,11 @@ import star.sky.voyager.utils.key.hasEnable
 
 object Disable72hVerify : HookRegister() {
     override fun init() = hasEnable("disable_72h_verify") {
-        loadClass("com.android.server.locksettings.LockSettingsStrongAuth").methodFinder().first {
-            name == "rescheduleStrongAuthTimeoutAlarm"
-                    && parameterTypes[0] == Long::class.java
-                    && parameterTypes[1] == Int::class.java
-        }.createHook {
-            returnConstant(null)
-        }
+        loadClass("com.android.server.locksettings.LockSettingsStrongAuth").methodFinder()
+            .filterByName("rescheduleStrongAuthTimeoutAlarm")
+            .filterByParamTypes(Long::class.java, Int::class.java)
+            .first().createHook {
+                returnConstant(null)
+            }
     }
 }

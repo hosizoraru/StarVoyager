@@ -10,22 +10,22 @@ import star.sky.voyager.utils.key.hasEnable
 object HideStatusBarIcon : HookRegister() {
     override fun init() {
         loadClass("com.android.systemui.statusbar.phone.StatusBarIconControllerImpl").methodFinder()
-            .first {
-                name == "setIconVisibility" && parameterCount == 2
-            }.createHook {
-            before {
-                hideIcon(it)
+            .filterByName("setIconVisibility")
+            .filterByParamCount(2)
+            .first().createHook {
+                before {
+                    hideIcon(it)
+                }
             }
-        }
 
         loadClass("com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl").methodFinder()
-            .first {
-                name == "setIconVisibility" && parameterCount == 2
-            }.createHook {
-            before {
-                hideIcon(it)
+            .filterByName("setIconVisibility")
+            .filterByParamCount(2)
+            .first().createHook {
+                before {
+                    hideIcon(it)
+                }
             }
-        }
     }
 
     private fun hideIcon(it: XC_MethodHook.MethodHookParam) {

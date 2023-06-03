@@ -14,33 +14,33 @@ object FolderColumnsCount : HookRegister() {
     override fun init() {
         val value = getInt("home_folder_columns", 3)
         if (value == 3) return
-        loadClass("com.miui.home.launcher.Folder").methodFinder().filter {
-            name == "bind"
-        }.toList().createHooks {
-            after {
-                val columns: Int = value
-                val mContent = it.thisObject.getObjectFieldAs<GridView>("mContent")
-                mContent.numColumns = columns
-                hasEnable("home_folder_width") {
+        loadClass("com.miui.home.launcher.Folder").methodFinder()
+            .filterByName("bind")
+            .toList().createHooks {
+                after {
+                    val columns: Int = value
+                    val mContent = it.thisObject.getObjectFieldAs<GridView>("mContent")
+                    mContent.numColumns = columns
+                    hasEnable("home_folder_width") {
+                        if (columns > 3) {
+                            mContent.setPadding(0, 0, 0, 0)
+                            val lp = mContent.layoutParams
+                            lp.width = ViewGroup.LayoutParams.MATCH_PARENT
+                            mContent.layoutParams = lp
+                        }
+                    }
+
                     if (columns > 3) {
-                        mContent.setPadding(0, 0, 0, 0)
-                        val lp = mContent.layoutParams
-                        lp.width = ViewGroup.LayoutParams.MATCH_PARENT
-                        mContent.layoutParams = lp
+                        val mBackgroundView =
+                            it.thisObject.getObjectFieldAs<GridView>("mBackgroundView")
+                        mBackgroundView.setPadding(
+                            mBackgroundView.paddingLeft / 3,
+                            mBackgroundView.paddingTop,
+                            mBackgroundView.paddingRight / 3,
+                            mBackgroundView.paddingBottom
+                        )
                     }
                 }
-
-                if (columns > 3) {
-                    val mBackgroundView =
-                        it.thisObject.getObjectFieldAs<GridView>("mBackgroundView")
-                    mBackgroundView.setPadding(
-                        mBackgroundView.paddingLeft / 3,
-                        mBackgroundView.paddingTop,
-                        mBackgroundView.paddingRight / 3,
-                        mBackgroundView.paddingBottom
-                    )
-                }
             }
-        }
     }
 }

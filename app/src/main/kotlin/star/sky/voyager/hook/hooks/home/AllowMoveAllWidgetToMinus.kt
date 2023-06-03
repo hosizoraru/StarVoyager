@@ -12,43 +12,45 @@ import star.sky.voyager.utils.key.hasEnable
 object AllowMoveAllWidgetToMinus : HookRegister() {
     override fun init() = hasEnable("home_widget_to_minus") {
         try {
-            loadClass("com.miui.home.launcher.widget.MIUIWidgetHelper").methodFinder().first {
-                name == "canDragToPa" && parameterCount == 2
-            }.createHook {
-                before {
-                    val dragInfo = it.args[1].callMethod("getDragInfo")
-                    val i = dragInfo?.getObjectField("spanX")
-                    val launcherCallbacks = it.args[0].callMethod("getLauncherCallbacks")
-                    val dragController = it.args[0].callMethod("getDragController")
-                    val isDraggingFromAssistant =
-                        dragController?.callMethod("isDraggingFromAssistant") as Boolean
-                    val isDraggingToAssistant =
-                        dragController.callMethod("isDraggingToAssistant") as Boolean
-                    it.result =
-                        launcherCallbacks != null && !isDraggingFromAssistant && !isDraggingToAssistant && i != 1
+            loadClass("com.miui.home.launcher.widget.MIUIWidgetHelper").methodFinder()
+                .filterByName("canDragToPa")
+                .filterByParamCount(2)
+                .first().createHook {
+                    before {
+                        val dragInfo = it.args[1].callMethod("getDragInfo")
+                        val i = dragInfo?.getObjectField("spanX")
+                        val launcherCallbacks = it.args[0].callMethod("getLauncherCallbacks")
+                        val dragController = it.args[0].callMethod("getDragController")
+                        val isDraggingFromAssistant =
+                            dragController?.callMethod("isDraggingFromAssistant") as Boolean
+                        val isDraggingToAssistant =
+                            dragController.callMethod("isDraggingToAssistant") as Boolean
+                        it.result =
+                            launcherCallbacks != null && !isDraggingFromAssistant && !isDraggingToAssistant && i != 1
+                    }
                 }
-            }
         } catch (e: Exception) {
-            loadClass("com.miui.home.launcher.Workspace").methodFinder().first {
-                name == "canDragToPa"
-            }.createHook {
-                before {
-                    val currentDragObject = it.thisObject.getObjectFieldOrNull("mDragController")
-                        ?.callMethod("getCurrentDragObject")
-                    val dragInfo = currentDragObject?.callMethod("getDragInfo")
-                    val i = dragInfo?.getObjectField("spanX")
-                    val launcherCallbacks = it.thisObject.getObjectFieldOrNull("mLauncher")
-                        ?.callMethod("getLauncherCallbacks")
-                    val isDraggingFromAssistant =
-                        it.thisObject.getObjectFieldOrNull("mDragController")
-                            ?.callMethod("isDraggingFromAssistant") as Boolean
-                    val isDraggingToAssistant =
-                        it.thisObject.getObjectFieldOrNull("mDragController")
-                            ?.callMethod("isDraggingToAssistant") as Boolean
-                    it.result =
-                        launcherCallbacks != null && !isDraggingFromAssistant && !isDraggingToAssistant && i != 1
+            loadClass("com.miui.home.launcher.Workspace").methodFinder()
+                .filterByName("canDragToPa")
+                .first().createHook {
+                    before {
+                        val currentDragObject =
+                            it.thisObject.getObjectFieldOrNull("mDragController")
+                                ?.callMethod("getCurrentDragObject")
+                        val dragInfo = currentDragObject?.callMethod("getDragInfo")
+                        val i = dragInfo?.getObjectField("spanX")
+                        val launcherCallbacks = it.thisObject.getObjectFieldOrNull("mLauncher")
+                            ?.callMethod("getLauncherCallbacks")
+                        val isDraggingFromAssistant =
+                            it.thisObject.getObjectFieldOrNull("mDragController")
+                                ?.callMethod("isDraggingFromAssistant") as Boolean
+                        val isDraggingToAssistant =
+                            it.thisObject.getObjectFieldOrNull("mDragController")
+                                ?.callMethod("isDraggingToAssistant") as Boolean
+                        it.result =
+                            launcherCallbacks != null && !isDraggingFromAssistant && !isDraggingToAssistant && i != 1
+                    }
                 }
-            }
         }
     }
 }

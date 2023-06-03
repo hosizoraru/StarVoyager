@@ -38,11 +38,11 @@ object EnhanceContours : HookRegister() {
                     newChar[i]++
                 }
                 val newName = String(newChar)
-                tat.declaringClass.methodFinder().first {
-                    name == newName
-                }.createHook {
-                    returnConstant(true)
-                }
+                tat.declaringClass.methodFinder()
+                    .filterByName(newName)
+                    .first().createHook {
+                        returnConstant(true)
+                    }
             }
         }
     }

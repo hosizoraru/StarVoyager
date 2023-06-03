@@ -27,25 +27,27 @@ object FolderAnim : HookRegister() {
             if (launcherClass != null) {
                 for (field in launcherClass.declaredFields) {
                     if (field.name == "val\$folderInfo") {
-                        launcherClass.methodFinder().first {
-                            name == "run"
-                        }.createHook {
-                            before {
-                                hook1 = mSpringAnimator.methodFinder().first {
-                                    name == "setDampingResponse"
-                                            && parameterTypes[0] == Float::class.javaPrimitiveType
-                                            && parameterTypes[1] == Float::class.javaPrimitiveType
-                                }.createHook {
-                                    before {
-                                        it.args[0] = value1
-                                        it.args[1] = value2
-                                    }
+                        launcherClass.methodFinder()
+                            .filterByName("run")
+                            .first().createHook {
+                                before {
+                                    hook1 = mSpringAnimator.methodFinder()
+                                        .filterByName("setDampingResponse")
+                                        .filterByParamTypes(
+                                            Float::class.javaPrimitiveType,
+                                            Float::class.javaPrimitiveType
+                                        )
+                                        .first().createHook {
+                                            before {
+                                                it.args[0] = value1
+                                                it.args[1] = value2
+                                            }
+                                        }
+                                }
+                                after {
+                                    hook1?.unhook()
                                 }
                             }
-                            after {
-                                hook1?.unhook()
-                            }
-                        }
                         break
                     }
                 }

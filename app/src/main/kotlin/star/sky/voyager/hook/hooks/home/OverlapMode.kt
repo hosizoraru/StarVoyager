@@ -9,10 +9,9 @@ import star.sky.voyager.utils.key.hasEnable
 object OverlapMode : HookRegister() {
     override fun init() = hasEnable("Overlap_Mode") {
         loadClass("com.miui.home.launcher.overlay.assistant.AssistantDeviceAdapter").methodFinder()
-            .first {
-                name == "inOverlapMode"
-            }.createHook {
-            returnConstant(true)
-        }
+            .filterByName("inOverlapMode")
+            .first().createHook {
+                returnConstant(true)
+            }
     }
 }

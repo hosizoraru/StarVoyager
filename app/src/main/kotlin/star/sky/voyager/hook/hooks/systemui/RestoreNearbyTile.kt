@@ -7,7 +7,6 @@ import com.github.kyuubiran.ezxhelper.HookFactory
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.LogExtensions.logexIfThrow
-import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -15,10 +14,11 @@ import star.sky.voyager.utils.key.hasEnable
 object RestoreNearbyTile : HookRegister() {
     var isTrulyInit: Boolean = false
     override fun init() = hasEnable("restore_near_by_tile") {
-        loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory")
-            .methodFinder().first {
-                name == "getClassLoader" && paramCount == 2 && parameterTypes[0] == ApplicationInfo::class.java && parameterTypes[1] == ClassLoader::class.java
-            }.createHook {
+        loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory").methodFinder()
+            .filterByName("getClassLoader")
+            .filterByParamCount(2)
+            .filterByParamTypes(ApplicationInfo::class.java, ClassLoader::class.java)
+            .first().createHook {
                 after { param ->
                     if (!isTrulyInit) kotlin.runCatching {
                         val applicationInfo = param.args[0] as ApplicationInfo
@@ -51,14 +51,12 @@ object RestoreNearbyTile : HookRegister() {
             }
 
             loadClass("com.android.systemui.qs.MiuiQSTileHostInjector").methodFinder()
-                .first {
-                    name == "createMiuiTile"
-                }.createHook(isInternationalHook)
+                .filterByName("createMiuiTile")
+                .first().createHook(isInternationalHook)
 
-            loadClass("com.android.systemui.controlcenter.utils.ControlCenterUtils")
-                .methodFinder().first {
-                    name == "filterCustomTile"
-                }.createHook(isInternationalHook)
+            loadClass("com.android.systemui.controlcenter.utils.ControlCenterUtils").methodFinder()
+                .filterByName("filterCustomTile")
+                .first().createHook(isInternationalHook)
         }
     }
 }

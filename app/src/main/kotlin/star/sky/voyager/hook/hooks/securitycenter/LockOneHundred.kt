@@ -13,13 +13,14 @@ import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
 object LockOneHundred : HookRegister() {
     override fun init() = hasEnable("lock_one_hundred") {
-        loadClass("com.miui.securityscan.ui.main.MainContentFrame").methodFinder().first {
-            name == "onClick" && parameterTypes[0] == View::class.java
-        }.createHook {
-            before {
-                it.result = null
+        loadClass("com.miui.securityscan.ui.main.MainContentFrame").methodFinder()
+            .filterByName("onClick")
+            .filterByParamTypes(View::class.java)
+            .first().createHook {
+                before {
+                    it.result = null
+                }
             }
-        }
 
         loadDexKit()
         dexKitBridge.findMethodUsingString {

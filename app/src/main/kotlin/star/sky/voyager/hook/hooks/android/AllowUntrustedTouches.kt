@@ -9,10 +9,11 @@ import star.sky.voyager.utils.key.hasEnable
 
 object AllowUntrustedTouches : HookRegister() {
     override fun init() = hasEnable("allow_untrusted_touches") {
-        loadClass("android.hardware.input.InputManager").methodFinder().first {
-            name == "getBlockUntrustedTouchesMode" && parameterTypes[0] == Context::class.java
-        }.createHook {
-            returnConstant(0)
-        }
+        loadClass("android.hardware.input.InputManager").methodFinder()
+            .filterByName("getBlockUntrustedTouchesMode")
+            .filterByParamTypes(Context::class.java)
+            .first().createHook {
+                returnConstant(0)
+            }
     }
 }

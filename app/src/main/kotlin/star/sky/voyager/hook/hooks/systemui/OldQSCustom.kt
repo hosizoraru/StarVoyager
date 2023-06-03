@@ -17,38 +17,39 @@ object OldQSCustom : HookRegister() {
         val mColumns = XSPUtils.getInt("qs_custom_columns", 4)
         val mColumnsUnexpanded = XSPUtils.getInt("qs_custom_columns_unexpanded", 5)
 
-        loadClass("com.android.systemui.qs.MiuiQuickQSPanel").methodFinder().first {
-            name == "setMaxTiles" && parameterCount == 1
-        }.createHook {
-            before {
-                //未展开时的列数
-                it.args[0] = mColumnsUnexpanded
-            }
-        }
-
-        loadClass("com.android.systemui.qs.MiuiTileLayout").methodFinder().first {
-            name == "updateColumns"
-        }.createHook {
-            after {
-                //展开时的列数
-                it.thisObject.setObjectField("mColumns", mColumns)
-            }
-        }
-
-        loadClass("com.android.systemui.qs.MiuiTileLayout").methodFinder().first {
-            name == "updateResources"
-        }.createHook {
-            after {
-                //展开时的行数
-                val viewGroup = it.thisObject as ViewGroup
-                val mConfiguration: Configuration = viewGroup.context.resources.configuration
-                if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    viewGroup.setObjectField("mMaxAllowedRows", mRows)
-                } else {
-                    viewGroup.setObjectField("mMaxAllowedRows", mRowsHorizontal)
+        loadClass("com.android.systemui.qs.MiuiQuickQSPanel").methodFinder()
+            .filterByName("setMaxTiles")
+            .filterByParamCount(1)
+            .first().createHook {
+                before {
+                    //未展开时的列数
+                    it.args[0] = mColumnsUnexpanded
                 }
-                viewGroup.requestLayout()
             }
-        }
+
+        loadClass("com.android.systemui.qs.MiuiTileLayout").methodFinder()
+            .filterByName("updateColumns")
+            .first().createHook {
+                after {
+                    //展开时的列数
+                    it.thisObject.setObjectField("mColumns", mColumns)
+                }
+            }
+
+        loadClass("com.android.systemui.qs.MiuiTileLayout").methodFinder()
+            .filterByName("updateResources")
+            .first().createHook {
+                after {
+                    //展开时的行数
+                    val viewGroup = it.thisObject as ViewGroup
+                    val mConfiguration: Configuration = viewGroup.context.resources.configuration
+                    if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        viewGroup.setObjectField("mMaxAllowedRows", mRows)
+                    } else {
+                        viewGroup.setObjectField("mMaxAllowedRows", mRowsHorizontal)
+                    }
+                    viewGroup.requestLayout()
+                }
+            }
     }
 }

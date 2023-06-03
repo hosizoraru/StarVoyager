@@ -12,20 +12,20 @@ object AnimDurationRatio : HookRegister() {
         val value1 = getInt("home_anim_ratio", 100).toFloat() / 100f
         val value2 = getInt("home_anim_ratio_recent", 100).toFloat() / 100f
 
-        loadClass("com.miui.home.recents.util.RectFSpringAnim").methodFinder().first {
-            name == "getModifyResponse"
-        }.createHook {
-            before {
-                it.result = it.args[0] as Float * value1
+        loadClass("com.miui.home.recents.util.RectFSpringAnim").methodFinder()
+            .filterByName("getModifyResponse")
+            .first().createHook {
+                before {
+                    it.result = it.args[0] as Float * value1
+                }
             }
-        }
 
-        loadClass("com.miui.home.launcher.common.DeviceLevelUtils").methodFinder().first {
-            name == "getDeviceLevelTransitionAnimRatio"
-        }.createHook {
-            before {
-                it.result = value2
+        loadClass("com.miui.home.launcher.common.DeviceLevelUtils").methodFinder()
+            .filterByName("getDeviceLevelTransitionAnimRatio")
+            .first().createHook {
+                before {
+                    it.result = value2
+                }
             }
-        }
     }
 }

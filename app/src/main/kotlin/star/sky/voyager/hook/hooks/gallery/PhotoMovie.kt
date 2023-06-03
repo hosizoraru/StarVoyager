@@ -8,20 +8,20 @@ import star.sky.voyager.utils.key.hasEnable
 
 object PhotoMovie : HookRegister() {
     override fun init() = hasEnable("photo_movie") {
-        loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder().first {
-            name == "isPhotoMovieAvailable"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder()
+            .filterByName("isPhotoMovieAvailable")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
 
-        loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder().first {
-            name == "isDeviceSupportPhotoMovie"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.miui.gallery.domain.DeviceFeature").methodFinder()
+            .filterByName("isDeviceSupportPhotoMovie")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
     }
 }

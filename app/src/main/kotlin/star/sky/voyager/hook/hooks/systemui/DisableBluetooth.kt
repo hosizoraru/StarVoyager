@@ -9,12 +9,13 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DisableBluetooth : HookRegister() {
     override fun init() = hasEnable("Disable_Bluetooth") {
-        loadClass("com.android.settingslib.bluetooth.LocalBluetoothAdapter").methodFinder().first {
-            name == "isSupportBluetoothRestrict" && parameterTypes[0] == Context::class.java
-        }.createHook {
-            before {
-                it.result = false
+        loadClass("com.android.settingslib.bluetooth.LocalBluetoothAdapter").methodFinder()
+            .filterByName("isSupportBluetoothRestrict")
+            .filterByParamTypes(Context::class.java)
+            .first().createHook {
+                before {
+                    it.result = false
+                }
             }
-        }
     }
 }

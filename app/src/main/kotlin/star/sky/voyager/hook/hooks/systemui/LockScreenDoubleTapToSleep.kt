@@ -18,9 +18,8 @@ import kotlin.math.abs
 object LockScreenDoubleTapToSleep : HookRegister() {
     override fun init() = hasEnable("lock_screen_double_tap_to_sleep") {
         loadClass("com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer").methodFinder()
-            .first {
-                name == "onFinishInflate"
-            }.createHook {
+            .filterByName("onFinishInflate")
+            .first().createHook {
                 before {
                     val view = it.thisObject as View
                     setAdditionalInstanceField(view, "currentTouchTime", 0L)

@@ -22,9 +22,9 @@ object LockScreenFont : HookRegister() {
                 }
             }
         loadClass("com.miui.clock.MiuiLeftTopLargeClock").methodFinder()
-            .filter {
-                name == "onLanguageChanged" && parameterTypes[0] == String::class.java
-            }.toList().createHooks {
+            .filterByName("onLanguageChanged")
+            .filterByParamTypes(String::class.java)
+            .toList().createHooks {
                 after { param ->
                     hasEnable("lock_screen_date_use_system_font") {
                         val mTimeText =

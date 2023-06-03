@@ -11,28 +11,26 @@ import star.sky.voyager.utils.key.hasEnable
 object DisableSafeModelTip : HookRegister() {
     override fun init() = hasEnable("Disable_Safe_Model_Tip") {
         try {
-            loadClassOrNull("com.miui.packageInstaller.model.ApkInfo")?.methodFinder()?.first {
-                name == "getSystemApp"
-            }?.createHook {
-                returnConstant(true)
-            }
-            val InstallProgressActivityClass =
+            loadClassOrNull("com.miui.packageInstaller.model.ApkInfo")?.methodFinder()
+                ?.filterByName("getSystemApp")
+                ?.first()?.createHook {
+                    returnConstant(true)
+                }
+            val installProgressActivityClass =
                 loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")
-            InstallProgressActivityClass?.methodFinder()
-                ?.first {
-                    name == "g0"
-                }?.createHook {
+            installProgressActivityClass?.methodFinder()
+                ?.filterByName("g0")
+                ?.first()?.createHook {
                     returnConstant(false)
                 }
-            InstallProgressActivityClass?.methodFinder()
-                ?.first {
-                    name == "Q1"
-                }?.createHook {
+            installProgressActivityClass?.methodFinder()
+                ?.filterByName("Q1")
+                ?.first()?.createHook {
                     before {
                         it.result = null
                     }
                 }
-            InstallProgressActivityClass?.methodFinder()
+            installProgressActivityClass?.methodFinder()
                 ?.filter {
                     true
                 }?.toList()?.createHooks {

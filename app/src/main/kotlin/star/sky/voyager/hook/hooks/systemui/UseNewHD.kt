@@ -9,11 +9,11 @@ import star.sky.voyager.utils.key.hasEnable
 object UseNewHD : HookRegister() {
     override fun init() = hasEnable("system_ui_use_new_hd") {
         runCatching {
-            loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder().first {
-                name == "isVisible"
-            }.createHook {
-                returnConstant(true)
-            }
+            loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder()
+                .filterByName("isVisible")
+                .first().createHook {
+                    returnConstant(true)
+                }
         }
     }
 }

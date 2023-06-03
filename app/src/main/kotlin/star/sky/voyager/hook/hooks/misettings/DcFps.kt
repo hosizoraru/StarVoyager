@@ -8,8 +8,7 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DcFps : HookRegister() {
     override fun init() = hasEnable("dc_fps") {
-        loadClass("miui.util.FeatureParser")
-            .methodFinder()
+        loadClass("miui.util.FeatureParser").methodFinder()
             .filterByName("getBoolean")
             .toList()
             .createHooks {

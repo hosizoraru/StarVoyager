@@ -4,11 +4,11 @@ import android.animation.ObjectAnimator
 import android.animation.TimeInterpolator
 import android.view.MotionEvent
 import android.view.View
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.newInstance
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.callStaticMethod
-import star.sky.voyager.utils.api.findClass
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.getObjectFieldOrNullAs
 import star.sky.voyager.utils.api.hookAfterMethod
@@ -38,17 +38,16 @@ object ModifyRecentViewRemoveCardAnim : HookRegister() {
             Float::class.java
         ) {
             val view = it.args[0] as View
-            val getScreenHeight =
-                "com.miui.home.launcher.DeviceConfig".findClass(classLoader)
-                    .callStaticMethod("getScreenHeight") as Int
+            val getScreenHeight = loadClass("com.miui.home.launcher.DeviceConfig")
+                .callStaticMethod("getScreenHeight") as Int
             val ofFloat = ObjectAnimator.ofFloat(
                 view,
                 View.TRANSLATION_Y,
                 view.translationY,
                 -getScreenHeight * 1.1484375f
             )
-            val physicBasedInterpolator = XposedHelpers.newInstance(
-                "com.miui.home.launcher.anim.PhysicBasedInterpolator".findClass(classLoader),
+            val physicBasedInterpolator = newInstance(
+                loadClass("com.miui.home.launcher.anim.PhysicBasedInterpolator"),
                 0.9f,
                 0.78f
             )
@@ -63,7 +62,7 @@ object ModifyRecentViewRemoveCardAnim : HookRegister() {
         ) {
             val f = it.args[0] as Float
             val asScreenHeightWhenDismiss =
-                "com.miui.home.recents.views.VerticalSwipe".findClass(classLoader)
+                loadClass("com.miui.home.recents.views.VerticalSwipe")
                     .callStaticMethod("getAsScreenHeightWhenDismiss") as Int
             val f2 = f / asScreenHeightWhenDismiss
             val mTaskViewHeight = it.thisObject.getObjectField("mTaskViewHeight") as Float

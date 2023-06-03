@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object UnlockAlwaysOnDisplay : HookRegister() {
     override fun init() = hasEnable("unlock_always_on_display_time") {
-        loadClass("com.miui.aod.widget.AODSettings").methodFinder().first {
-            name == "onlySupportKeycodeGoto"
-        }.createHook {
-            before { param ->
-                param.result = false
+        loadClass("com.miui.aod.widget.AODSettings").methodFinder()
+            .filterByName("onlySupportKeycodeGoto")
+            .first().createHook {
+                before { param ->
+                    param.result = false
+                }
             }
-        }
     }
 }

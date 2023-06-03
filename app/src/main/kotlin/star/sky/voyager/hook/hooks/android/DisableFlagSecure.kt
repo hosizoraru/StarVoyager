@@ -11,23 +11,30 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DisableFlagSecure : HookRegister() {
     override fun init() = hasEnable("disable_flag_secure") {
-        loadClass("com.android.server.wm.WindowState").methodFinder().first {
-            name == "isSecureLocked"
-        }.createHook {
-            before {
-                it.result = false
-            }
-        }
         val WindowSurfaceControllerClass =
             loadClass("com.android.server.wm.WindowSurfaceController")
+        val MiuiMultiWindowAdapterClass =
+            loadClass("android.util.MiuiMultiWindowAdapter")
+        val MiuiMultiWindowUtilsClass =
+            loadClass("android.util.MiuiMultiWindowUtils")
+        val SettingsObserverClass =
+            loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver")
 
-        WindowSurfaceControllerClass.methodFinder().first {
-            name == "setSecure"
-        }.createHook {
-            before {
-                it.args[0] = false
+        loadClass("com.android.server.wm.WindowState").methodFinder()
+            .filterByName("isSecureLocked")
+            .first().createHook {
+                before {
+                    it.result = false
+                }
             }
-        }
+
+        WindowSurfaceControllerClass.methodFinder()
+            .filterByName("setSecure")
+            .first().createHook {
+                before {
+                    it.args[0] = false
+                }
+            }
 
         WindowSurfaceControllerClass.constructors.createHooks {
             before {
@@ -38,55 +45,48 @@ object DisableFlagSecure : HookRegister() {
             }
         }
 
-        loadClass("com.android.server.wm.Task").methodFinder().first {
-            name == "isResizeable"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.android.server.wm.Task").methodFinder()
+            .filterByName("isResizeable")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
 
-        val MiuiMultiWindowAdapterClass = loadClass("android.util.MiuiMultiWindowAdapter")
-
-        MiuiMultiWindowAdapterClass.methodFinder().first {
-            name == "getFreeformBlackList"
-        }.createHook {
-            after {
-                it.result = (it.result as MutableList<*>).apply { clear() }
+        MiuiMultiWindowAdapterClass.methodFinder()
+            .filterByName("getFreeformBlackList")
+            .first().createHook {
+                after {
+                    it.result = (it.result as MutableList<*>).apply { clear() }
+                }
             }
-        }
 
-        MiuiMultiWindowAdapterClass.methodFinder().first {
-            name == "getFreeformBlackListFromCloud" && parameterTypes[0] == Context::class.java
-        }.createHook {
-            after {
-                it.result = (it.result as MutableList<*>).apply { clear() }
+        MiuiMultiWindowAdapterClass.methodFinder()
+            .filterByName("getFreeformBlackListFromCloud")
+            .filterByParamTypes(Context::class.java)
+            .first().createHook {
+                after {
+                    it.result = (it.result as MutableList<*>).apply { clear() }
+                }
             }
-        }
 
-        val MiuiMultiWindowUtilsClass = loadClass("android.util.MiuiMultiWindowUtils")
-
-        MiuiMultiWindowUtilsClass.methodFinder().first {
-            name == "supportFreeform"
-        }.createHook {
-            after {
-                it.result = true
+        MiuiMultiWindowUtilsClass.methodFinder()
+            .filterByName("supportFreeform")
+            .first().createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
 
-        MiuiMultiWindowUtilsClass.methodFinder().first {
-            name == "isForceResizeable"
-        }.createHook {
-            returnConstant(true)
-        }
-
-        val SettingsObserverClass =
-            loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver")
+        MiuiMultiWindowUtilsClass.methodFinder()
+            .filterByName("isForceResizeable")
+            .first().createHook {
+                returnConstant(true)
+            }
 
         SettingsObserverClass.methodFinder()
-            .first {
-                name == "onChange"
-            }.createHook {
+            .filterByName("onChange")
+            .first().createHook {
                 after { param ->
                     val this0 =
                         param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
@@ -97,9 +97,8 @@ object DisableFlagSecure : HookRegister() {
             }
 
         SettingsObserverClass.methodFinder()
-            .first {
-                name == "updateDevEnableNonResizableMultiWindow"
-            }.createHook {
+            .filterByName("updateDevEnableNonResizableMultiWindow")
+            .first().createHook {
                 after { param ->
                     val this0 =
                         param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
@@ -109,13 +108,13 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        loadClass("com.android.server.wm.ActivityTaskManagerService").methodFinder().first {
-            name == "retrieveSettings"
-        }.createHook {
-            after { param ->
-                param.thisObject.javaClass.findField("mDevEnableNonResizableMultiWindow")
-                    .setBoolean(param.thisObject, true)
+        loadClass("com.android.server.wm.ActivityTaskManagerService").methodFinder()
+            .filterByName("retrieveSettings")
+            .first().createHook {
+                after { param ->
+                    param.thisObject.javaClass.findField("mDevEnableNonResizableMultiWindow")
+                        .setBoolean(param.thisObject, true)
+                }
             }
-        }
     }
 }

@@ -18,22 +18,23 @@ import kotlin.math.abs
 
 object LockScreenCurrent : HookRegister() {
     override fun init() = hasEnable("lock_screen_charging_current") {
-        loadClass("com.android.keyguard.charge.ChargeUtils").methodFinder().first {
-            name == "getChargingHintText" && parameterCount == 3
-        }.createHook {
-            after {
-                it.result = "${getCurrent()}\n${it.result}"
+        loadClass("com.android.keyguard.charge.ChargeUtils").methodFinder()
+            .filterByName("getChargingHintText")
+            .filterByParamCount(3)
+            .first().createHook {
+                after {
+                    it.result = "${getCurrent()}\n${it.result}"
+                }
             }
-        }
 
         loadClass("com.android.systemui.statusbar.phone.KeyguardBottomAreaView").methodFinder()
-            .first {
-                name == "onFinishInflate"
-            }.createHook {
-            after {
-                (it.thisObject.getObjectField("mIndicationText") as TextView).isSingleLine = false
+            .filterByName("onFinishInflate")
+            .first().createHook {
+                after {
+                    (it.thisObject.getObjectField("mIndicationText") as TextView).isSingleLine =
+                        false
+                }
             }
-        }
     }
 
     private fun getCurrent(): String {

@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object ForceSupportSendApp : HookRegister() {
     override fun init() = hasEnable("force_support_send_app") {
-        loadClass("com.xiaomi.mirror.synergy.MiuiSynergySdk").methodFinder().first {
-            name == "isSupportSendApp"
-        }.createHook {
-            after {
-                it.result = true
+        loadClass("com.xiaomi.mirror.synergy.MiuiSynergySdk").methodFinder()
+            .filterByName("isSupportSendApp")
+            .first().createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
     }
 }

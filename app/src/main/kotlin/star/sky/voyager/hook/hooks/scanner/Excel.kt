@@ -9,26 +9,26 @@ import star.sky.voyager.utils.key.hasEnable
 object Excel : HookRegister() {
     override fun init() = hasEnable("excel") {
         val qwq = loadClass("com.xiaomi.scanner.settings.FeatureManager")
-        loadClass("com.xiaomi.scanner.util.SPUtils").methodFinder().first {
-            name == "getFormModule"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.xiaomi.scanner.util.SPUtils").methodFinder()
+            .filterByName("getFormModule")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
-        qwq.methodFinder().first {
-            name == "isSupportForm"
-        }.createHook {
-            before {
-                it.result = true
+        qwq.methodFinder()
+            .filterByName("isSupportForm")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
-        qwq.methodFinder().first {
-            name == "isAddFormRecognitionFunction"
-        }.createHook {
-            before {
-                it.result = true
+        qwq.methodFinder()
+            .filterByName("isAddFormRecognitionFunction")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
     }
 }

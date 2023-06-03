@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object EnableSpeedMode : HookRegister() {
     override fun init() = hasEnable("speed_mode") {
-        loadClass("com.android.settings.development.SpeedModeToolsPreferenceController").methodFinder().first {
-            name == "getAvailabilityStatus"
-        }.createHook {
-            after {
-                it.result = 0
+        loadClass("com.android.settings.development.SpeedModeToolsPreferenceController").methodFinder()
+            .filterByName("getAvailabilityStatus")
+            .first().createHook {
+                after {
+                    it.result = 0
+                }
             }
-        }
     }
 }

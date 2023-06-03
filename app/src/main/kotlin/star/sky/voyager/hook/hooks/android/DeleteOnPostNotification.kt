@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DeleteOnPostNotification : HookRegister() {
     override fun init() = hasEnable("delete_on_post_notification") {
-        loadClass("com.android.server.wm.AlertWindowNotification").methodFinder().first {
-            name == "onPostNotification"
-        }.createHook {
-            before {
-                it.result = null
+        loadClass("com.android.server.wm.AlertWindowNotification").methodFinder()
+            .filterByName("onPostNotification")
+            .first().createHook {
+                before {
+                    it.result = null
+                }
             }
-        }
     }
 }

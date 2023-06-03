@@ -11,14 +11,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
-import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.Log
-import de.robv.android.xposed.XposedHelpers
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethod
+import de.robv.android.xposed.XposedHelpers.findMethodsByExactParameters
+import de.robv.android.xposed.XposedHelpers.getObjectField
 import star.sky.voyager.R
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.callMethodOrNull
-import star.sky.voyager.utils.api.findClassOrNull
 import star.sky.voyager.utils.api.hookAfterMethod
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -35,18 +36,14 @@ object ShowMoreApkInfo : HookRegister() {
 
     @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("package_installer_show_more_apk_info") {
-        mApkInfo = "com.miui.packageInstaller.model.ApkInfo".findClassOrNull(classLoader)
+        mApkInfo = loadClassOrNull("com.miui.packageInstaller.model.ApkInfo")
         mAppInfoViewObject =
-            "com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject".findClassOrNull(
-                classLoader
-            )
+            loadClassOrNull("com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject")
 
         if (mAppInfoViewObject != null) {
             mAppInfoViewObjectViewHolder =
-                "com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject\$ViewHolder".findClassOrNull(
-                    classLoader
-                )
-            val methods: Array<Method> = XposedHelpers.findMethodsByExactParameters(
+                loadClassOrNull("com.miui.packageInstaller.ui.listcomponets.AppInfoViewObject\$ViewHolder")
+            val methods: Array<Method> = findMethodsByExactParameters(
                 mAppInfoViewObject,
                 Void.TYPE,
                 mAppInfoViewObjectViewHolder
@@ -64,16 +61,16 @@ object ShowMoreApkInfo : HookRegister() {
                 val finalApkInfoFieldName: String = apkInfoFieldName
                 methods[0].hookAfterMethod { hookParam ->
                     val viewHolder: Any = hookParam.args[0] ?: return@hookAfterMethod
-                    val mAppSizeTv = XposedHelpers.callMethod(viewHolder, "getAppSize") as TextView?
+                    val mAppSizeTv = invokeMethod(viewHolder, "getAppSize") as TextView?
                         ?: return@hookAfterMethod
                     val mContext = mAppSizeTv.context
                     val isDarkMode =
                         mAppSizeTv.context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
                     val apkInfo: Any =
-                        XposedHelpers.getObjectField(hookParam.thisObject, finalApkInfoFieldName)
+                        getObjectField(hookParam.thisObject, finalApkInfoFieldName)
                     val mAppInfo =
                         apkInfo.callMethodOrNull("getInstalledPackageInfo") as ApplicationInfo?
-                    val mPkgInfo = apkInfo.callMethod("getPackageInfo") as PackageInfo
+                    val mPkgInfo = invokeMethod(apkInfo, "getPackageInfo") as PackageInfo
                     val layout: LinearLayout = mAppSizeTv.parent as LinearLayout
                     layout.removeAllViews()
                     val mContainerView = layout.parent as ViewGroup

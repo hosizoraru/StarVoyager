@@ -24,127 +24,133 @@ object AppDisable : HookRegister() {
 
     override fun init() = hasEnable("disable_app_settings") {
         val lpparam = getLoadPackageParam()
-        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder().first {
-            name == "onCreateOptionsMenu" && parameterTypes[0] == Menu::class.java
-        }.createHook {
-            after { param ->
-                val act = param.thisObject as Activity
-                val menu = param.args.get(0) as Menu
-                val dis = menu.add(
-                    0,
-                    666,
-                    1,
-                    act.resources.getIdentifier(
-                        "app_manager_disable_text",
-                        "string",
-                        lpparam.packageName
-                    )
-                )
-                dis.setIcon(
-                    act.resources.getIdentifier(
-                        "action_button_stop_svg",
-                        "drawable",
-                        lpparam.packageName
-                    )
-                )
-                dis.setEnabled(true)
-                dis.setShowAsAction(1)
-
-                val pm = act.packageManager
-                val piField = XposedHelpers.findFirstFieldByExactType(
-                    act.javaClass,
-                    PackageInfo::class.java
-                )
-                val mPackageInfo = piField[act] as PackageInfo
-                val appInfo =
-                    pm.getApplicationInfo(mPackageInfo.packageName, PackageManager.GET_META_DATA)
-                val isSystem = appInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0
-                val isUpdatedSystem = appInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP != 0
-
-                dis.setTitle(
-                    act.resources.getIdentifier(
-                        if (appInfo.enabled) "app_manager_disable_text" else "app_manager_enable_text",
-                        "string",
-                        lpparam.packageName
-                    )
-                )
-
-                mMiuiCoreApps = java.util.ArrayList<String>(
-                    listOf<String>(
-                        "com.lbe.security.miui",
-                        "com.miui.packageinstaller"
-                    )
-                )
-
-                if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
-                    dis.setEnabled(false)
-                }
-
-                if (!appInfo.enabled || isSystem && !isUpdatedSystem) {
-                    val item = menu.findItem(2)
-                    item?.setVisible(false)
-                }
-            }
-        }
-
-        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder().first {
-            name == "onOptionsItemSelected" && parameterTypes[0] == MenuItem::class.java
-        }.createHook {
-            after { param ->
-                val item = param.args[0] as MenuItem
-
-                if (item.itemId == 666) {
+        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder()
+            .filterByName("onCreateOptionsMenu")
+            .filterByParamTypes(Menu::class.java)
+            .first().createHook {
+                after { param ->
                     val act = param.thisObject as Activity
-                    val modRes: Resources = moduleRes
+                    val menu = param.args.get(0) as Menu
+                    val dis = menu.add(
+                        0,
+                        666,
+                        1,
+                        act.resources.getIdentifier(
+                            "app_manager_disable_text",
+                            "string",
+                            lpparam.packageName
+                        )
+                    )
+                    dis.setIcon(
+                        act.resources.getIdentifier(
+                            "action_button_stop_svg",
+                            "drawable",
+                            lpparam.packageName
+                        )
+                    )
+                    dis.setEnabled(true)
+                    dis.setShowAsAction(1)
+
+                    val pm = act.packageManager
                     val piField = XposedHelpers.findFirstFieldByExactType(
                         act.javaClass,
                         PackageInfo::class.java
                     )
                     val mPackageInfo = piField[act] as PackageInfo
-                    if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
-                        Toast.makeText(
-                            act,
-                            modRes.getString(R.string.disable_app_settings),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        return@after
-                    }
-                    val pm = act.packageManager
-                    val appInfo = pm.getApplicationInfo(
-                        mPackageInfo.packageName,
-                        PackageManager.GET_META_DATA
-                    )
+                    val appInfo =
+                        pm.getApplicationInfo(
+                            mPackageInfo.packageName,
+                            PackageManager.GET_META_DATA
+                        )
                     val isSystem = appInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0
-                    val state = pm.getApplicationEnabledSetting(mPackageInfo.packageName)
-                    val isEnabledOrDefault =
-                        state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED || state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
-                    if (isEnabledOrDefault) {
-                        if (isSystem) {
-                            val title = modRes.getString(R.string.warning)
-                            val text = modRes.getString(R.string.disable_app_text)
-                            AlertDialog.Builder(act)
-                                .setTitle(title)
-                                .setMessage(text)
-                                .setPositiveButton(android.R.string.ok) { dialog, which ->
-                                    setAppState(
-                                        act,
-                                        mPackageInfo.packageName,
-                                        item,
-                                        false
-                                    )
-                                }
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show()
-                        } else {
-                            setAppState(act, mPackageInfo.packageName, item, false)
-                        }
-                    } else {
-                        setAppState(act, mPackageInfo.packageName, item, true)
+                    val isUpdatedSystem =
+                        appInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP != 0
+
+                    dis.setTitle(
+                        act.resources.getIdentifier(
+                            if (appInfo.enabled) "app_manager_disable_text" else "app_manager_enable_text",
+                            "string",
+                            lpparam.packageName
+                        )
+                    )
+
+                    mMiuiCoreApps = java.util.ArrayList<String>(
+                        listOf<String>(
+                            "com.lbe.security.miui",
+                            "com.miui.packageinstaller"
+                        )
+                    )
+
+                    if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
+                        dis.setEnabled(false)
                     }
-                    param.result = true
+
+                    if (!appInfo.enabled || isSystem && !isUpdatedSystem) {
+                        val item = menu.findItem(2)
+                        item?.setVisible(false)
+                    }
                 }
             }
-        }
+
+        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder()
+            .filterByName("onOptionsItemSelected")
+            .filterByParamTypes(MenuItem::class.java)
+            .first().createHook {
+                after { param ->
+                    val item = param.args[0] as MenuItem
+
+                    if (item.itemId == 666) {
+                        val act = param.thisObject as Activity
+                        val modRes: Resources = moduleRes
+                        val piField = XposedHelpers.findFirstFieldByExactType(
+                            act.javaClass,
+                            PackageInfo::class.java
+                        )
+                        val mPackageInfo = piField[act] as PackageInfo
+                        if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
+                            Toast.makeText(
+                                act,
+                                modRes.getString(R.string.disable_app_settings),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@after
+                        }
+                        val pm = act.packageManager
+                        val appInfo = pm.getApplicationInfo(
+                            mPackageInfo.packageName,
+                            PackageManager.GET_META_DATA
+                        )
+                        val isSystem = appInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0
+                        val state = pm.getApplicationEnabledSetting(mPackageInfo.packageName)
+                        val isEnabledOrDefault =
+                            state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED || state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+                        if (isEnabledOrDefault) {
+                            if (isSystem) {
+                                val title = modRes.getString(R.string.warning)
+                                val text = modRes.getString(R.string.disable_app_text)
+                                AlertDialog.Builder(act)
+                                    .setTitle(title)
+                                    .setMessage(text)
+                                    .setPositiveButton(android.R.string.ok) { dialog, which ->
+                                        setAppState(
+                                            act,
+                                            mPackageInfo.packageName,
+                                            item,
+                                            false
+                                        )
+                                    }
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show()
+                            } else {
+                                setAppState(act, mPackageInfo.packageName, item, false)
+                            }
+                        } else {
+                            setAppState(act, mPackageInfo.packageName, item, true)
+                        }
+                        param.result = true
+                    }
+                }
+            }
     }
 
     private fun setAppState(act: Activity, pkgName: String, item: MenuItem, enable: Boolean) {

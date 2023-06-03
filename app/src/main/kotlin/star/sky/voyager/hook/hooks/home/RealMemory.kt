@@ -24,40 +24,40 @@ object RealMemory : HookRegister() {
         fun Any.formatSize(): String = Formatter.formatFileSize(context, this as Long)
 
         val recentContainerClass = loadClass("com.miui.home.recents.views.RecentsContainer")
-        recentContainerClass.declaredConstructors.constructorFinder().first {
-            parameterCount == 2
-        }.createHook {
-            after {
-                context = it.args[0] as Context
-                memoryInfo1StringId = context!!.resources.getIdentifier(
-                    "status_bar_recent_memory_info1",
-                    "string",
-                    "com.miui.home"
-                )
-                memoryInfo2StringId = context!!.resources.getIdentifier(
-                    "status_bar_recent_memory_info2",
-                    "string",
-                    "com.miui.home"
-                )
+        recentContainerClass.declaredConstructors.constructorFinder()
+            .filterByParamCount(2)
+            .first().createHook {
+                after {
+                    context = it.args[0] as Context
+                    memoryInfo1StringId = context!!.resources.getIdentifier(
+                        "status_bar_recent_memory_info1",
+                        "string",
+                        "com.miui.home"
+                    )
+                    memoryInfo2StringId = context!!.resources.getIdentifier(
+                        "status_bar_recent_memory_info2",
+                        "string",
+                        "com.miui.home"
+                    )
+                }
             }
-        }
 
-        recentContainerClass.methodFinder().first {
-            name == "refreshMemoryInfo"
-        }.createHook {
-            before {
-                it.result = null
-                val memoryInfo = ActivityManager.MemoryInfo()
-                val activityManager =
-                    context!!.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-                activityManager.getMemoryInfo(memoryInfo)
-                val totalMem = memoryInfo.totalMem.formatSize()
-                val availMem = memoryInfo.availMem.formatSize()
-                (it.thisObject.getObjectField("mTxtMemoryInfo1") as TextView).text =
-                    context!!.getString(memoryInfo1StringId!!, availMem, totalMem)
-                (it.thisObject.getObjectField("mTxtMemoryInfo2") as TextView).text =
-                    context!!.getString(memoryInfo2StringId!!, availMem, totalMem)
+        recentContainerClass.methodFinder()
+            .filterByName("refreshMemoryInfo")
+            .first().createHook {
+                before {
+                    it.result = null
+                    val memoryInfo = ActivityManager.MemoryInfo()
+                    val activityManager =
+                        context!!.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+                    activityManager.getMemoryInfo(memoryInfo)
+                    val totalMem = memoryInfo.totalMem.formatSize()
+                    val availMem = memoryInfo.availMem.formatSize()
+                    (it.thisObject.getObjectField("mTxtMemoryInfo1") as TextView).text =
+                        context!!.getString(memoryInfo1StringId!!, availMem, totalMem)
+                    (it.thisObject.getObjectField("mTxtMemoryInfo2") as TextView).text =
+                        context!!.getString(memoryInfo2StringId!!, availMem, totalMem)
+                }
             }
-        }
     }
 }

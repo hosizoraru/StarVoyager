@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object Document : HookRegister() {
     override fun init() = hasEnable("document") {
-        loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder().first {
-            name == "isAddDocumentModule"
-        }.createHook {
-            before {
-                it.result = true
+        loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder()
+            .filterByName("isAddDocumentModule")
+            .first().createHook {
+                before {
+                    it.result = true
+                }
             }
-        }
     }
 }

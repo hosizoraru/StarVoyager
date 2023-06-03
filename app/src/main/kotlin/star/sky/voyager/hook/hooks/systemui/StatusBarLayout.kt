@@ -31,10 +31,10 @@ object StatusBarLayout : HookRegister() {
     private var statusBarBottom = 0
 
     override fun init() {
-        val CollapsedStatusBarFragmentClass =
+        val collapsedStatusBarFragmentClass =
             loadClass("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment")
-        val PhoneStatusBarView =
-            loadClass("com.android.systemui.statusbar.phone.PhoneStatusBarView")
+        val phoneStatusBarView =
+            loadClass("com.android.systemui.statusbar.phone.phoneStatusBarView")
         var mLeftLayout: LinearLayout? = null
         var mRightLayout: LinearLayout? = null
         var mCenterLayout: LinearLayout?
@@ -85,10 +85,10 @@ object StatusBarLayout : HookRegister() {
             //默认
             0 -> {
 
-                CollapsedStatusBarFragmentClass.methodFinder()
-                    .first {
-                        name == "onViewCreated" && parameterCount == 2
-                    }.createHook {
+                collapsedStatusBarFragmentClass.methodFinder()
+                    .filterByName("onViewCreated")
+                    .filterByParamCount(2)
+                    .first().createHook {
                         after { param ->
                             val miuiPhoneStatusBarView =
                                 param.thisObject.getObjectFieldAs<ViewGroup>("mStatusBar")
@@ -123,10 +123,9 @@ object StatusBarLayout : HookRegister() {
 
 
                 //兼容模式
-                PhoneStatusBarView.methodFinder()
-                    .first {
-                        name == "updateLayoutForCutout"
-                    }.createHook {
+                phoneStatusBarView.methodFinder()
+                    .filterByName("updateLayoutForCutout")
+                    .first().createHook {
                         after {
                             if (isCompatibilityMode) {
                                 val context = (it.thisObject as ViewGroup).context
@@ -137,10 +136,10 @@ object StatusBarLayout : HookRegister() {
             }
             //时钟居中
             1 -> {
-                CollapsedStatusBarFragmentClass.methodFinder()
-                    .first {
-                        name == "onViewCreated" && parameterCount == 2
-                    }.createHook {
+                collapsedStatusBarFragmentClass.methodFinder()
+                    .filterByName("onViewCreated")
+                    .filterByParamCount(2)
+                    .first().createHook {
                         after { param ->
                             val miuiPhoneStatusBarView =
                                 param.thisObject.getObjectFieldAs<ViewGroup>("mStatusBar")
@@ -257,10 +256,9 @@ object StatusBarLayout : HookRegister() {
                     }
 
 
-                PhoneStatusBarView.methodFinder()
-                    .first {
-                        name == "updateLayoutForCutout"
-                    }.createHook {
+                phoneStatusBarView.methodFinder()
+                    .filterByName("updateLayoutForCutout")
+                    .first().createHook {
                         after {
                             hasEnable("layout_compatibility_mode") {
                                 val context = (it.thisObject as ViewGroup).context
@@ -271,10 +269,10 @@ object StatusBarLayout : HookRegister() {
             }
             //时钟居右
             2 -> {
-                CollapsedStatusBarFragmentClass.methodFinder()
-                    .first {
-                        name == "onViewCreated" && parameterCount == 2
-                    }.createHook {
+                collapsedStatusBarFragmentClass.methodFinder()
+                    .filterByName("onViewCreated")
+                    .filterByParamCount(2)
+                    .first().createHook {
                         after { param ->
                             val miuiPhoneStatusBarView =
                                 param.thisObject.getObjectFieldAs<ViewGroup>("mStatusBar")
@@ -335,10 +333,9 @@ object StatusBarLayout : HookRegister() {
 
 
                 //兼容模式
-                PhoneStatusBarView.methodFinder()
-                    .first {
-                        name == "updateLayoutForCutout"
-                    }.createHook {
+                phoneStatusBarView.methodFinder()
+                    .filterByName("updateLayoutForCutout")
+                    .first().createHook {
                         after {
                             if (isCompatibilityMode) {
                                 val context = (it.thisObject as ViewGroup).context
@@ -349,10 +346,10 @@ object StatusBarLayout : HookRegister() {
             }
             //时钟居中+图标居左
             3 -> {
-                CollapsedStatusBarFragmentClass.methodFinder()
-                    .first {
-                        name == "onViewCreated" && parameterCount == 2
-                    }.createHook {
+                collapsedStatusBarFragmentClass.methodFinder()
+                    .filterByName("onViewCreated")
+                    .filterByParamCount(2)
+                    .first().createHook {
                         after { param ->
                             val miuiPhoneStatusBarView =
                                 param.thisObject.getObjectFieldAs<ViewGroup>("mStatusBar")
@@ -511,7 +508,7 @@ object StatusBarLayout : HookRegister() {
                         }
                     }
                 //兼容模式
-                PhoneStatusBarView.methodFinder()
+                phoneStatusBarView.methodFinder()
                     .first {
                         name == "updateLayoutForCutout"
                     }.createHook {

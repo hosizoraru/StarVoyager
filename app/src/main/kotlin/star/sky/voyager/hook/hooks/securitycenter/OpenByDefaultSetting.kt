@@ -7,10 +7,11 @@ import android.content.pm.verify.domain.DomainVerificationManager
 import android.view.View
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
+import com.github.kyuubiran.ezxhelper.EzXHelper.initAppContext
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
+import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNull
 import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
@@ -30,31 +31,32 @@ object OpenByDefaultSetting : HookRegister() {
                 DomainVerificationManager::class.java
             )
         }
-        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder().first {
-            name == "onClick"
-        }.createHook {
-            before { param ->
-                EzXHelper.initAppContext(param.thisObject as Activity)
-                val clickedView = param.args[0]
-                val cleanOpenByDefaultView = (param.thisObject as Activity).findViewById<View>(
-                    appContext.resources.getIdentifier(
-                        "am_detail_default", "id", hostPackageName
+        loadClass("com.miui.appmanager.ApplicationsDetailsActivity").methodFinder()
+            .filterByName("onClick")
+            .first().createHook {
+                before { param ->
+                    initAppContext(param.thisObject as Activity)
+                    val clickedView = param.args[0]
+                    val cleanOpenByDefaultView = (param.thisObject as Activity).findViewById<View>(
+                        appContext.resources.getIdentifier(
+                            "am_detail_default", "id", hostPackageName
+                        )
                     )
-                )
-                val pkgName = (param.thisObject as Activity).intent.getStringExtra("package_name")!!
-                if (clickedView == cleanOpenByDefaultView) {
-                    val intent = Intent().apply {
-                        action = android.provider.Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS
-                        addCategory(Intent.CATEGORY_DEFAULT)
-                        data = android.net.Uri.parse("package:${pkgName}")
-                        addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-                        addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                    val pkgName =
+                        (param.thisObject as Activity).intent.getStringExtra("package_name")!!
+                    if (clickedView == cleanOpenByDefaultView) {
+                        val intent = Intent().apply {
+                            action = android.provider.Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS
+                            addCategory(Intent.CATEGORY_DEFAULT)
+                            data = android.net.Uri.parse("package:${pkgName}")
+                            addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                            addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                        }
+                        invokeMethodBestMatch(param.thisObject, "startActivity", null, intent)
+                        param.result = null
                     }
-                    invokeMethodBestMatch(param.thisObject, "startActivity", null, intent)
-                    param.result = null
                 }
             }
-        }
 
         loadDexKit()
         dexKitBridge.findMethodUsingString {
@@ -63,9 +65,9 @@ object OpenByDefaultSetting : HookRegister() {
             methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
             methodReturnType = "void"
             methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
-        }.firstOrNull()?.getMethodInstance(EzXHelper.safeClassLoader)?.createHook {
+        }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
             after { param ->
-                EzXHelper.initAppContext(param.thisObject as Activity)
+                initAppContext(param.thisObject as Activity)
                 val cleanOpenByDefaultView = (param.thisObject as Activity).findViewById<View>(
                     appContext.resources.getIdentifier(
                         "am_detail_default", "id", hostPackageName

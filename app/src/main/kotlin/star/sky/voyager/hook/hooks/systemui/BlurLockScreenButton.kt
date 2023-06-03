@@ -25,25 +25,25 @@ object BlurLockScreenButton : HookRegister() {
     override fun init() = hasEnable("blur_lock_screen_button") {
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
-        )?.methodFinder()?.filter {
-            name == "onAttachedToWindow"
-        }?.toList()?.createHooks {
-            after { param ->
-                mLeftAffordanceView = WeakReference(
-                    getValueByField(
-                        param.thisObject,
-                        "mLeftAffordanceView"
-                    ) as ImageView
-                )
-                mRightAffordanceView = WeakReference(
-                    getValueByField(
-                        param.thisObject,
-                        "mRightAffordanceView"
-                    ) as ImageView
-                )
-                keyguardBottomAreaView = WeakReference(param.thisObject as View)
+        )?.methodFinder()
+            ?.filterByName("onAttachedToWindow")
+            ?.toList()?.createHooks {
+                after { param ->
+                    mLeftAffordanceView = WeakReference(
+                        getValueByField(
+                            param.thisObject,
+                            "mLeftAffordanceView"
+                        ) as ImageView
+                    )
+                    mRightAffordanceView = WeakReference(
+                        getValueByField(
+                            param.thisObject,
+                            "mRightAffordanceView"
+                        ) as ImageView
+                    )
+                    keyguardBottomAreaView = WeakReference(param.thisObject as View)
+                }
             }
-        }
 
         val timer = Timer()
         timer.scheduleAtFixedRate(object : TimerTask() {

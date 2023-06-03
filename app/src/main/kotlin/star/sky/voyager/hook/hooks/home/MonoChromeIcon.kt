@@ -8,12 +8,12 @@ import star.sky.voyager.utils.key.hasEnable
 
 object MonoChromeIcon : HookRegister() {
     override fun init() = hasEnable("mono_chrome_icon") {
-        loadClass("com.miui.home.launcher.graphics.MonochromeUtils").methodFinder().first {
-            name == "isSupportMonochrome"
-        }.createHook {
-            after {
-                it.result = true
+        loadClass("com.miui.home.launcher.graphics.MonochromeUtils").methodFinder()
+            .filterByName("isSupportMonochrome")
+            .first().createHook {
+                after {
+                    it.result = true
+                }
             }
-        }
     }
 }

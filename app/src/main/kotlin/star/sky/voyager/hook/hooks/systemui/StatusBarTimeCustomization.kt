@@ -9,13 +9,14 @@ import android.view.Gravity
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
+import star.sky.voyager.utils.key.XSPUtils.getInt
+import star.sky.voyager.utils.key.XSPUtils.getString
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -25,41 +26,40 @@ import java.util.TimerTask
 
 object StatusBarTimeCustomization : HookRegister() {
 
-    private val getMode = XSPUtils.getInt("custom_clock_mode", 0)
-    private val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
-    private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
-    private val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
-    private val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
-    private val isDay = XSPUtils.getBoolean("status_bar_time_day", false)
-    private val isWeek = XSPUtils.getBoolean("status_bar_time_week", false)
-    private val isHideSpace = XSPUtils.getBoolean("status_bar_time_hide_space", false)
-    private val isDoubleLine = XSPUtils.getBoolean("status_bar_time_double_line", false)
-    private val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
-    private val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
-    private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
+    private val getMode = getInt("custom_clock_mode", 0)
+    private val getClockSize = getInt("status_bar_clock_size", 0)
+    private val getClockDoubleSize = getInt("status_bar_clock_double_line_size", 0)
+    private val isYear = getBoolean("status_bar_time_year", false)
+    private val isMonth = getBoolean("status_bar_time_month", false)
+    private val isDay = getBoolean("status_bar_time_day", false)
+    private val isWeek = getBoolean("status_bar_time_week", false)
+    private val isHideSpace = getBoolean("status_bar_time_hide_space", false)
+    private val isDoubleLine = getBoolean("status_bar_time_double_line", false)
+    private val isSecond = getBoolean("status_bar_time_seconds", false)
+    private val isDoubleHour = getBoolean("status_bar_time_double_hour", false)
+    private val isPeriod = getBoolean("status_bar_time_period", true)
     private val isCenterAlign =
-        XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
+        getBoolean("status_bar_time_double_line_center_align", false)
 
     //极客模式
-    private val getGeekClockSize = XSPUtils.getInt("status_bar_clock_size_geek", 0)
-    private val getGeekFormat = XSPUtils.getString("custom_clock_format_geek", "HH:mm:ss")
-    private val isGeekCenterAlign = XSPUtils.getBoolean("status_bar_time_center_align_geek", false)
+    private val getGeekClockSize = getInt("status_bar_clock_size_geek", 0)
+    private val getGeekFormat = getString("custom_clock_format_geek", "HH:mm:ss")
+    private val isGeekCenterAlign = getBoolean("status_bar_time_center_align_geek", false)
 
     private lateinit var nowTime: Date
     private var str = ""
 
     @SuppressLint("SetTextI18n")
     override fun init() {
-        val MiuiClockClass = loadClass("com.android.systemui.statusbar.views.MiuiClock")
+        val miuiClockClass = loadClass("com.android.systemui.statusbar.views.MiuiClock")
         when (getMode) {
             //预设模式
             1 -> {
                 var c: Context? = null
 
-                MiuiClockClass.constructorFinder()
-                    .first {
-                        paramCount == 3
-                    }.createHook {
+                miuiClockClass.constructorFinder()
+                    .filterByParamCount(3)
+                    .first().createHook {
                         after {
                             try {
                                 c = it.args[0] as Context
@@ -102,30 +102,29 @@ object StatusBarTimeCustomization : HookRegister() {
                         }
                     }
 
-                MiuiClockClass.methodFinder().first {
-                    name == "updateTime"
-                }.createHook {
-                    after {
-                        try {
-                            val textV = it.thisObject as TextView
-                            if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                                val t = Settings.System.getString(
-                                    c!!.contentResolver, Settings.System.TIME_12_24
-                                )
-                                val is24 = t == "24"
-                                nowTime = Calendar.getInstance().time
-                                textV.text = getDate(c!!) + str + getTime(c!!, is24)
+                miuiClockClass.methodFinder()
+                    .filterByName("updateTime")
+                    .first().createHook {
+                        after {
+                            try {
+                                val textV = it.thisObject as TextView
+                                if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                                    val t = Settings.System.getString(
+                                        c!!.contentResolver, Settings.System.TIME_12_24
+                                    )
+                                    val is24 = t == "24"
+                                    nowTime = Calendar.getInstance().time
+                                    textV.text = getDate(c!!) + str + getTime(c!!, is24)
+                                }
+                            } catch (_: Exception) {
                             }
-                        } catch (_: Exception) {
                         }
                     }
-                }
 
                 if (isCenterAlign) {
-                    MiuiClockClass.constructorFinder()
-                        .first {
-                            paramCount == 3
-                        }.createHook {
+                    miuiClockClass.constructorFinder()
+                        .filterByParamCount(3)
+                        .first().createHook {
                             after {
                                 try {
                                     val textV = it.thisObject as TextView
@@ -144,10 +143,9 @@ object StatusBarTimeCustomization : HookRegister() {
             2 -> {
                 var c: Context? = null
 
-                MiuiClockClass.constructorFinder()
-                    .first {
-                        paramCount == 3
-                    }.createHook {
+                miuiClockClass.constructorFinder()
+                    .filterByParamCount(3)
+                    .first().createHook {
                         after {
                             try {
                                 c = it.args[0] as Context
@@ -179,36 +177,35 @@ object StatusBarTimeCustomization : HookRegister() {
                         }
                     }
 
-                MiuiClockClass.methodFinder().first {
-                    name == "updateTime"
-                }.createHook {
-                    before {
-                        try {
-                            val textV = it.thisObject as TextView
-                            if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                                val mMiuiStatusBarClockController =
-                                    textV.getObjectField("mMiuiStatusBarClockController")
-                                val mCalendar =
-                                    mMiuiStatusBarClockController?.callMethod("getCalendar")
-                                mCalendar?.callMethod(
-                                    "setTimeInMillis", System.currentTimeMillis()
-                                )
-                                val textSb = StringBuilder()
-                                val formatSb = StringBuilder(getGeekFormat.toString())
-                                mCalendar?.callMethod("format", c, textSb, formatSb)
-                                textV.text = textSb.toString()
-                                it.result = null
+                miuiClockClass.methodFinder()
+                    .filterByName("updateTime")
+                    .first().createHook {
+                        before {
+                            try {
+                                val textV = it.thisObject as TextView
+                                if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                                    val mMiuiStatusBarClockController =
+                                        textV.getObjectField("mMiuiStatusBarClockController")
+                                    val mCalendar =
+                                        mMiuiStatusBarClockController?.callMethod("getCalendar")
+                                    mCalendar?.callMethod(
+                                        "setTimeInMillis", System.currentTimeMillis()
+                                    )
+                                    val textSb = StringBuilder()
+                                    val formatSb = StringBuilder(getGeekFormat.toString())
+                                    mCalendar?.callMethod("format", c, textSb, formatSb)
+                                    textV.text = textSb.toString()
+                                    it.result = null
+                                }
+                            } catch (_: Exception) {
                             }
-                        } catch (_: Exception) {
                         }
                     }
-                }
 
                 if (isGeekCenterAlign) {
-                    MiuiClockClass.constructorFinder()
-                        .first {
-                            paramCount == 3
-                        }.createHook {
+                    miuiClockClass.constructorFinder()
+                        .filterByParamCount(3)
+                        .first().createHook {
                             after {
                                 try {
                                     val textV = it.thisObject as TextView

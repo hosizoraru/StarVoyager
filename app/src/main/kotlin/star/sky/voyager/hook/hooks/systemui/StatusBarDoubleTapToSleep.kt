@@ -18,9 +18,8 @@ import kotlin.math.abs
 object StatusBarDoubleTapToSleep : HookRegister() {
     override fun init() = hasEnable("status_bar_double_tap_to_sleep") {
         loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView").methodFinder()
-            .first {
-                name == "onFinishInflate"
-            }.createHook {
+            .filterByName("onFinishInflate")
+            .first().createHook {
                 before {
                     val view = it.thisObject as ViewGroup
                     setAdditionalInstanceField(view, "currentTouchTime", 0L)

@@ -13,31 +13,28 @@ object AlwaysShowMiuiWidget : HookRegister() {
         var hook1: XC_MethodHook.Unhook? = null
         var hook2: XC_MethodHook.Unhook? = null
         try {
-            loadClass("com.miui.home.launcher.widget.WidgetsVerticalAdapter").methodFinder().first {
-                name == "buildAppWidgetsItems"
-            }
+            loadClass("com.miui.home.launcher.widget.WidgetsVerticalAdapter").methodFinder()
+                .filterByName("buildAppWidgetsItems").first()
         } catch (e: Exception) {
             loadClass("com.miui.home.launcher.widget.BaseWidgetsVerticalAdapter").methodFinder()
-                .first {
-                    name == "buildAppWidgetsItems"
-                }
+                .filterByName("buildAppWidgetsItems").first()
         }.createHook {
             before {
                 hook1 = loadClass("com.miui.home.launcher.widget.MIUIAppWidgetInfo").methodFinder()
-                    .first {
-                        name == "initMiuiAttribute" && parameterCount == 1
-                    }.createHook {
-                    after {
-                        it.thisObject.setObjectField("isMIUIWidget", false)
+                    .filterByName("initMiuiAttribute")
+                    .filterByParamCount(1)
+                    .first().createHook {
+                        after {
+                            it.thisObject.setObjectField("isMIUIWidget", false)
+                        }
                     }
-                }
-                hook2 = loadClass("com.miui.home.launcher.MIUIWidgetUtil").methodFinder().first {
-                    name == "isMIUIWidgetSupport"
-                }.createHook {
-                    after {
-                        it.result = false
+                hook2 = loadClass("com.miui.home.launcher.MIUIWidgetUtil").methodFinder()
+                    .filterByName("isMIUIWidgetSupport")
+                    .first().createHook {
+                        after {
+                            it.result = false
+                        }
                     }
-                }
             }
             after {
                 hook1?.unhook()

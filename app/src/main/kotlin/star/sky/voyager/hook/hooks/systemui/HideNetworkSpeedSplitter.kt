@@ -10,9 +10,8 @@ import star.sky.voyager.utils.key.hasEnable
 object HideNetworkSpeedSplitter : HookRegister() {
     override fun init() = hasEnable("hide_network_speed_splitter") {
         loadClass("com.android.systemui.statusbar.views.NetworkSpeedSplitter").methodFinder()
-            .first {
-                name == "init"
-            }.createHook {
+            .filterByName("init")
+            .first().createHook {
                 after {
                     val textView = it.thisObject as TextView
                     textView.text = " "
