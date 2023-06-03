@@ -92,6 +92,10 @@ class HomePage : BasePage() {
             SwitchV("Show_MIUI_Widget")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.resizable_widgets),
+            SwitchV("resizable_widgets")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.shortcut_remove_restrictions),
             SwitchV("shortcut_remove_restrictions")
         )
