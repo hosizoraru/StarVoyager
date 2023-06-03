@@ -7,6 +7,6 @@ import star.sky.voyager.utils.key.hasEnable
 
 object SaveToPictures : HookRegister() {
     override fun init() = hasEnable("save_to_pictures") {
-        setStaticObject(loadClass("android.os.Environment"), "DIRECTORY_DCIM", "Download")
+        setStaticObject(loadClass("android.os.Environment"), "DIRECTORY_DCIM", "Pictures")
     }
 }
