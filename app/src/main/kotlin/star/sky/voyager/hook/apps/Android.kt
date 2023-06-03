@@ -35,6 +35,7 @@ object Android : AppRegister() {
             KillDomainVerification, // 禁用域验证
             MaxFreeFormA, // 解锁小窗数量限制
             Disable72hVerify, // 禁用每 72h 验证锁屏密码
+//            XYVelocity,
             SystemPropertiesHook, // 媒体音量阶数
             DoNotClearAppPlusA, // 更激进的防止杀死后台应用
             // max mi pad

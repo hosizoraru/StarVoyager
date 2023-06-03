@@ -17,13 +17,14 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.api.isStatic
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
+import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object StatusBarLayout : HookRegister() {
 
-    private val getMode = XSPUtils.getInt("status_bar_layout_mode", 0)
-    private val isCompatibilityMode = XSPUtils.getBoolean("layout_compatibility_mode", false)
+    private val getMode = getInt("status_bar_layout_mode", 0)
+    private val isCompatibilityMode = getBoolean("layout_compatibility_mode", false)
 
     private var statusBarLeft = 0
     private var statusBarTop = 0
@@ -34,7 +35,7 @@ object StatusBarLayout : HookRegister() {
         val collapsedStatusBarFragmentClass =
             loadClass("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment")
         val phoneStatusBarView =
-            loadClass("com.android.systemui.statusbar.phone.phoneStatusBarView")
+            loadClass("com.android.systemui.statusbar.phone.PhoneStatusBarView")
         var mLeftLayout: LinearLayout? = null
         var mRightLayout: LinearLayout? = null
         var mCenterLayout: LinearLayout?
@@ -106,13 +107,13 @@ object StatusBarLayout : HookRegister() {
 
 
                             if (isCompatibilityMode) {
-                                val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                                val customLeftMargin = getInt("status_bar_left_margin", 0)
                                 if (customLeftMargin != 0) {
                                     statusBarLeft = customLeftMargin
                                 }
 
                                 val customRightMargin =
-                                    XSPUtils.getInt("status_bar_right_margin", 0)
+                                    getInt("status_bar_right_margin", 0)
                                 if (customRightMargin != 0) {
                                     statusBarRight = customRightMargin
                                 }
@@ -240,13 +241,13 @@ object StatusBarLayout : HookRegister() {
 
 
                             if (isCompatibilityMode) {
-                                val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                                val customLeftMargin = getInt("status_bar_left_margin", 0)
                                 if (customLeftMargin != 0) {
                                     statusBarLeft = customLeftMargin
                                 }
 
                                 val customRightMargin =
-                                    XSPUtils.getInt("status_bar_right_margin", 0)
+                                    getInt("status_bar_right_margin", 0)
                                 if (customRightMargin != 0) {
                                     statusBarRight = customRightMargin
                                 }
@@ -316,13 +317,13 @@ object StatusBarLayout : HookRegister() {
 
 
                             if (isCompatibilityMode) {
-                                val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                                val customLeftMargin = getInt("status_bar_left_margin", 0)
                                 if (customLeftMargin != 0) {
                                     statusBarLeft = customLeftMargin
                                 }
 
                                 val customRightMargin =
-                                    XSPUtils.getInt("status_bar_right_margin", 0)
+                                    getInt("status_bar_right_margin", 0)
                                 if (customRightMargin != 0) {
                                     statusBarRight = customRightMargin
                                 }
@@ -493,13 +494,13 @@ object StatusBarLayout : HookRegister() {
 
 
                             if (isCompatibilityMode) {
-                                val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                                val customLeftMargin = getInt("status_bar_left_margin", 0)
                                 if (customLeftMargin != 0) {
                                     statusBarLeft = customLeftMargin
                                 }
 
                                 val customRightMargin =
-                                    XSPUtils.getInt("status_bar_right_margin", 0)
+                                    getInt("status_bar_right_margin", 0)
                                 if (customRightMargin != 0) {
                                     statusBarRight = customRightMargin
                                 }
