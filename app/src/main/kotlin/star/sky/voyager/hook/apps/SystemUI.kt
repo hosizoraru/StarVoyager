@@ -17,6 +17,7 @@ import star.sky.voyager.hook.hooks.systemui.HideSimIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarNetworkSpeedSecond
 import star.sky.voyager.hook.hooks.systemui.HideWifiActivityIcon
+import star.sky.voyager.hook.hooks.systemui.IconPosition
 import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
@@ -59,6 +60,7 @@ object SystemUI : AppRegister() {
             StatusBarLayout, // 状态栏布局
             StatusBarTimeCustomization, // 状态栏时钟格式
             ShowWifiStandard, // 显示 WiFi 标准
+            IconPosition, // 图标位置
             UseNewHD, // 强制使用新 HD 图标
             BatteryPercentage, // 电池百分比字体大小
             CustomMobileTypeText, // 自定义移动类型文本
