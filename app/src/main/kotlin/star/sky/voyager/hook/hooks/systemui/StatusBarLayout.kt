@@ -510,9 +510,8 @@ object StatusBarLayout : HookRegister() {
                     }
                 //兼容模式
                 phoneStatusBarView.methodFinder()
-                    .first {
-                        name == "updateLayoutForCutout"
-                    }.createHook {
+                    .filterByName("updateLayoutForCutout")
+                    .first().createHook {
                         after {
                             if (isCompatibilityMode) {
                                 val context = (it.thisObject as ViewGroup).context
@@ -523,9 +522,9 @@ object StatusBarLayout : HookRegister() {
 
                 //解决重叠
                 loadClass("com.android.systemui.statusbar.phone.MiuiCollapsedStatusBarFragment").methodFinder()
-                    .first {
-                        name == "showClock" && parameterTypes[0] == Boolean::class.java
-                    }.createHook {
+                    .filterByName("showClock")
+                    .filterByParamTypes(Boolean::class.java)
+                    .first().createHook {
                         after {
                             val miuiPhoneStatusBarView =
                                 it.thisObject.getObjectFieldAs<ViewGroup>("mStatusBar")

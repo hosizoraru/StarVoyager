@@ -3,7 +3,7 @@ package star.sky.voyager.activity.pages.apps
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SpinnerV
@@ -17,7 +17,7 @@ import star.sky.voyager.R
 class SystemUIPage : BasePage() {
     override fun onCreate() {
         val monetBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "monet_theme",
                 false
             )
@@ -38,7 +38,7 @@ class SystemUIPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString("your_theme_accent_color", "#0d84ff")
+                                safeSP.getString("your_theme_accent_color", "#0d84ff")
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -46,7 +46,7 @@ class SystemUIPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "your_theme_accent_color",
                                     getEditText()
                                 )
@@ -65,7 +65,7 @@ class SystemUIPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString("your_theme_neutral_color", "#A6CDE7")
+                                safeSP.getString("your_theme_neutral_color", "#A6CDE7")
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -73,7 +73,7 @@ class SystemUIPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "your_theme_neutral_color",
                                     getEditText()
                                 )
@@ -88,29 +88,29 @@ class SystemUIPage : BasePage() {
 //                textId = R.string.your_theme_style,
 //            ),
 //            SpinnerV(
-//                MIUIActivity.safeSP.getString("your_theme_style", "TONAL_SPOT"),
+//                safeSP.getString("your_theme_style", "TONAL_SPOT"),
 //                dropDownWidth = 190F
 //            ) {
 //                add("TONAL_SPOT") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "TONAL_SPOT")
+//                    safeSP.putAny("your_theme_style", "TONAL_SPOT")
 //                }
 //                add("SPRITZ") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "SPRITZ")
+//                    safeSP.putAny("your_theme_style", "SPRITZ")
 //                }
 //                add("VIBRANT") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "VIBRANT")
+//                    safeSP.putAny("your_theme_style", "VIBRANT")
 //                }
 //                add("EXPRESSIVE") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "EXPRESSIVE")
+//                    safeSP.putAny("your_theme_style", "EXPRESSIVE")
 //                }
 //                add("RAINBOW") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "RAINBOW")
+//                    safeSP.putAny("your_theme_style", "RAINBOW")
 //                }
 //                add("FRUIT_SALAD") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "FRUIT_SALAD")
+//                    safeSP.putAny("your_theme_style", "FRUIT_SALAD")
 //                }
 //                add("CONTENT") {
-//                    MIUIActivity.safeSP.putAny("your_theme_style", "CONTENT")
+//                    safeSP.putAny("your_theme_style", "CONTENT")
 //                }
 //            }, dataBindingRecv = monetBinding.binding.getRecv(1)
 //        )
@@ -139,7 +139,7 @@ class SystemUIPage : BasePage() {
             SwitchV("status_bar_double_tap_to_sleep")
         )
         val batteryBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "system_ui_show_status_bar_battery",
                 false
             )
@@ -181,27 +181,28 @@ class SystemUIPage : BasePage() {
         TextWithSpinner(
             TextV(textId = R.string.status_bar_layout_mode),
             SpinnerV(
-                statusBarLayoutMode[MIUIActivity.safeSP.getInt(
+                statusBarLayoutMode[safeSP.getInt(
                     "status_bar_layout_mode",
                     0
-                )].toString()
+                )].toString(),
+                dropDownWidth = 225F
             ) {
                 add(statusBarLayoutMode[0].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 0)
+                    safeSP.putAny("status_bar_layout_mode", 0)
                 }
                 add(statusBarLayoutMode[1].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 1)
+                    safeSP.putAny("status_bar_layout_mode", 1)
                 }
                 add(statusBarLayoutMode[2].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 2)
+                    safeSP.putAny("status_bar_layout_mode", 2)
                 }
                 add(statusBarLayoutMode[3].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 3)
+                    safeSP.putAny("status_bar_layout_mode", 3)
                 }
             })
 
         val layoutCompatibilityBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "layout_compatibility_mode", false
             )
         }) { view, flags, data ->
@@ -250,7 +251,7 @@ class SystemUIPage : BasePage() {
 
 
         val customClockPresetBinding = GetDataBinding({
-            MIUIActivity.safeSP.getInt(
+            safeSP.getInt(
                 "custom_clock_mode",
                 0
             ) == 1
@@ -262,7 +263,7 @@ class SystemUIPage : BasePage() {
         }
 
         val customClockGeekBinding =
-            GetDataBinding({ MIUIActivity.safeSP.getInt("custom_clock_mode", 0) == 2 }
+            GetDataBinding({ safeSP.getInt("custom_clock_mode", 0) == 2 }
 
             ) { view, flags, data ->
                 when (flags) {
@@ -279,23 +280,23 @@ class SystemUIPage : BasePage() {
         TextWithSpinner(
             TextV(textId = R.string.custom_clock_mode),
             SpinnerV(
-                customClockMode[MIUIActivity.safeSP.getInt(
+                customClockMode[safeSP.getInt(
                     "custom_clock_mode",
                     0
                 )].toString()
             ) {
                 add(customClockMode[0].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 0)
+                    safeSP.putAny("custom_clock_mode", 0)
                     customClockPresetBinding.binding.Send().send(false)
                     customClockGeekBinding.binding.Send().send(false)
                 }
                 add(customClockMode[1].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 1)
+                    safeSP.putAny("custom_clock_mode", 1)
                     customClockPresetBinding.binding.Send().send(true)
                     customClockGeekBinding.binding.Send().send(false)
                 }
                 add(customClockMode[2].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 2)
+                    safeSP.putAny("custom_clock_mode", 2)
                     customClockPresetBinding.binding.Send().send(false)
                     customClockGeekBinding.binding.Send().send(true)
                 }
@@ -381,7 +382,7 @@ class SystemUIPage : BasePage() {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
                 setEditText(
-                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"),
+                    safeSP.getString("custom_clock_format_geek", "HH:mm:ss"),
                     "",
                     isSingleLine = false
                 )
@@ -391,7 +392,7 @@ class SystemUIPage : BasePage() {
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
                         try {
-                            MIUIActivity.safeSP.putAny("custom_clock_format_geek", getEditText())
+                            safeSP.putAny("custom_clock_format_geek", getEditText())
                             dismiss()
                             return@setRButton
                         } catch (_: Throwable) {
@@ -455,7 +456,7 @@ class SystemUIPage : BasePage() {
                         setMessage(R.string.zero_do_no_change)
                         setEditText(
                             "", "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getFloat("battery_percentage_font_size", 0f)
+                                safeSP.getFloat("battery_percentage_font_size", 0f)
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -463,7 +464,7 @@ class SystemUIPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "battery_percentage_font_size",
                                     getEditText().toFloat()
                                 )
@@ -474,7 +475,7 @@ class SystemUIPage : BasePage() {
                 })
         )
         val customMobileTypeTextBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "custom_mobile_type_text_switch",
                 false
             )
@@ -494,14 +495,14 @@ class SystemUIPage : BasePage() {
         TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_mobile_type_text)
-                setEditText(MIUIActivity.safeSP.getString("custom_mobile_type_text", "5G"), "")
+                setEditText(safeSP.getString("custom_mobile_type_text", "5G"), "")
                 setLButton(textId = R.string.cancel) {
                     dismiss()
                 }
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
                         try {
-                            MIUIActivity.safeSP.putAny("custom_mobile_type_text", getEditText())
+                            safeSP.putAny("custom_mobile_type_text", getEditText())
                             dismiss()
                             return@setRButton
                         } catch (_: Throwable) {
@@ -513,7 +514,7 @@ class SystemUIPage : BasePage() {
             }.show()
         }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2))
         val bigMobileTypeIconBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "big_mobile_type_icon",
                 false
             )
@@ -537,16 +538,16 @@ class SystemUIPage : BasePage() {
         TextWithSpinner(
             TextV(textId = R.string.big_mobile_type_location),
             SpinnerV(
-                bigMobileTypeLocation[MIUIActivity.safeSP.getInt(
+                bigMobileTypeLocation[safeSP.getInt(
                     "big_mobile_type_location",
                     1
                 )].toString()
             ) {
                 add(bigMobileTypeLocation[0].toString()) {
-                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 0)
+                    safeSP.putAny("big_mobile_type_location", 0)
                 }
                 add(bigMobileTypeLocation[1].toString()) {
-                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 1)
+                    safeSP.putAny("big_mobile_type_location", 1)
                 }
             },
             dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
@@ -570,7 +571,7 @@ class SystemUIPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getFloat("big_mobile_type_icon_size", 12.5f)
+                                safeSP.getFloat("big_mobile_type_icon_size", 12.5f)
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -578,7 +579,7 @@ class SystemUIPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "big_mobile_type_icon_size",
                                     getEditText().toFloat()
                                 )
@@ -595,7 +596,7 @@ class SystemUIPage : BasePage() {
                 setEditText(
                     "",
                     "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
-                        MIUIActivity.safeSP.getInt("big_mobile_type_icon_up_and_down_position", 0)
+                        safeSP.getInt("big_mobile_type_icon_up_and_down_position", 0)
                     }"
                 )
                 setLButton(textId = R.string.cancel) {
@@ -606,7 +607,7 @@ class SystemUIPage : BasePage() {
                         try {
                             val value = getEditText().toInt()
                             if (value in (-15..15)) {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "big_mobile_type_icon_up_and_down_position",
                                     value
                                 )
@@ -628,7 +629,7 @@ class SystemUIPage : BasePage() {
                 setEditText(
                     "",
                     "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
-                        MIUIActivity.safeSP.getInt("big_mobile_type_icon_left_and_right_margins", 0)
+                        safeSP.getInt("big_mobile_type_icon_left_and_right_margins", 0)
                     }"
                 )
                 setLButton(textId = R.string.cancel) {
@@ -639,7 +640,7 @@ class SystemUIPage : BasePage() {
                         try {
                             val value = getEditText().toInt()
                             if (value in (0..30)) {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "big_mobile_type_icon_left_and_right_margins",
                                     value
                                 )
@@ -679,7 +680,7 @@ class SystemUIPage : BasePage() {
             SwitchV("hide_network_speed_splitter")
         )
         val statusBarDualRowNetworkSpeedBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "status_bar_dual_row_network_speed",
                 false
             )
@@ -705,16 +706,16 @@ class SystemUIPage : BasePage() {
         TextWithSpinner(
             TextV(textId = R.string.status_bar_network_speed_dual_row_gravity),
             SpinnerV(
-                align[MIUIActivity.safeSP.getInt(
+                align[safeSP.getInt(
                     "status_bar_network_speed_dual_row_gravity",
                     0
                 )].toString()
             ) {
                 add(align[0].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_gravity", 0)
+                    safeSP.putAny("status_bar_network_speed_dual_row_gravity", 0)
                 }
                 add(align[1].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_gravity", 1)
+                    safeSP.putAny("status_bar_network_speed_dual_row_gravity", 1)
 
                 }
             },
@@ -723,25 +724,25 @@ class SystemUIPage : BasePage() {
         TextWithSpinner(
             TextV(textId = R.string.status_bar_network_speed_dual_row_icon),
             SpinnerV(
-                MIUIActivity.safeSP.getString(
+                safeSP.getString(
                     "status_bar_network_speed_dual_row_icon",
                     ""
                 )
             ) {
                 add("") {
-                    MIUIActivity.safeSP.putAny(
+                    safeSP.putAny(
                         "status_bar_network_speed_dual_row_icon",
                         ""
                     )
                 }
                 add("▲▼") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
+                    safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
                 }
                 add("△▽") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
+                    safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
                 }
                 add("↑↓") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
+                    safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
                 }
             })
         Text(
@@ -767,7 +768,7 @@ class SystemUIPage : BasePage() {
         Line()
         TitleText(textId = R.string.old_quick_settings_panel)
         val oldQSCustomSwitchBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "old_qs_custom_switch",
                 false
             )
