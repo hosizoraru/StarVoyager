@@ -47,7 +47,7 @@ object StatusBarLayout : HookRegister() {
                 1 -> {
                     val mConfiguration: Configuration = context.resources.configuration
                     if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) { //横屏
-                        statusBar!!.setPadding(
+                        statusBar?.setPadding(
                             statusBarLeft,
                             statusBarTop,
                             statusBarRight,
@@ -59,12 +59,12 @@ object StatusBarLayout : HookRegister() {
                 2 -> {
                     val mConfiguration: Configuration = context.resources.configuration
                     if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) { //横屏
-                        mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
-                        mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
-                        statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
+                        mLeftLayout?.setPadding(statusBarLeft, 0, 0, 0)
+                        mRightLayout?.setPadding(0, 0, statusBarRight, 0)
+                        statusBar?.setPadding(0, statusBarTop, 0, statusBarBottom)
                     } else { //竖屏
-                        mLeftLayout!!.setPadding(0, 0, 0, 0)
-                        mRightLayout!!.setPadding(0, 0, 0, 0)
+                        mLeftLayout?.setPadding(0, 0, 0, 0)
+                        mRightLayout?.setPadding(0, 0, 0, 0)
                     }
                 }
             }

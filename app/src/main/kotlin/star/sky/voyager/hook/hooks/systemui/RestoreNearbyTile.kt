@@ -12,7 +12,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object RestoreNearbyTile : HookRegister() {
-    var isTrulyInit: Boolean = false
+    private var isTrulyInit: Boolean = false
     override fun init() = hasEnable("restore_near_by_tile") {
         loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory").methodFinder()
             .filterByName("getClassLoader")
