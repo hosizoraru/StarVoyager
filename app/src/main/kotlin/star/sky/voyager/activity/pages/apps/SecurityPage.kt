@@ -90,6 +90,12 @@ class SecurityPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.macro_combo
+            ),
+            SwitchV("macro_combo", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.remove_conversation_bubble_settings_restriction,
                 tipsId = R.string.remove_conversation_bubble_settings_restriction_summary
             ), SwitchV("remove_conversation_bubble_settings_restriction")

@@ -6,6 +6,7 @@ import star.sky.voyager.hook.hooks.securitycenter.EnhanceContours
 import star.sky.voyager.hook.hooks.securitycenter.GunService
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
 import star.sky.voyager.hook.hooks.securitycenter.MEMC
+import star.sky.voyager.hook.hooks.securitycenter.Macro
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
@@ -34,6 +35,7 @@ object SecurityCenter : AppRegister() {
             EnhanceContours, // 全局开放影像轮廓增强
             SuperResolution, // 全局开放极清播放
             GunService, // 全局开放准心辅助
+            Macro, // 全局开放自动连招
             RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
         )
     }
