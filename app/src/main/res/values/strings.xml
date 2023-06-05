@@ -501,6 +501,21 @@
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>
     <string name="show_status_bar_battery_any">StatusBar Always Show about Battery</string>
+    <string name="status_bar_battery_text_color">Status bar battery text color</string>
+    <string name="status_bar_battery_text_color_custom_enable">Enable custom battery text color</string>
+    <string name="status_bar_battery_text_color_custom_enable_summary">Considering the inversion of the system, please do not customize it to black or white.\nOtherwise, you will not be able to see the information on some pages because of the reverse color.</string>
+    <string name="status_bar_battery_text_size">Status bar battery text size</string>
+    <string name="status_bar_battery_line_spacing_add">Add status bar battery line spacing</string>
+    <string name="status_bar_battery_line_spacing_multi">Status bar battery line spacing multiplier</string>
+    <string name="status_bar_battery_left_padding">Status bar battery left padding</string>
+    <string name="status_bar_battery_right_padding">Status bar battery right padding</string>
+    <string name="status_bar_battery_top_padding">Status bar battery top padding</string>
+    <string name="status_bar_battery_bottom_padding">Status bar battery bottom padding</string>
+    <string name="status_bar_battery_left_margining">Status bar battery left margin</string>
+    <string name="status_bar_battery_right_margining">Status bar battery right margin</string>
+    <string name="status_bar_battery_top_margining">Status bar battery top margin</string>
+    <string name="status_bar_battery_bottom_margining">Status bar battery bottom margin</string>
+
     <string name="show_wifi_standard">Show Wifi Standard</string>
     <string name="system_ui_use_new_hd">Force to use new HD icon</string>
     <string name="system_ui_use_new_summary">A recent system version is required, some models may not have been updated</string>

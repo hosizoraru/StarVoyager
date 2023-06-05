@@ -8,7 +8,9 @@ import star.sky.voyager.utils.key.hasEnable
 
 object IconPosition : HookRegister() {
     override fun init() {
-        loadClass("com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl").methodFinder()
+        val leftIcon1 =
+            loadClass("com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl")
+        leftIcon1.methodFinder()
             .filterByName("setIconVisibility")
             .filterByParamCount(2)
             .first().createHook {

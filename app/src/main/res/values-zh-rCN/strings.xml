@@ -496,6 +496,21 @@
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
     <string name="show_status_bar_battery_any">状态栏始终显示关于电池</string>
+    <string name="status_bar_battery_text_color">状态栏电池文字颜色</string>
+    <string name="status_bar_battery_text_color_custom_enable">启用自定义电池文字颜色</string>
+    <string name="status_bar_battery_text_color_custom_enable_summary">考虑到系统反色的问题，请不要自定义成黑色或者白色\n否则会在一些页面因为反色无法看到信息</string>
+    <string name="status_bar_battery_text_size">状态栏电池文字大小</string>
+    <string name="status_bar_battery_line_spacing_add">添加状态栏电池行间距</string>
+    <string name="status_bar_battery_line_spacing_multi">状态栏电池行间距倍数</string>
+    <string name="status_bar_battery_left_padding">状态栏电池左边距</string>
+    <string name="status_bar_battery_right_padding">状态栏电池右边距</string>
+    <string name="status_bar_battery_top_padding">状态栏电池上边距</string>
+    <string name="status_bar_battery_bottom_padding">状态栏电池下边距</string>
+    <string name="status_bar_battery_left_margining">状态栏电池左边距</string>
+    <string name="status_bar_battery_right_margining">状态栏电池右边距</string>
+    <string name="status_bar_battery_top_margining">状态栏电池上边距</string>
+    <string name="status_bar_battery_bottom_margining">状态栏电池下边距</string>
+
     <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>

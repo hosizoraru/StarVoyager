@@ -29,6 +29,7 @@ import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
 import star.sky.voyager.activity.pages.sub.PersonalAssistantPage
+import star.sky.voyager.activity.pages.sub.StatusBarPage
 import star.sky.voyager.utils.key.BackupUtils
 
 class MainActivity : MIUIActivity() {
@@ -84,6 +85,7 @@ class MainActivity : MIUIActivity() {
         registerPage(NotificationCenterPage::class.java)
         registerPage(ControlCenterPage::class.java)
         registerPage(LockScreenPage::class.java)
+        registerPage(StatusBarPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

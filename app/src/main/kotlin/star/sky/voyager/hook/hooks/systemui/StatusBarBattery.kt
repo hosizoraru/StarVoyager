@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color.parseColor
 import android.graphics.Typeface
 import android.os.BatteryManager
 import android.util.TypedValue
@@ -21,67 +22,124 @@ import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.api.isPad
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getBoolean
+import star.sky.voyager.utils.key.XSPUtils.getInt
+import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 import kotlin.math.abs
 
 @SuppressLint("StaticFieldLeak")
 object StatusBarBattery : HookRegister() {
+    private lateinit var appContext: Context
     var textview: TextView? = null
-    var context: Context? = null
+    private var leftPaddingPx: Int? = 0
+    private var rightPaddingPx: Int? = 0
+    private var topPaddingPx: Int? = 0
+    private var bottomPaddingPx: Int? = 0
+    private var leftMargining = 0
+    private var color: Int? = 0
 
-    @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
+        val userColor = getString("status_bar_battery_text_color", "#0d84ff")
+        val useCustomColor = getBoolean("status_bar_battery_text_color_custom_enable", false)
+        val textSize = getInt("status_bar_battery_text_size", 8).toFloat()
+
+        val lineSpacingAdd = getInt("status_bar_battery_line_spacing_add", 0).toFloat()
+        val lineSpacingMulti = getInt("status_bar_battery_line_spacing_multi", 80).toFloat() / 100
+
+        val leftPadding = getInt("status_bar_battery_left_padding", 8).toFloat()
+        val rightPadding = getInt("status_bar_battery_right_padding", 0).toFloat()
+        val topPadding = getInt("status_bar_battery_top_padding", 0).toFloat()
+        val bottomPadding = getInt("status_bar_battery_bottom_padding", 0).toFloat()
+
+        leftMargining = if (!isPad()) {
+            getInt("status_bar_battery_left_margining", -6)
+        } else {
+            getInt("status_bar_battery_left_margining", 7)
+        }
+        val rightMargining = getInt("status_bar_battery_right_margining", 0)
+        val topMargining = getInt("status_bar_battery_top_margining", 0)
+        val bottomMargining = getInt("status_bar_battery_bottom_margining", 0)
+
+        val miuiPhoneStatusBarViewClass =
+            loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView")
         loadClass("com.android.systemui.statusbar.phone.DarkIconDispatcherImpl").methodFinder()
             .filterByName("applyIconTint")
             .first().createHook {
-                after {
-                    val color = it.thisObject.getObjectFieldAs<Int>("mIconTint")
+                after { it ->
+                    color = if (useCustomColor && userColor?.isNotEmpty() == true) {
+                        parseColor(userColor)
+                    } else {
+                        it.thisObject.getObjectFieldAs<Int>("mIconTint")
+                    }
                     if (textview != null) {
-                        textview!!.setTextColor(color)
+                        color?.let { textview?.setTextColor(it) }
                     }
                 }
             }
 
-        loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView").constructorFinder()
+        miuiPhoneStatusBarViewClass.constructorFinder()
             .filterByParamCount(2)
             .first().createHook {
                 after {
-                    context = it.args[0] as Context
+                    appContext = it.args[0] as Context
+                    with(appContext.resources.displayMetrics.density) {
+                        leftPaddingPx = (leftPadding * this).toInt()
+                        rightPaddingPx = (rightPadding * this).toInt()
+                        topPaddingPx = (topPadding * this).toInt()
+                        bottomPaddingPx = (bottomPadding * this).toInt()
+                    }
                 }
             }
 
-        loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView").methodFinder()
+        miuiPhoneStatusBarViewClass.methodFinder()
             .filterByName("onFinishInflate")
             .first().createHook {
                 after {
                     val mStatusBarLeftContainer =
                         it.thisObject.getObjectFieldAs<LinearLayout>("mStatusBarLeftContainer")
-                    textview = TextView(context).apply {
-                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 8f)
+                    textview = TextView(appContext).apply {
+                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, textSize)
                         typeface = Typeface.DEFAULT_BOLD
                         isSingleLine = false
-                        setLineSpacing(0F, 0.8F)
-                        setPadding(8, 0, 0, 0)
+                        setLineSpacing(lineSpacingAdd, lineSpacingMulti)
+                        setPadding(
+                            leftPaddingPx ?: 0,
+                            topPaddingPx ?: 0,
+                            rightPaddingPx ?: 0,
+                            bottomPaddingPx ?: 0
+                        )
+                        layoutParams = FrameLayout.LayoutParams(
+                            FrameLayout.LayoutParams.WRAP_CONTENT,
+                            FrameLayout.LayoutParams.WRAP_CONTENT
+                        ).apply {
+                            leftMargin = leftMargining
+                            rightMargin = rightMargining
+                            topMargin = topMargining
+                            bottomMargin = bottomMargining
+                            gravity = Gravity.CENTER_VERTICAL
+                        }
                     }
-                    val frameLayout = context?.let { it1 -> FrameLayout(it1) }
-                    val params = FrameLayout.LayoutParams(
-                        FrameLayout.LayoutParams.WRAP_CONTENT,
-                        FrameLayout.LayoutParams.WRAP_CONTENT
-                    )
-                    params.gravity = Gravity.CENTER_VERTICAL
-                    textview!!.layoutParams = params
-                    if (isPad()) {
-                        params.topMargin = 7 // 调整上边距
-                    }
-                    frameLayout?.addView(textview)
-                    mStatusBarLeftContainer.addView(frameLayout)
+                    mStatusBarLeftContainer.addView(appContext.let {
+                        FrameLayout(it).apply {
+                            layoutParams = FrameLayout.LayoutParams(
+                                FrameLayout.LayoutParams.WRAP_CONTENT,
+                                FrameLayout.LayoutParams.WRAP_CONTENT
+                            ).apply {
+                                leftMargin = leftMargining
+                                rightMargin = rightMargining
+                                topMargin = topMargining
+                                bottomMargin = bottomMargining
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+                            addView(textview)
+                        }
+                    })
 
-                    context!!.registerReceiver(
+                    appContext.registerReceiver(
                         BatteryReceiver(),
                         IntentFilter().apply { addAction(Intent.ACTION_BATTERY_CHANGED) })
                 }
             }
-
     }
 
     class BatteryReceiver : BroadcastReceiver() {
@@ -98,25 +156,19 @@ object StatusBarBattery : HookRegister() {
                 abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000 / 1000.0)
             }
             val status = intent.getIntExtra("status", 0)
-            if (textview !== null) {
-                if (any) {
-                    textview!!.text = if (mA) {
+            textview?.run {
+                text = when {
+                    any || status == BatteryManager.BATTERY_STATUS_CHARGING -> if (mA) {
                         "${"%.0f".format(current)}mA\n${"%.1f".format(temperature)}℃"
                     } else {
                         "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
                     }
-                    textview!!.visibility = View.VISIBLE
-                } else {
-                    if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
-                        textview!!.text = if (mA) {
-                            "${"%.0f".format(current)}mA\n${"%.1f".format(temperature)}℃"
-                        } else {
-                            "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
-                        }
-                        textview!!.visibility = View.VISIBLE
-                    } else {
-                        textview!!.visibility = View.GONE
-                    }
+
+                    else -> text
+                }
+                visibility = when {
+                    any || status == BatteryManager.BATTERY_STATUS_CHARGING -> View.VISIBLE
+                    else -> View.GONE
                 }
             }
         }

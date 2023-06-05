@@ -132,43 +132,11 @@ class SystemUIPage : BasePage() {
                 onClickListener = { showFragment("lock_screen") }
             )
         )
-        Line()
-        TitleText(textId = R.string.status_bar)
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.double_tap_to_sleep),
-            SwitchV("status_bar_double_tap_to_sleep")
-        )
-        val batteryBinding = GetDataBinding({
-            safeSP.getBoolean(
-                "system_ui_show_status_bar_battery",
-                false
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.status_bar,
+                onClickListener = { showFragment("status_bar") }
             )
-        }) { view, flags, data ->
-            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
-        }
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.system_ui_show_status_bar_battery,
-                tipsId = R.string.system_ui_show_status_bar_battery_summary
-            ),
-            SwitchV(
-                "system_ui_show_status_bar_battery",
-                false,
-                dataBindingSend = batteryBinding.bindingSend
-            )
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.show_status_bar_battery_any
-            ),
-            SwitchV("show_status_bar_battery_any", false),
-            dataBindingRecv = batteryBinding.binding.getRecv(1)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.current_mA
-            ), SwitchV("current_mA", false),
-            dataBindingRecv = batteryBinding.binding.getRecv(1)
         )
         Line()
         TitleText(textId = R.string.status_bar_layout)
