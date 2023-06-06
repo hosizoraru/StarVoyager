@@ -5,7 +5,8 @@ import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -22,7 +23,10 @@ object BackupUtils {
     @SuppressLint("SimpleDateFormat")
     fun backup(activity: Activity, sp: SharedPreferences) {
         sharedPreferences = sp
-        saveFile(activity, "Voyager-${SimpleDateFormat("yyMMdd_HHmmss").format(System.currentTimeMillis())}.json")
+        saveFile(
+            activity,
+            "Voyager-${SimpleDateFormat("yyMMdd_HHmmss").format(System.currentTimeMillis())}.json"
+        )
     }
 
     fun recovery(activity: Activity, sp: SharedPreferences) {
@@ -67,7 +71,11 @@ object BackupUtils {
                             when (val value = get(keys)) {
                                 is String -> {
                                     if (value.startsWith("Float:")) {
-                                        edit.putFloat(keys, value.substring(value.indexOf("Float:")).toFloat() / 1000)
+                                        edit.putFloat(
+                                            keys,
+                                            value.substring(value.indexOf("Float:"))
+                                                .toFloat() / 1000
+                                        )
                                     } else {
                                         edit.putString(keys, value)
                                     }
@@ -82,9 +90,9 @@ object BackupUtils {
                 }
             }
             edit.apply()
-            Toast.makeText(activity, "Load successfully", Toast.LENGTH_LONG).show()
+            makeText(activity, "Load successfully", LENGTH_LONG).show()
         } catch (e: Throwable) {
-            Toast.makeText(activity, "Load failed\n$e", Toast.LENGTH_LONG).show()
+            makeText(activity, "Load failed\n$e", LENGTH_LONG).show()
         }
     }
 
@@ -96,7 +104,11 @@ object BackupUtils {
                     write(JSONObject().also {
                         for (entry: Map.Entry<String, *> in sharedPreferences.all) {
                             when (entry.value) {
-                                Float -> it.put(entry.key, "Float:" + (entry.value as Float * 1000).toInt().toString())
+                                Float -> it.put(
+                                    entry.key,
+                                    "Float:" + (entry.value as Float * 1000).toInt().toString()
+                                )
+
                                 else -> it.put(entry.key, entry.value)
                             }
                         }
@@ -104,9 +116,9 @@ object BackupUtils {
                     close()
                 }
             }
-            Toast.makeText(activity, "Save successfully", Toast.LENGTH_LONG).show()
+            makeText(activity, "Save successfully", LENGTH_LONG).show()
         } catch (e: Throwable) {
-            Toast.makeText(activity, "Save failed\n$e", Toast.LENGTH_LONG).show()
+            makeText(activity, "Save failed\n$e", LENGTH_LONG).show()
         }
     }
 

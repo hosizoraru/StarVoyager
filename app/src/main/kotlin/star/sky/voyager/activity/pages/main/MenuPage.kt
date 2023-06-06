@@ -11,7 +11,8 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 import star.sky.voyager.hook.PACKAGE_NAME_HOOKED
-import star.sky.voyager.utils.key.BackupUtils
+import star.sky.voyager.utils.key.BackupUtils.backup
+import star.sky.voyager.utils.key.BackupUtils.recovery
 import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMMenuPage("Menu")
@@ -134,7 +135,7 @@ class MenuPage : BasePage() {
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.backup, onClickListener = {
-                    BackupUtils.backup(
+                    backup(
                         activity,
                         activity.createDeviceProtectedStorageContext()
                             .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
@@ -143,7 +144,7 @@ class MenuPage : BasePage() {
         )
 
         TextSummaryWithArrow(TextSummaryV(textId = R.string.recovery, onClickListener = {
-            BackupUtils.recovery(
+            recovery(
                 activity,
                 activity.createDeviceProtectedStorageContext()
                     .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
