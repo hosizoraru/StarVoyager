@@ -46,18 +46,16 @@ object StatusBarBattery : HookRegister() {
         val lineSpacingAdd = getInt("status_bar_battery_line_spacing_add", 0).toFloat()
         val lineSpacingMulti = getInt("status_bar_battery_line_spacing_multi", 80).toFloat() / 100
 
-        val leftPadding = getInt("status_bar_battery_left_padding", 8).toFloat()
-        val rightPadding = getInt("status_bar_battery_right_padding", 0).toFloat()
+        val leftPadding =
+            getInt("status_bar_battery_left_padding", if (!isPad()) 8 else 0).toFloat()
+        val rightPadding =
+            getInt("status_bar_battery_right_padding", if (!isPad()) 0 else 2).toFloat()
         val topPadding = getInt("status_bar_battery_top_padding", 0).toFloat()
         val bottomPadding = getInt("status_bar_battery_bottom_padding", 0).toFloat()
 
-        leftMargining = if (!isPad()) {
-            getInt("status_bar_battery_left_margining", -6)
-        } else {
-            getInt("status_bar_battery_left_margining", 7)
-        }
+        val leftMargining = getInt("status_bar_battery_left_margining", if (!isPad()) -7 else 1)
         val rightMargining = getInt("status_bar_battery_right_margining", 0)
-        val topMargining = getInt("status_bar_battery_top_margining", 0)
+        val topMargining = getInt("status_bar_battery_top_margining", if (!isPad()) 0 else -20)
         val bottomMargining = getInt("status_bar_battery_bottom_margining", 0)
 
         val miuiPhoneStatusBarViewClass =

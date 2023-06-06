@@ -503,14 +503,14 @@
     <string name="status_bar_battery_text_size">状态栏电池文字大小</string>
     <string name="status_bar_battery_line_spacing_add">添加状态栏电池行间距</string>
     <string name="status_bar_battery_line_spacing_multi">状态栏电池行间距倍数</string>
-    <string name="status_bar_battery_left_padding">状态栏电池左边距</string>
-    <string name="status_bar_battery_right_padding">状态栏电池右边距</string>
-    <string name="status_bar_battery_top_padding">状态栏电池上边距</string>
-    <string name="status_bar_battery_bottom_padding">状态栏电池下边距</string>
-    <string name="status_bar_battery_left_margining">状态栏电池左边距</string>
-    <string name="status_bar_battery_right_margining">状态栏电池右边距</string>
-    <string name="status_bar_battery_top_margining">状态栏电池上边距</string>
-    <string name="status_bar_battery_bottom_margining">状态栏电池下边距</string>
+    <string name="status_bar_battery_left_padding">状态栏电池左内边距</string>
+    <string name="status_bar_battery_right_padding">状态栏电池右内边距</string>
+    <string name="status_bar_battery_top_padding">状态栏电池上内边距</string>
+    <string name="status_bar_battery_bottom_padding">状态栏电池下内边距</string>
+    <string name="status_bar_battery_left_margining">状态栏电池左外边距</string>
+    <string name="status_bar_battery_right_margining">状态栏电池右外边距</string>
+    <string name="status_bar_battery_top_margining">状态栏电池上外边距</string>
+    <string name="status_bar_battery_bottom_margining">状态栏电池下外边距</string>
 
     <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>

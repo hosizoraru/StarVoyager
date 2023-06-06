@@ -117,12 +117,12 @@ class StatusBarPage : BasePage() {
         Line()
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_left_padding),
-            SeekBarWithTextV("status_bar_battery_left_padding", -1, 20, 8)
+            SeekBarWithTextV("status_bar_battery_left_padding", -1, 20, if (!isPad()) 8 else 0)
         )
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_right_padding),
-            SeekBarWithTextV("status_bar_battery_right_padding", -1, 20, 0)
+            SeekBarWithTextV("status_bar_battery_right_padding", -1, 20, if (!isPad()) 0 else 2)
         )
 
         TextWithSeekBar(
@@ -137,22 +137,22 @@ class StatusBarPage : BasePage() {
         Line()
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_left_margining),
-            SeekBarWithTextV("status_bar_battery_left_margining", -10, 20, if (!isPad()) -6 else 7)
+            SeekBarWithTextV("status_bar_battery_left_margining", -20, 20, if (!isPad()) -7 else 1)
         )
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_right_margining),
-            SeekBarWithTextV("status_bar_battery_right_margining", -10, 20, 0)
+            SeekBarWithTextV("status_bar_battery_right_margining", -20, 20, 0)
         )
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_top_margining),
-            SeekBarWithTextV("status_bar_battery_top_margining", -10, 20, 0)
+            SeekBarWithTextV("status_bar_battery_top_margining", -20, 20, if (!isPad()) 0 else -20)
         )
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_bottom_margining),
-            SeekBarWithTextV("status_bar_battery_bottom_margining", -10, 20, 0)
+            SeekBarWithTextV("status_bar_battery_bottom_margining", -20, 20, 0)
         )
     }
 }
