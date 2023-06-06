@@ -28,15 +28,11 @@ object BlurPersonalAssistant : HookRegister() {
                         val fieldNames = ('a'..'z').map { it.toString() }
                         val window = getValueByFields(param.thisObject, fieldNames) ?: return@after
                         if (window.javaClass.name.contains("Window")) {
-                            try {
-                                window as Window
-                                val blurRadius = (scrollX * blurRadius).toInt()
-                                if (abs(blurRadius - lastBlurRadius) > 2) {
-                                    window.setBackgroundBlurRadius(blurRadius)
-                                    lastBlurRadius = blurRadius
-                                }
-                            } catch (_: Throwable) {
-                                // None Log
+                            window as Window
+                            val blurRadius1 = (scrollX * blurRadius).toInt()
+                            if (abs(blurRadius1 - lastBlurRadius) > 2) {
+                                window.setBackgroundBlurRadius(blurRadius1)
+                                lastBlurRadius = blurRadius1
                             }
                         }
                     }

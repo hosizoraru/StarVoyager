@@ -108,6 +108,8 @@
     <string name="sunshine_mode_key">阳光模式磁贴开关</string>
     <string name="unlock_for_pad">主要是给Pad解锁的</string>
     <string name="require_hardware_support">需要硬件支持</string>
+    <string name="camera_sensor">摄像头传感器</string>
+    <string name="mic_sensor">麦克风传感器</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>

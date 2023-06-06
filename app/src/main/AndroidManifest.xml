@@ -69,8 +69,30 @@
         <service
             android:name=".tiles.HighBrightnessMode"
             android:exported="true"
-            android:icon="@drawable/baseline_wb_sunny_24"
+            android:icon="@drawable/ic_baseline_wb_sunny_24"
             android:label="@string/sunshine_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tiles.CameraSensor"
+            android:exported="true"
+            android:icon="@drawable/ic_baseline_camera_24"
+            android:label="@string/camera_sensor"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tiles.MicSensor"
+            android:exported="true"
+            android:icon="@drawable/ic_baseline_mic_24"
+            android:label="@string/mic_sensor"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />

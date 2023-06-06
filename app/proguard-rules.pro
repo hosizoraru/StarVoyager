@@ -57,5 +57,6 @@
 -keepattributes RuntimeVisibleAnnotations
 #-keepattributes *Annotation*
 
+-dontobfuscate
 -allowaccessmodification
 -overloadaggressively
