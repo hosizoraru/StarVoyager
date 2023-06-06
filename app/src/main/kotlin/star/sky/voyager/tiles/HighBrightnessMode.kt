@@ -4,9 +4,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.service.quicksettings.Tile
+import android.service.quicksettings.Tile.STATE_ACTIVE
+import android.service.quicksettings.Tile.STATE_INACTIVE
 import android.service.quicksettings.TileService
-import star.sky.voyager.utils.yife.Terminal
+import star.sky.voyager.utils.yife.Terminal.exec
 
 class HighBrightnessMode : TileService() {
     private var isActive = false
@@ -14,19 +15,18 @@ class HighBrightnessMode : TileService() {
     private val screenStateReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent?.action == Intent.ACTION_SCREEN_OFF) {
-                // 设备被息屏，关闭最高亮度模式
-                qsTile.state = Tile.STATE_INACTIVE
+                qsTile.also {
+                    it.state = STATE_INACTIVE
+                    it.updateTile()
+                }
                 isActive = false
-                qsTile.updateTile()
             }
         }
     }
 
     override fun onCreate() {
         super.onCreate()
-        val filter = IntentFilter().apply {
-            addAction(Intent.ACTION_SCREEN_OFF)
-        }
+        val filter = IntentFilter(Intent.ACTION_SCREEN_OFF)
         registerReceiver(screenStateReceiver, filter)
     }
 
@@ -37,31 +37,28 @@ class HighBrightnessMode : TileService() {
 
     override fun onClick() {
         super.onClick()
-        if (isActive) {
-            // 关闭最高亮度模式
-            originalBrightness?.let { Terminal.exec("echo $it > /sys/class/mi_display/disp-DSI-0/brightness_clone") }
-            qsTile.state = Tile.STATE_INACTIVE
-            isActive = false
-        } else {
-            // 开启最高亮度模式
-            originalBrightness =
-                Terminal.exec("cat /sys/class/mi_display/disp-DSI-0/brightness_clone").trim()
-            val maxBrightness =
-                Terminal.exec("cat /sys/class/mi_display/disp-DSI-0/max_brightness_clone").trim()
-            Terminal.exec("echo $maxBrightness > /sys/class/mi_display/disp-DSI-0/brightness_clone")
-            qsTile.state = Tile.STATE_ACTIVE
-            isActive = true
+        isActive = !isActive
+        qsTile.also {
+            it.state = if (isActive) {
+                originalBrightness =
+                    exec("cat /sys/class/mi_display/disp-DSI-0/brightness_clone").trim()
+                val maxBrightness =
+                    exec("cat /sys/class/mi_display/disp-DSI-0/max_brightness_clone").trim()
+                exec("echo $maxBrightness > /sys/class/mi_display/disp-DSI-0/brightness_clone")
+                STATE_ACTIVE
+            } else {
+                originalBrightness?.let { exec("echo $it > /sys/class/mi_display/disp-DSI-0/brightness_clone") }
+                STATE_INACTIVE
+            }
+            it.updateTile()
         }
-        qsTile.updateTile()
     }
 
     override fun onStartListening() {
         super.onStartListening()
-        if (isActive) {
-            qsTile.state = Tile.STATE_ACTIVE
-        } else {
-            qsTile.state = Tile.STATE_INACTIVE
+        qsTile.also {
+            it.state = if (isActive) STATE_ACTIVE else STATE_INACTIVE
+            it.updateTile()
         }
-        qsTile.updateTile()
     }
 }
