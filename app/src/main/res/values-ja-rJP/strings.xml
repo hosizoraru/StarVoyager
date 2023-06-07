@@ -139,7 +139,7 @@
     <string name="control_center_carrier_size">キャリア情報のフォントサイズ</string>
     <string name="control_center_carrier_color">キャリア情報の色</string>
 
-    <string name="scope_mi_pad">Xiaomi タブレット</string>
+    <string name="scope_mi_pad">Xiaomi Pad</string>
     <string name="input">入力</string>
     <string name="screen">スクリーン</string>
     <string name="no_magic_pointer">Magic Pointerをオフにする</string>
