@@ -8,7 +8,7 @@
     <string name="scope_mi_ai">Mi AI</string>
     <string name="scope_mi_smart_hub">Mi Smart Hub</string>
     <string name="scope_scanner">スキャナー</string>
-    <string name="scope_aireco">Mi Aicrco(小爱建议)</string>
+    <string name="scope_aireco">Mi Aicrco (小爱建议)</string>
     <string name="scope_app_manager">アプリを管理</string>
     <string name="scope_market">GetApps</string>
     <string name="scope_mi_share">Mi シェア</string>
@@ -47,7 +47,7 @@
     <string name="restart_scope_miui_home_tips">システムランチャーを再起動しますか？</string>
 
     <string name="main_switch">モジュールの主スイッチ</string>
-    <string name="su_permission">このモジュールにSu/Root権限を付与してください</string>
+    <string name="su_permission">このモジュールに Su/Root 権限を付与してください</string>
     <string name="about">概要</string>
     <string name="about_module">モジュールについて</string>
     <string name="about_module_summary">モジュールの関連情報を見る</string>
@@ -63,7 +63,7 @@
     <string name="ResetModuleDialog">モジュールをリセットしますか？</string>
     <string name="ResetSuccess">リセット成功</string>
 
-    <string name="not_support">あなたは古いバージョンのLSPosedを使用しているか、LSPosedが有効化されていないようです。LSPosedを更新するか、有効化してから再試行してください。</string>
+    <string name="not_support">あなたは古いバージョンの LSPosed を使用しているか、LSPosed が有効化されていないようです。LSPosed を更新するか、有効化してから再試行してください。</string>
     <string name="HideLauncherIcon">ランチャーアイコンを非表示</string>
     <string name="only_official_default_themes_are_supported">公式のデフォルトテーマのみがサポートされています</string>
     <string name="home_double_tap_to_sleep_summary">空白部分をダブルタップして画面をロック</string>
@@ -107,7 +107,7 @@
     <string name="only_one_choose">一つだけ選択することを推奨します</string>
     <string name="sunshine_mode">サソライトモード</string>
     <string name="sunshine_mode_key">サソライトモードのタイルスイッチ</string>
-    <string name="unlock_for_pad">主にPadのロックを解除するためです</string>
+    <string name="unlock_for_pad">主に Pad のロックを解除するためです</string>
     <string name="require_hardware_support">ハードウェアサポートが必要です</string>
     <string name="camera_sensor">カメラセンサー</string>
     <string name="mic_sensor">マイクセンサー</string>
@@ -143,11 +143,11 @@
     <string name="scope_mi_pad">Xiaomi Pad</string>
     <string name="input">入力</string>
     <string name="screen">スクリーン</string>
-    <string name="no_magic_pointer">Magic Pointerをオフにする</string>
-    <string name="no_magic_pointer_tips">MIUI for Padの丸いマウスをオフにし、Androidの元のマウスポインターに戻します。</string>
+    <string name="no_magic_pointer">Magic Pointer をオフにする</string>
+    <string name="no_magic_pointer_tips">MIUI for Pad の丸いマウスをオフにし、Android の元のマウスポインターに戻します。</string>
     <string name="restore_esc_tips">MIUIにより「戻る」機能に強制的に割り当てられたESCキーを復元します。</string>
     <string name="remove_stylus_bluetooth_restriction">スタイラスのBluetooth制限を解除</string>
-    <string name="remove_stylus_bluetooth_restriction_tips">Xiaomi 灵感タッチペンのBluetoothを接続することなく、互換性のあるスタイラスを使用できます。</string>
+    <string name="remove_stylus_bluetooth_restriction_tips">Xiaomi 灵感タッチペンの Bluetooth を接続することなく、互換性のあるスタイラスを使用できます。</string>
     <string name="restore_esc">ESCキー機能を復元</string>
     <string name="ignore_stylus_key_gesture">スタイラスボタンジェスチャーを無視</string>
     <string name="ignore_stylus_key_gesture_tips">スタイラスボタンの長押しジェスチャーを無視します。</string>
@@ -158,7 +158,7 @@
     <string name="set_gesture_need_finger_num_to_4">ジェスチャーに必要な指の数を変更</string>
     <string name="set_gesture_need_finger_num_to_4_tips">三本指のスクリーンショット、三本指のエリアスクリーンショット、三本指の横スクリーンジェスチャーを四本指で実行し、アプリの切り替えジェスチャーを三本指で実行するように変更します</string>
     <string name="remove_stylus_bluetooth_restriction_driver_version">ドライバーバージョン</string>
-    <string name="remove_stylus_bluetooth_restriction_driver_version_tips">スタイラスのBluetooth制限を解除するために使用されるドライバーのバージョン</string>
+    <string name="remove_stylus_bluetooth_restriction_driver_version_tips">スタイラスの Bluetooth 制限を解除するために使用されるドライバーのバージョン</string>
 
     <string name="status_bar_clock_format">ステータスバータイムフォーマット</string>
     <string name="status_bar_time_year">年を表示</string>
@@ -288,7 +288,7 @@
     <string name="unlock_super_wallpaper">スーパーウォールペーパーを解除</string>
 
     <string name="device_modify">制限を削除</string>
-    <string name="device_modify_summary">あなたのデバイス型番をXiaomi 13 Proに偽装し、制限を回避します</string>
+    <string name="device_modify_summary">あなたのデバイス型番を Xiaomi 13 Pro に偽装し、制限を回避します</string>
 
     <string name="card">名刺スキャンを解除</string>
     <string name="doc_ppt">ファイルスキャンを解除</string>
@@ -363,7 +363,7 @@
     <string name="remove_open_ad">オープンスクリーン広告を削除</string>
 
     <string name="dc_fps">ちらつき防止と高リフレッシュレートを同時に許可</string>
-    <string name="dc_fps_summary">Mix4専用</string>
+    <string name="dc_fps_summary">Xiaomi Mix4専用</string>
     <string name="show_all_fps">すべてのリフレッシュレートを表示</string>
     <string name="show_all_fps_summary">しかし、全てが利用可能というわけではない</string>
 
@@ -392,13 +392,13 @@
     <string name="disable_app_settings">アプリ詳細画面でAppを無効にするを表示</string>
     <string name="disable_app_text">本当にシステムアプリを無効にしますか？</string>
     <string name="screen_hold_on">ロック解除時の画面保持と画面オフ時のオーディオプレイヤーを有効にする</string>
-    <string name="MEMC">全画面で動的画面補正(MEMC)を有効化</string>
+    <string name="MEMC">全画面で動的画面補正 (MEMC) を有効化</string>
     <string name="enhance_contours">全画面で影像輪郭強化を有効化</string>
     <string name="super_resolution">全画面で超解像再生を有効化</string>
     <string name="gun_service">全画面で照準アシストを有効化</string>
     <string name="macro_combo">全画面で自動連続攻撃を有効化</string>
     <string name="remove_conversation_bubble_settings_restriction">バブル通知のアプリ制限を削除</string>
-    <string name="remove_conversation_bubble_settings_restriction_summary">"設定 - 追加設定 - フローティングウィンドウ - バブル通知 - バブル通知アプリ管理(Manage conversation bubbles)"から通知アプリを管理できます</string>
+    <string name="remove_conversation_bubble_settings_restriction_summary">"設定 - 追加設定 - フローティングウィンドウ - バブル通知 - バブル通知アプリ管理 (Manage conversation bubbles) "から通知アプリを管理できます</string>
     <string name="try_to_fix_conversation_bubbles">バブル通知を修正しようとする</string>
     <string name="try_to_fix_conversation_bubbles_summary">バブル通知サービスを再起動しようとする</string>
 
@@ -426,7 +426,7 @@
     <string name="home_recent_view_wallpaper_darkening_summary">最近のタスクを表示/非表示するときに壁紙が暗くなりから明るくなる効果を無効にします</string>
     <string name="home_recent_view_remove_card_animation">カードスワイプアニメーションを変更</string>
     <string name="home_recent_view_remove_card_animation_summary">最近のタスクからカードを削除するアニメーション効果を変更します</string>
-    <string name="add_freeform_shortcut">ショートカットメニューにフローティングウィンドウを追加(オプション)</string>
+    <string name="add_freeform_shortcut">ショートカットメニューにフローティングウィンドウを追加 (オプション) </string>
     <string name="restore_google_app_icon">Googleのアイコンを復元</string>
     <string name="home_scroll_icon_name">アプリ名をスクロールして表示</string>
     <string name="home_scroll_icon_name_summary">長すぎるアプリ名はスクロールされて表示され、改行されません</string>
@@ -488,11 +488,14 @@
     <string name="your_theme_neutral_color">システムの中性色</string>
     <string name="your_theme_style">色取りのスタイル</string>
 
-    <string name="Overlap_Mode">Fold スタイルのスマートアシスタント</string>
-    <string name="home_widget_to_minus">Androidウィジェットをマイナス1画面に移動可能にする</string>
-    <string name="restore_switch_minus_screen">マイナス1画面の切り替えを復元</string>
-    <string name="blur_personal_assistant">マイナス1画面のぼかし</string>
+    <string name="Overlap_Mode">Fold スタイルのスマートアシスタント (App Vault)</string>
+    <string name="home_widget_to_minus">Android ウィジェットを -1 画面に移動を許可</string>
+    <string name="restore_switch_minus_screen">-1 画面への切り替えを回復</string>
+    <string name="exposure_refresh_for_non_miui_widget">非 MIUI ウィジェットに露出リフレッシュを提供</string>
+    <string name="exposure_refresh_for_non_miui_widget_summary">そうでなければ、非 MIUI ウィジェットは -1 画面で情報をリフレッシュできません</string>
+    <string name="blur_personal_assistant">-1 画面のぼかし</string>
     <string name="blur_personal_assistant_radius">ぼかしの程度</string>
+
 
     <string name="lockscreen_charging_info">充電パワーを表示</string>
     <string name="lockscreen_charging_info_not_supported">このデバイスはまだサポートされていません</string>
@@ -515,23 +518,23 @@
     <string name="status_bar_battery_top_margining">ステータスバーのバッテリー上外側余白</string>
     <string name="status_bar_battery_bottom_margining">ステータスバーのバッテリー下外側余白</string>
 
-    <string name="show_wifi_standard">WiFiの規格を表示</string>
-    <string name="system_ui_use_new_hd">新しいHDアイコンを強制使用</string>
+    <string name="show_wifi_standard">WiFi の規格を表示</string>
+    <string name="system_ui_use_new_hd">新しい HD  アイコンを強制使用</string>
     <string name="system_ui_use_new_summary">より新しいシステムバージョンが必要で、一部のデバイスはまだ対応していない可能性があります</string>
     <string name="battery_percentage_font_size">バッテリー残量のフォントサイズ</string>
     <string name="can_notification_slide">ほとんどのアプリの通知がフローティングウィンドウで展開することを許可</string>
-    <string name="can_notification_slide_summary">Mi Push経由の一部の通知はサポートされていない可能性があります</string>
+    <string name="can_notification_slide_summary">Mi Push 経由の一部の通知はサポートされていない可能性があります</string>
     <string name="notification_settings_no_white_list">通知設定のホワイトリストを削除</string>
     <string name="restore_near_by_tile">ニアバイシェアタイルを復元</string>
-    <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">Bluetoothの一時的な無効化</string>
-    <string name="Disable_Bluetooth_summary">コントロールセンターでBluetoothをオフにすると、完全に切断されます</string>
+    <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">Bluetooth の一時的な無効化</string>
+    <string name="Disable_Bluetooth_summary">コントロールセンターで Bluetooth をオフにすると、完全に切断されます</string>
     <string name="lock_screen_clock_display_seconds">時計に秒を表示</string>
     <string name="lock_screen_clock_use_system_font">時計にシステムフォントを使用</string>
     <string name="lock_screen_date_use_system_font">日付にシステムフォントを使用</string>
     <string name="blur_lock_screen_button">ボタンをぼかす</string>
-    <string name="remove_the_left_side_of_the_lock_screen">ロックスクリーンのマイナス1画面機能を削除</string>
+    <string name="remove_the_left_side_of_the_lock_screen">ロックスクリーンから -1 画面の機能を削除</string>
     <string name="remove_lock_screen_camera">ロックスクリーンのカメラ機能を削除</string>
-    <string name="enable_wave_charge_animation">Alpha充電アニメーションを有効にする</string>
+    <string name="enable_wave_charge_animation">Alpha 充電アニメーションを有効にする</string>
     <string name="lock_screen_charging_current">充電時に現在の電流を表示</string>
     <string name="current_mA">電流単位は mA を使用</string>
     <string name="no_need_to_enter_password_when_power_on">電源を入れるときにパスワードを入力する必要はありません</string>

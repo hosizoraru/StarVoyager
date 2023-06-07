@@ -494,6 +494,8 @@
     <string name="Overlap_Mode">Fold style App Vault</string>
     <string name="home_widget_to_minus">Allow classic widget to be moved to the Minus One screen</string>
     <string name="restore_switch_minus_screen">Restore switch minus screen</string>
+    <string name="exposure_refresh_for_non_miui_widget">Exposure refresh for non-MIUI-widgets</string>
+    <string name="exposure_refresh_for_non_miui_widget_summary">Otherwise, the non-MIUI widget cannot refresh the information on the App Vault.</string>
     <string name="blur_personal_assistant">Blur for App Vault</string>
     <string name="blur_personal_assistant_radius">Blur Radius</string>
 

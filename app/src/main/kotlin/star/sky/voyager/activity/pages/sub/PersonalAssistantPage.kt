@@ -29,6 +29,13 @@ class PersonalAssistantPage : BasePage() {
             ),
             SwitchV("restore_switch_minus_screen", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.exposure_refresh_for_non_miui_widget,
+                tipsId = R.string.exposure_refresh_for_non_miui_widget_summary
+            ),
+            SwitchV("exposure_refresh_for_non_miui_widget", false)
+        )
         Line()
         TitleText(textId = R.string.scope_personal_assistant)
         val blurPersonalAssistantBinding = GetDataBinding({
