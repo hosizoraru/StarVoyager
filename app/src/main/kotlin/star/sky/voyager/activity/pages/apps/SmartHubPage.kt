@@ -18,6 +18,7 @@ class SmartHubPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.scope_cast)
+        TitleText(textId = R.string.scope_miui_plus)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.force_support_send_app,

@@ -33,6 +33,7 @@
     <string name="scope_mi_settings">小米设置</string>
     <string name="scope_personal_assistant">智能助理</string>
     <string name="scope_screen_shot">截屏</string>
+    <string name="scope_miui_plus">Miui+ Beta</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>

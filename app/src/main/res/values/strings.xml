@@ -36,6 +36,7 @@
     <string name="scope_mi_settings">Mi Settings</string>
     <string name="scope_personal_assistant">Personal Assistant</string>
     <string name="scope_screen_shot">Screen Shot</string>
+    <string name="scope_miui_plus">Miui+ Beta</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>

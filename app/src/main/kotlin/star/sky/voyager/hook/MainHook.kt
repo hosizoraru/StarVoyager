@@ -17,6 +17,7 @@ import star.sky.voyager.hook.apps.Market
 import star.sky.voyager.hook.apps.MediaEditor
 import star.sky.voyager.hook.apps.MiSettings
 import star.sky.voyager.hook.apps.MiShare
+import star.sky.voyager.hook.apps.Mirror
 import star.sky.voyager.hook.apps.Music
 import star.sky.voyager.hook.apps.PackageInstaller
 import star.sky.voyager.hook.apps.PersonalAssistant
@@ -47,6 +48,7 @@ val PACKAGE_NAME_HOOKED = listOf(
     "com.lbe.security.miui",
     "com.xiaomi.market",
     "com.miui.mediaeditor",
+    "com.xiaomi.mirror",
     "com.xiaomi.misettings",
     "com.miui.mishare.connectivity",
     "com.miui.player",
@@ -81,6 +83,7 @@ class MainHook : EasyXposedInit() {
         Lbe, // 权限管理服务
         Market, // 应用商店
         MediaEditor, // 小米相册-编辑
+        Mirror, // Miui+ Beta
         MiSettings, // 小米设置
         MiShare, // 小米互传
         Music, // 音乐

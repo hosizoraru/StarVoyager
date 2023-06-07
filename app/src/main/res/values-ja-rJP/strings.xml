@@ -33,6 +33,7 @@
     <string name="scope_mi_settings">小米設定</string>
     <string name="scope_personal_assistant">App Vault</string>
     <string name="scope_screen_shot">スクリーンショット</string>
+    <string name="scope_miui_plus">Miui+ Beta</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
