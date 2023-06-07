@@ -148,6 +148,12 @@ class AppManagerPage : BasePage() {
                 textId = R.string.no_through_the_list,
             ), SwitchV("no_through_the_list")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.new_nfc_page,
+                tipsId = R.string.new_nfc_page_summary
+            ), SwitchV("new_nfc_page")
+        )
         Line()
         TitleText(textId = R.string.scope_file_explorer)
         TextSSw(

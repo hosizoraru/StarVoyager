@@ -350,6 +350,8 @@
     <string name="system_settings_permission_unknown_origin_app">Install unknown app permissions without searching the application list</string>
     <string name="system_settings_permission_unknown_origin_app_desc">Use the international build, jump directly to the permission switch of the corresponding application “displayed on top of other applications”</string>
     <string name="no_through_the_list">Displayed in the upper-level authorized roll-free application list</string>
+    <string name="new_nfc_page">New NFC Page</string>
+    <string name="new_nfc_page_summary">After opening, the default payment application for unsupported models cannot select Xiaomi Wallet</string>
 
     <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
     <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>

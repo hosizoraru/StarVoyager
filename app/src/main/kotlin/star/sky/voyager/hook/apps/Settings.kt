@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.settings.EnableSpeedMode
+import star.sky.voyager.hook.hooks.settings.NewNfcPage
 import star.sky.voyager.hook.hooks.settings.NoThroughTheList
 import star.sky.voyager.hook.hooks.settings.QuickInstallPermission
 import star.sky.voyager.hook.hooks.settings.ShowNotificationImportance
@@ -17,6 +18,7 @@ object Settings : AppRegister() {
             EnableSpeedMode, // 显示极致模式选项
             QuickInstallPermission, // 安装未知应用权限免翻应用列表
             NoThroughTheList, // 显示在上层授权免翻应用列表
+            NewNfcPage, // 新版 NFC 页面
         )
     }
 }

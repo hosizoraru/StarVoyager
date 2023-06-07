@@ -347,6 +347,8 @@
     <string name="system_settings_permission_unknown_origin_app">不明なアプリのインストール許可を持つアプリリスト</string>
     <string name="system_settings_permission_unknown_origin_app_desc">国際版の動作を使用し、直接アプリの「不明なアプリのインストール」許可スイッチにジャンプします</string>
     <string name="no_through_the_list">他のアプリの上に重ねて表示許可を持つアプリリスト</string>
+    <string name="new_nfc_page">新版 NFC ページ</string>
+    <string name="new_nfc_page_summary">これを有効にすると、サポートされていないモデルではデフォルトの支払いアプリとしてMiウォレットを選択できません</string>
 
     <string name="remove_ota_validate">*OTA 検証の削除 [実験的]</string>
     <string name="remove_ota_validate_summary">- VAB シリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式 ROM は対応していません。</string>
