@@ -27,7 +27,7 @@
     <string name="scope_lbe">权限管理服务</string>
     <string name="scope_aod">万象息屏</string>
     <string name="scope_wallpaper">壁纸</string>
-    <string name="scope_guard_provider">Miui安全组件</string>
+    <string name="scope_guard_provider">Miui 安全组件</string>
     <string name="scope_pkg_installer">应用包管理组件</string>
     <string name="scope_music">音乐</string>
     <string name="scope_mi_settings">小米设置</string>
@@ -47,13 +47,13 @@
     <string name="restart_scope_miui_home_tips">确定重启系统桌面？</string>
 
     <string name="main_switch">模块总开关</string>
-    <string name="su_permission">请给予本模块Su/Root权限</string>
+    <string name="su_permission">请给予本模块 Su/Root 权限</string>
     <string name="about">关于</string>
     <string name="about_module">关于模块</string>
     <string name="about_module_summary">查看模块相关信息</string>
     <string name="developer">开发者</string>
     <string name="discussions">讨论</string>
-    <string name="tg_channel">加入TG频道</string>
+    <string name="tg_channel">加入 TG(Telegram) 频道</string>
     <string name="opensource">开源仓库</string>
 
     <string name="backup">备份模块设置</string>
@@ -143,12 +143,12 @@
     <string name="scope_mi_pad">小米平板</string>
     <string name="input">输入</string>
     <string name="screen">屏幕</string>
-    <string name="no_magic_pointer">关闭Magic Pointer</string>
-    <string name="no_magic_pointer_tips">关掉MIUI for Pad的圆形鼠标，恢复为安卓原生鼠标指针。</string>
-    <string name="restore_esc_tips">恢复被MIUI强映射为“返回”功能的ESC键。</string>
+    <string name="no_magic_pointer">关闭 Magic Pointer</string>
+    <string name="no_magic_pointer_tips">关掉 MIUI for Pad 的圆形鼠标，恢复为安卓原生鼠标指针。</string>
+    <string name="restore_esc_tips">恢复被 MIUI 强映射为“返回”功能的 ESC 键。</string>
     <string name="remove_stylus_bluetooth_restriction">去除触控笔蓝牙限制</string>
     <string name="remove_stylus_bluetooth_restriction_tips">无需连接小米灵感触控笔的蓝牙即可使用兼容的触控笔。</string>
-    <string name="restore_esc">恢复ESC键功能</string>
+    <string name="restore_esc">恢复 ESC 键功能</string>
     <string name="ignore_stylus_key_gesture">忽略触控笔按键手势</string>
     <string name="ignore_stylus_key_gesture_tips">忽略触控笔按键的长按手势。</string>
     <string name="disable_fixed_orientation">禁用固定屏幕方向</string>
@@ -223,12 +223,12 @@
     <string name="down_grade_summary">允许应用在安装新版本的情况下直接覆盖安装旧版本</string>
     <string name="auth_creak">禁用软件包管理器签名验证</string>
     <string name="auth_creak_summary">关闭安装应用时的签名验证，可以安装被篡改的应用</string>
-    <string name="digestCreak">禁用APK签名验证</string>
+    <string name="digestCreak">禁用 APK 签名验证</string>
     <string name="digestCreak_summary">允许直接覆盖安装同包名不同签名的应用</string>
-    <string name="UsePreSig">安装时始终使用已装app的签名</string>
+    <string name="UsePreSig">安装时始终使用已装 APP 的签名</string>
     <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
     <string name="enhancedMode">增强模式</string>
-    <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
+    <string name="enhancedMode_summary">可以解决一些 APP 内部的完整性校验，一般不需要开启</string>
 
     <string name="hide_icon">隐藏图标</string>
     <string name="hide_battery_icon">隐藏 电池 图标</string>
@@ -351,7 +351,7 @@
     <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
     <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
 
-    <string name="hide_miui_clipboard_dialog">隐藏miui剪贴板对话框</string>
+    <string name="hide_miui_clipboard_dialog">隐藏 miui 剪贴板对话框</string>
 
     <string name="file_explorer_can_selectable">文件夹名字可以选择操作</string>
     <string name="file_explorer_is_single_line">文件夹名字以单行显示</string>
@@ -363,7 +363,7 @@
     <string name="remove_open_ad">移除开屏广告</string>
 
     <string name="dc_fps">允许DC+高刷同开</string>
-    <string name="dc_fps_summary">for mix4</string>
+    <string name="dc_fps_summary">for mix4 only</string>
     <string name="show_all_fps">显示所有档位的刷新率</string>
     <string name="show_all_fps_summary">但不是全部都可以用</string>
 
@@ -491,8 +491,8 @@
     <string name="Overlap_Mode">Fold 样式智能助理</string>
     <string name="home_widget_to_minus">允许将安卓小部件移到负一屏</string>
     <string name="restore_switch_minus_screen">恢复切换负一屏</string>
-    <string name="exposure_refresh_for_non_miui_widget">为非MIUI小部件提供曝光刷新</string>
-    <string name="exposure_refresh_for_non_miui_widget_summary">否则非MIUI小组件在负一屏将无法刷新信息</string>
+    <string name="exposure_refresh_for_non_miui_widget">为非 MIUI 小部件提供曝光刷新</string>
+    <string name="exposure_refresh_for_non_miui_widget_summary">否则非 MIUI 小组件在负一屏将无法刷新信息</string>
     <string name="blur_personal_assistant">负一屏模糊</string>
     <string name="blur_personal_assistant_radius">模糊程度</string>
 
@@ -522,7 +522,7 @@
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>
     <string name="battery_percentage_font_size">电池百分比字体大小</string>
     <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
-    <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
+    <string name="can_notification_slide_summary">一些通过 Mi Push 推送的通知可能不受支持</string>
     <string name="notification_settings_no_white_list">移除通知设置白名单</string>
     <string name="restore_near_by_tile">恢复附近分享磁贴</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
@@ -533,7 +533,7 @@
     <string name="blur_lock_screen_button">模糊按钮</string>
     <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
-    <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
+    <string name="enable_wave_charge_animation">启用 Alpha 充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_mA">电流单位使用 mA</string>
     <string name="no_need_to_enter_password_when_power_on">开机免输密码</string>
