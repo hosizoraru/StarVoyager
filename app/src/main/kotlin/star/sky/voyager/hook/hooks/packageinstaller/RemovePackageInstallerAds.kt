@@ -14,32 +14,36 @@ object RemovePackageInstallerAds : HookRegister() {
         val miuiSettingsCompatClass =
             loadClass("com.android.packageinstaller.compat.MiuiSettingsCompat")
         val qaq = listOf("s", "q", "f", "t", "r")
+
         miuiSettingsCompatClass.methodFinder()
             .filterByName("isPersonalizedAdEnabled")
             .filterByReturnType(Boolean::class.java)
-            .first().createHook {
+            .firstOrNull()?.createHook {
                 after {
                     it.result = false
                 }
-            }
+            } ?: println("Could not find method 'isPersonalizedAdEnabled'")
+
         miuiSettingsCompatClass.methodFinder()
             .filterByName("isInstallRiskEnabled")
             .filterByParamCount(1)
             .filterByParamTypes(Context::class.java)
-            .first().createHook {
+            .firstOrNull()?.createHook {
                 after {
                     it.result = false
                 }
-            }
-        loadClassOrNull("m2.b")?.methodFinder().apply {
+            } ?: println("Could not find method 'isInstallRiskEnabled'")
+
+        loadClassOrNull("m2.b")?.methodFinder()?.apply {
             qaq.forEach { qaq ->
                 this
-                    ?.filterByName(qaq)
-                    ?.first()?.createHook {
+                    .filterByName(qaq)
+                    .firstOrNull()?.createHook {
                         returnConstant(false)
-                    }
+                    } ?: println("Could not find method '$qaq' in 'm2.b'")
             }
         }
+
         var letter = 'a'
         for (i in 0..25) {
             try {
@@ -48,11 +52,12 @@ object RemovePackageInstallerAds : HookRegister() {
                 classIfExists?.let {
                     it.methodFinder()
                         .filterByName("a")
-                        .first().createHook {
+                        .firstOrNull()?.createHook {
                             after { hookParam ->
                                 hookParam.thisObject.setBooleanField("l", false)
                             }
                         }
+                        ?: println("Could not find method 'a' in 'com.miui.packageInstaller.ui.listcomponets.${letter}0'")
                 }
             } catch (t: Throwable) {
                 letter++
