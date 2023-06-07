@@ -1,8 +1,11 @@
 package star.sky.voyager.activity.pages.main
 
 import android.content.Intent
-import android.net.Uri
-import android.widget.Toast
+import android.content.Intent.ACTION_VIEW
+import android.net.Uri.parse
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.TextSummaryV
@@ -27,16 +30,16 @@ class AboutPage : BasePage() {
                 try {
                     activity.startActivity(
                         Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("https://t.me/VoyagerMIUIUpdate")
+                            ACTION_VIEW,
+                            parse("https://t.me/VoyagerMIUIUpdate")
                         )
                     )
-                    Toast.makeText(activity, "♪(･ω･)ﾉ", Toast.LENGTH_LONG)
+                    makeText(activity, "♪(･ω･)ﾉ", LENGTH_LONG)
                         .show()
                 } catch (e: Exception) {
                     val uri =
-                        Uri.parse("https://github.com/hosizoraru")
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                        parse("https://github.com/hosizoraru")
+                    val intent = Intent(ACTION_VIEW, uri)
                     activity.startActivity(intent)
                 }
             })
@@ -45,15 +48,15 @@ class AboutPage : BasePage() {
         ImageWithText(
             authorHead = getDrawable(R.drawable.voyager),
             authorName = "Voyager",
-            authorTips = "一位在星海中旅行的旅行者,也叫星空",
+            authorTips = getString(R.string.dev_desc),
             onClickListener = {
                 activity.startActivity(
                     Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://github.com/hosizoraru")
+                        ACTION_VIEW,
+                        parse("https://github.com/hosizoraru")
                     )
                 )
-                Toast.makeText(activity, "♪(･ω･)ﾉ", Toast.LENGTH_SHORT).show()
+                makeText(activity, "♪(･ω･)ﾉ", LENGTH_SHORT).show()
             })
         Line()
         TitleText(text = getString(R.string.discussions))
@@ -65,15 +68,36 @@ class AboutPage : BasePage() {
                     try {
                         activity.startActivity(
                             Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("tg://resolve?domain=VoyagerMIUIUpdate")
+                                ACTION_VIEW,
+                                parse("tg://resolve?domain=VoyagerMIUIUpdate")
                             )
                         )
                     } catch (e: Exception) {
-                        Toast.makeText(activity, "您未安装Telegram系应用", Toast.LENGTH_SHORT)
+                        makeText(activity, R.string.tg_app, LENGTH_SHORT)
                             .show()
-                        val uri = Uri.parse("https://t.me/VoyagerMIUIUpdate")
-                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        val uri = parse("tg://resolve?domain=VoyagerMIUIUpdate")
+                        val intent = Intent(ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    }
+                })
+        )
+
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.tg_group,
+                onClickListener = {
+                    try {
+                        activity.startActivity(
+                            Intent(
+                                ACTION_VIEW,
+                                parse("https://t.me/+xtTB-ijLrlY2ZjFl")
+                            )
+                        )
+                    } catch (e: Exception) {
+                        makeText(activity, R.string.tg_app, LENGTH_SHORT)
+                            .show()
+                        val uri = parse("https://t.me/+xtTB-ijLrlY2ZjFl")
+                        val intent = Intent(ACTION_VIEW, uri)
                         activity.startActivity(intent)
                     }
                 })
@@ -85,11 +109,11 @@ class AboutPage : BasePage() {
                 onClickListener = {
                     try {
                         val uri =
-                            Uri.parse("https://github.com/hosizoraru/StarVoyager")
-                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                            parse("https://github.com/hosizoraru/StarVoyager")
+                        val intent = Intent(ACTION_VIEW, uri)
                         activity.startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                        makeText(activity, R.string.fail, LENGTH_SHORT).show()
                     }
                 })
         )

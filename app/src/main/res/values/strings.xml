@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">StarVoyager</string>
     <string name="xposed_desc" translatable="false">Star Sky Voyager</string>
     <string name="dev_name" translatable="false">Voyager</string>
+    <string name="dev_desc">A Voyager traveling in the sea of stars, also known as the star sky.</string>
 
     <string name="scope">Scope</string>
     <string name="scope_gallery">Gallery</string>
@@ -56,7 +57,9 @@
     <string name="about_module_summary">View module related information</string>
     <string name="developer">Developer</string>
     <string name="discussions">Discussions</string>
-    <string name="tg_channel">Join the TG channel</string>
+    <string name="tg_app">You have not installed the Telegram App.</string>
+    <string name="tg_channel">Join the Telegram channel</string>
+    <string name="tg_group">Join the Telegram group</string>
     <string name="opensource">Open Source Repository</string>
 
     <string name="backup">Backup Module Settings</string>
