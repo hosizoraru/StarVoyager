@@ -146,9 +146,9 @@
     <string name="no_magic_pointer">Magic Pointer をオフにする</string>
     <string name="no_magic_pointer_tips">MIUI for Pad の丸いマウスをオフにし、Android の元のマウスポインターに戻します。</string>
     <string name="restore_esc_tips">MIUIにより「戻る」機能に強制的に割り当てられたESCキーを復元します。</string>
-    <string name="remove_stylus_bluetooth_restriction">スタイラスのBluetooth制限を解除</string>
+    <string name="remove_stylus_bluetooth_restriction">スタイラスの Bluetooth 制限を解除</string>
     <string name="remove_stylus_bluetooth_restriction_tips">Xiaomi 灵感タッチペンの Bluetooth を接続することなく、互換性のあるスタイラスを使用できます。</string>
-    <string name="restore_esc">ESCキー機能を復元</string>
+    <string name="restore_esc">ESC キー機能を復元</string>
     <string name="ignore_stylus_key_gesture">スタイラスボタンジェスチャーを無視</string>
     <string name="ignore_stylus_key_gesture_tips">スタイラスボタンの長押しジェスチャーを無視します。</string>
     <string name="disable_fixed_orientation">固定画面方向を無効化</string>
@@ -228,32 +228,32 @@
     <string name="UsePreSig">常にインストール済みのアプリの署名を使用する</string>
     <string name="UsePreSig_summary">インストール時には常に既にインストールされているアプリケーションの署名を使用します。\nこれは一般的に<b>危険</b>です\n絶対に必要な場合のみ有効化してください</string>
     <string name="enhancedMode">エンハンスモード</string>
-    <string name="enhancedMode_summary">一部のAPP内部の完全性チェックを解決することができ、通常は開く必要はありません</string>
+    <string name="enhancedMode_summary">一部の APP 内部の完全性チェックを解決することができ、通常は開く必要はありません</string>
 
     <string name="hide_icon">アイコンを隠す</string>
     <string name="hide_battery_icon">バッテリーアイコンを隠す</string>
     <string name="hide_battery_percentage_icon">バッテリーパーセンテージを隠す</string>
     <string name="hide_battery_percentage_icon_summary">バッテリーのパーセンテージ表示を自分で有効にする必要があります</string>
     <string name="hide_battery_charging_icon">充電アイコンを隠す</string>
-    <string name="hide_gps_icon">GPSアイコンを隠す</string>
+    <string name="hide_gps_icon">GPS アイコンを隠す</string>
     <string name="hide_bluetooth_icon">ブルートゥースアイコンを隠す</string>
-    <string name="hide_nfc_icon">NFCアイコンを隠す</string>
+    <string name="hide_nfc_icon">NFC アイコンを隠す</string>
     <string name="hide_bluetooth_battery_icon">ブルートゥースバッテリーアイコンを隠す</string>
-    <string name="hide_small_hd_icon">小さなHDアイコンを隠す</string>
-    <string name="hide_big_hd_icon">大きなHDアイコンを隠す</string>
-    <string name="hide_new_hd_icon">新しいHDアイコンを隠す</string>
-    <string name="hide_hd_no_service_icon">HDサービスなしアイコンを隠す</string>
-    <string name="hide_no_sim_icon">SIMカードなしアイコンを隠す</string>
-    <string name="hide_sim_one_icon">SIMカード1のアイコンを隠す</string>
-    <string name="hide_sim_two_icon">SIMカード2のアイコンを隠す</string>
+    <string name="hide_small_hd_icon">小さな HD アイコンを隠す</string>
+    <string name="hide_big_hd_icon">大きな HD アイコンを隠す</string>
+    <string name="hide_new_hd_icon">新しい HD アイコンを隠す</string>
+    <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
+    <string name="hide_no_sim_icon">SIM カードなしアイコンを隠す</string>
+    <string name="hide_sim_one_icon">SIM カード 1 のアイコンを隠す</string>
+    <string name="hide_sim_two_icon">SIM カード 2 のアイコンを隠す</string>
     <string name="hide_mobile_activity_icon">モバイル矢印アイコンを隠す</string>
     <string name="hide_mobile_type_icon">モバイルタイプアイコンを隠す</string>
-    <string name="hide_wifi_icon">WIFIアイコンを隠す</string>
-    <string name="hide_wifi_activity_icon">WIFI矢印アイコンを隠す</string>
-    <string name="hide_wifi_standard_icon">WIFI標準アイコンを隠す</string>
-    <string name="hide_slave_wifi_icon">WIFI補助アイコンを隠す</string>
-    <string name="hide_hotspot_icon">WIFIホットスポットアイコンを隠す</string>
-    <string name="hide_vpn_icon">VPNアイコンを隠す</string>
+    <string name="hide_wifi_icon">WIFI アイコンを隠す</string>
+    <string name="hide_wifi_activity_icon">WIFI 矢印アイコンを隠す</string>
+    <string name="hide_wifi_standard_icon">WIFI 標準アイコンを隠す</string>
+    <string name="hide_slave_wifi_icon">WIFI 補助アイコンを隠す</string>
+    <string name="hide_hotspot_icon">WIFI ホットスポットアイコンを隠す</string>
+    <string name="hide_vpn_icon">VPN アイコンを隠す</string>
     <string name="hide_airplane_icon">飛行機モードアイコンを隠す</string>
     <string name="hide_alarm_icon">アラームアイコンを隠す</string>
     <string name="hide_headset_icon">ヘッドセットアイコンを隠す</string>
@@ -298,10 +298,10 @@
     <string name="ppt">PPT抽出を解除</string>
     <string name="translation">翻訳を解除</string>
 
-    <string name="horizontal_content_extension">横向きモードでTaplusを使用を許可</string>
+    <string name="horizontal_content_extension">横向きモードで Taplus を使用を許可</string>
 
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
-    <string name="hdr_enhance_summary">HDRを使用して明暗のディテールを表示する</string>
+    <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>
     <string name="super_clipboard">スーパークリップボード</string>
     <string name="super_clipboard_summary">ギャラリーの画像を手動でクリップボードにコピーできます</string>
     <string name="ocr">画像上のテキストを認識の解除</string>
@@ -310,7 +310,7 @@
     <string name="id_photo">証明写真の解除</string>
     <string name="photo_movie">クリップの解除</string>
     <string name="video_post">ビデオ効果の解除</string>
-    <string name="video_editor">Miビデオエディターの解除</string>
+    <string name="video_editor">Mi ビデオエディターの解除</string>
     <string name="text_yan_hua">テキストの解除</string>
     <string name="remover_2">消しゴムの解除</string>
     <string name="magic_matting">マジックビネットの解除</string>
@@ -348,13 +348,13 @@
     <string name="system_settings_permission_unknown_origin_app_desc">国際版の動作を使用し、直接アプリの「不明なアプリのインストール」許可スイッチにジャンプします</string>
     <string name="no_through_the_list">他のアプリの上に重ねて表示許可を持つアプリリスト</string>
 
-    <string name="remove_ota_validate">*OTA検証の削除 [実験的]</string>
-    <string name="remove_ota_validate_summary">- VABシリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式ROMは対応していません。</string>
+    <string name="remove_ota_validate">*OTA 検証の削除 [実験的]</string>
+    <string name="remove_ota_validate_summary">- VAB シリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式 ROM は対応していません。</string>
 
-    <string name="hide_miui_clipboard_dialog">MIUIクリップボードダイアログを非表示</string>
+    <string name="hide_miui_clipboard_dialog">MIUI クリップボードダイアログを非表示</string>
 
     <string name="file_explorer_can_selectable">フォルダ名を選択可能にする</string>
-    <string name="file_explorer_is_single_line">フォルダ名を1行で表示する</string>
+    <string name="file_explorer_is_single_line">フォルダ名を 1 行で表示する</string>
 
     <string name="No_Storage_Restrict">フォルダ選択時の制限を解除</string>
 
@@ -363,7 +363,7 @@
     <string name="remove_open_ad">オープンスクリーン広告を削除</string>
 
     <string name="dc_fps">ちらつき防止と高リフレッシュレートを同時に許可</string>
-    <string name="dc_fps_summary">Xiaomi Mix4専用</string>
+    <string name="dc_fps_summary">Xiaomi Mix4 専用</string>
     <string name="show_all_fps">すべてのリフレッシュレートを表示</string>
     <string name="show_all_fps_summary">しかし、全てが利用可能というわけではない</string>
 
@@ -372,7 +372,7 @@
     <string name="do_not_clear_app_plus">より積極的にバックグラウンドアプリの終了を防止</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">バッテリー最適化のホワイトリストの復元を防止</string>
     <string name="battery_optimization">電池の最適化</string>
-    <string name="battery_optimization_summary">MIUIによって非表示にされた電池の最適化機能を迅速に開く</string>
+    <string name="battery_optimization_summary">MIUI によって非表示にされた電池の最適化機能を迅速に開く</string>
     <string name="exported">さらに輝度を下げる</string>
     <string name="exported_summary">さらに輝度を下げる機能を迅速に開く</string>
     <string name="original_notification">オリジナルの通知設定</string>
@@ -381,8 +381,8 @@
     <string name="skip_waiting_time_summary">USBデバッグ、未知のソース、ユーザー補助を有効にするときのMIUIのフリーズ時間を無視できます。</string>
     <string name="remove_open_app_confirmation_popup">アプリ開始のポップアップを削除</string>
     <string name="remove_open_app_confirmation_popup_summary">"XXXがXXXを開きたいと思っています"のポップアップを削除します。</string>
-    <string name="lock_one_hundred">Securityのスコアを100点にロック</string>
-    <string name="lock_one_hundred_summary">Securityのスコアを100点に固定し、修復ボタンをブロックします</string>
+    <string name="lock_one_hundred">Securityのスコアを 100 点にロック</string>
+    <string name="lock_one_hundred_summary">Securityのスコアを 100 点に固定し、修復ボタンをブロックします</string>
     <string name="battery_life_function">バッテリーページで現在の温度を表示</string>
     <string name="app_link_open_always">アプリが対応するリンクを開くことを許可</string>
     <string name="app_link_open_never">アプリにリンクを開かせない</string>
@@ -414,9 +414,9 @@
     <string name="kill_domain_verification">ドメイン検証を無効化</string>
     <string name="kill_domain_verification_summary">http / httpsリンクを開くときに常に尋ねる、アプリ内で直接開くのではない\n副作用：手動設定もアプリで直接リンクを開けません；Android 12+では、選択すると「未検証」のアプリも同時に表示されます</string>
     <string name="max_free_form">小窗の数制限を解除</string>
-    <string name="disable_72h_verify">72時間ごとのロック画面パスワードの確認を無効化</string>
+    <string name="disable_72h_verify">72 時間ごとのロック画面パスワードの確認を無効化</string>
     <string name="media_volume_steps_switch">メディア音量ステップ</string>
-    <string name="media_volume_steps_summary">開くと音量バーのスクロールがカクつくか、Bluetoothの音量が異常になる可能性があります。</string>
+    <string name="media_volume_steps_summary">開くと音量バーのスクロールがカクつくか、Bluetooth の音量が異常になる可能性があります。</string>
 
     <string name="home_time">常にデスクトップ時計を表示</string>
     <string name="home_time_summary">この設定をオンにすると、時計ウィジェットが存在してもステータスバーの時計が非表示になりません</string>
@@ -427,15 +427,15 @@
     <string name="home_recent_view_remove_card_animation">カードスワイプアニメーションを変更</string>
     <string name="home_recent_view_remove_card_animation_summary">最近のタスクからカードを削除するアニメーション効果を変更します</string>
     <string name="add_freeform_shortcut">ショートカットメニューにフローティングウィンドウを追加 (オプション) </string>
-    <string name="restore_google_app_icon">Googleのアイコンを復元</string>
+    <string name="restore_google_app_icon">Google のアイコンを復元</string>
     <string name="home_scroll_icon_name">アプリ名をスクロールして表示</string>
     <string name="home_scroll_icon_name_summary">長すぎるアプリ名はスクロールされて表示され、改行されません</string>
     <string name="home_real_memory">バックグラウンドで実際に使用されているメモリと全体のメモリを表示</string>
-    <string name="home_real_memory_summary">偽のMIUIメモリを取り払いましょう</string>
-    <string name="Use_Transition_Animation">Miuiウィジェットのアニメーションを使用する</string>
-    <string name="Show_MIUI_Widget">AndroidウィジェットページにMIUIウィジェットを表示</string>
+    <string name="home_real_memory_summary">偽の MIUI メモリを取り払いましょう</string>
+    <string name="Use_Transition_Animation">Miui ウィジェットのアニメーションを使用する</string>
+    <string name="Show_MIUI_Widget">Android ウィジェットページに MIUI ウィジェットを表示</string>
     <string name="resizable_widgets">ウィジェットのサイズ制限を解除</string>
-    <string name="shortcut_remove_restrictions">ショートカットの数量制限を解除</string>
+    <string name="shortcut_remove_restrictions">ショートカット (Shortcuts) の数量制限を解除</string>
     <string name="unlock_hot_seat">ホットシートアイコンの数量制限を解除</string>
     <string name="optimize_unlock_anim">アンロックアニメーションを最適化</string>
     <string name="icon_corner">中程度のアイコン角丸をフォロー</string>
@@ -446,11 +446,11 @@
     <string name="home_high_end_device">デバイス制限を解除</string>
     <string name="home_high_end_device_summary">デフォルトで高エンドと認識され、このオプションを有効にするとGPUのパフォーマンスオーバーヘッドを増やさずに一部のログを削除します</string>
     <string name="home_use_complete_blur">完全なぼかしを使用</string>
-    <string name="home_use_complete_blur_summary">Miui公式の半完成品である完全なぼかし機能を使用します</string>
+    <string name="home_use_complete_blur_summary">Miui 公式の半完成品である完全なぼかし機能を使用します</string>
     <string name="home_complete_blur_fix">完全なぼかしの補完</string>
     <string name="home_complete_blur_fix_summary">アプリを上にスライドした時のぼかし効果を補完します。これは視覚的な点滅や一時的なフレームドロップを引き起こす可能性があります</string>
     <string name="recent_blur_for_pad6">最近のタスクぼかしの復元</string>
-    <string name="recent_blur_for_pad6_summary">例えば、MiPad6向けに</string>
+    <string name="recent_blur_for_pad6_summary">例えば、MiPad6 向けに</string>
     <string name="home_blur_wallpaper">常にデスクトップ壁紙をぼかす</string>
     <string name="home_blur_when_open_folder">フォルダービューがぼやける</string>
     <string name="home_blur_when_open_folder_summary">フォルダを開いたときにぼかしを有効にする</string>
