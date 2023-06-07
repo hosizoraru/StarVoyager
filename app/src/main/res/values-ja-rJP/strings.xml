@@ -334,8 +334,8 @@
     <string name="custom_installation_source">インストール元をカスタマイズ</string>
     <string name="your_source">あなたのソース</string>
     <string name="package_installer_show_more_apk_info">より多くのアプリ情報を表示</string>
-    <string name="package_installer_app_version_name_title">バージョン名</string>
-    <string name="package_installer_app_version_code_title">バージョン番号</string>
+    <string name="package_installer_app_version_name_title">VersionName</string>
+    <string name="package_installer_app_version_code_title">VersionCode</string>
     <string name="package_installer_app_sdk_title">SDK</string>
     <string name="package_installer_app_size_title">サイズ</string>
 
