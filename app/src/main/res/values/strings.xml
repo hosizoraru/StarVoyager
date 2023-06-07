@@ -404,8 +404,6 @@
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
 
-    <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
-    <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
     <string name="disable_flag_secure">Allow screenshot</string>
     <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
@@ -527,6 +525,8 @@
     <string name="can_notification_slide_summary">Some notifications through Mi Push may not be supported.</string>
     <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
     <string name="restore_near_by_tile">Restore NearBy Share tile</string>
+    <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
+    <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
     <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
     <string name="lock_screen_clock_use_system_font">Interface clock uses system fonts</string>
     <string name="lock_screen_date_use_system_font">Interface date uses system fonts</string>
