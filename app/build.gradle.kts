@@ -10,8 +10,8 @@ plugins {
 
 android {
     namespace = "star.sky.voyager"
-    compileSdkPreview = "UpsideDownCake"
-    buildToolsVersion = "34.0.0 rc4"
+    compileSdk = 34
+    buildToolsVersion = "34.0.0"
     ndkVersion = "25.2.9519653"
 
     buildFeatures {
@@ -24,7 +24,7 @@ android {
     defaultConfig {
         applicationId = "star.sky.voyager"
         minSdk = 33
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 20
         versionName = "2.5"
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
