@@ -35,7 +35,6 @@ object StatusBarBattery : HookRegister() {
     private var rightPaddingPx: Int? = 0
     private var topPaddingPx: Int? = 0
     private var bottomPaddingPx: Int? = 0
-    private var leftMargining = 0
     private var color: Int? = 0
 
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
