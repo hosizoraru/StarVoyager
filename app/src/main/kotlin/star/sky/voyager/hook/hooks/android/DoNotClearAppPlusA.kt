@@ -15,6 +15,13 @@ object DoNotClearAppPlusA : HookRegister() {
                 it.result = null
             }
         }
+        loadClass("com.android.server.am.CameraBooster").methodFinder()
+            .filterByName("boostCameraIfNeeded")
+            .first().createHook {
+                before { param ->
+                    param.result = null
+                }
+            }
         loadClass("com.android.server.am.OomAdjuster").methodFinder().first {
             name == "shouldKillExcessiveProcesses"
         }.createHook {
