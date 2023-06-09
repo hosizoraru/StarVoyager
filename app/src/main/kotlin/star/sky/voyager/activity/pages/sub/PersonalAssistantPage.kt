@@ -20,15 +20,17 @@ class PersonalAssistantPage : BasePage() {
             SwitchV("Overlap_Mode")
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.home_widget_to_minus),
-            SwitchV("home_widget_to_minus")
-        )
-        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.restore_switch_minus_screen
             ),
             SwitchV("restore_switch_minus_screen", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.home_widget_to_minus),
+            SwitchV("home_widget_to_minus")
+        )
+        Line()
+        TitleText(textId = R.string.scope_personal_assistant)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.exposure_refresh_for_non_miui_widget,
@@ -36,8 +38,6 @@ class PersonalAssistantPage : BasePage() {
             ),
             SwitchV("exposure_refresh_for_non_miui_widget", false)
         )
-        Line()
-        TitleText(textId = R.string.scope_personal_assistant)
         val blurPersonalAssistantBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
                 "blur_personal_assistant",

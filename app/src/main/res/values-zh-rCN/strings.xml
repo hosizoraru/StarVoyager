@@ -311,7 +311,7 @@
     <string name="super_clipboard_summary">相册里的图片可以手动复制入剪切板</string>
     <string name="ocr">解锁提取文字</string>
     <string name="ocr_form">解锁提取表格</string>
-    <string name="pdf">解锁生成PDF</string>
+    <string name="pdf">解锁生成 PDF</string>
     <string name="id_photo">解锁证件照</string>
     <string name="photo_movie">解锁照片电影</string>
     <string name="video_post">解锁视频特效</string>
@@ -369,7 +369,7 @@
 
     <string name="remove_open_ad">移除开屏广告</string>
 
-    <string name="dc_fps">允许DC+高刷同开</string>
+    <string name="dc_fps">允许 DC+ 高刷同开</string>
     <string name="dc_fps_summary">for mix4 only</string>
     <string name="show_all_fps">显示所有档位的刷新率</string>
     <string name="show_all_fps_summary">但不是全部都可以用</string>
@@ -434,12 +434,12 @@
     <string name="home_recent_view_remove_card_animation">修改划卡动画</string>
     <string name="home_recent_view_remove_card_animation_summary">修改最近任务移除卡片的动画效果</string>
     <string name="add_freeform_shortcut">快捷菜单添加小窗</string>
-    <string name="restore_google_app_icon">恢复Google图标</string>
+    <string name="restore_google_app_icon">恢复 Google 图标</string>
     <string name="home_scroll_icon_name">滚动显示应用名称</string>
     <string name="home_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>
     <string name="home_real_memory">后台显示实际使用和总内存</string>
-    <string name="home_real_memory_summary">去TM MIUI虚假的内存</string>
-    <string name="Use_Transition_Animation">使用Miui小组件的动画</string>
+    <string name="home_real_memory_summary">去 TM MIUI 虚假的内存</string>
+    <string name="Use_Transition_Animation">使用 Miui 小组件的动画</string>
     <string name="Show_MIUI_Widget">在安卓小部件页面显示 MIUI 小部件</string>
     <string name="resizable_widgets">解除小部件大小限制</string>
     <string name="shortcut_remove_restrictions">解除 Shortcuts 数量限制</string>

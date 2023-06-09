@@ -65,8 +65,8 @@ object Home : AppRegister() {
             UseCompleteBlur, // 完整模糊 // 完整模糊补全
             AlwaysBlurWallpaper, // 始终模糊桌面壁纸
             OverlapMode, // Fold 样式智能助理
-            AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏
             RestoreSwitchMinusScreen, // 恢复切换负一屏
+            AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏
             FoldDeviceDock, // 折叠屏底栏样式
             AnimDurationRatio, // 自定义动画速度
             TaskViewCardSize, // 自定义最近任务卡片大小
