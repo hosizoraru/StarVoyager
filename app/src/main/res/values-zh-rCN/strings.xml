@@ -101,6 +101,7 @@
     <string name="show_weather_main_switch">显示天气-总开关</string>
     <string name="already_can_not_use">该功能已失效</string>
     <string name="already_no_necessary">该功能已没必要</string>
+    <string name="open_on_demand">按需开启</string>
     <string name="failed_after_restart">系统重启后仍会还原</string>
     <string name="blur">模糊</string>
     <string name="mod">自定义</string>
@@ -460,6 +461,7 @@
     <string name="home_blur_wallpaper">始终模糊桌面壁纸</string>
     <string name="home_blur_when_open_folder">文件夹视图模糊</string>
     <string name="home_blur_when_open_folder_summary">打开文件夹时启用模糊</string>
+    <string name="download_animation">水波纹下载动画</string>
 
     <string name="home_fold_dock">折叠屏底栏样式</string>
     <string name="fold_dock_num">%d 个</string>

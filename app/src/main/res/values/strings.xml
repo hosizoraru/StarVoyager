@@ -103,6 +103,7 @@
     <string name="show_weather_main_switch">Show Weather - Main Switch</string>
     <string name="already_can_not_use">This function has expired</string>
     <string name="already_no_necessary">This function is no longer necessary</string>
+    <string name="open_on_demand">Necessary to open on demand</string>
     <string name="failed_after_restart">It will be restored after system restart</string>
     <string name="blur">Blur</string>
     <string name="mod">Customization</string>
@@ -462,6 +463,7 @@
     <string name="home_blur_wallpaper">Always blur launcher wallpaper</string>
     <string name="home_blur_when_open_folder">Folder View Blur</string>
     <string name="home_blur_when_open_folder_summary">Enable Blur When Open Folder</string>
+    <string name="download_animation">Download Animation</string>
 
     <string name="home_fold_dock">Dock for folded devices</string>
     <string name="fold_dock_num">%d Num</string>

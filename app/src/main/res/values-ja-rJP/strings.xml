@@ -101,6 +101,7 @@
     <string name="show_weather_main_switch">天気表示-メインスイッチ</string>
     <string name="already_can_not_use">この機能はすでに無効です</string>
     <string name="already_no_necessary">この機能はもはや必要ありません</string>
+    <string name="open_on_demand">需要時に開く</string>
     <string name="failed_after_restart">システムの再起動後でも元に戻ります</string>
     <string name="blur">ブラー</string>
     <string name="mod">カスタム</string>
@@ -460,6 +461,7 @@
     <string name="home_blur_wallpaper">常にデスクトップ壁紙をぼかす</string>
     <string name="home_blur_when_open_folder">フォルダービューがぼやける</string>
     <string name="home_blur_when_open_folder_summary">フォルダを開いたときにぼかしを有効にする</string>
+    <string name="download_animation">水波紋ダウンロードアニメーション</string>
 
     <string name="home_fold_dock">折りたたみスクリーンのドックスタイル</string>
     <string name="fold_dock_num">%d 個</string>

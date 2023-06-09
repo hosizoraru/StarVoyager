@@ -42,6 +42,12 @@ class HomeBlurPage : BasePage() {
             dataBindingRecv = blurBindingBlur.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.home_blur_wallpaper),
+            SwitchV("home_blur_wallpaper")
+        )
+        Line()
+        TitleText(textId = R.string.open_on_demand)
+        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.recent_blur_for_pad6,
                 tipsId = R.string.recent_blur_for_pad6_summary
@@ -50,16 +56,14 @@ class HomeBlurPage : BasePage() {
             dataBindingRecv = blurBindingBlur.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.home_blur_wallpaper),
-            SwitchV("home_blur_wallpaper")
-        )
-        Line()
-        TitleText(textId = R.string.already_no_necessary)
-        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.home_blur_when_open_folder,
                 tipsId = R.string.home_blur_when_open_folder_summary
             ), SwitchV("home_blur_when_open_folder")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.download_animation),
+            SwitchV("download_animation")
         )
     }
 }

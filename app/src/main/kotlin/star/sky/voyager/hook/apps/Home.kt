@@ -11,6 +11,7 @@ import star.sky.voyager.hook.hooks.home.AnimDurationRatio
 import star.sky.voyager.hook.hooks.home.BlurWhenOpenFolder
 import star.sky.voyager.hook.hooks.home.DisableRecentViewWallpaperDarkening
 import star.sky.voyager.hook.hooks.home.DoubleTapToSleep
+import star.sky.voyager.hook.hooks.home.DownloadAnimation
 import star.sky.voyager.hook.hooks.home.FoldDeviceDock
 import star.sky.voyager.hook.hooks.home.FolderAnim
 import star.sky.voyager.hook.hooks.home.FolderColumnsCount
@@ -63,7 +64,6 @@ object Home : AppRegister() {
             SetDeviceLevel, // 解除设备限制
             UseCompleteBlur, // 完整模糊 // 完整模糊补全
             AlwaysBlurWallpaper, // 始终模糊桌面壁纸
-            BlurWhenOpenFolder, // 文件夹视图模糊
             OverlapMode, // Fold 样式智能助理
             AllowMoveAllWidgetToMinus, // 允许将安卓小部件移到负一屏
             RestoreSwitchMinusScreen, // 恢复切换负一屏
@@ -75,6 +75,8 @@ object Home : AppRegister() {
             // max mi pad
             SetGestureNeedFingerNumTo4, // 交换手势所需的手指数量-Home部分
             // max mi pad
+            BlurWhenOpenFolder, // 文件夹视图模糊
+            DownloadAnimation, // 水波纹下载动画
         )
     }
 
