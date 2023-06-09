@@ -62,7 +62,7 @@ class AndroidPage : BasePage() {
             TextSummaryV(
                 textId = R.string.remove_small_window_restrictions,
                 tipsId = R.string.remove_small_window_restrictions_summary
-            ), SwitchV("delete_on_post_notification")
+            ), SwitchV("remove_small_window_restrictions")
         )
         TextSummaryWithArrow(
             TextSummaryV(

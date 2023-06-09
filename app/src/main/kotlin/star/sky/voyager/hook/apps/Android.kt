@@ -8,12 +8,13 @@ import star.sky.voyager.hook.hooks.android.DisableFlagSecure
 import star.sky.voyager.hook.hooks.android.DisableFlagSecureK
 import star.sky.voyager.hook.hooks.android.DoNotClearAppPlusA
 import star.sky.voyager.hook.hooks.android.KillDomainVerification
-import star.sky.voyager.hook.hooks.android.MaxFreeFormA
 import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
+import star.sky.voyager.hook.hooks.android.RemoveSmallWindowRestrictions
 import star.sky.voyager.hook.hooks.android.SystemPropertiesHook
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.hook.hooks.newmaxmipad.DisableFixedOrientation
 import star.sky.voyager.hook.hooks.newmaxmipad.IgnoreStylusKeyGesture
+import star.sky.voyager.hook.hooks.newmaxmipad.MaxFreeForm
 import star.sky.voyager.hook.hooks.newmaxmipad.NoMagicPointer
 import star.sky.voyager.hook.hooks.newmaxmipad.RemoveStylusBluetoothRestriction
 import star.sky.voyager.hook.hooks.newmaxmipad.RestoreEsc
@@ -29,11 +30,12 @@ object Android : AppRegister() {
         autoInitHooks(
             lpparam,
             DisableFlagSecure, // 允许截图
-            DeleteOnPostNotification, // 移除上层显示通知 // 强制使用小窗
+            DeleteOnPostNotification, // 移除上层显示通知
+            RemoveSmallWindowRestrictions, // 强制使用小窗
             MaxWallpaperScale, // 壁纸缩放比例
             AllowUntrustedTouches, // 允许不受信任的触摸
             KillDomainVerification, // 禁用域验证
-            MaxFreeFormA, // 解锁小窗数量限制
+            MaxFreeForm, // 解锁小窗数量限制
             Disable72hVerify, // 禁用每 72h 验证锁屏密码
 //            XYVelocity,
             SystemPropertiesHook, // 媒体音量阶数

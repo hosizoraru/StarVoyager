@@ -12,6 +12,7 @@ import com.github.kyuubiran.ezxhelper.EzXHelper
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
+import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -245,6 +246,17 @@ fun hookPluginClassLoader(onGetClassLoader: (appInfo: ApplicationInfo, classLoad
             }
         }
     }
+}
+
+/**
+ * 执行数组中所有的unhook
+ */
+fun Array<XC_MethodHook.Unhook>.unhookAll() {
+    this.forEach { it.unhook() }
+}
+
+fun Iterable<XC_MethodHook.Unhook>.unhookAll() {
+    this.forEach { it.unhook() }
 }
 
 

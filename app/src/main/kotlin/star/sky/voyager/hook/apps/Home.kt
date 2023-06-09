@@ -16,7 +16,6 @@ import star.sky.voyager.hook.hooks.home.FolderAnim
 import star.sky.voyager.hook.hooks.home.FolderColumnsCount
 import star.sky.voyager.hook.hooks.home.IconCellCount
 import star.sky.voyager.hook.hooks.home.IconCorner
-import star.sky.voyager.hook.hooks.home.MaxFreeFormH
 import star.sky.voyager.hook.hooks.home.ModifyRecentViewRemoveCardAnim
 import star.sky.voyager.hook.hooks.home.MonetColor
 import star.sky.voyager.hook.hooks.home.MonoChromeIcon
@@ -33,6 +32,7 @@ import star.sky.voyager.hook.hooks.home.TaskViewCardSize
 import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
+import star.sky.voyager.hook.hooks.newmaxmipad.MaxFreeForm
 import star.sky.voyager.hook.hooks.newmaxmipad.SetGestureNeedFingerNumTo4
 import star.sky.voyager.utils.init.AppRegister
 
@@ -71,7 +71,7 @@ object Home : AppRegister() {
             AnimDurationRatio, // 自定义动画速度
             TaskViewCardSize, // 自定义最近任务卡片大小
             FolderAnim, // 文件夹动画修改
-            MaxFreeFormH, // 解锁小窗数量限制
+            MaxFreeForm, // 解锁小窗数量限制
             // max mi pad
             SetGestureNeedFingerNumTo4, // 交换手势所需的手指数量-Home部分
             // max mi pad
