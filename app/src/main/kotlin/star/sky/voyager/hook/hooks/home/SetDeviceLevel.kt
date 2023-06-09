@@ -4,7 +4,6 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.findClass
 import star.sky.voyager.utils.api.hookBeforeMethod
@@ -49,8 +48,8 @@ object SetDeviceLevel : HookRegister() {
                         it.result = 2
                     }
                 }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             deviceConfigClass.methodFinder()
@@ -60,8 +59,8 @@ object SetDeviceLevel : HookRegister() {
                         it.result = true
                     }
                 }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             deviceLevelUtilsClass.methodFinder()
@@ -71,8 +70,8 @@ object SetDeviceLevel : HookRegister() {
                         it.result = false
                     }
                 }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             deviceConfigClass.methodFinder()
@@ -82,8 +81,8 @@ object SetDeviceLevel : HookRegister() {
                         it.result = false
                     }
                 }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             "com.miui.home.launcher.util.noword.NoWordSettingHelperKt".hookBeforeMethod(
@@ -92,8 +91,8 @@ object SetDeviceLevel : HookRegister() {
             ) {
                 it.result = true
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
 
         try {
@@ -106,8 +105,8 @@ object SetDeviceLevel : HookRegister() {
                         if (it.args[0] == "ro.miui.backdrop_sampling_enabled") it.result = true
                     }
                 }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             "com.miui.home.launcher.common.Utilities".hookBeforeMethod(
@@ -116,8 +115,8 @@ object SetDeviceLevel : HookRegister() {
             ) {
                 it.result = true
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             "com.miui.home.launcher.MIUIWidgetUtil".hookBeforeMethod(
@@ -126,8 +125,8 @@ object SetDeviceLevel : HookRegister() {
             ) {
                 it.result = true
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             "com.miui.home.launcher.MiuiHomeLog".findClass(classLoader).replaceMethod(
@@ -135,15 +134,15 @@ object SetDeviceLevel : HookRegister() {
             ) {
                 return@replaceMethod null
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
         try {
             "com.xiaomi.onetrack.OneTrack".hookBeforeMethod(classLoader, "isDisable") {
                 it.result = true
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
+        } catch (_: Throwable) {
+
         }
     }
 }
