@@ -533,6 +533,8 @@
     <string name="can_notification_slide">ほとんどのアプリの通知がフローティングウィンドウで展開することを許可</string>
     <string name="can_notification_slide_summary">Mi Push 経由の一部の通知はサポートされていない可能性があります</string>
     <string name="notification_settings_no_white_list">通知設定のホワイトリストを削除</string>
+    <string name="notification_channel_setting">チャネル設定を開く</string>
+    <string name="notification_channel_setting_summary">通知メニューから設定を開くと、アプリの一般的な通知設定ではなく、チャネル設定が表示されます</string>
     <string name="restore_near_by_tile">ニアバイシェアタイルを復元</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">Bluetooth の一時的な無効化</string>
     <string name="Disable_Bluetooth_summary">コントロールセンターで Bluetooth をオフにすると、完全に切断されます</string>

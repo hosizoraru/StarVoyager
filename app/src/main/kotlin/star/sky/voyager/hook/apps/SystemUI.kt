@@ -26,6 +26,7 @@ import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.MonetTheme
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
+import star.sky.voyager.hook.hooks.systemui.NotificationClickInfoItemStartChannelSetting
 import star.sky.voyager.hook.hooks.systemui.NotificationMod
 import star.sky.voyager.hook.hooks.systemui.NotificationSettingsNoWhiteList
 import star.sky.voyager.hook.hooks.systemui.NotificationWeather
@@ -71,7 +72,7 @@ object SystemUI : AppRegister() {
 //            NewNotificationWeather, // XX中心天气
             CanNotificationSlide, // 允许大多数应用通知下拉展开小窗
             NotificationSettingsNoWhiteList, // 移除通知设置白名单
-//            NotificationClickInfoItemStartChannelSetting, // 打开通知频道设置 打开通知菜单的设置会导航至频道设置而不是应用通用通知设置
+            NotificationClickInfoItemStartChannelSetting, // 打开通知频道设置 打开通知菜单的设置会导航至频道设置而不是应用通用通知设置
             RestoreNearbyTile, // 恢复附近分享磁贴
             DisableBluetooth, // 禁用蓝牙临时关闭
             LockScreenClockDisplaySeconds, // 时钟显示秒数

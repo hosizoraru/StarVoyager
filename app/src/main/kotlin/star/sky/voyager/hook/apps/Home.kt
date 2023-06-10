@@ -35,6 +35,7 @@ import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
 import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
 import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
+import star.sky.voyager.hook.hooks.multipackage.MultipleFreeform
 import star.sky.voyager.utils.init.AppRegister
 
 object Home : AppRegister() {
@@ -77,6 +78,7 @@ object Home : AppRegister() {
             // max mi pad
             BlurWhenOpenFolder, // 文件夹视图模糊
             DownloadAnimation, // 水波纹下载动画
+            MultipleFreeform,
         )
     }
 

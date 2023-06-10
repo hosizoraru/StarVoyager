@@ -258,25 +258,3 @@ fun Array<XC_MethodHook.Unhook>.unhookAll() {
 fun Iterable<XC_MethodHook.Unhook>.unhookAll() {
     this.forEach { it.unhook() }
 }
-
-
-//@RefineAs(Context::class)
-//class ContextHidden {
-//    fun startActivityAsUser(
-//        intent: Intent?,
-//        user: UserHandle?
-//    ) {
-//        throw RuntimeException("Stub!")
-//    }
-//}
-//
-//
-//@RefineAs(UserHandle::class)
-//object UserHandleHidden {
-//    const val USER_ALL = -1
-//    const val USER_CURRENT = -2
-//    val CURRENT: UserHandle? = null /*new UserHandle(USER_CURRENT) */
-//    fun of(userId: Int): UserHandle {
-//        throw java.lang.RuntimeException("Stub!")
-//    }
-//}

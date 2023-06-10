@@ -58,6 +58,13 @@ class NotificationCenterPage : BasePage() {
             ),
             SwitchV("notification_settings_no_white_list", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.notification_channel_setting,
+                tipsId = R.string.notification_channel_setting_summary,
+            ),
+            SwitchV("notification_channel_setting"),
+        )
         Line()
         TitleText(textId = R.string.notification_mod_tips)
         TextSummaryWithSwitch(

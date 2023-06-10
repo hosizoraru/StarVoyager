@@ -100,8 +100,5 @@ dependencies {
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
-//    implementation(libs.rikka.tools.refine.runtime)
-//    annotationProcessor(libs.rikka.tools.refine.annotation.processor)
-//    compileOnly(libs.rikka.tools.refine.annotation)
     compileOnly(libs.xposed)
 }
