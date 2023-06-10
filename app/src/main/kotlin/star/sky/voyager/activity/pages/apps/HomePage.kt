@@ -65,6 +65,12 @@ class HomePage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.add_multi_instance_shortcut
+            ),
+            SwitchV("add_multi_instance_shortcut", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.restore_google_app_icon
             ),
             SwitchV("restore_google_app_icon", false)

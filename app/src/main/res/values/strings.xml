@@ -118,6 +118,7 @@
     <string name="require_hardware_support">Hardware support is required</string>
     <string name="camera_sensor">Camera Sensor</string>
     <string name="mic_sensor">Mic Sensor</string>
+    <string name="multiple_instances">Multi-instance</string>
 
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">time use system font</string>
@@ -436,6 +437,7 @@
     <string name="home_recent_view_remove_card_animation">Modify the card marking animation</string>
     <string name="home_recent_view_remove_card_animation_summary">Modify the animation effect of the recent task removal card</string>
     <string name="add_freeform_shortcut">Add freeform shortcut</string>
+    <string name="add_multi_instance_shortcut">Add Multi-instance</string>
     <string name="restore_google_app_icon">Restore google app icon</string>
     <string name="home_scroll_icon_name">Scroll app name</string>
     <string name="home_scroll_icon_name_summary">The application name that is too long will be scrolled and displayed without any new line</string>

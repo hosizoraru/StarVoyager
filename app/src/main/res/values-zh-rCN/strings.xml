@@ -116,6 +116,7 @@
     <string name="require_hardware_support">需要硬件支持</string>
     <string name="camera_sensor">摄像头传感器</string>
     <string name="mic_sensor">麦克风传感器</string>
+    <string name="multiple_instances">多开</string>
 
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>
@@ -434,6 +435,7 @@
     <string name="home_recent_view_remove_card_animation">修改划卡动画</string>
     <string name="home_recent_view_remove_card_animation_summary">修改最近任务移除卡片的动画效果</string>
     <string name="add_freeform_shortcut">快捷菜单添加小窗</string>
+    <string name="add_multi_instance_shortcut">快捷菜单添加多开实例</string>
     <string name="restore_google_app_icon">恢复 Google 图标</string>
     <string name="home_scroll_icon_name">滚动显示应用名称</string>
     <string name="home_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>

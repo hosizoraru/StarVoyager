@@ -88,7 +88,7 @@
     <string name="none">なし</string>
     <string name="left">左</string>
     <string name="right">右</string>
-    <string name="freeform">フローティングウィンドウ</string>
+    <string name="freeform">ミニウィンドウ</string>
     <string name="notification_center">通知センター</string>
     <string name="show_city">都市を表示</string>
     <string name="control_center">コントロールセンター</string>
@@ -116,6 +116,7 @@
     <string name="require_hardware_support">ハードウェアサポートが必要です</string>
     <string name="camera_sensor">カメラセンサー</string>
     <string name="mic_sensor">マイクセンサー</string>
+    <string name="multiple_instances">複数起動</string>
 
     <string name="notification_mod_tips">Mix4 のデフォルトのフォントサイズ: 130 41 37\nMiPad5Pro のデフォルトのフォントサイズ: 97 31 30</string>
     <string name="notification_time_font">時間はシステムフォントを使用</string>
@@ -433,7 +434,8 @@
     <string name="home_recent_view_wallpaper_darkening_summary">最近のタスクを表示/非表示するときに壁紙が暗くなりから明るくなる効果を無効にします</string>
     <string name="home_recent_view_remove_card_animation">カードスワイプアニメーションを変更</string>
     <string name="home_recent_view_remove_card_animation_summary">最近のタスクからカードを削除するアニメーション効果を変更します</string>
-    <string name="add_freeform_shortcut">ショートカットメニューにフローティングウィンドウを追加 (オプション) </string>
+    <string name="add_freeform_shortcut">ショートカットメニューに ミニウィンドウ を追加 (オプション)</string>
+    <string name="add_multi_instance_shortcut">クイックメニューに マルチインスタンス (複数起動) を追加する</string>
     <string name="restore_google_app_icon">Google のアイコンを復元</string>
     <string name="home_scroll_icon_name">アプリ名をスクロールして表示</string>
     <string name="home_scroll_icon_name_summary">長すぎるアプリ名はスクロールされて表示され、改行されません</string>
@@ -530,7 +532,7 @@
     <string name="system_ui_use_new_hd">新しい HD  アイコンを強制使用</string>
     <string name="system_ui_use_new_summary">より新しいシステムバージョンが必要で、一部のデバイスはまだ対応していない可能性があります</string>
     <string name="battery_percentage_font_size">バッテリー残量のフォントサイズ</string>
-    <string name="can_notification_slide">ほとんどのアプリの通知がフローティングウィンドウで展開することを許可</string>
+    <string name="can_notification_slide">ほとんどのアプリの通知がミニウィンドウで展開することを許可</string>
     <string name="can_notification_slide_summary">Mi Push 経由の一部の通知はサポートされていない可能性があります</string>
     <string name="notification_settings_no_white_list">通知設定のホワイトリストを削除</string>
     <string name="notification_channel_setting">チャネル設定を開く</string>

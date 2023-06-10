@@ -17,14 +17,13 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import de.robv.android.xposed.XposedHelpers
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object AddFreeformShortcut : HookRegister() {
     @SuppressLint("DiscouragedApi")
-    override fun init() = hasEnable("add_freeform_shortcut") {
+    override fun init() {
         val clazzSystemShortcutMenuItem =
             loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenuItem")
         val appDetailsShortcutMenuItem =
@@ -50,8 +49,10 @@ object AddFreeformShortcut : HookRegister() {
             .filterByName("getShortTitle")
             .toList().createHooks {
                 after { param ->
-                    if (param.result.equals("应用信息")) {
-                        param.result = "信息"
+                    param.result = when (param.result) {
+                        "应用信息" -> "信息"
+                        "アプリ情報" -> "情報"
+                        else -> param.result
                     }
                 }
             }
@@ -59,19 +60,26 @@ object AddFreeformShortcut : HookRegister() {
             .filterByName("getOnClickListener")
             .toList().createHooks {
                 before { param ->
-                    when (invokeMethodBestMatch(param.thisObject, "getShortTitle")) {
-                        moduleRes.getString(R.string.freeform) -> {
+                    when (val shortTitle =
+                        invokeMethodBestMatch(param.thisObject, "getShortTitle")) {
+                        in setOf(
+                            moduleRes.getString(R.string.freeform),
+                            moduleRes.getString(R.string.multiple_instances)
+                        ) -> {
                             param.result = View.OnClickListener { view ->
                                 val context = view.context
-                                val componentName = XposedHelpers.callMethod(
-                                    param.thisObject,
-                                    "getComponentName"
-                                ) as ComponentName
+                                val componentName =
+                                    invokeMethodBestMatch(
+                                        param.thisObject,
+                                        "getComponentName"
+                                    ) as ComponentName
                                 val intent = Intent().apply {
                                     action = "android.intent.action.MAIN"
-                                    addCategory("android.intent.category.DEFAULT")
+                                    // addCategory("android.intent.category.DEFAULT")
                                     component = componentName
                                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    if (shortTitle?.equals(moduleRes.getString(R.string.multiple_instances)) == true
+                                    ) addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
                                 }
                                 invokeStaticMethodBestMatch(
                                     loadClass("com.miui.launcher.utils.ActivityUtilsCompat"),
@@ -135,9 +143,35 @@ object AddFreeformShortcut : HookRegister() {
                                     }
                                 )
                             }
+                    val mMultiSmallWindowInstance =
+                        loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenuItem\$AppDetailsShortcutMenuItem").newInstance()
+                            .apply {
+                                invokeMethodBestMatch(
+                                    this,
+                                    "setShortTitle",
+                                    null,
+                                    moduleRes.getString(R.string.multiple_instances)
+                                )
+                                invokeMethodBestMatch(
+                                    this,
+                                    "setIconDrawable",
+                                    null,
+                                    appContext.let {
+                                        it.getDrawable(
+                                            it.resources.getIdentifier(
+                                                "ic_task_add_pair", "drawable", hostPackageName
+                                            )
+                                        )
+                                    })
+                            }
 
                     val sAllSystemShortcutMenuItems = ArrayList<Any>().apply {
-                        add(mSmallWindowInstance)
+                        hasEnable("add_freeform_shortcut") {
+                            add(mSmallWindowInstance)
+                        }
+                        hasEnable("add_multi_instance_shortcut") {
+                            add(mMultiSmallWindowInstance)
+                        }
                         addAll(mAllSystemShortcutMenuItems)
                     }
                     setStaticObject(
