@@ -1,4 +1,4 @@
-package star.sky.voyager.hook.hooks.newmaxmipad
+package star.sky.voyager.hook.hooks.maxmipad
 
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook

@@ -1,7 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import star.sky.voyager.hook.hooks.cast.ForceSupportSendApp
+import star.sky.voyager.hook.hooks.multipackage.ForceSupportSendApp
 import star.sky.voyager.utils.init.AppRegister
 
 object Cast : AppRegister() {

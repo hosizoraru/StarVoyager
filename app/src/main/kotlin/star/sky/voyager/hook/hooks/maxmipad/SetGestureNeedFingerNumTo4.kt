@@ -1,4 +1,4 @@
-package star.sky.voyager.hook.hooks.newmaxmipad
+package star.sky.voyager.hook.hooks.maxmipad
 
 import android.view.MotionEvent
 import com.github.kyuubiran.ezxhelper.ClassUtils.getStaticObjectOrNullAs

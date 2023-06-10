@@ -33,8 +33,8 @@ import star.sky.voyager.hook.hooks.home.TaskViewCardSize
 import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
-import star.sky.voyager.hook.hooks.newmaxmipad.MaxFreeForm
-import star.sky.voyager.hook.hooks.newmaxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
 import star.sky.voyager.utils.init.AppRegister
 
 object Home : AppRegister() {

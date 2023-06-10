@@ -12,13 +12,13 @@ import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
 import star.sky.voyager.hook.hooks.android.RemoveSmallWindowRestrictions
 import star.sky.voyager.hook.hooks.android.SystemPropertiesHook
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
-import star.sky.voyager.hook.hooks.newmaxmipad.DisableFixedOrientation
-import star.sky.voyager.hook.hooks.newmaxmipad.IgnoreStylusKeyGesture
-import star.sky.voyager.hook.hooks.newmaxmipad.MaxFreeForm
-import star.sky.voyager.hook.hooks.newmaxmipad.NoMagicPointer
-import star.sky.voyager.hook.hooks.newmaxmipad.RemoveStylusBluetoothRestriction
-import star.sky.voyager.hook.hooks.newmaxmipad.RestoreEsc
-import star.sky.voyager.hook.hooks.newmaxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.maxmipad.DisableFixedOrientation
+import star.sky.voyager.hook.hooks.maxmipad.IgnoreStylusKeyGesture
+import star.sky.voyager.hook.hooks.maxmipad.NoMagicPointer
+import star.sky.voyager.hook.hooks.maxmipad.RemoveStylusBluetoothRestriction
+import star.sky.voyager.hook.hooks.maxmipad.RestoreEsc
+import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
 import star.sky.voyager.utils.init.AppRegister
 
 object Android : AppRegister() {
