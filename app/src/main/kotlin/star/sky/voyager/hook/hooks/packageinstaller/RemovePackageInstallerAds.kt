@@ -1,7 +1,6 @@
 package star.sky.voyager.hook.hooks.packageinstaller
 
 import android.content.Context
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -12,23 +11,23 @@ import star.sky.voyager.utils.key.hasEnable
 object RemovePackageInstallerAds : HookRegister() {
     override fun init() = hasEnable("package_installer_remove_ads") {
         val miuiSettingsCompatClass =
-            loadClass("com.android.packageinstaller.compat.MiuiSettingsCompat")
+            loadClassOrNull("com.android.packageinstaller.compat.MiuiSettingsCompat")
         val qaq = listOf("s", "q", "f", "t", "r")
 
-        miuiSettingsCompatClass.methodFinder()
-            .filterByName("isPersonalizedAdEnabled")
-            .filterByReturnType(Boolean::class.java)
-            .firstOrNull()?.createHook {
+        miuiSettingsCompatClass?.methodFinder()
+            ?.filterByName("isPersonalizedAdEnabled")
+            ?.filterByReturnType(Boolean::class.java)
+            ?.firstOrNull()?.createHook {
                 after {
                     it.result = false
                 }
             } ?: println("Could not find method 'isPersonalizedAdEnabled'")
 
-        miuiSettingsCompatClass.methodFinder()
-            .filterByName("isInstallRiskEnabled")
-            .filterByParamCount(1)
-            .filterByParamTypes(Context::class.java)
-            .firstOrNull()?.createHook {
+        miuiSettingsCompatClass?.methodFinder()
+            ?.filterByName("isInstallRiskEnabled")
+            ?.filterByParamCount(1)
+            ?.filterByParamTypes(Context::class.java)
+            ?.firstOrNull()?.createHook {
                 after {
                     it.result = false
                 }
