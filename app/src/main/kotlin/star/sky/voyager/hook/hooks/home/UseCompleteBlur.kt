@@ -6,8 +6,7 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import star.sky.voyager.utils.api.callStaticMethod
-import star.sky.voyager.utils.api.hookBeforeMethod
+import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
@@ -20,18 +19,32 @@ object UseCompleteBlur : HookRegister() {
         blurUtilsClass.methodFinder()
             .filterByName("getBlurType")
             .first().createHook {
-                before {
-                    it.result = 2
-                }
+                returnConstant(2)
             }
         hasEnable("home_complete_blur_fix") {
-            navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
-                val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
-                val value = 1 - it.args[0] as Float
-                if (value != 1f) {
-                    blurUtilsClass.callStaticMethod("fastBlurDirectly", value, mLauncher.window)
+            navStubViewClass.methodFinder()
+                .filterByName("appTouchResolution")
+                .filterByParamTypes(MotionEvent::class.java)
+                .first().createHook {
+                    before {
+                        val mLauncher = it.thisObject.getObjectField("mLauncher") as Activity?
+                        invokeStaticMethodBestMatch(
+                            blurUtilsClass,
+                            "fastBlurDirectly",
+                            null,
+                            1.0f,
+                            mLauncher?.window
+                        )
+                    }
                 }
-            }
+            // 可能会导致从应用内返回桌面时模糊壁纸
+//            navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
+//                val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
+//                val value = 1 - it.args[0] as Float
+//                if (value != 1f) {
+//                    blurUtilsClass.callStaticMethod("fastBlurDirectly", value, mLauncher.window)
+//                }
+//            }
             hasEnable("recent_blur_for_pad6") {
                 navStubViewClass.methodFinder()
                     .filterByName("onTouchEvent")
