@@ -10,6 +10,7 @@ import com.github.kyuubiran.ezxhelper.LogExtensions.logexIfThrow
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_INTERNATIONAL_BUILD
 
 object RestoreNearbyTile : HookRegister() {
     private var isTrulyInit: Boolean = false
@@ -36,9 +37,7 @@ object RestoreNearbyTile : HookRegister() {
                         .logexIfThrow("Failed truly init hook: ${this@RestoreNearbyTile.javaClass.simpleName}")
                 }
             }
-        if (!loadClass("miui.os.Build").getField("IS_INTERNATIONAL_BUILD")
-                .getBoolean(null)
-        ) {
+        if (!IS_INTERNATIONAL_BUILD) {
             val isInternationalHook: HookFactory.() -> Unit = {
                 val constantsClazz =
                     loadClass("com.android.systemui.controlcenter.utils.Constants")

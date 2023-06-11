@@ -9,15 +9,13 @@ import star.sky.voyager.utils.key.hasEnable
 
 object NoMagicPointer : HookRegister() {
     override fun init() = hasEnable("no_magic_pointer") {
-        loadClassOrNull("android.magicpointer.util.MiuiMagicPointerUtils")
-            ?.methodFinder()
+        loadClassOrNull("android.magicpointer.util.MiuiMagicPointerUtils")?.methodFinder()
             ?.filterByName("isEnable")
             ?.first()?.createHook {
                 returnConstant(false)
             }
         loadClass("com.android.server.SystemServerImpl").methodFinder()
-            .filterByName("addMagicPointerManagerService")
-            .first().createHook {
+            .filterByName("addMagicPointerManagerService").first().createHook {
                 returnConstant(null)
             }
     }
