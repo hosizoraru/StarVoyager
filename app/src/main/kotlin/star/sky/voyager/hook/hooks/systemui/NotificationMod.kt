@@ -8,25 +8,29 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
-import star.sky.voyager.utils.api.isPad
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object NotificationMod : HookRegister() {
     private var timeSize: Float = 0.0f
     private var dateSize: Float = 0.0f
     private var clockSize: Float = 0.0f
     override fun init() {
-        if (!isPad()) {
-            timeSize = getInt("notification_time_size", 130).toFloat()
-            dateSize = getInt("notification_date_size", 41).toFloat()
-            clockSize = getInt("notification_land_clock_size", 37).toFloat()
-        } else {
-            timeSize = getInt("notification_time_size", 97).toFloat()
-            dateSize = getInt("notification_date_size", 31).toFloat()
-            clockSize = getInt("notification_land_clock_size", 30).toFloat()
+        when {
+            IS_TABLET -> {
+                timeSize = getInt("notification_time_size", 97).toFloat()
+                dateSize = getInt("notification_date_size", 31).toFloat()
+                clockSize = getInt("notification_land_clock_size", 30).toFloat()
+            }
+
+            else -> {
+                timeSize = getInt("notification_time_size", 130).toFloat()
+                dateSize = getInt("notification_date_size", 41).toFloat()
+                clockSize = getInt("notification_land_clock_size", 37).toFloat()
+            }
         }
 
         val timeColor = parseColor(getString("notification_time_color", "#FFFFFF"))

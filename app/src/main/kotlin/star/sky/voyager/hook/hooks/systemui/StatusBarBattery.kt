@@ -19,12 +19,12 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
-import star.sky.voyager.utils.api.isPad
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 import kotlin.math.abs
 
 @SuppressLint("StaticFieldLeak")
@@ -46,15 +46,15 @@ object StatusBarBattery : HookRegister() {
         val lineSpacingMulti = getInt("status_bar_battery_line_spacing_multi", 80).toFloat() / 100
 
         val leftPadding =
-            getInt("status_bar_battery_left_padding", if (!isPad()) 8 else 0).toFloat()
+            getInt("status_bar_battery_left_padding", if (IS_TABLET) 0 else 8).toFloat()
         val rightPadding =
-            getInt("status_bar_battery_right_padding", if (!isPad()) 0 else 2).toFloat()
+            getInt("status_bar_battery_right_padding", if (IS_TABLET) 2 else 0).toFloat()
         val topPadding = getInt("status_bar_battery_top_padding", 0).toFloat()
         val bottomPadding = getInt("status_bar_battery_bottom_padding", 0).toFloat()
 
-        val leftMargining = getInt("status_bar_battery_left_margining", if (!isPad()) -7 else 1)
+        val leftMargining = getInt("status_bar_battery_left_margining", if (IS_TABLET) 1 else -7)
         val rightMargining = getInt("status_bar_battery_right_margining", 0)
-        val topMargining = getInt("status_bar_battery_top_margining", if (!isPad()) 0 else -20)
+        val topMargining = getInt("status_bar_battery_top_margining", if (IS_TABLET) -20 else 0)
         val bottomMargining = getInt("status_bar_battery_bottom_margining", 0)
 
         val miuiPhoneStatusBarViewClass =

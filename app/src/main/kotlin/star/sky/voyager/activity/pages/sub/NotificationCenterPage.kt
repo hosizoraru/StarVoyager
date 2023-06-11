@@ -11,7 +11,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
-import star.sky.voyager.utils.api.isPad
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("notification_center", "Notification Center", hideMenu = false)
 class NotificationCenterPage : BasePage() {
@@ -77,15 +77,15 @@ class NotificationCenterPage : BasePage() {
                 textId = R.string.notification_time_bold,
             ), SwitchV("notification_time_bold", false)
         )
-        if (!isPad()) {
+        if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_time_size),
-                SeekBarWithTextV("notification_time_size", 60, 200, 130)
+                SeekBarWithTextV("notification_time_size", 50, 194, 97)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_time_size),
-                SeekBarWithTextV("notification_time_size", 50, 194, 97)
+                SeekBarWithTextV("notification_time_size", 60, 200, 130)
             )
         }
         TextSummaryWithArrow(
@@ -126,15 +126,15 @@ class NotificationCenterPage : BasePage() {
                 textId = R.string.notification_date_bold,
             ), SwitchV("notification_date_bold", false)
         )
-        if (!isPad()) {
+        if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_date_size),
-                SeekBarWithTextV("notification_date_size", 20, 82, 41)
+                SeekBarWithTextV("notification_date_size", 10, 62, 31)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_date_size),
-                SeekBarWithTextV("notification_date_size", 10, 62, 31)
+                SeekBarWithTextV("notification_date_size", 20, 82, 41)
             )
         }
         TextSummaryWithArrow(
@@ -175,15 +175,15 @@ class NotificationCenterPage : BasePage() {
                 textId = R.string.notification_land_clock_bold,
             ), SwitchV("notification_land_clock_bold", false)
         )
-        if (!isPad()) {
+        if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_land_clock_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 74, 37)
+                SeekBarWithTextV("notification_land_clock_size", 10, 60, 30)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_land_clock_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 60, 30)
+                SeekBarWithTextV("notification_land_clock_size", 10, 74, 37)
             )
         }
         TextSummaryWithArrow(

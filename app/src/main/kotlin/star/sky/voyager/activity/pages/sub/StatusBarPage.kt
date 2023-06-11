@@ -10,7 +10,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
-import star.sky.voyager.utils.api.isPad
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("status_bar", "Status Bar", hideMenu = false)
 class StatusBarPage : BasePage() {
@@ -117,12 +117,12 @@ class StatusBarPage : BasePage() {
         Line()
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_left_padding),
-            SeekBarWithTextV("status_bar_battery_left_padding", -1, 20, if (!isPad()) 8 else 0)
+            SeekBarWithTextV("status_bar_battery_left_padding", -1, 20, if (IS_TABLET) 0 else 8)
         )
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_right_padding),
-            SeekBarWithTextV("status_bar_battery_right_padding", -1, 20, if (!isPad()) 0 else 2)
+            SeekBarWithTextV("status_bar_battery_right_padding", -1, 20, if (IS_TABLET) 2 else 0)
         )
 
         TextWithSeekBar(
@@ -137,7 +137,7 @@ class StatusBarPage : BasePage() {
         Line()
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_left_margining),
-            SeekBarWithTextV("status_bar_battery_left_margining", -20, 20, if (!isPad()) -7 else 1)
+            SeekBarWithTextV("status_bar_battery_left_margining", -20, 20, if (IS_TABLET) 1 else -7)
         )
 
         TextWithSeekBar(
@@ -147,7 +147,7 @@ class StatusBarPage : BasePage() {
 
         TextWithSeekBar(
             TextV(textId = R.string.status_bar_battery_top_margining),
-            SeekBarWithTextV("status_bar_battery_top_margining", -20, 20, if (!isPad()) 0 else -20)
+            SeekBarWithTextV("status_bar_battery_top_margining", -20, 20, if (IS_TABLET) -20 else 0)
         )
 
         TextWithSeekBar(

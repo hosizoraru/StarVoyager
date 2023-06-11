@@ -9,11 +9,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.api.hookPluginClassLoader
-import star.sky.voyager.utils.api.isPad
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object ControlCenterMod : HookRegister() {
     private var clockSize: Float = 0.0f
@@ -23,19 +23,19 @@ object ControlCenterMod : HookRegister() {
     override fun init() {
 //        val controlCenterStatusBarClass =
 //            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
-        if (!isPad()) {
-            clockSize = getInt("control_center_clock_size", 133).toFloat()
-            dateSize = getInt("control_center_date_size", 43).toFloat()
-//            carrierSize = getInt("control_center_carrier_size", 37).toFloat()
-        } else {
+        if (IS_TABLET) {
             clockSize = getInt("control_center_clock_size", 98).toFloat()
             dateSize = getInt("control_center_date_size", 32).toFloat()
 //            carrierSize = getInt("control_center_carrier_size", 30).toFloat()
+        } else {
+            clockSize = getInt("control_center_clock_size", 133).toFloat()
+            dateSize = getInt("control_center_date_size", 43).toFloat()
+//            carrierSize = getInt("control_center_carrier_size", 37).toFloat()
         }
         val clockColor = parseColor(getString("control_center_clock_color", "#FFFFFF"))
         val dateColor = parseColor(getString("control_center_date_color", "#FFFFFF"))
 //        val carrierColor = parseColor(getString("control_center_carrier_color", "#FFFFFF"))
-        hookPluginClassLoader { appInfo, classLoader ->
+        hookPluginClassLoader { _, classLoader ->
             loadClass(
                 "miui.systemui.controlcenter.windowview.MainPanelHeaderController",
                 classLoader

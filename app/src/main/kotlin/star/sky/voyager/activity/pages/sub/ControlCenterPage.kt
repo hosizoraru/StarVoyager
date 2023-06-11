@@ -11,7 +11,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
-import star.sky.voyager.utils.api.isPad
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("control_center", "Control Center", hideMenu = false)
 class ControlCenterPage : BasePage() {
@@ -72,15 +72,15 @@ class ControlCenterPage : BasePage() {
                 textId = R.string.control_center_clock_bold,
             ), SwitchV("control_center_clock_bold", false)
         )
-        if (!isPad()) {
+        if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_clock_size),
-                SeekBarWithTextV("control_center_clock_size", 80, 200, 133)
+                SeekBarWithTextV("control_center_clock_size", 50, 150, 98)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_clock_size),
-                SeekBarWithTextV("control_center_clock_size", 50, 150, 98)
+                SeekBarWithTextV("control_center_clock_size", 80, 200, 133)
             )
         }
         TextSummaryWithArrow(
@@ -124,15 +124,15 @@ class ControlCenterPage : BasePage() {
                 textId = R.string.control_center_date_bold,
             ), SwitchV("control_center_date_bold", false)
         )
-        if (!isPad()) {
+        if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_date_size),
-                SeekBarWithTextV("control_center_date_size", 20, 86, 43)
+                SeekBarWithTextV("control_center_date_size", 10, 64, 32)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_date_size),
-                SeekBarWithTextV("control_center_date_size", 10, 64, 32)
+                SeekBarWithTextV("control_center_date_size", 20, 86, 43)
             )
         }
         TextSummaryWithArrow(
@@ -176,7 +176,7 @@ class ControlCenterPage : BasePage() {
 //                textId = R.string.control_center_carrier_bold,
 //            ), SwitchV("control_center_carrier_bold", false)
 //        )
-//        if (!isPad()) {
+//        if (!IS_TABLET) {
 //            TextWithSeekBar(
 //                TextV(textId = R.string.control_center_carrier_size),
 //                SeekBarWithTextV("control_center_carrier_size", 10, 74, 37)
