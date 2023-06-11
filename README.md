@@ -21,6 +21,7 @@
 ### 下载地址
 
 `Telegram Channel` :   [Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
+`Telegram Group` : [StarVoyager Ideal](https://t.me/+xtTB-ijLrlY2ZjFl)  
 `GitHub` 的 [`Releases`页面](https://github.com/hosizoraru/StarVoyager/releases)  
 `GitHub Actions` 的 [`CI构建`](https://github.com/hosizoraru/StarVoyager/actions)  
 `Lsposed 仓库` 的 [Release](https://github.com/Xposed-Modules-Repo/star.sky.voyager/releases)
