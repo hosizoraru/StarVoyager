@@ -14,16 +14,56 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.EzXHelper.initAppContext
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object AddFreeformShortcut : HookRegister() {
-    @SuppressLint("DiscouragedApi")
     override fun init() {
+        if (IS_TABLET) initForPad() else initForPhone()
+        loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenu").methodFinder()
+            .filterByName("getMaxShortcutItemCount").toList().createHooks {
+                after { param ->
+                    param.result = 6
+                }
+            }
+        loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu").methodFinder()
+            .filterByName("getMaxShortcutItemCount").toList().createHooks {
+                after { param ->
+                    param.result = 6
+                }
+            }
+        loadClass("com.miui.home.launcher.shortcuts.ShortcutMenuItem").methodFinder()
+            .filterByName("getShortTitle")
+            .toList().createHooks {
+                after { param ->
+                    param.result = when (param.result) {
+                        "应用信息" -> "信息"
+                        "新建窗口" -> "多开"
+                        "アプリ情報" -> "情報"
+                        "アソイソストール" -> "削除"
+                        else -> param.result
+                    }
+                }
+            }
+    }
+
+    private fun initForPad() {
+        hasEnable("add_multi_instance_shortcut") {
+            loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenuItem\$MultipleSmallWindowShortcutMenuItem").methodFinder()
+                .filterByName("isValid").first().createHook { returnConstant(true) }
+            loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenuItem\$SmallWindowShortcutMenuItem").methodFinder()
+                .filterByName("isValid").first().createHook { returnConstant(true) }
+        }
+    }
+
+    @SuppressLint("DiscouragedApi")
+    private fun initForPhone() {
         val clazzSystemShortcutMenuItem =
             loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenuItem")
         val appDetailsShortcutMenuItem =
@@ -45,17 +85,7 @@ object AddFreeformShortcut : HookRegister() {
                     )
                 }
             }
-        loadClass("com.miui.home.launcher.shortcuts.ShortcutMenuItem").methodFinder()
-            .filterByName("getShortTitle")
-            .toList().createHooks {
-                after { param ->
-                    param.result = when (param.result) {
-                        "应用信息" -> "信息"
-                        "アプリ情報" -> "情報"
-                        else -> param.result
-                    }
-                }
-            }
+
         appDetailsShortcutMenuItem.methodFinder()
             .filterByName("getOnClickListener")
             .toList().createHooks {
@@ -78,8 +108,9 @@ object AddFreeformShortcut : HookRegister() {
                                     // addCategory("android.intent.category.DEFAULT")
                                     component = componentName
                                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    if (shortTitle?.equals(moduleRes.getString(R.string.multiple_instances)) == true
-                                    ) addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                                    if (shortTitle == moduleRes.getString(R.string.multiple_instances)) addFlags(
+                                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+                                    )
                                 }
                                 invokeStaticMethodBestMatch(
                                     loadClass("com.miui.launcher.utils.ActivityUtilsCompat"),
@@ -96,20 +127,6 @@ object AddFreeformShortcut : HookRegister() {
                             }
                         }
                     }
-                }
-            }
-        loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenu").methodFinder()
-            .filterByName("getMaxShortcutItemCount")
-            .toList().createHooks {
-                after { param ->
-                    param.result = 5
-                }
-            }
-        loadClass("com.miui.home.launcher.shortcuts.AppShortcutMenu").methodFinder()
-            .filterByName("getMaxShortcutItemCount")
-            .toList().createHooks {
-                after { param ->
-                    param.result = 5
                 }
             }
         clazzSystemShortcutMenuItem.methodFinder()
@@ -137,7 +154,9 @@ object AddFreeformShortcut : HookRegister() {
                                     appContext.let {
                                         it.getDrawable(
                                             it.resources.getIdentifier(
-                                                "ic_task_small_window", "drawable", hostPackageName
+                                                "ic_task_small_window",
+                                                "drawable",
+                                                hostPackageName
                                             )
                                         )
                                     }
@@ -159,7 +178,9 @@ object AddFreeformShortcut : HookRegister() {
                                     appContext.let {
                                         it.getDrawable(
                                             it.resources.getIdentifier(
-                                                "ic_task_add_pair", "drawable", hostPackageName
+                                                "ic_task_add_pair",
+                                                "drawable",
+                                                hostPackageName
                                             )
                                         )
                                     })
