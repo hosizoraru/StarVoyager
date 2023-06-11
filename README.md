@@ -2,6 +2,7 @@
 
 [![version](https://img.shields.io/github/v/release/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/releases) [![stars](https://img.shields.io/github/stars/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/stargazers) [![download-all](https://img.shields.io/github/downloads/hosizoraru/StarVoyager/total?style=for-the-badge)](https://t.me/VoyagerMIUIUpdate) [![kotlin](https://img.shields.io/github/languages/top/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/search?q=repo%3Ahosizoraru%2FStarVoyager++language%3AKotlin&type=code) [![CI](https://img.shields.io/github/actions/workflow/status/hosizoraru/StarVoyager/android.yml?branch=star&style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/actions)   
 全名为 StarSkyVoyager  
+想要很多很多 star  
 基于 [我的分支的WooBoxForMIUI](https://github.com/hosizoraru/WooBoxForMIUI)  
 使用了 [EzXHelper2](https://github.com/KyuubiRan/EzXHelper)
 和 [KotlinXposedHelper](https://github.com/yujincheng08/BiliRoaming/blob/master/app/src/main/java/me/iacn/biliroaming/utils/KotlinXposedHelper.kt)
@@ -22,6 +23,7 @@
 `Telegram Channel` :   [Voyager MIUI Update](https://t.me/VoyagerMIUIUpdate)  
 `GitHub` 的 [`Releases`页面](https://github.com/hosizoraru/StarVoyager/releases)  
 `GitHub Actions` 的 [`CI构建`](https://github.com/hosizoraru/StarVoyager/actions)  
+`Lsposed 仓库` 的 [Release](https://github.com/Xposed-Modules-Repo/star.sky.voyager/releases)
 
 ---
 
