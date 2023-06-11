@@ -70,30 +70,16 @@ object MaxFreeForm : HookRegister() {
                                         hook2 = miuiFreeFormManager.methodFinder()
                                             .filterByName("getAllFreeFormStackInfosOnDisplay")
                                             .toList().createHooks {
-                                                before { param ->
-                                                    param.result = null
-                                                }
+                                                returnConstant(null)
                                             }
                                     }
-                                }
-                            miuiMultiWindowUtils.methodFinder()
-                                .filterByName("startSmallFreeform")
-                                .toList().createHooks {
                                     after {
-                                        hook2?.forEach {
-                                            it.unhook()
-                                        }
+                                        hook2?.forEach { it.unhook() }
                                     }
                                 }
                         }
-                    }
-                topWindowCrop.methodFinder()
-                    .filterByName("startSmallWindow")
-                    .toList().createHooks {
                         after {
-                            hook1?.forEach {
-                                it.unhook()
-                            }
+                            hook1?.forEach { it.unhook() }
                         }
                     }
             }

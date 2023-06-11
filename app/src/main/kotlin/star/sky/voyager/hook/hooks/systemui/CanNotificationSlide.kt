@@ -11,9 +11,7 @@ object CanNotificationSlide : HookRegister() {
         loadClass("com.android.systemui.statusbar.notification.NotificationSettingsManager").methodFinder()
             .filterByName("canSlide")
             .first().createHook {
-                after {
-                    it.result = true
-                }
+                returnConstant(true)
             }
     }
 }
