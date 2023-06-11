@@ -46,8 +46,12 @@
     public static void throw*(...);
 }
 
--keep class star.sky.voyager.hook.MainHook
--keep class star.sky.voyager.hook.hooks.**.**
+-keep class star.sky.voyager.hook.MainHook {
+    <init>();
+}
+-keep class star.sky.voyager.hook.hooks.**.** {
+    <init>();
+}
 #-keep class star.sky.voyager.activity.**.**
 
 #-keepattributes cn.fkj233.ui.activity.annotation.BMMainPage
@@ -57,6 +61,5 @@
 -keepattributes RuntimeVisibleAnnotations
 #-keepattributes *Annotation*
 
--dontobfuscate
 -allowaccessmodification
 -overloadaggressively
