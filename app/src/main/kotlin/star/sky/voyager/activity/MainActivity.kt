@@ -33,6 +33,7 @@ import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
 import star.sky.voyager.utils.key.BackupUtils
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 class MainActivity : MIUIActivity() {
     private val activity = this
@@ -45,7 +46,7 @@ class MainActivity : MIUIActivity() {
     private fun checkLSPosed(): Boolean {
         try {
             @Suppress("DEPRECATION")
-            setSP(getSharedPreferences("voyager_config", MODE_WORLD_READABLE))
+            setSP(getSharedPreferences(prefFileName, MODE_WORLD_READABLE))
             return true
         } catch (exception: SecurityException) {
             isLoad = true

@@ -7,7 +7,7 @@ import cn.fkj233.ui.activity.annotation.BMMainPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.APPLICATION_ID
 import star.sky.voyager.R
 
 @SuppressLint("NonConstantResourceId")
@@ -22,7 +22,7 @@ class MainPage : BasePage() {
             ),
             SwitchV("hLauncherIcon", onClickListener = {
                 activity.packageManager.setComponentEnabledSetting(
-                    ComponentName(activity, "${BuildConfig.APPLICATION_ID}.launcher"),
+                    ComponentName(activity, "${APPLICATION_ID}.launcher"),
                     if (it) {
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED
                     } else {

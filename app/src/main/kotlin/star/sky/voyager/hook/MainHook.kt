@@ -2,7 +2,7 @@ package star.sky.voyager.hook
 
 import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.APPLICATION_ID
 import star.sky.voyager.hook.apps.Aireco
 import star.sky.voyager.hook.apps.Android
 import star.sky.voyager.hook.apps.Aod
@@ -35,6 +35,7 @@ import star.sky.voyager.hook.apps.WallPaper
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 val PACKAGE_NAME_HOOKED = listOf(
     "com.xiaomi.aireco",
@@ -68,7 +69,7 @@ val PACKAGE_NAME_HOOKED = listOf(
 )
 
 class MainHook : EasyXposedInit() {
-    private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "voyager_config")
+    private var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
     override val registeredApp: List<AppRegister> = listOf(
         Aireco, // 小爱建议

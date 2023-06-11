@@ -9,7 +9,9 @@ import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.TextSummaryV
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.BUILD_TIME
+import star.sky.voyager.BuildConfig.BUILD_TYPE
+import star.sky.voyager.BuildConfig.VERSION_NAME
 import star.sky.voyager.R
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -24,8 +26,8 @@ class AboutPage : BasePage() {
                 SimpleDateFormat(
                     "yyyy-MM-dd HH:mm:ss",
                     Locale.getDefault()
-                ).format(BuildConfig.BUILD_TIME.toLong())
-            }\n${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})",
+                ).format(BUILD_TIME.toLong())
+            }\n${VERSION_NAME}(${BUILD_TYPE})",
             onClickListener = {
                 try {
                     activity.startActivity(

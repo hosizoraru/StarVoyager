@@ -1,10 +1,11 @@
 package star.sky.voyager.utils.key
 
 import de.robv.android.xposed.XSharedPreferences
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.APPLICATION_ID
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 object XSPUtils {
-    private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "voyager_config")
+    private var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
     fun getBoolean(key: String, defValue: Boolean): Boolean {
         if (prefs.hasFileChanged()) {

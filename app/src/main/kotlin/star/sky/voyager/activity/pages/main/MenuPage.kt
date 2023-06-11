@@ -3,7 +3,9 @@ package star.sky.voyager.activity.pages.main
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMMenuPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.TextSummaryV
@@ -14,6 +16,7 @@ import star.sky.voyager.hook.PACKAGE_NAME_HOOKED
 import star.sky.voyager.utils.key.BackupUtils.backup
 import star.sky.voyager.utils.key.BackupUtils.recovery
 import star.sky.voyager.utils.yife.Terminal.exec
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 @BMMenuPage("Menu")
 class MenuPage : BasePage() {
@@ -51,17 +54,17 @@ class MenuPage : BasePage() {
                             PACKAGE_NAME_HOOKED.forEach {
                                 if (it != "android") exec("killall $it")
                             }
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.finished),
-                                Toast.LENGTH_SHORT
+                                LENGTH_SHORT
                             ).show()
                             dismiss()
                         } catch (_: Throwable) {
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.su_permission),
-                                Toast.LENGTH_LONG
+                                LENGTH_LONG
                             ).show()
                             dismiss()
                         }
@@ -82,17 +85,17 @@ class MenuPage : BasePage() {
                     setRButton(R.string.done) {
                         try {
                             exec("killall com.android.systemui")
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.finished),
-                                Toast.LENGTH_SHORT
+                                LENGTH_SHORT
                             ).show()
                             dismiss()
                         } catch (_: Throwable) {
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.su_permission),
-                                Toast.LENGTH_LONG
+                                LENGTH_LONG
                             ).show()
                             dismiss()
                         }
@@ -113,17 +116,17 @@ class MenuPage : BasePage() {
                     setRButton(R.string.done) {
                         try {
                             exec("killall com.miui.home")
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.finished),
-                                Toast.LENGTH_SHORT
+                                LENGTH_SHORT
                             ).show()
                             dismiss()
                         } catch (_: Throwable) {
-                            Toast.makeText(
+                            makeText(
                                 activity,
                                 getString(R.string.su_permission),
-                                Toast.LENGTH_LONG
+                                LENGTH_LONG
                             ).show()
                             dismiss()
                         }
@@ -138,7 +141,7 @@ class MenuPage : BasePage() {
                     backup(
                         activity,
                         activity.createDeviceProtectedStorageContext()
-                            .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
+                            .getSharedPreferences(prefFileName, Context.MODE_WORLD_READABLE)
                     )
                 })
         )
@@ -147,7 +150,7 @@ class MenuPage : BasePage() {
             recovery(
                 activity,
                 activity.createDeviceProtectedStorageContext()
-                    .getSharedPreferences("voyager_config", Context.MODE_WORLD_READABLE)
+                    .getSharedPreferences(prefFileName, Context.MODE_WORLD_READABLE)
             )
         }))
 
@@ -156,12 +159,12 @@ class MenuPage : BasePage() {
                 setTitle(R.string.ResetModuleDialog)
                 setMessage(R.string.ResetModuleDialogTips)
                 setLButton(R.string.done) {
-                    activity.getSharedPreferences("voyager_config", Activity.MODE_WORLD_READABLE)
+                    activity.getSharedPreferences(prefFileName, Activity.MODE_WORLD_READABLE)
                         .edit().clear().apply()
-                    Toast.makeText(
+                    makeText(
                         activity,
                         activity.getString(R.string.ResetSuccess),
-                        Toast.LENGTH_LONG
+                        LENGTH_LONG
                     ).show()
                 }
                 setRButton(R.string.cancel)

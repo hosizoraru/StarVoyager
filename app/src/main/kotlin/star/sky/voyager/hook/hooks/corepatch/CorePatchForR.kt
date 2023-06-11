@@ -16,6 +16,8 @@ import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.APPLICATION_ID
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Member
 import java.lang.reflect.Method
@@ -25,7 +27,7 @@ import java.util.zip.ZipEntry
 
 
 open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZygoteInit {
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "voyager_config")
+    var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
     @Throws(
         IllegalAccessException::class,
@@ -212,7 +214,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                                 if (prefs.getBoolean("UsePreSig", false)) {
                                     val PM = AndroidAppHelper.currentApplication().packageManager
                                     if (PM == null) {
-                                        XposedBridge.log("E: " + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?")
+                                        XposedBridge.log("E: " + APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?")
                                     } else {
                                         val pI: PackageInfo?
                                         pI = if (parseErr != null) {

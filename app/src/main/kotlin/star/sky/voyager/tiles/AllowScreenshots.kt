@@ -1,7 +1,9 @@
 package star.sky.voyager.tiles
 
-import android.service.quicksettings.Tile
+import android.service.quicksettings.Tile.STATE_ACTIVE
+import android.service.quicksettings.Tile.STATE_INACTIVE
 import android.service.quicksettings.TileService
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 class AllowScreenshots : TileService() {
     private val key = "disable_flag_secure"
@@ -9,16 +11,16 @@ class AllowScreenshots : TileService() {
     override fun onClick() {
         super.onClick()
         try {
-            val pref = getSharedPreferences("voyager_config", MODE_WORLD_READABLE)
+            val pref = getSharedPreferences(prefFileName, MODE_WORLD_READABLE)
             val prefEditor = pref.edit()
             if (pref.getBoolean(key, false)) {
                 prefEditor.putBoolean(key, false)
-                qsTile.state = Tile.STATE_INACTIVE
+                qsTile.state = STATE_INACTIVE
             } else {
                 prefEditor.putBoolean(key, true)
-                qsTile.state = Tile.STATE_ACTIVE
+                qsTile.state = STATE_ACTIVE
             }
-            prefEditor.commit()
+            prefEditor.apply()
             qsTile.updateTile()
         } catch (_: SecurityException) {
         }
@@ -27,11 +29,11 @@ class AllowScreenshots : TileService() {
     override fun onStartListening() {
         super.onStartListening()
         try {
-            val pref = getSharedPreferences("voyager_config", MODE_WORLD_READABLE)
+            val pref = getSharedPreferences(prefFileName, MODE_WORLD_READABLE)
             if (pref.getBoolean(key, false)) {
-                qsTile.state = Tile.STATE_ACTIVE
+                qsTile.state = STATE_ACTIVE
             } else {
-                qsTile.state = Tile.STATE_INACTIVE
+                qsTile.state = STATE_INACTIVE
             }
             qsTile.updateTile()
         } catch (_: SecurityException) {

@@ -3,7 +3,7 @@ package star.sky.voyager.hook.hooks.corepatch
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.DEBUG
 
 open class XposedHelper {
     var SIGNATURE =
@@ -20,7 +20,7 @@ open class XposedHelper {
                 XposedHelpers.findAndHookMethod(p1, lpparam, p2, *parameterTypesAndCallback)
             }
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
         }
     }
 
@@ -34,7 +34,7 @@ open class XposedHelper {
             val packageParser = findClass(p1, lpparam)
             XposedBridge.hookAllMethods(packageParser, methodName, parameterTypesAndCallback)
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
         }
     }
 
@@ -46,7 +46,7 @@ open class XposedHelper {
         try {
             XposedBridge.hookAllMethods(packageManagerServiceUtils, verifySignatures, methodHook)
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
         }
     }
 
@@ -54,7 +54,7 @@ open class XposedHelper {
         try {
             return className?.let { Class.forName(it, false, classLoader) }
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
         }
         return null
     }
@@ -64,7 +64,7 @@ open class XposedHelper {
             val packageParser = findClass(p1, null)
             hookAllConstructors(packageParser, parameterTypesAndCallback)
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
         }
     }
 
@@ -75,7 +75,7 @@ open class XposedHelper {
         return try {
             XposedBridge.hookAllConstructors(hookClass, callback)
         } catch (e: Throwable) {
-            if (BuildConfig.DEBUG) XposedBridge.log(e)
+            if (DEBUG) XposedBridge.log(e)
             null
         }
     }

@@ -10,7 +10,8 @@ import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import star.sky.voyager.BuildConfig
+import star.sky.voyager.BuildConfig.APPLICATION_ID
+import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 import java.lang.Boolean
 import java.lang.reflect.InvocationTargetException
 import kotlin.Any
@@ -23,7 +24,7 @@ import kotlin.arrayOfNulls
 
 
 open class CorePatchForQ : XposedHelper(), IXposedHookLoadPackage, IXposedHookZygoteInit {
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "voyager_config")
+    var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
     @Throws(
         IllegalAccessException::class,
