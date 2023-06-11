@@ -3,12 +3,12 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.securitycenter.AppDisable
 import star.sky.voyager.hook.hooks.securitycenter.EnhanceContours
+import star.sky.voyager.hook.hooks.securitycenter.GetDefaultBubbles
 import star.sky.voyager.hook.hooks.securitycenter.GunService
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
 import star.sky.voyager.hook.hooks.securitycenter.MEMC
 import star.sky.voyager.hook.hooks.securitycenter.Macro
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
-import star.sky.voyager.hook.hooks.securitycenter.RemoveConversationBubbleSettingsRestriction
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
 import star.sky.voyager.hook.hooks.securitycenter.RemoveReport
 import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
@@ -36,7 +36,7 @@ object SecurityCenter : AppRegister() {
             SuperResolution, // 全局开放极清播放
             GunService, // 全局开放准心辅助
             Macro, // 全局开放自动连招
-            RemoveConversationBubbleSettingsRestriction, // 去除气泡通知应用限制
+            GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }
 }
