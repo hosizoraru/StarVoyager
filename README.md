@@ -6,7 +6,8 @@
 基于 [我的分支的WooBoxForMIUI](https://github.com/hosizoraru/WooBoxForMIUI)  
 使用了 [EzXHelper2](https://github.com/KyuubiRan/EzXHelper)
 和 [KotlinXposedHelper](https://github.com/yujincheng08/BiliRoaming/blob/master/app/src/main/java/me/iacn/biliroaming/utils/KotlinXposedHelper.kt)
-进行重构
+进行重构  
+现在也已经新增了不少其它我自己在用的功能
 
 ---
 
