@@ -2,6 +2,7 @@ package star.sky.voyager.utils.key
 
 import de.robv.android.xposed.XSharedPreferences
 import star.sky.voyager.BuildConfig.APPLICATION_ID
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 object XSPUtils {
@@ -43,7 +44,7 @@ inline fun hasEnable(
     crossinline block: () -> Unit
 ) {
     val conditionResult = if (extraCondition != null) extraCondition() else true
-    if (XSPUtils.getBoolean(key, default) && conditionResult) {
+    if (getBoolean(key, default) && conditionResult) {
         block()
     }
 }
