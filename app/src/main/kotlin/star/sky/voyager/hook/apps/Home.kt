@@ -17,12 +17,12 @@ import star.sky.voyager.hook.hooks.home.FolderAnim
 import star.sky.voyager.hook.hooks.home.FolderColumnsCount
 import star.sky.voyager.hook.hooks.home.IconCellCount
 import star.sky.voyager.hook.hooks.home.IconCorner
-import star.sky.voyager.hook.hooks.home.ModifyRecentViewRemoveCardAnim
 import star.sky.voyager.hook.hooks.home.MonetColor
 import star.sky.voyager.hook.hooks.home.MonoChromeIcon
 import star.sky.voyager.hook.hooks.home.OptimizeUnlockAnim
 import star.sky.voyager.hook.hooks.home.OverlapMode
 import star.sky.voyager.hook.hooks.home.RealMemory
+import star.sky.voyager.hook.hooks.home.RecentViewRemoveCardAnim
 import star.sky.voyager.hook.hooks.home.ResizableWidgets
 import star.sky.voyager.hook.hooks.home.RestoreGoogleAppIcon
 import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
@@ -46,7 +46,7 @@ object Home : AppRegister() {
             AlwaysShowStatusBarClock, // 始终显示桌面时钟
             DoubleTapToSleep, // 双击锁定屏幕
             DisableRecentViewWallpaperDarkening, // 禁用壁纸压暗效果
-            ModifyRecentViewRemoveCardAnim, // 修改划卡动画
+            RecentViewRemoveCardAnim, // 修改划卡动画
             AddFreeformShortcut, // 快捷菜单添加小窗
             RestoreGoogleAppIcon, // 恢复Google图标
             ScrollIconName, // 滚动显示应用名称

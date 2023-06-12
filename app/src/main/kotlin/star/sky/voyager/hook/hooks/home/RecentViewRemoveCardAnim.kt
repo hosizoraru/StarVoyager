@@ -17,7 +17,7 @@ import star.sky.voyager.utils.api.setObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object ModifyRecentViewRemoveCardAnim : HookRegister() {
+object RecentViewRemoveCardAnim : HookRegister() {
     override fun init() = hasEnable("home_recent_view_remove_card_animation") {
         "com.miui.home.recents.views.SwipeHelperForRecents".hookAfterMethod(
             classLoader,
