@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.hooks.home
 
 import android.app.Activity
+import android.view.MotionEvent
 import android.view.View
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import star.sky.voyager.utils.api.callMethod
@@ -10,6 +11,7 @@ import star.sky.voyager.utils.api.hookAfterMethod
 import star.sky.voyager.utils.api.hookBeforeAllMethods
 import star.sky.voyager.utils.api.hookBeforeMethod
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 
 object BlurWhenOpenFolder : HookRegister() {
@@ -128,11 +130,25 @@ object BlurWhenOpenFolder : HookRegister() {
 
         hasEnable("home_use_complete_blur") {
             hasEnable("home_complete_blur_fix") {
-                navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
-                    val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
-                    val value = 1 - it.args[0] as Float
-                    if (value != 1f) {
-                        blurUtilsClass.callStaticMethod("fastBlurDirectly", value, mLauncher.window)
+                if (getBoolean("home_recent_view_wallpaper_darkening", false)) {
+                    navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
+                        val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
+                        val value = 1 - it.args[0] as Float
+                        if (value != 1f) {
+                            blurUtilsClass.callStaticMethod(
+                                "fastBlurDirectly",
+                                value,
+                                mLauncher.window
+                            )
+                        }
+                    }
+                } else {
+                    navStubViewClass.hookBeforeMethod(
+                        "appTouchResolution",
+                        MotionEvent::class.java
+                    ) {
+                        val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
+                        blurUtilsClass.callStaticMethod("fastBlurDirectly", 1.0f, mLauncher.window)
                     }
                 }
             }
