@@ -88,7 +88,7 @@
     <string name="range">Range: </string>
     <string name="sound">Sound</string>
     <string name="lock_screen">Lock screen</string>
-    <string name="none">None</string>
+    <string name="none_zero">None</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="freeform">Freeform</string>
@@ -116,10 +116,12 @@
     <string name="sunshine_mode">Sunshine Mode</string>
     <string name="sunshine_mode_key">Sunshine Mode Titles Key</string>
     <string name="unlock_for_pad">It is mainly for the Pad to be unlocked</string>
+    <string name="only_compatible_phone">Temporarily only compatible with phone</string>
     <string name="require_hardware_support">Hardware support is required</string>
     <string name="camera_sensor">Camera Sensor</string>
     <string name="mic_sensor">Mic Sensor</string>
     <string name="multiple_instances">Multi-instance</string>
+    <string name="icon">Icon</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>
@@ -145,7 +147,7 @@
     <string name="launch_camera">Launch camera</string>
     <string name="turn_on_torch">Flashlight</string>
     <string name="change_brightness">Adjust brightness</string>
-    <string name="setting_none">Turn off the trigger function</string>
+    <string name="none">Turn off the trigger function</string>
     <string name="launch_ai_shortcut">Mi AI shortcut</string>
     <string name="launch_calculator">Calculator</string>
     <string name="mute">Silent mode</string>
@@ -474,7 +476,9 @@
     <string name="home_recent_view_remove_card_animation">Modify the card marking animation</string>
     <string name="home_recent_view_remove_card_animation_summary">Modify the animation effect of the recent task removal card</string>
     <string name="add_freeform_shortcut">Add freeform shortcut</string>
-    <string name="add_multi_instance_shortcut">Add Multi-instance</string>
+    <string name="add_multi_instance_shortcut">Add multi-instance</string>
+    <string name="freeform_multi_swap">Swap Positions of freeform and multi-instance</string>
+    <string name="show_all_app_dsm">Display All Apps in Desktop Shortcut Management</string>
     <string name="restore_google_app_icon">Restore google app icon</string>
     <string name="home_scroll_icon_name">Scroll app name</string>
     <string name="home_scroll_icon_name_summary">The application name that is too long will be scrolled and displayed without any new line</string>
