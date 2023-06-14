@@ -118,6 +118,41 @@
     <string name="mic_sensor">麦克风传感器</string>
     <string name="multiple_instances">多开</string>
 
+    <string name="trigger_condition">触发条件</string>
+    <string name="trigger_action">触发功能</string>
+    <string name="put_setting_command">自定义系统快捷手势</string>
+    <string name="put_setting_command_summary">执行命令以应用你的自定义设置</string>
+
+    <string name="long_press_power_key">长按电源键 0.5s</string>
+    <string name="double_knock">指关节双击</string>
+    <string name="three_gesture_down">三指下拉</string>
+    <string name="key_combination_power_volume_down">音量下+电源</string>
+    <string name="three_gesture_long_press">三指长按</string>
+    <string name="knock_slide_shape">指关节圈划</string>
+    <string name="double_click_power_key">电源键双击</string>
+    <string name="knock_long_press_horizontal_slid">指关节长按后横向滑动</string>
+    <string name="knock_gesture_v">指关节画字母 V</string>
+    <string name="back_double_tap">背部轻敲 2 下</string>
+    <string name="back_triple_tap">背部轻敲 3 下</string>
+
+    <string name="launch_voice_assistant">小爱同学</string>
+    <string name="screen_shot">截屏</string>
+    <string name="partial_screen_shot">区域截屏</string>
+    <string name="mi_pay">小米钱包</string>
+    <string name="launch_camera">相机</string>
+    <string name="turn_on_torch">手电筒</string>
+    <string name="change_brightness">调节亮度</string>
+    <string name="setting_none">关闭触发功能</string>
+    <string name="launch_ai_shortcut">小爱捷径</string>
+    <string name="launch_calculator">计算器</string>
+    <string name="mute">静音</string>
+    <string name="launch_alipay_payment_code">支付宝付款码</string>
+    <string name="launch_wechat_payment_code">微信付款码</string>
+    <string name="launch_alipay_health_code">支付宝健康码</string>
+    <string name="launch_alipay_scanner">支付宝扫一扫</string>
+    <string name="launch_wechat_scanner">微信扫一扫</string>
+    <string name="dump_log">抓日志</string>
+
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>
     <string name="notification_time_bold">时间使用加粗系统字体</string>

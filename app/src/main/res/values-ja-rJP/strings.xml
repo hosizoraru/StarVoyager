@@ -37,6 +37,41 @@
     <string name="scope_screen_shot">スクリーンショット</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
 
+    <string name="trigger_condition">トリガー条件</string>
+    <string name="trigger_action">トリガーアクション</string>
+    <string name="put_setting_command">システムショートカットジェスチャをカスタマイズ</string>
+    <string name="put_setting_command_summary">コマンドを実行してカスタム設定を適用します</string>
+
+    <string name="long_press_power_key">電源ボタンを 0.5 秒間長押し</string>
+    <string name="double_knock">指関節でダブルタップ</string>
+    <string name="three_gesture_down">3本の指を下にスライド</string>
+    <string name="key_combination_power_volume_down">3本の指を下にスライド</string>
+    <string name="three_gesture_long_press">3本の指を下にスライド</string>
+    <string name="knock_slide_shape">指関節で円を描く</string>
+    <string name="double_click_power_key">電源ボタンを2回押す</string>
+    <string name="knock_long_press_horizontal_slid">指関節で長押ししてから横にスワイプ</string>
+    <string name="knock_gesture_v">指関節で V を描く</string>
+    <string name="back_double_tap">背面を 2 回タップ</string>
+    <string name="back_triple_tap">背面を 3 回タップ</string>
+
+    <string name="launch_voice_assistant">音声アシスタントを起動</string>
+    <string name="screen_shot">スクリーンショットを撮影</string>
+    <string name="partial_screen_shot">部分的なスクリーンショット</string>
+    <string name="mi_pay">Mi ウォレット</string>
+    <string name="launch_camera">カメラを起動</string>
+    <string name="turn_on_torch">ライトをオンにする</string>
+    <string name="change_brightness">明るさを調整</string>
+    <string name="setting_none">なし</string>
+    <string name="launch_ai_shortcut">Mi AI ショートカット</string>
+    <string name="launch_calculator">電卓</string>
+    <string name="mute">サイレントモード</string>
+    <string name="launch_alipay_payment_code">Alipay 決済コード</string>
+    <string name="launch_wechat_payment_code">WeChat 決済コード</string>
+    <string name="launch_alipay_health_code">Alipay 健康コード</string>
+    <string name="launch_alipay_scanner">Alipayスキャナー</string>
+    <string name="launch_wechat_scanner">WeChatスキャナー</string>
+    <string name="dump_log">問題に関連するログを取得</string>
+
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
     <string name="reboot_system_tips">システムを再起動しますか？</string>

@@ -120,6 +120,41 @@
     <string name="mic_sensor">Mic Sensor</string>
     <string name="multiple_instances">Multi-instance</string>
 
+    <string name="trigger_condition">Trigger Condition</string>
+    <string name="trigger_action">Trigger Action</string>
+    <string name="put_setting_command">Customize System Shortcut Gesture</string>
+    <string name="put_setting_command_summary">Execute the command to apply your custom settings</string>
+
+    <string name="long_press_power_key">Press and hold the Power button for 0.5s</string>
+    <string name="double_knock">Knuckle double tap</string>
+    <string name="three_gesture_down">Slide 3 fingers down</string>
+    <string name="key_combination_power_volume_down">Volume down + Power</string>
+    <string name="three_gesture_long_press">Press and hold with 3 fingers</string>
+    <string name="knock_slide_shape">Draw a circle with a knuckle</string>
+    <string name="double_click_power_key">Double press the Power button</string>
+    <string name="knock_long_press_horizontal_slid">Press and swipe horizontally with a knuckle</string>
+    <string name="knock_gesture_v">Draw V with a knuckle</string>
+    <string name="back_double_tap">Double back tap</string>
+    <string name="back_triple_tap">Triple back tap</string>
+
+    <string name="launch_voice_assistant">Launch voice assistant</string>
+    <string name="screen_shot">Take a screenshot</string>
+    <string name="partial_screen_shot">Partial screenshot</string>
+    <string name="mi_pay">Mi Wallet</string>
+    <string name="launch_camera">Launch camera</string>
+    <string name="turn_on_torch">Flashlight</string>
+    <string name="change_brightness">Adjust brightness</string>
+    <string name="setting_none">Turn off the trigger function</string>
+    <string name="launch_ai_shortcut">Mi AI shortcut</string>
+    <string name="launch_calculator">Calculator</string>
+    <string name="mute">Silent mode</string>
+    <string name="launch_alipay_payment_code">Alipay payment code</string>
+    <string name="launch_wechat_payment_code">WeChat payment code</string>
+    <string name="launch_alipay_health_code">Alipay health code</string>
+    <string name="launch_alipay_scanner">Alipay scanner</string>
+    <string name="launch_wechat_scanner">WeChat scanner</string>
+    <string name="dump_log">Get issue-related logs</string>
+
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">time use system font</string>
     <string name="notification_time_bold">time use system bold</string>
