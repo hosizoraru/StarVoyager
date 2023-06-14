@@ -20,6 +20,7 @@ import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
@@ -187,11 +188,20 @@ object AddFreeformShortcut : HookRegister() {
                             }
 
                     val sAllSystemShortcutMenuItems = ArrayList<Any>().apply {
-                        hasEnable("add_freeform_shortcut") {
-                            add(mSmallWindowInstance)
-                        }
-                        hasEnable("add_multi_instance_shortcut") {
-                            add(mMultiSmallWindowInstance)
+                        if (getBoolean("freeform_multi_swap", false)) {
+                            hasEnable("add_freeform_shortcut") {
+                                add(mSmallWindowInstance)
+                            }
+                            hasEnable("add_multi_instance_shortcut") {
+                                add(mMultiSmallWindowInstance)
+                            }
+                        } else {
+                            hasEnable("add_multi_instance_shortcut") {
+                                add(mMultiSmallWindowInstance)
+                            }
+                            hasEnable("add_freeform_shortcut") {
+                                add(mSmallWindowInstance)
+                            }
                         }
                         addAll(mAllSystemShortcutMenuItems)
                     }

@@ -27,6 +27,12 @@ class HomePage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
+                textId = R.string.icon,
+                onClickListener = { showFragment("home_icon") }
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
                 textId = R.string.mod,
                 onClickListener = { showFragment("home_mod") }
             )
@@ -59,28 +65,9 @@ class HomePage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.add_freeform_shortcut
+                textId = R.string.show_all_app_dsm
             ),
-            SwitchV("add_freeform_shortcut", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.add_multi_instance_shortcut
-            ),
-            SwitchV("add_multi_instance_shortcut", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.restore_google_app_icon
-            ),
-            SwitchV("restore_google_app_icon", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.home_scroll_icon_name,
-                tipsId = R.string.home_scroll_icon_name_summary
-            ),
-            SwitchV("home_scroll_icon_name", false)
+            SwitchV("show_all_app_dsm", false)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -90,37 +77,8 @@ class HomePage : BasePage() {
             SwitchV("home_real_memory", false)
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.Use_Transition_Animation),
-            SwitchV("Use_Transition_Animation")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.Show_MIUI_Widget),
-            SwitchV("Show_MIUI_Widget")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.resizable_widgets),
-            SwitchV("resizable_widgets")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.shortcut_remove_restrictions),
-            SwitchV("shortcut_remove_restrictions")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.unlock_hot_seat),
-            SwitchV("unlock_hot_seat")
-        )
-        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.optimize_unlock_anim),
             SwitchV("optimize_unlock_anim")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.icon_corner),
-            SwitchV("icon_corner")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.home_unlock_cell_count,
-            ), SwitchV("home_unlock_cell_count")
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.home_folder_width),

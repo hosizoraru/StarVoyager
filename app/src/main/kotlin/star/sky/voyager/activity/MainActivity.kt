@@ -24,6 +24,7 @@ import star.sky.voyager.activity.pages.sub.DisableFixedOrientationPage
 import star.sky.voyager.activity.pages.sub.GalleryUnlockPage
 import star.sky.voyager.activity.pages.sub.HideIconPage
 import star.sky.voyager.activity.pages.sub.HomeBlurPage
+import star.sky.voyager.activity.pages.sub.HomeIconPage
 import star.sky.voyager.activity.pages.sub.HomeModPage
 import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
@@ -97,6 +98,7 @@ class MainActivity : MIUIActivity() {
         registerPage(SecurityUnlockPage::class.java)
         registerPage(PackageInstallerPage::class.java)
         registerPage(SettingsPage::class.java)
+        registerPage(HomeIconPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

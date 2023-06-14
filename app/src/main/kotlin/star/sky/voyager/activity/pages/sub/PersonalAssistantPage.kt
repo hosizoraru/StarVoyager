@@ -29,6 +29,18 @@ class PersonalAssistantPage : BasePage() {
             TextSummaryV(textId = R.string.home_widget_to_minus),
             SwitchV("home_widget_to_minus")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.Use_Transition_Animation),
+            SwitchV("Use_Transition_Animation")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.Show_MIUI_Widget),
+            SwitchV("Show_MIUI_Widget")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.resizable_widgets),
+            SwitchV("resizable_widgets")
+        )
         Line()
         TitleText(textId = R.string.scope_personal_assistant)
         TextSummaryWithSwitch(
