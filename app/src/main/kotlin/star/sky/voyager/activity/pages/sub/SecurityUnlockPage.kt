@@ -12,6 +12,12 @@ class SecurityUnlockPage : BasePage() {
         TitleText(textId = R.string.scope_security_center)
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.screen_time
+            ),
+            SwitchV("screen_time", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.screen_hold_on,
                 tipsId = R.string.unlock_for_pad
             ),

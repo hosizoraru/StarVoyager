@@ -442,6 +442,7 @@
     <string name="super_resolution">全画面で超解像再生を有効化</string>
     <string name="gun_service">全画面で照準アシストを有効化</string>
     <string name="macro_combo">全画面で自動連続攻撃を有効化</string>
+    <string name="screen_time">バッテリーランキングにスクリーン時間を表示する</string>
     <string name="remove_conversation_bubble_settings_restriction">バブル通知のアプリ制限を削除</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">"設定 - 追加設定 - フローティングウィンドウ - バブル通知 - バブル通知アプリ管理 (Manage conversation bubbles) "から通知アプリを管理できます</string>
     <string name="try_to_fix_conversation_bubbles">バブル通知を修正しようとする</string>

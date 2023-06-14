@@ -12,6 +12,7 @@ import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
 import star.sky.voyager.hook.hooks.securitycenter.RemoveReport
 import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
+import star.sky.voyager.hook.hooks.securitycenter.ScreenTime
 import star.sky.voyager.hook.hooks.securitycenter.ShowBatteryTemperature
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
 import star.sky.voyager.hook.hooks.securitycenter.SuperResolution
@@ -36,6 +37,7 @@ object SecurityCenter : AppRegister() {
             SuperResolution, // 全局开放极清播放
             GunService, // 全局开放准心辅助
             Macro, // 全局开放自动连招
+            ScreenTime, // 开放屏幕时间
             GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }
