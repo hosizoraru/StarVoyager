@@ -36,11 +36,11 @@
     <color name="LButtonNoPressed">#f0f0f0</color>
     <color name="LButtonPressed">#dddddd</color>
     <color name="dialog_edit_background">#f4f4f4</color>
-    <color name="popup_background">@android:color/system_accent1_200</color>
+    <color name="popup_background">@android:color/system_accent1_100</color>
     <color name="popup_background_click">@android:color/system_accent1_300</color>
-    <color name="popup_select">@android:color/system_accent1_50</color>
-    <color name="popup_select_click">@android:color/system_accent1_200</color>
-    <color name="popup_select_text">@android:color/system_accent1_300</color>
+    <color name="popup_select">@android:color/system_accent1_200</color>
+    <color name="popup_select_click">@android:color/system_accent1_300</color>
+    <color name="popup_select_text">@android:color/system_accent1_100</color>
     <color name="spinner">@android:color/system_accent1_800</color>
     <color name="seekbar_progress">@android:color/system_accent1_200</color>
     <color name="dialog_background">@android:color/system_accent1_50</color>
