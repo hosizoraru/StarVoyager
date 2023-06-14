@@ -6,7 +6,7 @@ import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
-import star.sky.voyager.utils.yife.Terminal
+import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMPage("scope_security_center", "Security", hideMenu = false)
 class SecurityPage : BasePage() {
@@ -72,7 +72,7 @@ class SecurityPage : BasePage() {
                 textId = R.string.try_to_fix_conversation_bubbles,
                 tipsId = R.string.try_to_fix_conversation_bubbles_summary
             ) {
-                Terminal.exec("pm enable com.miui.securitycenter/com.miui.bubbles.services.BubblesNotificationListenerService")
+                exec("pm enable com.miui.securitycenter/com.miui.bubbles.services.BubblesNotificationListenerService")
                 Toast.makeText(
                     activity,
                     getString(R.string.finished),

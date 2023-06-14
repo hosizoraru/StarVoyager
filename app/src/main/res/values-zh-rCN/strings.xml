@@ -36,6 +36,7 @@
     <string name="scope_personal_assistant">智能助理</string>
     <string name="scope_screen_shot">截屏</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
+    <string name="scope_barrage">弹幕通知</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -444,6 +445,8 @@
     <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
     <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
     <string name="try_to_fix_conversation_bubbles_summary">尝试重新启用气泡通知服务</string>
+
+    <string name="any_barrage">允许所有应用使用弹幕通知</string>
 
     <string name="disable_flag_secure">允许截图</string>
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图\n支持添加下拉控制中心快速开关，保障安全</string>

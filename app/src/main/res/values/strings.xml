@@ -38,6 +38,7 @@
     <string name="scope_personal_assistant">Personal Assistant</string>
     <string name="scope_screen_shot">Screen Shot</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
+    <string name="scope_barrage">Bullet Screen Notification</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -446,6 +447,8 @@
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
+
+    <string name="any_barrage">Allow all apps to use bullet screen notifications</string>
 
     <string name="disable_flag_secure">Allow screenshot</string>
     <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>

@@ -9,6 +9,7 @@ import star.sky.voyager.R
 @BMPage("security_unlock", "Security Unlock", hideMenu = false)
 class SecurityUnlockPage : BasePage() {
     override fun onCreate() {
+        TitleText(textId = R.string.scope_security_center)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.screen_hold_on,
@@ -48,6 +49,14 @@ class SecurityUnlockPage : BasePage() {
                 textId = R.string.macro_combo
             ),
             SwitchV("macro_combo", false)
+        )
+        Line()
+        TitleText(textId = R.string.scope_barrage)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.any_barrage
+            ),
+            SwitchV("any_barrage", false)
         )
     }
 }
