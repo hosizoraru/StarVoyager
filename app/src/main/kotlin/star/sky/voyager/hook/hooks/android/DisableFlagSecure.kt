@@ -11,13 +11,13 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DisableFlagSecure : HookRegister() {
     override fun init() = hasEnable("disable_flag_secure") {
-        val WindowSurfaceControllerClass =
+        val windowSurfaceControllerClass =
             loadClass("com.android.server.wm.WindowSurfaceController")
-        val MiuiMultiWindowAdapterClass =
+        val miuiMultiWindowAdapterClass =
             loadClass("android.util.MiuiMultiWindowAdapter")
-        val MiuiMultiWindowUtilsClass =
+        val miuiMultiWindowUtilsClass =
             loadClass("android.util.MiuiMultiWindowUtils")
-        val SettingsObserverClass =
+        val settingsObserverClass =
             loadClass("com.android.server.wm.WindowManagerService\$SettingsObserver")
 
         loadClass("com.android.server.wm.WindowState").methodFinder()
@@ -28,7 +28,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        WindowSurfaceControllerClass.methodFinder()
+        windowSurfaceControllerClass.methodFinder()
             .filterByName("setSecure")
             .first().createHook {
                 before {
@@ -36,7 +36,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        WindowSurfaceControllerClass.constructors.createHooks {
+        windowSurfaceControllerClass.constructors.createHooks {
             before {
                 var flags = it.args[2] as Int
                 val secureFlag = 128
@@ -53,7 +53,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        MiuiMultiWindowAdapterClass.methodFinder()
+        miuiMultiWindowAdapterClass.methodFinder()
             .filterByName("getFreeformBlackList")
             .first().createHook {
                 after {
@@ -61,7 +61,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        MiuiMultiWindowAdapterClass.methodFinder()
+        miuiMultiWindowAdapterClass.methodFinder()
             .filterByName("getFreeformBlackListFromCloud")
             .filterByParamTypes(Context::class.java)
             .first().createHook {
@@ -70,7 +70,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        MiuiMultiWindowUtilsClass.methodFinder()
+        miuiMultiWindowUtilsClass.methodFinder()
             .filterByName("supportFreeform")
             .first().createHook {
                 after {
@@ -78,13 +78,13 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        MiuiMultiWindowUtilsClass.methodFinder()
+        miuiMultiWindowUtilsClass.methodFinder()
             .filterByName("isForceResizeable")
             .first().createHook {
                 returnConstant(true)
             }
 
-        SettingsObserverClass.methodFinder()
+        settingsObserverClass.methodFinder()
             .filterByName("onChange")
             .first().createHook {
                 after { param ->
@@ -96,7 +96,7 @@ object DisableFlagSecure : HookRegister() {
                 }
             }
 
-        SettingsObserverClass.methodFinder()
+        settingsObserverClass.methodFinder()
             .filterByName("updateDevEnableNonResizableMultiWindow")
             .first().createHook {
                 after { param ->

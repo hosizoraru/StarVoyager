@@ -19,13 +19,16 @@ import star.sky.voyager.hook.hooks.maxmipad.RestoreEsc
 import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
 import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
 import star.sky.voyager.utils.init.AppRegister
+import star.sky.voyager.utils.key.hasEnable
 
 object Android : AppRegister() {
     override val packageName: String = "android"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         CorePatchMainHook().handleLoadPackage(lpparam) // 核心破解
-        DisableFlagSecureK().handleLoadPackage(lpparam) // 允许截图
+        hasEnable("disable_flag_secure") {
+            DisableFlagSecureK().handleLoadPackage(lpparam) // 允许截图
+        }
         autoInitHooks(
             lpparam,
             DisableFlagSecure, // 允许截图

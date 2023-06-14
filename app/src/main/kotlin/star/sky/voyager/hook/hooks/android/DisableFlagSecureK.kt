@@ -4,7 +4,9 @@ import android.util.Log
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.findAndHookMethod
+import de.robv.android.xposed.XposedHelpers.findClass
+import de.robv.android.xposed.XposedHelpers.findClassIfExists
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Member
@@ -19,7 +21,7 @@ class DisableFlagSecureK : IXposedHookLoadPackage {
         try {
             m = XposedBridge::class.java.getDeclaredMethod("deoptimizeMethod", Member::class.java)
         } catch (t: Throwable) {
-            XposedBridge.log(t)
+            Log.e("DisableFlagSecure", "Failed to get deoptimizeMethod", t)
         }
         deoptimizeMethod = m
     }
@@ -37,47 +39,47 @@ class DisableFlagSecureK : IXposedHookLoadPackage {
     override fun handleLoadPackage(loadPackageParam: XC_LoadPackage.LoadPackageParam) {
         if (loadPackageParam.packageName == "android") {
             try {
-                val windowsState = XposedHelpers.findClass(
+                val windowsState = findClass(
                     "com.android.server.wm.WindowState",
                     loadPackageParam.classLoader
                 )
-                XposedHelpers.findAndHookMethod(
+                findAndHookMethod(
                     windowsState,
                     "isSecureLocked",
                     XC_MethodReplacement.returnConstant(false)
                 )
             } catch (t: Throwable) {
-                XposedBridge.log(t)
+                Log.e("DisableFlagSecure", "Failed to hook isSecureLocked", t)
             }
             try {
                 deoptimizeMethod(
-                    XposedHelpers.findClass(
+                    findClass(
                         "com.android.server.wm.WindowStateAnimator",
                         loadPackageParam.classLoader
                     ),
                     "createSurfaceLocked"
                 )
-                var c = XposedHelpers.findClass(
+                var c = findClass(
                     "com.android.server.display.DisplayManagerService",
                     loadPackageParam.classLoader
                 )
                 deoptimizeMethod(c, "setUserPreferredModeForDisplayLocked")
                 deoptimizeMethod(c, "setUserPreferredDisplayModeInternal")
-                c = XposedHelpers.findClass(
+                c = findClass(
                     "com.android.server.wm.InsetsPolicy\$InsetsPolicyAnimationControlListener",
                     loadPackageParam.classLoader
                 )
                 for (m in c.declaredConstructors) {
                     deoptimizeMethod!!.invoke(null, m)
                 }
-                c = XposedHelpers.findClass(
+                c = findClass(
                     "com.android.server.wm.InsetsPolicy",
                     loadPackageParam.classLoader
                 )
                 deoptimizeMethod(c, "startAnimation")
                 deoptimizeMethod(c, "controlAnimationUnchecked")
                 for (i in 0 until 20) {
-                    c = XposedHelpers.findClassIfExists(
+                    c = findClassIfExists(
                         "com.android.server.wm.DisplayContent$\$ExternalSyntheticLambda",
                         loadPackageParam.classLoader
                     )
@@ -86,7 +88,7 @@ class DisableFlagSecureK : IXposedHookLoadPackage {
                     }
                 }
             } catch (t: Throwable) {
-                XposedBridge.log(t)
+                Log.e("DisableFlagSecure", "Failed to deoptimize", t)
             }
         }
     }
