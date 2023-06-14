@@ -12,6 +12,13 @@ import star.sky.voyager.utils.yife.Terminal
 class SecurityPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_security_center)
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.unlock,
+                onClickListener = { showFragment("security_unlock") }
+            )
+        )
+        Line()
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.skip_waiting_time,
@@ -53,46 +60,6 @@ class SecurityPage : BasePage() {
                 textId = R.string.disable_app_settings
             ),
             SwitchV("disable_app_settings", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.screen_hold_on,
-                tipsId = R.string.unlock_for_pad
-            ),
-            SwitchV("screen_hold_on", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.MEMC,
-                tipsId = R.string.require_hardware_support
-            ),
-            SwitchV("MEMC", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.enhance_contours,
-                tipsId = R.string.require_hardware_support
-            ),
-            SwitchV("enhance_contours", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.super_resolution,
-                tipsId = R.string.require_hardware_support
-            ),
-            SwitchV("super_resolution", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.gun_service
-            ),
-            SwitchV("gun_service", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.macro_combo
-            ),
-            SwitchV("macro_combo", false)
         )
         TextSummaryWithSwitch(
             TextSummaryV(

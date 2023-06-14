@@ -28,7 +28,10 @@ import star.sky.voyager.activity.pages.sub.HomeModPage
 import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
+import star.sky.voyager.activity.pages.sub.PackageInstallerPage
 import star.sky.voyager.activity.pages.sub.PersonalAssistantPage
+import star.sky.voyager.activity.pages.sub.SecurityUnlockPage
+import star.sky.voyager.activity.pages.sub.SettingsPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
@@ -91,6 +94,9 @@ class MainActivity : MIUIActivity() {
         registerPage(StatusBarPage::class.java)
         registerPage(StatusBarIconPage::class.java)
         registerPage(StatusBarNetWorkSpeedPage::class.java)
+        registerPage(SecurityUnlockPage::class.java)
+        registerPage(PackageInstallerPage::class.java)
+        registerPage(SettingsPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
