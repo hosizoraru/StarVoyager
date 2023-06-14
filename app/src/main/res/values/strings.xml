@@ -415,7 +415,6 @@
 
     <string name="custom_refresh_rate">Custom refresh rate</string>
     <string name="do_not_clear_app">Prevent killing background apps</string>
-    <string name="do_not_clear_app_plus">Prevent killing background apps(more aggressive)</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">Prevent recovery of battery optimization whitelist</string>
     <string name="battery_optimization">Battery optimization</string>
     <string name="battery_optimization_summary">Quickly open the battery optimization menu hidden by MIUI</string>

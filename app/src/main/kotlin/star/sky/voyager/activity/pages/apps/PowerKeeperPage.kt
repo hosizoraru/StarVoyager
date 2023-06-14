@@ -25,11 +25,6 @@ class PowerKeeperPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.do_not_clear_app_plus,
-            ), SwitchV("do_not_clear_app_plus")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.prevent_recovery_of_battery_optimization_white_list,
                 tipsId = R.string.failed_after_restart
             ), SwitchV("prevent_recovery_of_battery_optimization_white_list")

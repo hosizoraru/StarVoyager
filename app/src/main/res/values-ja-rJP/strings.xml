@@ -413,7 +413,6 @@
 
     <string name="custom_refresh_rate">高リフレッシュレートアプリをカスタム</string>
     <string name="do_not_clear_app">バックグラウンドアプリの終了を防止</string>
-    <string name="do_not_clear_app_plus">より積極的にバックグラウンドアプリの終了を防止</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">バッテリー最適化のホワイトリストの復元を防止</string>
     <string name="battery_optimization">電池の最適化</string>
     <string name="battery_optimization_summary">MIUI によって非表示にされた電池の最適化機能を迅速に開く</string>

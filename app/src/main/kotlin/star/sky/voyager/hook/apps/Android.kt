@@ -6,7 +6,6 @@ import star.sky.voyager.hook.hooks.android.DeleteOnPostNotification
 import star.sky.voyager.hook.hooks.android.Disable72hVerify
 import star.sky.voyager.hook.hooks.android.DisableFlagSecure
 import star.sky.voyager.hook.hooks.android.DisableFlagSecureK
-import star.sky.voyager.hook.hooks.android.DoNotClearAppPlusA
 import star.sky.voyager.hook.hooks.android.KillDomainVerification
 import star.sky.voyager.hook.hooks.android.MaxWallpaperScale
 import star.sky.voyager.hook.hooks.android.RemoveSmallWindowRestrictions
@@ -39,7 +38,6 @@ object Android : AppRegister() {
             Disable72hVerify, // 禁用每 72h 验证锁屏密码
 //            XYVelocity,
             SystemPropertiesHook, // 媒体音量阶数
-            DoNotClearAppPlusA, // 更激进的防止杀死后台应用
             // max mi pad
             DisableFixedOrientation, // 禁用固定屏幕方向
             IgnoreStylusKeyGesture, // 忽略触控笔按键手势
