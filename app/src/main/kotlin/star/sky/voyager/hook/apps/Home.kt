@@ -29,6 +29,7 @@ import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
 import star.sky.voyager.hook.hooks.home.SetDeviceLevel
 import star.sky.voyager.hook.hooks.home.ShortcutItemCount
+import star.sky.voyager.hook.hooks.home.ShowAllApp
 import star.sky.voyager.hook.hooks.home.TaskViewCardSize
 import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
@@ -48,6 +49,7 @@ object Home : AppRegister() {
             DisableRecentViewWallpaperDarkening, // 禁用壁纸压暗效果
             RecentViewRemoveCardAnim, // 修改划卡动画
             AddFreeformShortcut, // 快捷菜单添加小窗
+            ShowAllApp, // 桌面快捷方式管理显示所有应用
             RestoreGoogleAppIcon, // 恢复Google图标
             ScrollIconName, // 滚动显示应用名称
             RealMemory, // 后台显示实际使用和总内存
