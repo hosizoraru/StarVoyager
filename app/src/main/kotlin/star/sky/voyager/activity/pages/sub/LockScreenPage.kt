@@ -4,8 +4,10 @@ import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
 @BMPage("lock_screen", "Lock Screen", hideMenu = false)
@@ -77,6 +79,11 @@ class LockScreenPage : BasePage() {
             TextSummaryV(
                 textId = R.string.current_mA
             ), SwitchV("current_mA", false), dataBindingRecv = chargingInfo.binding.getRecv(1)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.lockscreen_charging_info_refresh_frequency),
+            SeekBarWithTextV("lockscreen_charging_info_refresh_frequency", 1, 25, 10),
+            dataBindingRecv = chargingInfo.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(

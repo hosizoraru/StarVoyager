@@ -549,6 +549,7 @@
     <string name="blur_personal_assistant_radius">模糊程度</string>
 
     <string name="lockscreen_charging_info">显示充电功率</string>
+    <string name="lockscreen_charging_info_refresh_frequency">充电功率的刷新频率 (单位:0.1/s)</string>
     <string name="lockscreen_charging_info_not_supported">暂不支持此设备</string>
 
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>

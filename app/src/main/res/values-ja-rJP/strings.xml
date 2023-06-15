@@ -550,6 +550,7 @@
 
 
     <string name="lockscreen_charging_info">充電パワーを表示</string>
+    <string name="lockscreen_charging_info_refresh_frequency">充電情報の更新頻度（単位：0.1秒）</string>
     <string name="lockscreen_charging_info_not_supported">このデバイスはまだサポートされていません</string>
 
     <string name="system_ui_show_status_bar_battery">ステータスバーにバッテリーについて表示</string>

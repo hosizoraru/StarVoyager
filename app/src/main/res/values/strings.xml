@@ -551,6 +551,7 @@
     <string name="blur_personal_assistant_radius">Blur Radius</string>
 
     <string name="lockscreen_charging_info">Display charging power</string>
+    <string name="lockscreen_charging_info_refresh_frequency">Refresh frequency of power information (unit: 0.1/s)</string>
     <string name="lockscreen_charging_info_not_supported">Device currently unsupported</string>
 
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
