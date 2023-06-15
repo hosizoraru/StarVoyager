@@ -8,11 +8,11 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
-import star.sky.voyager.utils.api.hookPluginClassLoader
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.hookPluginClassLoader
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object ControlCenterMod : HookRegister() {

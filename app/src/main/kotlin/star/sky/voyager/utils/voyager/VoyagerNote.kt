@@ -1,4 +1,4 @@
-package star.sky.voyager.utils.api
+package star.sky.voyager.utils.voyager
 
 //import dev.rikka.tools.refine.RefineAs
 import android.content.Context
@@ -14,6 +14,7 @@ import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
+import star.sky.voyager.utils.api.isStatic
 import java.lang.reflect.Field
 import java.lang.reflect.Method
 

@@ -9,10 +9,10 @@ import android.widget.ImageView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import star.sky.voyager.utils.api.createBlurDrawable
-import star.sky.voyager.utils.api.getValueByField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.createBlurDrawable
+import star.sky.voyager.utils.voyager.getValueByField
 import java.lang.ref.WeakReference
 import java.util.Timer
 import java.util.TimerTask

@@ -11,9 +11,9 @@ import android.os.Looper
 import android.os.Message
 import android.text.TextUtils
 import android.widget.Toast
-import star.sky.voyager.utils.api.argTypes
-import star.sky.voyager.utils.api.args
 import star.sky.voyager.utils.api.callStaticMethod
+import star.sky.voyager.utils.voyager.argTypes
+import star.sky.voyager.utils.voyager.args
 
 @SuppressLint("ViewConstructor", "SetTextI18n")
 class WeatherData(val context: Context?, private val showCity: Boolean) {

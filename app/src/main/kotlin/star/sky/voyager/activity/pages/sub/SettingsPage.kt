@@ -9,7 +9,7 @@ import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
-import star.sky.voyager.utils.yife.SafeSharedPreferences.getResourceString
+import star.sky.voyager.utils.voyager.SafeSharedPreferences.getResourceString
 import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMPage("scope_settings", "Settings", hideMenu = false)

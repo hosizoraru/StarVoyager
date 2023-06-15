@@ -1,7 +1,7 @@
-package star.sky.voyager.utils.yife
+package star.sky.voyager.utils.voyager
 
 import android.annotation.SuppressLint
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.context
 
 object Resource {
     @SuppressLint("DiscouragedApi")
@@ -9,10 +9,10 @@ object Resource {
         name: String,
         defResId: Int
     ): Int {
-        val id = MIUIActivity.context.resources.getIdentifier(
+        val id = context.resources.getIdentifier(
             name,
             "string",
-            MIUIActivity.context.packageName
+            context.packageName
         )
         return if (id != 0) id else defResId
     }

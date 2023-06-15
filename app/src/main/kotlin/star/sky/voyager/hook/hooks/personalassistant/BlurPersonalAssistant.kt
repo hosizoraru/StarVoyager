@@ -4,10 +4,10 @@ import android.view.Window
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
-import star.sky.voyager.utils.api.getValueByFields
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.getValueByFields
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 import kotlin.math.abs

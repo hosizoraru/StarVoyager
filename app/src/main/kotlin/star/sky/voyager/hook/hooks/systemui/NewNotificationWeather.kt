@@ -9,10 +9,10 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.hook.views.WeatherData
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.getObjectFieldAs
-import star.sky.voyager.utils.api.hookPluginClassLoader
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.hookPluginClassLoader
 
 @SuppressLint("StaticFieldLeak")
 object NewNotificationWeather : HookRegister() {
