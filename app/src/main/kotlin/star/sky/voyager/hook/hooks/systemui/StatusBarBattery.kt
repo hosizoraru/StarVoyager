@@ -142,30 +142,26 @@ object StatusBarBattery : HookRegister() {
     class BatteryReceiver : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context, intent: Intent) {
-            val any = getBoolean("show_status_bar_battery_any", false)
-            val mA = getBoolean("current_mA", false)
-            val current: Double
             val batteryManager = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-            val temperature = (intent.getIntExtra("temperature", 0) / 10.0)
-            current = if (mA) {
-                abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000.0)
-            } else {
-                abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000 / 1000.0)
-            }
-            val status = intent.getIntExtra("status", 0)
-            textview?.run {
-                text = when {
-                    any || status == BatteryManager.BATTERY_STATUS_CHARGING -> if (mA) {
-                        "${"%.0f".format(current)}mA\n${"%.1f".format(temperature)}℃"
-                    } else {
-                        "${"%.2f".format(current)}A\n${"%.1f".format(temperature)}℃"
-                    }
+            val temperature = intent.getIntExtra("temperature", 0) / 10.0
+            val batteryCurrentNow =
+                batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
+                    .toDouble() / 1_000_000
 
-                    else -> text
-                }
-                visibility = when {
-                    any || status == BatteryManager.BATTERY_STATUS_CHARGING -> View.VISIBLE
-                    else -> View.GONE
+            val mA = getBoolean("current_mA", false)
+            val current = abs(if (mA) batteryCurrentNow * 1000 else batteryCurrentNow)
+
+            val currentFormat = if (current >= 1000 || !mA) "%.0f" else "%.2f"
+            val unit = if (mA) "mA" else "A"
+
+            val any = getBoolean("show_status_bar_battery_any", false)
+            val status = intent.getIntExtra("status", 0)
+            val isVisible = any || status == BatteryManager.BATTERY_STATUS_CHARGING
+
+            textview?.apply {
+                visibility = if (isVisible) View.VISIBLE else View.GONE
+                if (isVisible) {
+                    text = "$currentFormat $unit\n%.1f℃".format(current, temperature)
                 }
             }
         }
