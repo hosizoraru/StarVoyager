@@ -10,7 +10,7 @@ import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.ObjectUtils
@@ -90,80 +90,93 @@ object LockscreenChargingInfo : HookRegister() {
     }
 
     private fun getChargingInfo(): String {
-        kotlin.runCatching {
-            var current = 0.0
-            var voltage = 0.0
-            var temperature = 0.0
-            val watt: Double by lazy {
-                current * voltage
-            }
+        return kotlin.runCatching {
+            val current =
+                readDoubleFromFile("/sys/class/power_supply/battery/current_now")?.let { -it / 1000000.0 }
+            val voltage =
+                readDoubleFromFile("/sys/class/power_supply/battery/voltage_now")?.let { it / 1000000.0 }
+            val temperature =
+                readDoubleFromFile("/sys/class/power_supply/battery/temp")?.let { it / 10.0 }
+            val watt = current?.let { cur -> voltage?.let { volt -> cur * volt } }
 
-            current = FileReader("/sys/class/power_supply/battery/current_now").use { fileReader ->
-                BufferedReader(fileReader).use { bufferedReader ->
-                    -1.0 * bufferedReader.readLine().toDouble() / 1000000.0
-                }
-            }
-            voltage = FileReader("/sys/class/power_supply/battery/voltage_now").use { fileReader ->
-                BufferedReader(fileReader).use { bufferedReader ->
-                    bufferedReader.readLine().toDouble() / 1000000.0
-                }
-            }
-            temperature = FileReader("/sys/class/power_supply/battery/temp").use { fileReader ->
-                BufferedReader(fileReader).use { bufferedReader ->
-                    bufferedReader.readLine().toDouble() / 10.0
-                }
-            }
+            formatChargingInfo(current, voltage, watt, temperature)
+        }.getOrElse { moduleRes.getString(R.string.lockscreen_charging_info_not_supported) }
+    }
 
-            // val clazzMiuiChargeManager = loadClass("com.android.keyguard.charge.MiuiChargeManager")
-            // val plugState = loadClass("com.android.systemui.Dependency").classHelper()
-            //     .invokeStaticMethodBestMatch("get", null, clazzMiuiChargeManager)!!.objectHelper()
-            //     .getObjectOrNull("mBatteryStatus")!!.objectHelper().getObjectOrNullAs<Int>("wireState")
-            // when (plugState) {
-            //     10 -> {
-            //         current =
-            //             FileReader("/sys/class/power_supply/wireless/rx_iout").use { fileReader ->
-            //                 BufferedReader(fileReader).use { bufferedReader ->
-            //                     bufferedReader.readLine().toDouble() / 1000000.0
-            //                 }
-            //             }
-            //         voltage = FileReader("/sys/class/power_supply/wireless/input_voltage_vrect").use { fileReader ->
-            //             BufferedReader(fileReader).use { bufferedReader ->
-            //                 bufferedReader.readLine().toDouble() / 1000000.0
-            //             }
-            //         }
-            //     }
-            //
-            //     else -> {
-            //         current =
-            //             FileReader("/sys/class/power_supply/usb/input_current_now").use { fileReader ->
-            //                 BufferedReader(fileReader).use { bufferedReader ->
-            //                     bufferedReader.readLine().toDouble() / 1000000.0
-            //                 }
-            //             }
-            //         voltage = FileReader("/sys/class/power_supply/usb/voltage_now").use { fileReader ->
-            //             BufferedReader(fileReader).use { bufferedReader ->
-            //                 bufferedReader.readLine().toDouble() / 1000000.0
-            //             }
-            //         }
-            //     }
-            // }
-            if (getBoolean("current_mA", false)) {
-                return "${
-                    if (current < 10) String.format(
-                        "%.0fm",
-                        current * 1000
-                    ) else "%.2f".format(current)
-                }A · %.2fV · %.2fW\n%.1f℃".format(voltage, watt, temperature)
-            } else {
-                return String.format(
-                    "%.2f A · %.2f V · %.2f W\n%.1f ℃",
-                    current,
-                    voltage,
-                    watt,
-                    temperature
-                )
+    private fun String.readFile(): String? = kotlin.runCatching {
+        BufferedReader(FileReader(this)).use { it.readLine() }
+    }.getOrNull()
+
+    private fun readDoubleFromFile(filePath: String): Double? {
+        return filePath.readFile()?.toDoubleOrNull()
+    }
+
+    private fun formatChargingInfo(
+        current: Double?,
+        voltage: Double?,
+        watt: Double?,
+        temperature: Double?
+    ): String {
+        return current?.let { currentVal ->
+            voltage?.let { voltageVal ->
+                watt?.let { wattVal ->
+                    temperature?.let { temperatureVal ->
+                        val formattedCurrent =
+                            if (currentVal < 10) "%.0fm".format(currentVal * 1000) else "%.2f".format(
+                                currentVal
+                            )
+                        val formattedVoltage = "%.2f".format(voltageVal)
+                        val formattedWatt = "%.2f".format(wattVal)
+                        val formattedTemperature = "%.1f℃".format(temperatureVal)
+
+                        if (getBoolean("current_mA", false)) {
+                            "$formattedCurrent A · $formattedVoltage V · $formattedWatt W\n$formattedTemperature"
+                        } else {
+                            String.format(
+                                "%.2f A · %.2f V · %.2f W\n%.1f ℃",
+                                currentVal,
+                                voltageVal,
+                                wattVal,
+                                temperatureVal
+                            )
+                        }
+                    }
+                }
             }
-        }
-        return EzXHelper.moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
+        } ?: moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
     }
 }
+
+// val clazzMiuiChargeManager = loadClass("com.android.keyguard.charge.MiuiChargeManager")
+// val plugState = loadClass("com.android.systemui.Dependency").classHelper()
+//     .invokeStaticMethodBestMatch("get", null, clazzMiuiChargeManager)!!.objectHelper()
+//     .getObjectOrNull("mBatteryStatus")!!.objectHelper().getObjectOrNullAs<Int>("wireState")
+// when (plugState) {
+//     10 -> {
+//         current =
+//             FileReader("/sys/class/power_supply/wireless/rx_iout").use { fileReader ->
+//                 BufferedReader(fileReader).use { bufferedReader ->
+//                     bufferedReader.readLine().toDouble() / 1000000.0
+//                 }
+//             }
+//         voltage = FileReader("/sys/class/power_supply/wireless/input_voltage_vrect").use { fileReader ->
+//             BufferedReader(fileReader).use { bufferedReader ->
+//                 bufferedReader.readLine().toDouble() / 1000000.0
+//             }
+//         }
+//     }
+//
+//     else -> {
+//         current =
+//             FileReader("/sys/class/power_supply/usb/input_current_now").use { fileReader ->
+//                 BufferedReader(fileReader).use { bufferedReader ->
+//                     bufferedReader.readLine().toDouble() / 1000000.0
+//                 }
+//             }
+//         voltage = FileReader("/sys/class/power_supply/usb/voltage_now").use { fileReader ->
+//             BufferedReader(fileReader).use { bufferedReader ->
+//                 bufferedReader.readLine().toDouble() / 1000000.0
+//             }
+//         }
+//     }
+// }
