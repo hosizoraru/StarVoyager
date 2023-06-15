@@ -9,6 +9,7 @@ import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
+import star.sky.voyager.utils.yife.SafeSharedPreferences.getResourceString
 import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMPage("scope_settings", "Settings", hideMenu = false)
@@ -50,7 +51,7 @@ class SettingsPage : BasePage() {
                 textId = R.string.trigger_condition,
             ),
             SpinnerV(
-                safeSP.getString("trigger_condition", getString(R.string.three_gesture_down)),
+                safeSP.getResourceString("trigger_condition", R.string.three_gesture_down),
                 dropDownWidth = 250F
             ) {
                 add(R.string.long_press_power_key) {
@@ -93,7 +94,7 @@ class SettingsPage : BasePage() {
                 textId = R.string.trigger_action,
             ),
             SpinnerV(
-                safeSP.getString("trigger_action", getString(R.string.none)),
+                safeSP.getResourceString("trigger_action", R.string.none),
                 dropDownWidth = 250F
             ) {
                 add(R.string.launch_voice_assistant) {
@@ -117,7 +118,7 @@ class SettingsPage : BasePage() {
                 add(R.string.change_brightness) {
                     safeSP.putAny("trigger_action", "change_brightness")
                 }
-                add(R.string.setting_none) {
+                add(R.string.none) {
                     safeSP.putAny("trigger_action", "none")
                 }
                 add(R.string.launch_ai_shortcut) {
