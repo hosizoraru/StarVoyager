@@ -142,26 +142,32 @@ object StatusBarBattery : HookRegister() {
     class BatteryReceiver : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context, intent: Intent) {
+            val any = getBoolean("show_status_bar_battery_any", false)
+            val mA = getBoolean("current_mA", false)
             val batteryManager = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
             val temperature = intent.getIntExtra("temperature", 0) / 10.0
             val batteryCurrentNow =
                 batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
-                    .toDouble() / 1_000_000
+                    .toDouble()
+            val current = abs(if (mA) batteryCurrentNow / 1000 else batteryCurrentNow / 1_000_000)
 
-            val mA = getBoolean("current_mA", false)
-            val current = abs(if (mA) batteryCurrentNow * 1000 else batteryCurrentNow)
+            val currentFormat = if (mA) {
+                if (current < 10_000) "%.0f mA" else "%.2f A"
+            } else {
+                "%.2f A"
+            }
 
-            val currentFormat = if (current >= 1000 || !mA) "%.0f" else "%.2f"
-            val unit = if (mA) "mA" else "A"
+            val currentText =
+                String.format(currentFormat, if (current < 10_000) current else current / 1_000)
 
-            val any = getBoolean("show_status_bar_battery_any", false)
-            val status = intent.getIntExtra("status", 0)
-            val isVisible = any || status == BatteryManager.BATTERY_STATUS_CHARGING
+            val batteryStatus = intent.getIntExtra("status", 0)
+            val temperatureFormat = "%.1f".format(temperature)
 
             textview?.apply {
-                visibility = if (isVisible) View.VISIBLE else View.GONE
-                if (isVisible) {
-                    text = "$currentFormat $unit\n%.1f℃".format(current, temperature)
+                visibility =
+                    if (any || batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) View.VISIBLE else View.GONE
+                if (visibility == View.VISIBLE) {
+                    text = "$currentText\n${temperatureFormat}℃"
                 }
             }
         }
