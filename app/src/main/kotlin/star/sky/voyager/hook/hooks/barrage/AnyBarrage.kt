@@ -14,16 +14,10 @@ object AnyBarrage : HookRegister() {
             .filterByName("filterNotification")
             .first().createHook {
                 before { param ->
-                    val statusBarNotification =
-                        param.args[0] as StatusBarNotification
+                    val packageName = (param.args[0] as StatusBarNotification).packageName
                     getObjectOrNullAs<ArrayList<String>>(
-                        param.thisObject,
-                        "mBarragePackageList"
-                    )!!.let {
-                        if (!it.contains(statusBarNotification.packageName)) {
-                            it.add(statusBarNotification.packageName)
-                        }
-                    }
+                        param.thisObject, "mBarragePackageList"
+                    )!!.apply { if (!contains(packageName)) add(packageName) }
                 }
             }
     }

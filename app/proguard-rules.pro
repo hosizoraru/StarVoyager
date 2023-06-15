@@ -40,6 +40,12 @@
 #-keep class star.sky.voyager.hook.MainHook {
 #    <init>();
 #}
+#-keepattributes *Annotation*
+#-keep class star.sky.voyager.activity.**.**
+
+#-keepattributes cn.fkj233.ui.activity.annotation.BMMainPage
+#-keepattributes cn.fkj233.ui.activity.annotation.BMMenuPage
+#-keepattributes cn.fkj233.ui.activity.annotation.BMPage
 
 -assumenosideeffects class kotlin.jvm.internal.Intrinsics {
     public static void check*(...);
@@ -52,14 +58,8 @@
 -keep class star.sky.voyager.hook.hooks.**.** {
     <init>();
 }
-#-keep class star.sky.voyager.activity.**.**
-
-#-keepattributes cn.fkj233.ui.activity.annotation.BMMainPage
-#-keepattributes cn.fkj233.ui.activity.annotation.BMMenuPage
-#-keepattributes cn.fkj233.ui.activity.annotation.BMPage
 
 -keepattributes RuntimeVisibleAnnotations
-#-keepattributes *Annotation*
 
 -allowaccessmodification
 -overloadaggressively
