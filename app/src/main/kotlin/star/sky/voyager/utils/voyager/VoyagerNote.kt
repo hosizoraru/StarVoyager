@@ -1,6 +1,5 @@
 package star.sky.voyager.utils.voyager
 
-//import dev.rikka.tools.refine.RefineAs
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.graphics.drawable.Drawable
@@ -69,16 +68,6 @@ fun Any.invokeMethod(vararg args: Any?, condition: MethodCondition): Any? {
         ?.let { it.isAccessible = true;return it(this, *args) }
     throw NoSuchMethodException()
 }
-
-/**
- * 判断运行模块的机型是否是平板
- * @return 一个 Boolean 值，true 代表是平板，false 代表不是平板
- * @author Voyager
- */
-fun isPad() =
-    loadClass("miui.os.Build")
-        .getField("IS_TABLET")
-        .getBoolean(null)
 
 fun getValueByField(target: Any, fieldName: String, clazz: Class<*>? = null): Any? {
     var targetClass = clazz
