@@ -445,7 +445,8 @@
     <string name="super_resolution">Anywhere Super Resolution</string>
     <string name="gun_service">Anywhere Sight</string>
     <string name="macro_combo">Anywhere Macro Combo</string>
-    <string name="screen_time">Show screen time on battery ranking</string>
+    <string name="screen_time">Display screen power consumption information on battery ranking</string>
+    <string name="screen_time_summary">At the same time, the hidden power consumption information of all other apps will also be displayed</string>
     <string name="remove_conversation_bubble_settings_restriction">Remove conversation bubble settings restriction</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">You can manage which apps can show conversation bubbles in \"System settings - Additional settings - Floating windows - Conversation bubbles - Manage conversation bubbles\"</string>
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>

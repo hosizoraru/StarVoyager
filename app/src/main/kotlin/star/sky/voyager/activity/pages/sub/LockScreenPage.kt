@@ -82,7 +82,7 @@ class LockScreenPage : BasePage() {
         )
         TextWithSeekBar(
             TextV(textId = R.string.lockscreen_charging_info_refresh_frequency),
-            SeekBarWithTextV("lockscreen_charging_info_refresh_frequency", 1, 25, 10),
+            SeekBarWithTextV("lockscreen_charging_info_refresh_frequency", 1, 35, 10),
             dataBindingRecv = chargingInfo.binding.getRecv(1)
         )
         TextSummaryWithSwitch(

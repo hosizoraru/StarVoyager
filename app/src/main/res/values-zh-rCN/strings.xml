@@ -443,7 +443,8 @@
     <string name="super_resolution">全局开放极清播放</string>
     <string name="gun_service">全局开放准星辅助</string>
     <string name="macro_combo">全局开放自动连招</string>
-    <string name="screen_time">在耗电排行中显示屏幕时间</string>
+    <string name="screen_time">在耗电排行中显示屏幕耗电信息</string>
+    <string name="screen_time_summary">同时会恢复显示所有其他应用的被隐藏的耗电信息</string>
     <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
     <string name="remove_conversation_bubble_settings_restriction_summary">可以通过“系统设置 - 更多设置 - 自由窗口 - 气泡通知 - 气泡通知应用管理”管理贴边应用的通知</string>
     <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
