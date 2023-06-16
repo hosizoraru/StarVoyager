@@ -120,6 +120,7 @@
     <string name="mic_sensor">麦克风传感器</string>
     <string name="multiple_instances">多开</string>
     <string name="icon">图标</string>
+    <string name="dock">程序坞</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -547,6 +548,11 @@
     <string name="exposure_refresh_for_non_miui_widget_summary">否则非 MIUI 小组件在负一屏将无法刷新信息</string>
     <string name="blur_personal_assistant">负一屏模糊</string>
     <string name="blur_personal_assistant_radius">模糊程度</string>
+
+    <string name="restore_google_search">替换搜索为 Google 搜索</string>
+    <string name="search_bar_xiaoai_custom">自定义搜索栏的小爱同学按钮</string>
+    <string name="search_bar_pkg_name">应用的包名</string>
+    <string name="search_bar_cls_name">活动的活动名</string>
 
     <string name="lockscreen_charging_info">显示充电功率</string>
     <string name="lockscreen_charging_info_refresh_frequency">充电功率的刷新频率 (单位:0.1/s)</string>

@@ -1,7 +1,7 @@
 package star.sky.voyager.activity.pages.sub
 
 import android.view.View
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SeekBarWithTextV
@@ -14,7 +14,7 @@ import star.sky.voyager.R
 class HomeModPage : BasePage() {
     override fun onCreate() {
         val foldDockBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "home_fold_dock",
                 false
             )
@@ -37,7 +37,7 @@ class HomeModPage : BasePage() {
         )
 
         val animRatioBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "home_anim_ratio_binding",
                 false
             )
@@ -69,7 +69,7 @@ class HomeModPage : BasePage() {
         )
 
         val cardSizeBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "home_task_view_card_size_binding",
                 false
             )
@@ -103,7 +103,7 @@ class HomeModPage : BasePage() {
         )
 
         val homeFoldAnimBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "home_folder_anim",
                 false
             )

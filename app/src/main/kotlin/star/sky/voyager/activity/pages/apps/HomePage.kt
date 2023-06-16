@@ -33,6 +33,12 @@ class HomePage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
+                textId = R.string.dock,
+                onClickListener = { showFragment("home_dock") }
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
                 textId = R.string.mod,
                 onClickListener = { showFragment("home_mod") }
             )

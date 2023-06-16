@@ -122,6 +122,7 @@
     <string name="mic_sensor">Mic Sensor</string>
     <string name="multiple_instances">Multi-instance</string>
     <string name="icon">Icon</string>
+    <string name="dock">Dock</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>
@@ -549,6 +550,11 @@
     <string name="exposure_refresh_for_non_miui_widget_summary">Otherwise, the non-MIUI widget cannot refresh the information on the App Vault.</string>
     <string name="blur_personal_assistant">Blur for App Vault</string>
     <string name="blur_personal_assistant_radius">Blur Radius</string>
+
+    <string name="restore_google_search">Search bar opens Google Search</string>
+    <string name="search_bar_xiaoai_custom">Customized search bar with Xiao Ai Assistant button</string>
+    <string name="search_bar_pkg_name">Package name of the application</string>
+    <string name="search_bar_cls_name">Class name of the activity</string>
 
     <string name="lockscreen_charging_info">Display charging power</string>
     <string name="lockscreen_charging_info_refresh_frequency">Refresh frequency of power information (unit: 0.1/s)</string>

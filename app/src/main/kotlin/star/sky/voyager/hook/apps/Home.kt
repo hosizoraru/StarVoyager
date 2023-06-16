@@ -25,8 +25,10 @@ import star.sky.voyager.hook.hooks.home.RealMemory
 import star.sky.voyager.hook.hooks.home.RecentViewRemoveCardAnim
 import star.sky.voyager.hook.hooks.home.ResizableWidgets
 import star.sky.voyager.hook.hooks.home.RestoreGoogleAppIcon
+import star.sky.voyager.hook.hooks.home.RestoreGoogleSearch
 import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
+import star.sky.voyager.hook.hooks.home.SearchBarXiaoAiCustom
 import star.sky.voyager.hook.hooks.home.SetDeviceLevel
 import star.sky.voyager.hook.hooks.home.ShortcutItemCount
 import star.sky.voyager.hook.hooks.home.ShowAllApp
@@ -51,6 +53,8 @@ object Home : AppRegister() {
             AddFreeformShortcut, // 快捷菜单添加小窗
             ShowAllApp, // 桌面快捷方式管理显示所有应用
             RestoreGoogleAppIcon, // 恢复Google图标
+            RestoreGoogleSearch, // 替换搜索为 Google 搜索
+            SearchBarXiaoAiCustom, // 自定义搜索栏的小爱按钮
             ScrollIconName, // 滚动显示应用名称
             RealMemory, // 后台显示实际使用和总内存
             UseTransitionAnimation, // 使用Miui小组件的动画

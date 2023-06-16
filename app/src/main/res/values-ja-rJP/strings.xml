@@ -120,6 +120,7 @@
     <string name="mic_sensor">マイクセンサー</string>
     <string name="multiple_instances">複数起動</string>
     <string name="icon">アイコン</string>
+    <string name="dock">ドック</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>
@@ -548,6 +549,10 @@
     <string name="blur_personal_assistant">-1 画面のぼかし</string>
     <string name="blur_personal_assistant_radius">ぼかしの程度</string>
 
+    <string name="restore_google_search">検索バーはGoogle検索を開く</string>
+    <string name="search_bar_xiaoai_custom">カスタム検索バーの Mi AI ボタン</string>
+    <string name="search_bar_pkg_name">アプリのパッケージ名</string>
+    <string name="search_bar_cls_name">アクティビティのクラス名</string>
 
     <string name="lockscreen_charging_info">充電パワーを表示</string>
     <string name="lockscreen_charging_info_refresh_frequency">充電情報の更新頻度（単位：0.1秒）</string>
