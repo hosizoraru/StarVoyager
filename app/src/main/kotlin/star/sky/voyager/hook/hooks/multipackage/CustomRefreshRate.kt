@@ -1,13 +1,14 @@
 package star.sky.voyager.hook.hooks.multipackage
 
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isFinal
+import com.github.kyuubiran.ezxhelper.MemberExtensions.isPrivate
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
-import com.github.kyuubiran.ezxhelper.finders.FieldFinder.`-Static`.fieldFinder
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -41,6 +42,9 @@ object CustomRefreshRate : HookRegister() {
             }
 
             "com.xiaomi.misettings" -> {
+                val refreshRateActivity =
+                    loadClass("com.xiaomi.misettings.display.RefreshRate.RefreshRateActivity")
+
                 loadDexKit()
                 dexKitBridge.findMethodUsingString {
                     usingString = "btn_preferce_category"
@@ -51,23 +55,22 @@ object CustomRefreshRate : HookRegister() {
                     }
                 }
 
-                dexKitBridge.batchFindClassesUsingStrings {
-                    addQuery(
-                        "qwq1",
-                        listOf("The current device does not support refresh rate adjustment")
-                    )
-                    matchType = MatchType.FULL
-                }.forEach { (_, classes) ->
-                    classes.map {
-                        it.getClassInstance(classLoader).fieldFinder()
-                            .toList().forEach { field ->
-                                if (field.isFinal && field.isStatic) {
-                                    field.isAccessible = true
-                                    field.set(null, true)
-                                }
-                            }
-                    }
-                }
+                refreshRateActivity.declaredFields.first { field ->
+                    field.isPrivate && field.isFinal && field.isStatic
+                }.apply { isAccessible = true }.set(null, true)
+
+//                refreshRateActivity.declaredFields
+//                    .toList().forEach { field ->
+//                        if (field.isPrivate && field.isStatic && field.isFinal) {
+//                            field.isAccessible = true
+//                            field.set(null, true)
+//                        }
+//                    }
+//
+//                refreshRateActivity.fieldFinder()
+//                    .filterPrivate().filterStatic().filterFinal()
+//                    .first().apply { isAccessible = true }
+//                    .set(null, true)
             }
         }
     }
