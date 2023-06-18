@@ -13,7 +13,6 @@ import star.sky.voyager.R
 @BMPage("scope_android", "Android", hideMenu = false)
 class AndroidPage : BasePage() {
     override fun onCreate() {
-        TitleText(textId = R.string.scope_android_summary)
         TitleText(textId = R.string.core_patch)
         TextSummaryWithSwitch(
             TextSummaryV(

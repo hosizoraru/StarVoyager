@@ -13,12 +13,16 @@ class AppManagerPage : BasePage() {
     override fun onCreate() {
         Page(
             activity.getDrawable(R.drawable.ic_package_installer)!!,
-            pageNameId = R.string.scope_pkg_installer, round = 8f,
+            TextSummaryV(
+                textId = R.string.scope_pkg_installer,
+            ), round = 8f,
             onClickListener = { showFragment("package_installer") }
         )
         Page(
             activity.getDrawable(R.drawable.ic_settings)!!,
-            pageNameId = R.string.scope_settings, round = 8f,
+            TextSummaryV(
+                textId = R.string.scope_settings,
+            ), round = 8f,
             onClickListener = { showFragment("scope_settings") }
         )
         Line()

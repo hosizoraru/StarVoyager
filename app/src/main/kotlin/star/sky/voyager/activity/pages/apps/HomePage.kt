@@ -16,7 +16,9 @@ class HomePage : BasePage() {
     override fun onCreate() {
         Page(
             activity.getDrawable(R.drawable.ic_appvault)!!,
-            pageNameId = R.string.scope_personal_assistant, round = 8f,
+            TextSummaryV(
+                textId = R.string.scope_personal_assistant
+            ), round = 8f,
             onClickListener = { showFragment("scope_personal_assistant") }
         )
         TextSummaryWithArrow(
