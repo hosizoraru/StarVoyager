@@ -29,11 +29,10 @@ object GetDefaultBubbles : HookRegister() {
                         mContext
                     ) as List<*>
                     freeformSuggestionList.associateWith { pkg ->
-                        val bubbleApp =
-                            clazzBubbleApp.getConstructor(String::class.java, Int::class.java)
-                                .newInstance(pkg, mCurrentUserId)
-                        bubbleApp.objectHelper().invokeMethodBestMatch("setChecked", null, true)
-                        bubbleApp
+                        clazzBubbleApp.getConstructor(String::class.java, Int::class.java)
+                            .newInstance(pkg, mCurrentUserId).apply {
+                                objectHelper().invokeMethodBestMatch("setChecked", null, true)
+                            }
                     }.forEach { (pkg, bubbleApp) ->
                         arrayMap[pkg as String] = bubbleApp
                     }

@@ -1,11 +1,14 @@
 package star.sky.voyager.hook.hooks.multipackage
 
+import android.util.ArraySet
+import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectHelper.Companion.objectHelper
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import de.robv.android.xposed.XC_MethodHook
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
@@ -13,73 +16,68 @@ object MaxFreeForm : HookRegister() {
     override fun init() = hasEnable("max_free_form") {
         when (hostPackageName) {
             "android" -> {
-                val displayStrategy =
+                val clazzMiuiFreeFormStackDisplayStrategy =
                     loadClass("com.android.server.wm.MiuiFreeFormStackDisplayStrategy")
-                val managerService =
-                    loadClass("com.android.server.wm.MiuiFreeFormManagerService")
-                displayStrategy.methodFinder()
-                    .filterByName("getMaxMiuiFreeFormStackCount")
-                    .first().createHook {
-                        returnConstant(256)
-                    }
-                displayStrategy.methodFinder()
-                    .filterByName("getMaxMiuiFreeFormStackCountForFlashBack")
-                    .first().createHook {
-                        returnConstant(256)
-                    }
-                managerService.methodFinder()
-                    .filterByName("shouldStopStartFreeform")
-                    .first().createHook {
+                clazzMiuiFreeFormStackDisplayStrategy.methodFinder().filter {
+                    name in setOf(
+                        "getMaxMiuiFreeFormStackCount",
+                        "getMaxMiuiFreeFormStackCountForFlashBack"
+                    )
+                }.toList().createHooks {
+                    returnConstant(256)
+                }
+                clazzMiuiFreeFormStackDisplayStrategy.methodFinder()
+                    .filterByName("shouldStopStartFreeform").first()
+                    .createHook {
                         returnConstant(false)
                     }
             }
 
             "com.miui.home" -> {
-                val gestureUtils =
+                val clazzRecentsAndFSGestureUtils =
                     loadClass("com.miui.home.launcher.RecentsAndFSGestureUtils")
-                val topWindowCrop =
-                    loadClass("com.miui.home.recents.views.RecentsTopWindowCrop")
-                val miuiMultiWindowUtils =
-                    loadClass("android.util.MiuiMultiWindowUtils")
-                val miuiFreeFormManager =
-                    loadClass("miui.app.MiuiFreeFormManager")
-                var hook1: List<XC_MethodHook.Unhook>? = null
-                var hook2: List<XC_MethodHook.Unhook>? = null
-
-                gestureUtils.methodFinder()
-                    .filterByName("canTaskEnterMiniSmallWindow")
+                clazzRecentsAndFSGestureUtils.methodFinder().filterByName("canTaskEnterSmallWindow")
                     .toList().createHooks {
                         returnConstant(true)
                     }
-                gestureUtils.methodFinder()
-                    .filterByName("canTaskEnterSmallWindow")
-                    .toList().createHooks {
-                        returnConstant(true)
-                    }
-
-                topWindowCrop.methodFinder()
-                    .filterByName("startSmallWindow")
-                    .toList().createHooks {
+                clazzRecentsAndFSGestureUtils.methodFinder()
+                    .filterByName("canTaskEnterMiniSmallWindow").toList().createHooks {
                         before {
-                            hook1 = miuiMultiWindowUtils.methodFinder()
-                                .filterByName("startSmallFreeform")
-                                .filterByParamCount(4)
-                                .toList().createHooks {
-                                    before {
-                                        it.args[3] = false
-                                        hook2 = miuiFreeFormManager.methodFinder()
-                                            .filterByName("getAllFreeFormStackInfosOnDisplay")
-                                            .toList().createHooks {
-                                                returnConstant(null)
-                                            }
-                                    }
-                                    after {
-                                        hook2?.forEach { it.unhook() }
-                                    }
-                                }
+                            it.result = invokeStaticMethodBestMatch(
+                                loadClass("com.miui.home.smallwindow.SmallWindowStateHelper"),
+                                "getInstance"
+                            )!!.objectHelper()
+                                .invokeMethodBestMatch("canEnterMiniSmallWindow") as Boolean
                         }
-                        after {
-                            hook1?.forEach { it.unhook() }
+                    }
+                loadClass("com.miui.home.smallwindow.SmallWindowStateHelperUseManager").methodFinder()
+                    .filterByName("canEnterMiniSmallWindow").first().createHook {
+                        before {
+                            it.result = getObjectOrNullAs<ArraySet<*>>(
+                                it.thisObject,
+                                "mMiniSmallWindowInfoSet"
+                            )!!.isEmpty()
+                        }
+                    }
+                loadClass("miui.app.MiuiFreeFormManager").methodFinder()
+                    .filterByName("getAllFreeFormStackInfosOnDisplay")
+                    .toList().createHooks {
+                        before { param ->
+                            if (Throwable().stackTrace.any {
+                                    it.className == "android.util.MiuiMultiWindowUtils" && it.methodName == "startSmallFreeform"
+                                }) {
+                                param.result = null
+                            }
+                        }
+                    }
+                loadClass("android.util.MiuiMultiWindowUtils").methodFinder()
+                    .filterByName("hasSmallFreeform").toList().createHooks {
+                        before { param ->
+                            if (Throwable().stackTrace.any {
+                                    it.className == "android.util.MiuiMultiWindowUtils" && it.methodName == "startSmallFreeform"
+                                }) {
+                                param.result = false
+                            }
                         }
                     }
             }
