@@ -435,6 +435,7 @@
     <string name="open_by_default">默认打开</string>
     <string name="open_by_default_setting">将应用详情中“消除默认操作”改为“默认打开”设置</string>
     <string name="remove_report">移除应用详情界面的举报</string>
+    <string name="remove_risk_pkg">禁用发现恶意应用通知</string>
     <string name="disable_app_settings">在应用详情界面显示停用App</string>
     <string name="disable_app_text">你真的确定要停用系统应用吗？</string>
     <string name="screen_hold_on">解锁熄屏挂机和息屏听剧</string>

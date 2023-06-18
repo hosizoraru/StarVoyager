@@ -8,7 +8,7 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
-object RemoveReport : HookRegister() {
+object Report : HookRegister() {
     override fun init() = hasEnable("remove_report") {
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {

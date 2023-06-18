@@ -57,6 +57,12 @@ class SecurityPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.remove_risk_pkg
+            ),
+            SwitchV("remove_risk_pkg", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.disable_app_settings
             ),
             SwitchV("disable_app_settings", false)

@@ -435,6 +435,7 @@
     <string name="open_by_default">デフォルトで開く</string>
     <string name="open_by_default_setting">アプリの詳細で「デフォルトの操作を消去」を「デフォルトで開く」設定に変更します</string>
     <string name="remove_report">アプリ詳細画面の報告を削除</string>
+    <string name="remove_risk_pkg">ウイルス通知を削除する</string>
     <string name="disable_app_settings">アプリ詳細画面でAppを無効にするを表示</string>
     <string name="disable_app_text">本当にシステムアプリを無効にしますか？</string>
     <string name="screen_hold_on">ロック解除時の画面保持と画面オフ時のオーディオプレイヤーを有効にする</string>
