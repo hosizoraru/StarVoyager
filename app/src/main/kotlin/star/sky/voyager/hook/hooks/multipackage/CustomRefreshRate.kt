@@ -6,7 +6,6 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isFinal
-import com.github.kyuubiran.ezxhelper.MemberExtensions.isPrivate
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
 import io.luckypray.dexkit.enums.MatchType
@@ -56,19 +55,19 @@ object CustomRefreshRate : HookRegister() {
                 }
 
                 refreshRateActivity.declaredFields.first { field ->
-                    field.isPrivate && field.isFinal && field.isStatic
+                    field.isFinal && field.isStatic
                 }.apply { isAccessible = true }.set(null, true)
 
 //                refreshRateActivity.declaredFields
 //                    .toList().forEach { field ->
-//                        if (field.isPrivate && field.isStatic && field.isFinal) {
+//                        if (field.isStatic && field.isFinal) {
 //                            field.isAccessible = true
 //                            field.set(null, true)
 //                        }
 //                    }
 //
 //                refreshRateActivity.fieldFinder()
-//                    .filterPrivate().filterStatic().filterFinal()
+//                    .filterStatic().filterFinal()
 //                    .first().apply { isAccessible = true }
 //                    .set(null, true)
             }
