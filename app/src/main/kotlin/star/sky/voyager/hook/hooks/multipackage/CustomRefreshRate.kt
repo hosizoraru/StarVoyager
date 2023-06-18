@@ -1,52 +1,73 @@
 package star.sky.voyager.hook.hooks.multipackage
 
-import android.os.Bundle
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
+import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.MemberExtensions.isFinal
+import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
-import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
+import com.github.kyuubiran.ezxhelper.finders.FieldFinder.`-Static`.fieldFinder
+import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
+import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
 object CustomRefreshRate : HookRegister() {
     override fun init() = hasEnable("custom_refresh_rate") {
         when (hostPackageName) {
             "com.miui.powerkeeper" -> {
-                loadClass("com.miui.powerkeeper.statemachine.DisplayFrameSetting").methodFinder()
-                    .filterByName("parseCustomModeSwitchFromDb")
-                    .filterByParamCount(1)
-                    .filterByParamTypes(String::class.java)
-                    .first().createHook {
-                        before {
-//                            setObject(it.thisObject, "fucSwitch", true)
-                            setObject(it.thisObject, "mIsCustomFpsSwitch", "true")
-//                            val qwq = getObjectOrNull(it.thisObject, "mIsCustomFpsSwitch")
-//                            Log.i("hook mIsCustomFpsSwitch success, its:$qwq")
+                loadDexKit()
+                dexKitBridge.batchFindMethodsUsingStrings {
+                    addQuery("qwq0", listOf("custom_mode_switch", "fucSwitch"))
+                    matchType = MatchType.FULL
+                }.forEach { (_, methods) ->
+                    methods.filter { it.isMethod }.map {
+                        it.getMethodInstance(safeClassLoader).createHook {
+                            before { param ->
+                                setObject(param.thisObject, "mIsCustomFpsSwitch", "true")
+//                                setObject(param.thisObject, "fucSwitch", true)
+//                                val qwq =
+//                                    getObjectOrNull(
+//                                        param.thisObject,
+//                                        "mIsCustomFpsSwitch"
+//                                    )
+//                                Log.i("hook mIsCustomFpsSwitch success, its:$qwq")
+                            }
                         }
                     }
+                }
             }
 
             "com.xiaomi.misettings" -> {
-                loadClass("com.xiaomi.misettings.display.RefreshRate.NewRefreshRateFragment").methodFinder()
-                    .filterByName("b")
-                    .filterByParamCount(1)
-                    .filterByParamTypes(Boolean::class.java)
-                    .first().createHook {
-                        before {
-                            it.args[0] = true
-                        }
+                loadDexKit()
+                dexKitBridge.findMethodUsingString {
+                    usingString = "btn_preferce_category"
+                    matchType = MatchType.FULL
+                }.single().getMethodInstance(classLoader).createHook {
+                    before {
+                        it.args[0] = true
                     }
+                }
 
-                loadClass("com.xiaomi.misettings.display.RefreshRate.RefreshRateActivity").methodFinder()
-                    .filterByName("onCreate")
-                    .filterByParamCount(1)
-                    .filterByParamTypes(Bundle::class.java)
-                    .first().createHook {
-                        before {
-                            setObject(it.thisObject, "a", true)
-                        }
+                dexKitBridge.batchFindClassesUsingStrings {
+                    addQuery(
+                        "qwq1",
+                        listOf("The current device does not support refresh rate adjustment")
+                    )
+                    matchType = MatchType.FULL
+                }.forEach { (_, classes) ->
+                    classes.map {
+                        it.getClassInstance(classLoader).fieldFinder()
+                            .toList().forEach { field ->
+                                if (field.isFinal && field.isStatic) {
+                                    field.isAccessible = true
+                                    field.set(null, true)
+                                }
+                            }
                     }
+                }
             }
         }
     }

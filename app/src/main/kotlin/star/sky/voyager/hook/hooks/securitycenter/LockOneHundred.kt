@@ -26,7 +26,6 @@ object LockOneHundred : HookRegister() {
         dexKitBridge.findMethodUsingString {
             usingString = "getMinusPredictScore"
             matchType = MatchType.CONTAINS
-            methodDeclareClass = "com.miui.securityscan.scanner.ScoreManager"
         }.single().getMethodInstance(classLoader).createHook {
             returnConstant(0)
         }
