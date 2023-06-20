@@ -38,7 +38,10 @@ import star.sky.voyager.activity.pages.sub.SettingsUnlockPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
-import star.sky.voyager.utils.key.BackupUtils
+import star.sky.voyager.utils.key.BackupUtils.CREATE_DOCUMENT_CODE
+import star.sky.voyager.utils.key.BackupUtils.OPEN_DOCUMENT_CODE
+import star.sky.voyager.utils.key.BackupUtils.handleCreateDocument
+import star.sky.voyager.utils.key.BackupUtils.handleReadDocument
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 class MainActivity : MIUIActivity() {
@@ -85,35 +88,35 @@ class MainActivity : MIUIActivity() {
         registerPage(SmartHubPage::class.java)
         registerPage(MaxMiPadPage::class.java)
         registerPage(DisableFixedOrientationPage::class.java)
-        registerPage(HideIconPage::class.java)
-        registerPage(IconPositionPage::class.java)
-        registerPage(PersonalAssistantPage::class.java)
-        registerPage(HomeBlurPage::class.java)
-        registerPage(HomeModPage::class.java)
-        registerPage(GalleryUnlockPage::class.java)
         registerPage(NotificationCenterPage::class.java)
         registerPage(ControlCenterPage::class.java)
         registerPage(LockScreenPage::class.java)
         registerPage(StatusBarPage::class.java)
         registerPage(StatusBarIconPage::class.java)
         registerPage(StatusBarNetWorkSpeedPage::class.java)
+        registerPage(HideIconPage::class.java)
+        registerPage(IconPositionPage::class.java)
+        registerPage(PersonalAssistantPage::class.java)
+        registerPage(HomeBlurPage::class.java)
+        registerPage(HomeIconPage::class.java)
+        registerPage(HomeDockPage::class.java)
+        registerPage(HomeModPage::class.java)
         registerPage(SecurityUnlockPage::class.java)
         registerPage(PackageInstallerPage::class.java)
         registerPage(SettingsPage::class.java)
-        registerPage(HomeIconPage::class.java)
-        registerPage(HomeDockPage::class.java)
         registerPage(SettingsUnlockPage::class.java)
+        registerPage(GalleryUnlockPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (data != null && resultCode == RESULT_OK) {
             when (requestCode) {
-                BackupUtils.CREATE_DOCUMENT_CODE -> {
-                    BackupUtils.handleCreateDocument(activity, data.data)
+                CREATE_DOCUMENT_CODE -> {
+                    handleCreateDocument(activity, data.data)
                 }
 
-                BackupUtils.OPEN_DOCUMENT_CODE -> {
-                    BackupUtils.handleReadDocument(activity, data.data)
+                OPEN_DOCUMENT_CODE -> {
+                    handleReadDocument(activity, data.data)
                 }
             }
         }
