@@ -22,6 +22,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
 import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.LockScreenFont
+import star.sky.voyager.hook.hooks.systemui.LockScreenZenMode
 import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
 import star.sky.voyager.hook.hooks.systemui.MonetTheme
@@ -83,6 +84,7 @@ object SystemUI : AppRegister() {
             WaveCharge, // 启用Alpha充电动画
             LockScreenCurrent, // 充电时显示当前电流
             LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕
+            LockScreenZenMode, // 隐藏锁屏界面的勿扰模式通知
             NoPasswordHook, // 开机免输密码
             OldQSCustom, // 自定义行列数
             // 状态栏网络速度 Start

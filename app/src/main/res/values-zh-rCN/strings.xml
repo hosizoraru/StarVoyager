@@ -601,6 +601,7 @@
     <string name="blur_lock_screen_button">模糊按钮</string>
     <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
+    <string name="lock_screen_zen_mode">隐藏锁屏界面的勿扰模式通知</string>
     <string name="enable_wave_charge_animation">启用 Alpha 充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_mA">电流单位使用 mA</string>

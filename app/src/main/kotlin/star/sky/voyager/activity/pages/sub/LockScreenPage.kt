@@ -1,7 +1,7 @@
 package star.sky.voyager.activity.pages.sub
 
 import android.view.View
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SeekBarWithTextV
@@ -51,6 +51,10 @@ class LockScreenPage : BasePage() {
             ), SwitchV("remove_lock_screen_camera")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.lock_screen_zen_mode),
+            SwitchV("lock_screen_zen_mode")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.enable_wave_charge_animation),
             SwitchV("enable_wave_charge_animation")
         )
@@ -61,7 +65,7 @@ class LockScreenPage : BasePage() {
             ), SwitchV("lock_screen_charging_current")
         )
         val chargingInfo = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "lockscreen_charging_info",
                 false
             )

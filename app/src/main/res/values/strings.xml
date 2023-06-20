@@ -603,6 +603,7 @@
     <string name="blur_lock_screen_button">Blur button</string>
     <string name="remove_the_left_side_of_the_lock_screen">Remove the lock screen side panel</string>
     <string name="remove_lock_screen_camera">Remove the lock screen camera feature</string>
+    <string name="lock_screen_zen_mode">Hide Zen Mode notification on lock screen</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
     <string name="current_mA">The current unit uses mA</string>
