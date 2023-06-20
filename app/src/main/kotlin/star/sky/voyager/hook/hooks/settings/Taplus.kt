@@ -6,14 +6,12 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.SettingsFeatures.SettingsFeaturesCls
 
-object NewNfcPage : HookRegister() {
-    override fun init() = hasEnable("new_nfc_page") {
+object Taplus : HookRegister() {
+    override fun init() = hasEnable("unlock_taplus") {
         SettingsFeaturesCls.methodFinder()
-            .filterByName("isNeedShowMiuiNFC")
+            .filterByName("isNeedRemoveContentExtension")
             .first().createHook {
-                before {
-                    it.result = true
-                }
+                returnConstant(false)
             }
     }
 }

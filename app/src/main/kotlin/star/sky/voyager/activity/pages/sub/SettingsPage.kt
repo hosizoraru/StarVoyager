@@ -24,12 +24,6 @@ class SettingsPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.speed_mode,
-                tipsId = R.string.speed_mode_summary
-            ), SwitchV("speed_mode")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.system_settings_permission_unknown_origin_app,
                 tipsId = R.string.system_settings_permission_unknown_origin_app_desc
             ), SwitchV("system_settings_permission_unknown_origin_app")
@@ -39,11 +33,11 @@ class SettingsPage : BasePage() {
                 textId = R.string.no_through_the_list,
             ), SwitchV("no_through_the_list")
         )
-        TextSummaryWithSwitch(
+        TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.new_nfc_page,
-                tipsId = R.string.new_nfc_page_summary
-            ), SwitchV("new_nfc_page")
+                textId = R.string.unlock,
+                onClickListener = { showFragment("settings_unlock") }
+            )
         )
         Line()
         TextSummaryWithSpinner(
