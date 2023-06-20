@@ -344,6 +344,7 @@
     <string name="translation">翻訳を解除</string>
 
     <string name="horizontal_content_extension">横向きモードで Taplus を使用を許可</string>
+    <string name="unlock_taplus_for_pad">Pad のロック解除による Taplus</string>
 
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
     <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>
@@ -387,13 +388,17 @@
 
     <string name="show_notification_importance">通知の重要度を表示</string>
     <string name="show_notification_importance_summary">MIUI 12以降のバージョンで非表示にされた通知の重要度設定を表示します</string>
-    <string name="speed_mode">スピードモードのオプションを表示</string>
-    <string name="speed_mode_summary">開発者向けオプション内</string>
     <string name="system_settings_permission_unknown_origin_app">不明なアプリのインストール許可を持つアプリリスト</string>
     <string name="system_settings_permission_unknown_origin_app_desc">国際版の動作を使用し、直接アプリの「不明なアプリのインストール」許可スイッチにジャンプします</string>
     <string name="no_through_the_list">他のアプリの上に重ねて表示許可を持つアプリリスト</string>
     <string name="new_nfc_page">新版 NFC ページ</string>
     <string name="new_nfc_page_summary">これを有効にすると、サポートされていないモデルではデフォルトの支払いアプリとしてMiウォレットを選択できません</string>
+    <string name="novelty_haptic">ロック解除のカスタム触覚フィードバックレベル</string>
+    <string name="novelty_haptic_summary">Mi13Pro以外の機種のロックを解除する</string>
+    <string name="speed_mode">スピードモードのオプションを表示</string>
+    <string name="speed_mode_summary">開発者向けオプション内</string>>
+    <string name="unlock_taplus">Taplus のロックを解除する</string>
+    <string name="show_vip_service">マイ サービスを表示する</string>
 
     <string name="remove_ota_validate">*OTA 検証の削除 [実験的]</string>
     <string name="remove_ota_validate_summary">- VAB シリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式 ROM は対応していません。</string>

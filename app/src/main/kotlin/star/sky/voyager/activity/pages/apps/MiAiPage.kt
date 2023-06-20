@@ -73,5 +73,12 @@ class MiAiPage : BasePage() {
             TextSummaryV(textId = R.string.horizontal_content_extension),
             SwitchV("horizontal_content_extension")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.unlock_taplus_for_pad,
+                tipsId = R.string.open_on_demand
+            ),
+            SwitchV("unlock_taplus_for_pad")
+        )
     }
 }

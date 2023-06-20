@@ -344,6 +344,7 @@
     <string name="translation">解锁翻译</string>
 
     <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
+    <string name="unlock_taplus_for_pad">为Pad解锁传送门</string>
 
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
@@ -387,13 +388,17 @@
 
     <string name="show_notification_importance">显示通知重要程度</string>
     <string name="show_notification_importance_summary">显示 MIUI 12 及之后版本被隐藏的通知重要程度设置</string>
-    <string name="speed_mode">显示极致模式选项</string>
-    <string name="speed_mode_summary">在开发者选项里面</string>
     <string name="system_settings_permission_unknown_origin_app">安装未知应用权限免翻应用列表</string>
     <string name="system_settings_permission_unknown_origin_app_desc">使用国际版行为，直接跳转对应应用 \"安装未知应用\" 的权限开关</string>
     <string name="no_through_the_list">显示在上层授权免翻应用列表</string>
     <string name="new_nfc_page">新版 NFC 页面</string>
     <string name="new_nfc_page_summary">开启后，不支持的机型默认付款应用无法选中小米钱包</string>
+    <string name="novelty_haptic">解锁自定义触控反馈水平</string>
+    <string name="novelty_haptic_summary">为非 Mi13Pro 解锁</string>
+    <string name="speed_mode">显示极致模式选项</string>
+    <string name="speed_mode_summary">在开发者选项里面</string>
+    <string name="unlock_taplus">解锁传送门</string>
+    <string name="show_vip_service">显示我的服务</string>
 
     <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
     <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
