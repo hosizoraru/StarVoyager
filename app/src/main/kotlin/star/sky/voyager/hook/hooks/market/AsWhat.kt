@@ -6,11 +6,11 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.Log
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.yife.XSharedPreferences
+import star.sky.voyager.utils.yife.XSharedPreferences.getString
 
 object AsWhat : HookRegister() {
     override fun init() {
-        val qwq = XSharedPreferences.getString("Market_As", "Default")
+        val qwq = getString("Market_As", "Default")
         loadClass("com.xiaomi.market.MarketApp").constructors.createHooks {
             before {
                 when (qwq) {
