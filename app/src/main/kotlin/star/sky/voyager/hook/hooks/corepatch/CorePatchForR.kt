@@ -14,8 +14,10 @@ import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.findClassIfExists
+import de.robv.android.xposed.XposedHelpers.findConstructorExact
+import de.robv.android.xposed.XposedHelpers.findField
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import star.sky.voyager.BuildConfig
 import star.sky.voyager.BuildConfig.APPLICATION_ID
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 import java.lang.reflect.InvocationTargetException
@@ -132,7 +134,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
         // 当verifyV1Signature抛出转换异常时，替换一个签名作为返回值
         // 如果用户已安装apk，并且其定义了私有权限，则安装时会因签名与模块内硬编码的不一致而被拒绝。尝试从待安装apk中获取签名。如果其中apk的签名和已安装的一致（只动了内容）就没有问题。此策略可能有潜在的安全隐患。
         val pkc = XposedHelpers.findClass("sun.security.pkcs.PKCS7", loadPackageParam.classLoader)
-        val constructor = XposedHelpers.findConstructorExact(
+        val constructor = findConstructorExact(
             pkc,
             ByteArray::class.java
         )
@@ -143,7 +145,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
         )
         val sJarClass =
             XposedHelpers.findClass("android.util.jar.StrictJarFile", loadPackageParam.classLoader)
-        val constructorExact = XposedHelpers.findConstructorExact(
+        val constructorExact = findConstructorExact(
             sJarClass,
             String::class.java,
             Boolean::class.javaPrimitiveType,
@@ -151,7 +153,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
         )
         constructorExact.isAccessible = true
         val signingDetails = getSigningDetails(loadPackageParam.classLoader)
-        val findConstructorExact = XposedHelpers.findConstructorExact(
+        val findConstructorExact = findConstructorExact(
             signingDetails,
             Array<Signature>::class.java, Integer.TYPE
         )
@@ -160,11 +162,11 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
             "android.content.pm.PackageParser.PackageParserException",
             loadPackageParam.classLoader
         )
-        val error = XposedHelpers.findField(packageParserException, "error")
+        val error = findField(packageParserException, "error")
         error.isAccessible = true
         val signingDetailsArgs = arrayOfNulls<Any>(2)
         signingDetailsArgs[1] = 1
-        val parseResult = XposedHelpers.findClassIfExists(
+        val parseResult = findClassIfExists(
             "android.content.pm.parsing.result.ParseResult",
             loadPackageParam.classLoader
         )
@@ -214,7 +216,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                                 if (prefs.getBoolean("UsePreSig", false)) {
                                     val PM = AndroidAppHelper.currentApplication().packageManager
                                     if (PM == null) {
-                                        XposedBridge.log("E: " + APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?")
+                                        XposedBridge.log("E: $APPLICATION_ID Cannot get the Package Manager... Are you using MiUI?")
                                     } else {
                                         val pI: PackageInfo?
                                         pI = if (parseErr != null) {
@@ -280,13 +282,13 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                             var newInstance = findConstructorExact.newInstance(*signingDetailsArgs)
 
                             //修复 java.lang.ClassCastException: Cannot cast android.content.pm.PackageParser$SigningDetails to android.util.apk.ApkSignatureVerifier$SigningDetailsWithDigests
-                            val signingDetailsWithDigests = XposedHelpers.findClassIfExists(
+                            val signingDetailsWithDigests = findClassIfExists(
                                 "android.util.apk.ApkSignatureVerifier.SigningDetailsWithDigests",
                                 loadPackageParam.classLoader
                             )
                             if (signingDetailsWithDigests != null) {
                                 val signingDetailsWithDigestsConstructorExact =
-                                    XposedHelpers.findConstructorExact(
+                                    findConstructorExact(
                                         signingDetailsWithDigests, signingDetails,
                                         MutableMap::class.java
                                     )

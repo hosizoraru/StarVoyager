@@ -1,7 +1,7 @@
 package star.sky.voyager.hook.hooks.corepatch
 
 import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.callMethod
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.InvocationTargetException
 
@@ -27,7 +27,7 @@ open class CorePatchForS : CorePatchForR() {
                         //If we decide to crack this then at least make sure they are same apks, avoid another one that tries to impersonate.
                         if (param.result == false) {
                             val pPname =
-                                XposedHelpers.callMethod(param.args[1], "getPackageName") as String
+                                callMethod(param.args[1], "getPackageName") as String
                             if (pPname.contentEquals(param.args[0] as String)) {
                                 param.result = true
                             }

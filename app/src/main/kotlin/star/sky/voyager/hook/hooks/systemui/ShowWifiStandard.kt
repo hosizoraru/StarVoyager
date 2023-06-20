@@ -10,7 +10,8 @@ import star.sky.voyager.utils.key.hasEnable
 
 object ShowWifiStandard : HookRegister() {
     override fun init() = hasEnable("show_wifi_standard") {
-        val statusBarWifiViewClass = loadClass("com.android.systemui.statusbar.StatusBarWifiView")
+        val statusBarWifiViewClass =
+            loadClass("com.android.systemui.statusbar.StatusBarWifiView")
         val wifiIconStateClass =
             loadClass("com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$WifiIconState")
         statusBarWifiViewClass.methodFinder()

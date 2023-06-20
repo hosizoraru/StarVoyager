@@ -2,8 +2,10 @@ package star.sky.voyager.hook.hooks.corepatch
 
 import android.util.Log
 import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedBridge.hookAllConstructors
+import de.robv.android.xposed.XposedHelpers.callMethod
+import de.robv.android.xposed.XposedHelpers.findClassIfExists
+import de.robv.android.xposed.XposedHelpers.setBooleanField
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.InvocationTargetException
 
@@ -69,7 +71,7 @@ open class CorePatchForT : CorePatchForSv2() {
                         //If we decide to crack this then at least make sure they are same apks, avoid another one that tries to impersonate.
                         if (param.result == false) {
                             val pPname =
-                                XposedHelpers.callMethod(param.args[1], "getPackageName") as String
+                                callMethod(param.args[1], "getPackageName") as String
                             if (pPname.contentEquals(param.args[0] as String)) {
                                 param.result = true
                             }
@@ -93,10 +95,10 @@ open class CorePatchForT : CorePatchForSv2() {
         val strictJarVerifier =
             findClass("android.util.jar.StrictJarVerifier", loadPackageParam.classLoader)
         if (strictJarVerifier != null) {
-            XposedBridge.hookAllConstructors(strictJarVerifier, object : XC_MethodHook() {
+            hookAllConstructors(strictJarVerifier, object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam) {
                     if (prefs.getBoolean("auth_creak", true)) {
-                        XposedHelpers.setBooleanField(
+                        setBooleanField(
                             param.thisObject,
                             "signatureSchemeRollbackProtectionsEnforced",
                             false
@@ -108,7 +110,7 @@ open class CorePatchForT : CorePatchForSv2() {
     }
 
     override fun getSigningDetails(classLoader: ClassLoader?): Class<*> {
-        return XposedHelpers.findClassIfExists("android.content.pm.SigningDetails", classLoader)
+        return findClassIfExists("android.content.pm.SigningDetails", classLoader)
     }
 }
 
