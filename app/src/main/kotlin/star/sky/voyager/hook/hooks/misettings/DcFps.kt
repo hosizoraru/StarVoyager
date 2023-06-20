@@ -10,8 +10,7 @@ object DcFps : HookRegister() {
     override fun init() = hasEnable("dc_fps") {
         loadClass("miui.util.FeatureParser").methodFinder()
             .filterByName("getBoolean")
-            .toList()
-            .createHooks {
+            .toList().createHooks {
                 before {
                     if (it.args[0] == "dc_backlight_fps_incompatible") {
                         it.result = false

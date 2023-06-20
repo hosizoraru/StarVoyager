@@ -64,7 +64,7 @@ object OpenByDefaultSetting : HookRegister() {
             matchType = MatchType.CONTAINS
             methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
             methodReturnType = "void"
-            methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
+//            methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
         }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
             after { param ->
                 initAppContext(param.thisObject as Activity)

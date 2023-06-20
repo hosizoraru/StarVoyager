@@ -10,8 +10,7 @@ object AllFps : HookRegister() {
     override fun init() = hasEnable("show_all_fps") {
         loadClass("miui.util.FeatureParser").methodFinder()
             .filterByName("getIntArray")
-            .toList()
-            .createHooks {
+            .toList().createHooks {
                 before {
                     if (it.args[0] == "fpsList") {
                         it.result = intArrayOf(144, 120, 90, 60, 30)
