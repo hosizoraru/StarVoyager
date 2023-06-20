@@ -8,7 +8,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
-object UnlockForPad : HookRegister() {
+object TaplusForPad : HookRegister() {
     override fun init() = hasEnable("unlock_taplus_for_pad") {
         if (!IS_TABLET) return@hasEnable
         loadClass("com.miui.contentextension.setting.activity.MainSettingsActivity").methodFinder()

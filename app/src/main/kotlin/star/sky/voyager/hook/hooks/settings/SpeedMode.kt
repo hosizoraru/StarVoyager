@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object EnableSpeedMode : HookRegister() {
+object SpeedMode : HookRegister() {
     override fun init() = hasEnable("speed_mode") {
         loadClass("com.android.settings.development.SpeedModeToolsPreferenceController").methodFinder()
             .filterByName("getAvailabilityStatus")
