@@ -345,6 +345,8 @@
 
     <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
     <string name="unlock_taplus_for_pad">为 Pad 解锁传送门</string>
+    <string name="taplus_browser">自定义打开的浏览器</string>
+    <string name="taplus_browser_pkg">浏览器: (包名)</string>
 
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>

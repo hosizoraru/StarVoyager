@@ -347,6 +347,8 @@
 
     <string name="horizontal_content_extension">Horizontal content extension</string>
     <string name="unlock_taplus_for_pad">Unlock Taplus for Pad</string>
+    <string name="taplus_browser">Custom open browser</string>
+    <string name="taplus_browser_pkg">Browser: (PackageName)</string>
 
     <string name="hdr_enhance">Display high dynamic range</string>
     <string name="hdr_enhance_summary">Use HDR to show more detail in highlights and shadows</string>

@@ -345,6 +345,8 @@
 
     <string name="horizontal_content_extension">横向きモードで Taplus を使用を許可</string>
     <string name="unlock_taplus_for_pad">Pad のロック解除による Taplus</string>
+    <string name="taplus_browser">カスタムでブラウザーを開く</string>
+    <string name="taplus_browser_pkg">ブラウザー: (パッケージ名)</string>
 
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
     <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>

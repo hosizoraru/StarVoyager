@@ -13,7 +13,6 @@ object HDREnhance : HookRegister() {
                 "isSupportHDREnhance",
                 "isSupportDolbyVideo",
                 "isHighEndDevice",
-                "isSupportPrint"
             )
         }.toList().createHooks {
             returnConstant(true)
