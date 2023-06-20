@@ -395,7 +395,7 @@
     <string name="no_through_the_list">Displayed in the upper-level authorized roll-free application list</string>
     <string name="new_nfc_page">New NFC Page</string>
     <string name="new_nfc_page_summary">After opening, the default payment application for unsupported models cannot select Xiaomi Wallet</string>
-    <string name="novelty_haptic">Unlock novelty haptic</string>
+    <string name="novelty_haptic">New novelty haptic Page</string>
     <string name="novelty_haptic_summary">Unlock for non-Mi13Pro</string>
     <string name="speed_mode">Show speed mode</string>
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>

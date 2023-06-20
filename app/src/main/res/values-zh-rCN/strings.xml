@@ -344,7 +344,7 @@
     <string name="translation">解锁翻译</string>
 
     <string name="horizontal_content_extension">允许在横屏方向下使用传送门</string>
-    <string name="unlock_taplus_for_pad">为Pad解锁传送门</string>
+    <string name="unlock_taplus_for_pad">为 Pad 解锁传送门</string>
 
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
@@ -393,7 +393,7 @@
     <string name="no_through_the_list">显示在上层授权免翻应用列表</string>
     <string name="new_nfc_page">新版 NFC 页面</string>
     <string name="new_nfc_page_summary">开启后，不支持的机型默认付款应用无法选中小米钱包</string>
-    <string name="novelty_haptic">解锁自定义触控反馈水平</string>
+    <string name="novelty_haptic">新版触控反馈页面</string>
     <string name="novelty_haptic_summary">为非 Mi13Pro 解锁</string>
     <string name="speed_mode">显示极致模式选项</string>
     <string name="speed_mode_summary">在开发者选项里面</string>

@@ -393,7 +393,7 @@
     <string name="no_through_the_list">他のアプリの上に重ねて表示許可を持つアプリリスト</string>
     <string name="new_nfc_page">新版 NFC ページ</string>
     <string name="new_nfc_page_summary">これを有効にすると、サポートされていないモデルではデフォルトの支払いアプリとしてMiウォレットを選択できません</string>
-    <string name="novelty_haptic">ロック解除のカスタム触覚フィードバックレベル</string>
+    <string name="novelty_haptic">新しいタッチフィードバックページ</string>
     <string name="novelty_haptic_summary">Mi13Pro以外の機種のロックを解除する</string>
     <string name="speed_mode">スピードモードのオプションを表示</string>
     <string name="speed_mode_summary">開発者向けオプション内</string>>
