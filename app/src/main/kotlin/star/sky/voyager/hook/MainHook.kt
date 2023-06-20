@@ -38,7 +38,7 @@ import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
-val PACKAGE_NAME_HOOKED = listOf(
+val PACKAGE_NAME_HOOKED = setOf(
     "com.xiaomi.aireco",
     "com.miui.aod",
     "com.xiaomi.barrage",
