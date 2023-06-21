@@ -11,27 +11,28 @@ import star.sky.voyager.utils.key.hasEnable
 
 object LockScreenFont : HookRegister() {
     override fun init() {
-        loadClass("com.miui.clock.MiuiBaseClock").methodFinder()
-            .filterByName("updateViewsTextSize")
-            .toList().createHooks {
-                after { param ->
-                    hasEnable("lock_screen_clock_use_system_font") {
+        hasEnable("lock_screen_clock_use_system_font") {
+            loadClass("com.miui.clock.MiuiBaseClock").methodFinder()
+                .filterByName("updateViewsTextSize")
+                .toList().createHooks {
+                    after { param ->
                         val mTimeText = param.thisObject.getObjectFieldAs<TextView>("mTimeText")
                         mTimeText.typeface = Typeface.DEFAULT
                     }
                 }
-            }
-        loadClass("com.miui.clock.MiuiLeftTopLargeClock").methodFinder()
-            .filterByName("onLanguageChanged")
-            .filterByParamTypes(String::class.java)
-            .toList().createHooks {
-                after { param ->
-                    hasEnable("lock_screen_date_use_system_font") {
+        }
+
+        hasEnable("lock_screen_date_use_system_font") {
+            loadClass("com.miui.clock.MiuiLeftTopLargeClock").methodFinder()
+                .filterByName("onLanguageChanged")
+                .filterByParamTypes(String::class.java)
+                .toList().createHooks {
+                    after { param ->
                         val mTimeText =
                             param.thisObject.getObjectFieldAs<TextView>("mCurrentDateLarge")
                         mTimeText.typeface = Typeface.DEFAULT
                     }
                 }
-            }
+        }
     }
 }

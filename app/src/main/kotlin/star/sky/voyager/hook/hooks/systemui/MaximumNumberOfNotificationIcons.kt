@@ -6,13 +6,13 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.setObjectField
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getInt
 
 object MaximumNumberOfNotificationIcons : HookRegister() {
     override fun init() {
-        val icons = XSPUtils.getInt("maximum_number_of_notification_icons", 3)
-        val dots = XSPUtils.getInt("maximum_number_of_notification_dots", 3)
-        val icons2 = XSPUtils.getInt("maximum_number_of_lockscreen_notification_icons", 3)
+        val icons = getInt("maximum_number_of_notification_icons", 3)
+        val dots = getInt("maximum_number_of_notification_dots", 3)
+        val icons2 = getInt("maximum_number_of_lockscreen_notification_icons", 3)
         loadClass("com.android.systemui.statusbar.phone.NotificationIconContainer").methodFinder()
             .filterByName("miuiShowNotificationIcons")
             .filterByParamCount(1)

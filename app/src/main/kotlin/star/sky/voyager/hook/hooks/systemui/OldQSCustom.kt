@@ -7,15 +7,15 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.setObjectField
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object OldQSCustom : HookRegister() {
     override fun init() = hasEnable("old_qs_custom_switch") {
-        val mRows = XSPUtils.getInt("qs_custom_rows", 3)
-        val mRowsHorizontal = XSPUtils.getInt("qs_custom_rows_horizontal", 2)
-        val mColumns = XSPUtils.getInt("qs_custom_columns", 4)
-        val mColumnsUnexpanded = XSPUtils.getInt("qs_custom_columns_unexpanded", 5)
+        val mRows = getInt("qs_custom_rows", 3)
+        val mRowsHorizontal = getInt("qs_custom_rows_horizontal", 2)
+        val mColumns = getInt("qs_custom_columns", 4)
+        val mColumnsUnexpanded = getInt("qs_custom_columns_unexpanded", 5)
 
         loadClass("com.android.systemui.qs.MiuiQuickQSPanel").methodFinder()
             .filterByName("setMaxTiles")

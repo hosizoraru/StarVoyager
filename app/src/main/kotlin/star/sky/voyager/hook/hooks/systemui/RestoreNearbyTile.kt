@@ -5,7 +5,6 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.HookFactory
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.LogExtensions.logexIfThrow
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
@@ -32,7 +31,7 @@ object RestoreNearbyTile : HookRegister() {
                             returnConstant(false)
                         }
                         isTrulyInit = true
-                        Log.i("Truly inited hook: ${this@RestoreNearbyTile.javaClass.simpleName}")
+//                        Log.i("Truly inited hook: ${this@RestoreNearbyTile.javaClass.simpleName}")
                     }
                         .logexIfThrow("Failed truly init hook: ${this@RestoreNearbyTile.javaClass.simpleName}")
                 }

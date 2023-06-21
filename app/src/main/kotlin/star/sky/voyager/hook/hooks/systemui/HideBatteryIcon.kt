@@ -38,18 +38,17 @@ object HideBatteryIcon : HookRegister() {
                     }
                 }
             }
-
-        loadClass("com.android.systemui.statusbar.views.MiuiBatteryMeterView").methodFinder()
-            .filterByName("updateChargeAndText")
-            .first().createHook {
-                after {
-                    hasEnable("hide_battery_charging_icon") {
+        hasEnable("hide_battery_charging_icon") {
+            loadClass("com.android.systemui.statusbar.views.MiuiBatteryMeterView").methodFinder()
+                .filterByName("updateChargeAndText")
+                .first().createHook {
+                    after {
                         (it.thisObject.getObjectFieldAs<ImageView>("mBatteryChargingInView")).visibility =
                             View.GONE
                         (it.thisObject.getObjectFieldAs<ImageView>("mBatteryChargingView")).visibility =
                             View.GONE
                     }
                 }
-            }
+        }
     }
 }

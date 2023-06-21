@@ -30,7 +30,7 @@ import kotlin.math.abs
 @SuppressLint("StaticFieldLeak")
 object StatusBarBattery : HookRegister() {
     private lateinit var appContext: Context
-    var textview: TextView? = null
+    private lateinit var textview: TextView
     private var leftPaddingPx: Int? = 0
     private var rightPaddingPx: Int? = 0
     private var topPaddingPx: Int? = 0
@@ -68,9 +68,7 @@ object StatusBarBattery : HookRegister() {
                     } else {
                         it.thisObject.getObjectFieldAs<Int>("mIconTint")
                     }
-                    if (textview != null) {
-                        color?.let { textview?.setTextColor(it) }
-                    }
+                    color?.let { textview.setTextColor(it) }
                 }
             }
 
@@ -163,7 +161,7 @@ object StatusBarBattery : HookRegister() {
             val batteryStatus = intent.getIntExtra("status", 0)
             val temperatureFormat = "%.1f".format(temperature)
 
-            textview?.apply {
+            textview.apply {
                 visibility =
                     if (any || batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) View.VISIBLE else View.GONE
                 if (visibility == View.VISIBLE) {
