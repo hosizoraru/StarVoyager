@@ -9,10 +9,10 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.initAppContext
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNull
 import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
+import com.github.kyuubiran.ezxhelper.ObjectUtils.setObjectUntilSuperclass
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField
 import de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField
-import star.sky.voyager.utils.api.setBooleanField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
@@ -33,9 +33,9 @@ object ExposureRefreshForNonMIUIWidget : HookRegister() {
                     val isRealMIUIWidget = receiverInfo.metaData.getBoolean("miuiWidget")
                     setAdditionalInstanceField(it.thisObject, "isRealMIUIWidget", isRealMIUIWidget)
                     if (!isRealMIUIWidget) {
-                        it.thisObject.setBooleanField("isMIUIWidget", true)
+//                        it.thisObject.setBooleanField("isMIUIWidget", true)
 //                        setBooleanField(it.thisObject, "isMIUIWidget", true)
-                        // setObjectUntilSuperclass(it.thisObject, "isMIUIWidget", true)
+                        setObjectUntilSuperclass(it.thisObject, "isMIUIWidget", true)
                         setObject(it.thisObject, "miuiWidgetRefresh", "exposure")
                         setObject(it.thisObject, "miuiWidgetRefreshMinInterval", 10000)
                     }
