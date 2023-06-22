@@ -322,6 +322,7 @@
     <string name="hide_slow_speed_network_speed">Hide network speed when slow speed\n(The unit is 0.5/s)</string>
     <string name="slow_speed_degree">Slow speed degree</string>
 
+    <string name="max_notification_icon">Maximum number of custom notification icons</string>
     <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
     <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>
     <string name="maximum_number_of_lockscreen_notification_icons">Maximum number of notification icons on lockscreen</string>

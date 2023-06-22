@@ -7,9 +7,10 @@ import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.setObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
+import star.sky.voyager.utils.key.hasEnable
 
 object MaximumNumberOfNotificationIcons : HookRegister() {
-    override fun init() {
+    override fun init() = hasEnable("max_notification_icon") {
         val icons = getInt("maximum_number_of_notification_icons", 3)
         val dots = getInt("maximum_number_of_notification_dots", 3)
         val icons2 = getInt("maximum_number_of_lockscreen_notification_icons", 3)

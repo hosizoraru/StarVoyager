@@ -7,6 +7,7 @@ import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
@@ -271,11 +272,53 @@ class StatusBarIconPage : BasePage() {
                 }
             }.show()
         }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
-        Text(textId = R.string.maximum_number_of_notification_icons)
-        SeekBarWithText("maximum_number_of_notification_icons", 1, 20, 3)
-        Text(textId = R.string.maximum_number_of_notification_dots)
-        SeekBarWithText("maximum_number_of_notification_dots", 0, 4, 3)
-        Text(textId = R.string.maximum_number_of_lockscreen_notification_icons)
-        SeekBarWithText("maximum_number_of_lockscreen_notification_icons", 1, 20, 3)
+        val maxBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "max_notification_icon",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.max_notification_icon
+            ),
+            SwitchV(
+                "max_notification_icon",
+                false,
+                dataBindingSend = maxBinding.bindingSend
+            )
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.maximum_number_of_notification_icons),
+            SeekBarWithTextV(
+                "maximum_number_of_notification_icons",
+                1,
+                20,
+                3
+            ),
+            dataBindingRecv = maxBinding.binding.getRecv(1)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.maximum_number_of_notification_dots),
+            SeekBarWithTextV(
+                "maximum_number_of_notification_dots",
+                0,
+                4,
+                3
+            ),
+            dataBindingRecv = maxBinding.binding.getRecv(1)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.maximum_number_of_lockscreen_notification_icons),
+            SeekBarWithTextV(
+                "maximum_number_of_lockscreen_notification_icons",
+                1,
+                20,
+                3
+            ),
+            dataBindingRecv = maxBinding.binding.getRecv(1)
+        )
     }
 }

@@ -320,6 +320,7 @@
     <string name="hide_slow_speed_network_speed">接続速度が遅い時に接続速度表示を非表示にする\n(単位は0.5/s)</string>
     <string name="slow_speed_degree">接続速度の遅さの程度</string>
 
+    <string name="max_notification_icon">カスタム通知アイコンの最大数</string>
     <string name="maximum_number_of_notification_icons">通知アイコンの最大数</string>
     <string name="maximum_number_of_notification_dots">通知ドットの最大数</string>
     <string name="maximum_number_of_lockscreen_notification_icons">ロック画面の通知アイコンの最大数</string>
