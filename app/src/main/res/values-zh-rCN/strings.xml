@@ -493,7 +493,7 @@
     <string name="home_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>
     <string name="home_real_memory">后台显示实际使用和总内存</string>
     <string name="home_real_memory_summary">去 TM MIUI 虚假的内存</string>
-    <string name="Use_Transition_Animation">使用 Miui 小组件的动画</string>
+    <string name="Use_Transition_Animation">为所有小部件添加启动动画</string>
     <string name="Show_MIUI_Widget">在安卓小部件页面显示 MIUI 小部件</string>
     <string name="resizable_widgets">解除小部件大小限制</string>
     <string name="shortcut_remove_restrictions">解除 Shortcuts 数量限制</string>
@@ -592,7 +592,7 @@
     <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
     <string name="can_notification_slide_summary">一些通过 Mi Push 推送的通知可能不受支持</string>
     <string name="notification_settings_no_white_list">移除通知设置白名单</string>
-    <string name="notification_channel_setting">打开通知频道设置</string>
+    <string name="notification_channel_setting">重定向通知设置到频道设置</string>
     <string name="notification_channel_setting_summary">打开通知菜单的设置会导航至频道设置而不是应用通用通知设置</string>
     <string name="restore_near_by_tile">恢复附近分享磁贴</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
