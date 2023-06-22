@@ -123,6 +123,7 @@
     <string name="multiple_instances">Multi-instance</string>
     <string name="icon">Icon</string>
     <string name="dock">Dock</string>
+    <string name="no_show_on_wifi">Do not show when Wi-Fi is enabled</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>

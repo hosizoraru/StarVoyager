@@ -121,6 +121,7 @@
     <string name="multiple_instances">複数起動</string>
     <string name="icon">アイコン</string>
     <string name="dock">ドック</string>
+    <string name="no_show_on_wifi">Wi-Fiが有効な場合に表示しない</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>

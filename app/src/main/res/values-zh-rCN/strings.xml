@@ -121,6 +121,7 @@
     <string name="multiple_instances">多开</string>
     <string name="icon">图标</string>
     <string name="dock">程序坞</string>
+    <string name="no_show_on_wifi">在 Wi-Fi 开启的状态下不显示</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>

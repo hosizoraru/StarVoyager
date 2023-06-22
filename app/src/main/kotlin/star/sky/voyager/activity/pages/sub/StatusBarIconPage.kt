@@ -34,12 +34,33 @@ class StatusBarIconPage : BasePage() {
             TextV(textId = R.string.show_wifi_standard),
             SwitchV("show_wifi_standard")
         )
+        val wifiBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "system_ui_use_new_hd",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.system_ui_use_new_hd,
                 tipsId = R.string.system_ui_use_new_summary
             ),
-            SwitchV("system_ui_use_new_hd", false)
+            SwitchV(
+                "system_ui_use_new_hd",
+                false,
+                dataBindingSend = wifiBinding.bindingSend
+            )
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.no_show_on_wifi
+            ),
+            SwitchV(
+                "no_show_on_wifi",
+                false
+            ), dataBindingRecv = wifiBinding.binding.getRecv(1)
         )
         TextSummaryWithArrow(
             TextSummaryV(
