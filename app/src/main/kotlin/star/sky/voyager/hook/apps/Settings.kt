@@ -1,13 +1,13 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.multipackage.Taplus
 import star.sky.voyager.hook.hooks.settings.NewNfcPage
 import star.sky.voyager.hook.hooks.settings.NoThroughTheList
 import star.sky.voyager.hook.hooks.settings.NoveltyHaptic
 import star.sky.voyager.hook.hooks.settings.QuickInstallPermission
 import star.sky.voyager.hook.hooks.settings.ShowNotificationImportance
 import star.sky.voyager.hook.hooks.settings.SpeedMode
-import star.sky.voyager.hook.hooks.settings.Taplus
 import star.sky.voyager.hook.hooks.settings.VipService
 import star.sky.voyager.utils.init.AppRegister
 
