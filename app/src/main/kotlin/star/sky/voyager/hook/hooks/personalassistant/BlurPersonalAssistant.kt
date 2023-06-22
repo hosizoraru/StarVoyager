@@ -18,7 +18,7 @@ object BlurPersonalAssistant : HookRegister() {
         var lastBlurRadius = -1
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", listOf("ScrollStateManager", "Manager must be init before using"))
+            addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
             matchType = MatchType.FULL
         }.forEach { (_, methods) ->
             methods.single()

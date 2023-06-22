@@ -8,9 +8,10 @@ import star.sky.voyager.utils.key.XSPUtils.getFloat
 
 object MaxWallpaperScale : HookRegister() {
     override fun init() {
+        val value = getFloat("max_wallpaper_scale", 1.2f)
+        if (value == 1.2f) return
         loadClass("com.android.server.wm.WallpaperController").constructors.createHooks {
             after {
-                val value = getFloat("max_wallpaper_scale", 1.2f)
                 setObject(it.thisObject, "mMaxWallpaperScale", value)
             }
         }

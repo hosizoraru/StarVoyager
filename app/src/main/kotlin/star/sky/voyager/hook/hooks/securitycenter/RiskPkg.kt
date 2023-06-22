@@ -17,8 +17,8 @@ object RiskPkg : HookRegister() {
         }.forEach { (_, methods) ->
             methods.map {
                 it.getMethodInstance(classLoader).createHook {
-                    before {
-                        it.result = null
+                    before { param ->
+                        param.result = null
                     }
                 }
             }

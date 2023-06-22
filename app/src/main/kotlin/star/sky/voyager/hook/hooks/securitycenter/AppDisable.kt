@@ -9,18 +9,20 @@ import android.content.res.Resources
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.makeText
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.XposedHelpers.findFirstFieldByExactType
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object AppDisable : HookRegister() {
-    var mMiuiCoreApps: ArrayList<String>? = null
+    private var mMiuiCoreApps: ArrayList<String>? = null
 
     override fun init() = hasEnable("disable_app_settings") {
         val lpparam = getLoadPackageParam()
@@ -30,7 +32,7 @@ object AppDisable : HookRegister() {
             .first().createHook {
                 after { param ->
                     val act = param.thisObject as Activity
-                    val menu = param.args.get(0) as Menu
+                    val menu = param.args[0] as Menu
                     val dis = menu.add(
                         0,
                         666,
@@ -52,7 +54,7 @@ object AppDisable : HookRegister() {
                     dis.setShowAsAction(1)
 
                     val pm = act.packageManager
-                    val piField = XposedHelpers.findFirstFieldByExactType(
+                    val piField = findFirstFieldByExactType(
                         act.javaClass,
                         PackageInfo::class.java
                     )
@@ -75,7 +77,7 @@ object AppDisable : HookRegister() {
                     )
 
                     mMiuiCoreApps = java.util.ArrayList<String>(
-                        listOf<String>(
+                        listOf(
                             "com.lbe.security.miui",
                             "com.miui.packageinstaller"
                         )
@@ -102,16 +104,16 @@ object AppDisable : HookRegister() {
                     if (item.itemId == 666) {
                         val act = param.thisObject as Activity
                         val modRes: Resources = moduleRes
-                        val piField = XposedHelpers.findFirstFieldByExactType(
+                        val piField = findFirstFieldByExactType(
                             act.javaClass,
                             PackageInfo::class.java
                         )
                         val mPackageInfo = piField[act] as PackageInfo
                         if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
-                            Toast.makeText(
+                            makeText(
                                 act,
                                 modRes.getString(R.string.disable_app_settings),
-                                Toast.LENGTH_SHORT
+                                LENGTH_SHORT
                             ).show()
                             return@after
                         }
@@ -131,7 +133,7 @@ object AppDisable : HookRegister() {
                                 AlertDialog.Builder(act)
                                     .setTitle(title)
                                     .setMessage(text)
-                                    .setPositiveButton(android.R.string.ok) { dialog, which ->
+                                    .setPositiveButton(android.R.string.ok) { _, _ ->
                                         setAppState(
                                             act,
                                             mPackageInfo.packageName,
@@ -171,20 +173,20 @@ object AppDisable : HookRegister() {
                     "com.miui.securitycenter"
                 )
             )
-            Toast.makeText(
+            makeText(
                 act,
                 act.resources.getIdentifier(
                     if (enable) "app_manager_enabled" else "app_manager_disabled",
                     "string",
                     "com.miui.securitycenter"
                 ),
-                Toast.LENGTH_SHORT
+                LENGTH_SHORT
             ).show()
         } else {
-            Toast.makeText(
+            makeText(
                 act,
                 moduleRes.getString(R.string.fail),
-                Toast.LENGTH_LONG
+                LENGTH_LONG
             ).show()
         }
         Handler().postDelayed({ act.invalidateOptionsMenu() }, 500)

@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
@@ -29,7 +29,7 @@ object NoThroughTheList : HookRegister() {
                         val packageName = intent.data.toString().substring(8)
                         @SuppressLint("PrivateApi") val intentOpenSub = Intent(
                             context,
-                            EzXHelper.classLoader.loadClass("com.android.settings.SubSettings")
+                            classLoader.loadClass("com.android.settings.SubSettings")
                         )
                         intentOpenSub.setAction("android.intent.action.MAIN")
                         intentOpenSub.putExtra(":settings:source_metrics", 221)

@@ -84,29 +84,17 @@ object DisableFlagSecure : HookRegister() {
                 returnConstant(true)
             }
 
-        settingsObserverClass.methodFinder()
-            .filterByName("onChange")
-            .first().createHook {
-                after { param ->
-                    val this0 =
-                        param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
-                    val mAtmService = this0.javaClass.findField("mAtmService").get(this0)
-                    mAtmService.javaClass.findField("mDevEnableNonResizableMultiWindow")
-                        .setBoolean(mAtmService, true)
-                }
+        settingsObserverClass.methodFinder().first {
+            name in setOf("onChange", "updateDevEnableNonResizableMultiWindow")
+        }.createHook {
+            after { param ->
+                val this0 =
+                    param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
+                val mAtmService = this0.javaClass.findField("mAtmService").get(this0)
+                mAtmService.javaClass.findField("mDevEnableNonResizableMultiWindow")
+                    .setBoolean(mAtmService, true)
             }
-
-        settingsObserverClass.methodFinder()
-            .filterByName("updateDevEnableNonResizableMultiWindow")
-            .first().createHook {
-                after { param ->
-                    val this0 =
-                        param.thisObject.javaClass.findField("this\$0").get(param.thisObject)
-                    val mAtmService = this0.javaClass.findField("mAtmService").get(this0)
-                    mAtmService.javaClass.findField("mDevEnableNonResizableMultiWindow")
-                        .setBoolean(mAtmService, true)
-                }
-            }
+        }
 
         loadClass("com.android.server.wm.ActivityTaskManagerService").methodFinder()
             .filterByName("retrieveSettings")

@@ -16,7 +16,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object NotificationClickInfoItemStartChannelSetting : HookRegister() {
+object RedirectToNotificationChannelSetting : HookRegister() {
     override fun init() = hasEnable("notification_channel_setting") {
         var statusBarNotification: StatusBarNotification? = null
         loadClass("com.android.systemui.statusbar.notification.row.MiuiNotificationMenuRow")

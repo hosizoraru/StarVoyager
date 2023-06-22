@@ -1,6 +1,5 @@
 package star.sky.voyager.hook.hooks.android
 
-import android.content.Context
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
@@ -55,11 +54,11 @@ object RemoveSmallWindowRestrictions : HookRegister() {
                 }
             }
 
-        miuiMultiWindowUtils.methodFinder()
-            .filterByName("isForceResizeable")
-            .first().createHook {
-                returnConstant(true)
-            }
+        miuiMultiWindowUtils.methodFinder().first {
+            name in setOf("isForceResizeable", "supportFreeform")
+        }.createHook {
+            returnConstant(true)
+        }
 
         wmTask.methodFinder()
             .filterByName("isResizeable")
@@ -67,27 +66,14 @@ object RemoveSmallWindowRestrictions : HookRegister() {
                 returnConstant(true)
             }
 
-        miuiMultiWindowAdapter.methodFinder()
-            .filterByName("getFreeformBlackList")
-            .first().createHook {
-                returnConstant(mutableListOf<String>())
-            }
-        miuiMultiWindowAdapter.methodFinder()
-            .filterByName("getFreeformBlackListFromCloud")
-            .filterByParamTypes(Context::class.java)
-            .first().createHook {
-                returnConstant(mutableListOf<String>())
-            }
-        miuiMultiWindowAdapter.methodFinder()
-            .filterByName("getStartFromFreeformBlackListFromCloud")
-            .toList().createHooks {
-                returnConstant(mutableListOf<String>())
-            }
-
-        miuiMultiWindowUtils.methodFinder()
-            .filterByName("supportFreeform")
-            .first().createHook {
-                returnConstant(true)
-            }
+        miuiMultiWindowAdapter.methodFinder().first {
+            name in setOf(
+                "getFreeformBlackList",
+                "getFreeformBlackListFromCloud",
+                "getStartFromFreeformBlackListFromCloud"
+            )
+        }.createHook {
+            returnConstant(mutableListOf<String>())
+        }
     }
 }

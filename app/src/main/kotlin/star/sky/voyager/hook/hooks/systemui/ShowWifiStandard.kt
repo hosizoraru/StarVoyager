@@ -19,16 +19,7 @@ object ShowWifiStandard : HookRegister() {
             .filterByParamCount(1)
             .first().createHook {
                 before {
-                    wifiIconStateClass.methodFinder()
-                        .filterByName("copyTo")
-                        .filterByParamCount(1)
-                        .first().createHook {
-                            before {
-                                val wifiStandard =
-                                    it.thisObject.getObjectFieldAs<Int>("wifiStandard")
-                                it.thisObject.setObjectField("showWifiStandard", wifiStandard != 0)
-                            }
-                        }
+                    copyTo(wifiIconStateClass)
                 }
             }
 
@@ -37,16 +28,19 @@ object ShowWifiStandard : HookRegister() {
             .filterByParamCount(1)
             .first().createHook {
                 before {
-                    wifiIconStateClass.methodFinder()
-                        .filterByName("copyTo")
-                        .filterByParamCount(1)
-                        .first().createHook {
-                            before {
-                                val wifiStandard =
-                                    it.thisObject.getObjectFieldAs<Int>("wifiStandard")
-                                it.thisObject.setObjectField("showWifiStandard", wifiStandard != 0)
-                            }
-                        }
+                    copyTo(wifiIconStateClass)
+                }
+            }
+    }
+
+    private fun copyTo(wifiIconStateClass: Class<*>) {
+        wifiIconStateClass.methodFinder()
+            .filterByName("copyTo")
+            .filterByParamCount(1)
+            .first().createHook {
+                before {
+                    val wifiStandard = it.thisObject.getObjectFieldAs<Int>("wifiStandard")
+                    it.thisObject.setObjectField("showWifiStandard", wifiStandard != 0)
                 }
             }
     }

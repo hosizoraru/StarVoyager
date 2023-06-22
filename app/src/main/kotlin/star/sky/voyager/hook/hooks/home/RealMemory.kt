@@ -17,7 +17,7 @@ import star.sky.voyager.utils.key.hasEnable
 object RealMemory : HookRegister() {
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("home_real_memory") {
-        var context: Context? = null
+        lateinit var context: Context
         var memoryInfo1StringId: Int? = null
         var memoryInfo2StringId: Int? = null
 
@@ -29,12 +29,12 @@ object RealMemory : HookRegister() {
             .first().createHook {
                 after {
                     context = it.args[0] as Context
-                    memoryInfo1StringId = context!!.resources.getIdentifier(
+                    memoryInfo1StringId = context.resources.getIdentifier(
                         "status_bar_recent_memory_info1",
                         "string",
                         "com.miui.home"
                     )
-                    memoryInfo2StringId = context!!.resources.getIdentifier(
+                    memoryInfo2StringId = context.resources.getIdentifier(
                         "status_bar_recent_memory_info2",
                         "string",
                         "com.miui.home"
@@ -49,14 +49,14 @@ object RealMemory : HookRegister() {
                     it.result = null
                     val memoryInfo = ActivityManager.MemoryInfo()
                     val activityManager =
-                        context!!.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+                        context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
                     activityManager.getMemoryInfo(memoryInfo)
                     val totalMem = memoryInfo.totalMem.formatSize()
                     val availMem = memoryInfo.availMem.formatSize()
                     (it.thisObject.getObjectField("mTxtMemoryInfo1") as TextView).text =
-                        context!!.getString(memoryInfo1StringId!!, availMem, totalMem)
+                        context.getString(memoryInfo1StringId!!, availMem, totalMem)
                     (it.thisObject.getObjectField("mTxtMemoryInfo2") as TextView).text =
-                        context!!.getString(memoryInfo2StringId!!, availMem, totalMem)
+                        context.getString(memoryInfo2StringId!!, availMem, totalMem)
                 }
             }
     }

@@ -11,7 +11,6 @@ import star.sky.voyager.utils.api.callMethodOrNull
 import star.sky.voyager.utils.api.callStaticMethod
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.getStaticObjectField
-import star.sky.voyager.utils.api.hookAfterAllMethods
 import star.sky.voyager.utils.api.hookAfterMethod
 import star.sky.voyager.utils.api.hookBeforeAllMethods
 import star.sky.voyager.utils.api.replaceMethod
@@ -77,15 +76,19 @@ object IconCellCount : HookRegister() {
         }
 
         var hook: Set<XC_MethodHook.Unhook>? = null
-        screenUtilsClass?.hookBeforeAllMethods("getScreenCellsSizeOptions") {
-            hook = utilitiesClass?.hookBeforeAllMethods("isNoWordModel") {
-                it.result = false
+        screenUtilsClass?.methodFinder()
+            ?.filterByName("getScreenCellsSizeOptions")
+            ?.toList()?.createHooks {
+                before {
+                    hook = utilitiesClass?.hookBeforeAllMethods("isNoWordModel") {
+                        it.result = false
+                    }
+                }
+                after {
+                    hook?.forEach {
+                        it.unhook()
+                    }
+                }
             }
-        }
-        screenUtilsClass?.hookAfterAllMethods("getScreenCellsSizeOptions") {
-            hook?.forEach {
-                it.unhook()
-            }
-        }
     }
 }

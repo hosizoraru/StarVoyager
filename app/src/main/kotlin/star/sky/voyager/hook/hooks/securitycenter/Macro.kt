@@ -23,7 +23,7 @@ object Macro : HookRegister() {
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery(
                 "qwq1",
-                listOf("com.netease.sky.mi")
+                setOf("com.netease.sky.mi")
             )
         }.forEach { (_, classes1) ->
             classes1.single().getClassInstance(classLoader).methodFinder()
@@ -36,7 +36,7 @@ object Macro : HookRegister() {
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery(
                 "qwq2",
-                listOf(
+                setOf(
                     "content://com.xiaomi.macro.MacroStatusProvider/game_macro_change"
                 )
             )

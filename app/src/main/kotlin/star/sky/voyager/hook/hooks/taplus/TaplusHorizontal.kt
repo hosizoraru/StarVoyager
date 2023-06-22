@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object HorizontalContentExtension : HookRegister() {
+object TaplusHorizontal : HookRegister() {
     override fun init() = hasEnable("horizontal_content_extension") {
         loadClass("com.miui.contentextension.services.TextContentExtensionService").methodFinder()
             .filterByName("isScreenPortrait")
