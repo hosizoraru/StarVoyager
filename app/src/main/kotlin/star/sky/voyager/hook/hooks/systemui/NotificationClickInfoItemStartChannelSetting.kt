@@ -2,87 +2,71 @@ package star.sky.voyager.hook.hooks.systemui
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
+import android.os.UserHandle
 import android.provider.Settings
 import android.service.notification.StatusBarNotification
+import com.github.kyuubiran.ezxhelper.ClassUtils.getStaticObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
+import com.github.kyuubiran.ezxhelper.EzXHelper.initAppContext
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullAs
+import com.github.kyuubiran.ezxhelper.ObjectHelper.Companion.objectHelper
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object NotificationClickInfoItemStartChannelSetting : HookRegister() {
     override fun init() = hasEnable("notification_channel_setting") {
-        var context: Context? = null
-        var sbn: StatusBarNotification? = null
+        var statusBarNotification: StatusBarNotification? = null
         loadClass("com.android.systemui.statusbar.notification.row.MiuiNotificationMenuRow")
-            .methodFinder().filterByAssignableParamTypes(
-                Context::class.java,
-                loadClass("com.android.systemui.plugins.statusbar.NotificationMenuRowPlugin\$MenuItem")
-            ).filterByName("onClickInfoItem").first().createHook {
+            .methodFinder()
+            .filterByName("onClickInfoItem").first().createHook {
                 before { param ->
-                    sbn = getObjectOrNullAs<StatusBarNotification>(param.thisObject, "mSbn")
-                    context = getObjectOrNullAs<Context>(param.thisObject, "mContext")
+                    param.thisObject.objectHelper {
+                        initAppContext(getObjectOrNullAs<Context>("mContext"))
+                        statusBarNotification = getObjectOrNullAs<StatusBarNotification>("mSbn")
+                    }
                 }
                 after {
-                    sbn = null
-                    context = null
+                    statusBarNotification = null
                 }
             }
         loadClass("com.android.systemui.statusbar.notification.NotificationSettingsHelper")
-            .methodFinder().filterByAssignableParamTypes(
-                Context::class.java,
-                String::class.java,
-                String::class.java,
-                Int::class.javaPrimitiveType,
-                String::class.java
-            ).filterByName("startAppNotificationSettings").first().createHook {
-                replace { param ->
-                    val uid = param.args[3] as Int
-                    startAppNotificationChannelSetting(context!!, sbn!!, uid)
-                    return@replace null
+            .methodFinder()
+            .filterByName("startAppNotificationSettings").first().createHook {
+                before { param ->
+                    val intent = Intent(Intent.ACTION_MAIN)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .setClassName("com.android.settings", "com.android.settings.SubSettings")
+                        .putExtra(
+                            ":android:show_fragment",
+                            "com.android.settings.notification.ChannelNotificationSettings"
+                        )
+                        .putExtra(Settings.EXTRA_APP_PACKAGE, statusBarNotification!!.packageName)
+                        .putExtra(
+                            Settings.EXTRA_CHANNEL_ID,
+                            statusBarNotification!!.notification.channelId
+                        )
+                        .putExtra("app_uid", statusBarNotification!!.uid)
+                        .putExtra(
+                            Settings.EXTRA_CONVERSATION_ID,
+                            statusBarNotification!!.notification.shortcutId
+                        )
+                    val userHandleCurrent = getStaticObjectOrNullAs<UserHandle>(
+                        UserHandle::class.java,
+                        "CURRENT"
+                    )
+                    invokeMethodBestMatch(
+                        appContext,
+                        "startActivityAsUser",
+                        null,
+                        intent,
+                        userHandleCurrent
+                    )
+                    param.result = null
                 }
             }
-    }
-
-    private fun startAppNotificationChannelSetting(
-        context: Context, sbn: StatusBarNotification, uid: Int
-    ) {
-        val intent: Intent = Intent(Intent.ACTION_MAIN)
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .setClassName(
-                "com.android.settings",
-                "com.android.settings.SubSettings"
-            )
-            .putExtra(
-                ":android:show_fragment",
-                "com.android.settings.notification.ChannelNotificationSettings"
-            )
-            .putExtra(Settings.EXTRA_APP_PACKAGE, sbn.packageName)
-            .putExtra(Settings.EXTRA_CHANNEL_ID, sbn.notification.channelId)
-            .putExtra("app_uid", uid)
-
-        intent.putExtra(Settings.EXTRA_CONVERSATION_ID, sbn.notification.shortcutId)
-
-        val bundle = Bundle()
-        bundle.putString(Settings.EXTRA_CHANNEL_ID, sbn.notification.channelId)
-
-        bundle.putString(Settings.EXTRA_CONVERSATION_ID, sbn.notification.shortcutId)
-
-        intent.putExtra(":android:show_fragment_args", bundle)
-
-        val startActivityAsUser = context::class.java.getMethod(
-            "startActivityAsUser",
-            Intent::class.java,
-            Class.forName("android.os.UserHandle")
-        )
-
-        val currentUserHandle = Class.forName("android.os.UserHandle")
-            .getField("CURRENT")
-            .get(null)
-
-        startActivityAsUser.invoke(context, intent, currentUserHandle)
     }
 }
