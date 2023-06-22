@@ -73,7 +73,7 @@ val PACKAGE_NAME_HOOKED = setOf(
 class MainHook : EasyXposedInit() {
     private var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
-    override val registeredApp: List<AppRegister> = listOf(
+    override val registeredApp: Set<AppRegister> = setOf(
         Aireco, // 小爱建议
         Android, // 系统框架
         Aod, // 万象息屏
