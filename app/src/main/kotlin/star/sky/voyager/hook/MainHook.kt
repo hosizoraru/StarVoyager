@@ -108,8 +108,8 @@ class MainHook : EasyXposedInit() {
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {
         super.initZygote(startupParam)
-        if (startupParam != null) {
-            CorePatchMainHook().initZygote(startupParam)
+        startupParam?.let {
+            CorePatchMainHook().initZygote(it)
         }
     }
 }
