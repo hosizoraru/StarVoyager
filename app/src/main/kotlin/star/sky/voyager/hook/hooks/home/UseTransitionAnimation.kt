@@ -11,9 +11,12 @@ object UseTransitionAnimation : HookRegister() {
         loadClass("com.miui.home.launcher.LauncherWidgetView").methodFinder()
             .filterByName("isUseTransitionAnimation")
             .first().createHook {
-                after {
-                    it.result = true
-                }
+                returnConstant(true)
+            }
+        loadClass("com.miui.home.launcher.maml.MaMlWidgetView").methodFinder()
+            .filterByName("isUseTransitionAnimation")
+            .first().createHook {
+                returnConstant(true)
             }
     }
 }
