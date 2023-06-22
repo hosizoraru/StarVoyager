@@ -1,8 +1,12 @@
 package star.sky.voyager.hook.hooks.systemui
 
+import android.content.Context
+import android.net.wifi.WifiManager
 import android.view.View
 import android.widget.ImageView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.appContext
+import com.github.kyuubiran.ezxhelper.EzXHelper.initAppContext
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
@@ -42,6 +46,16 @@ object HideHDIcon : HookRegister() {
     }
 
     private fun hide(it: XC_MethodHook.MethodHookParam) {
+        hasEnable("no_show_on_wifi") {
+            initAppContext()
+            val wifiManager = appContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+            val isWifiEnabled = wifiManager.isWifiEnabled
+            val smallHdIcon = it.thisObject.getObjectFieldAs<ImageView>("mSmallHd")
+            smallHdIcon.visibility = when (isWifiEnabled) {
+                true -> View.VISIBLE
+                false -> View.GONE
+            }
+        }
         hasEnable("hide_big_hd_icon") {
             (it.thisObject.getObjectFieldAs<ImageView>("mVolte")).visibility = View.GONE
         }
