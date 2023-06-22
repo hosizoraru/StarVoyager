@@ -33,8 +33,6 @@ object ExposureRefreshForNonMIUIWidget : HookRegister() {
                     val isRealMIUIWidget = receiverInfo.metaData.getBoolean("miuiWidget")
                     setAdditionalInstanceField(it.thisObject, "isRealMIUIWidget", isRealMIUIWidget)
                     if (!isRealMIUIWidget) {
-//                        it.thisObject.setBooleanField("isMIUIWidget", true)
-//                        setBooleanField(it.thisObject, "isMIUIWidget", true)
                         setObjectUntilSuperclass(it.thisObject, "isMIUIWidget", true)
                         setObject(it.thisObject, "miuiWidgetRefresh", "exposure")
                         setObject(it.thisObject, "miuiWidgetRefreshMinInterval", 10000)
