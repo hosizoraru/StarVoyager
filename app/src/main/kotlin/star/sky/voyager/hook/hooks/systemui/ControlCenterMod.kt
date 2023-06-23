@@ -20,7 +20,7 @@ object ControlCenterMod : HookRegister() {
     private var dateSize: Float = 0.0f
 //    private var carrierSize: Float = 0.0f
 
-    override fun init() {
+    override fun init() = hasEnable("control_center_mod") {
 //        val controlCenterStatusBarClass =
 //            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
         if (IS_TABLET) {

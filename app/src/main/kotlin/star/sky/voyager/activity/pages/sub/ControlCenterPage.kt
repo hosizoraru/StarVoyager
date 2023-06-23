@@ -2,7 +2,7 @@ package star.sky.voyager.activity.pages.sub
 
 import android.view.View
 import android.widget.Switch
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SeekBarWithTextV
@@ -19,7 +19,7 @@ class ControlCenterPage : BasePage() {
         TitleText(textId = R.string.control_center)
         // TODO: 控制中心天气在A13未修复，暂不可用
         val controlCenterWeatherBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "control_center_weather",
                 false
             )
@@ -61,26 +61,48 @@ class ControlCenterPage : BasePage() {
             SwitchV("Disable_Bluetooth"),
         )
         Line()
-        TitleText(textId = R.string.control_center_mod_tips)
+        val ccBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "control_center_mod",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.control_center_mod,
+                tipsId = R.string.control_center_mod_tips
+            ),
+            SwitchV(
+                "control_center_mod",
+                false,
+                dataBindingSend = ccBinding.bindingSend
+            )
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_clock_font,
-            ), SwitchV("control_center_clock_font", false)
+            ), SwitchV("control_center_clock_font", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_clock_bold,
-            ), SwitchV("control_center_clock_bold", false)
+            ), SwitchV("control_center_clock_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_clock_size),
-                SeekBarWithTextV("control_center_clock_size", 50, 150, 98)
+                SeekBarWithTextV("control_center_clock_size", 50, 150, 98),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_clock_size),
-                SeekBarWithTextV("control_center_clock_size", 80, 200, 133)
+                SeekBarWithTextV("control_center_clock_size", 80, 200, 133),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         }
         TextSummaryWithArrow(
@@ -92,7 +114,7 @@ class ControlCenterPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString(
+                                safeSP.getString(
                                     "control_center_clock_color",
                                     "#FFFFFF"
                                 )
@@ -103,7 +125,7 @@ class ControlCenterPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "control_center_clock_color",
                                     getEditText()
                                 )
@@ -111,28 +133,32 @@ class ControlCenterPage : BasePage() {
                             dismiss()
                         }
                     }.show()
-                })
+                }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_date_font,
-            ), SwitchV("control_center_date_font", false)
+            ), SwitchV("control_center_date_font", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_date_bold,
-            ), SwitchV("control_center_date_bold", false)
+            ), SwitchV("control_center_date_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_date_size),
-                SeekBarWithTextV("control_center_date_size", 10, 64, 32)
+                SeekBarWithTextV("control_center_date_size", 10, 64, 32),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.control_center_date_size),
-                SeekBarWithTextV("control_center_date_size", 20, 86, 43)
+                SeekBarWithTextV("control_center_date_size", 20, 86, 43),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         }
         TextSummaryWithArrow(
@@ -144,7 +170,7 @@ class ControlCenterPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString(
+                                safeSP.getString(
                                     "control_center_date_color",
                                     "#FFFFFF"
                                 )
@@ -155,7 +181,7 @@ class ControlCenterPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "control_center_date_color",
                                     getEditText()
                                 )
@@ -163,7 +189,7 @@ class ControlCenterPage : BasePage() {
                             dismiss()
                         }
                     }.show()
-                })
+                }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
 //        Line()
 //        TextSummaryWithSwitch(

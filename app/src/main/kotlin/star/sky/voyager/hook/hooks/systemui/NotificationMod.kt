@@ -18,7 +18,7 @@ object NotificationMod : HookRegister() {
     private var timeSize: Float = 0.0f
     private var dateSize: Float = 0.0f
     private var clockSize: Float = 0.0f
-    override fun init() {
+    override fun init() = hasEnable("notification_mod") {
         when {
             IS_TABLET -> {
                 timeSize = getInt("notification_time_size", 97).toFloat()

@@ -158,6 +158,7 @@
     <string name="launch_wechat_scanner">微信扫一扫</string>
     <string name="dump_log">抓日志</string>
 
+    <string name="notification_mod">通知中心时间日期自定义</string>
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>
     <string name="notification_time_bold">时间使用加粗系统字体</string>
@@ -172,6 +173,7 @@
     <string name="notification_land_clock_size">横屏时间日期字体大小</string>
     <string name="notification_land_clock_color">横屏时间日期颜色</string>
 
+    <string name="control_center_mod">控制中心时间日期自定义</string>
     <string name="control_center_mod_tips">Mix4 字体大小默认值: 132.65894 42.85894\nMiPad5Pro 字体大小默认值: 97.79535 31.595348</string>
     <string name="control_center_clock_font">时间使用系统字体</string>
     <string name="control_center_clock_bold">时间使用加粗系统字体</string>

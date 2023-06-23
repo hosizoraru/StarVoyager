@@ -2,7 +2,7 @@ package star.sky.voyager.activity.pages.sub
 
 import android.view.View
 import android.widget.Switch
-import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SeekBarWithTextV
@@ -18,7 +18,7 @@ class NotificationCenterPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.notification_center)
         val showWeatherMainSwitchBinding = GetDataBinding({
-            MIUIActivity.safeSP.getBoolean(
+            safeSP.getBoolean(
                 "notification_weather",
                 false
             )
@@ -66,26 +66,48 @@ class NotificationCenterPage : BasePage() {
             SwitchV("notification_channel_setting"),
         )
         Line()
-        TitleText(textId = R.string.notification_mod_tips)
+        val ncBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "notification_mod",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.notification_mod,
+                tipsId = R.string.notification_mod_tips
+            ),
+            SwitchV(
+                "notification_mod",
+                false,
+                dataBindingSend = ncBinding.bindingSend
+            )
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_time_font,
-            ), SwitchV("notification_time_font", false)
+            ), SwitchV("notification_time_font", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_time_bold,
-            ), SwitchV("notification_time_bold", false)
+            ), SwitchV("notification_time_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_time_size),
-                SeekBarWithTextV("notification_time_size", 50, 194, 97)
+                SeekBarWithTextV("notification_time_size", 50, 194, 97),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_time_size),
-                SeekBarWithTextV("notification_time_size", 60, 200, 130)
+                SeekBarWithTextV("notification_time_size", 60, 200, 130),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
         TextSummaryWithArrow(
@@ -97,7 +119,7 @@ class NotificationCenterPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString("notification_time_color", "#FFFFFF")
+                                safeSP.getString("notification_time_color", "#FFFFFF")
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -105,7 +127,7 @@ class NotificationCenterPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "notification_time_color",
                                     getEditText()
                                 )
@@ -113,28 +135,32 @@ class NotificationCenterPage : BasePage() {
                             dismiss()
                         }
                     }.show()
-                })
+                }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_date_font,
-            ), SwitchV("notification_date_font", false)
+            ), SwitchV("notification_date_font", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_date_bold,
-            ), SwitchV("notification_date_bold", false)
+            ), SwitchV("notification_date_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_date_size),
-                SeekBarWithTextV("notification_date_size", 10, 62, 31)
+                SeekBarWithTextV("notification_date_size", 10, 62, 31),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_date_size),
-                SeekBarWithTextV("notification_date_size", 20, 82, 41)
+                SeekBarWithTextV("notification_date_size", 20, 82, 41),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
         TextSummaryWithArrow(
@@ -146,7 +172,7 @@ class NotificationCenterPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString("notification_date_color", "#FFFFFF")
+                                safeSP.getString("notification_date_color", "#FFFFFF")
                             }"
                         )
                         setLButton(textId = R.string.cancel) {
@@ -154,7 +180,7 @@ class NotificationCenterPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "notification_date_color",
                                     getEditText()
                                 )
@@ -162,28 +188,32 @@ class NotificationCenterPage : BasePage() {
                             dismiss()
                         }
                     }.show()
-                })
+                }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_land_clock_font,
-            ), SwitchV("notification_land_clock_font", false)
+            ), SwitchV("notification_land_clock_font", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_land_clock_bold,
-            ), SwitchV("notification_land_clock_bold", false)
+            ), SwitchV("notification_land_clock_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_land_clock_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 60, 30)
+                SeekBarWithTextV("notification_land_clock_size", 10, 60, 30),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
                 TextV(textId = R.string.notification_land_clock_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 74, 37)
+                SeekBarWithTextV("notification_land_clock_size", 10, 74, 37),
+                dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
         TextSummaryWithArrow(
@@ -195,7 +225,7 @@ class NotificationCenterPage : BasePage() {
                         setEditText(
                             "",
                             "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getString(
+                                safeSP.getString(
                                     "notification_land_clock_color",
                                     "#FFFFFF"
                                 )
@@ -206,7 +236,7 @@ class NotificationCenterPage : BasePage() {
                         }
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
+                                safeSP.putAny(
                                     "notification_land_clock_color",
                                     getEditText()
                                 )
@@ -214,7 +244,7 @@ class NotificationCenterPage : BasePage() {
                             dismiss()
                         }
                     }.show()
-                })
+                }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
     }
 }
