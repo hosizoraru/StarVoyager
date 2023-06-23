@@ -14,7 +14,7 @@ object NoAutoTurnOff : HookRegister() {
     override fun init() = hasEnable("No_Auto_Turn_Off") {
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", listOf("EnabledState", "mishare_enabled"))
+            addQuery("qwq", setOf("EnabledState", "mishare_enabled"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->
             classes.map {
@@ -27,7 +27,7 @@ object NoAutoTurnOff : HookRegister() {
         }
 
         dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq", listOf("null context", "cta_agree"))
+            addQuery("qwq", setOf("null context", "cta_agree"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->
             classes.map {

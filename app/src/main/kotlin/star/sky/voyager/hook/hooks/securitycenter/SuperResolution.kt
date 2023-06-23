@@ -11,7 +11,7 @@ object SuperResolution : HookRegister() {
     override fun init() = hasEnable("super_resolution") {
         loadDexKit()
         dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq", listOf("ro.vendor.media.video.frc.support"))
+            addQuery("qwq", setOf("ro.vendor.media.video.frc.support"))
         }.forEach { (_, classes) ->
             classes.map {
                 val qaq = it.getClassInstance(classLoader)

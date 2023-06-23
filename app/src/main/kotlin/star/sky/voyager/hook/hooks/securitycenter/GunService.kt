@@ -11,7 +11,7 @@ object GunService : HookRegister() {
     override fun init() = hasEnable("gun_service") {
         loadDexKit()
         dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq", listOf("gb_game_collimator_status"))
+            addQuery("qwq", setOf("gb_game_collimator_status"))
         }.forEach { (_, classes) ->
             classes.map {
                 val qaq = it.getClassInstance(classLoader)

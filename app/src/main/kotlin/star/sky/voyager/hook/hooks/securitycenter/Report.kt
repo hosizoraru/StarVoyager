@@ -12,7 +12,7 @@ object Report : HookRegister() {
     override fun init() = hasEnable("remove_report") {
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", listOf("android.intent.action.VIEW", "com.xiaomi.market"))
+            addQuery("qwq", setOf("android.intent.action.VIEW", "com.xiaomi.market"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->
             classes.map {

@@ -12,7 +12,7 @@ object EnhanceContours : HookRegister() {
     override fun init() = hasEnable("enhance_contours") {
         loadDexKit()
         dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq", listOf("ro.vendor.media.video.frc.support"))
+            addQuery("qwq", setOf("ro.vendor.media.video.frc.support"))
         }.forEach { (_, classes) ->
             classes.map {
                 val qaq = it.getClassInstance(classLoader)

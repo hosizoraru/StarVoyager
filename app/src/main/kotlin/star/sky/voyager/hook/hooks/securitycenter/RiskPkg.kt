@@ -12,7 +12,7 @@ object RiskPkg : HookRegister() {
     override fun init() = hasEnable("remove_risk_pkg") {
         loadDexKit()
         dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", listOf("riskPkgList", "key_virus_pkg_list", "show_virus_notification"))
+            addQuery("qwq", setOf("riskPkgList", "key_virus_pkg_list", "show_virus_notification"))
             matchType = MatchType.FULL
         }.forEach { (_, methods) ->
             methods.map {

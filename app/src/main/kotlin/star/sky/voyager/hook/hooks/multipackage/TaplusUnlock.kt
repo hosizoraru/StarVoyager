@@ -10,7 +10,7 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.SettingsFeatures.SettingsFeaturesCls
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
-object Taplus : HookRegister() {
+object TaplusUnlock : HookRegister() {
     override fun init() {
         when (hostPackageName) {
             "com.android.settings" -> {

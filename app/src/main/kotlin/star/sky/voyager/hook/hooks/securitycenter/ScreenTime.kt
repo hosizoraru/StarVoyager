@@ -13,7 +13,7 @@ object ScreenTime : HookRegister() {
         loadDexKit()
 
         val classesName = dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq1", listOf("not support screenPowerSplit", "PowerRankHelperHolder"))
+            addQuery("qwq1", setOf("not support screenPowerSplit", "PowerRankHelperHolder"))
             matchType = MatchType.FULL
         }.values
             .flatten()
@@ -21,7 +21,7 @@ object ScreenTime : HookRegister() {
             .firstOrNull()
 
         val methods1 = dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq2", listOf("ishtar", "nuwa", "fuxi"))
+            addQuery("qwq2", setOf("ishtar", "nuwa", "fuxi"))
             matchType = MatchType.FULL
         }.values
             .flatten()

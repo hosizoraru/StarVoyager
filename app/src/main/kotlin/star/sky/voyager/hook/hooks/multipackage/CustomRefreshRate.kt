@@ -20,7 +20,7 @@ object CustomRefreshRate : HookRegister() {
             "com.miui.powerkeeper" -> {
                 loadDexKit()
                 dexKitBridge.batchFindMethodsUsingStrings {
-                    addQuery("qwq0", listOf("custom_mode_switch", "fucSwitch"))
+                    addQuery("qwq0", setOf("custom_mode_switch", "fucSwitch"))
                     matchType = MatchType.FULL
                 }.forEach { (_, methods) ->
                     methods.filter { it.isMethod }.map {

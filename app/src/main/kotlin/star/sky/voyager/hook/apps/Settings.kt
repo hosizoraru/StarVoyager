@@ -1,7 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import star.sky.voyager.hook.hooks.multipackage.Taplus
+import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
 import star.sky.voyager.hook.hooks.settings.NewNfcPage
 import star.sky.voyager.hook.hooks.settings.NoThroughTheList
 import star.sky.voyager.hook.hooks.settings.NoveltyHaptic
@@ -24,7 +24,7 @@ object Settings : AppRegister() {
             NewNfcPage, // 新版 NFC 页面
             NoveltyHaptic, // 解锁触控反馈水平
             SpeedMode, // 显示极致模式选项
-            Taplus, // 解锁传送门
+            TaplusUnlock, // 解锁传送门
             VipService, // 显示我的服务
 //            MultipleFreeform,
         )
