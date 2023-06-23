@@ -1,7 +1,6 @@
 package star.sky.voyager.hook.hooks.mediaeditor
 
 import android.os.Build
-import android.os.Bundle
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
@@ -21,9 +20,8 @@ object FilterManager : HookRegister() {
             usingString = "wayne"
             matchType = MatchType.FULL
         }.filter { it.isMethod }.map { it.getMethodInstance(safeClassLoader) }.toTypedArray()
-        MethodFinder.fromArray(methods).first {
-            returnType == List::class.java || (parameterCount == 1 && parameterTypes[0] == Bundle::class.java)
-        }.createHook {
+//        returnType == List::class.java || (parameterCount == 1 && parameterTypes[0] == Bundle::class.java)
+        MethodFinder.fromArray(methods).first().createHook {
             before {
                 if (!this@FilterManager::device.isInitialized) {
                     device = Build.DEVICE
