@@ -84,9 +84,9 @@ object DisableFlagSecure : HookRegister() {
                 returnConstant(true)
             }
 
-        settingsObserverClass.methodFinder().first {
+        settingsObserverClass.methodFinder().filter {
             name in setOf("onChange", "updateDevEnableNonResizableMultiWindow")
-        }.createHook {
+        }.toList().createHooks {
             after { param ->
                 val this0 =
                     param.thisObject.javaClass.findField("this\$0").get(param.thisObject)

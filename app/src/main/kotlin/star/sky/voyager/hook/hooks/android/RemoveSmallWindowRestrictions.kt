@@ -54,9 +54,9 @@ object RemoveSmallWindowRestrictions : HookRegister() {
                 }
             }
 
-        miuiMultiWindowUtils.methodFinder().first {
+        miuiMultiWindowUtils.methodFinder().filter {
             name in setOf("isForceResizeable", "supportFreeform")
-        }.createHook {
+        }.toList().createHooks {
             returnConstant(true)
         }
 

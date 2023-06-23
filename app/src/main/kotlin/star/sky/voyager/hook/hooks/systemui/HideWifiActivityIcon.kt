@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
 import star.sky.voyager.utils.api.getObjectFieldAs
@@ -14,18 +14,10 @@ import star.sky.voyager.utils.key.hasEnable
 object HideWifiActivityIcon : HookRegister() {
     override fun init() {
         loadClass("com.android.systemui.statusbar.StatusBarWifiView").methodFinder()
-            .filterByName("initViewState")
             .filterByParamCount(1)
-            .first().createHook {
-                after {
-                    hide(it)
-                }
-            }
-
-        loadClass("com.android.systemui.statusbar.StatusBarWifiView").methodFinder()
-            .filterByName("updateState")
-            .filterByParamCount(1)
-            .first().createHook {
+            .filter {
+                name in setOf("initViewState", "updateState")
+            }.toList().createHooks {
                 after {
                     hide(it)
                 }
