@@ -158,6 +158,7 @@
     <string name="launch_wechat_scanner">WeChatスキャナー</string>
     <string name="dump_log">問題に関連するログを取得</string>
 
+    <string name="text_size_def_log">デフォルトのテキストサイズをログに表示する</string>
     <string name="notification_mod">通知センターの時間と日付をカスタマイズする</string>
     <string name="notification_mod_tips">Mix4 のデフォルトのフォントサイズ: 130 41 37\nMiPad5Pro のデフォルトのフォントサイズ: 97 31 30</string>
     <string name="notification_time_font">時間はシステムフォントを使用</string>

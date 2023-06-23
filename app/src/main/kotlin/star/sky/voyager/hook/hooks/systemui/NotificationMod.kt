@@ -41,9 +41,11 @@ object NotificationMod : HookRegister() {
                         miuiLandClock.textSize.toInt()
                     ).toFloat()
 
-                    Log.ix("Notification time: ${miuiBigTime.textSize}")
-                    Log.ix("Notification date: ${miuiDate.textSize}")
-                    Log.ix("Notification land clock: ${miuiLandClock.textSize}")
+                    hasEnable("text_size_def_log") {
+                        Log.ix("Notification time: ${miuiBigTime.textSize}")
+                        Log.ix("Notification date: ${miuiDate.textSize}")
+                        Log.ix("Notification land clock: ${miuiLandClock.textSize}")
+                    }
 
                     // 修改字体
                     hasEnable("notification_time_font") {

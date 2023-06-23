@@ -45,8 +45,10 @@ object ControlCenterMod : HookRegister() {
                             miuiDateView.textSize.toInt()
                         ).toFloat()
 
-                        Log.ix("Control Center Clock:  ${miuiClockView.textSize}")
-                        Log.ix("Control Center Date:  ${miuiDateView.textSize}")
+                        hasEnable("text_size_def_log") {
+                            Log.ix("Control Center Clock:  ${miuiClockView.textSize}")
+                            Log.ix("Control Center Date:  ${miuiDateView.textSize}")
+                        }
 
                         // 修改字体
                         hasEnable("control_center_clock_font") {
@@ -86,7 +88,9 @@ object ControlCenterMod : HookRegister() {
                         "control_center_carrier_size",
                         miuiCarrierView.textSize.toInt()
                     ).toFloat()
-                    Log.ix("Control Center Carrier: ${miuiCarrierView.textSize}")
+                    hasEnable("text_size_def_log") {
+                        Log.ix("Control Center Carrier: ${miuiCarrierView.textSize}")
+                    }
                     hasEnable("control_center_carrier_font") {
                         miuiCarrierView.typeface = Typeface.DEFAULT
                     }

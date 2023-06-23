@@ -158,6 +158,7 @@
     <string name="launch_wechat_scanner">微信扫一扫</string>
     <string name="dump_log">抓日志</string>
 
+    <string name="text_size_def_log">打印输出字体大小默认值到 log</string>
     <string name="notification_mod">通知中心时间日期自定义</string>
     <string name="notification_mod_tips">Mix4 字体大小默认值: 130 41 37\nMiPad5Pro 字体大小默认值: 97 31 30</string>
     <string name="notification_time_font">时间使用系统字体</string>

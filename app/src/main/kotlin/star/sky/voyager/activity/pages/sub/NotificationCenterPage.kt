@@ -87,6 +87,13 @@ class NotificationCenterPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.text_size_def_log,
+            ), SwitchV("text_size_def_log", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        Line()
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.notification_time_font,
             ), SwitchV("notification_time_font", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)

@@ -82,6 +82,13 @@ class ControlCenterPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.text_size_def_log,
+            ), SwitchV("text_size_def_log", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        Line()
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.control_center_clock_font,
             ), SwitchV("control_center_clock_font", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)

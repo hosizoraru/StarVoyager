@@ -160,6 +160,7 @@
     <string name="launch_wechat_scanner">WeChat scanner</string>
     <string name="dump_log">Get issue-related logs</string>
 
+    <string name="text_size_def_log">Print default text size to log</string>
     <string name="notification_mod">Customize time and date in the notification center</string>
     <string name="notification_mod_tips">Mix4 TextSize def: 130 41 37\nMiPad5Pro TextSize def: 97 31 30</string>
     <string name="notification_time_font">time use system font</string>
