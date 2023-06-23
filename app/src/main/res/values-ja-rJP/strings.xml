@@ -466,7 +466,7 @@
     <string name="any_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
 
     <string name="dark_mode_for_all_apps">すべてのアプリによるダークモードの使用を許可する</string>
-    <string name="dark_mode_for_all_apps_summary">ただし、MIUI のこの強制的なダークモードはすべてのアプリに適用されるわけではありません</string>
+    <string name="dark_mode_for_all_apps_summary">ただし、MIUI のこの強制的なダークモードはすべてのアプリに適用されるわけではありません\n部分のアプリ、例えばシステムアプリなどは引き続き除外されます</string>
     <string name="disable_flag_secure">スクリーンショットを許可</string>
     <string name="disable_flag_secure_summary">これを有効にすると、スクリーンショットが許可されていないソフトウェアでスクリーンショットを取ることができます\n下拉制御センターの高速スイッチを追加することができ、安全性を保証します</string>
     <string name="delete_on_post_notification">他のアプリの上に重ねて表示通知を削除</string>

@@ -466,7 +466,7 @@
     <string name="any_barrage">允许所有应用使用弹幕通知</string>
 
     <string name="dark_mode_for_all_apps">允许所有应用使用深色模式</string>
-    <string name="dark_mode_for_all_apps_summary">但 MIUI 的这种强制深色模式并不一定适用于所有应用</string>
+    <string name="dark_mode_for_all_apps_summary">但 MIUI 的这种强制深色模式并不一定适用于所有应用\n部分应用如系统应用依旧排除在外</string>
     <string name="disable_flag_secure">允许截图</string>
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图\n支持添加下拉控制中心快速开关，保障安全</string>
     <string name="delete_on_post_notification">移除上层显示通知</string>
