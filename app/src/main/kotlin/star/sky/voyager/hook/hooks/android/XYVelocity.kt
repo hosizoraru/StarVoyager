@@ -10,7 +10,7 @@ object XYVelocity : HookRegister() {
     override fun init() {
         val velocityTracker = loadClass("android.view.VelocityTracker")
         velocityTracker.methodFinder()
-            .filterByName("getXVelocitygetXVelocity")
+            .filterByName("getXVelocity")
             .filterByReturnType(Float::class.java)
             .filterByParamCount(0)
             .first().createHook {
@@ -19,7 +19,7 @@ object XYVelocity : HookRegister() {
                 }
             }
         velocityTracker.methodFinder()
-            .filterByName("getXVelocitygetYVelocity")
+            .filterByName("getXVelocity")
             .filterByReturnType(Float::class.java)
             .filterByParamCount(0)
             .first().createHook {

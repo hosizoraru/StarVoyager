@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.android.AllowUntrustedTouches
+import star.sky.voyager.hook.hooks.android.DarkModeForAllApps
 import star.sky.voyager.hook.hooks.android.DeleteOnPostNotification
 import star.sky.voyager.hook.hooks.android.Disable72hVerify
 import star.sky.voyager.hook.hooks.android.DisableFlagSecure
@@ -31,6 +32,7 @@ object Android : AppRegister() {
         }
         autoInitHooks(
             lpparam,
+            DarkModeForAllApps, // 允许所有应用使用深色模式
             DisableFlagSecure, // 允许截图
             DeleteOnPostNotification, // 移除上层显示通知
             RemoveSmallWindowRestrictions, // 强制使用小窗

@@ -47,6 +47,12 @@ class AndroidPage : BasePage() {
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.dark_mode_for_all_apps,
+                tipsId = R.string.dark_mode_for_all_apps_summary
+            ), SwitchV("dark_mode_for_all_apps")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.disable_flag_secure,
                 tipsId = R.string.disable_flag_secure_summary
             ), SwitchV("disable_flag_secure")
