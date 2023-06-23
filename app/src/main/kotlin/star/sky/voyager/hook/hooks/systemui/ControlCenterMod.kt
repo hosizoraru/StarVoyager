@@ -6,6 +6,8 @@ import android.util.TypedValue
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
@@ -13,28 +15,17 @@ import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.hookPluginClassLoader
-import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object ControlCenterMod : HookRegister() {
     private var clockSize: Float = 0.0f
     private var dateSize: Float = 0.0f
-//    private var carrierSize: Float = 0.0f
-
+    private var carrierSize: Float = 0.0f
     override fun init() = hasEnable("control_center_mod") {
-//        val controlCenterStatusBarClass =
-//            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
-        if (IS_TABLET) {
-            clockSize = getInt("control_center_clock_size", 98).toFloat()
-            dateSize = getInt("control_center_date_size", 32).toFloat()
-//            carrierSize = getInt("control_center_carrier_size", 30).toFloat()
-        } else {
-            clockSize = getInt("control_center_clock_size", 133).toFloat()
-            dateSize = getInt("control_center_date_size", 43).toFloat()
-//            carrierSize = getInt("control_center_carrier_size", 37).toFloat()
-        }
+        val controlCenterStatusBarClass =
+            loadClass("com.android.systemui.controlcenter.phone.widget.ControlCenterStatusBar")
         val clockColor = parseColor(getString("control_center_clock_color", "#FFFFFF"))
         val dateColor = parseColor(getString("control_center_date_color", "#FFFFFF"))
-//        val carrierColor = parseColor(getString("control_center_carrier_color", "#FFFFFF"))
+        val carrierColor = parseColor(getString("control_center_carrier_color", "#FFFFFF"))
         hookPluginClassLoader { _, classLoader ->
             loadClass(
                 "miui.systemui.controlcenter.windowview.MainPanelHeaderController",
@@ -45,6 +36,18 @@ object ControlCenterMod : HookRegister() {
                     after { param ->
                         val miuiClockView = param.thisObject.getObjectFieldAs<TextView>("clockView")
                         val miuiDateView = param.thisObject.getObjectFieldAs<TextView>("dateView")
+
+                        clockSize = getInt(
+                            "control_center_clock_size",
+                            miuiClockView.textSize.toInt()
+                        ).toFloat()
+                        dateSize = getInt(
+                            "control_center_date_size",
+                            miuiDateView.textSize.toInt()
+                        ).toFloat()
+
+                        Log.ix("Control Center Clock:  ${miuiClockView.textSize}")
+                        Log.ix("Control Center Date:  ${miuiDateView.textSize}")
 
                         // 修改字体
                         hasEnable("control_center_clock_font") {
@@ -72,24 +75,27 @@ object ControlCenterMod : HookRegister() {
 //                        Log.i("Control Center Date:  ${miuiDateView.textSize}  ${miuiDateView.typeface}  ${miuiDateView.textColors}")
                     }
                 }
-//            controlCenterStatusBarClass.methodFinder()
-//                .first {
-//                    name == "updateFlaresInfo"
-//                }.createHook {
-//                    after { param ->
-//                        val miuiCarrierView =
-//                            param.thisObject.getObjectFieldAs<TextView>("carrierText")
-//                        hasEnable("control_center_carrier_font") {
-//                            miuiCarrierView.typeface = Typeface.DEFAULT
-//                        }
-//                        hasEnable("control_center_carrier_bold") {
-//                            miuiCarrierView.typeface = Typeface.DEFAULT_BOLD
-//                        }
-//                        miuiCarrierView.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, carrierSize)
-//                        miuiCarrierView.setTextColor(carrierColor)
+        }
+
+        controlCenterStatusBarClass.declaredMethods.createHooks {
+            after { param ->
+                val miuiCarrierView =
+                    param.thisObject.getObjectFieldAs<TextView>("carrierText")
+                carrierSize = getInt(
+                    "control_center_carrier_size",
+                    miuiCarrierView.textSize.toInt()
+                ).toFloat()
+                Log.ix("Control Center Carrier: ${miuiCarrierView.textSize}")
+                hasEnable("control_center_carrier_font") {
+                    miuiCarrierView.typeface = Typeface.DEFAULT
+                }
+                hasEnable("control_center_carrier_bold") {
+                    miuiCarrierView.typeface = Typeface.DEFAULT_BOLD
+                }
+                miuiCarrierView.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, carrierSize)
+                miuiCarrierView.setTextColor(carrierColor)
 //                        Log.i("Control Center Carrier: ${miuiCarrierView.textSize}  ${miuiCarrierView.typeface}  ${miuiCarrierView.textColors}")
-//                    }
-//                }
+            }
         }
     }
 }

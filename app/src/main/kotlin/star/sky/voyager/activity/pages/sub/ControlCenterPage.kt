@@ -56,7 +56,7 @@ class ControlCenterPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.Disable_Bluetooth,
-                tipsId = R.string.Disable_Bluetooth_summary,
+                tipsId = R.string.Disable_Bluetooth_summary
             ),
             SwitchV("Disable_Bluetooth"),
         )
@@ -191,57 +191,61 @@ class ControlCenterPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-//        Line()
-//        TextSummaryWithSwitch(
-//            TextSummaryV(
-//                textId = R.string.control_center_carrier_font,
-//            ), SwitchV("control_center_carrier_font", false)
-//        )
-//        TextSummaryWithSwitch(
-//            TextSummaryV(
-//                textId = R.string.control_center_carrier_bold,
-//            ), SwitchV("control_center_carrier_bold", false)
-//        )
-//        if (!IS_TABLET) {
-//            TextWithSeekBar(
-//                TextV(textId = R.string.control_center_carrier_size),
-//                SeekBarWithTextV("control_center_carrier_size", 10, 74, 37)
-//            )
-//        } else {
-//            TextWithSeekBar(
-//                TextV(textId = R.string.control_center_carrier_size),
-//                SeekBarWithTextV("control_center_carrier_size", 10, 60, 30)
-//            )
-//        }
-//        TextSummaryWithArrow(
-//            TextSummaryV(
-//                textId = R.string.control_center_carrier_color,
-//                onClickListener = {
-//                    MIUIDialog(activity) {
-//                        setTitle(R.string.control_center_carrier_color)
-//                        setEditText(
-//                            "",
-//                            "${activity.getString(R.string.current)}${
-//                                MIUIActivity.safeSP.getString(
-//                                    "control_center_carrier_color",
-//                                    "#FFFFFF"
-//                                )
-//                            }"
-//                        )
-//                        setLButton(textId = R.string.cancel) {
-//                            dismiss()
-//                        }
-//                        setRButton(textId = R.string.done) {
-//                            if (getEditText() != "") {
-//                                MIUIActivity.safeSP.putAny(
-//                                    "control_center_carrier_color",
-//                                    getEditText()
-//                                )
-//                            }
-//                            dismiss()
-//                        }
-//                    }.show()
-//                })
-//        )
+        Line()
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.control_center_carrier_font,
+            ), SwitchV("control_center_carrier_font", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.control_center_carrier_bold,
+            ), SwitchV("control_center_carrier_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        if (!IS_TABLET) {
+            TextWithSeekBar(
+                TextV(textId = R.string.control_center_carrier_size),
+                SeekBarWithTextV("control_center_carrier_size", 10, 74, 37),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
+            )
+        } else {
+            TextWithSeekBar(
+                TextV(textId = R.string.control_center_carrier_size),
+                SeekBarWithTextV("control_center_carrier_size", 10, 60, 30),
+                dataBindingRecv = ccBinding.binding.getRecv(1)
+            )
+        }
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.control_center_carrier_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.control_center_carrier_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "control_center_carrier_color",
+                                    "#FFFFFF"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "control_center_carrier_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
     }
 }

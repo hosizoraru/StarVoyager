@@ -174,7 +174,7 @@
     <string name="notification_land_clock_color">横画面時の時間と日付の色</string>
 
     <string name="control_center_mod">コントロールセンターの時間と日付をカスタマイズする</string>
-    <string name="control_center_mod_tips">Mix4 のデフォルトのフォントサイズ: 132.65894 42.85894\nMiPad5Pro のデフォルトのフォントサイズ: 97.79535 31.595348</string>
+    <string name="control_center_mod_tips">Mix4 のデフォルトのフォントサイズ: 132.65894 42.85894 37.0\nMiPad5Pro のデフォルトのフォントサイズ: 97.79535 31.595348 30.0</string>
     <string name="control_center_clock_font">時間はシステムフォントを使用</string>
     <string name="control_center_clock_bold">時間は太字のシステムフォントを使用</string>
     <string name="control_center_clock_size">時間のフォントサイズ</string>
