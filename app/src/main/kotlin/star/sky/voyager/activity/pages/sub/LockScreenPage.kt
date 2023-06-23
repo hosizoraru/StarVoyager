@@ -55,6 +55,10 @@ class LockScreenPage : BasePage() {
             SwitchV("lock_screen_zen_mode")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.lock_screen_hint),
+            SwitchV("lock_screen_hint")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.enable_wave_charge_animation),
             SwitchV("enable_wave_charge_animation")
         )
