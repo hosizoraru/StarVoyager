@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
-import com.github.kyuubiran.ezxhelper.Log
 import star.sky.voyager.utils.api.callMethod
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.hookAfterMethod
@@ -21,7 +20,7 @@ object ScrollIconName : HookRegister() {
         val launcherClass = loadClass("com.miui.home.launcher.Launcher")
         val shortcutInfoClass = loadClass("com.miui.home.launcher.ShortcutInfo")
 
-        try {
+        runCatching {
             "com.miui.home.launcher.ItemIcon".hookAfterMethod(
                 classLoader,
                 "onFinishInflate"
@@ -91,8 +90,6 @@ object ScrollIconName : HookRegister() {
                     mTitleScrolling(mTitle)
                 }
             }
-        } catch (e: Throwable) {
-            Log.ex(e)
         }
     }
 

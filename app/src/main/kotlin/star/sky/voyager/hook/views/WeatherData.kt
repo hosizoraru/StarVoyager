@@ -10,7 +10,8 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.text.TextUtils
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import star.sky.voyager.utils.api.callStaticMethod
 import star.sky.voyager.utils.voyager.argTypes
 import star.sky.voyager.utils.voyager.args
@@ -51,7 +52,7 @@ class WeatherData(val context: Context?, private val showCity: Boolean) {
     inner class WeatherRunnable : Runnable {
         override fun run() {
             var str = ""
-            try {
+            runCatching {
                 val query = mContext.contentResolver.query(WEATHER_URI, null, null, null, null)
                 if (query != null) {
                     if (query.moveToFirst()) {
@@ -67,8 +68,6 @@ class WeatherData(val context: Context?, private val showCity: Boolean) {
                     }
                     query.close()
                 }
-            } catch (_: Exception) {
-
             }
             val obtainMessage2 = mHandler.obtainMessage()
             obtainMessage2.what = 100
@@ -107,7 +106,7 @@ class WeatherData(val context: Context?, private val showCity: Boolean) {
             }
             mContext.startActivity(intent)
         } catch (e: Exception) {
-            Toast.makeText(context, "启动失败", Toast.LENGTH_LONG).show()
+            makeText(context, "启动失败", LENGTH_LONG).show()
         }
     }
 }

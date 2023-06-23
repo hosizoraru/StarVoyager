@@ -25,7 +25,7 @@ object BlurWhenOpenFolder : HookRegister() {
         val applicationClass =
             loadClass("com.miui.home.launcher.Application")
 
-        try {
+        runCatching {
             launcherClass.hookBeforeMethod("isShouldBlur") {
                 it.result = false
             }
@@ -36,8 +36,8 @@ object BlurWhenOpenFolder : HookRegister() {
             ) {
                 it.result = null
             }
-        } catch (_: Exception) {
         }
+
         var isShouldBlur = false
 
 

@@ -10,7 +10,7 @@ import star.sky.voyager.utils.key.hasEnable
 
 object DisableSafeModelTip : HookRegister() {
     override fun init() = hasEnable("Disable_Safe_Model_Tip") {
-        try {
+        runCatching {
             loadClassOrNull("com.miui.packageInstaller.model.ApkInfo")!!.methodFinder()
                 .filterByName("getSystemApp")
                 .first().createHook {
@@ -40,8 +40,6 @@ object DisableSafeModelTip : HookRegister() {
                         }.setBoolean(param.thisObject, false)
                     }
                 }
-        } catch (_: Throwable) {
-
         }
     }
 }

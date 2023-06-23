@@ -61,7 +61,7 @@ object StatusBarTimeCustomization : HookRegister() {
                     .filterByParamCount(3)
                     .first().createHook {
                         after {
-                            try {
+                            runCatching {
                                 c = it.args[0] as Context
                                 val textV = it.thisObject as TextView
                                 if (textV.resources.getResourceEntryName(textV.id) != "clock") return@after
@@ -97,7 +97,6 @@ object StatusBarTimeCustomization : HookRegister() {
                                 Timer().scheduleAtFixedRate(
                                     T(), 1000 - System.currentTimeMillis() % 1000, 1000
                                 )
-                            } catch (_: Exception) {
                             }
                         }
                     }
@@ -106,7 +105,7 @@ object StatusBarTimeCustomization : HookRegister() {
                     .filterByName("updateTime")
                     .first().createHook {
                         after {
-                            try {
+                            runCatching {
                                 val textV = it.thisObject as TextView
                                 if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                     val t = Settings.System.getString(
@@ -116,7 +115,6 @@ object StatusBarTimeCustomization : HookRegister() {
                                     nowTime = Calendar.getInstance().time
                                     textV.text = getDate(c!!) + str + getTime(c!!, is24)
                                 }
-                            } catch (_: Exception) {
                             }
                         }
                     }
@@ -126,14 +124,13 @@ object StatusBarTimeCustomization : HookRegister() {
                         .filterByParamCount(3)
                         .first().createHook {
                             after {
-                                try {
+                                runCatching {
                                     val textV = it.thisObject as TextView
                                     if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                         c = it.args[0] as Context
                                         val textV = it.thisObject as TextView
                                         textV.gravity = Gravity.CENTER
                                     }
-                                } catch (_: Exception) {
                                 }
                             }
                         }
@@ -147,7 +144,7 @@ object StatusBarTimeCustomization : HookRegister() {
                     .filterByParamCount(3)
                     .first().createHook {
                         after {
-                            try {
+                            runCatching {
                                 c = it.args[0] as Context
                                 val textV = it.thisObject as TextView
                                 if (textV.resources.getResourceEntryName(textV.id) != "clock") return@after
@@ -172,7 +169,6 @@ object StatusBarTimeCustomization : HookRegister() {
                                 Timer().scheduleAtFixedRate(
                                     T(), 1000 - System.currentTimeMillis() % 1000, 1000
                                 )
-                            } catch (_: Exception) {
                             }
                         }
                     }
@@ -181,7 +177,7 @@ object StatusBarTimeCustomization : HookRegister() {
                     .filterByName("updateTime")
                     .first().createHook {
                         before {
-                            try {
+                            runCatching {
                                 val textV = it.thisObject as TextView
                                 if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                     val mMiuiStatusBarClockController =
@@ -197,7 +193,6 @@ object StatusBarTimeCustomization : HookRegister() {
                                     textV.text = textSb.toString()
                                     it.result = null
                                 }
-                            } catch (_: Exception) {
                             }
                         }
                     }
@@ -207,14 +202,13 @@ object StatusBarTimeCustomization : HookRegister() {
                         .filterByParamCount(3)
                         .first().createHook {
                             after {
-                                try {
+                                runCatching {
                                     val textV = it.thisObject as TextView
                                     if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                         c = it.args[0] as Context
                                         val textV = it.thisObject as TextView
                                         textV.gravity = Gravity.CENTER
                                     }
-                                } catch (_: Exception) {
                                 }
                             }
                         }

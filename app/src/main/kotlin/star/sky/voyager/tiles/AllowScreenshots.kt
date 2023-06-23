@@ -10,7 +10,7 @@ class AllowScreenshots : TileService() {
 
     override fun onClick() {
         super.onClick()
-        try {
+        runCatching {
             val pref = getSharedPreferences(prefFileName, MODE_WORLD_READABLE)
             val prefEditor = pref.edit()
             if (pref.getBoolean(key, false)) {
@@ -22,13 +22,12 @@ class AllowScreenshots : TileService() {
             }
             prefEditor.apply()
             qsTile.updateTile()
-        } catch (_: SecurityException) {
         }
     }
 
     override fun onStartListening() {
         super.onStartListening()
-        try {
+        runCatching {
             val pref = getSharedPreferences(prefFileName, MODE_WORLD_READABLE)
             if (pref.getBoolean(key, false)) {
                 qsTile.state = STATE_ACTIVE
@@ -36,7 +35,6 @@ class AllowScreenshots : TileService() {
                 qsTile.state = STATE_INACTIVE
             }
             qsTile.updateTile()
-        } catch (_: SecurityException) {
         }
     }
 }

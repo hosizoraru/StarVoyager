@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
@@ -17,14 +18,14 @@ import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.setObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.SystemProperties
-import star.sky.voyager.utils.key.XSPUtils
+import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 
 object NotificationWeather : HookRegister() {
     override fun init() = hasEnable("notification_weather") {
         var mWeatherView: TextView? = null
         var mConstraintLayout: ConstraintLayout? = null
-        val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
+        val isDisplayCity = getBoolean("notification_weather_city", false)
 
         loadClass("com.android.systemui.qs.MiuiNotificationHeaderView").methodFinder()
             .filterByName("onFinishInflate")
@@ -173,7 +174,7 @@ object NotificationWeather : HookRegister() {
                             }
                             context.startActivity(intent)
                         } catch (e: Exception) {
-                            Toast.makeText(context, "启动失败", Toast.LENGTH_LONG).show()
+                            makeText(context, "启动失败", LENGTH_LONG).show()
                         }
                     }
                 }

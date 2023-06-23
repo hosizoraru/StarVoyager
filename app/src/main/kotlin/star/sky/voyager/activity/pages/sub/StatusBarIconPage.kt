@@ -118,11 +118,10 @@ class StatusBarIconPage : BasePage() {
                 }
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
-                        try {
+                        runCatching {
                             safeSP.putAny("custom_mobile_type_text", getEditText())
                             dismiss()
                             return@setRButton
-                        } catch (_: Throwable) {
                         }
                     }
                     makeText(activity, R.string.input_error, LENGTH_SHORT)
@@ -221,7 +220,7 @@ class StatusBarIconPage : BasePage() {
                 }
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
-                        try {
+                        runCatching {
                             val value = getEditText().toInt()
                             if (value in (-15..15)) {
                                 safeSP.putAny(
@@ -231,7 +230,6 @@ class StatusBarIconPage : BasePage() {
                                 dismiss()
                                 return@setRButton
                             }
-                        } catch (_: Throwable) {
                         }
                     }
                     makeText(activity, R.string.input_error, LENGTH_SHORT)
@@ -254,7 +252,7 @@ class StatusBarIconPage : BasePage() {
                 }
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
-                        try {
+                        runCatching {
                             val value = getEditText().toInt()
                             if (value in (0..30)) {
                                 safeSP.putAny(
@@ -264,7 +262,6 @@ class StatusBarIconPage : BasePage() {
                                 dismiss()
                                 return@setRButton
                             }
-                        } catch (_: Throwable) {
                         }
                     }
                     makeText(activity, R.string.input_error, LENGTH_SHORT)

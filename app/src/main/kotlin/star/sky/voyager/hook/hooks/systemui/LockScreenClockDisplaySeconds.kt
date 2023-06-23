@@ -31,7 +31,7 @@ object LockScreenClockDisplaySeconds : HookRegister() {
             .filterByParamCount(2)
             .first().createHook {
                 after {
-                    try {
+                    runCatching {
                         val viewGroup = it.thisObject as LinearLayout
                         val d: Method = viewGroup.javaClass.getDeclaredMethod("updateTime")
                         val r = Runnable {
@@ -49,7 +49,6 @@ object LockScreenClockDisplaySeconds : HookRegister() {
                             1000 - System.currentTimeMillis() % 1000,
                             1000
                         )
-                    } catch (_: Exception) {
                     }
                 }
             }

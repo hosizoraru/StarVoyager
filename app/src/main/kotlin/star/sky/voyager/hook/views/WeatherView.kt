@@ -43,7 +43,7 @@ class WeatherView(context: Context?, private val showCity: Boolean) : TextView(c
     inner class WeatherRunnable : Runnable {
         override fun run() {
             var str = ""
-            try {
+            runCatching {
                 val query = mContext.contentResolver.query(weatherUri, null, null, null, null)
                 if (query != null) {
                     if (query.moveToFirst()) {
@@ -59,8 +59,6 @@ class WeatherView(context: Context?, private val showCity: Boolean) : TextView(c
                     }
                     query.close()
                 }
-            } catch (_: Exception) {
-
             }
             val obtainMessage2 = mHandler.obtainMessage()
             obtainMessage2.what = 100

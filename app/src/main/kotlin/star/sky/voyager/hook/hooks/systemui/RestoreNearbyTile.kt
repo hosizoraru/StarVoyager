@@ -47,11 +47,11 @@ object RestoreNearbyTile : HookRegister() {
                 isTrulyInit = true
             }.logexIfThrow("Failed truly init hook: ${this@RestoreNearbyTile.javaClass.simpleName}")
         }
-        
+
         if (!IS_INTERNATIONAL_BUILD) {
+            if (IS_INTERNATIONAL_BUILD) return@hasEnable
             val isInternationalHook: HookFactory.() -> Unit = {
-                val constantsClazz =
-                    loadClass("com.android.systemui.controlcenter.utils.Constants")
+                val constantsClazz = loadClass("com.android.systemui.controlcenter.utils.Constants")
                 before {
                     setStaticObject(constantsClazz, "IS_INTERNATIONAL", true)
                 }
@@ -60,13 +60,14 @@ object RestoreNearbyTile : HookRegister() {
                 }
             }
 
-            loadClass("com.android.systemui.qs.MiuiQSTileHostInjector").methodFinder()
-                .filterByName("createMiuiTile")
-                .first().createHook(isInternationalHook)
+            loadClass("com.android.systemui.qs.MiuiQSTileHostInjector").methodFinder().first {
+                name == "createMiuiTile"
+            }.createHook(isInternationalHook)
 
             loadClass("com.android.systemui.controlcenter.utils.ControlCenterUtils").methodFinder()
-                .filterByName("filterCustomTile")
-                .first().createHook(isInternationalHook)
+                .first {
+                    name == "filterCustomTile"
+                }.createHook(isInternationalHook)
         }
     }
 }

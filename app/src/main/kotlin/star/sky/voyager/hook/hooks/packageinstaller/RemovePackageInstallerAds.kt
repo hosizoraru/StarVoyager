@@ -13,7 +13,7 @@ object RemovePackageInstallerAds : HookRegister() {
         val miuiSettingsCompatClass =
             loadClassOrNull("com.android.packageinstaller.compat.MiuiSettingsCompat")!!
 
-        try {
+        runCatching {
             miuiSettingsCompatClass.methodFinder()
                 .filterByName("isPersonalizedAdEnabled")
                 .filterByReturnType(Boolean::class.java)
@@ -22,8 +22,6 @@ object RemovePackageInstallerAds : HookRegister() {
                         it.result = false
                     }
                 }
-        } catch (_: Throwable) {
-
         }
 
         var letter = 'a'

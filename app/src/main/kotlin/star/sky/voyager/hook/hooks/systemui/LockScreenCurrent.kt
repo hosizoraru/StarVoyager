@@ -55,31 +55,26 @@ object LockScreenCurrent : HookRegister() {
             return 0.0f
         }
         for (i in 0 until totalCount) {
-            try {
+            runCatching {
                 val f: Float = readFile(filePath, 0).toFloat()
                 meanVal += f / totalCount
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
             if (intervalMs <= 0) {
                 continue
             }
-            try {
+            runCatching {
                 Thread.sleep(intervalMs.toLong())
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
         }
         return meanVal
     }
 
     private fun readFile(path: String, defaultValue: Int): Int {
-        try {
+        runCatching {
             val bufferedReader = BufferedReader(FileReader(path))
             val i: Int = bufferedReader.readLine().toInt(10)
             bufferedReader.close()
             return i
-        } catch (_: java.lang.Exception) {
         }
         return defaultValue
     }

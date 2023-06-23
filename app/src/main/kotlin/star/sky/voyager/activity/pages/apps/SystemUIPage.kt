@@ -371,11 +371,10 @@ class SystemUIPage : BasePage() {
                 }
                 setRButton(textId = R.string.done) {
                     if (getEditText().isNotEmpty()) {
-                        try {
+                        runCatching {
                             safeSP.putAny("custom_clock_format_geek", getEditText())
                             dismiss()
                             return@setRButton
-                        } catch (_: Throwable) {
                         }
                     }
                     Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
