@@ -6,7 +6,6 @@ import android.util.TypedValue
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
@@ -77,25 +76,27 @@ object ControlCenterMod : HookRegister() {
                 }
         }
 
-        controlCenterStatusBarClass.declaredMethods.createHooks {
-            after { param ->
-                val miuiCarrierView =
-                    param.thisObject.getObjectFieldAs<TextView>("carrierText")
-                carrierSize = getInt(
-                    "control_center_carrier_size",
-                    miuiCarrierView.textSize.toInt()
-                ).toFloat()
-                Log.ix("Control Center Carrier: ${miuiCarrierView.textSize}")
-                hasEnable("control_center_carrier_font") {
-                    miuiCarrierView.typeface = Typeface.DEFAULT
-                }
-                hasEnable("control_center_carrier_bold") {
-                    miuiCarrierView.typeface = Typeface.DEFAULT_BOLD
-                }
-                miuiCarrierView.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, carrierSize)
-                miuiCarrierView.setTextColor(carrierColor)
+        controlCenterStatusBarClass.methodFinder()
+            .filterByName("onDensityOrFontScaleChanged")
+            .first().createHook {
+                after { param ->
+                    val miuiCarrierView =
+                        param.thisObject.getObjectFieldAs<TextView>("carrierText")
+                    carrierSize = getInt(
+                        "control_center_carrier_size",
+                        miuiCarrierView.textSize.toInt()
+                    ).toFloat()
+                    Log.ix("Control Center Carrier: ${miuiCarrierView.textSize}")
+                    hasEnable("control_center_carrier_font") {
+                        miuiCarrierView.typeface = Typeface.DEFAULT
+                    }
+                    hasEnable("control_center_carrier_bold") {
+                        miuiCarrierView.typeface = Typeface.DEFAULT_BOLD
+                    }
+                    miuiCarrierView.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, carrierSize)
+                    miuiCarrierView.setTextColor(carrierColor)
 //                        Log.i("Control Center Carrier: ${miuiCarrierView.textSize}  ${miuiCarrierView.typeface}  ${miuiCarrierView.textColors}")
+                }
             }
-        }
     }
 }
