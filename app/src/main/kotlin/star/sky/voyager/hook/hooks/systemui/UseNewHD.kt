@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.WifiState.isWifiEnabled
+import star.sky.voyager.utils.voyager.WifiState.isWifiConnected
 
 object UseNewHD : HookRegister() {
     override fun init() = hasEnable("system_ui_use_new_hd") {
@@ -18,7 +18,7 @@ object UseNewHD : HookRegister() {
                     when (noShowOnWifi) {
                         true -> {
                             replace {
-                                !isWifiEnabled()
+                                !isWifiConnected()
                             }
                         }
 

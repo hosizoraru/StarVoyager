@@ -10,7 +10,7 @@ import de.robv.android.xposed.XC_MethodHook
 import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.WifiState.isWifiEnabled
+import star.sky.voyager.utils.voyager.WifiState.isWifiConnected
 
 object HideHDIcon : HookRegister() {
     override fun init() {
@@ -38,7 +38,7 @@ object HideHDIcon : HookRegister() {
     private fun hide(it: XC_MethodHook.MethodHookParam) {
         hasEnable("no_show_on_wifi") {
             val smallHdIcon = it.thisObject.getObjectFieldAs<ImageView>("mSmallHd")
-            smallHdIcon.visibility = when (isWifiEnabled()) {
+            smallHdIcon.visibility = when (isWifiConnected()) {
                 true -> View.VISIBLE
                 false -> View.GONE
             }
