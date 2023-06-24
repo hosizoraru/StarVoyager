@@ -25,7 +25,7 @@ object UseCompleteBlur : HookRegister() {
                 returnConstant(2)
             }
         hasEnable("home_complete_blur_fix") {
-            if (getBoolean("home_recent_view_wallpaper_darkening", false)) {
+            if (getBoolean("home_recent_view_wallpaper_darkening", true)) {
                 navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
                     val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
                     val value = 1 - it.args[0] as Float

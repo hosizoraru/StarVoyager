@@ -63,6 +63,7 @@ object Home : AppRegister() {
             ShortcutItemCount, // 解除Shortcuts数量限制
             UnlockHotSeatIcon, // 解锁底栏图标数量限制
             OptimizeUnlockAnim, // 优化解锁动画
+//            IconBreakAnimation, // 优化打断动画
             IconCorner, // 中等图标圆角跟随
             FolderColumnsCount, // 利用整个文件夹视图的宽度 // 文件夹视图内图标的排数
             MonoChromeIcon, // 图标背景色 // 默认颜色 -> 莫奈取色
