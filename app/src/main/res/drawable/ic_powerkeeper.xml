@@ -9,10 +9,6 @@
         android:fillColor="@android:color/system_accent1_200"
         android:pathData="M8,0L22,0A8,8 0,0 1,30 8L30,22A8,8 0,0 1,22 30L8,30A8,8 0,0 1,0 22L0,8A8,8 0,0 1,8 0z" />
     <path
-        android:fillColor="#FF000000"
-        android:pathData="M8,0L22,0A8,8 0,0 1,30 8L30,22A8,8 0,0 1,22 30L8,30A8,8 0,0 1,0 22L0,8A8,8 0,0 1,8 0z"
-        android:fillAlpha="0.05" />
-    <path
         android:fillColor="#FFFFFFFF"
         android:pathData="M8.0769,8.6543L19.423,8.6543A1.9231,1.9231 0,0 1,21.3461 10.5774L21.3461,19.4235A1.9231,1.9231 0,0 1,19.423 21.3466L8.0769,21.3466A1.9231,1.9231 0,0 1,6.1538 19.4235L6.1538,10.5774A1.9231,1.9231 0,0 1,8.0769 8.6543z" />
     <path
