@@ -57,8 +57,8 @@
     <string name="developer">开发者</string>
     <string name="discussions">讨论</string>
     <string name="tg_app">您未安装 Telegram App</string>
-    <string name="tg_channel">加入 TG(Telegram) 频道</string>
-    <string name="tg_group">加入 TG(Telegram) 群组</string>
+    <string name="tg_channel">加入 Telegram 频道</string>
+    <string name="tg_group">加入 Telegram 群组</string>
     <string name="opensource">开源仓库</string>
 
     <string name="backup">备份模块设置</string>

@@ -11,6 +11,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
+import star.sky.voyager.utils.voyager.LineB.lineB
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("notification_center", "Notification Center", hideMenu = false)
@@ -91,7 +92,7 @@ class NotificationCenterPage : BasePage() {
             ), SwitchV("text_size_def_log", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_time_font,
@@ -144,7 +145,7 @@ class NotificationCenterPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_date_font,
@@ -197,7 +198,7 @@ class NotificationCenterPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.notification_land_clock_font,

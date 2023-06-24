@@ -11,6 +11,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
+import star.sky.voyager.utils.voyager.LineB.lineB
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("control_center", "Control Center", hideMenu = false)
@@ -86,7 +87,7 @@ class ControlCenterPage : BasePage() {
             ), SwitchV("text_size_def_log", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_clock_font,
@@ -142,7 +143,7 @@ class ControlCenterPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_date_font,
@@ -198,7 +199,7 @@ class ControlCenterPage : BasePage() {
                     }.show()
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        Line()
+        lineB(ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.control_center_carrier_font,
