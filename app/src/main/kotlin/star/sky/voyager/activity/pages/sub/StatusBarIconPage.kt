@@ -56,7 +56,7 @@ class StatusBarIconPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.no_show_on_wifi,
+                textId = R.string.no_show_on_wifi_connect,
                 tipsId = R.string.no_show_on_wifi_hd
             ),
             SwitchV(

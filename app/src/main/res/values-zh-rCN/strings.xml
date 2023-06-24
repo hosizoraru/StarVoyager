@@ -121,7 +121,8 @@
     <string name="multiple_instances">多开</string>
     <string name="icon">图标</string>
     <string name="dock">程序坞</string>
-    <string name="no_show_on_wifi">在 Wi-Fi 开启的状态下不显示</string>
+    <string name="no_show_on_wifi_enable">在 Wi-Fi 开启的状态下不显示</string>
+    <string name="no_show_on_wifi_connect">在 Wi-Fi 已连接的状态下不显示</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -595,7 +596,7 @@
     <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="system_ui_use_new_hd">强制使用新 HD 图标</string>
     <string name="system_ui_use_new_summary">需要较新的系统版本，部分机型可能至今未进版</string>
-    <string name="no_show_on_wifi_hd">在 Wi-Fi 开启时显示小 HD 图标\n在 Wi-Fi 关闭时显示新 HD 图标</string>
+    <string name="no_show_on_wifi_hd">在 Wi-Fi 网络已连接时显示小 HD 图标\n在 Wi-Fi 网络已连接时显示新 HD 图标</string>
     <string name="battery_percentage_font_size">电池百分比字体大小</string>
     <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
     <string name="can_notification_slide_summary">一些通过 Mi Push 推送的通知可能不受支持</string>
