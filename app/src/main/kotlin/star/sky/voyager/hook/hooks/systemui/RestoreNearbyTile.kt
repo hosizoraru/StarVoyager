@@ -8,7 +8,7 @@ import com.github.kyuubiran.ezxhelper.LogExtensions.logexIfThrow
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.hookPluginClassLoader
+import star.sky.voyager.utils.voyager.PluginClassLoader.hookPluginClassLoader
 import star.sky.voyager.utils.yife.Build.IS_INTERNATIONAL_BUILD
 
 object RestoreNearbyTile : HookRegister() {

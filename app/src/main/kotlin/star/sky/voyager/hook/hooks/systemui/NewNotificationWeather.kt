@@ -11,7 +11,7 @@ import star.sky.voyager.hook.views.WeatherData
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.hookPluginClassLoader
+import star.sky.voyager.utils.voyager.PluginClassLoader.hookPluginClassLoader
 
 @SuppressLint("StaticFieldLeak")
 object NewNotificationWeather : HookRegister() {

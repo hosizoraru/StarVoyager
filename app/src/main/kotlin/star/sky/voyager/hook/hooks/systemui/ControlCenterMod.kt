@@ -13,7 +13,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.hookPluginClassLoader
+import star.sky.voyager.utils.voyager.PluginClassLoader.hookPluginClassLoader
 
 object ControlCenterMod : HookRegister() {
     private var clockSize: Float = 0.0f
