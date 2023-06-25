@@ -27,35 +27,34 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 import kotlin.math.abs
 
-@SuppressLint("StaticFieldLeak")
 object StatusBarBattery : HookRegister() {
     private lateinit var appContext: Context
-    private lateinit var textview: TextView
-    private var leftPaddingPx: Int? = 0
-    private var rightPaddingPx: Int? = 0
-    private var topPaddingPx: Int? = 0
-    private var bottomPaddingPx: Int? = 0
+
+    private val leftPaddingPx: Int by lazy {
+        calculatePaddingPx("status_bar_battery_left_padding", 8)
+    }
+
+    private val rightPaddingPx: Int by lazy {
+        calculatePaddingPx("status_bar_battery_right_padding", 0, 2)
+    }
+
+    private val topPaddingPx: Int by lazy {
+        calculatePaddingPx("status_bar_battery_top_padding", 0)
+    }
+
+    private val bottomPaddingPx: Int by lazy {
+        calculatePaddingPx("status_bar_battery_bottom_padding", 0)
+    }
     private var color: Int? = null
 
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
+        lateinit var textview: TextView
         val userColor = getString("status_bar_battery_text_color", "#0d84ff")
         val useCustomColor = getBoolean("status_bar_battery_text_color_custom_enable", false)
         val textSize = getInt("status_bar_battery_text_size", 8).toFloat()
 
         val lineSpacingAdd = getInt("status_bar_battery_line_spacing_add", 0).toFloat()
         val lineSpacingMulti = getInt("status_bar_battery_line_spacing_multi", 80).toFloat() / 100
-
-        val leftPadding =
-            getInt("status_bar_battery_left_padding", if (IS_TABLET) 0 else 8).toFloat()
-        val rightPadding =
-            getInt("status_bar_battery_right_padding", if (IS_TABLET) 2 else 0).toFloat()
-        val topPadding = getInt("status_bar_battery_top_padding", 0).toFloat()
-        val bottomPadding = getInt("status_bar_battery_bottom_padding", 0).toFloat()
-
-        val leftMargining = getInt("status_bar_battery_left_margining", if (IS_TABLET) 1 else -7)
-        val rightMargining = getInt("status_bar_battery_right_margining", 0)
-        val topMargining = getInt("status_bar_battery_top_margining", if (IS_TABLET) -20 else 0)
-        val bottomMargining = getInt("status_bar_battery_bottom_margining", 0)
 
         val miuiPhoneStatusBarViewClass =
             loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView")
@@ -65,12 +64,6 @@ object StatusBarBattery : HookRegister() {
             .first().createHook {
                 after {
                     appContext = it.args[0] as Context
-                    with(appContext.resources.displayMetrics.density) {
-                        leftPaddingPx = (leftPadding * this).toInt()
-                        rightPaddingPx = (rightPadding * this).toInt()
-                        topPaddingPx = (topPadding * this).toInt()
-                        bottomPaddingPx = (bottomPadding * this).toInt()
-                    }
                 }
             }
 
@@ -80,42 +73,13 @@ object StatusBarBattery : HookRegister() {
                 after { param ->
                     val mStatusBarLeftContainer =
                         param.thisObject.getObjectFieldAs<LinearLayout>("mStatusBarLeftContainer")
-                    textview = TextView(appContext).apply {
-                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, textSize)
-                        typeface = Typeface.DEFAULT_BOLD
-                        isSingleLine = false
-                        setLineSpacing(lineSpacingAdd, lineSpacingMulti)
-                        setPadding(
-                            leftPaddingPx ?: 0,
-                            topPaddingPx ?: 0,
-                            rightPaddingPx ?: 0,
-                            bottomPaddingPx ?: 0
-                        )
-                        layoutParams = FrameLayout.LayoutParams(
-                            FrameLayout.LayoutParams.WRAP_CONTENT,
-                            FrameLayout.LayoutParams.WRAP_CONTENT
-                        ).apply {
-                            leftMargin = leftMargining
-                            rightMargin = rightMargining
-                            topMargin = topMargining
-                            bottomMargin = bottomMargining
-                            gravity = Gravity.CENTER_VERTICAL
-                        }
-                    }
-                    mStatusBarLeftContainer.addView(appContext.let {
-                        FrameLayout(it).apply {
-                            layoutParams = FrameLayout.LayoutParams(
-                                FrameLayout.LayoutParams.WRAP_CONTENT,
-                                FrameLayout.LayoutParams.WRAP_CONTENT
-                            ).apply {
-                                leftMargin = leftMargining
-                                rightMargin = rightMargining
-                                topMargin = topMargining
-                                bottomMargin = bottomMargining
-                                gravity = Gravity.CENTER_VERTICAL
-                            }
-                            addView(textview)
-                        }
+
+                    // Create TextView instance with the desired parameters.
+                    textview = createTextView(textSize, lineSpacingAdd, lineSpacingMulti)
+
+                    mStatusBarLeftContainer.addView(FrameLayout(appContext).apply {
+                        layoutParams = createLayoutParams()
+                        addView(textview)
                     })
 
                     appContext.registerReceiver(
@@ -150,10 +114,9 @@ object StatusBarBattery : HookRegister() {
                     .toDouble()
             val current = abs(if (mA) batteryCurrentNow / 1000 else batteryCurrentNow / 1_000_000)
 
-            val currentFormat = if (mA) {
-                if (current < 10_000) "%.0f mA" else "%.2f A"
-            } else {
-                "%.2f A"
+            val currentFormat = when {
+                mA && current < 10_000 -> "%.0f mA"
+                else -> "%.2f A"
             }
 
             val currentText =
@@ -162,13 +125,54 @@ object StatusBarBattery : HookRegister() {
             val batteryStatus = intent.getIntExtra("status", 0)
             val temperatureFormat = "%.1f".format(temperature)
 
-            textView.apply {
-                visibility =
+            textView.also {
+                it.visibility =
                     if (any || batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) View.VISIBLE else View.GONE
-                if (visibility == View.VISIBLE) {
-                    text = "$currentText\n${temperatureFormat}℃"
-                }
+            }.takeIf { it.visibility == View.VISIBLE }?.let {
+                it.text = "$currentText\n${temperatureFormat}℃"
             }
+        }
+    }
+
+    private fun calculatePaddingPx(
+        key: String,
+        defaultPadding: Int,
+        tabletPadding: Int = 0
+    ): Int {
+        val paddingDp = getInt(key, if (IS_TABLET) tabletPadding else defaultPadding).toFloat()
+        return (paddingDp * appContext.resources.displayMetrics.density).toInt()
+    }
+
+    private fun createTextView(
+        textSize: Float,
+        lineSpacingAdd: Float,
+        lineSpacingMulti: Float
+    ): TextView {
+        return TextView(appContext).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_DIP, textSize)
+            typeface = Typeface.DEFAULT_BOLD
+            isSingleLine = false
+            setLineSpacing(lineSpacingAdd, lineSpacingMulti)
+            setPadding(
+                leftPaddingPx,
+                topPaddingPx,
+                rightPaddingPx,
+                bottomPaddingPx
+            )
+            layoutParams = createLayoutParams()
+        }
+    }
+
+    private fun createLayoutParams(): FrameLayout.LayoutParams {
+        return FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            leftMargin = getInt("status_bar_battery_left_margining", if (IS_TABLET) 1 else -7)
+            rightMargin = getInt("status_bar_battery_right_margining", 0)
+            topMargin = getInt("status_bar_battery_top_margining", if (IS_TABLET) -20 else 0)
+            bottomMargin = getInt("status_bar_battery_bottom_margining", 0)
+            gravity = Gravity.CENTER_VERTICAL
         }
     }
 }
