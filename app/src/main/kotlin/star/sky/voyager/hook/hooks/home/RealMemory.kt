@@ -13,7 +13,6 @@ import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-@SuppressLint("StaticFieldLeak")
 object RealMemory : HookRegister() {
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("home_real_memory") {
