@@ -1,18 +1,10 @@
 package star.sky.voyager.utils.voyager
 
 import android.content.Context
-import android.content.pm.ApplicationInfo
-import android.graphics.drawable.Drawable
 import android.util.TypedValue
-import android.view.View
-import android.view.Window
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper
-import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import com.github.kyuubiran.ezxhelper.Log
-import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
 import star.sky.voyager.utils.api.isStatic
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -69,88 +61,6 @@ fun Any.invokeMethod(vararg args: Any?, condition: MethodCondition): Any? {
     throw NoSuchMethodException()
 }
 
-fun getValueByField(target: Any, fieldName: String, clazz: Class<*>? = null): Any? {
-    var targetClass = clazz
-    if (targetClass == null) {
-        targetClass = target.javaClass
-    }
-    return try {
-        val field = targetClass.getDeclaredField(fieldName)
-        field.isAccessible = true
-        field.get(target)
-    } catch (e: Throwable) {
-        if (targetClass.superclass == null) {
-            null
-        } else {
-            getValueByField(target, fieldName, targetClass.superclass)
-        }
-    }
-}
-
-fun getValueByFields(target: Any, fieldNames: List<String>, clazz: Class<*>? = null): Any? {
-    var targetClass = clazz ?: target.javaClass
-    while (targetClass != Any::class.java) {
-        for (fieldName in fieldNames) {
-            try {
-                val field = targetClass.getDeclaredField(fieldName)
-                field.isAccessible = true
-                val value = field.get(target)
-                if (value is Window) {
-//                    Log.i("BlurPersonalAssistant Window field name: $fieldName")
-                    return value
-                }
-            } catch (e: NoSuchFieldException) {
-                // This field doesn't exist in this class, skip it
-            } catch (e: IllegalAccessException) {
-                // This field isn't accessible, skip it
-            }
-        }
-        targetClass = targetClass.superclass ?: break
-    }
-    return null
-}
-
-
-fun createBlurDrawable(
-    view: View,
-    blurRadius: Int,
-    cornerRadius: Int,
-    color: Int? = null
-): Drawable? {
-    try {
-        val mViewRootImpl = XposedHelpers.callMethod(
-            view,
-            "getViewRootImpl"
-        ) ?: return null
-        val blurDrawable = XposedHelpers.callMethod(
-            mViewRootImpl,
-            "createBackgroundBlurDrawable"
-        ) as Drawable
-        XposedHelpers.callMethod(blurDrawable, "setBlurRadius", blurRadius)
-        XposedHelpers.callMethod(blurDrawable, "setCornerRadius", cornerRadius)
-        if (color != null) {
-            XposedHelpers.callMethod(
-                blurDrawable,
-                "setColor",
-                color
-            )
-        }
-        return blurDrawable
-    } catch (e: Throwable) {
-        Log.e("Create BlurDrawable Error:$e")
-        return null
-    }
-}
-
-fun isBlurDrawable(drawable: Drawable?): Boolean {
-    // 不够严谨，可以用
-    if (drawable == null) {
-        return false
-    }
-    val drawableClassName = drawable.javaClass.name
-    return drawableClassName.contains("BackgroundBlurDrawable")
-}
-
 /**
  * 扩展函数 通过遍历方法数组 返回符合条件的方法数组
  * @param condition 条件
@@ -205,38 +115,6 @@ fun dp2px(context: Context, dpValue: Float): Int = TypedValue.applyDimension(
     dpValue,
     context.resources.displayMetrics
 ).toInt()
-
-/**
- * 可以从 SystemUI 里获取 SystemUIPlugin 的 AppInfo 和 ClassLoader
- *
- * 使用方法:
- *
- *     hookPluginClassLoader { appInfo, classLoader ->
- *         // 在这里使用 appInfo 和 classLoader 变量
- *     }
- *
- * 仅适用于 Mix4 A13 Miui14 V14.0.23.5.22.Dev 开发版
- * @author Voyager
- * @return appInfo & classLoaderP
- */
-fun hookPluginClassLoader(onGetClassLoader: (appInfo: ApplicationInfo, classLoader: ClassLoader) -> Unit) {
-    val classLoaderClass = loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory")
-    classLoaderClass.methodFinder().first {
-        name == "getClassLoader"
-                && parameterCount == 2
-                && parameterTypes[0] == ApplicationInfo::class.java
-                && parameterTypes[1] == ClassLoader::class.java
-    }.createHook {
-        after { getClassLoader ->
-            val appInfo = getClassLoader.args[0] as ApplicationInfo
-            val classLoaderP = getClassLoader.result as ClassLoader
-//            Log.i("get classLoader: $appInfo $classLoaderP")
-            if (appInfo.packageName == "miui.systemui.plugin") {
-                onGetClassLoader(appInfo, classLoaderP)
-            }
-        }
-    }
-}
 
 /**
  * 执行数组中所有的unhook

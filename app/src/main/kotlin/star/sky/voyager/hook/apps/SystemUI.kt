@@ -52,6 +52,7 @@ object SystemUI : AppRegister() {
     override val packageName: String = "com.android.systemui"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+        LockScreenBlurButton().init() // 模糊锁屏界面按钮
         autoInitHooks(
             lpparam,
             MonetTheme, // 自定义系统主题色
@@ -79,7 +80,7 @@ object SystemUI : AppRegister() {
             DisableBluetooth, // 禁用蓝牙临时关闭
             LockScreenClockDisplaySeconds, // 时钟显示秒数
             LockScreenFont, // 锁屏界面时钟使用系统字体
-            LockScreenBlurButton, // 模糊锁屏界面按钮
+//            LockScreenBlurButton, // 模糊锁屏界面按钮
             RemoveTheLeftSideOfTheLockScreen, // 移除锁屏负一屏功能
             RemoveLockScreenCamera, // 移除锁屏相机功能
             WaveCharge, // 启用Alpha充电动画
