@@ -7,13 +7,13 @@ import android.content.IntentFilter
 import android.os.Handler
 import android.os.PowerManager
 import android.widget.TextView
-import com.github.kyuubiran.ezxhelper.ClassUtils
+import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import com.github.kyuubiran.ezxhelper.ObjectUtils
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
@@ -35,13 +35,13 @@ object LockscreenChargingInfo : HookRegister() {
             after { param ->
                 (param.thisObject as TextView).isSingleLine = false
                 val screenOnOffReceiver = object : BroadcastReceiver() {
-                    val keyguardIndicationController = ClassUtils.invokeStaticMethodBestMatch(
+                    val keyguardIndicationController = invokeStaticMethodBestMatch(
                         clazzDependency, "get", null, clazzKeyguardIndicationController
                     )!!
                     val handler = Handler((param.thisObject as TextView).context.mainLooper)
                     val runnable = object : Runnable {
                         override fun run() {
-                            ObjectUtils.invokeMethodBestMatch(
+                            invokeMethodBestMatch(
                                 keyguardIndicationController,
                                 "updatePowerIndication"
                             )

@@ -2,7 +2,7 @@ package star.sky.voyager.hook.hooks.systemui
 
 import android.app.KeyguardManager
 import android.content.Context
-import android.graphics.Color
+import android.graphics.Color.argb
 import android.graphics.drawable.LayerDrawable
 import android.view.View
 import android.widget.ImageView
@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference
 import java.util.Timer
 import java.util.TimerTask
 
-object BlurLockScreenButton : HookRegister() {
+object LockScreenBlurButton : HookRegister() {
     private var mLeftAffordanceView: WeakReference<ImageView>? = null
     private var mRightAffordanceView: WeakReference<ImageView>? = null
     private var keyguardBottomAreaView: WeakReference<View>? = null
@@ -25,9 +25,9 @@ object BlurLockScreenButton : HookRegister() {
     override fun init() = hasEnable("blur_lock_screen_button") {
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
-        )?.methodFinder()
-            ?.filterByName("onAttachedToWindow")
-            ?.toList()?.createHooks {
+        )!!.methodFinder()
+            .filterByName("onAttachedToWindow")
+            .toList().createHooks {
                 after { param ->
                     mLeftAffordanceView = WeakReference(
                         getValueByField(
@@ -45,8 +45,7 @@ object BlurLockScreenButton : HookRegister() {
                 }
             }
 
-        val timer = Timer()
-        timer.scheduleAtFixedRate(object : TimerTask() {
+        Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 val context = keyguardBottomAreaView?.get()?.context ?: return
                 val keyguardManager =
@@ -57,14 +56,14 @@ object BlurLockScreenButton : HookRegister() {
                         keyguardBottomAreaView!!.get()!!,
                         40,
                         100,
-                        Color.argb(60, 255, 255, 255)
+                        argb(60, 255, 255, 255)
                     )
                     val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
                     val rightBlurDrawable = createBlurDrawable(
                         keyguardBottomAreaView!!.get()!!,
                         40,
                         100,
-                        Color.argb(60, 255, 255, 255)
+                        argb(60, 255, 255, 255)
                     )
                     val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
                     leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
@@ -76,6 +75,6 @@ object BlurLockScreenButton : HookRegister() {
                     mRightAffordanceView?.get()?.background = null
                 }
             }
-        }, 0, 100)
+        }, 0, 200)
     }
 }

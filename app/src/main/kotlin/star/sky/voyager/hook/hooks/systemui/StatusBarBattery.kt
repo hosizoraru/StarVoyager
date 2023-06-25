@@ -35,7 +35,7 @@ object StatusBarBattery : HookRegister() {
     private var rightPaddingPx: Int? = 0
     private var topPaddingPx: Int? = 0
     private var bottomPaddingPx: Int? = 0
-    private var color: Int? = 0
+    private var color: Int? = null
 
     override fun init() = hasEnable("system_ui_show_status_bar_battery") {
         val userColor = getString("status_bar_battery_text_color", "#0d84ff")
@@ -59,18 +59,6 @@ object StatusBarBattery : HookRegister() {
 
         val miuiPhoneStatusBarViewClass =
             loadClass("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView")
-        loadClass("com.android.systemui.statusbar.phone.DarkIconDispatcherImpl").methodFinder()
-            .filterByName("applyIconTint")
-            .first().createHook {
-                after { it ->
-                    color = if (useCustomColor && userColor?.isNotEmpty() == true) {
-                        parseColor(userColor)
-                    } else {
-                        it.thisObject.getObjectFieldAs<Int>("mIconTint")
-                    }
-                    color?.let { textview.setTextColor(it) }
-                }
-            }
 
         miuiPhoneStatusBarViewClass.constructorFinder()
             .filterByParamCount(2)
@@ -131,13 +119,26 @@ object StatusBarBattery : HookRegister() {
                     })
 
                     appContext.registerReceiver(
-                        BatteryReceiver(),
+                        BatteryReceiver(textview),
                         IntentFilter().apply { addAction(Intent.ACTION_BATTERY_CHANGED) })
+
+                    loadClass("com.android.systemui.statusbar.phone.DarkIconDispatcherImpl").methodFinder()
+                        .filterByName("applyIconTint")
+                        .first().createHook {
+                            after { param ->
+                                color = if (useCustomColor && userColor?.isNotEmpty() == true) {
+                                    parseColor(userColor)
+                                } else {
+                                    param.thisObject.getObjectFieldAs<Int>("mIconTint")
+                                }
+                                color?.let { textview.setTextColor(it) }
+                            }
+                        }
                 }
             }
     }
 
-    class BatteryReceiver : BroadcastReceiver() {
+    class BatteryReceiver(private val textView: TextView) : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context, intent: Intent) {
             val any = getBoolean("show_status_bar_battery_any", false)
@@ -161,7 +162,7 @@ object StatusBarBattery : HookRegister() {
             val batteryStatus = intent.getIntExtra("status", 0)
             val temperatureFormat = "%.1f".format(temperature)
 
-            textview.apply {
+            textView.apply {
                 visibility =
                     if (any || batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) View.VISIBLE else View.GONE
                 if (visibility == View.VISIBLE) {
@@ -171,3 +172,4 @@ object StatusBarBattery : HookRegister() {
         }
     }
 }
+
