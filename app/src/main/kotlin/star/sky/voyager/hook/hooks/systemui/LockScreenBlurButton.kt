@@ -1,5 +1,6 @@
 package star.sky.voyager.hook.hooks.systemui
 
+import android.annotation.SuppressLint
 import android.app.KeyguardManager
 import android.content.Context
 import android.graphics.Color.argb
@@ -13,14 +14,14 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.createBlurDrawable
 import star.sky.voyager.utils.voyager.getValueByField
-import java.lang.ref.WeakReference
 import java.util.Timer
 import java.util.TimerTask
 
+@SuppressLint("StaticFieldLeak")
 object LockScreenBlurButton : HookRegister() {
-    private var mLeftAffordanceView: WeakReference<ImageView>? = null
-    private var mRightAffordanceView: WeakReference<ImageView>? = null
-    private var keyguardBottomAreaView: WeakReference<View>? = null
+    private var mLeftAffordanceView: ImageView? = null
+    private var mRightAffordanceView: ImageView? = null
+    private var keyguardBottomAreaView: View? = null
 
     override fun init() = hasEnable("blur_lock_screen_button") {
         loadClassOrNull(
@@ -29,38 +30,38 @@ object LockScreenBlurButton : HookRegister() {
             .filterByName("onAttachedToWindow")
             .toList().createHooks {
                 after { param ->
-                    mLeftAffordanceView = WeakReference(
+                    mLeftAffordanceView =
                         getValueByField(
                             param.thisObject,
                             "mLeftAffordanceView"
                         ) as ImageView
-                    )
-                    mRightAffordanceView = WeakReference(
+
+                    mRightAffordanceView =
                         getValueByField(
                             param.thisObject,
                             "mRightAffordanceView"
                         ) as ImageView
-                    )
-                    keyguardBottomAreaView = WeakReference(param.thisObject as View)
+
+                    keyguardBottomAreaView = param.thisObject as View
                 }
             }
 
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                val context = keyguardBottomAreaView?.get()?.context ?: return
+                val context = keyguardBottomAreaView?.context ?: return
                 val keyguardManager =
                     context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 
                 if (keyguardManager.isKeyguardLocked) {
                     val leftBlurDrawable = createBlurDrawable(
-                        keyguardBottomAreaView!!.get()!!,
+                        keyguardBottomAreaView!!,
                         40,
                         100,
                         argb(60, 255, 255, 255)
                     )
                     val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
                     val rightBlurDrawable = createBlurDrawable(
-                        keyguardBottomAreaView!!.get()!!,
+                        keyguardBottomAreaView!!,
                         40,
                         100,
                         argb(60, 255, 255, 255)
@@ -68,11 +69,11 @@ object LockScreenBlurButton : HookRegister() {
                     val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
                     leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
                     rightLayerDrawable.setLayerInset(0, 40, 40, 40, 40)
-                    mLeftAffordanceView?.get()?.background = leftLayerDrawable
-                    mRightAffordanceView?.get()?.background = rightLayerDrawable
+                    mLeftAffordanceView?.background = leftLayerDrawable
+                    mRightAffordanceView?.background = rightLayerDrawable
                 } else {
-                    mLeftAffordanceView?.get()?.background = null
-                    mRightAffordanceView?.get()?.background = null
+                    mLeftAffordanceView?.background = null
+                    mRightAffordanceView?.background = null
                 }
             }
         }, 0, 200)
