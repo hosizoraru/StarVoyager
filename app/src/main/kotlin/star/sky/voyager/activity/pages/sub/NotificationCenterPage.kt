@@ -93,7 +93,7 @@ class NotificationCenterPage : BasePage() {
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
-        TitleText(textId = R.string.time)
+        TitleText(textId = R.string.time, dataBindingRecv = ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,
@@ -165,7 +165,7 @@ class NotificationCenterPage : BasePage() {
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
-        TitleText(textId = R.string.date)
+        TitleText(textId = R.string.date, dataBindingRecv = ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,
@@ -237,7 +237,7 @@ class NotificationCenterPage : BasePage() {
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
-        TitleText(textId = R.string.land_clock)
+        TitleText(textId = R.string.land_clock, dataBindingRecv = ncBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,

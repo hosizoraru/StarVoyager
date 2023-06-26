@@ -88,7 +88,7 @@ class ControlCenterPage : BasePage() {
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
-        TitleText(textId = R.string.time)
+        TitleText(textId = R.string.time, dataBindingRecv = ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,
@@ -163,7 +163,7 @@ class ControlCenterPage : BasePage() {
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
-        TitleText(textId = R.string.date)
+        TitleText(textId = R.string.date, dataBindingRecv = ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,
@@ -238,7 +238,7 @@ class ControlCenterPage : BasePage() {
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
-        TitleText(textId = R.string.carrier_info)
+        TitleText(textId = R.string.carrier_info, dataBindingRecv = ccBinding.binding.getRecv(1))
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.hide,
