@@ -604,7 +604,7 @@
     <string name="show_wifi_standard">WiFi の規格を表示</string>
     <string name="system_ui_use_new_hd">新しい HD  アイコンを強制使用</string>
     <string name="system_ui_use_new_summary">より新しいシステムバージョンが必要で、一部のデバイスはまだ対応していない可能性があります</string>
-    <string name="no_show_on_wifi_hd">Wi-Fi接続時には小さいHDアイコンを表示\nWi-Fi接続時には新しいHDアイコンを表示</string>
+    <string name="no_show_on_wifi_hd">Wi-Fi接続時に小さいHDアイコンを表示する\nWi-Fi接続がない場合に新しいHDアイコンを表示する</string>
     <string name="battery_percentage_font_size">バッテリー残量のフォントサイズ</string>
     <string name="can_notification_slide">ほとんどのアプリの通知がミニウィンドウで展開することを許可</string>
     <string name="can_notification_slide_summary">Mi Push 経由の一部の通知はサポートされていない可能性があります</string>
