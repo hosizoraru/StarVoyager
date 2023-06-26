@@ -125,6 +125,14 @@
     <string name="dock">Dock</string>
     <string name="no_show_on_wifi_enable">Do not show when Wi-Fi is enabled</string>
     <string name="no_show_on_wifi_connect">Do not show when connected to Wi-Fi</string>
+    <string name="hide">Hide</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="system_font_bold">Bold System Font</string>
+    <string name="carrier_info">Carrier Information</string>
+    <string name="land_clock">Landscape Clock</string>
+    <string name="font_size_custom">Custom font size</string>
+    <string name="color_custom">Custom color</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>

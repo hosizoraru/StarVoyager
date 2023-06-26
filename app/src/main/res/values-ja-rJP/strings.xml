@@ -123,6 +123,14 @@
     <string name="dock">ドック</string>
     <string name="no_show_on_wifi_enable">Wi-Fi が有効な場合に表示しない</string>
     <string name="no_show_on_wifi_connect">Wi-Fi 接続済みの状態では表示しない</string>
+    <string name="hide">非表示</string>
+    <string name="time">時間</string>
+    <string name="date">日付</string>
+    <string name="system_font_bold">太字のシステムフォント</string>
+    <string name="carrier_info">キャリア情報</string>
+    <string name="land_clock">横画面時計・日付</string>
+    <string name="font_size_custom">フォントサイズのカスタマイズ</string>
+    <string name="color_custom">カスタムカラー</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>

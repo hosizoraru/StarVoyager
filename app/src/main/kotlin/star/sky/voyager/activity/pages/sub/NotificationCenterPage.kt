@@ -93,34 +93,53 @@ class NotificationCenterPage : BasePage() {
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
+        TitleText(textId = R.string.time)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_time_font,
+                textId = R.string.hide,
+            ), SwitchV("notification_time", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("notification_time_font", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_time_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("notification_time_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("notification_time_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_time_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_time_size", 50, 194, 97),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_time_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_time_size", 60, 200, 130),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("notification_time_color_custom", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.notification_time_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.notification_time_color)
@@ -146,34 +165,53 @@ class NotificationCenterPage : BasePage() {
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
+        TitleText(textId = R.string.date)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_date_font,
+                textId = R.string.hide,
+            ), SwitchV("notification_date", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("notification_date_font", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_date_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("notification_date_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("notification_date_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_date_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_date_size", 10, 62, 31),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_date_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_date_size", 20, 82, 41),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("notification_date_color_custom", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.notification_date_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.notification_date_color)
@@ -199,34 +237,53 @@ class NotificationCenterPage : BasePage() {
                 }), dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         lineB(ncBinding.binding.getRecv(1))
+        TitleText(textId = R.string.land_clock)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_land_clock_font,
+                textId = R.string.hide,
+            ), SwitchV("notification_land_clock", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("notification_land_clock_font", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.notification_land_clock_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("notification_land_clock_bold", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("notification_land_clock_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_land_clock_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_land_clock_size", 10, 60, 30),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.notification_land_clock_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("notification_land_clock_size", 10, 74, 37),
                 dataBindingRecv = ncBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("notification_land_clock_color_custom", false),
+            dataBindingRecv = ncBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.notification_land_clock_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.notification_land_clock_color)

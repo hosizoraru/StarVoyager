@@ -3,9 +3,11 @@ package star.sky.voyager.hook.hooks.systemui
 import android.graphics.Color.parseColor
 import android.graphics.Typeface
 import android.util.TypedValue
+import android.view.View
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.Log
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.getObjectFieldAs
@@ -13,74 +15,153 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.SetKeyMap.setKeyMap
+import star.sky.voyager.utils.voyager.SetKeyMap.whenT
+import star.sky.voyager.utils.voyager.SetKeyMap.whenV
 
 object NotificationMod : HookRegister() {
-    private var timeSize: Float = 0.0f
-    private var dateSize: Float = 0.0f
-    private var clockSize: Float = 0.0f
     override fun init() = hasEnable("notification_mod") {
-        val timeColor = parseColor(getString("notification_time_color", "#FFFFFF"))
-        val dateColor = parseColor(getString("notification_date_color", "#FFFFFF"))
-        val clockColor = parseColor(getString("notification_land_clock_color", "#FFFFFF"))
+        lateinit var miuiBigTime: TextView
+        lateinit var miuiDate: TextView
+        lateinit var miuiLandClock: TextView
 
         val notificationClass =
             loadClass("com.android.systemui.qs.MiuiNotificationHeaderView")
-        notificationClass.methodFinder()
-            .filterByName("updateResources")
-            .first().createHook {
-                after { param ->
-                    val miuiBigTime = param.thisObject.getObjectFieldAs<TextView>("mBigTime")
-                    val miuiDate = param.thisObject.getObjectFieldAs<TextView>("mDateView")
-                    val miuiLandClock = param.thisObject.getObjectFieldAs<TextView>("mLandClock")
 
-                    timeSize =
-                        getInt("notification_time_size", miuiBigTime.textSize.toInt()).toFloat()
-                    dateSize = getInt("notification_date_size", miuiDate.textSize.toInt()).toFloat()
-                    clockSize = getInt(
-                        "notification_land_clock_size",
-                        miuiLandClock.textSize.toInt()
-                    ).toFloat()
+        val updateResource =
+            notificationClass.methodFinder()
+                .filterByName("updateResources")
+                .first()
 
-                    hasEnable("text_size_def_log") {
-                        Log.ix("Notification time: ${miuiBigTime.textSize}")
-                        Log.ix("Notification date: ${miuiDate.textSize}")
-                        Log.ix("Notification land clock: ${miuiLandClock.textSize}")
-                    }
+        updateResource.createHook {
+            before { param ->
+                miuiBigTime = param.thisObject.getObjectFieldAs<TextView>("mBigTime")
+                miuiDate = param.thisObject.getObjectFieldAs<TextView>("mDateView")
+                miuiLandClock = param.thisObject.getObjectFieldAs<TextView>("mLandClock")
 
-                    // 修改字体
-                    hasEnable("notification_time_font") {
-                        miuiBigTime.typeface = Typeface.DEFAULT
-                    }
-                    hasEnable("notification_date_font") {
-                        miuiDate.typeface = Typeface.DEFAULT
-                    }
-                    hasEnable("notification_land_clock_font") {
-                        miuiLandClock.typeface = Typeface.DEFAULT
-                    }
-                    hasEnable("notification_time_bold") {
-                        miuiBigTime.typeface = Typeface.DEFAULT_BOLD
-                    }
-                    hasEnable("notification_date_bold") {
-                        miuiDate.typeface = Typeface.DEFAULT_BOLD
-                    }
-                    hasEnable("notification_land_clock_bold") {
-                        miuiLandClock.typeface = Typeface.DEFAULT_BOLD
-                    }
+                hasEnable("text_size_def_log") {
+                    Log.ix("Notification time: ${miuiBigTime.textSize}")
+                    Log.ix("Notification date: ${miuiDate.textSize}")
+                    Log.ix("Notification land clock: ${miuiLandClock.textSize}")
+                }
+            }
+        }
 
-                    // 修改字体大小
-                    miuiBigTime.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, timeSize)
-                    miuiDate.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, dateSize)
-                    miuiLandClock.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, clockSize)
+        whenT("notification_time", "notification_date", "notification_land_clock") {
+            notificationClass.declaredMethods.toList().createHooks {
+                after {
+                    setKeyMap(
+                        mapOf(
+                            "notification_time" to { miuiBigTime.visibility = View.GONE },
+                            "notification_date" to { miuiDate.visibility = View.GONE },
+                            "notification_land_clock" to {
+                                miuiLandClock.visibility = View.GONE
+                            }
+                        )
+                    )
+                }
+            }
+        }
 
-                    // 修改颜色
-                    miuiBigTime.setTextColor(timeColor)
-                    miuiDate.setTextColor(dateColor)
-                    miuiLandClock.setTextColor(clockColor)
+        updateResource.createHook {
+            after {
+                whenV("notification_time") {
+                    false then {
+                        setKeyMap(
+                            mapOf(
+                                "notification_time_font" to {
+                                    miuiBigTime.typeface = Typeface.DEFAULT
+                                },
+                                "notification_time_bold" to {
+                                    miuiBigTime.typeface = Typeface.DEFAULT_BOLD
+                                },
+                                "notification_time_size_custom" to {
+                                    val timeSize =
+                                        getInt(
+                                            "notification_time_size",
+                                            miuiBigTime.textSize.toInt()
+                                        )
+                                            .toFloat()
+                                    miuiBigTime.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, timeSize)
+                                },
+                                "notification_time_color_custom" to {
+                                    val timeColor =
+                                        parseColor(getString("notification_time_color", "#FFFFFF"))
+                                    miuiBigTime.setTextColor(timeColor)
+                                }
+                            )
+                        )
+                    }
+                }
+
+                whenV("notification_date") {
+                    false then {
+                        setKeyMap(
+                            mapOf(
+                                "notification_date_font" to {
+                                    miuiDate.typeface = Typeface.DEFAULT
+                                },
+                                "notification_date_bold" to {
+                                    miuiDate.typeface = Typeface.DEFAULT_BOLD
+                                },
+                                "notification_date_size_custom" to {
+                                    val dateSize =
+                                        getInt(
+                                            "notification_date_size",
+                                            miuiDate.textSize.toInt()
+                                        ).toFloat()
+                                    miuiDate.setTextSize(TypedValue.COMPLEX_UNIT_SHIFT, dateSize)
+                                },
+                                "notification_date_color_custom" to {
+                                    val dateColor =
+                                        parseColor(getString("notification_date_color", "#FFFFFF"))
+                                    miuiDate.setTextColor(dateColor)
+                                }
+                            )
+                        )
+                    }
+                }
+
+                whenV("notification_land_clock") {
+                    false then {
+                        setKeyMap(
+                            mapOf(
+                                "notification_land_clock_font" to {
+                                    miuiLandClock.typeface = Typeface.DEFAULT
+                                },
+                                "notification_land_clock_bold" to {
+                                    miuiLandClock.typeface = Typeface.DEFAULT_BOLD
+                                },
+                                "notification_land_clock_size_custom" to {
+                                    val clockSize =
+                                        getInt(
+                                            "notification_land_clock_size",
+                                            miuiLandClock.textSize.toInt()
+                                        ).toFloat()
+                                    miuiLandClock.setTextSize(
+                                        TypedValue.COMPLEX_UNIT_SHIFT,
+                                        clockSize
+                                    )
+                                },
+                                "notification_land_clock_color_custom" to {
+                                    val clockColor =
+                                        parseColor(
+                                            getString(
+                                                "notification_land_clock_color",
+                                                "#FFFFFF"
+                                            )
+                                        )
+                                    miuiLandClock.setTextColor(clockColor)
+                                }
+                            )
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
 
 //                    Log.i("miuiBigTime:  ${miuiBigTime.textSize}  ${miuiBigTime.typeface}  ${miuiBigTime.textColors}")
 //                    Log.i("miuiDateTime:  ${miuiDate.textSize}  ${miuiDate.typeface}  ${miuiDate.textColors}")
 //                    Log.i("miuiLandClock:  ${miuiLandClock.textSize}  ${miuiLandClock.typeface}  ${miuiLandClock.textColors}")
-                }
-            }
-    }
-}

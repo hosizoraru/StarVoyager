@@ -123,6 +123,14 @@
     <string name="dock">程序坞</string>
     <string name="no_show_on_wifi_enable">在 Wi-Fi 开启的状态下不显示</string>
     <string name="no_show_on_wifi_connect">在 Wi-Fi 已连接的状态下不显示</string>
+    <string name="hide">隐藏</string>
+    <string name="time">时间</string>
+    <string name="date">日期</string>
+    <string name="system_font_bold">加粗的系统字体</string>
+    <string name="carrier_info">运营商信息</string>
+    <string name="land_clock">横屏时间日期</string>
+    <string name="font_size_custom">自定义字体大小</string>
+    <string name="color_custom">自定义颜色</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>

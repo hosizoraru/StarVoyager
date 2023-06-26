@@ -88,34 +88,53 @@ class ControlCenterPage : BasePage() {
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
+        TitleText(textId = R.string.time)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_clock_font,
+                textId = R.string.hide,
+            ), SwitchV("control_center_clock", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("control_center_clock_font", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_clock_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("control_center_clock_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("control_center_clock_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_clock_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_clock_size", 50, 150, 98),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_clock_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_clock_size", 80, 200, 133),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("control_center_clock_color_custom", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.control_center_clock_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.control_center_clock_color)
@@ -144,34 +163,53 @@ class ControlCenterPage : BasePage() {
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
+        TitleText(textId = R.string.date)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_date_font,
+                textId = R.string.hide,
+            ), SwitchV("control_center_date", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("control_center_date_font", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_date_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("control_center_date_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("control_center_date_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         if (IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_date_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_date_size", 10, 64, 32),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_date_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_date_size", 20, 86, 43),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("control_center_date_color_custom", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.control_center_date_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.control_center_date_color)
@@ -200,34 +238,53 @@ class ControlCenterPage : BasePage() {
                 }), dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         lineB(ccBinding.binding.getRecv(1))
+        TitleText(textId = R.string.carrier_info)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_carrier_font,
+                textId = R.string.hide,
+            ), SwitchV("control_center_carrier", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.system_font,
             ), SwitchV("control_center_carrier_font", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.control_center_carrier_bold,
+                textId = R.string.system_font_bold,
             ), SwitchV("control_center_carrier_bold", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.font_size_custom,
+            ), SwitchV("control_center_carrier_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
         if (!IS_TABLET) {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_carrier_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_carrier_size", 10, 74, 37),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         } else {
             TextWithSeekBar(
-                TextV(textId = R.string.control_center_carrier_size),
+                TextV(textId = R.string.font_size),
                 SeekBarWithTextV("control_center_carrier_size", 10, 60, 30),
                 dataBindingRecv = ccBinding.binding.getRecv(1)
             )
         }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.color_custom,
+            ), SwitchV("control_center_carrier_color_custom", false),
+            dataBindingRecv = ccBinding.binding.getRecv(1)
+        )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.control_center_carrier_color,
+                textId = R.string.color,
                 onClickListener = {
                     MIUIDialog(activity) {
                         setTitle(R.string.control_center_carrier_color)
