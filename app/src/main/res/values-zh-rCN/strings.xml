@@ -611,6 +611,7 @@
     <string name="notification_settings_no_white_list">移除通知设置白名单</string>
     <string name="notification_channel_setting">重定向通知设置到频道设置</string>
     <string name="notification_channel_setting_summary">打开通知菜单的设置会导航至频道设置而不是应用通用通知设置</string>
+    <string name="notification_icon">隐藏通知设置图标</string>
     <string name="restore_near_by_tile">恢复附近分享磁贴</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
     <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>

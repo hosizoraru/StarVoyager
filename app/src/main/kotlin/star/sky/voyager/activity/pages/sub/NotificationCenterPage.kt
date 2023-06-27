@@ -5,13 +5,12 @@ import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
-import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
-import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 import star.sky.voyager.utils.voyager.LineB.lineB
+import star.sky.voyager.utils.voyager.TabletSeekBar.createTextWithSeekBar
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("notification_center", "Notification Center", hideMenu = false)
@@ -66,6 +65,12 @@ class NotificationCenterPage : BasePage() {
             ),
             SwitchV("notification_channel_setting"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.notification_icon,
+            ),
+            SwitchV("notification_icon"),
+        )
         Line()
         val ncBinding = GetDataBinding({
             safeSP.getBoolean(
@@ -118,19 +123,13 @@ class NotificationCenterPage : BasePage() {
             ), SwitchV("notification_time_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        if (IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_time_size", 50, 194, 97),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_time_size", 60, 200, 130),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "notification_time_size",
+            Triple(50, 194, 97),
+            Triple(60, 200, 130),
+            ncBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,
@@ -190,19 +189,13 @@ class NotificationCenterPage : BasePage() {
             ), SwitchV("notification_date_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        if (IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_date_size", 10, 62, 31),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_date_size", 20, 82, 41),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "notification_date_size",
+            Triple(10, 62, 31),
+            Triple(20, 82, 41),
+            ncBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,
@@ -262,19 +255,13 @@ class NotificationCenterPage : BasePage() {
             ), SwitchV("notification_land_clock_size_custom", false),
             dataBindingRecv = ncBinding.binding.getRecv(1)
         )
-        if (IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 60, 30),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("notification_land_clock_size", 10, 74, 37),
-                dataBindingRecv = ncBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "notification_land_clock_size",
+            Triple(10, 60, 30),
+            Triple(10, 74, 37),
+            ncBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,

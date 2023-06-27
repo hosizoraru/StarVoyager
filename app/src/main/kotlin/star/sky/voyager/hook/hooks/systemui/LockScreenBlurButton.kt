@@ -8,18 +8,18 @@ import android.view.View
 import android.widget.ImageView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.BlurDraw.createBlurDrawable
-import star.sky.voyager.utils.voyager.BlurDraw.getValueByField
 
-class LockScreenBlurButton : HookRegister() {
-    private lateinit var mLeftAffordanceView: ImageView
-    private lateinit var mRightAffordanceView: ImageView
-    private lateinit var keyguardBottomAreaView: View
-
+object LockScreenBlurButton : HookRegister() {
     override fun init() = hasEnable("blur_lock_screen_button") {
+        lateinit var mLeftAffordanceView: ImageView
+        lateinit var mRightAffordanceView: ImageView
+        lateinit var keyguardBottomAreaView: View
+
         loadClassOrNull(
             "com.android.systemui.statusbar.phone.KeyguardBottomAreaView"
         )!!.methodFinder()
@@ -33,16 +33,10 @@ class LockScreenBlurButton : HookRegister() {
             }.toList().createHooks {
                 after { param ->
                     mLeftAffordanceView =
-                        getValueByField(
-                            param.thisObject,
-                            "mLeftAffordanceView"
-                        ) as ImageView
+                        getObjectOrNullAs<ImageView>(param.thisObject, "mLeftAffordanceView")!!
 
                     mRightAffordanceView =
-                        getValueByField(
-                            param.thisObject,
-                            "mRightAffordanceView"
-                        ) as ImageView
+                        getObjectOrNullAs<ImageView>(param.thisObject, "mRightAffordanceView")!!
 
                     keyguardBottomAreaView = param.thisObject as View
 
@@ -53,17 +47,11 @@ class LockScreenBlurButton : HookRegister() {
 
                     if (keyguardManager.isKeyguardLocked) {
                         val leftBlurDrawable = createBlurDrawable(
-                            keyguardBottomAreaView,
-                            40,
-                            100,
-                            argb(60, 255, 255, 255)
+                            keyguardBottomAreaView, 40, 100, argb(60, 255, 255, 255)
                         )
                         val leftLayerDrawable = LayerDrawable(arrayOf(leftBlurDrawable))
                         val rightBlurDrawable = createBlurDrawable(
-                            keyguardBottomAreaView,
-                            40,
-                            100,
-                            argb(60, 255, 255, 255)
+                            keyguardBottomAreaView, 40, 100, argb(60, 255, 255, 255)
                         )
                         val rightLayerDrawable = LayerDrawable(arrayOf(rightBlurDrawable))
                         leftLayerDrawable.setLayerInset(0, 40, 40, 40, 40)

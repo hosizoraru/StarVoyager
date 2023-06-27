@@ -35,9 +35,9 @@ object NotificationMod : HookRegister() {
 
         updateResource.createHook {
             before { param ->
-                miuiBigTime = param.thisObject.getObjectFieldAs<TextView>("mBigTime")
-                miuiDate = param.thisObject.getObjectFieldAs<TextView>("mDateView")
-                miuiLandClock = param.thisObject.getObjectFieldAs<TextView>("mLandClock")
+                miuiBigTime = param.thisObject.getObjectFieldAs("mBigTime")
+                miuiDate = param.thisObject.getObjectFieldAs("mDateView")
+                miuiLandClock = param.thisObject.getObjectFieldAs("mLandClock")
 
                 hasEnable("text_size_def_log") {
                     Log.ix("Notification time: ${miuiBigTime.textSize}")

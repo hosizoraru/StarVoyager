@@ -5,13 +5,12 @@ import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
-import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
-import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 import star.sky.voyager.utils.voyager.LineB.lineB
+import star.sky.voyager.utils.voyager.TabletSeekBar.createTextWithSeekBar
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 @BMPage("control_center", "Control Center", hideMenu = false)
@@ -113,19 +112,13 @@ class ControlCenterPage : BasePage() {
             ), SwitchV("control_center_clock_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        if (IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_clock_size", 50, 150, 98),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_clock_size", 80, 200, 133),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "control_center_clock_size",
+            Triple(50, 150, 98),
+            Triple(80, 200, 133),
+            ccBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,
@@ -188,19 +181,13 @@ class ControlCenterPage : BasePage() {
             ), SwitchV("control_center_date_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        if (IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_date_size", 10, 64, 32),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_date_size", 20, 86, 43),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "control_center_date_size",
+            Triple(10, 64, 32),
+            Triple(20, 86, 43),
+            ccBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,
@@ -263,19 +250,13 @@ class ControlCenterPage : BasePage() {
             ), SwitchV("control_center_carrier_size_custom", false),
             dataBindingRecv = ccBinding.binding.getRecv(1)
         )
-        if (!IS_TABLET) {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_carrier_size", 10, 74, 37),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        } else {
-            TextWithSeekBar(
-                TextV(textId = R.string.font_size),
-                SeekBarWithTextV("control_center_carrier_size", 10, 60, 30),
-                dataBindingRecv = ccBinding.binding.getRecv(1)
-            )
-        }
+        createTextWithSeekBar(
+            IS_TABLET,
+            "control_center_carrier_size",
+            Triple(10, 74, 37),
+            Triple(10, 60, 30),
+            ccBinding.binding
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.color_custom,

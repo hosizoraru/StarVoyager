@@ -611,6 +611,7 @@
     <string name="notification_settings_no_white_list">通知設定のホワイトリストを削除</string>
     <string name="notification_channel_setting">通知設定をチャンネル設定にリダイレクトする</string>
     <string name="notification_channel_setting_summary">通知メニューから設定を開くと、アプリの一般的な通知設定ではなく、チャネル設定が表示されます</string>
+    <string name="notification_icon">通知設定アイコンを非表示にする</string>
     <string name="restore_near_by_tile">ニアバイシェアタイルを復元</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">Bluetooth の一時的な無効化</string>
     <string name="Disable_Bluetooth_summary">コントロールセンターで Bluetooth をオフにすると、完全に切断されます</string>

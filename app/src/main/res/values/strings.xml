@@ -613,6 +613,7 @@
     <string name="notification_settings_no_white_list">Remove white list for notification settings</string>
     <string name="notification_channel_setting">Redirect notification setting to channel setting</string>
     <string name="notification_channel_setting_summary">Opening settings from notification menu leads to channel settings instead of app\'s common notification settings</string>
+    <string name="notification_icon">Hide the notification settings icon</string>
     <string name="restore_near_by_tile">Restore NearBy Share tile</string>
     <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
     <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
