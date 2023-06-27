@@ -131,6 +131,10 @@
     <string name="land_clock">横屏时间日期</string>
     <string name="font_size_custom">自定义字体大小</string>
     <string name="color_custom">自定义颜色</string>
+    <string name="app_info">应用信息</string>
+    <string name="share">分享</string>
+    <string name="remove">移除</string>
+    <string name="uninstall">卸载</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -503,6 +507,7 @@
     <string name="add_freeform_shortcut">快捷菜单添加小窗</string>
     <string name="add_multi_instance_shortcut">快捷菜单添加多开实例</string>
     <string name="freeform_multi_swap">交换小窗和多开实例的顺序</string>
+    <string name="shortcut_title_custom">自定义快捷菜单标题</string>
     <string name="show_all_app_dsm">桌面快捷方式管理显示所有应用</string>
     <string name="restore_google_app_icon">恢复 Google 图标</string>
     <string name="home_scroll_icon_name">滚动显示应用名称</string>

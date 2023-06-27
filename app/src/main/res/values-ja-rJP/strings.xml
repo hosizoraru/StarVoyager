@@ -131,6 +131,10 @@
     <string name="land_clock">横画面時計・日付</string>
     <string name="font_size_custom">フォントサイズのカスタマイズ</string>
     <string name="color_custom">カスタムカラー</string>
+    <string name="app_info">アプリ情報</string>
+    <string name="share">共有</string>
+    <string name="remove">アソイソストール (削除)</string>
+    <string name="uninstall">アンインストール</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>
@@ -503,6 +507,7 @@
     <string name="add_freeform_shortcut">ショートカットメニューに ミニウィンドウ を追加 (オプション)</string>
     <string name="add_multi_instance_shortcut">クイックメニューに マルチインスタンス (複数起動) を追加する</string>
     <string name="freeform_multi_swap">ミニウィンドウ と マルチインスタンス の位置を交換する</string>
+    <string name="shortcut_title_custom">ショートカットメニュータイトルのカスタマイズ</string>
     <string name="show_all_app_dsm">ホーム画面のショートカット管理にすべてのアプリを表示する</string>
     <string name="restore_google_app_icon">Google のアイコンを復元</string>
     <string name="home_scroll_icon_name">アプリ名をスクロールして表示</string>

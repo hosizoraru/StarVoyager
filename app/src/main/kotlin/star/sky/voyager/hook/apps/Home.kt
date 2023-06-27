@@ -30,6 +30,7 @@ import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
 import star.sky.voyager.hook.hooks.home.SearchBarXiaoAiCustom
 import star.sky.voyager.hook.hooks.home.SetDeviceLevel
+import star.sky.voyager.hook.hooks.home.ShortCutTitle
 import star.sky.voyager.hook.hooks.home.ShortcutItemCount
 import star.sky.voyager.hook.hooks.home.ShowAllApp
 import star.sky.voyager.hook.hooks.home.TaskViewCardSize
@@ -92,6 +93,7 @@ object Home : AppRegister() {
         autoInitResourcesHooks(
             resparam,
             MonetColor, // 修改成你喜欢的颜色 // 你喜欢的颜色
+            ShortCutTitle, // 自定义快捷菜单标题
         )
     }
 }

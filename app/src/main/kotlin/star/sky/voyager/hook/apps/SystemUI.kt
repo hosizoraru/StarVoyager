@@ -57,7 +57,7 @@ object SystemUI : AppRegister() {
             lpparam,
             MonetTheme, // 自定义系统主题色
             LockscreenChargingInfo, // Yife-锁屏界面电池信息
-            NotificationIcon,
+            NotificationIcon, // 通知中心 隐藏通知设置图标
             NotificationMod, // 通知中心 时间日期横屏时钟自定义
             ControlCenterMod, // 控制中心 时间日期自定义
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕

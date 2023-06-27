@@ -133,6 +133,10 @@
     <string name="land_clock">Landscape Clock</string>
     <string name="font_size_custom">Custom font size</string>
     <string name="color_custom">Custom color</string>
+    <string name="app_info">App Info</string>
+    <string name="share">Share</string>
+    <string name="remove">Remove</string>
+    <string name="uninstall">Uninstall</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>
@@ -505,6 +509,7 @@
     <string name="add_freeform_shortcut">Add freeform shortcut</string>
     <string name="add_multi_instance_shortcut">Add multi-instance</string>
     <string name="freeform_multi_swap">Swap Positions of freeform and multi-instance</string>
+    <string name="shortcut_title_custom">Customize shortcut menu title</string>
     <string name="show_all_app_dsm">Display All Apps in Desktop Shortcut Management</string>
     <string name="restore_google_app_icon">Restore google app icon</string>
     <string name="home_scroll_icon_name">Scroll app name</string>
