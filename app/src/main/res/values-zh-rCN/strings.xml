@@ -476,7 +476,8 @@
     <string name="try_to_fix_conversation_bubbles">尝试修复气泡通知</string>
     <string name="try_to_fix_conversation_bubbles_summary">尝试重新启用气泡通知服务</string>
 
-    <string name="any_barrage">允许所有应用使用弹幕通知</string>
+    <string name="any_app_barrage">允许所有应用使用弹幕通知</string>
+    <string name="any_where_barrage">允许任何地方使用弹幕通知</string>
 
     <string name="dark_mode_for_all_apps">允许所有应用使用深色模式</string>
     <string name="dark_mode_for_all_apps_summary">但 MIUI 的这种强制深色模式并不一定适用于所有应用\n部分应用如系统应用依旧排除在外</string>

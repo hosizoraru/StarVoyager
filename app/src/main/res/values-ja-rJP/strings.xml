@@ -476,7 +476,8 @@
     <string name="try_to_fix_conversation_bubbles">バブル通知を修正しようとする</string>
     <string name="try_to_fix_conversation_bubbles_summary">バブル通知サービスを再起動しようとする</string>
 
-    <string name="any_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
+    <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
+    <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>
 
     <string name="dark_mode_for_all_apps">すべてのアプリによるダークモードの使用を許可する</string>
     <string name="dark_mode_for_all_apps_summary">ただし、MIUI のこの強制的なダークモードはすべてのアプリに適用されるわけではありません\n部分のアプリ、例えばシステムアプリなどは引き続き除外されます</string>

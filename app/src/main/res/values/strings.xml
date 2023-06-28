@@ -478,7 +478,8 @@
     <string name="try_to_fix_conversation_bubbles">Try to fix conversation bubbles</string>
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
 
-    <string name="any_barrage">Allow all apps to use bullet screen notifications</string>
+    <string name="any_app_barrage">Allow all apps to use bullet screen notifications</string>
+    <string name="any_where_barrage">Enable Barrage Notifications Anywhere</string>
 
     <string name="dark_mode_for_all_apps">Allow all apps to use Dark Mode</string>
     <string name="dark_mode_for_all_apps_summary">However, this forced Dark Mode in MIUI may not be applicable to all apps\nSome apps, such as system apps, will still be excluded</string>

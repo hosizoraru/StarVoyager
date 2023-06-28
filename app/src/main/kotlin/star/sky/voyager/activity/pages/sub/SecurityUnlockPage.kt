@@ -61,9 +61,15 @@ class SecurityUnlockPage : BasePage() {
         TitleText(textId = R.string.scope_barrage)
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.any_barrage
+                textId = R.string.any_app_barrage
             ),
-            SwitchV("any_barrage", false)
+            SwitchV("any_app_barrage", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.any_where_barrage
+            ),
+            SwitchV("any_where_barrage", false)
         )
     }
 }
