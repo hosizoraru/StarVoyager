@@ -13,20 +13,13 @@ import star.sky.voyager.utils.yife.Build.IS_INTERNATIONAL_BUILD
 object DarkModeForAllApps : HookRegister() {
     override fun init() = hasEnable("dark_mode_for_all_apps") {
         if (IS_INTERNATIONAL_BUILD) return@hasEnable
-        val forceDarkAppListManager =
+        val clazzForceDarkAppListManager =
             loadClass("com.android.server.ForceDarkAppListManager")
-
-        forceDarkAppListManager.methodFinder()
-            .filterByName("getDarkModeAppList")
-            .toList().createHooks {
+        clazzForceDarkAppListManager.methodFinder().filterByName("getDarkModeAppList").toList()
+            .createHooks {
                 before {
-                    setStaticObject(
-                        loadClass("miui.os.Build"),
-                        "IS_INTERNATIONAL_BUILD",
-                        true
-                    )
+                    setStaticObject(loadClass("miui.os.Build"), "IS_INTERNATIONAL_BUILD", true)
                 }
-
                 after {
                     setStaticObject(
                         loadClass("miui.os.Build"),
@@ -35,17 +28,15 @@ object DarkModeForAllApps : HookRegister() {
                     )
                 }
             }
-
-        forceDarkAppListManager.methodFinder()
-            .filterByName("shouldShowInSettings")
-            .filterByParamTypes(ApplicationInfo::class.java)
-            .toList().createHooks {
+        clazzForceDarkAppListManager.methodFinder().filterByName("shouldShowInSettings").toList()
+            .createHooks {
                 before { param ->
                     val info = param.args[0] as ApplicationInfo?
-                    param.result = !(info == null || (invokeMethodBestMatch(
-                        info,
-                        "isSystemApp"
-                    ) as Boolean) || (info.uid <= 10000))
+                    param.result =
+                        !(info == null || (invokeMethodBestMatch(
+                            info,
+                            "isSystemApp"
+                        ) as Boolean) || info.uid < 10000)
                 }
             }
     }
