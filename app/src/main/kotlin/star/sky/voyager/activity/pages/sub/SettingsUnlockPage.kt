@@ -1,9 +1,12 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.view.View
+import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
 @BMPage("settings_unlock", "Settings Unlock", hideMenu = false)
@@ -37,10 +40,114 @@ class SettingsUnlockPage : BasePage() {
                 textId = R.string.show_vip_service
             ), SwitchV("show_vip_service")
         )
+        val batteryStyleBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "battery_style",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.battery_style
-            ), SwitchV("battery_style")
+            ), SwitchV("battery_style", dataBindingSend = batteryStyleBinding.bindingSend)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.battery_style_top_color,
+            ), SwitchV("battery_style_top_color", false),
+            dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.normal_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.normal_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "normal_color",
+                                    "#FFFFFF"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "normal_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.power_save_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.power_save_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "power_save_color",
+                                    "#FFFFFF"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "power_save_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.low_level_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.low_level_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "low_level_color",
+                                    "#FFFFFF"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "low_level_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
         )
     }
 }

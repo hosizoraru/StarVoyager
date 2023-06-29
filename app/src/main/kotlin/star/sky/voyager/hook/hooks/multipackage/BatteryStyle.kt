@@ -1,13 +1,17 @@
 package star.sky.voyager.hook.hooks.multipackage
 
+import android.graphics.Color.parseColor
 import com.github.kyuubiran.ezxhelper.ClassUtils.getStaticObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
+import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 
 object BatteryStyle : HookRegister() {
@@ -48,6 +52,8 @@ object BatteryStyle : HookRegister() {
                     loadClass("com.miui.systemui.DeviceConfig")
                 val miuiBatteryControllerImplCls =
                     loadClass("com.android.systemui.statusbar.policy.MiuiBatteryControllerImpl")
+                val batteryIndicatorCls =
+                    loadClass("com.android.systemui.statusbar.views.BatteryIndicator")
 
                 notch = getStaticObjectOrNullAs<Boolean>(
                     deviceConfigCls,
@@ -65,6 +71,25 @@ object BatteryStyle : HookRegister() {
                             setStaticObject(deviceConfigCls, "IS_NOTCH", notch)
                         }
                     }
+
+                hasEnable("battery_style_top_color") {
+                    batteryIndicatorCls.methodFinder()
+                        .filterByName("updateResources")
+                        .first().createHook {
+                            replace {
+                                val normalColor =
+                                    parseColor(getString("normal_color", "#0000FF"))
+                                val powerSaveColor =
+                                    parseColor(getString("power_save_color", "#00FF00"))
+                                val lowLevelColor =
+                                    parseColor(getString("low_level_color", "#FF0000"))
+                                setObject(it.thisObject, "mNormalColor", normalColor)
+                                setObject(it.thisObject, "mPowerSaveColor", powerSaveColor)
+                                setObject(it.thisObject, "mLowLevelColor", lowLevelColor)
+                                invokeMethodBestMatch(it.thisObject, "update")
+                            }
+                        }
+                }
             }
         }
     }
