@@ -36,7 +36,7 @@ object HideHDIcon : HookRegister() {
     }
 
     private fun hide(it: XC_MethodHook.MethodHookParam) {
-        hasEnable("no_show_on_wifi") {
+        hasEnable("no_show_on_wifi_connect") {
             val smallHdIcon = it.thisObject.getObjectFieldAs<ImageView>("mSmallHd")
             smallHdIcon.visibility = when (isWifiConnected()) {
                 true -> View.VISIBLE

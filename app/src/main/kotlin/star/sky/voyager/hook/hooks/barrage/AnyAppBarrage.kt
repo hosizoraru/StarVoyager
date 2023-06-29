@@ -20,7 +20,10 @@ object AnyAppBarrage : HookRegister() {
                     getObjectOrNullAs<ArrayList<String>>(
                         param.thisObject, "mBarragePackageList"
                     )!!.apply { if (!contains(packageName)) add(packageName) }
-                    if (statusBarNotification.shouldBeFiltered()) {
+                    if (statusBarNotification.shouldBeFiltered() || shouldExclude(
+                            statusBarNotification
+                        )
+                    ) {
                         param.result = true
                     }
                 }

@@ -14,7 +14,7 @@ object UseNewHD : HookRegister() {
             loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder()
                 .filterByName("isVisible")
                 .first().createHook {
-                    whenV("no_show_on_wifi") {
+                    whenV("no_show_on_wifi_connect") {
                         true then {
                             replace {
                                 !isWifiConnected()

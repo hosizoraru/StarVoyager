@@ -50,7 +50,6 @@ class StatusBarIconPage : BasePage() {
             ),
             SwitchV(
                 "system_ui_use_new_hd",
-                false,
                 dataBindingSend = wifiBinding.bindingSend
             )
         )
@@ -60,8 +59,7 @@ class StatusBarIconPage : BasePage() {
                 tipsId = R.string.no_show_on_wifi_hd
             ),
             SwitchV(
-                "no_show_on_wifi",
-                false
+                "no_show_on_wifi_connect",
             ), dataBindingRecv = wifiBinding.binding.getRecv(1)
         )
         TextSummaryWithArrow(
