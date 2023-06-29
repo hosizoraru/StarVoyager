@@ -15,14 +15,14 @@ object AnyAppBarrage : HookRegister() {
             .filterByName("filterNotification")
             .first().createHook {
                 before { param ->
-                    val sbn = param.args[0] as StatusBarNotification
-                    val packageName = sbn.packageName
+                    val statusBarNotification = param.args[0] as StatusBarNotification
+                    val packageName = statusBarNotification.packageName
                     getObjectOrNullAs<ArrayList<String>>(
                         param.thisObject, "mBarragePackageList"
-                    )!!.apply {
-                        if (!contains(packageName)) add(packageName)
+                    )!!.apply { if (!contains(packageName)) add(packageName) }
+                    if (statusBarNotification.shouldBeFiltered()) {
+                        param.result = true
                     }
-                    if (shouldExclude(sbn)) param.result = true
                 }
             }
     }
@@ -40,5 +40,28 @@ object AnyAppBarrage : HookRegister() {
         // val isSystemApp = (sbn.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
 
         return isOngoing || isForegroundService // || isSystemApp 或者其他你想要的条件
+    }
+
+    object NotificationCache {
+        private const val maxSize = 20
+        private val cache = linkedSetOf<String>()
+        fun check(string: String): Boolean {
+            val result = cache.add(string)
+            if (cache.size > maxSize) {
+                cache.iterator().run {
+                    next()
+                    remove()
+                }
+            }
+            return result
+        }
+    }
+
+    private fun StatusBarNotification.shouldBeFiltered(): Boolean {
+        val extras = notification.extras
+        val key =
+            "${extras.getCharSequence("android.title")}: ${extras.getCharSequence("android.text")}"
+        val isGroupSummary = notification.flags and Notification.FLAG_GROUP_SUMMARY != 0
+        return !isClearable || isGroupSummary || !NotificationCache.check(key)
     }
 }
