@@ -414,11 +414,12 @@
     <string name="new_nfc_page">新版 NFC ページ</string>
     <string name="new_nfc_page_summary">これを有効にすると、サポートされていないモデルではデフォルトの支払いアプリとしてMiウォレットを選択できません</string>
     <string name="novelty_haptic">新しいタッチフィードバックページ</string>
-    <string name="novelty_haptic_summary">Mi13Pro以外の機種のロックを解除する</string>
+    <string name="novelty_haptic_summary">Mi13Pro 以外の機種のロックを解除する</string>
     <string name="speed_mode">スピードモードのオプションを表示</string>
     <string name="speed_mode_summary">開発者向けオプション内</string>>
     <string name="unlock_taplus">Taplus のロックを解除する</string>
     <string name="show_vip_service">マイ サービスを表示する</string>
+    <string name="battery_style">トップのバッテリースタイルを解除する</string>
 
     <string name="remove_ota_validate">*OTA 検証の削除 [実験的]</string>
     <string name="remove_ota_validate_summary">- VAB シリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式 ROM は対応していません。</string>

@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
 import star.sky.voyager.hook.hooks.systemui.ControlCenterMod
@@ -56,6 +57,7 @@ object SystemUI : AppRegister() {
         autoInitHooks(
             lpparam,
             MonetTheme, // 自定义系统主题色
+            BatteryStyle, // 解锁全部电池样式
             LockscreenChargingInfo, // Yife-锁屏界面电池信息
             NotificationIcon, // 通知中心 隐藏通知设置图标
             NotificationMod, // 通知中心 时间日期横屏时钟自定义

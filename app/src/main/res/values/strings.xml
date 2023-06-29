@@ -421,6 +421,7 @@
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>
     <string name="unlock_taplus">Unlock Taplus</string>
     <string name="show_vip_service">Show Vip Service</string>
+    <string name="battery_style">Unlock Top Battery Style</string>
 
     <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
     <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
