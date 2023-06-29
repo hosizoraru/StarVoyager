@@ -37,5 +37,10 @@ class SettingsUnlockPage : BasePage() {
                 textId = R.string.show_vip_service
             ), SwitchV("show_vip_service")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.battery_style
+            ), SwitchV("battery_style")
+        )
     }
 }
