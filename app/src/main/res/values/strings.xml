@@ -628,6 +628,7 @@
     <string name="restore_near_by_tile">Restore NearBy Share tile</string>
     <string name="Disable_Bluetooth">Disable bluetooth temporarily off</string>
     <string name="Disable_Bluetooth_summary">Turn off bluetooth completely in control center</string>
+    <string name="control_center_style">Restore old version of Control Center</string>
     <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
     <string name="lock_screen_clock_use_system_font">Interface clock uses system fonts</string>
     <string name="lock_screen_date_use_system_font">Interface date uses system fonts</string>

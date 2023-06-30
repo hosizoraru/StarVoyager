@@ -626,6 +626,7 @@
     <string name="restore_near_by_tile">恢复附近分享磁贴</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">禁用蓝牙临时关闭</string>
     <string name="Disable_Bluetooth_summary">在控制中心关闭蓝牙会直接彻底关闭</string>
+    <string name="control_center_style">恢复旧版控制中心</string>
     <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
     <string name="lock_screen_clock_use_system_font">时钟使用系统字体</string>
     <string name="lock_screen_date_use_system_font">日期使用系统字体</string>

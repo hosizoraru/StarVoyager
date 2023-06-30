@@ -5,6 +5,7 @@ import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
 import star.sky.voyager.hook.hooks.systemui.ControlCenterMod
+import star.sky.voyager.hook.hooks.systemui.ControlCenterStyle
 import star.sky.voyager.hook.hooks.systemui.CustomMobileTypeText
 import star.sky.voyager.hook.hooks.systemui.DisableBluetooth
 import star.sky.voyager.hook.hooks.systemui.DoubleLineNetworkSpeed
@@ -57,7 +58,18 @@ object SystemUI : AppRegister() {
         autoInitHooks(
             lpparam,
             MonetTheme, // 自定义系统主题色
+            UseNewHD, // 强制使用新 HD 图标
+            // 隐藏图标 Start
+            HideStatusBarIcon,
+            HideBatteryIcon,
+            HideHDIcon,
+            HideSimIcon,
+            HideMobileActivityIcon,
+            HideMobileTypeIcon,
+            HideWifiActivityIcon,
+            // 隐藏图标 End
             BatteryStyle, // 解锁全部电池样式
+            ControlCenterStyle, // 解锁旧版控制中心样式
             LockscreenChargingInfo, // Yife-锁屏界面电池信息
             NotificationIcon, // 通知中心 隐藏通知设置图标
             NotificationMod, // 通知中心 时间日期横屏时钟自定义
@@ -68,7 +80,6 @@ object SystemUI : AppRegister() {
             StatusBarTimeCustomization, // 状态栏时钟格式
             ShowWifiStandard, // 显示 WiFi 标准
             IconPosition, // 图标位置
-            UseNewHD, // 强制使用新 HD 图标
             BatteryPercentage, // 电池百分比字体大小
             CustomMobileTypeText, // 自定义移动类型文本
             StatusBarBigMobileTypeIcon, // 大移动类型图标
@@ -99,15 +110,6 @@ object SystemUI : AppRegister() {
             HideNetworkSpeedSplitter,
             DoubleLineNetworkSpeed,
             // 状态栏网络速度 End
-            // 隐藏图标 Start
-            HideStatusBarIcon,
-            HideBatteryIcon,
-            HideHDIcon,
-            HideSimIcon,
-            HideMobileActivityIcon,
-            HideMobileTypeIcon,
-            HideWifiActivityIcon,
-            // 隐藏图标 End
         )
     }
 }

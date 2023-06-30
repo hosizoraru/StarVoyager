@@ -60,6 +60,12 @@ class ControlCenterPage : BasePage() {
             ),
             SwitchV("Disable_Bluetooth"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.control_center_style,
+            ),
+            SwitchV("control_center_style"),
+        )
         Line()
         val ccBinding = GetDataBinding({
             safeSP.getBoolean(

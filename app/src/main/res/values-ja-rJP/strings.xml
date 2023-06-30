@@ -626,6 +626,7 @@
     <string name="restore_near_by_tile">ニアバイシェアタイルを復元</string>
     <string name="Disable_Bluetooth" comment="This function is used to completely close Bluetooth">Bluetooth の一時的な無効化</string>
     <string name="Disable_Bluetooth_summary">コントロールセンターで Bluetooth をオフにすると、完全に切断されます</string>
+    <string name="control_center_style">古いバージョンのコントロールセンターに戻す</string>
     <string name="lock_screen_clock_display_seconds">時計に秒を表示</string>
     <string name="lock_screen_clock_use_system_font">時計にシステムフォントを使用</string>
     <string name="lock_screen_date_use_system_font">日付にシステムフォントを使用</string>
