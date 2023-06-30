@@ -10,6 +10,7 @@ object Aod : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
+//            AodAvailable, // 解锁息屏显示
             UnlockAlwaysOnDisplay, // 解锁息屏显示时长限制
         )
     }

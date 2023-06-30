@@ -19,6 +19,7 @@ object Settings : AppRegister() {
         autoInitHooks(
             lpparam,
             BatteryStyle, // 解锁全部电池样式
+//            AodAvailable, // 解锁 AOD
             ShowNotificationImportance, // 显示通知重要程度
             QuickInstallPermission, // 安装未知应用权限免翻应用列表
             NoThroughTheList, // 显示在上层授权免翻应用列表

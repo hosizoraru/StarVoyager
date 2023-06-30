@@ -70,6 +70,7 @@ object SystemUI : AppRegister() {
             // 隐藏图标 End
             BatteryStyle, // 解锁全部电池样式
             ControlCenterStyle, // 解锁旧版控制中心样式
+//            AodAvailable, // 解锁 AOD
             LockscreenChargingInfo, // Yife-锁屏界面电池信息
             NotificationIcon, // 通知中心 隐藏通知设置图标
             NotificationMod, // 通知中心 时间日期横屏时钟自定义
