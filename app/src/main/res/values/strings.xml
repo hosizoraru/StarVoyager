@@ -421,6 +421,7 @@
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>
     <string name="unlock_taplus">Unlock Taplus</string>
     <string name="show_vip_service">Show Vip Service</string>
+    <string name="oled_never_time_out">Keep the screen always on for OLED devices</string>
     <string name="battery_style">Unlock Top Battery Style</string>
     <string name="battery_style_top_color">Customize color of top bar battery</string>
     <string name="normal_color">Normal color</string>

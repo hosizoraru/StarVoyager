@@ -13,6 +13,7 @@ object MiSettings : AppRegister() {
         autoInitHooks(
             lpparam,
             CustomRefreshRate, // 自定义高刷新率应用
+//            AodAvailable, // 解锁万象息屏
             DcFps, // 高刷DC同开
             AllFps, // 显示全部刷新率档位
         )

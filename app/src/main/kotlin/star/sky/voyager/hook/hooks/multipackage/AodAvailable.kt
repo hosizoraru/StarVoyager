@@ -10,6 +10,18 @@ import star.sky.voyager.utils.init.HookRegister
 object AodAvailable : HookRegister() {
     override fun init() {
         when (hostPackageName) {
+            "android" -> {
+                loadClass("miui.util.FeatureParser").methodFinder()
+                    .filterByName("getBoolean")
+                    .toList().createHooks {
+                        before {
+                            if (it.args[0] == "support_aod") {
+                                it.result = true
+                            }
+                        }
+                    }
+            }
+
             "com.android.settings" -> {
                 val aodUtilsCls =
                     loadClass("com.android.settings.utils.AodUtils")
@@ -19,6 +31,28 @@ object AodAvailable : HookRegister() {
                 }.toList().createHooks {
                     returnConstant(true)
                 }
+
+                loadClass("miui.util.FeatureParser").methodFinder()
+                    .filterByName("getBoolean")
+                    .toList().createHooks {
+                        before {
+                            if (it.args[0] == "support_aod") {
+                                it.result = true
+                            }
+                        }
+                    }
+            }
+
+            "com.xiaomi.misettings" -> {
+                loadClass("miui.util.FeatureParser").methodFinder()
+                    .filterByName("getBoolean")
+                    .toList().createHooks {
+                        before {
+                            if (it.args[0] == "support_aod") {
+                                it.result = true
+                            }
+                        }
+                    }
             }
 
             "com.android.systemui" -> {

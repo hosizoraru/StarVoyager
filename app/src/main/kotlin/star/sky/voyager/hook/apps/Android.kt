@@ -32,6 +32,7 @@ object Android : AppRegister() {
         }
         autoInitHooks(
             lpparam,
+//            AodAvailable,
             DarkModeForAllApps, // 允许所有应用使用深色模式
             DisableFlagSecure, // 允许截图
             DeleteOnPostNotification, // 移除上层显示通知

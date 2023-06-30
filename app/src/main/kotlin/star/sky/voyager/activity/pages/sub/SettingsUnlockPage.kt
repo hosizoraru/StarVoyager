@@ -40,6 +40,11 @@ class SettingsUnlockPage : BasePage() {
                 textId = R.string.show_vip_service
             ), SwitchV("show_vip_service")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.oled_never_time_out
+            ), SwitchV("oled_never_time_out")
+        )
         val batteryStyleBinding = GetDataBinding({
             safeSP.getBoolean(
                 "battery_style",
