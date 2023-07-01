@@ -48,7 +48,15 @@ class PowerKeeperPage : BasePage() {
                 })
         )
         Line()
+        TitleText(textId = R.string.scope_settings)
         TitleText(textId = R.string.scope_mi_settings)
+        Page(
+            activity.getDrawable(R.drawable.ic_settings)!!,
+            TextSummaryV(
+                textId = R.string.scope_settings,
+            ), round = 8f,
+            onClickListener = { showFragment("scope_settings") }
+        )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.dc_fps,

@@ -18,13 +18,6 @@ class AppManagerPage : BasePage() {
             ), round = 8f,
             onClickListener = { showFragment("package_installer") }
         )
-        Page(
-            activity.getDrawable(R.drawable.ic_settings)!!,
-            TextSummaryV(
-                textId = R.string.scope_settings,
-            ), round = 8f,
-            onClickListener = { showFragment("scope_settings") }
-        )
         Line()
         TitleText(textId = R.string.scope_market)
         TextSummaryWithSpinner(

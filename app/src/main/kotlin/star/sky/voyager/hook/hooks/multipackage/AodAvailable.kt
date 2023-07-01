@@ -15,8 +15,9 @@ object AodAvailable : HookRegister() {
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
-                            if (it.args[0] == "support_aod") {
-                                it.result = true
+                            when (it.args[0]) {
+                                "support_aod", "aod_support_keycode_goto_dismiss" ->
+                                    it.result = true
                             }
                         }
                     }
@@ -39,6 +40,9 @@ object AodAvailable : HookRegister() {
                             if (it.args[0] == "support_aod") {
                                 it.result = true
                             }
+                            if (it.args[0] == "aod_support_keycode_goto_dismiss") {
+                                it.result = true
+                            }
                         }
                     }
             }
@@ -48,8 +52,9 @@ object AodAvailable : HookRegister() {
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
-                            if (it.args[0] == "support_aod") {
-                                it.result = true
+                            when (it.args[0]) {
+                                "support_aod", "aod_support_keycode_goto_dismiss" ->
+                                    it.result = true
                             }
                         }
                     }
@@ -66,6 +71,17 @@ object AodAvailable : HookRegister() {
 //                deviceConfigCls.declaredFields.toList().forEach {
 //                    Log.i("${it.name}: ${it.get(null)}")
 //                }
+
+                loadClass("miui.util.FeatureParser").methodFinder()
+                    .filterByName("getBoolean")
+                    .toList().createHooks {
+                        before {
+                            when (it.args[0]) {
+                                "support_aod", "aod_support_keycode_goto_dismiss" ->
+                                    it.result = true
+                            }
+                        }
+                    }
             }
 
             "com.miui.aod" -> {
@@ -80,6 +96,17 @@ object AodAvailable : HookRegister() {
                     .filterByName("isSupportAodAnimateDevice")
                     .first().createHook {
                         returnConstant(true)
+                    }
+
+                loadClass("miui.util.FeatureParser").methodFinder()
+                    .filterByName("getBoolean")
+                    .toList().createHooks {
+                        before {
+                            when (it.args[0]) {
+                                "support_aod", "aod_support_keycode_goto_dismiss" ->
+                                    it.result = true
+                            }
+                        }
                     }
             }
         }
