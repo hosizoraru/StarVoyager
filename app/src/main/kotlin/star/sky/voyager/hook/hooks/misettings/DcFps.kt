@@ -1,14 +1,14 @@
 package star.sky.voyager.hook.hooks.misettings
 
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.FeatureParser.FeatureParserCls
 
 object DcFps : HookRegister() {
     override fun init() = hasEnable("dc_fps") {
-        loadClass("miui.util.FeatureParser").methodFinder()
+        FeatureParserCls.methodFinder()
             .filterByName("getBoolean")
             .toList().createHooks {
                 before {
