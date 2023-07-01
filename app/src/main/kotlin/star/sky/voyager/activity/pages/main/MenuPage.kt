@@ -2,15 +2,19 @@ package star.sky.voyager.activity.pages.main
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
+import android.content.pm.PackageManager
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMMenuPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
+import star.sky.voyager.BuildConfig
 import star.sky.voyager.R
 import star.sky.voyager.hook.PACKAGE_NAME_HOOKED
 import star.sky.voyager.utils.key.BackupUtils.backup
@@ -171,5 +175,23 @@ class MenuPage : BasePage() {
                 finally { dismiss() }
             }.show()
         }))
+        Line()
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.HideLauncherIcon,
+                colorId = R.color.blue
+            ),
+            SwitchV("hLauncherIcon", onClickListener = {
+                activity.packageManager.setComponentEnabledSetting(
+                    ComponentName(activity, "${BuildConfig.APPLICATION_ID}.launcher"),
+                    if (it) {
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                    } else {
+                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                    },
+                    PackageManager.DONT_KILL_APP
+                )
+            })
+        )
     }
 }
