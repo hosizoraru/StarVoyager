@@ -571,6 +571,9 @@
     <string name="home_folder_anim_3">Close speed 1</string>
     <string name="home_folder_anim_4">Close speed 2</string>
 
+    <string name="back_gesture_area_height">Customize Back Gesture Area Height</string>
+    <string name="wmlp_height">Back Gesture Area Height</string>
+
     <string name="mono_chrome_icon">Show mono chrome icon</string>
     <string name="monet_color">Default color -> monet color</string>
     <string name="use_edit_color">Edit it into your favorite color</string>

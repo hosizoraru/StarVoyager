@@ -134,5 +134,23 @@ class HomeModPage : BasePage() {
             SeekBarWithTextV("home_folder_anim_4", 10, 60, 24),
             dataBindingRecv = homeFoldAnimBinding.getRecv(1)
         )
+
+        val backAreaHeightBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "back_gesture_area_height",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.back_gesture_area_height),
+            SwitchV("back_gesture_area_height", dataBindingSend = backAreaHeightBinding.bindingSend)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.wmlp_height),
+            SeekBarWithTextV("wmlp_height", 10, 100, 60),
+            dataBindingRecv = backAreaHeightBinding.getRecv(1)
+        )
     }
 }

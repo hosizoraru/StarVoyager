@@ -569,6 +569,9 @@
     <string name="home_folder_anim_3">フォルダ閉じのバウンス（小さいほど明確）</string>
     <string name="home_folder_anim_4">閉じる速度（大きいほど遅い）</string>
 
+    <string name="back_gesture_area_height">カスタム戻るジェスチャーエリアの高さ</string>
+    <string name="wmlp_height">戻るジェスチャーエリアの高さ</string>
+
     <string name="mono_chrome_icon">アイコンの背景の色</string>
     <string name="monet_color">デフォルト色 -> モネの色取り</string>
     <string name="use_edit_color">好きな色に変更</string>

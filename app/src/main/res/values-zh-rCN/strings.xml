@@ -569,6 +569,9 @@
     <string name="home_folder_anim_3">文件夹关闭回弹(越小越明显)</string>
     <string name="home_folder_anim_4">关闭快慢(越大越慢)</string>
 
+    <string name="back_gesture_area_height">自定义返回手势区域高度</string>
+    <string name="wmlp_height">返回手势区域高度</string>
+
     <string name="mono_chrome_icon">图标背景色</string>
     <string name="monet_color">默认颜色 -> 莫奈取色</string>
     <string name="use_edit_color">修改成你喜欢的颜色</string>
