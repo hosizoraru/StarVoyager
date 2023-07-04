@@ -10,10 +10,10 @@ import star.sky.voyager.hook.hooks.gallery.OcrForm
 import star.sky.voyager.hook.hooks.gallery.Pdf
 import star.sky.voyager.hook.hooks.gallery.PhotoMovie
 import star.sky.voyager.hook.hooks.gallery.Remover2
-import star.sky.voyager.hook.hooks.gallery.SuperClipboard
 import star.sky.voyager.hook.hooks.gallery.TextYanHua
 import star.sky.voyager.hook.hooks.gallery.VideoEditor
 import star.sky.voyager.hook.hooks.gallery.VideoPost
+import star.sky.voyager.hook.hooks.multipackage.SuperClipboard
 import star.sky.voyager.utils.init.AppRegister
 
 object Gallery : AppRegister() {

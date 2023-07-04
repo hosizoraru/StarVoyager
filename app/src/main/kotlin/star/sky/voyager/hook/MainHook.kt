@@ -7,6 +7,7 @@ import star.sky.voyager.hook.apps.Aireco
 import star.sky.voyager.hook.apps.Android
 import star.sky.voyager.hook.apps.Aod
 import star.sky.voyager.hook.apps.Barrage
+import star.sky.voyager.hook.apps.Browser
 import star.sky.voyager.hook.apps.Cast
 import star.sky.voyager.hook.apps.ExternalStorage
 import star.sky.voyager.hook.apps.FileExplorer
@@ -42,6 +43,7 @@ val PACKAGE_NAME_HOOKED = setOf(
     "com.xiaomi.aireco",
     "com.miui.aod",
     "com.xiaomi.barrage",
+    "com.android.browser",
     "com.milink.service",
     "com.android.externalstorage",
     "com.android.fileexplorer",
@@ -78,6 +80,7 @@ class MainHook : EasyXposedInit() {
         Android, // 系统框架
         Aod, // 万象息屏
         Barrage, // 弹幕通知
+        Browser, // 浏览器
         Cast, // 投屏
         ExternalStorage, // 外部存储服务
         FileExplorer, // 文件管理
