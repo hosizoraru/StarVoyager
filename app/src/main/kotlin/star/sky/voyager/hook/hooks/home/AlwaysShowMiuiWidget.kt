@@ -12,34 +12,43 @@ object AlwaysShowMiuiWidget : HookRegister() {
     override fun init() = hasEnable("Show_MIUI_Widget") {
         var hook1: XC_MethodHook.Unhook? = null
         var hook2: XC_MethodHook.Unhook? = null
-        try {
-            loadClass("com.miui.home.launcher.widget.WidgetsVerticalAdapter").methodFinder()
-                .filterByName("buildAppWidgetsItems").first()
-        } catch (e: Exception) {
-            loadClass("com.miui.home.launcher.widget.BaseWidgetsVerticalAdapter").methodFinder()
-                .filterByName("buildAppWidgetsItems").first()
-        }.createHook {
-            before {
-                hook1 = loadClass("com.miui.home.launcher.widget.MIUIAppWidgetInfo").methodFinder()
-                    .filterByName("initMiuiAttribute")
-                    .filterByParamCount(1)
-                    .first().createHook {
-                        after {
-                            it.thisObject.setObjectField("isMIUIWidget", false)
+        val classNames = listOf(
+            "com.miui.home.launcher.widget.WidgetsVerticalAdapter",
+            "com.miui.home.launcher.widget.BaseWidgetsVerticalAdapter"
+        )
+
+        classNames.forEach { className ->
+            val result = runCatching {
+                loadClass(className).methodFinder()
+                    .filterByName("buildAppWidgetsItems")
+                    .first()
+                    .createHook {
+                        before {
+                            hook1 =
+                                loadClass("com.miui.home.launcher.widget.MIUIAppWidgetInfo").methodFinder()
+                                    .filterByName("initMiuiAttribute")
+                                    .filterByParamCount(1)
+                                    .first().createHook {
+                                        after {
+                                            it.thisObject.setObjectField("isMIUIWidget", false)
+                                        }
+                                    }
+                            hook2 =
+                                loadClass("com.miui.home.launcher.MIUIWidgetUtil").methodFinder()
+                                    .filterByName("isMIUIWidgetSupport")
+                                    .first().createHook {
+                                        after {
+                                            it.result = false
+                                        }
+                                    }
                         }
-                    }
-                hook2 = loadClass("com.miui.home.launcher.MIUIWidgetUtil").methodFinder()
-                    .filterByName("isMIUIWidgetSupport")
-                    .first().createHook {
                         after {
-                            it.result = false
+                            hook1?.unhook()
+                            hook2?.unhook()
                         }
                     }
             }
-            after {
-                hook1?.unhook()
-                hook2?.unhook()
-            }
+            if (result.isSuccess) return@forEach
         }
     }
 }

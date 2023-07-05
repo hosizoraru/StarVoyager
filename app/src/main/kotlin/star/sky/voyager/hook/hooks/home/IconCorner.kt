@@ -28,22 +28,18 @@ object IconCorner : HookRegister() {
                 }
             }
 
-        maMlHostViewClass.methodFinder()
-            .filterByName("computeRoundedCornerRadius")
-            .filterByParamCount(1)
-            .first().createHook {
-                before {
-                    it.result = it.thisObject.getObjectField("mEnforcedCornerRadius") as Float
+        setOf(
+            maMlHostViewClass,
+            loadClass("com.miui.home.launcher.LauncherAppWidgetHostView")
+        ).forEach { clazz ->
+            clazz.methodFinder()
+                .filterByName("computeRoundedCornerRadius")
+                .filterByParamCount(1)
+                .first().createHook {
+                    before {
+                        it.result = it.thisObject.getObjectField("mEnforcedCornerRadius") as Float
+                    }
                 }
-            }
-
-        loadClass("com.miui.home.launcher.LauncherAppWidgetHostView").methodFinder()
-            .filterByName("computeRoundedCornerRadius")
-            .filterByParamCount(1)
-            .first().createHook {
-                before {
-                    it.result = it.thisObject.getObjectField("mEnforcedCornerRadius") as Float
-                }
-            }
+        }
     }
 }

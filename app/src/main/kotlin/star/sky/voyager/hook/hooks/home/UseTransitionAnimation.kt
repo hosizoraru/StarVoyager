@@ -8,15 +8,15 @@ import star.sky.voyager.utils.key.hasEnable
 
 object UseTransitionAnimation : HookRegister() {
     override fun init() = hasEnable("Use_Transition_Animation") {
-        loadClass("com.miui.home.launcher.LauncherWidgetView").methodFinder()
-            .filterByName("isUseTransitionAnimation")
-            .first().createHook {
-                returnConstant(true)
-            }
-        loadClass("com.miui.home.launcher.maml.MaMlWidgetView").methodFinder()
-            .filterByName("isUseTransitionAnimation")
-            .first().createHook {
-                returnConstant(true)
-            }
+        setOf(
+            loadClass("com.miui.home.launcher.LauncherWidgetView"),
+            loadClass("com.miui.home.launcher.maml.MaMlWidgetView")
+        ).forEach { clazz ->
+            clazz.methodFinder()
+                .filterByName("isUseTransitionAnimation")
+                .first().createHook {
+                    returnConstant(true)
+                }
+        }
     }
 }

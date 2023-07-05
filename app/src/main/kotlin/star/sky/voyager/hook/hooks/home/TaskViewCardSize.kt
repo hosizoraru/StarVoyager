@@ -20,6 +20,7 @@ object TaskViewCardSize : HookRegister() {
             loadClass("com.miui.home.recents.views.TaskStackViewsAlgorithmHorizontal")
         val utilitiesClass =
             loadClass("com.miui.home.recents.util.Utilities")
+
         taskStackViewsAlgorithmHorizontalClass.methodFinder()
             .filterByName("scaleTaskView")
             .filterByParamTypes(RectF::class.java)

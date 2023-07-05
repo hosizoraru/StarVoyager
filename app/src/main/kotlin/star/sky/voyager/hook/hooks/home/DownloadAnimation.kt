@@ -9,36 +9,40 @@ import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object DownloadAnimation : HookRegister() {
     override fun init() = hasEnable("download_animation") {
-        if (IS_TABLET) {
-            val cpuLevelUtils =
-                loadClass("com.miui.home.launcher.common.CpuLevelUtils")
-            val utilities =
-                loadClass("com.miui.home.launcher.common.Utilities")
-            // MiPad5Pro
-            cpuLevelUtils.methodFinder()
-                .filterByName("needMamlDownload")
-                .first().createHook {
-                    returnConstant(true)
-                }
-            utilities.methodFinder()
-                .filterByName("isSupportMamlDownload")
-                .first().createHook {
-                    returnConstant(true)
-                }
-        } else {
-            val deviceLevelUtilsClass =
-                loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
-            // n12t k60 k60p 水波纹下载动画
-            deviceLevelUtilsClass.methodFinder()
-                .filterByName("needMamlProgressIcon")
-                .first().createHook {
-                    returnConstant(true)
-                }
-            deviceLevelUtilsClass.methodFinder()
-                .filterByName("needRemoveDownloadAnimationDevice")
-                .first().createHook {
-                    returnConstant(false)
-                }
+        when (IS_TABLET) {
+            true -> {
+                val cpuLevelUtils =
+                    loadClass("com.miui.home.launcher.common.CpuLevelUtils")
+                val utilities =
+                    loadClass("com.miui.home.launcher.common.Utilities")
+                // MiPad5Pro
+                cpuLevelUtils.methodFinder()
+                    .filterByName("needMamlDownload")
+                    .first().createHook {
+                        returnConstant(true)
+                    }
+                utilities.methodFinder()
+                    .filterByName("isSupportMamlDownload")
+                    .first().createHook {
+                        returnConstant(true)
+                    }
+            }
+
+            false -> {
+                val deviceLevelUtilsClass =
+                    loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
+                // n12t k60 k60p 水波纹下载动画
+                deviceLevelUtilsClass.methodFinder()
+                    .filterByName("needMamlProgressIcon")
+                    .first().createHook {
+                        returnConstant(true)
+                    }
+                deviceLevelUtilsClass.methodFinder()
+                    .filterByName("needRemoveDownloadAnimationDevice")
+                    .first().createHook {
+                        returnConstant(false)
+                    }
+            }
         }
     }
 }
