@@ -93,6 +93,7 @@ android {
 }
 
 dependencies {
+    compileOnly(libs.xposed)
     implementation(project(":blockmiui"))
     implementation(libs.core.ktx)
     implementation(libs.constraintlayout)
@@ -100,5 +101,4 @@ dependencies {
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
-    compileOnly(libs.xposed)
 }
