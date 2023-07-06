@@ -420,6 +420,7 @@
     <string name="unlock_taplus">解锁传送门</string>
     <string name="show_vip_service">显示我的服务</string>
     <string name="oled_never_time_out">为 Oled 机型开放永不息屏</string>
+    <string name="hp_location">解锁高精度位置服务</string>
     <string name="battery_style">开放顶部方式的状态栏电池样式</string>
     <string name="battery_style_top_color">自定义顶部电池的颜色</string>
     <string name="normal_color">日常颜色</string>

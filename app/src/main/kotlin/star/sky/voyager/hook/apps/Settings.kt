@@ -3,6 +3,7 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
+import star.sky.voyager.hook.hooks.settings.HpLocation
 import star.sky.voyager.hook.hooks.settings.NeverTimeOut
 import star.sky.voyager.hook.hooks.settings.NewNfcPage
 import star.sky.voyager.hook.hooks.settings.NoThroughTheList
@@ -20,6 +21,7 @@ object Settings : AppRegister() {
         autoInitHooks(
             lpparam,
             BatteryStyle, // 解锁全部电池样式
+            HpLocation, // 解锁高精度位置服务
             NeverTimeOut, // 为Oled机型解锁永不息屏
 //            AodAvailable, // 解锁 AOD
             ShowNotificationImportance, // 显示通知重要程度

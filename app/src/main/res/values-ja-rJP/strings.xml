@@ -420,6 +420,7 @@
     <string name="unlock_taplus">Taplus のロックを解除する</string>
     <string name="show_vip_service">マイ サービスを表示する</string>
     <string name="oled_never_time_out">OLED 機種の場合、スクリーンを常に点灯する</string>
+    <string name="hp_location">正確な位置情報による正確なナビゲーションを有効化する</string>
     <string name="battery_style">トップバーのバッテリー残量表示を開放する</string>
     <string name="battery_style_top_color">トップバーの電池の色をカスタマイズ</string>
     <string name="normal_color">通常の色</string>
