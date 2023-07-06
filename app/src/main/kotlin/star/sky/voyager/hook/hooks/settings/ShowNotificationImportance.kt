@@ -3,32 +3,32 @@ package star.sky.voyager.hook.hooks.settings
 import android.app.NotificationChannel
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullUntilSuperclass
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullUntilSuperclassAs
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField
 import de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField
-import star.sky.voyager.utils.api.callMethod
-import star.sky.voyager.utils.api.callMethodOrNull
-import star.sky.voyager.utils.api.callMethodOrNullAs
-import star.sky.voyager.utils.api.getObjectField
-import star.sky.voyager.utils.api.getObjectFieldAs
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object ShowNotificationImportance : HookRegister() {
     override fun init() = hasEnable("show_notification_importance") {
         loadClass("com.android.settings.notification.ChannelNotificationSettings").methodFinder()
-            .filterByName("removeDefaultPrefs")
-            .first().createHook {
+            .filterByName("removeDefaultPrefs").first().createHook {
                 before {
-                    val importance = it.thisObject.callMethodOrNull("findPreference", "importance")
-                        ?: return@before
-                    val mChannel = it.thisObject.getObjectFieldAs<NotificationChannel>("mChannel")
-                    val index = importance.callMethodOrNullAs<Int>(
-                        "findSpinnerIndexOfValue",
-                        mChannel.importance.toString()
+                    val importance =
+                        invokeMethodBestMatch(it.thisObject, "findPreference", null, "importance")
+                            ?: return@before
+                    val mChannel = getObjectOrNullUntilSuperclassAs<NotificationChannel>(
+                        it.thisObject,
+                        "mChannel"
                     )!!
+                    val index = invokeMethodBestMatch(
+                        importance, "findSpinnerIndexOfValue", null, mChannel.importance.toString()
+                    )!! as Int
                     if (index < 0) return@before
-                    importance.callMethod("setValueIndex", index)
+                    invokeMethodBestMatch(importance, "setValueIndex", null, index)
                     setAdditionalInstanceField(
                         importance,
                         "channelNotificationSettings",
@@ -37,24 +37,32 @@ object ShowNotificationImportance : HookRegister() {
                     it.result = null
                 }
             }
-
         loadClass("androidx.preference.Preference").methodFinder()
             .filterByName("callChangeListener")
-            .filterByParamTypes(Any::class.java)
-            .first().createHook {
+            .filterByParamTypes(Any::class.java).first().createHook {
                 after {
-                    val channelNotificationSettings = getAdditionalInstanceField(
-                        it.thisObject,
-                        "channelNotificationSettings"
-                    ) ?: return@after
+                    val channelNotificationSettings =
+                        getAdditionalInstanceField(it.thisObject, "channelNotificationSettings")!!
                     val mChannel =
-                        channelNotificationSettings.getObjectFieldAs<NotificationChannel>("mChannel")
-                    mChannel.callMethod("setImportance", (it.args[0] as String).toInt())
+                        getObjectOrNullUntilSuperclassAs<NotificationChannel>(
+                            channelNotificationSettings,
+                            "mChannel"
+                        )!!
+                    invokeMethodBestMatch(
+                        mChannel,
+                        "setImportance",
+                        null,
+                        (it.args[0] as String).toInt()
+                    )
                     val mBackend =
-                        channelNotificationSettings.getObjectField("mBackend") ?: return@after
-                    val mPkg = channelNotificationSettings.getObjectFieldAs<String>("mPkg")
-                    val mUid = channelNotificationSettings.getObjectFieldAs<Int>("mUid")
-                    mBackend.callMethod("updateChannel", mPkg, mUid, mChannel)
+                        getObjectOrNullUntilSuperclass(channelNotificationSettings, "mBackend")!!
+                    val mPkg = getObjectOrNullUntilSuperclassAs<String>(
+                        channelNotificationSettings,
+                        "mPkg"
+                    )
+                    val mUid =
+                        getObjectOrNullUntilSuperclassAs<Int>(channelNotificationSettings, "mUid")
+                    invokeMethodBestMatch(mBackend, "updateChannel", null, mPkg, mUid, mChannel)
                 }
             }
     }
