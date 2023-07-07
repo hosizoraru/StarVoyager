@@ -640,6 +640,7 @@
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
     <string name="lock_screen_zen_mode">隐藏锁屏界面的勿扰模式通知</string>
     <string name="lock_screen_hint">隐藏锁屏界面底部的解锁提示</string>
+    <string name="lock_screen_uwb">锁屏界面右滑控制手电筒</string>
     <string name="enable_wave_charge_animation">启用 Alpha 充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_mA">电流单位使用 mA</string>

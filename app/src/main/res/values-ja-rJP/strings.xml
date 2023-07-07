@@ -640,6 +640,7 @@
     <string name="remove_lock_screen_camera">ロックスクリーンのカメラ機能を削除</string>
     <string name="lock_screen_zen_mode">ロック画面での勿扰モード通知の非表示</string>
     <string name="lock_screen_hint">ロック画面の下部にあるアンロックヒントを非表示にする</string>
+    <string name="lock_screen_uwb">ロック画面での右スワイプで懐中電灯を制御する</string>
     <string name="enable_wave_charge_animation">Alpha 充電アニメーションを有効にする</string>
     <string name="lock_screen_charging_current">充電時に現在の電流を表示</string>
     <string name="current_mA">電流単位は mA を使用</string>

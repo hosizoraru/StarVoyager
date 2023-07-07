@@ -27,6 +27,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenFont
 import star.sky.voyager.hook.hooks.systemui.LockScreenHint
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveCamera
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveLeftSide
+import star.sky.voyager.hook.hooks.systemui.LockScreenUwb
 import star.sky.voyager.hook.hooks.systemui.LockScreenZenMode
 import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
@@ -98,6 +99,7 @@ object SystemUI : AppRegister() {
             LockScreenBlurButton, // 模糊锁屏界面按钮
             LockScreenRemoveLeftSide, // 移除锁屏负一屏功能
             LockScreenRemoveCamera, // 移除锁屏相机功能
+            LockScreenUwb, // 自定义锁屏界面的 Uwb 比如打开手电筒
             WaveCharge, // 启用Alpha充电动画
             LockScreenCurrent, // 充电时显示当前电流
             LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕

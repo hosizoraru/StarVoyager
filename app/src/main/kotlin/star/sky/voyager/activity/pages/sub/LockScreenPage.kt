@@ -51,6 +51,10 @@ class LockScreenPage : BasePage() {
             ), SwitchV("remove_lock_screen_camera")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.lock_screen_uwb),
+            SwitchV("lock_screen_uwb")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.lock_screen_zen_mode),
             SwitchV("lock_screen_zen_mode")
         )
