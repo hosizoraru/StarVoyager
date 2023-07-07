@@ -25,6 +25,8 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.LockScreenFont
 import star.sky.voyager.hook.hooks.systemui.LockScreenHint
+import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveCamera
+import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveLeftSide
 import star.sky.voyager.hook.hooks.systemui.LockScreenZenMode
 import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
@@ -37,8 +39,6 @@ import star.sky.voyager.hook.hooks.systemui.NotificationWeather
 import star.sky.voyager.hook.hooks.systemui.OldNotificationWeather
 import star.sky.voyager.hook.hooks.systemui.OldQSCustom
 import star.sky.voyager.hook.hooks.systemui.RedirectToNotificationChannelSetting
-import star.sky.voyager.hook.hooks.systemui.RemoveLockScreenCamera
-import star.sky.voyager.hook.hooks.systemui.RemoveTheLeftSideOfTheLockScreen
 import star.sky.voyager.hook.hooks.systemui.RestoreNearbyTile
 import star.sky.voyager.hook.hooks.systemui.ShowWifiStandard
 import star.sky.voyager.hook.hooks.systemui.StatusBarBattery
@@ -96,8 +96,8 @@ object SystemUI : AppRegister() {
             LockScreenClockDisplaySeconds, // 时钟显示秒数
             LockScreenFont, // 锁屏界面时钟使用系统字体
             LockScreenBlurButton, // 模糊锁屏界面按钮
-            RemoveTheLeftSideOfTheLockScreen, // 移除锁屏负一屏功能
-            RemoveLockScreenCamera, // 移除锁屏相机功能
+            LockScreenRemoveLeftSide, // 移除锁屏负一屏功能
+            LockScreenRemoveCamera, // 移除锁屏相机功能
             WaveCharge, // 启用Alpha充电动画
             LockScreenCurrent, // 充电时显示当前电流
             LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕

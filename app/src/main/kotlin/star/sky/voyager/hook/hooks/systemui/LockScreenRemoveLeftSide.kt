@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object RemoveTheLeftSideOfTheLockScreen : HookRegister() {
+object LockScreenRemoveLeftSide : HookRegister() {
     override fun init() = hasEnable("remove_the_left_side_of_the_lock_screen") {
         loadClass("com.android.keyguard.negative.MiuiKeyguardMoveLeftViewContainer").methodFinder()
             .filterByName("inflateLeftView")

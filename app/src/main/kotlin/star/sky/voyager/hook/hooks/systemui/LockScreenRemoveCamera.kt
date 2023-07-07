@@ -9,7 +9,7 @@ import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
-object RemoveLockScreenCamera : HookRegister() {
+object LockScreenRemoveCamera : HookRegister() {
     override fun init() = hasEnable("remove_lock_screen_camera") {
         //屏蔽右下角组件显示
         loadClass("com.android.systemui.statusbar.phone.KeyguardBottomAreaView").methodFinder()
