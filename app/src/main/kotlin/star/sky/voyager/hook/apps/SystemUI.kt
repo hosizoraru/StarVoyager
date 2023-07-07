@@ -25,6 +25,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenCurrent
 import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.LockScreenFont
 import star.sky.voyager.hook.hooks.systemui.LockScreenHint
+import star.sky.voyager.hook.hooks.systemui.LockScreenLeftButtonFlashLight
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveCamera
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveLeftSide
 import star.sky.voyager.hook.hooks.systemui.LockScreenUwb
@@ -60,6 +61,7 @@ object SystemUI : AppRegister() {
             lpparam,
             MonetTheme, // 自定义系统主题色
             UseNewHD, // 强制使用新 HD 图标
+            LockScreenLeftButtonFlashLight,
             // 隐藏图标 Start
             HideStatusBarIcon,
             HideBatteryIcon,

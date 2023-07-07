@@ -135,6 +135,9 @@
     <string name="share">共有</string>
     <string name="remove">アソイソストール (削除)</string>
     <string name="uninstall">アンインストール</string>
+    <string name="click">タップ</string>
+    <string name="double_click">ダブルクリック</string>
+    <string name="long_click">長押し</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>
@@ -641,6 +644,7 @@
     <string name="lock_screen_zen_mode">ロック画面での勿扰モード通知の非表示</string>
     <string name="lock_screen_hint">ロック画面の下部にあるアンロックヒントを非表示にする</string>
     <string name="lock_screen_uwb">ロック画面での右スワイプで懐中電灯を制御する</string>
+    <string name="lock_screen_left_button_flash_light">ロック画面の下部左側のボタンで懐中電灯をトリガーする</string>
     <string name="enable_wave_charge_animation">Alpha 充電アニメーションを有効にする</string>
     <string name="lock_screen_charging_current">充電時に現在の電流を表示</string>
     <string name="current_mA">電流単位は mA を使用</string>

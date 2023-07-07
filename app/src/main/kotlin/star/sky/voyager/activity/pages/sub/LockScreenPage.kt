@@ -33,28 +33,6 @@ class LockScreenPage : BasePage() {
             ), SwitchV("lock_screen_date_use_system_font")
         )
         TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.blur_lock_screen_button,
-                tipsId = R.string.only_official_default_themes_are_supported
-            ), SwitchV("blur_lock_screen_button")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.remove_the_left_side_of_the_lock_screen,
-                tipsId = R.string.only_official_default_themes_are_supported
-            ), SwitchV("remove_the_left_side_of_the_lock_screen")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.remove_lock_screen_camera,
-                tipsId = R.string.only_official_default_themes_are_supported
-            ), SwitchV("remove_lock_screen_camera")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.lock_screen_uwb),
-            SwitchV("lock_screen_uwb")
-        )
-        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.lock_screen_zen_mode),
             SwitchV("lock_screen_zen_mode")
         )
@@ -108,6 +86,71 @@ class LockScreenPage : BasePage() {
                 textId = R.string.no_need_to_enter_password_when_power_on,
                 tipsId = R.string.no_need_to_enter_password_when_power_on_summary
             ), SwitchV("no_need_to_enter_password_when_power_on")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.blur_lock_screen_button,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("blur_lock_screen_button")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remove_the_left_side_of_the_lock_screen,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("remove_the_left_side_of_the_lock_screen")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.remove_lock_screen_camera,
+                tipsId = R.string.only_official_default_themes_are_supported
+            ), SwitchV("remove_lock_screen_camera")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.lock_screen_uwb),
+            SwitchV("lock_screen_uwb")
+        )
+        val flashLightInfo = GetDataBinding({
+            safeSP.getBoolean(
+                "lock_screen_left_button_flash_light",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.lock_screen_left_button_flash_light
+            ),
+            SwitchV(
+                "lock_screen_left_button_flash_light",
+                false,
+                dataBindingSend = flashLightInfo.bindingSend
+            )
+        )
+        Text(
+            textId = R.string.trigger_condition,
+            dataBindingRecv = flashLightInfo.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.click
+            ),
+            SwitchV("flash_light_click"),
+            dataBindingRecv = flashLightInfo.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.long_click
+            ),
+            SwitchV("flash_light_long_click"),
+            dataBindingRecv = flashLightInfo.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.double_click
+            ),
+            SwitchV("flash_light_double_click"),
+            dataBindingRecv = flashLightInfo.binding.getRecv(1)
         )
     }
 }

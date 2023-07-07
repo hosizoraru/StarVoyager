@@ -135,6 +135,9 @@
     <string name="share">分享</string>
     <string name="remove">移除</string>
     <string name="uninstall">卸载</string>
+    <string name="click">点按</string>
+    <string name="double_click">双击</string>
+    <string name="long_click">长按</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -641,6 +644,7 @@
     <string name="lock_screen_zen_mode">隐藏锁屏界面的勿扰模式通知</string>
     <string name="lock_screen_hint">隐藏锁屏界面底部的解锁提示</string>
     <string name="lock_screen_uwb">锁屏界面右滑控制手电筒</string>
+    <string name="lock_screen_left_button_flash_light">锁屏界面底部左边按钮触发手电筒</string>
     <string name="enable_wave_charge_animation">启用 Alpha 充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_mA">电流单位使用 mA</string>
