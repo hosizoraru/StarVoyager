@@ -37,6 +37,7 @@
     <string name="scope_screen_shot">スクリーンショット</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
     <string name="scope_barrage">Bullet Screen Notification (弾幕通知)</string>
+    <string name="scope_weather">天気</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
@@ -352,6 +353,8 @@
     <string name="unlock_always_on_display_time">常時表示の時間制限を解除</string>
 
     <string name="unlock_super_wallpaper">スーパーウォールペーパーを解除</string>
+
+    <string name="high_animation">アニメーションレベルが高い</string>
 
     <string name="device_modify">制限を削除</string>
     <string name="device_modify_summary">あなたのデバイス型番を Xiaomi 13 Pro に偽装し、制限を回避します</string>

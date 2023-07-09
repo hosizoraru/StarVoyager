@@ -39,6 +39,7 @@
     <string name="scope_screen_shot">Screen Shot</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
     <string name="scope_barrage">Bullet Screen Notification</string>
+    <string name="scope_weather">Weather</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -354,6 +355,8 @@
     <string name="unlock_always_on_display_time">Unlock the display time limit of the always-on screen</string>
 
     <string name="unlock_super_wallpaper">Unlock Super MiWallPaper</string>
+
+    <string name="high_animation">Animation level is set to high</string>
 
     <string name="device_modify">Remove the restriction</string>
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>

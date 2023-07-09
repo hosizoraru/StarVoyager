@@ -2,7 +2,8 @@ package star.sky.voyager.activity.pages.apps
 
 import android.content.ComponentName
 import android.content.Intent
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
@@ -43,7 +44,7 @@ class PowerKeeperPage : BasePage() {
                         intent.component = comp
                         activity.startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
                     }
                 })
         )
@@ -83,7 +84,7 @@ class PowerKeeperPage : BasePage() {
                         intent.component = comp
                         activity.startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
                     }
                 })
         )
@@ -100,7 +101,7 @@ class PowerKeeperPage : BasePage() {
                         intent.component = comp
                         activity.startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
                     }
                 })
         )

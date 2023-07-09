@@ -34,6 +34,7 @@ import star.sky.voyager.hook.apps.SystemUI
 import star.sky.voyager.hook.apps.TaPlus
 import star.sky.voyager.hook.apps.Updater
 import star.sky.voyager.hook.apps.WallPaper
+import star.sky.voyager.hook.apps.Weather
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
@@ -70,6 +71,7 @@ val PACKAGE_NAME_HOOKED = setOf(
     "com.miui.contentextension",
     "com.android.updater",
     "com.miui.miwallpaper",
+    "com.miui.weather2",
 )
 
 class MainHook : EasyXposedInit() {
@@ -107,6 +109,7 @@ class MainHook : EasyXposedInit() {
         TaPlus, // 传送门
         Updater, // 系统更新
         WallPaper, // 壁纸
+        Weather, // 天气
     )
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {

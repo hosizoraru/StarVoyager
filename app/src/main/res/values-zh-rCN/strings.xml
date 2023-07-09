@@ -37,6 +37,7 @@
     <string name="scope_screen_shot">截屏</string>
     <string name="scope_miui_plus">Miui+ Beta</string>
     <string name="scope_barrage">弹幕通知</string>
+    <string name="scope_weather">天气</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -352,6 +353,8 @@
     <string name="unlock_always_on_display_time">解锁息屏显示时长限制</string>
 
     <string name="unlock_super_wallpaper">解锁超级壁纸</string>
+
+    <string name="high_animation">动画等级为高</string>
 
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>

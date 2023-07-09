@@ -24,7 +24,7 @@ object LockScreenLeftButtonFlashLight : HookRegister() {
         lateinit var mLeftAffordanceView: ImageView
 
         loadClass("com.android.systemui.statusbar.phone.KeyguardBottomAreaView").methodFinder()
-            .filterByName("onAttachedToWindow")
+            .filterByName("onAttachedToWindow") // onFinishInflate
             .toList().createHooks {
                 after { param ->
                     mLeftAffordanceView =
