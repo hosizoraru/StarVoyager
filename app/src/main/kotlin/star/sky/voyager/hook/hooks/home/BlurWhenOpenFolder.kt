@@ -11,7 +11,6 @@ import star.sky.voyager.utils.api.hookAfterMethod
 import star.sky.voyager.utils.api.hookBeforeAllMethods
 import star.sky.voyager.utils.api.hookBeforeMethod
 import star.sky.voyager.utils.init.HookRegister
-import star.sky.voyager.utils.key.XSPUtils.getBoolean
 import star.sky.voyager.utils.key.hasEnable
 
 object BlurWhenOpenFolder : HookRegister() {
@@ -20,8 +19,6 @@ object BlurWhenOpenFolder : HookRegister() {
         val launcherClass = loadClass("com.miui.home.launcher.Launcher")
         val blurUtilsClass = loadClass("com.miui.home.launcher.common.BlurUtils")
         val navStubViewClass = loadClass("com.miui.home.recents.NavStubView")
-        val cancelShortcutMenuReasonClass =
-            loadClass("com.miui.home.launcher.shortcuts.CancelShortcutMenuReason")
         val applicationClass =
             loadClass("com.miui.home.launcher.Application")
 
@@ -39,7 +36,6 @@ object BlurWhenOpenFolder : HookRegister() {
         }
 
         var isShouldBlur = false
-
 
         launcherClass.hookAfterMethod("openFolder", folderInfo, View::class.java) {
             val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
@@ -68,21 +64,6 @@ object BlurWhenOpenFolder : HookRegister() {
                 0L
             )
             else blurUtilsClass.callStaticMethod("fastBlur", 0.0f, mLauncher.window, true)
-        }
-
-        launcherClass.hookAfterMethod(
-            "cancelShortcutMenu",
-            Int::class.java,
-            cancelShortcutMenuReasonClass
-        ) {
-            val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
-            if (isShouldBlur) blurUtilsClass.callStaticMethod(
-                "fastBlur",
-                1.0f,
-                mLauncher.window,
-                true,
-                0L
-            )
         }
 
         launcherClass.hookBeforeMethod("onGesturePerformAppToHome") {
@@ -130,26 +111,16 @@ object BlurWhenOpenFolder : HookRegister() {
 
         hasEnable("home_use_complete_blur") {
             hasEnable("home_complete_blur_fix") {
-                if (getBoolean("home_recent_view_wallpaper_darkening", true)) {
-                    navStubViewClass.hookBeforeMethod("updateDimLayerAlpha", Float::class.java) {
-                        val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
-                        val value = 1 - it.args[0] as Float
-                        if (value != 1f) {
-                            blurUtilsClass.callStaticMethod(
-                                "fastBlurDirectly",
-                                value,
-                                mLauncher.window
-                            )
-                        }
-                    }
-                } else {
-                    navStubViewClass.hookBeforeMethod(
-                        "appTouchResolution",
-                        MotionEvent::class.java
-                    ) {
-                        val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
-                        blurUtilsClass.callStaticMethod("fastBlurDirectly", 1.0f, mLauncher.window)
-                    }
+                navStubViewClass.hookBeforeMethod("onPointerEvent", MotionEvent::class.java) {
+                    val mLauncher = applicationClass.callStaticMethod("getLauncher") as Activity
+                    val motionEvent = it.args[0] as MotionEvent
+                    val action = motionEvent.action
+                    if (action == 2) Thread.currentThread().priority = 10
+                    if (action == 2 && isShouldBlur) blurUtilsClass.callStaticMethod(
+                        "fastBlurDirectly",
+                        1.0f,
+                        mLauncher.window
+                    )
                 }
             }
         }
