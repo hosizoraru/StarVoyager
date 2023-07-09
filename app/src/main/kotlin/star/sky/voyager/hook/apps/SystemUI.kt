@@ -61,7 +61,7 @@ object SystemUI : AppRegister() {
             lpparam,
             MonetTheme, // 自定义系统主题色
             UseNewHD, // 强制使用新 HD 图标
-            LockScreenLeftButtonFlashLight,
+            LockScreenLeftButtonFlashLight, // 锁屏界面底部左边按钮触发手电筒
             // 隐藏图标 Start
             HideStatusBarIcon,
             HideBatteryIcon,
