@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages.sub
+package star.sky.voyager.activity.pages.apps
 
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText

@@ -56,6 +56,33 @@ class AppManagerPage : BasePage() {
             key = "file_explorer_is_single_line"
         )
         Line()
+        TitleText(textId = R.string.scope_music)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.remove_open_ad),
+            SwitchV("remove_open_ad")
+        )
+        Line()
+        TitleText(textId = R.string.scope_aod)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.unlock_always_on_display_time,
+            ), SwitchV("unlock_always_on_display_time")
+        )
+        Line()
+        TitleText(textId = R.string.scope_wallpaper)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.unlock_super_wallpaper,
+            ), SwitchV("unlock_super_wallpaper")
+        )
+        Line()
+        TitleText(textId = R.string.scope_weather)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.high_animation,
+            ), SwitchV("high_animation")
+        )
+        Line()
         TitleText(textId = R.string.scope_external_storage)
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.No_Storage_Restrict),
@@ -80,12 +107,6 @@ class AppManagerPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.Anti_Defraud_App_Manager),
             SwitchV("Anti_Defraud_App_Manager")
-        )
-        Line()
-        TitleText(textId = R.string.scope_music)
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.remove_open_ad),
-            SwitchV("remove_open_ad")
         )
     }
 }

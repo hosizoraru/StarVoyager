@@ -24,26 +24,5 @@ class SmartHubPage : BasePage() {
                 textId = R.string.force_support_send_app,
             ), SwitchV("force_support_send_app")
         )
-        Line()
-        TitleText(textId = R.string.scope_aod)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.unlock_always_on_display_time,
-            ), SwitchV("unlock_always_on_display_time")
-        )
-        Line()
-        TitleText(textId = R.string.scope_wallpaper)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.unlock_super_wallpaper,
-            ), SwitchV("unlock_super_wallpaper")
-        )
-        Line()
-        TitleText(textId = R.string.scope_weather)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.high_animation,
-            ), SwitchV("high_animation")
-        )
     }
 }

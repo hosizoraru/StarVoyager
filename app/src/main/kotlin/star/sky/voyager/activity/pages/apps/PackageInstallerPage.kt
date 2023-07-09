@@ -1,4 +1,4 @@
-package star.sky.voyager.activity.pages.sub
+package star.sky.voyager.activity.pages.apps
 
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP

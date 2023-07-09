@@ -12,61 +12,12 @@ import star.sky.voyager.R
 @BMPage("scope_mi_ai", "Mi Ai", hideMenu = false)
 class MiAiPage : BasePage() {
     override fun onCreate() {
-        TitleText(textId = R.string.scope_aireco)
-        TextSummaryWithSwitch(
+        Page(
+            activity.getDrawable(R.drawable.ic_miui_plus)!!,
             TextSummaryV(
-                textId = R.string.device_modify,
-                tipsId = R.string.device_modify_summary,
-            ), SwitchV("device_modify")
-        )
-        Line()
-        TitleText(textId = R.string.scope_scanner)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.card,
-            ), SwitchV("card")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.doc_ppt,
-            ), SwitchV("doc_ppt")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.ocr2,
-            ), SwitchV("ocr2")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.translation,
-            ), SwitchV("translation")
-        )
-        val documentBinding = GetDataBinding({
-            safeSP.getBoolean(
-                "document",
-                false
-            )
-        }) { view, flags, data ->
-            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
-        }
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.document
-            ), SwitchV(
-                "document",
-                false,
-                dataBindingSend = documentBinding.bindingSend
-            )
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.excel),
-            SwitchV("excel", false),
-            dataBindingRecv = documentBinding.binding.getRecv(1)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.ppt),
-            SwitchV("ppt", false),
-            dataBindingRecv = documentBinding.binding.getRecv(1)
+                textId = R.string.scope_mi_smart_hub
+            ), round = 8f,
+            onClickListener = { showFragment("scope_mi_smart_hub") }
         )
         Line()
         TitleText(textId = R.string.scope_ta_plus)
@@ -139,6 +90,63 @@ class MiAiPage : BasePage() {
                         }
                     }.show()
                 }), dataBindingRecv = browserBinding.binding.getRecv(1)
+        )
+        Line()
+        TitleText(textId = R.string.scope_aireco)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.device_modify,
+                tipsId = R.string.device_modify_summary,
+            ), SwitchV("device_modify")
+        )
+        Line()
+        TitleText(textId = R.string.scope_scanner)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.card,
+            ), SwitchV("card")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.doc_ppt,
+            ), SwitchV("doc_ppt")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.ocr2,
+            ), SwitchV("ocr2")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.translation,
+            ), SwitchV("translation")
+        )
+        val documentBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "document",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.document
+            ), SwitchV(
+                "document",
+                false,
+                dataBindingSend = documentBinding.bindingSend
+            )
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.excel),
+            SwitchV("excel", false),
+            dataBindingRecv = documentBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.ppt),
+            SwitchV("ppt", false),
+            dataBindingRecv = documentBinding.binding.getRecv(1)
         )
     }
 }

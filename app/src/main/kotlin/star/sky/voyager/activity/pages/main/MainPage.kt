@@ -70,13 +70,6 @@ class MainPage : BasePage() {
             onClickListener = { showFragment("scope_mi_ai") }
         )
         Page(
-            activity.getDrawable(R.drawable.ic_miui_plus)!!,
-            TextSummaryV(
-                textId = R.string.scope_mi_smart_hub
-            ), round = 8f,
-            onClickListener = { showFragment("scope_mi_smart_hub") }
-        )
-        Page(
             activity.getDrawable(R.drawable.ic_maxmipad)!!,
             TextSummaryV(
                 textId = R.string.scope_mi_pad

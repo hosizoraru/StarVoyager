@@ -12,8 +12,11 @@ import star.sky.voyager.activity.pages.apps.GalleryPage
 import star.sky.voyager.activity.pages.apps.HomePage
 import star.sky.voyager.activity.pages.apps.MaxMiPadPage
 import star.sky.voyager.activity.pages.apps.MiAiPage
+import star.sky.voyager.activity.pages.apps.PackageInstallerPage
+import star.sky.voyager.activity.pages.apps.PersonalAssistantPage
 import star.sky.voyager.activity.pages.apps.PowerKeeperPage
 import star.sky.voyager.activity.pages.apps.SecurityPage
+import star.sky.voyager.activity.pages.apps.SettingsPage
 import star.sky.voyager.activity.pages.apps.SmartHubPage
 import star.sky.voyager.activity.pages.apps.SystemUIPage
 import star.sky.voyager.activity.pages.main.AboutPage
@@ -30,10 +33,7 @@ import star.sky.voyager.activity.pages.sub.HomeModPage
 import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
-import star.sky.voyager.activity.pages.sub.PackageInstallerPage
-import star.sky.voyager.activity.pages.sub.PersonalAssistantPage
 import star.sky.voyager.activity.pages.sub.SecurityUnlockPage
-import star.sky.voyager.activity.pages.sub.SettingsPage
 import star.sky.voyager.activity.pages.sub.SettingsUnlockPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
