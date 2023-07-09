@@ -33,6 +33,11 @@ class SettingsPage : BasePage() {
                 textId = R.string.no_through_the_list,
             ), SwitchV("no_through_the_list")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.mi_gboard
+            ), SwitchV("mi_gboard")
+        )
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.unlock,

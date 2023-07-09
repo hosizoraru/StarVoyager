@@ -35,11 +35,6 @@ class SettingsUnlockPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.mi_gboard
-            ), SwitchV("mi_gboard")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.oled_never_time_out
             ), SwitchV("oled_never_time_out")
         )
