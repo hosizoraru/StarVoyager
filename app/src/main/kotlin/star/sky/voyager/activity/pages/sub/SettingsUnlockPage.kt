@@ -14,6 +14,37 @@ class SettingsUnlockPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.unlock_taplus
+            ), SwitchV("unlock_taplus")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.hp_location,
+                tipsId = R.string.require_hardware_support,
+            ), SwitchV("hp_location")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.ime_bottom
+            ), SwitchV("ime_bottom")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.mech_keyboard
+            ), SwitchV("mech_keyboard")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.mi_gboard
+            ), SwitchV("mi_gboard")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.oled_never_time_out
+            ), SwitchV("oled_never_time_out")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.new_nfc_page,
                 tipsId = R.string.new_nfc_page_summary
             ), SwitchV("new_nfc_page")
@@ -32,24 +63,13 @@ class SettingsUnlockPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.unlock_taplus
-            ), SwitchV("unlock_taplus")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.show_vip_service
             ), SwitchV("show_vip_service")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.oled_never_time_out
-            ), SwitchV("oled_never_time_out")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.hp_location,
-                tipsId = R.string.require_hardware_support,
-            ), SwitchV("hp_location")
+                textId = R.string.voip_assistant
+            ), SwitchV("voip_assistant")
         )
         val batteryStyleBinding = GetDataBinding({
             safeSP.getBoolean(
