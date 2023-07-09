@@ -418,7 +418,7 @@
     <string name="hp_location">解锁高精度位置服务</string>
     <string name="ime_bottom">解锁全面屏优化</string>
     <string name="mech_keyboard">解锁机械键盘</string>
-    <string name="mi_gboard">添加Gboard为小米定制版输入法</string>
+    <string name="mi_gboard">添加 Gboard 为小米定制版输入法</string>
     <string name="oled_never_time_out">为 Oled 机型开放永不息屏</string>
     <string name="new_nfc_page">新版 NFC 页面</string>
     <string name="new_nfc_page_summary">开启后，不支持的机型默认付款应用无法选中小米钱包</string>
