@@ -373,7 +373,7 @@
     <string name="taplus_browser_pkg">浏览器: (包名)</string>
 
     <string name="album_optimize">截图录屏相册优化</string>
-    <string name="album_optimize_summary">Pictures/Screenshots 里的图片也会被认为是截图\nMovies/ScreenRecorder里的视频也会被认为是录屏\n你可以在录屏截图这个相册里找到他们</string>
+    <string name="album_optimize_summary">Pictures/Screenshots 里的图片也会被认为是截图\nMovies/ScreenRecorder 里的视频也会被认为是录屏\n你可以在录屏截图这个相册里找到他们</string>
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
     <string name="super_clipboard">超级剪切板</string>
