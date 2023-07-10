@@ -45,6 +45,10 @@ class AppManagerPage : BasePage() {
                 }
             },
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.remove_open_ad),
+            SwitchV("remove_market_ad")
+        )
         Line()
         TitleText(textId = R.string.scope_file_explorer)
         TextSSw(

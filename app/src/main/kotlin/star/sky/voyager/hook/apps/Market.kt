@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.market.AsWhat
+import star.sky.voyager.hook.hooks.market.RemoveAd
 import star.sky.voyager.utils.init.AppRegister
 
 object Market : AppRegister() {
@@ -10,6 +11,7 @@ object Market : AppRegister() {
         autoInitHooks(
             lpparam,
             AsWhat, // 伪装机型为:
+            RemoveAd, // 移除一些广告
         )
     }
 }
