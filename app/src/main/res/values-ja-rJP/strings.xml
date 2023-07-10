@@ -397,6 +397,7 @@
     <string name="change_bitrate_and_frame_rate_range">ビットレートとフレームレートの範囲を変更</string>
 
     <string name="save_to_pictures">スクリーンショットは Pictures/Screenshots に保存されます</string>
+    <string name="save_as_png">PNG形式でスクリーンショットを保存する</string>
 
     <string name="Market_As">デバイスを偽装:</string>
 

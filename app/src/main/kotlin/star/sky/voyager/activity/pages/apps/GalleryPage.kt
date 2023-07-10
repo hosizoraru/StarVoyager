@@ -70,5 +70,11 @@ class GalleryPage : BasePage() {
             ),
             SwitchV("save_to_pictures", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.save_as_png
+            ),
+            SwitchV("save_as_png", false)
+        )
     }
 }

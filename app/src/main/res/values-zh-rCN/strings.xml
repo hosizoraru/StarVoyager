@@ -397,6 +397,7 @@
     <string name="change_bitrate_and_frame_rate_range">修改码率与帧率范围</string>
 
     <string name="save_to_pictures">截图保存到 \nPictures/Screenshots</string>
+    <string name="save_as_png">截图格式为 PNG</string>
 
     <string name="Market_As">伪装机型为:</string>
 
