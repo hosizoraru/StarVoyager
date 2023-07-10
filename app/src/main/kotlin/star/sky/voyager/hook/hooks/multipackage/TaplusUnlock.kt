@@ -8,7 +8,6 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.SettingsFeatures.SettingsFeaturesCls
-import star.sky.voyager.utils.yife.Build.IS_INTERNATIONAL_BUILD
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object TaplusUnlock : HookRegister() {
@@ -25,12 +24,24 @@ object TaplusUnlock : HookRegister() {
             }
 
             "com.miui.contentextension" -> {
-                hasEnable("unlock_taplus") {
-                    IS_INTERNATIONAL_BUILD.apply {
-                        setStaticObject(loadClass("miui.os.Build"), "IS_INTERNATIONAL_BUILD", false)
-                    }
-                }
-                
+//                hasEnable("unlock_taplus") {
+//                    IS_INTERNATIONAL_BUILD.apply {
+//                        setStaticObject(loadClass("miui.os.Build"), "IS_INTERNATIONAL_BUILD", false)
+//                    }
+//
+//                    loadClass("miuix.pickerwidget.widget.NumberPicker").methodFinder()
+//                        .filterByName("isInternationalBuild")
+//                        .first().createHook {
+//                            returnConstant(false)
+//                        }
+//
+//                    loadClass("com.xiaomi.onetrack.Configuration").methodFinder()
+//                        .filterByName("isInternational")
+//                        .first().createHook {
+//                            returnConstant(false)
+//                        }
+//                }
+
                 hasEnable("unlock_taplus_for_pad") {
                     if (!IS_TABLET) return@hasEnable
                     loadClass("com.miui.contentextension.setting.activity.MainSettingsActivity")
