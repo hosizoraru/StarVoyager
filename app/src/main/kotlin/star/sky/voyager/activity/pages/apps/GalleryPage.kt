@@ -13,6 +13,12 @@ class GalleryPage : BasePage() {
         TitleText(textId = R.string.scope_gallery)
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.album_optimize,
+                tipsId = R.string.album_optimize_summary
+            ), SwitchV("album_optimize", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.hdr_enhance,
                 tipsId = R.string.hdr_enhance_summary
             ), SwitchV("hdr_enhance", false)

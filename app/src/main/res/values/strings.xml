@@ -374,6 +374,8 @@
     <string name="taplus_browser">Custom open browser</string>
     <string name="taplus_browser_pkg">Browser: (PackageName)</string>
 
+    <string name="album_optimize">Optimize Screenshot and Screen Record Album</string>
+    <string name="album_optimize_summary">Pictures/Screenshots images will be recognized as screenshots\nMovies/ScreenRecorder videos will be recognized as screen recordings\nYou can find them in the Screenshot and Screen Record album</string>
     <string name="hdr_enhance">Display high dynamic range</string>
     <string name="hdr_enhance_summary">Use HDR to show more detail in highlights and shadows</string>
     <string name="super_clipboard">Super Clipboard</string>

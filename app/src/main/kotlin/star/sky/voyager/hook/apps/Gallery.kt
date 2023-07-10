@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.gallery.AlbumOptimize
 import star.sky.voyager.hook.hooks.gallery.HDREnhance
 import star.sky.voyager.hook.hooks.gallery.IdPhoto
 import star.sky.voyager.hook.hooks.gallery.MagicMatting
@@ -22,6 +23,7 @@ object Gallery : AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         autoInitHooks(
             lpparam,
+            AlbumOptimize, // 截图录屏相册优化
             HDREnhance, // 超动态显示
             SuperClipboard, // 超级剪切板
             Ocr, // 解锁提取文字

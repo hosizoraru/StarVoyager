@@ -372,6 +372,8 @@
     <string name="taplus_browser">カスタムでブラウザーを開く</string>
     <string name="taplus_browser_pkg">ブラウザー: (パッケージ名)</string>
 
+    <string name="album_optimize">スクリーンショットと画面録画のアルバム最適化</string>
+    <string name="album_optimize_summary">Pictures/Screenshots 内の画像はスクリーンショットとして認識されます\nMovies/ScreenRecorder 内の動画は画面録画として認識されます\nこれらはスクリーンショットと画面録画のアルバムで見つけることができます</string>
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
     <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>
     <string name="super_clipboard">スーパークリップボード</string>
