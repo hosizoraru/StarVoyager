@@ -70,7 +70,7 @@ object Home : AppRegister() {
             OptimizeUnlockAnim, // 优化解锁动画
             FakeNavBar, // 移除横屏多任务界面的假小白条
             FakeNonDefaultIcon, // 伪装为非默认图标
-            EnablePerfectIcons, // 启用完美图标
+            EnablePerfectIcons, // 启用完美图标 // 提升完美图标的优先级
 //            IconBreakAnimation, // 优化打断动画
             IconCorner, // 中等图标圆角跟随
             FolderColumnsCount, // 利用整个文件夹视图的宽度 // 文件夹视图内图标的排数

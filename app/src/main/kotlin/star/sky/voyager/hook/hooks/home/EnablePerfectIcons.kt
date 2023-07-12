@@ -32,6 +32,7 @@ object EnablePerfectIcons : HookRegister() {
                 }
             }
 
+        // 理论上会降低使用应用自己的图标的优先级
         loadClass("com.miui.home.library.compat.LauncherActivityInfoCompat").methodFinder()
             .filterByName("getIconResource")
             .first().createHook {
