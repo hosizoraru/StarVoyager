@@ -19,8 +19,6 @@ object EnablePerfectIcons : HookRegister() {
                 replace {
                     val contentResolver =
                         (it.thisObject as Application).contentResolver
-                    clazzMiuiSettingsUtils.methodFinder()
-                        .filterByName("putBool")
                     invokeStaticMethodBestMatch(
                         clazzMiuiSettingsUtils,
                         "putBooleanToSystem",
