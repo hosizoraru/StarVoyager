@@ -43,6 +43,14 @@ class HomeIconPage : BasePage() {
             SwitchV("shortcut_remove_restrictions")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.fake_non_default_icon),
+            SwitchV("fake_non_default_icon")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.enable_perfect_icons),
+            SwitchV("enable_perfect_icons")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.add_freeform_shortcut
             ),
