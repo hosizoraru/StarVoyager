@@ -13,6 +13,9 @@ import star.sky.voyager.hook.hooks.home.BlurWhenOpenFolder
 import star.sky.voyager.hook.hooks.home.DisableRecentViewWallpaperDarkening
 import star.sky.voyager.hook.hooks.home.DoubleTapToSleep
 import star.sky.voyager.hook.hooks.home.DownloadAnimation
+import star.sky.voyager.hook.hooks.home.EnablePerfectIcons
+import star.sky.voyager.hook.hooks.home.FakeNavBar
+import star.sky.voyager.hook.hooks.home.FakeNonDefaultIcon
 import star.sky.voyager.hook.hooks.home.FoldDeviceDock
 import star.sky.voyager.hook.hooks.home.FolderAnim
 import star.sky.voyager.hook.hooks.home.FolderColumnsCount
@@ -65,6 +68,9 @@ object Home : AppRegister() {
             ShortcutItemCount, // 解除Shortcuts数量限制
             UnlockHotSeatIcon, // 解锁底栏图标数量限制
             OptimizeUnlockAnim, // 优化解锁动画
+            FakeNavBar, // 移除横屏多任务界面的假小白条
+            FakeNonDefaultIcon, // 伪装为非默认图标
+            EnablePerfectIcons, // 启用完美图标
 //            IconBreakAnimation, // 优化打断动画
             IconCorner, // 中等图标圆角跟随
             FolderColumnsCount, // 利用整个文件夹视图的宽度 // 文件夹视图内图标的排数

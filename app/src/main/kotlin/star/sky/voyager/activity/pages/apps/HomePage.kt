@@ -89,6 +89,10 @@ class HomePage : BasePage() {
             SwitchV("optimize_unlock_anim")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.fake_nav_bar),
+            SwitchV("fake_nav_bar")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.home_folder_width),
             SwitchV("home_folder_width")
         )
