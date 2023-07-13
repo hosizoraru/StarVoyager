@@ -10,22 +10,20 @@ import star.sky.voyager.utils.voyager.WifiState.isWifiConnected
 
 object UseNewHD : HookRegister() {
     override fun init() = hasEnable("system_ui_use_new_hd") {
-        runCatching {
-            loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder()
-                .filterByName("isVisible")
-                .first().createHook {
-                    whenV("no_show_on_wifi_connect") {
-                        true then {
-                            replace {
-                                !isWifiConnected()
-                            }
-                        }
-
-                        false then {
-                            returnConstant(true)
+        loadClass("com.android.systemui.statusbar.policy.HDController").methodFinder()
+            .filterByName("isVisible")
+            .first().createHook {
+                whenV("no_show_on_wifi_connect") {
+                    true then {
+                        replace {
+                            !isWifiConnected()
                         }
                     }
+
+                    false then {
+                        returnConstant(true)
+                    }
                 }
-        }
+            }
     }
 }

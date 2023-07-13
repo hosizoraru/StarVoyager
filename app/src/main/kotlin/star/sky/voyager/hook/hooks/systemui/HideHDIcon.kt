@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.XC_MethodHook
 import star.sky.voyager.utils.api.getObjectFieldAs
@@ -37,7 +38,9 @@ object HideHDIcon : HookRegister() {
 
     private fun hide(it: XC_MethodHook.MethodHookParam) {
         hasEnable("no_show_on_wifi_connect") {
-            val smallHdIcon = it.thisObject.getObjectFieldAs<ImageView>("mSmallHd")
+            val smallHdIcon =
+                getObjectOrNullAs<ImageView>(it.thisObject, "mSmallHd")!!
+//                it.thisObject.getObjectFieldAs<ImageView>("mSmallHd")
             smallHdIcon.visibility = when (isWifiConnected()) {
                 true -> View.VISIBLE
                 false -> View.GONE

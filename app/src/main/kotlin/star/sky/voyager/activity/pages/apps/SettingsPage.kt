@@ -86,6 +86,9 @@ class SettingsPage : BasePage() {
                 add(R.string.back_triple_tap) {
                     safeSP.putAny("trigger_condition", "back_triple_tap")
                 }
+                add(R.string.fingerprint_double_tap) {
+                    safeSP.putAny("trigger_condition", "fingerprint_double_tap")
+                }
             },
         )
         TextSummaryWithSpinner(
@@ -147,6 +150,9 @@ class SettingsPage : BasePage() {
                 add(R.string.dump_log) {
                     safeSP.putAny("trigger_action", "dump_log")
                 }
+                add(R.string.go_to_sleep) {
+                    safeSP.putAny("trigger_action", "go_to_sleep")
+                }
             },
         )
         TextSummaryWithArrow(
@@ -155,7 +161,7 @@ class SettingsPage : BasePage() {
                 tipsId = R.string.put_setting_command_summary
             ) {
                 val triggerCondition = safeSP.getString("trigger_condition", "long_press_power_key")
-                val triggerAction = safeSP.getString("trigger_action", "setting_none")
+                val triggerAction = safeSP.getString("trigger_action", "none")
                 val command = "settings put system $triggerCondition $triggerAction"
                 exec(command)
                 makeText(

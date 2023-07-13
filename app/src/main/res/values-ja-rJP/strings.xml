@@ -156,6 +156,7 @@
     <string name="knock_gesture_v">指関節で V を描く</string>
     <string name="back_double_tap">背面を 2 回タップ</string>
     <string name="back_triple_tap">背面を 3 回タップ</string>
+    <string name="fingerprint_double_tap">指紋センサーをダブルタップ</string>
 
     <string name="launch_voice_assistant">音声アシスタントを起動</string>
     <string name="screen_shot">スクリーンショットを撮影</string>
@@ -174,6 +175,7 @@
     <string name="launch_alipay_scanner">Alipayスキャナー</string>
     <string name="launch_wechat_scanner">WeChatスキャナー</string>
     <string name="dump_log">問題に関連するログを取得</string>
+    <string name="go_to_sleep">画面をオフにする</string>
 
     <string name="text_size_def_log">デフォルトのテキストサイズをログに表示する</string>
     <string name="notification_mod">通知センターの時間と日付をカスタマイズする</string>

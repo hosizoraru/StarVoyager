@@ -99,7 +99,7 @@ class SecurityUnlockPage : BasePage() {
             SeekBarWithTextV(
                 "barrage_length",
                 18,
-                72,
+                108,
                 36
             ),
             dataBindingRecv = barrageLengthBinding.binding.getRecv(1)

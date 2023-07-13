@@ -158,6 +158,7 @@
     <string name="knock_gesture_v">Draw V with a knuckle</string>
     <string name="back_double_tap">Double back tap</string>
     <string name="back_triple_tap">Triple back tap</string>
+    <string name="fingerprint_double_tap">Double tap fingerprint sensor</string>
 
     <string name="launch_voice_assistant">Launch voice assistant</string>
     <string name="screen_shot">Take a screenshot</string>
@@ -176,6 +177,7 @@
     <string name="launch_alipay_scanner">Alipay scanner</string>
     <string name="launch_wechat_scanner">WeChat scanner</string>
     <string name="dump_log">Get issue-related logs</string>
+    <string name="go_to_sleep">Turn off screen</string>
 
     <string name="text_size_def_log">Print default text size to log</string>
     <string name="notification_mod">Customize time and date in the notification center</string>
