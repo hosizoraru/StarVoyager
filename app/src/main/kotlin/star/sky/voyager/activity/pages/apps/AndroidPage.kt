@@ -47,6 +47,11 @@ class AndroidPage : BasePage() {
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.aosp_share_sheet
+            ), SwitchV("aosp_share_sheet")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.dark_mode_for_all_apps,
                 tipsId = R.string.dark_mode_for_all_apps_summary
             ), SwitchV("dark_mode_for_all_apps")

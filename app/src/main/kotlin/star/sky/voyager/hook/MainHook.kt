@@ -40,40 +40,6 @@ import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.init.EasyXposedInit
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
-val PACKAGE_NAME_HOOKED = setOf(
-    "com.xiaomi.aireco",
-    "com.miui.aod",
-    "com.xiaomi.barrage",
-    "com.android.browser",
-    "com.milink.service",
-    "com.android.externalstorage",
-    "com.android.fileexplorer",
-    "com.miui.gallery",
-    "com.miui.guardprovider",
-    "com.miui.home",
-    "com.lbe.security.miui",
-    "com.xiaomi.market",
-    "com.miui.mediaeditor",
-    "com.xiaomi.mirror",
-    "com.xiaomi.misettings",
-    "com.miui.mishare.connectivity",
-    "com.miui.player",
-    "com.miui.packageinstaller",
-    "com.miui.personalassistant",
-    "com.miui.powerkeeper",
-    "com.xiaomi.misubscreenui",
-    "com.xiaomi.scanner",
-    "com.miui.screenrecorder",
-    "com.miui.screenshot",
-    "com.miui.securitycenter",
-    "com.android.settings",
-    "com.android.systemui",
-    "com.miui.contentextension",
-    "com.android.updater",
-    "com.miui.miwallpaper",
-    "com.miui.weather2",
-)
-
 class MainHook : EasyXposedInit() {
     private var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 

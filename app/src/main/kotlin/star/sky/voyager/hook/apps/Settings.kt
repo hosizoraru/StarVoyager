@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
 import star.sky.voyager.hook.hooks.settings.HpLocation
@@ -42,6 +43,7 @@ object Settings : AppRegister() {
             VipService, // 显示我的服务
             VoipAssistant, // 解锁网络通话助手
 //            MultipleFreeform,
+            AospShareSheet,
         )
     }
 }

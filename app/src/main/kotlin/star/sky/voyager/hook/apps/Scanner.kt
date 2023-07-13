@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.scanner.Card
 import star.sky.voyager.hook.hooks.scanner.DocPpt
 import star.sky.voyager.hook.hooks.scanner.Document
@@ -23,6 +24,7 @@ object Scanner : AppRegister() {
             Ocr, // 解锁识文字
             Ppt, // 解锁提取ppt
             Translation, // 解锁翻译
+            AospShareSheet,
         )
     }
 }

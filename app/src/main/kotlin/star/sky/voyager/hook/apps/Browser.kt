@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.SuperClipboard
 import star.sky.voyager.utils.init.AppRegister
 
@@ -11,6 +12,7 @@ object Browser : AppRegister() {
         autoInitHooks(
             lpparam,
             SuperClipboard, // 超级剪切板
+            AospShareSheet,
         )
     }
 }

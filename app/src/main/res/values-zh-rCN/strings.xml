@@ -503,6 +503,7 @@
     <string name="modify_barrage_length">自定义弹幕长度</string>
     <string name="barrage_length">弹幕长度</string>
 
+    <string name="aosp_share_sheet">启用 AOSP 打开方式/分享界面</string>
     <string name="dark_mode_for_all_apps">允许所有应用使用深色模式</string>
     <string name="dark_mode_for_all_apps_summary">但 MIUI 的这种强制深色模式并不一定适用于所有应用\n部分应用如系统应用依旧排除在外</string>
     <string name="disable_flag_secure">允许截图</string>

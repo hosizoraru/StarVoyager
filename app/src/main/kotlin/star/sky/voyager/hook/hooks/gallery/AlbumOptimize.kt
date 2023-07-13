@@ -60,7 +60,7 @@ object AlbumOptimize : HookRegister() {
         albumDataHelperCls.methodFinder()
             .filterByName("getScreenRecorderLocalPath")
             .first().createHook {
-                returnConstant("Movies/screenrecorder")
+                returnConstant("Movies/ScreenRecorder")
             }
     }
 }

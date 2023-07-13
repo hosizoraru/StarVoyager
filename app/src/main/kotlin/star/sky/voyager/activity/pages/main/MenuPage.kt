@@ -16,7 +16,7 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.BuildConfig
 import star.sky.voyager.R
-import star.sky.voyager.hook.PACKAGE_NAME_HOOKED
+import star.sky.voyager.utils.init.PackageNameHook.PACKAGE_NAME_HOOKED
 import star.sky.voyager.utils.key.BackupUtils.backup
 import star.sky.voyager.utils.key.BackupUtils.recovery
 import star.sky.voyager.utils.yife.Terminal.exec

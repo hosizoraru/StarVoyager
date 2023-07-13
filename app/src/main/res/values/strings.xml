@@ -505,6 +505,7 @@
     <string name="modify_barrage_length">Customize barrage length</string>
     <string name="barrage_length">Barrage length</string>
 
+    <string name="aosp_share_sheet">Enable AOSP Open/Share Sheet</string>
     <string name="dark_mode_for_all_apps">Allow all apps to use Dark Mode</string>
     <string name="dark_mode_for_all_apps_summary">However, this forced Dark Mode in MIUI may not be applicable to all apps\nSome apps, such as system apps, will still be excluded</string>
     <string name="disable_flag_secure">Allow screenshot</string>

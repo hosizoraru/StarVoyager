@@ -503,6 +503,7 @@
     <string name="modify_barrage_length">弾幕の長さをカスタマイズ</string>
     <string name="barrage_length">弾幕の長さ</string>
 
+    <string name="aosp_share_sheet">AOSPの共有シートを有効にする</string>
     <string name="dark_mode_for_all_apps">すべてのアプリによるダークモードの使用を許可する</string>
     <string name="dark_mode_for_all_apps_summary">ただし、MIUI のこの強制的なダークモードはすべてのアプリに適用されるわけではありません\n部分のアプリ、例えばシステムアプリなどは引き続き除外されます</string>
     <string name="disable_flag_secure">スクリーンショットを許可</string>

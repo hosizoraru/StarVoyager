@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.systemui.BatteryPercentage
 import star.sky.voyager.hook.hooks.systemui.CanNotificationSlide
@@ -115,6 +116,7 @@ object SystemUI : AppRegister() {
             HideNetworkSpeedSplitter,
             DoubleLineNetworkSpeed,
             // 状态栏网络速度 End
+            AospShareSheet,
         )
     }
 }

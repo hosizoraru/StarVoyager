@@ -2,6 +2,7 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.home.AddFreeformShortcut
 import star.sky.voyager.hook.hooks.home.AllowMoveAllWidgetToMinus
 import star.sky.voyager.hook.hooks.home.AlwaysBlurWallpaper
@@ -94,6 +95,7 @@ object Home : AppRegister() {
             BlurWhenOpenFolder, // 文件夹视图模糊
             DownloadAnimation, // 水波纹下载动画
 //            MultipleFreeform,
+            AospShareSheet,
         )
     }
 
