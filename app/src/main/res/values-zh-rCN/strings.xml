@@ -606,6 +606,7 @@
     <string name="restore_switch_minus_screen">恢复切换负一屏</string>
     <string name="exposure_refresh_for_non_miui_widget">为非 MIUI 小部件提供曝光刷新</string>
     <string name="exposure_refresh_for_non_miui_widget_summary">否则非 MIUI 小组件在负一屏将无法刷新信息</string>
+    <string name="assistant_location_cn">修复更换小组件的页面没有小组件可以更换</string>
     <string name="blur_personal_assistant">负一屏模糊</string>
     <string name="blur_personal_assistant_radius">模糊程度</string>
 

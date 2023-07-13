@@ -50,6 +50,10 @@ class PersonalAssistantPage : BasePage() {
             ),
             SwitchV("exposure_refresh_for_non_miui_widget", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.assistant_location_cn),
+            SwitchV("assistant_location_cn")
+        )
         val blurPersonalAssistantBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
                 "blur_personal_assistant",

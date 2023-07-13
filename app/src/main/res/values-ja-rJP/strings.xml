@@ -606,6 +606,7 @@
     <string name="restore_switch_minus_screen">-1 画面への切り替えを回復</string>
     <string name="exposure_refresh_for_non_miui_widget">非 MIUI ウィジェットに露出リフレッシュを提供</string>
     <string name="exposure_refresh_for_non_miui_widget_summary">そうでなければ、非 MIUI ウィジェットは -1 画面で情報をリフレッシュできません</string>
+    <string name="assistant_location_cn">小組件を交換しても小組件が選択できない問題を修正する</string>
     <string name="blur_personal_assistant">-1 画面のぼかし</string>
     <string name="blur_personal_assistant_radius">ぼかしの程度</string>
 
