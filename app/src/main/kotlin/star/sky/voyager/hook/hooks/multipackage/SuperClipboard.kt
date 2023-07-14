@@ -8,6 +8,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.DexKit.closeDexKit
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import star.sky.voyager.utils.yife.DexKit.loadDexKit
 
@@ -38,6 +39,18 @@ object SuperClipboard : HookRegister() {
                     }
             }
 
+            "com.miui.screenshot" -> {
+                loadDexKit()
+                dexKitBridge.findMethodUsingString {
+                    usingString = "ro.miui.support_super_clipboard"
+                    matchType = MatchType.FULL
+                    methodReturnType = "boolean"
+                }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
+                    returnConstant(true)
+                }
+                closeDexKit()
+            }
+
             "com.android.browser" -> {
                 loadDexKit()
                 dexKitBridge.findMethodUsingString {
@@ -47,6 +60,7 @@ object SuperClipboard : HookRegister() {
                 }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
                     returnConstant(true)
                 }
+                closeDexKit()
             }
         }
     }
