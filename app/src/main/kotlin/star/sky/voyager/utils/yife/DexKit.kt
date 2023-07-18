@@ -3,15 +3,29 @@ package star.sky.voyager.utils.yife
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 import io.luckypray.dexkit.DexKitBridge
 
+/**
+ * DexKit 工具
+ */
 object DexKit {
     private lateinit var hostDir: String
-    lateinit var dexKitBridge: DexKitBridge
+    private lateinit var dexKitBridge: DexKitBridge
+    val safeDexKitBridge: DexKitBridge
+        get() {
+            loadDexKit()
+            return dexKitBridge
+        }
 
+    /**
+     * 初始化 DexKit 的 apk 完整路径
+     */
     fun initDexKit(loadPackageParam: LoadPackageParam) {
         hostDir = loadPackageParam.appInfo.sourceDir
     }
 
-    fun loadDexKit() {
+    /**
+     * 初始化 DexKit bridge
+     */
+    private fun loadDexKit() {
         if (this::dexKitBridge.isInitialized) return
         System.loadLibrary("dexkit")
         DexKitBridge.create(hostDir)?.let {
@@ -19,6 +33,9 @@ object DexKit {
         }
     }
 
+    /**
+     * 关闭 DexKit bridge
+     */
     fun closeDexKit() {
         if (this::dexKitBridge.isInitialized) dexKitBridge.close()
     }

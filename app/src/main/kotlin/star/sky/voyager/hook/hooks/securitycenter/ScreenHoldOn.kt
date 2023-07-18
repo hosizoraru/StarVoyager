@@ -4,13 +4,11 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object ScreenHoldOn : HookRegister() {
     override fun init() = hasEnable("screen_hold_on") {
-        loadDexKit()
-        dexKitBridge.findMethodUsingString {
+        safeDexKitBridge.findMethodUsingString {
             usingString = "remove_screen_off_hold_on"
             methodReturnType = "boolean"
         }.single().getMethodInstance(classLoader).createHook {

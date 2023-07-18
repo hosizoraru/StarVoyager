@@ -11,15 +11,13 @@ import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object CustomRefreshRate : HookRegister() {
     override fun init() = hasEnable("custom_refresh_rate") {
         when (hostPackageName) {
             "com.miui.powerkeeper" -> {
-                loadDexKit()
-                dexKitBridge.batchFindMethodsUsingStrings {
+                safeDexKitBridge.batchFindMethodsUsingStrings {
                     addQuery("qwq0", setOf("custom_mode_switch", "fucSwitch"))
                     matchType = MatchType.FULL
                 }.forEach { (_, methods) ->
@@ -44,8 +42,7 @@ object CustomRefreshRate : HookRegister() {
                 val refreshRateActivity =
                     loadClass("com.xiaomi.misettings.display.RefreshRate.RefreshRateActivity")
 
-                loadDexKit()
-                dexKitBridge.findMethodUsingString {
+                safeDexKitBridge.findMethodUsingString {
                     usingString = "btn_preferce_category"
                     matchType = MatchType.FULL
                 }.single().getMethodInstance(classLoader).createHook {

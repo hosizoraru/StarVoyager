@@ -20,8 +20,7 @@ import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object OpenByDefaultSetting : HookRegister() {
     @SuppressLint("DiscouragedApi")
@@ -58,8 +57,7 @@ object OpenByDefaultSetting : HookRegister() {
                 }
             }
 
-        loadDexKit()
-        dexKitBridge.findMethodUsingString {
+        safeDexKitBridge.findMethodUsingString {
             usingString = "enter_way"
             matchType = MatchType.CONTAINS
             methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"

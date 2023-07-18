@@ -1,4 +1,4 @@
-package star.sky.voyager.hook.hooks.android
+package star.sky.voyager.hook.hooks.multipackage
 
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook

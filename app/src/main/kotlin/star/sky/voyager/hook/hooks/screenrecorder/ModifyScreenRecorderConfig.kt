@@ -5,13 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isFinal
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object ModifyScreenRecorderConfig : HookRegister() {
     override fun init() = hasEnable("modify_screen_recorder_config") {
-        loadDexKit()
-        dexKitBridge.findMethodUsingString {
+        safeDexKitBridge.findMethodUsingString {
             usingString = "Error when set frame value, maxValue = "
             methodParamTypes = arrayOf("I", "I")
         }.firstOrNull()?.getMethodInstance(EzXHelper.safeClassLoader)?.createHook {
@@ -31,7 +29,8 @@ object ModifyScreenRecorderConfig : HookRegister() {
                 }?.set(null, intArrayOf(15, 24, 30, 48, 60, 90, 120, 144))
             }
         }
-        dexKitBridge.findMethodUsingString {
+
+        safeDexKitBridge.findMethodUsingString {
             usingString = "defaultBitRate = "
         }.map {
             it.getMethodInstance(EzXHelper.safeClassLoader)

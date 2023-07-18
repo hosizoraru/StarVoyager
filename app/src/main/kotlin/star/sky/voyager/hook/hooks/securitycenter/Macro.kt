@@ -5,13 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object Macro : HookRegister() {
     override fun init() = hasEnable("macro_combo") {
-        loadDexKit()
-        dexKitBridge.findMethodUsingString {
+        safeDexKitBridge.findMethodUsingString {
             usingString = "pref_gb_unsupport_macro_apps"
             methodParamTypes = arrayOf("Ljava/util/ArrayList;")
             methodReturnType = "void"
@@ -20,7 +18,8 @@ object Macro : HookRegister() {
                 it.result = ArrayList<String>()
             }
         }
-        dexKitBridge.batchFindClassesUsingStrings {
+
+        safeDexKitBridge.batchFindClassesUsingStrings {
             addQuery(
                 "qwq1",
                 setOf("com.netease.sky.mi")
@@ -33,7 +32,8 @@ object Macro : HookRegister() {
                     returnConstant(false)
                 }
         }
-        dexKitBridge.batchFindClassesUsingStrings {
+
+        safeDexKitBridge.batchFindClassesUsingStrings {
             addQuery(
                 "qwq2",
                 setOf(

@@ -2,7 +2,6 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.home.AddFreeformShortcut
 import star.sky.voyager.hook.hooks.home.AllowMoveAllWidgetToMinus
 import star.sky.voyager.hook.hooks.home.AlwaysBlurWallpaper
@@ -43,6 +42,7 @@ import star.sky.voyager.hook.hooks.home.UnlockHotSeatIcon
 import star.sky.voyager.hook.hooks.home.UseCompleteBlur
 import star.sky.voyager.hook.hooks.home.UseTransitionAnimation
 import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.multipackage.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
 import star.sky.voyager.utils.init.AppRegister
 

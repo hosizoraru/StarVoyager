@@ -5,14 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object ScreenTime : HookRegister() {
     override fun init() = hasEnable("screen_time") {
-        loadDexKit()
-
-        val classesName = dexKitBridge.batchFindClassesUsingStrings {
+        val classesName = safeDexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq1", setOf("not support screenPowerSplit", "PowerRankHelperHolder"))
             matchType = MatchType.FULL
         }.values
@@ -20,7 +17,7 @@ object ScreenTime : HookRegister() {
             .map { it.getClassInstance(classLoader).name }
             .firstOrNull()
 
-        val methods1 = dexKitBridge.batchFindMethodsUsingStrings {
+        val methods1 = safeDexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq2", setOf("ishtar", "nuwa", "fuxi"))
             matchType = MatchType.FULL
         }.values
@@ -28,7 +25,7 @@ object ScreenTime : HookRegister() {
             .map { it.getMethodInstance(classLoader) }
             .firstOrNull()
 
-        dexKitBridge.findMethod {
+        safeDexKitBridge.findMethod {
             methodDeclareClass = classesName!!
             methodReturnType = "boolean"
             methodParamTypes = arrayOf()

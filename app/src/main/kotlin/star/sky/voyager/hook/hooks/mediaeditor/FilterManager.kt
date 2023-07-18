@@ -9,14 +9,12 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import star.sky.voyager.utils.yife.DexKit.loadDexKit
+import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object FilterManager : HookRegister() {
     private lateinit var device: String
     override fun init() = hasEnable("filter_manager") {
-        loadDexKit()
-        val methods = dexKitBridge.findMethodUsingString {
+        val methods = safeDexKitBridge.findMethodUsingString {
             usingString = "wayne"
             matchType = MatchType.FULL
         }.filter { it.isMethod }.map { it.getMethodInstance(safeClassLoader) }.toTypedArray()

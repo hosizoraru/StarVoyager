@@ -2,7 +2,6 @@ package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.android.AllowUntrustedTouches
-import star.sky.voyager.hook.hooks.android.AospShareSheet
 import star.sky.voyager.hook.hooks.android.DarkModeForAllApps
 import star.sky.voyager.hook.hooks.android.DeleteOnPostNotification
 import star.sky.voyager.hook.hooks.android.Disable72hVerify
@@ -19,6 +18,7 @@ import star.sky.voyager.hook.hooks.maxmipad.NoMagicPointer
 import star.sky.voyager.hook.hooks.maxmipad.RemoveStylusBluetoothRestriction
 import star.sky.voyager.hook.hooks.maxmipad.RestoreEsc
 import star.sky.voyager.hook.hooks.maxmipad.SetGestureNeedFingerNumTo4
+import star.sky.voyager.hook.hooks.multipackage.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.MaxFreeForm
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.key.hasEnable
