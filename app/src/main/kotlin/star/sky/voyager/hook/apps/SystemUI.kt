@@ -33,6 +33,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenUwb
 import star.sky.voyager.hook.hooks.systemui.LockScreenZenMode
 import star.sky.voyager.hook.hooks.systemui.LockscreenChargingInfo
 import star.sky.voyager.hook.hooks.systemui.MaximumNumberOfNotificationIcons
+import star.sky.voyager.hook.hooks.systemui.MeterIconView
 import star.sky.voyager.hook.hooks.systemui.MonetTheme
 import star.sky.voyager.hook.hooks.systemui.NoPasswordHook
 import star.sky.voyager.hook.hooks.systemui.NotificationIcon
@@ -73,6 +74,7 @@ object SystemUI : AppRegister() {
             HideWifiActivityIcon,
             // 隐藏图标 End
             BatteryStyle, // 解锁全部电池样式
+            MeterIconView,
             ControlCenterStyle, // 解锁旧版控制中心样式
 //            AodAvailable, // 解锁 AOD
             LockscreenChargingInfo, // Yife-锁屏界面电池信息

@@ -35,6 +35,7 @@ import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
 import star.sky.voyager.activity.pages.sub.SecurityUnlockPage
 import star.sky.voyager.activity.pages.sub.SettingsUnlockPage
+import star.sky.voyager.activity.pages.sub.StatusBarBatteryPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
@@ -92,6 +93,7 @@ class MainActivity : MIUIActivity() {
         registerPage(ControlCenterPage::class.java)
         registerPage(LockScreenPage::class.java)
         registerPage(StatusBarPage::class.java)
+        registerPage(StatusBarBatteryPage::class.java)
         registerPage(StatusBarIconPage::class.java)
         registerPage(StatusBarNetWorkSpeedPage::class.java)
         registerPage(HideIconPage::class.java)

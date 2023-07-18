@@ -143,6 +143,14 @@
     <string name="height">長さ</string>
     <string name="custom_width">カスタム幅</string>
     <string name="custom_height">カスタム長さ</string>
+    <string name="normal_color">通常の色</string>
+    <string name="low_level_color">低電量の色</string>
+    <string name="power_save_color">省エネモードの色</string>
+    <string name="performance_mode_color">性能モードの色</string>
+    <string name="charging_color">充電中の色</string>
+    <string name="normal_light_color">通常の明るい色</string>
+    <string name="normal_dark_color">通常の暗い色</string>
+    <string name="status_bar_battery">ステータスバーのバッテリー</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>
@@ -442,9 +450,6 @@
     <string name="voip_assistant">VoIP アシスタントのロック解除</string>
     <string name="battery_style">トップバーのバッテリー残量表示を開放する</string>
     <string name="battery_style_top_color">トップバーの電池の色をカスタマイズ</string>
-    <string name="normal_color">通常の色</string>
-    <string name="power_save_color">省エネモードの色</string>
-    <string name="low_level_color">低電量の色</string>
 
     <string name="remove_ota_validate">*OTA 検証の削除 [実験的]</string>
     <string name="remove_ota_validate_summary">- VAB シリーズのみ対応しており、他のシリーズはオンにしないでください。\n- 内部テストの資格が不要で完全な内部テストパッケージをインストールできます。\n- 内部テスト権限のあるユーザーは内部テストアップデートを受け取れません\nシステムアップデートをブロックするために使用できます。\n- バージョンタイプをまたぐアップグレード後、データをクリアすることをお勧めします。\n- 非公式 ROM は対応していません。</string>

@@ -143,6 +143,14 @@
     <string name="height">长度</string>
     <string name="custom_width">自定义宽度</string>
     <string name="custom_height">自定义长度</string>
+    <string name="normal_color">日常颜色</string>
+    <string name="low_level_color">低电量颜色</string>
+    <string name="power_save_color">省电模式颜色</string>
+    <string name="performance_mode_color">性能模式颜色</string>
+    <string name="charging_color">充电颜色</string>
+    <string name="normal_light_color">日常浅色颜色</string>
+    <string name="normal_dark_color">日常深色颜色</string>
+    <string name="status_bar_battery">状态栏电池</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -442,9 +450,6 @@
     <string name="voip_assistant">解锁网络通话助手</string>
     <string name="battery_style">开放顶部方式的状态栏电池样式</string>
     <string name="battery_style_top_color">自定义顶部电池的颜色</string>
-    <string name="normal_color">日常颜色</string>
-    <string name="power_save_color">省电模式颜色</string>
-    <string name="low_level_color">低电量颜色</string>
 
     <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
     <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>

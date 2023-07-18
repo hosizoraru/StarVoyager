@@ -62,33 +62,6 @@ class StatusBarIconPage : BasePage() {
                 "no_show_on_wifi_connect",
             ), dataBindingRecv = wifiBinding.binding.getRecv(1)
         )
-        TextSummaryWithArrow(
-            TextSummaryV(
-                textId = R.string.battery_percentage_font_size,
-                onClickListener = {
-                    MIUIDialog(activity) {
-                        setTitle(R.string.battery_percentage_font_size)
-                        setMessage(R.string.zero_do_no_change)
-                        setEditText(
-                            "", "${activity.getString(R.string.current)}${
-                                safeSP.getFloat("battery_percentage_font_size", 0f)
-                            }"
-                        )
-                        setLButton(textId = R.string.cancel) {
-                            dismiss()
-                        }
-                        setRButton(textId = R.string.done) {
-                            if (getEditText() != "") {
-                                safeSP.putAny(
-                                    "battery_percentage_font_size",
-                                    getEditText().toFloat()
-                                )
-                            }
-                            dismiss()
-                        }
-                    }.show()
-                })
-        )
         val customMobileTypeTextBinding = GetDataBinding({
             safeSP.getBoolean(
                 "custom_mobile_type_text_switch",

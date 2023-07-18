@@ -82,11 +82,11 @@ object BatteryStyle : HookRegister() {
                         .first().createHook {
                             replace {
                                 val normalColor =
-                                    parseColor(getString("normal_color", "#0000FF"))
+                                    parseColor(getString("top_battery_normal_color", "#0000FF"))
                                 val powerSaveColor =
-                                    parseColor(getString("power_save_color", "#00FF00"))
+                                    parseColor(getString("top_battery_power_save_color", "#00FF00"))
                                 val lowLevelColor =
-                                    parseColor(getString("low_level_color", "#FF0000"))
+                                    parseColor(getString("top_battery_low_level_color", "#FF0000"))
                                 setObject(it.thisObject, "mNormalColor", normalColor)
                                 setObject(it.thisObject, "mPowerSaveColor", powerSaveColor)
                                 setObject(it.thisObject, "mLowLevelColor", lowLevelColor)

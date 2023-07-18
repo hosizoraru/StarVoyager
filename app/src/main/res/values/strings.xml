@@ -145,6 +145,14 @@
     <string name="height">Height</string>
     <string name="custom_width">Custom Width</string>
     <string name="custom_height">Custom Height</string>
+    <string name="normal_color">Normal color</string>
+    <string name="low_level_color">Low battery level color</string>
+    <string name="power_save_color">Power-saving mode color</string>
+    <string name="performance_mode_color">Performance Mode Color</string>
+    <string name="charging_color">Charging Color</string>
+    <string name="normal_light_color">Normal Light Color</string>
+    <string name="normal_dark_color">Normal Dark Color</string>
+    <string name="status_bar_battery">Status Bar Battery</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>
@@ -444,9 +452,6 @@
     <string name="show_vip_service">Show Vip Service</string>
     <string name="battery_style">Unlock Top Battery Style</string>
     <string name="battery_style_top_color">Customize color of top bar battery</string>
-    <string name="normal_color">Normal color</string>
-    <string name="power_save_color">Power-saving mode color</string>
-    <string name="low_level_color">Low battery level color</string>
 
     <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
     <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>

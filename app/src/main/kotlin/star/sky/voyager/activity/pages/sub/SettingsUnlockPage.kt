@@ -97,7 +97,7 @@ class SettingsUnlockPage : BasePage() {
                             "",
                             "${activity.getString(R.string.current)}${
                                 safeSP.getString(
-                                    "normal_color",
+                                    "top_battery_normal_color",
                                     "#FFFFFF"
                                 )
                             }"
@@ -108,37 +108,7 @@ class SettingsUnlockPage : BasePage() {
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
                                 safeSP.putAny(
-                                    "normal_color",
-                                    getEditText()
-                                )
-                            }
-                            dismiss()
-                        }
-                    }.show()
-                }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
-        )
-        TextSummaryWithArrow(
-            TextSummaryV(
-                textId = R.string.power_save_color,
-                onClickListener = {
-                    MIUIDialog(activity) {
-                        setTitle(R.string.power_save_color)
-                        setEditText(
-                            "",
-                            "${activity.getString(R.string.current)}${
-                                safeSP.getString(
-                                    "power_save_color",
-                                    "#FFFFFF"
-                                )
-                            }"
-                        )
-                        setLButton(textId = R.string.cancel) {
-                            dismiss()
-                        }
-                        setRButton(textId = R.string.done) {
-                            if (getEditText() != "") {
-                                safeSP.putAny(
-                                    "power_save_color",
+                                    "top_battery_normal_color",
                                     getEditText()
                                 )
                             }
@@ -157,7 +127,7 @@ class SettingsUnlockPage : BasePage() {
                             "",
                             "${activity.getString(R.string.current)}${
                                 safeSP.getString(
-                                    "low_level_color",
+                                    "top_battery_low_level_color",
                                     "#FFFFFF"
                                 )
                             }"
@@ -168,7 +138,37 @@ class SettingsUnlockPage : BasePage() {
                         setRButton(textId = R.string.done) {
                             if (getEditText() != "") {
                                 safeSP.putAny(
-                                    "low_level_color",
+                                    "top_battery_low_level_color",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.power_save_color,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.power_save_color)
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "top_battery_power_save_color",
+                                    "#FFFFFF"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "top_battery_power_save_color",
                                     getEditText()
                                 )
                             }

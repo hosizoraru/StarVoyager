@@ -146,6 +146,12 @@ class SystemUIPage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
+                textId = R.string.status_bar_battery,
+                onClickListener = { showFragment("status_bar_battery") }
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
                 textId = R.string.status_bar_network_speed,
                 onClickListener = { showFragment("status_bar_network_speed") }
             )
