@@ -4,8 +4,10 @@ import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
@@ -174,6 +176,28 @@ class SettingsUnlockPage : BasePage() {
                         }
                     }.show()
                 }), dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.custom_width,
+            ), SwitchV("top_battery_custom_width", false),
+            dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.width),
+            SeekBarWithTextV("top_battery_width", -10, 10, -1),
+            dataBindingRecv = batteryStyleBinding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.custom_height,
+            ), SwitchV("top_battery_custom_height", false),
+            dataBindingRecv = batteryStyleBinding.binding.getRecv(1)
+        )
+        TextWithSeekBar(
+            TextV(textId = R.string.height),
+            SeekBarWithTextV("top_battery_height", -10, 20, 4),
+            dataBindingRecv = batteryStyleBinding.getRecv(1)
         )
     }
 }

@@ -141,6 +141,10 @@
     <string name="click">Tap</string>
     <string name="double_click">Double click</string>
     <string name="long_click">Long press</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="custom_width">Custom Width</string>
+    <string name="custom_height">Custom Height</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>

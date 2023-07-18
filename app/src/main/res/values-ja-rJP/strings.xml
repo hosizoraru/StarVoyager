@@ -139,6 +139,10 @@
     <string name="click">タップ</string>
     <string name="double_click">ダブルクリック</string>
     <string name="long_click">長押し</string>
+    <string name="width">幅</string>
+    <string name="height">長さ</string>
+    <string name="custom_width">カスタム幅</string>
+    <string name="custom_height">カスタム長さ</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>

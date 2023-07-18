@@ -139,6 +139,10 @@
     <string name="click">点按</string>
     <string name="double_click">双击</string>
     <string name="long_click">长按</string>
+    <string name="width">宽度</string>
+    <string name="height">长度</string>
+    <string name="custom_width">自定义宽度</string>
+    <string name="custom_height">自定义长度</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
