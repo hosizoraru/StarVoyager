@@ -4,7 +4,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 import io.luckypray.dexkit.DexKitBridge
 
 object DexKit {
-    lateinit var hostDir: String
+    private lateinit var hostDir: String
     lateinit var dexKitBridge: DexKitBridge
 
     fun initDexKit(loadPackageParam: LoadPackageParam) {

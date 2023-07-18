@@ -55,6 +55,12 @@ android {
         }
     }
 
+    androidResources {
+        additionalParameters += "--allow-reserved-package-id"
+        additionalParameters += "--package-id"
+        additionalParameters += "0x45"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_20
         targetCompatibility = JavaVersion.VERSION_20

@@ -5,7 +5,15 @@ import java.io.DataOutputStream
 import java.io.IOException
 import java.io.InputStreamReader
 
+/**
+ * 指令 工具
+ */
 object Terminal {
+    /**
+     * 执行单条指令
+     * @param command 指令
+     * @return 指令运行输出
+     */
     fun exec(command: String): String {
         var process: Process? = null
         var reader: BufferedReader? = null
@@ -25,7 +33,7 @@ object Terminal {
             val buffer = CharArray(4096)
             val output = StringBuilder()
             while (reader.read(buffer).also { read = it } > 0) {
-                output.append(buffer, 0, read)
+                output.appendRange(buffer, 0, read)
             }
             process.waitFor()
             output.toString()
@@ -45,6 +53,11 @@ object Terminal {
         }
     }
 
+    /**
+     * 执行多条指令
+     * @param commands 指令
+     * @return 指令运行输出
+     */
     fun exec(commands: Array<String>): String {
         val stringBuilder = java.lang.StringBuilder()
         for (command in commands) {
