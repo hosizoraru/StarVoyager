@@ -24,24 +24,6 @@ object TaplusUnlock : HookRegister() {
             }
 
             "com.miui.contentextension" -> {
-//                hasEnable("unlock_taplus") {
-//                    IS_INTERNATIONAL_BUILD.apply {
-//                        setStaticObject(loadClass("miui.os.Build"), "IS_INTERNATIONAL_BUILD", false)
-//                    }
-//
-//                    loadClass("miuix.pickerwidget.widget.NumberPicker").methodFinder()
-//                        .filterByName("isInternationalBuild")
-//                        .first().createHook {
-//                            returnConstant(false)
-//                        }
-//
-//                    loadClass("com.xiaomi.onetrack.Configuration").methodFinder()
-//                        .filterByName("isInternational")
-//                        .first().createHook {
-//                            returnConstant(false)
-//                        }
-//                }
-
                 hasEnable("unlock_taplus_for_pad") {
                     if (!IS_TABLET) return@hasEnable
                     loadClass("com.miui.contentextension.setting.activity.MainSettingsActivity")
