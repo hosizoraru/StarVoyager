@@ -393,8 +393,6 @@
     <string name="album_optimize_summary">Pictures/Screenshots images will be recognized as screenshots\nMovies/ScreenRecorder videos will be recognized as screen recordings\nYou can find them in the Screenshot and Screen Record album</string>
     <string name="hdr_enhance">Display high dynamic range</string>
     <string name="hdr_enhance_summary">Use HDR to show more detail in highlights and shadows</string>
-    <string name="super_clipboard">Super Clipboard</string>
-    <string name="super_clipboard_summary">The pictures in the album can be manually copied into the clipboard</string>
     <string name="ocr">Enable ocr</string>
     <string name="ocr_form">Enable ocr form</string>
     <string name="pdf">Enable pdf</string>
@@ -406,6 +404,12 @@
     <string name="remover_2">Enable remover2</string>
     <string name="magic_matting">Enable magic matting</string>
     <string name="magic_sky">Enable magic sky</string>
+
+    <string name="super_clipboard">Super Clipboard</string>
+    <string name="super_clipboard_gallery_summary">The pictures in the album can be manually copied into the clipboard</string>
+    <string name="super_clipboard_file_explorer_summary">Files can be manually copied to the clipboard</string>
+    <string name="super_clipboard_screen_shot_summary">Screenshots are automatically copied to the clipboard</string>
+    <string name="super_clipboard_browser_summary">Webpage images can be manually copied to the clipboard</string>
 
     <string name="filter_manager">Filter manager</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>

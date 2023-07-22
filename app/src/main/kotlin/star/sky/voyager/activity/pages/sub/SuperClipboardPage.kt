@@ -13,25 +13,28 @@ class SuperClipboardPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.super_clipboard,
-                tipsId = R.string.super_clipboard_summary
+                tipsId = R.string.super_clipboard_gallery_summary
             ), SwitchV("gallery_super_clipboard", false)
         )
         TitleText(textId = R.string.scope_file_explorer)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.super_clipboard,
+                tipsId = R.string.super_clipboard_file_explorer_summary,
             ), SwitchV("file_explorer_super_clipboard", false)
         )
         TitleText(textId = R.string.scope_screen_shot)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.super_clipboard,
+                tipsId = R.string.super_clipboard_screen_shot_summary,
             ), SwitchV("screen_shot_super_clipboard", false)
         )
         TitleText(textId = R.string.scope_browser)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.super_clipboard,
+                tipsId = R.string.super_clipboard_browser_summary,
             ), SwitchV("browser_super_clipboard", false)
         )
         TitleText(textId = R.string.scope_ta_plus)

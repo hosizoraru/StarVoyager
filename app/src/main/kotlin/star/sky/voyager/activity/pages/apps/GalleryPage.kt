@@ -10,6 +10,12 @@ import star.sky.voyager.R
 
 class GalleryPage : BasePage() {
     override fun onCreate() {
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.super_clipboard,
+                onClickListener = { showFragment("super_clipboard") }
+            )
+        )
         TitleText(textId = R.string.scope_gallery)
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -22,12 +28,6 @@ class GalleryPage : BasePage() {
                 textId = R.string.hdr_enhance,
                 tipsId = R.string.hdr_enhance_summary
             ), SwitchV("hdr_enhance", false)
-        )
-        TextSummaryWithArrow(
-            TextSummaryV(
-                textId = R.string.super_clipboard,
-                onClickListener = { showFragment("super_clipboard") }
-            )
         )
         TextSummaryWithArrow(
             TextSummaryV(

@@ -391,8 +391,6 @@
     <string name="album_optimize_summary">Pictures/Screenshots 里的图片也会被认为是截图\nMovies/ScreenRecorder 里的视频也会被认为是录屏\n你可以在录屏截图这个相册里找到他们</string>
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
-    <string name="super_clipboard">超级剪切板</string>
-    <string name="super_clipboard_summary">相册里的图片可以手动复制入剪切板</string>
     <string name="ocr">解锁提取文字</string>
     <string name="ocr_form">解锁提取表格</string>
     <string name="pdf">解锁生成 PDF</string>
@@ -404,6 +402,12 @@
     <string name="remover_2">解锁魔法消除</string>
     <string name="magic_matting">解锁魔法抠图</string>
     <string name="magic_sky">解锁魔法换天</string>
+
+    <string name="super_clipboard">超级剪切板</string>
+    <string name="super_clipboard_gallery_summary">相册里的图片可以手动复制入剪切板</string>
+    <string name="super_clipboard_file_explorer_summary">文件可以手动复制入剪切板</string>
+    <string name="super_clipboard_screen_shot_summary">截图自动复制入剪切板</string>
+    <string name="super_clipboard_browser_summary">网页图片可以手动复制入剪切板</string>
 
     <string name="filter_manager">大师滤镜</string>
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>

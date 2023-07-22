@@ -391,8 +391,6 @@
     <string name="album_optimize_summary">Pictures/Screenshots 内の画像はスクリーンショットとして認識されます\nMovies/ScreenRecorder 内の動画は画面録画として認識されます\nこれらはスクリーンショットと画面録画のアルバムで見つけることができます</string>
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
     <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>
-    <string name="super_clipboard">スーパークリップボード</string>
-    <string name="super_clipboard_summary">ギャラリーの画像を手動でクリップボードにコピーできます</string>
     <string name="ocr">画像上のテキストを認識の解除</string>
     <string name="ocr_form">表を認識の解除</string>
     <string name="pdf">PDFを作成の解除</string>
@@ -404,6 +402,12 @@
     <string name="remover_2">消しゴムの解除</string>
     <string name="magic_matting">マジックビネットの解除</string>
     <string name="magic_sky">スカイスケーピングの解除</string>
+
+    <string name="super_clipboard">スーパークリップボード</string>
+    <string name="super_clipboard_gallery_summary">ギャラリーの画像を手動でクリップボードにコピーできます</string>
+    <string name="super_clipboard_file_explorer_summary">ファイルを手動でクリップボードにコピーできます</string>
+    <string name="super_clipboard_screen_shot_summary">スクリーンショットが自動的にクリップボードにコピーされます</string>
+    <string name="super_clipboard_browser_summary">ウェブページの画像を手動でクリップボードにコピーできます</string>
 
     <string name="filter_manager">マスターフィルター</string>
     <string name="unlock_unlimited_cropping">画像/スクリーンショットのクロップ制限を解除</string>
