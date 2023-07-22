@@ -23,11 +23,11 @@ class GalleryPage : BasePage() {
                 tipsId = R.string.hdr_enhance_summary
             ), SwitchV("hdr_enhance", false)
         )
-        TextSummaryWithSwitch(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.super_clipboard,
-                tipsId = R.string.super_clipboard_summary
-            ), SwitchV("super_clipboard", false)
+                onClickListener = { showFragment("super_clipboard") }
+            )
         )
         TextSummaryWithArrow(
             TextSummaryV(

@@ -40,6 +40,7 @@
     <string name="scope_miui_plus">Miui+ Beta</string>
     <string name="scope_barrage">Bullet Screen Notification</string>
     <string name="scope_weather">Weather</string>
+    <string name="scope_browser">Browser</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>

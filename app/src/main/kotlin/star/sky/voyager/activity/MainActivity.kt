@@ -39,6 +39,7 @@ import star.sky.voyager.activity.pages.sub.StatusBarBatteryPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
+import star.sky.voyager.activity.pages.sub.SuperClipboardPage
 import star.sky.voyager.utils.key.BackupUtils.CREATE_DOCUMENT_CODE
 import star.sky.voyager.utils.key.BackupUtils.OPEN_DOCUMENT_CODE
 import star.sky.voyager.utils.key.BackupUtils.handleCreateDocument
@@ -108,6 +109,7 @@ class MainActivity : MIUIActivity() {
         registerPage(SettingsPage::class.java)
         registerPage(SettingsUnlockPage::class.java)
         registerPage(GalleryUnlockPage::class.java)
+        registerPage(SuperClipboardPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

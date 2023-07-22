@@ -38,6 +38,7 @@
     <string name="scope_miui_plus">Miui+ Beta</string>
     <string name="scope_barrage">弹幕通知</string>
     <string name="scope_weather">天气</string>
+    <string name="scope_browser">浏览器</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>

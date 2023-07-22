@@ -11,51 +11,49 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object SuperClipboard : HookRegister() {
-    override fun init() = hasEnable("super_clipboard") {
+    override fun init() {
         when (hostPackageName) {
             "com.miui.gallery" -> {
-                loadClass("com.miui.gallery.util.MiscUtil").methodFinder()
-                    .filterByName("isSupportSuperClipboard")
-                    .first().createHook {
-                        returnConstant(true)
-                    }
+                hasEnable("gallery_super_clipboard") {
+                    methodSuperClipboard("com.miui.gallery.util.MiscUtil")
+                }
             }
 
             "com.android.fileexplorer" -> {
-//                loadDexKit()
-//                safeDexKitBridge.findMethodUsingString {
-//                    usingString = "ro.miui.support_super_clipboard"
-//                    matchType = MatchType.FULL
-//                    methodReturnType = "boolean"
-//                }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
-//                    returnConstant(true)
-//                }
-                loadClass("com.android.fileexplorer.model.Util").methodFinder()
-                    .filterByName("isSupportSuperClipboard")
-                    .first().createHook {
-                        returnConstant(true)
-                    }
+                hasEnable("file_explorer_super_clipboard") {
+                    methodSuperClipboard("com.android.fileexplorer.model.Util")
+                }
             }
 
             "com.miui.screenshot" -> {
-                safeDexKitBridge.findMethodUsingString {
-                    usingString = "ro.miui.support_super_clipboard"
-                    matchType = MatchType.FULL
-                    methodReturnType = "boolean"
-                }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
-                    returnConstant(true)
+                hasEnable("screen_shot_super_clipboard") {
+                    dexKitSuperClipboard()
                 }
             }
 
             "com.android.browser" -> {
-                safeDexKitBridge.findMethodUsingString {
-                    usingString = "ro.miui.support_super_clipboard"
-                    matchType = MatchType.FULL
-                    methodReturnType = "boolean"
-                }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
-                    returnConstant(true)
+                hasEnable("browser_super_clipboard") {
+                    dexKitSuperClipboard()
                 }
             }
+        }
+    }
+
+    private fun methodSuperClipboard(clsName: String) {
+        loadClass(clsName).methodFinder()
+            .filterByName("isSupportSuperClipboard")
+            .first().createHook {
+                returnConstant(true)
+            }
+    }
+
+    private fun dexKitSuperClipboard() {
+        safeDexKitBridge.findMethodUsingString {
+            usingString = "ro.miui.support_super_clipboard"
+            matchType = MatchType.FULL
+            methodReturnType = "boolean"
+        }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
+            returnConstant(true)
         }
     }
 }
