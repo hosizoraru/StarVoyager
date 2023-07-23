@@ -19,6 +19,7 @@ object PackageNameHook {
         "com.xiaomi.misettings",
         "com.miui.mishare.connectivity",
         "com.miui.player",
+        "com.miui.notes",
         "com.miui.packageinstaller",
         "com.miui.personalassistant",
         "com.miui.powerkeeper",

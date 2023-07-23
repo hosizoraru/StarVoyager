@@ -41,6 +41,7 @@
     <string name="scope_barrage">Bullet Screen Notification</string>
     <string name="scope_weather">Weather</string>
     <string name="scope_browser">Browser</string>
+    <string name="scope_notes">Notes</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -410,6 +411,7 @@
     <string name="super_clipboard_file_explorer_summary">Files can be manually copied to the clipboard</string>
     <string name="super_clipboard_screen_shot_summary">Screenshots are automatically copied to the clipboard</string>
     <string name="super_clipboard_browser_summary">Webpage images can be manually copied to the clipboard</string>
+    <string name="super_clipboard_notes_summary">Note images can be manually copied to the clipboard</string>
 
     <string name="filter_manager">Filter manager</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>

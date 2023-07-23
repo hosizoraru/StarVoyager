@@ -21,6 +21,7 @@ import star.sky.voyager.hook.apps.MiSettings
 import star.sky.voyager.hook.apps.MiShare
 import star.sky.voyager.hook.apps.Mirror
 import star.sky.voyager.hook.apps.Music
+import star.sky.voyager.hook.apps.Notes
 import star.sky.voyager.hook.apps.PackageInstaller
 import star.sky.voyager.hook.apps.PersonalAssistant
 import star.sky.voyager.hook.apps.PowerKeeper
@@ -62,6 +63,7 @@ class MainHook : EasyXposedInit() {
         MiSettings, // 小米设置
         MiShare, // 小米互传
         Music, // 音乐
+        Notes, // 笔记
         PackageInstaller, // 应用包管理组件
         PersonalAssistant, // 智能助理
         PowerKeeper, // 电量与性能

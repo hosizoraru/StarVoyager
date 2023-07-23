@@ -36,6 +36,12 @@ object SuperClipboard : HookRegister() {
                     dexKitSuperClipboard()
                 }
             }
+
+            "com.miui.notes" -> {
+                hasEnable("notes_super_clipboard") {
+                    methodSuperClipboard("com.miui.common.tool.Utils")
+                }
+            }
         }
     }
 

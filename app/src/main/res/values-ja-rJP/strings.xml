@@ -39,6 +39,7 @@
     <string name="scope_barrage">Bullet Screen Notification (弾幕通知)</string>
     <string name="scope_weather">天気</string>
     <string name="scope_browser">Browser</string>
+    <string name="scope_notes">メモ</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
@@ -408,6 +409,7 @@
     <string name="super_clipboard_file_explorer_summary">ファイルを手動でクリップボードにコピーできます</string>
     <string name="super_clipboard_screen_shot_summary">スクリーンショットが自動的にクリップボードにコピーされます</string>
     <string name="super_clipboard_browser_summary">ウェブページの画像を手動でクリップボードにコピーできます</string>
+    <string name="super_clipboard_notes_summary">メモの画像を手動でクリップボードにコピーできます</string>
 
     <string name="filter_manager">マスターフィルター</string>
     <string name="unlock_unlimited_cropping">画像/スクリーンショットのクロップ制限を解除</string>

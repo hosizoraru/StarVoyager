@@ -39,6 +39,7 @@
     <string name="scope_barrage">弹幕通知</string>
     <string name="scope_weather">天气</string>
     <string name="scope_browser">浏览器</string>
+    <string name="scope_notes">笔记</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -404,10 +405,11 @@
     <string name="magic_sky">解锁魔法换天</string>
 
     <string name="super_clipboard">超级剪切板</string>
-    <string name="super_clipboard_gallery_summary">相册里的图片可以手动复制入剪切板</string>
+    <string name="super_clipboard_gallery_summary">相册图片可以手动复制入剪切板</string>
     <string name="super_clipboard_file_explorer_summary">文件可以手动复制入剪切板</string>
     <string name="super_clipboard_screen_shot_summary">截图自动复制入剪切板</string>
     <string name="super_clipboard_browser_summary">网页图片可以手动复制入剪切板</string>
+    <string name="super_clipboard_notes_summary">笔记图片可以手动复制入剪切板</string>
 
     <string name="filter_manager">大师滤镜</string>
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>
