@@ -63,6 +63,7 @@
     <string name="tg_channel">加入 Telegram 频道</string>
     <string name="tg_group">加入 Telegram 群组</string>
     <string name="opensource">开源仓库</string>
+    <string name="sponsor">捐赠</string>
 
     <string name="backup">备份模块设置</string>
     <string name="recovery">恢复模块设置</string>

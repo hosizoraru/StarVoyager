@@ -63,6 +63,7 @@
     <string name="tg_channel">Telegram チャンネルに参加する</string>
     <string name="tg_group">Telegram グループに参加する</string>
     <string name="opensource">オープンソースリポジトリ</string>
+    <string name="sponsor">スポンサー</string>
 
     <string name="backup">モジュール設定をバックアップ</string>
     <string name="recovery">モジュール設定を復元</string>

@@ -119,5 +119,20 @@ class AboutPage : BasePage() {
                     }
                 })
         )
+
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.sponsor,
+                onClickListener = {
+                    try {
+                        val uri =
+                            parse("https://afdian.net/a/HoshiVoyager")
+                        val intent = Intent(ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, R.string.fail, LENGTH_SHORT).show()
+                    }
+                })
+        )
     }
 }
