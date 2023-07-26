@@ -52,6 +52,10 @@ class StatusBarPage : BasePage() {
             ), SwitchV("current_mA", false),
             dataBindingRecv = batteryBinding.binding.getRecv(1)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.hide_status_bar_when_screenshot),
+            SwitchV("hide_status_bar_when_screenshot")
+        )
         Line()
         val colorBinding = GetDataBinding({
             safeSP.getBoolean(

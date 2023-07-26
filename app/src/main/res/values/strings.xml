@@ -644,6 +644,7 @@
     <string name="system_ui_show_status_bar_battery">StatusBar Show about Battery</string>
     <string name="system_ui_show_status_bar_battery_summary">Charging display only, refresh rate is determined by the system</string>
     <string name="show_status_bar_battery_any">StatusBar Always Show about Battery</string>
+    <string name="hide_status_bar_when_screenshot">Hide status bar when taking a screenshot</string>
     <string name="status_bar_battery_text_color">Status bar battery text color</string>
     <string name="status_bar_battery_text_color_custom_enable">Enable custom battery text color</string>
     <string name="status_bar_battery_text_color_custom_enable_summary">Considering the inversion of the system, please do not customize it to black or white.\nOtherwise, you will not be able to see the information on some pages because of the reverse color.</string>

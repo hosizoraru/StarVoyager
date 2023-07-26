@@ -642,6 +642,7 @@
     <string name="system_ui_show_status_bar_battery">状态栏显示关于电池</string>
     <string name="system_ui_show_status_bar_battery_summary">仅充电显示，刷新率由系统决定</string>
     <string name="show_status_bar_battery_any">状态栏始终显示关于电池</string>
+    <string name="hide_status_bar_when_screenshot">截屏时隐藏状态栏</string>
     <string name="status_bar_battery_text_color">状态栏电池文字颜色</string>
     <string name="status_bar_battery_text_color_custom_enable">启用自定义电池文字颜色</string>
     <string name="status_bar_battery_text_color_custom_enable_summary">考虑到系统反色的问题，请不要自定义成黑色或者白色\n否则会在一些页面因为反色无法看到信息</string>

@@ -18,6 +18,7 @@ import star.sky.voyager.hook.hooks.systemui.HideNetworkSpeedSplitter
 import star.sky.voyager.hook.hooks.systemui.HideSimIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarNetworkSpeedSecond
+import star.sky.voyager.hook.hooks.systemui.HideStatusBarWhenScreenShot
 import star.sky.voyager.hook.hooks.systemui.HideWifiActivityIcon
 import star.sky.voyager.hook.hooks.systemui.IconPosition
 import star.sky.voyager.hook.hooks.systemui.LockScreenBlurButton
@@ -83,6 +84,7 @@ object SystemUI : AppRegister() {
             ControlCenterMod, // 控制中心 时间日期自定义
             StatusBarDoubleTapToSleep, // 状态栏-双击锁定屏幕
             StatusBarBattery, // 状态栏显示关于电池
+            HideStatusBarWhenScreenShot, // 截屏时隐藏状态栏
             StatusBarLayout, // 状态栏布局
             StatusBarTimeCustomization, // 状态栏时钟格式
             ShowWifiStandard, // 显示 WiFi 标准

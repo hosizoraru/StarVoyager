@@ -642,6 +642,7 @@
     <string name="system_ui_show_status_bar_battery">ステータスバーにバッテリーについて表示</string>
     <string name="system_ui_show_status_bar_battery_summary">充電時のみ表示、更新率はシステムによります</string>
     <string name="show_status_bar_battery_any">ステータスバーに常にバッテリーについて表示</string>
+    <string name="hide_status_bar_when_screenshot">スクリーンショット時にステータスバーを非表示</string>
     <string name="status_bar_battery_text_color">ステータスバーのバッテリーテキストの色</string>
     <string name="status_bar_battery_text_color_custom_enable">カスタムバッテリーテキスト色の有効化</string>
     <string name="status_bar_battery_text_color_custom_enable_summary">システムの反色問題を考慮して、黒または白にカスタマイズしないでください。\nそうすると一部のページで反色のために情報が見えなくなる可能性があります</string>
