@@ -16,15 +16,15 @@ object RemoveAd : HookRegister() {
         val splashManagerCls =
             loadClass("com.xiaomi.market.ui.splash.SplashManager")
 
-//        appDetailV3Cls.methodFinder().filter {
-//            name in setOf(
-//                "isBrowserMarketAdOff",
-//                "isBrowserSourceFileAdOff",
-//                "supportShowCompat64bitAlert",
-//            )
-//        }.toList().createHooks {
-//            returnConstant(true)
-//        }
+        appDetailV3Cls.methodFinder().filter {
+            name in setOf(
+                "isBrowserMarketAdOff",
+                "isBrowserSourceFileAdOff",
+                "supportShowCompat64bitAlert",
+            )
+        }.toList().createHooks {
+            returnConstant(true)
+        }
 
         appDetailV3Cls.methodFinder().filter {
             name in setOf(
@@ -44,7 +44,6 @@ object RemoveAd : HookRegister() {
                 "isTopSingleTabMultiButtonType",
                 "needShowGrayBtn",
                 "needShowPISafeModeStyle",
-                "styleGrantSuccess",
                 "supportAutoLoadDeepLink",
                 "supportShowCompatAlert",
                 "supportShowCompatChildForbidDownloadAlert",
