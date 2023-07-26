@@ -27,12 +27,12 @@ class HomeModPage : BasePage() {
         )
         TextWithSeekBar(
             TextV(textId = R.string.fold_dock_hot_seat),
-            SeekBarWithTextV("fold_dock_hot_seat", 1, 10, 3),
+            SeekBarWithTextV("fold_dock_hot_seating", 1, 10, 3),
             dataBindingRecv = foldDockBinding.getRecv(1)
         )
         TextWithSeekBar(
             TextV(textId = R.string.fold_dock_run),
-            SeekBarWithTextV("fold_dock_run", 1, 10, 2),
+            SeekBarWithTextV("fold_dock_running", 1, 10, 2),
             dataBindingRecv = foldDockBinding.getRecv(1)
         )
 
