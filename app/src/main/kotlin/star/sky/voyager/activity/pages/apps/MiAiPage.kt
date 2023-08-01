@@ -100,6 +100,13 @@ class MiAiPage : BasePage() {
             ), SwitchV("device_modify")
         )
         Line()
+        TitleText(textId = R.string.scope_aiasst_vision)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.meeting_mode,
+            ), SwitchV("meeting_mode")
+        )
+        Line()
         TitleText(textId = R.string.scope_scanner)
         TextSummaryWithSwitch(
             TextSummaryV(

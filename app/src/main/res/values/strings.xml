@@ -42,6 +42,7 @@
     <string name="scope_weather">Weather</string>
     <string name="scope_browser">Browser</string>
     <string name="scope_notes">Notes</string>
+    <string name="scope_aiasst_vision">MI AI Translate</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -377,6 +378,8 @@
 
     <string name="device_modify">Remove the restriction</string>
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>
+
+    <string name="meeting_mode">Unlock Meeting Mode</string>
 
     <string name="card">Unlock card</string>
     <string name="doc_ppt">Unlock doc ppt</string>

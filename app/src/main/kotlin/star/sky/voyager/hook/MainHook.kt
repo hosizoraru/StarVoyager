@@ -3,6 +3,7 @@ package star.sky.voyager.hook
 import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
 import star.sky.voyager.BuildConfig.APPLICATION_ID
+import star.sky.voyager.hook.apps.AiasstVision
 import star.sky.voyager.hook.apps.Aireco
 import star.sky.voyager.hook.apps.Android
 import star.sky.voyager.hook.apps.Aod
@@ -45,6 +46,7 @@ class MainHook : EasyXposedInit() {
     private var prefs = XSharedPreferences(APPLICATION_ID, prefFileName)
 
     override val registeredApp: Set<AppRegister> = setOf(
+        AiasstVision, // 小爱翻译
         Aireco, // 小爱建议
         Android, // 系统框架
         Aod, // 万象息屏

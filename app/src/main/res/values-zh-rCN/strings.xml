@@ -40,6 +40,7 @@
     <string name="scope_weather">天气</string>
     <string name="scope_browser">浏览器</string>
     <string name="scope_notes">笔记</string>
+    <string name="scope_aiasst_vision">小爱翻译</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -375,6 +376,8 @@
 
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
+
+    <string name="meeting_mode">解锁会议模式</string>
 
     <string name="card">解锁扫名片</string>
     <string name="doc_ppt">解锁扫文件</string>

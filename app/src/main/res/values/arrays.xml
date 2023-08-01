@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="xposed_scope">
+        <item>com.xiaomi.aiasst.vision</item>
         <item>com.xiaomi.aireco</item>
         <item>android</item>
         <item>com.miui.aod</item>
@@ -15,6 +16,7 @@
         <item>com.lbe.security.miui</item>
         <item>com.xiaomi.market</item>
         <item>com.miui.mediaeditor</item>
+        <item>com.miui.miinput</item>
         <item>com.xiaomi.mirror</item>
         <item>com.xiaomi.misettings</item>
         <item>com.miui.mishare.connectivity</item>
