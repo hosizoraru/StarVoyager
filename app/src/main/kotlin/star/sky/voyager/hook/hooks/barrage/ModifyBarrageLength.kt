@@ -8,8 +8,11 @@ import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object ModifyBarrageLength : HookRegister() {
+    private val barrageLength by lazy {
+        getInt("barrage_length", 36)
+    }
+
     override fun init() = hasEnable("modify_barrage_length") {
-        val barrageLength = getInt("barrage_length", 36)
         if (barrageLength == 36) return@hasEnable
         val clazzString = loadClass("java.lang.String")
 
@@ -31,18 +34,26 @@ object ModifyBarrageLength : HookRegister() {
             .first().createHook {
                 after { param ->
                     val stacktrace = Throwable().stackTrace
-                    if (stacktrace.any { it.className == "java.lang.String" }) return@after
-                    if (stacktrace.firstOrNull { it.className == "com.xiaomi.barrage.utils.BarrageWindowUtils" }
-                            ?.methodName in setOf("addBarrageNotification", "sendBarrage")) {
-                        val result = (param.result as Int)
+                    if (stacktrace.any {
+                            it.className in setOf(
+                                "java.lang.String",
+                                "android.text.SpannableStringBuilder"
+                            )
+                        }) return@after
+                    if (stacktrace.any {
+                            it.className == "com.xiaomi.barrage.utils.BarrageWindowUtils" && it.methodName in setOf(
+                                "addBarrageNotification", "sendBarrage"
+                            )
+                        }) {
+                        val realResult = (param.result as Int)
                         param.result = if (barrageLength < 36) {
-                            if (result > barrageLength) {
-                                maxOf(37, result)
-                            } else result
+                            if (realResult > barrageLength) {
+                                maxOf(37, realResult)
+                            } else realResult
                         } else {
-                            if (result < barrageLength) {
-                                minOf(35, result)
-                            } else result
+                            if (realResult <= barrageLength) {
+                                minOf(35, realResult)
+                            } else realResult
                         }
                     }
                 }
