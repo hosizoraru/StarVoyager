@@ -427,6 +427,7 @@
 
     <string name="save_to_pictures">Save screenshots to \nPictures/Screenshots</string>
     <string name="save_as_png">Save screenshots as PNG</string>
+    <string name="device_shell">Customize device with shell for screenshots</string>
 
     <string name="Market_As">Disguise your model as what in the GetApps</string>
 
