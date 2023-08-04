@@ -1,6 +1,10 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.content.ComponentName
+import android.content.Intent
 import android.view.View
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -90,6 +94,30 @@ class MiAiPage : BasePage() {
                         }
                     }.show()
                 }), dataBindingRecv = browserBinding.binding.getRecv(1)
+        )
+        Line()
+        TitleText(textId = R.string.scope_cloud_service)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.unlock_widevine_l1,
+            ), SwitchV("unlock_widevine_l1")
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.widevine_l1,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.miui.cloudservice",
+                            "com.miui.cloudservice.alipay.provision.FingerprintListActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
+                    }
+                })
         )
         Line()
         TitleText(textId = R.string.scope_aireco)

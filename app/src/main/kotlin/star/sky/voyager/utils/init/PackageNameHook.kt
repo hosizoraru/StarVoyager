@@ -8,6 +8,7 @@ object PackageNameHook {
         "com.xiaomi.barrage",
         "com.android.browser",
         "com.milink.service",
+        "com.miui.cloudservice",
         "com.android.externalstorage",
         "com.android.fileexplorer",
         "com.miui.gallery",

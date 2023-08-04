@@ -10,6 +10,7 @@ import star.sky.voyager.hook.apps.Aod
 import star.sky.voyager.hook.apps.Barrage
 import star.sky.voyager.hook.apps.Browser
 import star.sky.voyager.hook.apps.Cast
+import star.sky.voyager.hook.apps.CloudService
 import star.sky.voyager.hook.apps.ExternalStorage
 import star.sky.voyager.hook.apps.FileExplorer
 import star.sky.voyager.hook.apps.Gallery
@@ -53,6 +54,7 @@ class MainHook : EasyXposedInit() {
         Barrage, // 弹幕通知
         Browser, // 浏览器
         Cast, // 投屏
+        CloudService, // 小米云服务
         ExternalStorage, // 外部存储服务
         FileExplorer, // 文件管理
         Gallery, // 相册

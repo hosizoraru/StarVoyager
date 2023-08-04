@@ -41,6 +41,7 @@
     <string name="scope_browser">Browser</string>
     <string name="scope_notes">メモ</string>
     <string name="scope_aiasst_vision">MI AI Translate</string>
+    <string name="scope_cloud_service">Xiaomi Cloud</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
@@ -378,6 +379,9 @@
     <string name="device_modify_summary">あなたのデバイス型番を Xiaomi 13 Pro に偽装し、制限を回避します</string>
 
     <string name="meeting_mode">ミーティングモードのロックを解除する</string>
+
+    <string name="unlock_widevine_l1">Widevine（L1）インターフェースのロック解除</string>
+    <string name="widevine_l1">Widevine（L1）インターフェース</string>
 
     <string name="card">名刺スキャンを解除</string>
     <string name="doc_ppt">ファイルスキャンを解除</string>
