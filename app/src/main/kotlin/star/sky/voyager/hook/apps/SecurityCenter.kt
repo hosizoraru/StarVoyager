@@ -3,6 +3,7 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.securitycenter.AppDisable
 import star.sky.voyager.hook.hooks.securitycenter.BatteryTemperature
+import star.sky.voyager.hook.hooks.securitycenter.CameraFaceTracker
 import star.sky.voyager.hook.hooks.securitycenter.EnhanceContours
 import star.sky.voyager.hook.hooks.securitycenter.GetDefaultBubbles
 import star.sky.voyager.hook.hooks.securitycenter.GunService
@@ -17,6 +18,7 @@ import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
 import star.sky.voyager.hook.hooks.securitycenter.ScreenTime
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
 import star.sky.voyager.hook.hooks.securitycenter.SuperResolution
+import star.sky.voyager.hook.hooks.securitycenter.VcbAbility
 import star.sky.voyager.utils.init.AppRegister
 
 object SecurityCenter : AppRegister() {
@@ -40,6 +42,8 @@ object SecurityCenter : AppRegister() {
             GunService, // 全局开放准心辅助
             Macro, // 全局开放自动连招
             ScreenTime, // 开放屏幕时间
+            VcbAbility, // 视频通话美颜
+            CameraFaceTracker, // 人像居中
             GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }

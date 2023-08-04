@@ -60,6 +60,18 @@ class SecurityUnlockPage : BasePage() {
             ),
             SwitchV("macro_combo", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.vcb_ability
+            ),
+            SwitchV("vcb_ability", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.camera_face_tracker
+            ),
+            SwitchV("camera_face_tracker", false)
+        )
         Line()
         TitleText(textId = R.string.scope_barrage)
         TextSummaryWithSwitch(
