@@ -4,6 +4,7 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
@@ -42,6 +43,12 @@ object SuperClipboard : HookRegister() {
                     methodSuperClipboard("com.miui.common.tool.Utils")
                 }
             }
+
+            "com.miui.contentextension" -> {
+                hasEnable("something") {
+                    nothing()
+                }
+            }
         }
     }
 
@@ -61,5 +68,32 @@ object SuperClipboard : HookRegister() {
         }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
             returnConstant(true)
         }
+    }
+
+    private fun nothing() {
+        loadClass("com.miui.contentextension.utils.SuperImageUtils").methodFinder().filter {
+            name in setOf("isSupportSuperImage", "isBitmapSupportSuperImage")
+        }.toList().createHooks {
+            returnConstant(true)
+        }
+
+        loadClass("com.miui.contentextension.utils.TaplusSettingUtils").methodFinder().filter {
+            name in setOf("isClipboardSettingOpen", "getTaplusSetting")
+        }.toList().createHooks {
+            returnConstant(true)
+        }
+
+        loadClass("com.miui.contentextension.utils.ContentCatcherUtil").methodFinder().filter {
+            name in setOf("isCatcherSupportClipboard", "isCatcherSupportDoublePress")
+        }.toList().createHooks {
+            returnConstant(true)
+        }
+
+        loadClass("com.miui.contentextension.clipboard.utils.ClipboardUtils").methodFinder()
+            .filter {
+                name in setOf("isPcSupport", "isRegisterCapability", "supportMail", "supportTel")
+            }.toList().createHooks {
+                returnConstant(true)
+            }
     }
 }

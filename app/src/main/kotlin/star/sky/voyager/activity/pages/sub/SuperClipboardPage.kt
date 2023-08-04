@@ -44,6 +44,12 @@ class SuperClipboardPage : BasePage() {
                 tipsId = R.string.super_clipboard_notes_summary,
             ), SwitchV("notes_super_clipboard", false)
         )
-        TitleText(textId = R.string.scope_ta_plus)
+        TitleText(textId = R.string.nothing)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.something,
+                tipsId = R.string.nothing,
+            ), SwitchV("something", false)
+        )
     }
 }

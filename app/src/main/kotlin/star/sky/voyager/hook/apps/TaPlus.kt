@@ -1,6 +1,7 @@
 package star.sky.voyager.hook.apps
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import star.sky.voyager.hook.hooks.multipackage.SuperClipboard
 import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
 import star.sky.voyager.hook.hooks.taplus.TaplusBrowser
 import star.sky.voyager.hook.hooks.taplus.TaplusHorizontal
@@ -15,6 +16,7 @@ object TaPlus : AppRegister() {
             TaplusHorizontal, // 允许在横屏方向下使用传送门
             TaplusUnlock, // 为Pad解锁传送门
             TaplusBrowser, // 自定义打开的浏览器
+            SuperClipboard,
         )
     }
 }

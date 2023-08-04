@@ -68,6 +68,8 @@
     <string name="tg_group">Join the Telegram group</string>
     <string name="opensource">Open Source Repository</string>
     <string name="sponsor">Sponsor</string>
+    <string name="something">なにか</string>
+    <string name="nothing">なし\nここには何もない</string>
 
     <string name="backup">Backup Module Settings</string>
     <string name="recovery">Recovery Module Settings</string>

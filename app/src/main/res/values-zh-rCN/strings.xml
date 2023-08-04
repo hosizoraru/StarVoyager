@@ -66,6 +66,8 @@
     <string name="tg_group">加入 Telegram 群组</string>
     <string name="opensource">开源仓库</string>
     <string name="sponsor">捐赠</string>
+    <string name="something">なにか</string>
+    <string name="nothing">なし\nここには何もない</string>
 
     <string name="backup">备份模块设置</string>
     <string name="recovery">恢复模块设置</string>
