@@ -519,6 +519,7 @@
     <string name="gun_service">全画面で照準アシストを有効化</string>
     <string name="macro_combo">全画面で自動連続攻撃を有効化</string>
     <string name="vcb_ability">ビデオ通話の美化</string>
+    <string name="privacy_camera">プライバシーカメラ</string>
     <string name="camera_face_tracker">フォーカスフレーム</string>
     <string name="screen_time">バッテリーランキングにスクリーンの消費電力情報を表示する</string>
     <string name="screen_time_summary">同時に、他のすべてのアプリの非表示された消費電力情報も表示されます</string>

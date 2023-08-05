@@ -521,6 +521,7 @@
     <string name="gun_service">Anywhere Sight</string>
     <string name="macro_combo">Anywhere Macro Combo</string>
     <string name="vcb_ability">Beautify for video calls</string>
+    <string name="privacy_camera">Privacy Camera</string>
     <string name="camera_face_tracker">FocusFrame</string>
     <string name="screen_time">Display screen power consumption information on battery ranking</string>
     <string name="screen_time_summary">At the same time, the hidden power consumption information of all other apps will also be displayed</string>

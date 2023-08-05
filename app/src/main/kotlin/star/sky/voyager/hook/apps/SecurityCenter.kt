@@ -11,6 +11,7 @@ import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
 import star.sky.voyager.hook.hooks.securitycenter.MEMC
 import star.sky.voyager.hook.hooks.securitycenter.Macro
 import star.sky.voyager.hook.hooks.securitycenter.OpenByDefaultSetting
+import star.sky.voyager.hook.hooks.securitycenter.PrivacyCamera
 import star.sky.voyager.hook.hooks.securitycenter.RemoveOpenAppConfirmationPopup
 import star.sky.voyager.hook.hooks.securitycenter.Report
 import star.sky.voyager.hook.hooks.securitycenter.RiskPkg
@@ -44,6 +45,7 @@ object SecurityCenter : AppRegister() {
             ScreenTime, // 开放屏幕时间
             VcbAbility, // 视频通话美颜
             CameraFaceTracker, // 人像居中
+            PrivacyCamera, // 隐私拍摄
             GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }

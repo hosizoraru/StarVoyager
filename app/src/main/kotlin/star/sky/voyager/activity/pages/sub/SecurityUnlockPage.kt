@@ -68,6 +68,12 @@ class SecurityUnlockPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.privacy_camera
+            ),
+            SwitchV("privacy_camera", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.camera_face_tracker
             ),
             SwitchV("camera_face_tracker", false)
