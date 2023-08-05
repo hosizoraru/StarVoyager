@@ -1,6 +1,10 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.content.ComponentName
+import android.content.Intent
 import android.view.View
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -77,6 +81,23 @@ class SecurityUnlockPage : BasePage() {
                 textId = R.string.camera_face_tracker
             ),
             SwitchV("camera_face_tracker", false)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.front_camera_assistant,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.miui.securitycenter",
+                            "com.miui.gamebooster.beauty.BeautySettingsActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
+                    }
+                })
         )
         Line()
         TitleText(textId = R.string.scope_barrage)

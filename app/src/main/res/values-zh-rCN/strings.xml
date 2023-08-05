@@ -521,6 +521,7 @@
     <string name="vcb_ability">视频通话美颜</string>
     <string name="privacy_camera">隐私拍摄</string>
     <string name="camera_face_tracker">人像居中</string>
+    <string name="front_camera_assistant">前置摄像助手</string>
     <string name="screen_time">在耗电排行中显示屏幕耗电信息</string>
     <string name="screen_time_summary">同时会恢复显示所有其他应用的被隐藏的耗电信息</string>
     <string name="remove_conversation_bubble_settings_restriction">去除气泡通知应用限制</string>
