@@ -9,10 +9,18 @@ import star.sky.voyager.utils.key.hasEnable
 object FakeNavBar : HookRegister() {
     override fun init() = hasEnable("fake_nav_bar") {
         loadClass("com.miui.home.recents.views.RecentsContainer").methodFinder()
-            .filterByName("showLandscapeOverviewGestureView")
-            .filterByParamTypes(Boolean::class.java)
+            .filterByName("hideFakeNavBarForHidingGestureLine")
             .first().createHook {
-                returnConstant(null)
+                before {
+                    it.args[0] = true
+                }
             }
     }
 }
+
+//        loadClass("com.miui.home.recents.views.RecentsContainer").methodFinder()
+//            .filterByName("showLandscapeOverviewGestureView")
+//            .filterByParamTypes(Boolean::class.java)
+//            .first().createHook {
+//                returnConstant(null)
+//            }
