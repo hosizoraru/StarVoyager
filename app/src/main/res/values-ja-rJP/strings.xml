@@ -377,6 +377,7 @@
     <string name="unlock_super_wallpaper">スーパーウォールペーパーを解除</string>
 
     <string name="high_animation">アニメーションレベルが高い</string>
+    <string name="more_card">非簡体字中国語の場合、より多くの情報カードを表示する</string>
 
     <string name="device_modify">制限を削除</string>
     <string name="device_modify_summary">あなたのデバイス型番を Xiaomi 13 Pro に偽装し、制限を回避します</string>

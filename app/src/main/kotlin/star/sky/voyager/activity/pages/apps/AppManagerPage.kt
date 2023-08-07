@@ -92,6 +92,11 @@ class AppManagerPage : BasePage() {
                 textId = R.string.high_animation,
             ), SwitchV("high_animation")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.more_card,
+            ), SwitchV("more_card")
+        )
         Line()
         TitleText(textId = R.string.scope_external_storage)
         TextSummaryWithSwitch(
