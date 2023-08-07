@@ -44,6 +44,7 @@
     <string name="scope_notes">Notes</string>
     <string name="scope_aiasst_vision">MI AI Translate</string>
     <string name="scope_cloud_service">Xiaomi Cloud</string>
+    <string name="scope_providers_downloads">Providers downloads</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -484,6 +485,8 @@
     <string name="Anti_Defraud_App_Manager">Anti Defraud App Manager</string>
 
     <string name="remove_open_ad">Remove AD on Start Activity</string>
+
+    <string name="remove_xl_download">Remove .xldownload folder</string>
 
     <string name="dc_fps">Support DC + HighFps</string>
     <string name="dc_fps_summary">for mix4</string>

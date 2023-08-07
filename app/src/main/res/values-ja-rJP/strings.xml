@@ -42,6 +42,7 @@
     <string name="scope_notes">メモ</string>
     <string name="scope_aiasst_vision">MI AI Translate</string>
     <string name="scope_cloud_service">Xiaomi Cloud</string>
+    <string name="scope_providers_downloads">ダウンロード</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
@@ -482,6 +483,8 @@
     <string name="Anti_Defraud_App_Manager">アプリリストのアップロードをブロック</string>
 
     <string name="remove_open_ad">オープンスクリーン広告を削除</string>
+
+    <string name="remove_xl_download">.Xldownload フォルダを削除する</string>
 
     <string name="dc_fps">ちらつき防止と高リフレッシュレートを同時に許可</string>
     <string name="dc_fps_summary">Xiaomi Mix4 専用</string>

@@ -25,6 +25,7 @@
         <item>com.miui.packageinstaller</item>
         <item>com.miui.personalassistant</item>
         <item>com.miui.powerkeeper</item>
+        <item>com.android.providers.downloads</item>
         <item>com.xiaomi.misubscreenui</item>
         <item>com.xiaomi.scanner</item>
         <item>com.miui.screenrecorder</item>

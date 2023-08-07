@@ -42,6 +42,7 @@
     <string name="scope_notes">笔记</string>
     <string name="scope_aiasst_vision">小爱翻译</string>
     <string name="scope_cloud_service">小米云服务</string>
+    <string name="scope_providers_downloads">下载管理程序</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -482,6 +483,8 @@
     <string name="Anti_Defraud_App_Manager">阻止上传应用列表</string>
 
     <string name="remove_open_ad">移除开屏广告</string>
+
+    <string name="remove_xl_download">移除在根目录创建的.xldownload文件夹</string>
 
     <string name="dc_fps">允许 DC+ 高刷同开</string>
     <string name="dc_fps_summary">for mix4 only</string>

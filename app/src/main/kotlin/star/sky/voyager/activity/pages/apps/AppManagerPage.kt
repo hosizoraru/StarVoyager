@@ -66,6 +66,12 @@ class AppManagerPage : BasePage() {
             SwitchV("remove_open_ad")
         )
         Line()
+        TitleText(textId = R.string.scope_providers_downloads)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.remove_xl_download),
+            SwitchV("remove_xl_download")
+        )
+        Line()
         TitleText(textId = R.string.scope_aod)
         TextSummaryWithSwitch(
             TextSummaryV(

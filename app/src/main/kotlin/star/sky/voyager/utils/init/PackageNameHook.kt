@@ -25,6 +25,7 @@ object PackageNameHook {
         "com.miui.packageinstaller",
         "com.miui.personalassistant",
         "com.miui.powerkeeper",
+        "com.android.providers.downloads",
         "com.xiaomi.misubscreenui",
         "com.xiaomi.scanner",
         "com.miui.screenrecorder",
