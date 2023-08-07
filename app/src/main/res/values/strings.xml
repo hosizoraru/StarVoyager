@@ -604,6 +604,8 @@
     <string name="home_blur_when_open_folder_summary">Enable Blur When Open Folder</string>
     <string name="download_animation">Download Animation</string>
 
+    <string name="icon_label_size">Icon label font size</string>
+
     <string name="home_fold_dock">Dock for folded devices</string>
     <string name="fold_dock_num">%d Num</string>
     <string name="fold_dock_hot_seat">Number of fixed Apps</string>

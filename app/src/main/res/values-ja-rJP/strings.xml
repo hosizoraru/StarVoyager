@@ -602,6 +602,8 @@
     <string name="home_blur_when_open_folder_summary">フォルダを開いたときにぼかしを有効にする</string>
     <string name="download_animation">水波紋ダウンロードアニメーション</string>
 
+    <string name="icon_label_size">アプリタイトルの文字サイズ</string>
+
     <string name="home_fold_dock">折りたたみスクリーンのドックスタイル</string>
     <string name="fold_dock_num">%d 個</string>
     <string name="fold_dock_hot_seat">固定アプリの数</string>

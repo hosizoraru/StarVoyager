@@ -13,6 +13,11 @@ import star.sky.voyager.R
 @BMPage("home_mod", "Home Customization", hideMenu = false)
 class HomeModPage : BasePage() {
     override fun onCreate() {
+        TextSummaryWithSeekBar(
+            TextSummaryV(
+                textId = R.string.icon_label_size
+            ), SeekBarWithTextV("icon_label_size", 0, 30, 12)
+        )
         val foldDockBinding = GetDataBinding({
             safeSP.getBoolean(
                 "home_fold_dock",

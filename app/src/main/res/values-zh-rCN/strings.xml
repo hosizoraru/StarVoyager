@@ -602,6 +602,8 @@
     <string name="home_blur_when_open_folder_summary">打开文件夹时启用模糊</string>
     <string name="download_animation">水波纹下载动画</string>
 
+    <string name="icon_label_size">应用标题文字大小</string>
+
     <string name="home_fold_dock">折叠屏底栏样式</string>
     <string name="fold_dock_num">%d 个</string>
     <string name="fold_dock_hot_seat">固定应用个数</string>
