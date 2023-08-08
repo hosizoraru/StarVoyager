@@ -402,6 +402,8 @@
 
     <string name="album_optimize">スクリーンショットと画面録画のアルバム最適化</string>
     <string name="album_optimize_summary">Pictures/Screenshots 内の画像はスクリーンショットとして認識されます\nMovies/ScreenRecorder 内の動画は画面録画として認識されます\nこれらはスクリーンショットと画面録画のアルバムで見つけることができます</string>
+    <string name="open_video_self">Xiaomi ビデオに依存しないでビデオを再生する</string>
+    <string name="open_video_self_summary">ビデオを再生する際に他の方法を選択できる</string>
     <string name="hdr_enhance">ハイダイナミックレンジを表示</string>
     <string name="hdr_enhance_summary">HDR を使用して明暗のディテールを表示する</string>
     <string name="ocr">画像上のテキストを認識の解除</string>

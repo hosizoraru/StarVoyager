@@ -8,6 +8,7 @@ import star.sky.voyager.hook.hooks.gallery.MagicMatting
 import star.sky.voyager.hook.hooks.gallery.MagicSky
 import star.sky.voyager.hook.hooks.gallery.Ocr
 import star.sky.voyager.hook.hooks.gallery.OcrForm
+import star.sky.voyager.hook.hooks.gallery.OpenVideoSelf
 import star.sky.voyager.hook.hooks.gallery.Pdf
 import star.sky.voyager.hook.hooks.gallery.PhotoMovie
 import star.sky.voyager.hook.hooks.gallery.Remover2
@@ -37,6 +38,7 @@ object Gallery : AppRegister() {
             Remover2, // 解锁魔法消除
             MagicMatting, // 解锁魔法抠图
             MagicSky, // 解锁魔法换天
+            OpenVideoSelf, // 播放视频不再依赖小米视频
         )
     }
 }

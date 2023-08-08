@@ -28,6 +28,12 @@ class GalleryPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.open_video_self,
+                tipsId = R.string.open_video_self_summary,
+            ), SwitchV("open_video_self", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.hdr_enhance,
                 tipsId = R.string.hdr_enhance_summary
             ), SwitchV("hdr_enhance", false)
