@@ -8,6 +8,10 @@ import star.sky.voyager.utils.key.hasEnable
 
 object SkipWaitingTime : HookRegister() {
     override fun init() = hasEnable("skip_waiting_time") {
+        val mInterceptBaseFragmentCls =
+            loadClass("com.miui.permcenter.privacymanager.InterceptBaseFragment")
+        val mInnerClasses = mInterceptBaseFragmentCls.declaredClasses
+
         loadClass("android.widget.TextView").methodFinder()
             .filterByName("setText")
             .filterByParamCount(4)
@@ -28,5 +32,20 @@ object SkipWaitingTime : HookRegister() {
                     it.args[0] = true
                 }
             }
+
+        // 节省性能，以下hook非必需
+//        mInnerClasses.firstOrNull { Handler::class.java.isAssignableFrom(it) }?.let { clazz ->
+//            clazz.declaredConstructors.filter { it.parameterCount == 2 }.createHooks {
+//                before {
+//                    it.args[1] = 0
+//                }
+//            }
+//            clazz.methodFinder().filterByAssignableReturnType(Void.TYPE).filterByAssignableParamTypes(Int::class.javaPrimitiveType)
+//                .first().createHook {
+//                    before {
+//                        it.args[0] = 0
+//                    }
+//                }
+//        }
     }
 }
