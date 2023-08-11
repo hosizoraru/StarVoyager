@@ -504,6 +504,7 @@
     <string name="exported">Exported</string>
     <string name="exported_summary">Quickly open the Exported</string>
     <string name="original_notification">Original Notification</string>
+    <string name="original_manage_applications">Original Application Management</string>
 
     <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
     <string name="skip_waiting_time_summary">Ignore the waiting time by MIUI when eanbling USB debugging, unknown sources and accessibility</string>

@@ -502,6 +502,7 @@
     <string name="exported">さらに輝度を下げる</string>
     <string name="exported_summary">さらに輝度を下げる機能を迅速に開く</string>
     <string name="original_notification">オリジナルの通知設定</string>
+    <string name="original_manage_applications">オリジナルのアプリケーション管理</string>
 
     <string name="skip_waiting_time">5/10 秒警告時間をスキップ</string>
     <string name="skip_waiting_time_summary">USBデバッグ、未知のソース、ユーザー補助を有効にするときのMIUIのフリーズ時間を無視できます。</string>
