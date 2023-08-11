@@ -1,7 +1,7 @@
 package star.sky.voyager.hook.hooks.securitycenter
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -21,6 +21,7 @@ import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
+@SuppressLint("DiscouragedApi")
 object AppDisable : HookRegister() {
     private var mMiuiCoreApps: ArrayList<String>? = null
 
@@ -127,25 +128,26 @@ object AppDisable : HookRegister() {
                         val isEnabledOrDefault =
                             state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED || state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                         if (isEnabledOrDefault) {
-                            if (isSystem) {
-                                val title = modRes.getString(R.string.warning)
-                                val text = modRes.getString(R.string.disable_app_text)
-                                AlertDialog.Builder(act)
-                                    .setTitle(title)
-                                    .setMessage(text)
-                                    .setPositiveButton(android.R.string.ok) { _, _ ->
-                                        setAppState(
-                                            act,
-                                            mPackageInfo.packageName,
-                                            item,
-                                            false
-                                        )
-                                    }
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .show()
-                            } else {
-                                setAppState(act, mPackageInfo.packageName, item, false)
-                            }
+//                            if (isSystem) {
+//                                val title = modRes.getString(R.string.warning)
+//                                val text = modRes.getString(R.string.disable_app_text)
+//                                AlertDialog.Builder(act)
+//                                    .setTitle(title)
+//                                    .setMessage(text)
+//                                    .setPositiveButton(android.R.string.ok) { _, _ ->
+//                                        setAppState(
+//                                            act,
+//                                            mPackageInfo.packageName,
+//                                            item,
+//                                            false
+//                                        )
+//                                    }
+//                                    .setNegativeButton(android.R.string.cancel, null)
+//                                    .show()
+//                            } else {
+//                                setAppState(act, mPackageInfo.packageName, item, false)
+//                            }
+                            setAppState(act, mPackageInfo.packageName, item, false)
                         } else {
                             setAppState(act, mPackageInfo.packageName, item, true)
                         }
