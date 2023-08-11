@@ -42,7 +42,8 @@ object ShowNotificationImportance : HookRegister() {
             .filterByParamTypes(Any::class.java).first().createHook {
                 after {
                     val channelNotificationSettings =
-                        getAdditionalInstanceField(it.thisObject, "channelNotificationSettings")!!
+                        getAdditionalInstanceField(it.thisObject, "channelNotificationSettings")
+                            ?: return@after
                     val mChannel =
                         getObjectOrNullUntilSuperclassAs<NotificationChannel>(
                             channelNotificationSettings,
