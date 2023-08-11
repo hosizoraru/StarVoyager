@@ -122,5 +122,22 @@ class PowerKeeperPage : BasePage() {
                     }
                 })
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.original_language_settings,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.android.settings",
+                            "com.android.settings.LanguageSettings"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
+                    }
+                })
+        )
     }
 }

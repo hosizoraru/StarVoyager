@@ -503,6 +503,7 @@
     <string name="exported_summary">快速打开极暗</string>
     <string name="original_notification">原生的通知设置</string>
     <string name="original_manage_applications">原生的应用管理</string>
+    <string name="original_language_settings">原生的应用语言设置</string>
 
     <string name="skip_waiting_time">跳过 5/10 秒警告时间</string>
     <string name="skip_waiting_time_summary">开启后可忽略MIUI在开启USB调试、\n未知来源、无障碍时的冻结时间</string>
