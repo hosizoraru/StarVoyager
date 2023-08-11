@@ -59,6 +59,7 @@ android {
         additionalParameters += "--allow-reserved-package-id"
         additionalParameters += "--package-id"
         additionalParameters += "0x45"
+        generateLocaleConfig = true
     }
 
     compileOptions {
