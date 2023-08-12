@@ -491,6 +491,7 @@
 
     <string name="dc_fps">ちらつき防止と高リフレッシュレートを同時に許可</string>
     <string name="dc_fps_summary">Xiaomi Mix4 専用</string>
+    <string name="dc_backlight">ちらつき防止</string>
     <string name="show_all_fps">すべてのリフレッシュレートを表示</string>
     <string name="show_all_fps_summary">しかし、全てが利用可能というわけではない</string>
 

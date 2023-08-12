@@ -4,6 +4,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.misettings.AllFps
 import star.sky.voyager.hook.hooks.misettings.DcFps
 import star.sky.voyager.hook.hooks.multipackage.CustomRefreshRate
+import star.sky.voyager.hook.hooks.multipackage.DC
 import star.sky.voyager.utils.init.AppRegister
 
 object MiSettings : AppRegister() {
@@ -16,6 +17,7 @@ object MiSettings : AppRegister() {
 //            AodAvailable, // 解锁万象息屏
             DcFps, // 高刷DC同开
             AllFps, // 显示全部刷新率档位
+            DC,
         )
     }
 }

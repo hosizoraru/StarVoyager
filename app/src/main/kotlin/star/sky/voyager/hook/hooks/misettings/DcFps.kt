@@ -4,7 +4,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.voyager.FeatureParser.FeatureParserCls
+import star.sky.voyager.utils.voyager.LazyClass.FeatureParserCls
 
 object DcFps : HookRegister() {
     override fun init() = hasEnable("dc_fps") {

@@ -493,6 +493,7 @@
 
     <string name="dc_fps">Support DC + HighFps</string>
     <string name="dc_fps_summary">for mix4</string>
+    <string name="dc_backlight">DC</string>
     <string name="show_all_fps">Show all fps</string>
     <string name="show_all_fps_summary">But not all of them can be used</string>
 

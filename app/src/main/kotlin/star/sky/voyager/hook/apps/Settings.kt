@@ -3,6 +3,7 @@ package star.sky.voyager.hook.apps
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.multipackage.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
+import star.sky.voyager.hook.hooks.multipackage.DC
 import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
 import star.sky.voyager.hook.hooks.settings.HpLocation
 import star.sky.voyager.hook.hooks.settings.ImeBottom
@@ -44,6 +45,7 @@ object Settings : AppRegister() {
             VoipAssistant, // 解锁网络通话助手
 //            MultipleFreeform,
             AospShareSheet,
+            DC,
         )
     }
 }
