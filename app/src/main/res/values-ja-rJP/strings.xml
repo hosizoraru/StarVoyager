@@ -159,6 +159,8 @@
     <string name="normal_light_color">通常の明るい色</string>
     <string name="normal_dark_color">通常の暗い色</string>
     <string name="status_bar_battery">ステータスバーのバッテリー</string>
+    <string name="mi_play">Mi Smart Play</string>
+    <string name="speed_mode_tile">スピードモード</string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>

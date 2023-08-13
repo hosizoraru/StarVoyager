@@ -161,6 +161,8 @@
     <string name="normal_light_color">Normal Light Color</string>
     <string name="normal_dark_color">Normal Dark Color</string>
     <string name="status_bar_battery">Status Bar Battery</string>
+    <string name="mi_play">Mi Smart Play</string>
+    <string name="speed_mode_tile">Speed Mode</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>

@@ -70,7 +70,7 @@
         <service
             android:name=".tiles.HighBrightnessMode"
             android:exported="true"
-            android:icon="@drawable/ic_baseline_wb_sunny_24"
+            android:icon="@drawable/ic_wb_sunny"
             android:label="@string/sunshine_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -81,7 +81,7 @@
         <service
             android:name=".tiles.CameraSensor"
             android:exported="true"
-            android:icon="@drawable/ic_baseline_camera_24"
+            android:icon="@drawable/ic_camera"
             android:label="@string/camera_sensor"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -92,8 +92,41 @@
         <service
             android:name=".tiles.MicSensor"
             android:exported="true"
-            android:icon="@drawable/ic_baseline_mic_24"
+            android:icon="@drawable/ic_mic"
             android:label="@string/mic_sensor"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tiles.SpeedMode"
+            android:exported="true"
+            android:icon="@drawable/ic_battery_charging_full"
+            android:label="@string/speed_mode_tile"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tiles.CirculateWorld"
+            android:exported="true"
+            android:icon="@drawable/ic_phonelink"
+            android:label="@string/scope_mi_smart_hub"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tiles.MiPlay"
+            android:exported="true"
+            android:icon="@drawable/ic_music_note"
+            android:label="@string/mi_play"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
