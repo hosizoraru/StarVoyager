@@ -507,6 +507,8 @@
     <string name="original_notification">オリジナルの通知設定</string>
     <string name="original_manage_applications">オリジナルのアプリケーション管理</string>
     <string name="original_language_settings">オリジナルのアプリケーション言語設定</string>
+    <string name="original_privacy_dashboard">オリジナルのプライバシーダッシュボード</string>
+    <string name="privacy_dashboard_7_day">プライバシー情報センターには過去7日間の権限使用状況が表示されます</string>
 
     <string name="skip_waiting_time">5/10 秒警告時間をスキップ</string>
     <string name="skip_waiting_time_summary">USBデバッグ、未知のソース、ユーザー補助を有効にするときのMIUIのフリーズ時間を無視できます。</string>

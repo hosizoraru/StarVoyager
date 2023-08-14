@@ -2,6 +2,7 @@ package star.sky.voyager.activity.pages.apps
 
 import android.content.ComponentName
 import android.content.Intent
+import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -9,6 +10,7 @@ import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
+import star.sky.voyager.utils.yife.Terminal.exec
 
 @BMPage("scope_power_keeper", "PowerKeeper", hideMenu = false)
 class PowerKeeperPage : BasePage() {
@@ -143,6 +145,36 @@ class PowerKeeperPage : BasePage() {
                         makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
                     }
                 })
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.original_privacy_dashboard,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.android.settings",
+                            "com.android.settings.Settings\$PrivacyDashboardActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
+                    }
+                })
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.privacy_dashboard_7_day,
+            ) {
+                val command = "device_config put privacy privacy_dashboard_7_day_toggle true"
+                exec(command)
+                makeText(
+                    activity,
+                    getString(R.string.finished),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         )
     }
 }

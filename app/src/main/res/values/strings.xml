@@ -509,6 +509,8 @@
     <string name="original_notification">Original Notification</string>
     <string name="original_manage_applications">Original Application Management</string>
     <string name="original_language_settings">Original Application Language Settings</string>
+    <string name="original_privacy_dashboard">Original Privacy DashBoard</string>
+    <string name="privacy_dashboard_7_day">Privacy Dashboard displays permission usage in the past 7 days</string>
 
     <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
     <string name="skip_waiting_time_summary">Ignore the waiting time by MIUI when eanbling USB debugging, unknown sources and accessibility</string>
