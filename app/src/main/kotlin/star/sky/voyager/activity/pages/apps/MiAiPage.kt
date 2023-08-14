@@ -120,6 +120,13 @@ class MiAiPage : BasePage() {
                 })
         )
         Line()
+        TitleText(textId = R.string.scope_miui_creation)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.creation_phone,
+            ), SwitchV("creation_phone")
+        )
+        Line()
         TitleText(textId = R.string.scope_aireco)
         TextSummaryWithSwitch(
             TextSummaryV(

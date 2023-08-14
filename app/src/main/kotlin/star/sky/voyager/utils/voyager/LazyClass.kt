@@ -10,4 +10,8 @@ object LazyClass {
     val SystemProperties by lazy {
         loadClass("android.os.SystemProperties")
     }
+
+    val MiuiBuildCls by lazy {
+        loadClass("miui.os.Build")
+    }
 }

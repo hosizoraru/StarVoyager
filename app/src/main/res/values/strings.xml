@@ -45,6 +45,7 @@
     <string name="scope_aiasst_vision">MI AI Translate</string>
     <string name="scope_cloud_service">Xiaomi Cloud</string>
     <string name="scope_providers_downloads">Providers downloads</string>
+    <string name="scope_miui_creation">Miui Creation</string>
 
     <string name="reboot">Reboot</string>
     <string name="reboot_system">Reboot system</string>
@@ -390,6 +391,8 @@
 
     <string name="unlock_widevine_l1">Unlock Widevine (L1) Interface</string>
     <string name="widevine_l1">Widevine (L1) Interface</string>
+
+    <string name="creation_phone">Remove Miui Creation restrictions on the phone</string>
 
     <string name="card">Unlock card</string>
     <string name="doc_ppt">Unlock doc ppt</string>
