@@ -392,6 +392,8 @@
 
     <string name="creation_phone">Mi Canvas の制限を解除する</string>
 
+    <string name="desktop_mode">作業台モード</string>
+
     <string name="card">名刺スキャンを解除</string>
     <string name="doc_ppt">ファイルスキャンを解除</string>
     <string name="document">ドキュメント変換を解除</string>

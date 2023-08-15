@@ -394,6 +394,8 @@
 
     <string name="creation_phone">Remove Mi Canvas restrictions on the phone</string>
 
+    <string name="desktop_mode">Miui Workbench mode</string>
+
     <string name="card">Unlock card</string>
     <string name="doc_ppt">Unlock doc ppt</string>
     <string name="document">Unlock document</string>

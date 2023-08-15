@@ -392,6 +392,8 @@
 
     <string name="creation_phone">移除小米创作对手机的限制</string>
 
+    <string name="desktop_mode">工作台模式</string>
+
     <string name="card">解锁扫名片</string>
     <string name="doc_ppt">解锁扫文件</string>
     <string name="document">解锁转文档</string>
