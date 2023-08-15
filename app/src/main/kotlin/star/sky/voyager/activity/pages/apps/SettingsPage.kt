@@ -24,6 +24,11 @@ class SettingsPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.show_notification_history_and_log,
+            ), SwitchV("show_notification_history_and_log")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.system_settings_permission_unknown_origin_app,
                 tipsId = R.string.system_settings_permission_unknown_origin_app_desc
             ), SwitchV("system_settings_permission_unknown_origin_app")

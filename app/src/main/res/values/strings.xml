@@ -467,6 +467,7 @@
 
     <string name="show_notification_importance">Show notification importance</string>
     <string name="show_notification_importance_summary">Show notification importance settings which are hidden in MIUI 12 and later versions</string>
+    <string name="show_notification_history_and_log">Show entry for Notification history &amp; log in Notification &amp; Control center</string>
     <string name="system_settings_permission_unknown_origin_app">Install unknown app permissions without searching the application list</string>
     <string name="system_settings_permission_unknown_origin_app_desc">Use the international build, jump directly to the permission switch of the corresponding application “displayed on top of other applications”</string>
     <string name="no_through_the_list">Displayed in the upper-level authorized roll-free application list</string>

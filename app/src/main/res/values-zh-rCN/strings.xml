@@ -465,6 +465,7 @@
 
     <string name="show_notification_importance">显示通知重要程度</string>
     <string name="show_notification_importance_summary">显示 MIUI 12 及之后版本被隐藏的通知重要程度设置</string>
+    <string name="show_notification_history_and_log">在通知与控制中心中显示通知历史记录与日志入口</string>
     <string name="system_settings_permission_unknown_origin_app">安装未知应用权限免翻应用列表</string>
     <string name="system_settings_permission_unknown_origin_app_desc">使用国际版行为，直接跳转对应应用 \"安装未知应用\" 的权限开关</string>
     <string name="no_through_the_list">显示在上层授权免翻应用列表</string>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.hostPackageName
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.ObjectHelper.Companion.objectHelper
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -83,7 +84,7 @@ object ScrollIconName : HookRegister() {
                     if (mTitle.id == mTitle.resources.getIdentifier(
                             "icon_title",
                             "id",
-                            "com.miui.home"
+                            hostPackageName
                         )
                     ) {
                         mTitle.modify()
