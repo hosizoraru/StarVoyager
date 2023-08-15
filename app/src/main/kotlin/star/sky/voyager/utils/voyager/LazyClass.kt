@@ -14,4 +14,12 @@ object LazyClass {
     val MiuiBuildCls by lazy {
         loadClass("miui.os.Build")
     }
+
+    val SettingsFeaturesCls by lazy {
+        loadClass("com.android.settings.utils.SettingsFeatures")
+    }
+
+    val AiasstVisionSystemUtilsCls by lazy {
+        loadClass("com.xiaomi.aiasst.vision.utils.SystemUtils")
+    }
 }
