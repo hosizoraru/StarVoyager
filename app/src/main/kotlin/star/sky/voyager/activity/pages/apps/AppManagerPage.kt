@@ -34,14 +34,14 @@ class AppManagerPage : BasePage() {
                 add("Mi13Ultra") {
                     safeSP.putAny("Market_As", "Mi13Ultra")
                 }
-                add("MiPad5Pro12.4") {
-                    safeSP.putAny("Market_As", "MiPad5Pro12.4")
-                }
                 add("MiPad6Pro") {
                     safeSP.putAny("Market_As", "MiPad6Pro")
                 }
-                add("MixFold2") {
-                    safeSP.putAny("Market_As", "MixFold2")
+                add("MiPad6Max") {
+                    safeSP.putAny("Market_As", "MiPad6Max")
+                }
+                add("MixFold3") {
+                    safeSP.putAny("Market_As", "MixFold3")
                 }
             },
         )

@@ -33,13 +33,6 @@ object AsWhat : HookRegister() {
                         setStaticObject(Build::class.java, "MANUFACTURER", "Xiaomi")
                     }
 
-                    "MiPad5Pro12.4" -> {
-                        Log.i("Use MiPad5Pro12.4.")
-                        setStaticObject(Build::class.java, "DEVICE", "dagu")
-                        setStaticObject(Build::class.java, "MODEL", "22081281AC")
-                        setStaticObject(Build::class.java, "MANUFACTURER", "Xiaomi")
-                    }
-
                     "MiPad6Pro" -> {
                         Log.i("Use MiPad6Pro.")
                         setStaticObject(Build::class.java, "DEVICE", "liuqin")
@@ -47,10 +40,17 @@ object AsWhat : HookRegister() {
                         setStaticObject(Build::class.java, "MANUFACTURER", "Xiaomi")
                     }
 
-                    "MixFold2" -> {
-                        Log.i("Use MixFold2.")
-                        setStaticObject(Build::class.java, "DEVICE", "zizhan")
-                        setStaticObject(Build::class.java, "MODEL", "22061218C")
+                    "MiPad6Max" -> {
+                        Log.i("Use MiPad6Max.")
+                        setStaticObject(Build::class.java, "DEVICE", "yudi")
+                        setStaticObject(Build::class.java, "MODEL", "2307BRPDCC")
+                        setStaticObject(Build::class.java, "MANUFACTURER", "Xiaomi")
+                    }
+
+                    "MixFold3" -> {
+                        Log.i("Use MixFold3.")
+                        setStaticObject(Build::class.java, "DEVICE", "babylon")
+                        setStaticObject(Build::class.java, "MODEL", "2308CPXD0C")
                         setStaticObject(Build::class.java, "MANUFACTURER", "Xiaomi")
                     }
                 }
