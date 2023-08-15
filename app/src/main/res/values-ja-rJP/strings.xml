@@ -395,6 +395,7 @@
     <string name="widevine_l1">Widevine（L1）インターフェース</string>
 
     <string name="creation_phone">Mi Canvas の制限を解除する</string>
+    <string name="creation_image_size">写真の割合の制限を撤廃する</string>
 
     <string name="desktop_mode">作業台モード</string>
 

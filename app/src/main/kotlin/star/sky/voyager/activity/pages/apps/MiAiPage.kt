@@ -126,6 +126,11 @@ class MiAiPage : BasePage() {
                 textId = R.string.creation_phone,
             ), SwitchV("creation_phone")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.creation_image_size,
+            ), SwitchV("creation_image_size")
+        )
         Line()
         TitleText(textId = R.string.scope_aiasst_vision)
         TextSummaryWithSwitch(

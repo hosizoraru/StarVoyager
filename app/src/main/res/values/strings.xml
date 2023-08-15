@@ -397,6 +397,7 @@
     <string name="widevine_l1">Widevine (L1) Interface</string>
 
     <string name="creation_phone">Remove Mi Canvas restrictions on the phone</string>
+    <string name="creation_image_size">Remove the limit on the proportion of pictures</string>
 
     <string name="desktop_mode">Miui Workbench mode</string>
 

@@ -395,6 +395,7 @@
     <string name="widevine_l1">Widevine(L1) 界面</string>
 
     <string name="creation_phone">移除小米创作对手机的限制</string>
+    <string name="creation_image_size">解除图片比例限制</string>
 
     <string name="desktop_mode">工作台模式</string>
 
