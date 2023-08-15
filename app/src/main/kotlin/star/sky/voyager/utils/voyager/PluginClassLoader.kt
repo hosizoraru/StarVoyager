@@ -1,9 +1,10 @@
 package star.sky.voyager.utils.voyager
 
 import android.content.pm.ApplicationInfo
-import com.github.kyuubiran.ezxhelper.ClassUtils
+import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
+import de.robv.android.xposed.XC_MethodHook
 
 object PluginClassLoader {
     /**
@@ -19,10 +20,11 @@ object PluginClassLoader {
      * @author Voyager
      * @return appInfo & classLoaderP
      */
+    var hook: XC_MethodHook.Unhook? = null
     fun hookPluginClassLoader(onGetClassLoader: (appInfo: ApplicationInfo, classLoader: ClassLoader) -> Unit) {
         val classLoaderClass =
-            ClassUtils.loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory")
-        classLoaderClass.methodFinder().first {
+            loadClass("com.android.systemui.shared.plugins.PluginInstance\$Factory")
+        hook = classLoaderClass.methodFinder().first {
             name == "getClassLoader"
                     && parameterCount == 2
                     && parameterTypes[0] == ApplicationInfo::class.java
@@ -35,6 +37,7 @@ object PluginClassLoader {
                 if (appInfo.packageName == "miui.systemui.plugin") {
                     onGetClassLoader(appInfo, classLoaderP)
                 }
+                hook?.unhook()
             }
         }
     }
