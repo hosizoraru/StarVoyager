@@ -386,7 +386,6 @@
     <string name="device_modify_summary">あなたのデバイス型番を Xiaomi 13 Pro に偽装し、制限を回避します</string>
 
     <string name="meeting_mode">ミーティングモードのロックを解除する</string>
-    <string name="aiasst_vision_new_voip">Unlock New Voip</string>
     <string name="desktop_mode_screen_translate">ワークベンチモードで画面翻訳を許可する</string>
     <string name="split_screen_translate">分割画面翻訳のロックを解除する</string>
     <string name="split_screen_translate_summary">画面を分割するときに、単一のアプリケーションの翻訳を許可する</string>

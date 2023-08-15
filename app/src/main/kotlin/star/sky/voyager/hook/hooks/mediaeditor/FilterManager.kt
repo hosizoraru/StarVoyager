@@ -1,7 +1,6 @@
 package star.sky.voyager.hook.hooks.mediaeditor
 
 import android.os.Build
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
@@ -9,6 +8,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.AndroidBuildCls
 import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
 
 object FilterManager : HookRegister() {
@@ -24,10 +24,10 @@ object FilterManager : HookRegister() {
                 if (!this@FilterManager::device.isInitialized) {
                     device = Build.DEVICE
                 }
-                setStaticObject(loadClass("android.os.Build"), "DEVICE", "wayne")
+                setStaticObject(AndroidBuildCls, "DEVICE", "wayne")
             }
             after {
-                setStaticObject(loadClass("android.os.Build"), "DEVICE", device)
+                setStaticObject(AndroidBuildCls, "DEVICE", device)
             }
         }
     }

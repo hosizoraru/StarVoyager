@@ -8,6 +8,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.AndroidBuildCls
 
 object DeviceShell : HookRegister() {
     private lateinit var device: String
@@ -23,11 +24,11 @@ object DeviceShell : HookRegister() {
                     if (!this@DeviceShell::device.isInitialized) {
                         device = Build.DEVICE
                     }
-                    setStaticObject(loadClass("android.os.Build"), "DEVICE", deviceS)
+                    setStaticObject(AndroidBuildCls, "DEVICE", deviceS)
                 }
 
                 after {
-                    setStaticObject(loadClass("android.os.Build"), "DEVICE", device)
+                    setStaticObject(AndroidBuildCls, "DEVICE", device)
                 }
             }
     }

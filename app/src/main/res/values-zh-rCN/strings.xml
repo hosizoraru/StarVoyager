@@ -386,7 +386,6 @@
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
 
     <string name="meeting_mode">解锁会议模式</string>
-    <string name="aiasst_vision_new_voip">解锁网络通话翻译</string>
     <string name="desktop_mode_screen_translate">允许在工作台模式下使用屏幕翻译</string>
     <string name="split_screen_translate">解锁分屏翻译</string>
     <string name="split_screen_translate_summary">允许在分屏时单独对单个应用使用翻译</string>

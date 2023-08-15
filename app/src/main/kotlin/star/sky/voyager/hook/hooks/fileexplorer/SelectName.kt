@@ -11,6 +11,13 @@ import star.sky.voyager.utils.yife.XSharedPreferences.getBoolean
 
 object SelectName : HookRegister() {
     override fun init() {
+        val selectable by lazy {
+            getBoolean("file_explorer_can_selectable", false)
+        }
+        val singleLine by lazy {
+            getBoolean("file_explorer_is_single_line", false)
+        }
+        if (selectable && !singleLine) return
         hasEnable("file_explorer_can_selectable") {
             hasEnable("file_explorer_is_single_line") {
                 loadClass("com.android.fileexplorer.view.FileListItem").methodFinder()
@@ -22,10 +29,7 @@ object SelectName : HookRegister() {
                                 "mFileNameTextView"
                             ))?.apply {
                                 setTextIsSelectable(
-                                    getBoolean(
-                                        "file_explorer_can_selectable",
-                                        false
-                                    )
+                                    selectable
                                 )
                                 isSingleLine = getBoolean("file_explorer_is_single_line", false)
                             }

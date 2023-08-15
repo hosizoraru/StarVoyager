@@ -140,11 +140,6 @@ class MiAiPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.aiasst_vision_new_voip,
-            ), SwitchV("aiasst_vision_new_voip")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.desktop_mode_screen_translate,
             ), SwitchV("desktop_mode_screen_translate")
         )

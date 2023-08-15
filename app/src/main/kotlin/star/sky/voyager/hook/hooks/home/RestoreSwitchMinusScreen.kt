@@ -13,11 +13,11 @@ import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.MiuiBuildCls
 
 object RestoreSwitchMinusScreen : HookRegister() {
     override fun init() = hasEnable("restore_switch_minus_screen") {
         val clazzUtilities = loadClass("com.miui.home.launcher.common.Utilities")
-        val clazzMiuiBuild = loadClass("miui.os.Build")
         val clazzLauncher = loadClass("com.miui.home.launcher.Launcher")
         val clazzMiuiHomeSettings = loadClass("com.miui.home.settings.MiuiHomeSettings")
         loadClass("com.miui.home.launcher.DeviceConfig").methodFinder()
@@ -39,21 +39,21 @@ object RestoreSwitchMinusScreen : HookRegister() {
                         clazzUtilities, "getCurrentPersonalAssistant"
                     )!! as String) == "personal_assistant_google"
                     setStaticObject(
-                        clazzMiuiBuild,
+                        MiuiBuildCls,
                         "IS_INTERNATIONAL_BUILD",
                         isPersonalAssistantGoogle
                     )
                 }
                 after {
-                    setStaticObject(clazzMiuiBuild, "IS_INTERNATIONAL_BUILD", false)
+                    setStaticObject(MiuiBuildCls, "IS_INTERNATIONAL_BUILD", false)
                 }
             }
         clazzLauncher.declaredConstructors.createHooks {
             before {
-                setStaticObject(clazzMiuiBuild, "IS_INTERNATIONAL_BUILD", true)
+                setStaticObject(MiuiBuildCls, "IS_INTERNATIONAL_BUILD", true)
             }
             after {
-                setStaticObject(clazzMiuiBuild, "IS_INTERNATIONAL_BUILD", false)
+                setStaticObject(MiuiBuildCls, "IS_INTERNATIONAL_BUILD", false)
             }
         }
         clazzMiuiHomeSettings.methodFinder().filterByName("onCreatePreferences")

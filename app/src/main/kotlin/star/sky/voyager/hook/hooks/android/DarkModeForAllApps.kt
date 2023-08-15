@@ -8,6 +8,7 @@ import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.MiuiBuildCls
 import star.sky.voyager.utils.yife.Build.IS_INTERNATIONAL_BUILD
 
 object DarkModeForAllApps : HookRegister() {
@@ -18,11 +19,11 @@ object DarkModeForAllApps : HookRegister() {
         clazzForceDarkAppListManager.methodFinder().filterByName("getDarkModeAppList").toList()
             .createHooks {
                 before {
-                    setStaticObject(loadClass("miui.os.Build"), "IS_INTERNATIONAL_BUILD", true)
+                    setStaticObject(MiuiBuildCls, "IS_INTERNATIONAL_BUILD", true)
                 }
                 after {
                     setStaticObject(
-                        loadClass("miui.os.Build"),
+                        MiuiBuildCls,
                         "IS_INTERNATIONAL_BUILD",
                         IS_INTERNATIONAL_BUILD
                     )
