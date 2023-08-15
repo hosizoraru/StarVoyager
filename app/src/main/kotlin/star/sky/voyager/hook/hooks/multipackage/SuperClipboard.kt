@@ -44,6 +44,12 @@ object SuperClipboard : HookRegister() {
                 }
             }
 
+            "com.miui.creation" -> {
+                hasEnable("creation_super_clipboard") {
+                    methodSuperClipboard("com.miui.creation.common.tools.ClipUtils")
+                }
+            }
+
             "com.miui.contentextension" -> {
                 hasEnable("something") {
                     nothing()

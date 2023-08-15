@@ -435,6 +435,7 @@
     <string name="super_clipboard_screen_shot_summary">截图自动复制入剪切板</string>
     <string name="super_clipboard_browser_summary">网页图片可以手动复制入剪切板</string>
     <string name="super_clipboard_notes_summary">笔记图片可以手动复制入剪切板</string>
+    <string name="super_clipboard_creation_summary">小米创作图片可以手动复制入剪切板</string>
 
     <string name="filter_manager">大师滤镜</string>
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>

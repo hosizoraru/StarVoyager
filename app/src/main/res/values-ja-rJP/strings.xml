@@ -435,6 +435,7 @@
     <string name="super_clipboard_screen_shot_summary">スクリーンショットが自動的にクリップボードにコピーされます</string>
     <string name="super_clipboard_browser_summary">ウェブページの画像を手動でクリップボードにコピーできます</string>
     <string name="super_clipboard_notes_summary">メモの画像を手動でクリップボードにコピーできます</string>
+    <string name="super_clipboard_creation_summary">Mi Canvas の画像を手動でクリップボードにコピーできます</string>
 
     <string name="filter_manager">マスターフィルター</string>
     <string name="unlock_unlimited_cropping">画像/スクリーンショットのクロップ制限を解除</string>

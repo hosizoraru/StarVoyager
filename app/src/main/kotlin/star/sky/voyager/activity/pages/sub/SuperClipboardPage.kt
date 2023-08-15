@@ -44,6 +44,13 @@ class SuperClipboardPage : BasePage() {
                 tipsId = R.string.super_clipboard_notes_summary,
             ), SwitchV("notes_super_clipboard", false)
         )
+        TitleText(textId = R.string.scope_miui_creation)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.super_clipboard,
+                tipsId = R.string.super_clipboard_creation_summary,
+            ), SwitchV("creation_super_clipboard", false)
+        )
         TitleText(textId = R.string.nothing)
         TextSummaryWithSwitch(
             TextSummaryV(
