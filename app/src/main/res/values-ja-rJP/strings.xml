@@ -43,7 +43,7 @@
     <string name="scope_aiasst_vision">MI AI Translate</string>
     <string name="scope_cloud_service">Xiaomi Cloud</string>
     <string name="scope_providers_downloads">ダウンロード</string>
-    <string name="scope_miui_creation">Miui Creation</string>
+    <string name="scope_miui_creation">Mi Canvas</string>
 
     <string name="reboot">再起動</string>
     <string name="reboot_system">システムを再起動</string>
@@ -390,7 +390,7 @@
     <string name="unlock_widevine_l1">Widevine（L1）インターフェースのロック解除</string>
     <string name="widevine_l1">Widevine（L1）インターフェース</string>
 
-    <string name="creation_phone">Miui Creationの制限を解除する</string>
+    <string name="creation_phone">Mi Canvas の制限を解除する</string>
 
     <string name="card">名刺スキャンを解除</string>
     <string name="doc_ppt">ファイルスキャンを解除</string>
