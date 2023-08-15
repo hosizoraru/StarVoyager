@@ -148,6 +148,23 @@ class PowerKeeperPage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
+                textId = R.string.desktop_mode,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.miui.freeform",
+                            "com.miui.freeform.guide.MiuiDesktopModeGuideActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        makeText(activity, "启动失败，可能是不支持", LENGTH_LONG).show()
+                    }
+                })
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
                 textId = R.string.original_privacy_dashboard,
                 onClickListener = {
                     try {
