@@ -388,6 +388,10 @@
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>
 
     <string name="meeting_mode">Unlock Meeting Mode</string>
+    <string name="aiasst_vision_new_voip">Unlock New Voip</string>
+    <string name="desktop_mode_screen_translate">Allow screen translation in workbench mode</string>
+    <string name="split_screen_translate">Unlock split-screen translation</string>
+    <string name="split_screen_translate_summary">Allow translation for a single application when splitting the screen</string>
 
     <string name="unlock_widevine_l1">Unlock Widevine (L1) Interface</string>
     <string name="widevine_l1">Widevine (L1) Interface</string>

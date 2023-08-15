@@ -127,19 +127,35 @@ class MiAiPage : BasePage() {
             ), SwitchV("creation_phone")
         )
         Line()
+        TitleText(textId = R.string.scope_aiasst_vision)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.meeting_mode,
+            ), SwitchV("meeting_mode")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.aiasst_vision_new_voip,
+            ), SwitchV("aiasst_vision_new_voip")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.desktop_mode_screen_translate,
+            ), SwitchV("desktop_mode_screen_translate")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.split_screen_translate,
+                tipsId = R.string.split_screen_translate_summary,
+            ), SwitchV("split_screen_translate")
+        )
+        Line()
         TitleText(textId = R.string.scope_aireco)
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.device_modify,
                 tipsId = R.string.device_modify_summary,
             ), SwitchV("device_modify")
-        )
-        Line()
-        TitleText(textId = R.string.scope_aiasst_vision)
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.meeting_mode,
-            ), SwitchV("meeting_mode")
         )
         Line()
         TitleText(textId = R.string.scope_scanner)
