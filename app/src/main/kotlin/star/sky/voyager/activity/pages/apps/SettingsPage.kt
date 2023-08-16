@@ -29,14 +29,14 @@ class SettingsPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.system_settings_permission_unknown_origin_app,
-                tipsId = R.string.system_settings_permission_unknown_origin_app_desc
-            ), SwitchV("system_settings_permission_unknown_origin_app")
+                textId = R.string.google_settings,
+            ), SwitchV("google_settings")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.google_settings,
-            ), SwitchV("google_settings")
+                textId = R.string.system_settings_permission_unknown_origin_app,
+                tipsId = R.string.system_settings_permission_unknown_origin_app_desc
+            ), SwitchV("system_settings_permission_unknown_origin_app")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
