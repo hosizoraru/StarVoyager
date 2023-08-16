@@ -11,9 +11,7 @@ object PreventRecoveryOfBatteryOptimizationWhitelist : HookRegister() {
         loadClass("com.miui.powerkeeper.statemachine.ForceDozeController").methodFinder()
             .filterByName("restoreWhiteListAppsIfQuitForceIdle")
             .first().createHook {
-                before {
-                    it.result = null
-                }
+                returnConstant(null)
             }
     }
 }
