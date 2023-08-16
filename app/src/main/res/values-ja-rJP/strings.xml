@@ -466,6 +466,7 @@
     <string name="show_notification_importance">通知の重要度を表示</string>
     <string name="show_notification_importance_summary">MIUI 12以降のバージョンで非表示にされた通知の重要度設定を表示します</string>
     <string name="show_notification_history_and_log">通知履歴のエントリを表示し、通知とコントロールセンターにログインします</string>
+    <string name="google_settings">システム設定に Google 設定が表示されます</string>
     <string name="system_settings_permission_unknown_origin_app">不明なアプリのインストール許可を持つアプリリスト</string>
     <string name="system_settings_permission_unknown_origin_app_desc">国際版の動作を使用し、直接アプリの「不明なアプリのインストール」許可スイッチにジャンプします</string>
     <string name="no_through_the_list">他のアプリの上に重ねて表示許可を持つアプリリスト</string>

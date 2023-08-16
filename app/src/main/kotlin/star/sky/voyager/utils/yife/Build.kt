@@ -24,4 +24,8 @@ object Build {
     val IS_INTERNATIONAL_BUILD by lazy {
         getStaticObjectOrNullAs<Boolean>(clazzMiuiBuild, "IS_INTERNATIONAL_BUILD") ?: false
     }
+
+    val IS_GLOBAL_BUILD by lazy {
+        getStaticObjectOrNullAs<Boolean>(clazzMiuiBuild, "IS_GLOBAL_BUILD") ?: false
+    }
 }

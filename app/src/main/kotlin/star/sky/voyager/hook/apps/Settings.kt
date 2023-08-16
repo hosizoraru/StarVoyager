@@ -5,6 +5,7 @@ import star.sky.voyager.hook.hooks.multipackage.AospShareSheet
 import star.sky.voyager.hook.hooks.multipackage.BatteryStyle
 import star.sky.voyager.hook.hooks.multipackage.DC
 import star.sky.voyager.hook.hooks.multipackage.TaplusUnlock
+import star.sky.voyager.hook.hooks.settings.GoogleSettings
 import star.sky.voyager.hook.hooks.settings.HpLocation
 import star.sky.voyager.hook.hooks.settings.ImeBottom
 import star.sky.voyager.hook.hooks.settings.MechKeyboard
@@ -46,6 +47,7 @@ object Settings : AppRegister() {
             VipService, // 显示我的服务
             VoipAssistant, // 解锁网络通话助手
             ShowNotificationHistoryAndLog, // 在通知与控制中心中显示通知历史记录与日志入口
+            GoogleSettings,
 //            MultipleFreeform,
             AospShareSheet,
             DC,

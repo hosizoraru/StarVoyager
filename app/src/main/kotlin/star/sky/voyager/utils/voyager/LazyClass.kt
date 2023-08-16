@@ -26,4 +26,8 @@ object LazyClass {
     val AiasstVisionSystemUtilsCls by lazy {
         loadClass("com.xiaomi.aiasst.vision.utils.SystemUtils")
     }
+
+    val MiuiSettingsCls by lazy {
+        loadClass("com.android.settings.MiuiSettings")
+    }
 }
