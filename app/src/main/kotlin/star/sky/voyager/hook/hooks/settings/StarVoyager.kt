@@ -17,7 +17,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.voyager.LazyClass.MiuiSettingsCls
 
 @SuppressLint("DiscouragedApi")
-object QWQ : HookRegister() {
+object StarVoyager : HookRegister() {
     override fun init() {
         val preferenceActivityCls =
             loadClass("com.android.settingslib.miuisettings.preference.PreferenceActivity\$Header")
