@@ -13,5 +13,11 @@ object PreventRecoveryOfBatteryOptimizationWhitelist : HookRegister() {
             .first().createHook {
                 returnConstant(null)
             }
+
+        loadClass("com.miui.powerkeeper.utils.CommonAdapter").methodFinder()
+            .filterByName("addPowerSaveWhitelistApps")
+            .first().createHook {
+                returnConstant(null)
+            }
     }
 }
