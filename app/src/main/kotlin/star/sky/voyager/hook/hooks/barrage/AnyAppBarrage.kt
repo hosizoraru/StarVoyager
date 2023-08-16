@@ -47,15 +47,10 @@ object AnyAppBarrage : HookRegister() {
 
     object NotificationCache {
         private const val maxSize = 20
-        private val cache = linkedSetOf<String>()
+        private val cache = LinkedHashSet<String>()
         fun check(string: String): Boolean {
             val result = cache.add(string)
-            if (cache.size > maxSize) {
-                cache.iterator().run {
-                    next()
-                    remove()
-                }
-            }
+            if (cache.size > maxSize) cache.remove(cache.first())
             return result
         }
     }
