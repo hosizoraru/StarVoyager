@@ -7,7 +7,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
 
 object GameBoxVisionEnhance : HookRegister() {
@@ -27,7 +27,7 @@ object GameBoxVisionEnhance : HookRegister() {
 //                }
 //            }
 
-        safeDexKitBridge.batchFindClassesUsingStrings {
+        dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq1", setOf("GBToolsFunctionManager"))
             matchType = MatchType.FULL
         }.forEach { (_, classes1) ->
@@ -40,7 +40,7 @@ object GameBoxVisionEnhance : HookRegister() {
             .filterByParamCount(3)
             .first()
 
-        safeDexKitBridge.findMethodInvoking {
+        dexKitBridge.findMethodInvoking {
             methodDeclareClass = l6g.name
             methodName = g.name
             methodReturnType = g.returnType.name

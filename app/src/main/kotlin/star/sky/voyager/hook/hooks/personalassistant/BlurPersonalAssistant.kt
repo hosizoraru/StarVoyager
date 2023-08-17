@@ -8,14 +8,14 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.BlurDraw.getValueByFields
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import kotlin.math.abs
 
 object BlurPersonalAssistant : HookRegister() {
     override fun init() = hasEnable("blur_personal_assistant") {
         val blurRadius = getInt("blur_personal_assistant_radius", 80)
         var lastBlurRadius = -1
-        safeDexKitBridge.batchFindMethodsUsingStrings {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
             matchType = MatchType.FULL
         }.forEach { (_, methods) ->

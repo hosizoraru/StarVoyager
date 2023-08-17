@@ -5,7 +5,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
 
 object ScreenTime : HookRegister() {
@@ -13,7 +13,7 @@ object ScreenTime : HookRegister() {
     private lateinit var method1: Method
     private lateinit var method2: Method
     override fun init() = hasEnable("screen_time") {
-        cls = safeDexKitBridge.batchFindClassesUsingStrings {
+        cls = dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq1", setOf("not support screenPowerSplit", "PowerRankHelperHolder"))
             matchType = MatchType.FULL
         }.values
@@ -21,7 +21,7 @@ object ScreenTime : HookRegister() {
             .map { it.getClassInstance(classLoader) }
             .firstOrNull()!!
 
-        method1 = safeDexKitBridge.batchFindMethodsUsingStrings {
+        method1 = dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq2", setOf("ishtar", "nuwa", "fuxi"))
             matchType = MatchType.FULL
         }.values
@@ -29,7 +29,7 @@ object ScreenTime : HookRegister() {
             .map { it.getMethodInstance(classLoader) }
             .firstOrNull()!!
 
-        safeDexKitBridge.findMethod {
+        dexKitBridge.findMethod {
             methodDeclareClass = cls.name
             methodReturnType = "boolean"
             methodParamTypes = arrayOf()

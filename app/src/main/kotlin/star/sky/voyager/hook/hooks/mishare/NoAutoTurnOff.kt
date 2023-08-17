@@ -7,11 +7,11 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object NoAutoTurnOff : HookRegister() {
     override fun init() = hasEnable("No_Auto_Turn_Off") {
-        safeDexKitBridge.batchFindMethodsUsingStrings {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("EnabledState", "mishare_enabled"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->
@@ -24,7 +24,7 @@ object NoAutoTurnOff : HookRegister() {
             }
         }
 
-        safeDexKitBridge.batchFindClassesUsingStrings {
+        dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", setOf("null context", "cta_agree"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->

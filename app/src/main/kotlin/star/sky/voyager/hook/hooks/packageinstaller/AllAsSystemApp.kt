@@ -5,12 +5,12 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 
 object AllAsSystemApp : HookRegister() {
     override fun init() = hasEnable("all_as_system_app") {
-        safeDexKitBridge.findMethod {
+        dexKitBridge.findMethod {
             methodParamTypes = arrayOf("Landroid/content/pm/ApplicationInfo;")
             methodReturnType = "boolean"
         }.forEach {

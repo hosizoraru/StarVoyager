@@ -9,7 +9,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object SuperClipboard : HookRegister() {
     override fun init() {
@@ -67,7 +67,7 @@ object SuperClipboard : HookRegister() {
     }
 
     private fun dexKitSuperClipboard() {
-        safeDexKitBridge.findMethodUsingString {
+        dexKitBridge.findMethodUsingString {
             usingString = "ro.miui.support_super_clipboard"
             matchType = MatchType.FULL
             methodReturnType = "boolean"

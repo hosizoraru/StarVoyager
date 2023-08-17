@@ -5,11 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object CameraFaceTracker : HookRegister() {
     override fun init() = hasEnable("camera_face_tracker") {
-        safeDexKitBridge.findMethodUsingString {
+        dexKitBridge.findMethodUsingString {
             usingString = "persist.vendor.camera.facetracker.support"
             matchType = MatchType.FULL
         }.single().getMethodInstance(classLoader).createHook {

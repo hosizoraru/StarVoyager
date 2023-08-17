@@ -8,12 +8,13 @@ import io.luckypray.dexkit.DexKitBridge
  */
 object DexKit {
     private lateinit var hostDir: String
-    private lateinit var dexKitBridge: DexKitBridge
-    val safeDexKitBridge: DexKitBridge
-        get() {
-            loadDexKit()
-            return dexKitBridge
+    private var isInitialized = false
+    val dexKitBridge: DexKitBridge by lazy {
+        System.loadLibrary("dexkit")
+        DexKitBridge.create(hostDir)!!.also {
+            isInitialized = true
         }
+    }
 
     /**
      * 初始化 DexKit 的 apk 完整路径
@@ -23,20 +24,9 @@ object DexKit {
     }
 
     /**
-     * 初始化 DexKit bridge
-     */
-    private fun loadDexKit() {
-        if (this::dexKitBridge.isInitialized) return
-        System.loadLibrary("dexkit")
-        DexKitBridge.create(hostDir)?.let {
-            dexKitBridge = it
-        }
-    }
-
-    /**
      * 关闭 DexKit bridge
      */
     fun closeDexKit() {
-        if (this::dexKitBridge.isInitialized) dexKitBridge.close()
+        if (isInitialized) dexKitBridge.close()
     }
 }

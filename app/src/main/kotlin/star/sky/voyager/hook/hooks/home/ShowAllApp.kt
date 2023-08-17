@@ -4,11 +4,11 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ShowAllApp : HookRegister() {
     override fun init() = hasEnable("show_all_app_dsm") {
-        safeDexKitBridge.findMethod {
+        dexKitBridge.findMethod {
             methodName = "isHideAppValid"
             methodReturnType = "boolean"
         }.map {

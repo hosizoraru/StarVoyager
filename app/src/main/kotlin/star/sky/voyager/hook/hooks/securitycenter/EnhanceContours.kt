@@ -5,17 +5,17 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object EnhanceContours : HookRegister() {
     override fun init() = hasEnable("enhance_contours") {
-        safeDexKitBridge.batchFindClassesUsingStrings {
+        dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", setOf("ro.vendor.media.video.frc.support"))
         }.forEach { (_, classes) ->
             classes.map {
                 val qaq = it.getClassInstance(classLoader)
                 var counter = 0
-                safeDexKitBridge.findMethod {
+                dexKitBridge.findMethod {
                     methodDeclareClass = qaq.name
                     methodReturnType = "boolean"
                     methodParamTypes = arrayOf("java.lang.String")
@@ -27,7 +27,7 @@ object EnhanceContours : HookRegister() {
                         }
                     }
                 }
-                val tat = safeDexKitBridge.findMethodUsingString {
+                val tat = dexKitBridge.findMethodUsingString {
                     methodDeclareClass = qaq.name
                     usingString = "debug.config.media.video.ais.support"
                 }.single().getMethodInstance(classLoader)

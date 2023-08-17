@@ -5,11 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Report : HookRegister() {
     override fun init() = hasEnable("remove_report") {
-        safeDexKitBridge.batchFindMethodsUsingStrings {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("android.intent.action.VIEW", "com.xiaomi.market"))
             matchType = MatchType.FULL
         }.forEach { (_, classes) ->

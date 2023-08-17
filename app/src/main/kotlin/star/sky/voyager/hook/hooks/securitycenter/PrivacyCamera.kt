@@ -5,7 +5,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
 
 
@@ -14,7 +14,7 @@ object PrivacyCamera : HookRegister() {
     private lateinit var R0: Method
 
     override fun init() = hasEnable("privacy_camera") {
-        safeDexKitBridge.batchFindClassesUsingStrings {
+        dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", setOf("persist.sys.privacy_camera"))
         }.forEach { (_, classes) ->
             classes.map {
@@ -22,7 +22,7 @@ object PrivacyCamera : HookRegister() {
             }
         }
 
-        R0 = safeDexKitBridge.findMethodUsingString {
+        R0 = dexKitBridge.findMethodUsingString {
             usingString = "persist.sys.privacy_camera"
             matchType = MatchType.FULL
         }.single().getMethodInstance(classLoader)
@@ -38,7 +38,7 @@ object PrivacyCamera : HookRegister() {
 //        Log.i("R0 return type: ${R0.returnType.name}")
 //        Log.i("R0 parameter type: ${R0.parameterTypes[0].name}")
 
-        safeDexKitBridge.findMethodInvoking {
+        dexKitBridge.findMethodInvoking {
             methodDeclareClass = privateCls.name
             methodReturnType = R0.returnType.name
             methodParameterTypes = arrayOf(R0.parameterTypes[0].name)

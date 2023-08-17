@@ -5,11 +5,11 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object RiskPkg : HookRegister() {
     override fun init() = hasEnable("remove_risk_pkg") {
-        safeDexKitBridge.batchFindMethodsUsingStrings {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("riskPkgList", "key_virus_pkg_list", "show_virus_notification"))
             matchType = MatchType.FULL
         }.forEach { (_, methods) ->

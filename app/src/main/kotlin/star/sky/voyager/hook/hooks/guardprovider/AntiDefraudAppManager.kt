@@ -5,7 +5,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.utils.api.replaceMethod
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.closeDexKit
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
 
 class AntiDefraudAppManager : IXposedHookLoadPackage {
@@ -19,7 +19,7 @@ class AntiDefraudAppManager : IXposedHookLoadPackage {
                     "https://flash.sec.miui.com/detect/app"
                 ),
             )
-            val resultMap = safeDexKitBridge.batchFindMethodsUsingStrings {
+            val resultMap = dexKitBridge.batchFindMethodsUsingStrings {
                 queryMap(map)
             }
             val antiDefraudAppManager = resultMap["AntiDefraudAppManager"]!!

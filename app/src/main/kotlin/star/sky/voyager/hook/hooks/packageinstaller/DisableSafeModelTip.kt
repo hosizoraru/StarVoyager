@@ -9,7 +9,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object DisableSafeModelTip : HookRegister() {
     override fun init() = hasEnable("Disable_Safe_Model_Tip") {
@@ -20,7 +20,7 @@ object DisableSafeModelTip : HookRegister() {
                     returnConstant(true)
                 }
 
-            safeDexKitBridge.findMethodUsingString {
+            dexKitBridge.findMethodUsingString {
                 usingString = "android.provider.MiuiSettings\$Ad"
                 matchType = MatchType.FULL
             }.single().getMethodInstance(classLoader).createHook {

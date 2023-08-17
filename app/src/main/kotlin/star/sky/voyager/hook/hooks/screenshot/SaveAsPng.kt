@@ -13,7 +13,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
-import star.sky.voyager.utils.yife.DexKit.safeDexKitBridge
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object SaveAsPng : HookRegister() {
     override fun init() = hasEnable("save_as_png") {
@@ -74,7 +74,7 @@ object SaveAsPng : HookRegister() {
                 }
             }
 
-        safeDexKitBridge.batchFindMethodsUsingStrings {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("context", "bitmap", "uri", "format"))
             matchType = MatchType.FULL
         }.forEach { (_, methods) ->
