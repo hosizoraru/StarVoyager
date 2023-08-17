@@ -10,7 +10,7 @@ object SkipWaitingTime : HookRegister() {
     override fun init() = hasEnable("skip_waiting_time") {
         val mInterceptBaseFragmentCls =
             loadClass("com.miui.permcenter.privacymanager.InterceptBaseFragment")
-        val mInnerClasses = mInterceptBaseFragmentCls.declaredClasses
+//        val mInnerClasses = mInterceptBaseFragmentCls.declaredClasses
 
         loadClass("android.widget.TextView").methodFinder()
             .filterByName("setText")
