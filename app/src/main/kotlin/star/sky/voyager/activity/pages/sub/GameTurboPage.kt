@@ -28,5 +28,12 @@ class GameTurboPage : BasePage() {
             ),
             SwitchV("macro_combo", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.game_box_vision_enhance,
+                tipsId = R.string.require_hardware_support,
+            ),
+            SwitchV("game_box_vision_enhance", false)
+        )
     }
 }
