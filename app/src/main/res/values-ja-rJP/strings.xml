@@ -557,6 +557,12 @@
     <string name="game_turbo">ゲームターボ</string>
     <string name="game_box_vision_enhance">強化されたビジュアル</string>
     <string name="dynamic_performance">ダイナミックなパフォーマンス</string>
+    <string name="audio_optimization">ゲーム音質の最適化</string>
+    <string name="wifi_low_latency_mode">WLAN ネットワークの最適化</string>
+    <string name="touchfeature_gamemode">タッチレスポンスの最適化</string>
+    <string name="ai_subtitles_videomode">ビデオツールボックスでリアルタイム字幕を表示</string>
+    <string name="fps_switch">ゲームカスタム設定でカスタムフレームレートを開放</string>
+    <string name="enhanced_dsda">データカードでないVoLTE着信自動拒否 -> 着信時にネットワークが切断されない</string>
 
     <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
     <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>

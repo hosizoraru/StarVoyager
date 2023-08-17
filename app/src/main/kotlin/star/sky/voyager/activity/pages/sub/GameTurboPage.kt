@@ -41,5 +41,41 @@ class GameTurboPage : BasePage() {
             ),
             SwitchV("dynamic_performance", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.audio_optimization,
+            ),
+            SwitchV("audio_optimization", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.wifi_low_latency_mode,
+            ),
+            SwitchV("wifi_low_latency_mode", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.touchfeature_gamemode,
+            ),
+            SwitchV("touchfeature_gamemode", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.ai_subtitles_videomode,
+            ),
+            SwitchV("ai_subtitles_videomode", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.fps_switch,
+            ),
+            SwitchV("fps_switch", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.enhanced_dsda,
+            ),
+            SwitchV("enhanced_dsda", false)
+        )
     }
 }

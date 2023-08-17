@@ -557,6 +557,12 @@
     <string name="game_turbo">游戏加速</string>
     <string name="game_box_vision_enhance">画面增强</string>
     <string name="dynamic_performance">动态性能</string>
+    <string name="audio_optimization">游戏音质优化</string>
+    <string name="wifi_low_latency_mode">WLAN 网络优化</string>
+    <string name="touchfeature_gamemode">触控响应优化</string>
+    <string name="ai_subtitles_videomode">视频工具箱里显示实时字幕</string>
+    <string name="fps_switch">游戏自定义设置里开放自定义帧率</string>
+    <string name="enhanced_dsda">非数据卡VoLTE来电自动拒接 -> 来电不断网</string>
 
     <string name="any_app_barrage">允许所有应用使用弹幕通知</string>
     <string name="any_where_barrage">允许任何地方使用弹幕通知</string>
