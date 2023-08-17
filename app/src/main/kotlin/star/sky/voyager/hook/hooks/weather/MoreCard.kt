@@ -9,17 +9,14 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.util.Locale
 
 object MoreCard : HookRegister() {
-    private lateinit var toolsCls: Class<*>
-    override fun init() = hasEnable("more_card") {
+    private val toolsCls by lazy {
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", setOf("ro.miui.ui.version.name", "Wth2:ToolUtils"))
             matchType = MatchType.FULL
-        }.forEach { (_, classes) ->
-            classes.map {
-                toolsCls = it.getClassInstance(classLoader)
-            }
-        }
+        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+    }
 
+    override fun init() = hasEnable("more_card") {
         dexKitBridge.findMethod {
             methodDeclareClass = toolsCls.name
             methodParamTypes = arrayOf("android.content.Context")
