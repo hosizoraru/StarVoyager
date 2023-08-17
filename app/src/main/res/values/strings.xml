@@ -564,7 +564,7 @@
     <string name="touchfeature_gamemode">Optimized touch controls</string>
     <string name="ai_subtitles_videomode">Show Ai Subtitles on Video Toolbox</string>
     <string name="fps_switch">Show custom frame rate in the game\'s custom settings</string>
-    <string name="enhanced_dsda">Reject VoLTE calls to SIM cards without data service\n->\nDon't disconnect for calls</string>
+    <string name="enhanced_dsda">Reject VoLTE calls to SIM cards without data service\n->\nDon\'t disconnect for calls</string>
 
     <string name="any_app_barrage">Allow all apps to use bullet screen notifications</string>
     <string name="any_where_barrage">Enable barrage notifications anywhere</string>

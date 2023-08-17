@@ -12,14 +12,12 @@ import star.sky.voyager.hook.hooks.settings.MechKeyboard
 import star.sky.voyager.hook.hooks.settings.MiGboard
 import star.sky.voyager.hook.hooks.settings.NeverTimeOut
 import star.sky.voyager.hook.hooks.settings.NewNfcPage
-import star.sky.voyager.hook.hooks.settings.NfcPageFix
 import star.sky.voyager.hook.hooks.settings.NoThroughTheList
 import star.sky.voyager.hook.hooks.settings.NoveltyHaptic
 import star.sky.voyager.hook.hooks.settings.QuickInstallPermission
 import star.sky.voyager.hook.hooks.settings.ShowNotificationHistoryAndLog
 import star.sky.voyager.hook.hooks.settings.ShowNotificationImportance
 import star.sky.voyager.hook.hooks.settings.SpeedMode
-import star.sky.voyager.hook.hooks.settings.StarVoyager
 import star.sky.voyager.hook.hooks.settings.VipService
 import star.sky.voyager.hook.hooks.settings.VoipAssistant
 import star.sky.voyager.utils.init.AppRegister
@@ -49,11 +47,11 @@ object Settings : AppRegister() {
             VoipAssistant, // 解锁网络通话助手
             ShowNotificationHistoryAndLog, // 在通知与控制中心中显示通知历史记录与日志入口
             GoogleSettings, // 系统设置里显示 Google
-            NfcPageFix,
+//            NfcPageFix,
 //            MultipleFreeform,
             AospShareSheet,
             DC,
-            StarVoyager,
+//            StarVoyager,
         )
     }
 }
