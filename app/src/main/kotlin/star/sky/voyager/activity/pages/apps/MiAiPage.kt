@@ -149,6 +149,11 @@ class MiAiPage : BasePage() {
                 tipsId = R.string.split_screen_translate_summary,
             ), SwitchV("split_screen_translate")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.ai_subtitles,
+            ), SwitchV("ai_subtitles")
+        )
         Line()
         TitleText(textId = R.string.scope_aireco)
         TextSummaryWithSwitch(
