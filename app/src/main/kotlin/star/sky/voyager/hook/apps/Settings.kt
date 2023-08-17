@@ -18,6 +18,7 @@ import star.sky.voyager.hook.hooks.settings.QuickInstallPermission
 import star.sky.voyager.hook.hooks.settings.ShowNotificationHistoryAndLog
 import star.sky.voyager.hook.hooks.settings.ShowNotificationImportance
 import star.sky.voyager.hook.hooks.settings.SpeedMode
+import star.sky.voyager.hook.hooks.settings.StarVoyager
 import star.sky.voyager.hook.hooks.settings.VipService
 import star.sky.voyager.hook.hooks.settings.VoipAssistant
 import star.sky.voyager.utils.init.AppRegister
@@ -51,7 +52,7 @@ object Settings : AppRegister() {
 //            MultipleFreeform,
             AospShareSheet,
             DC,
-//            StarVoyager,
+            StarVoyager,
         )
     }
 }
