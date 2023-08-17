@@ -10,11 +10,11 @@ import star.sky.voyager.utils.api.hookBeforeMethod
 import star.sky.voyager.utils.api.replaceMethod
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.SystemProperties
 
 object SetDeviceLevel : HookRegister() {
     override fun init() = hasEnable("home_high_end_device") {
         val deviceLevelUtilsClass = loadClass("com.miui.home.launcher.common.DeviceLevelUtils")
-        val systemPropertiesClass = loadClass("android.os.SystemProperties")
         val deviceConfigClass = loadClass("com.miui.home.launcher.DeviceConfig")
         try {
             loadClass("com.miui.home.launcher.common.CpuLevelUtils").methodFinder()
@@ -90,7 +90,7 @@ object SetDeviceLevel : HookRegister() {
         }
 
         runCatching {
-            systemPropertiesClass.methodFinder()
+            SystemProperties.methodFinder()
                 .filterByName("getBoolean")
                 .filterByParamTypes(String::class.java, Boolean::class.java)
                 .toList().createHooks {

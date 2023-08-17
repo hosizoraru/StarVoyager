@@ -6,12 +6,13 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.voyager.LazyClass.FeatureParserCls
 
 object AodAvailable : HookRegister() {
     override fun init() {
         when (hostPackageName) {
             "android" -> {
-                loadClass("miui.util.FeatureParser").methodFinder()
+                FeatureParserCls.methodFinder()
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
@@ -33,7 +34,7 @@ object AodAvailable : HookRegister() {
                     returnConstant(true)
                 }
 
-                loadClass("miui.util.FeatureParser").methodFinder()
+                FeatureParserCls.methodFinder()
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
@@ -48,7 +49,7 @@ object AodAvailable : HookRegister() {
             }
 
             "com.xiaomi.misettings" -> {
-                loadClass("miui.util.FeatureParser").methodFinder()
+                FeatureParserCls.methodFinder()
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
@@ -72,7 +73,7 @@ object AodAvailable : HookRegister() {
 //                    Log.i("${it.name}: ${it.get(null)}")
 //                }
 
-                loadClass("miui.util.FeatureParser").methodFinder()
+                FeatureParserCls.methodFinder()
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {
@@ -98,7 +99,7 @@ object AodAvailable : HookRegister() {
                         returnConstant(true)
                     }
 
-                loadClass("miui.util.FeatureParser").methodFinder()
+                FeatureParserCls.methodFinder()
                     .filterByName("getBoolean")
                     .toList().createHooks {
                         before {

@@ -1,12 +1,12 @@
 package star.sky.voyager.hook.apps
 
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClassOrNull
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.utils.init.AppRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.LazyClass.FeatureParserCls
 
 object Updater : AppRegister() {
     override val packageName: String = "com.android.updater"
@@ -19,7 +19,7 @@ object Updater : AppRegister() {
                 ?.methodFinder()?.first { name == "T" && returnType == Boolean::class.java }
                 ?.createHook { returnConstant(false) }
 
-            loadClass("miui.util.FeatureParser").methodFinder().first {
+            FeatureParserCls.methodFinder().first {
                 name == "hasFeature" && parameterCount == 2
             }.createHook {
                 before {
