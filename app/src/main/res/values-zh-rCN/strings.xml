@@ -556,6 +556,7 @@
     <string name="try_to_fix_conversation_bubbles_summary">尝试重新启用气泡通知服务</string>
     <string name="game_turbo">游戏加速</string>
     <string name="game_box_vision_enhance">画面增强</string>
+    <string name="dynamic_performance">动态性能</string>
 
     <string name="any_app_barrage">允许所有应用使用弹幕通知</string>
     <string name="any_where_barrage">允许任何地方使用弹幕通知</string>

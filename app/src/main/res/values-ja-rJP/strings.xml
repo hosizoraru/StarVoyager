@@ -556,6 +556,7 @@
     <string name="try_to_fix_conversation_bubbles_summary">バブル通知サービスを再起動しようとする</string>
     <string name="game_turbo">ゲームターボ</string>
     <string name="game_box_vision_enhance">強化されたビジュアル</string>
+    <string name="dynamic_performance">ダイナミックなパフォーマンス</string>
 
     <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
     <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>

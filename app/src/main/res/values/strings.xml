@@ -558,6 +558,7 @@
     <string name="try_to_fix_conversation_bubbles_summary">Try to re-enable conversation bubbles service</string>
     <string name="game_turbo">Game Turbo</string>
     <string name="game_box_vision_enhance">Enhanced visuals</string>
+    <string name="dynamic_performance">Dynamic Performance</string>
 
     <string name="any_app_barrage">Allow all apps to use bullet screen notifications</string>
     <string name="any_where_barrage">Enable barrage notifications anywhere</string>

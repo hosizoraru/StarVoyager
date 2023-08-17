@@ -35,5 +35,11 @@ class GameTurboPage : BasePage() {
             ),
             SwitchV("game_box_vision_enhance", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.dynamic_performance,
+            ),
+            SwitchV("dynamic_performance", false)
+        )
     }
 }
