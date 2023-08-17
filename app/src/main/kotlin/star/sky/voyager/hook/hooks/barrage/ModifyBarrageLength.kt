@@ -21,9 +21,8 @@ object ModifyBarrageLength : HookRegister() {
             .filterByParamCount(2)
             .first().createHook {
                 before { param ->
-                    val stacktrace = Throwable().stackTrace
-                    if (stacktrace.any { it.className == "com.xiaomi.barrage.utils.BarrageWindowUtils" }) {
-                        param.args[1] = barrageLength
+                    if (Throwable().stackTrace.any { it.className == "com.xiaomi.barrage.utils.BarrageWindowUtils" }) {
+                        param.args[1] = minOf(barrageLength, (param.thisObject as String).length)
                     }
                 }
             }
