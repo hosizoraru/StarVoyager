@@ -5,6 +5,7 @@ import star.sky.voyager.hook.hooks.securitycenter.AppDisable
 import star.sky.voyager.hook.hooks.securitycenter.BatteryTemperature
 import star.sky.voyager.hook.hooks.securitycenter.CameraFaceTracker
 import star.sky.voyager.hook.hooks.securitycenter.EnhanceContours
+import star.sky.voyager.hook.hooks.securitycenter.GameBoxVisionEnhance
 import star.sky.voyager.hook.hooks.securitycenter.GetDefaultBubbles
 import star.sky.voyager.hook.hooks.securitycenter.GunService
 import star.sky.voyager.hook.hooks.securitycenter.LockOneHundred
@@ -46,6 +47,7 @@ object SecurityCenter : AppRegister() {
             VcbAbility, // 视频通话美颜
             CameraFaceTracker, // 人像居中
             PrivacyCamera, // 隐私拍摄
+            GameBoxVisionEnhance,
             GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }

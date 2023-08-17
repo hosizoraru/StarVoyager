@@ -26,13 +26,6 @@ class SecurityUnlockPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.screen_hold_on,
-                tipsId = R.string.unlock_for_pad
-            ),
-            SwitchV("screen_hold_on", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.MEMC,
                 tipsId = R.string.require_hardware_support
             ),
@@ -51,18 +44,6 @@ class SecurityUnlockPage : BasePage() {
                 tipsId = R.string.require_hardware_support
             ),
             SwitchV("super_resolution", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.gun_service
-            ),
-            SwitchV("gun_service", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.macro_combo
-            ),
-            SwitchV("macro_combo", false)
         )
         TextSummaryWithSwitch(
             TextSummaryV(

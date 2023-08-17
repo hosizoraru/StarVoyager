@@ -25,6 +25,7 @@ import star.sky.voyager.activity.pages.main.MenuPage
 import star.sky.voyager.activity.pages.sub.ControlCenterPage
 import star.sky.voyager.activity.pages.sub.DisableFixedOrientationPage
 import star.sky.voyager.activity.pages.sub.GalleryUnlockPage
+import star.sky.voyager.activity.pages.sub.GameTurboPage
 import star.sky.voyager.activity.pages.sub.HideIconPage
 import star.sky.voyager.activity.pages.sub.HomeBlurPage
 import star.sky.voyager.activity.pages.sub.HomeDockPage
@@ -105,6 +106,7 @@ class MainActivity : MIUIActivity() {
         registerPage(HomeDockPage::class.java)
         registerPage(HomeModPage::class.java)
         registerPage(SecurityUnlockPage::class.java)
+        registerPage(GameTurboPage::class.java)
         registerPage(PackageInstallerPage::class.java)
         registerPage(SettingsPage::class.java)
         registerPage(SettingsUnlockPage::class.java)

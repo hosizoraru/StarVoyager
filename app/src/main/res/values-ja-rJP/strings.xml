@@ -554,6 +554,7 @@
     <string name="remove_conversation_bubble_settings_restriction_summary">"設定 - 追加設定 - フローティングウィンドウ - バブル通知 - バブル通知アプリ管理 (Manage conversation bubbles) "から通知アプリを管理できます</string>
     <string name="try_to_fix_conversation_bubbles">バブル通知を修正しようとする</string>
     <string name="try_to_fix_conversation_bubbles_summary">バブル通知サービスを再起動しようとする</string>
+    <string name="game_turbo">ゲームターボ</string>
 
     <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
     <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>

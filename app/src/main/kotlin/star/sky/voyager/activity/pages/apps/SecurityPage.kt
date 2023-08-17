@@ -18,6 +18,12 @@ class SecurityPage : BasePage() {
                 onClickListener = { showFragment("security_unlock") }
             )
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.game_turbo,
+                onClickListener = { showFragment("game_turbo") }
+            )
+        )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
