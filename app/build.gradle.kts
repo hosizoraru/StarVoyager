@@ -12,7 +12,7 @@ android {
     namespace = "star.sky.voyager"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
-    ndkVersion = "26.0.10404224"
+    ndkVersion = "26.0.10636728 rc2"
 
     buildFeatures {
         prefab = true
@@ -24,7 +24,8 @@ android {
     defaultConfig {
         applicationId = "star.sky.voyager"
         minSdk = 33
-        targetSdk = 34
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk = 28
         versionCode = 28
         versionName = "3.32"
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
