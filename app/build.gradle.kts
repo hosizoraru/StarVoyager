@@ -9,6 +9,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+val apkId = "starVoyager"
+
 android {
     namespace = "star.sky.voyager"
     compileSdk = 34
@@ -96,9 +98,17 @@ android {
         applicationVariants.all {
             outputs.all {
                 (this as BaseVariantOutputImpl).outputFileName =
-                    "StarVoyager-$versionName-$name.apk"
+//                    "StarVoyager-$versionName-$name.apk"
+                    "${apkId}_$versionName.apk"
             }
         }
+//        applicationVariants.configureEach {
+//            outputs.configureEach {
+//                if (this is BaseVariantOutputImpl) {
+//                    outputFileName = "${rootProject.name}_${versionName}.${outputFileName.substringAfterLast('.')}"
+//                }
+//            }
+//        }
     }
 }
 

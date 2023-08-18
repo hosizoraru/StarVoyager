@@ -19,7 +19,6 @@ abstract class EasyXposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit,
     private lateinit var packageResourcesParam: XC_InitPackageResources.InitPackageResourcesParam
     abstract val registeredApp: Set<AppRegister>
 
-
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
 
         packageParam = lpparam!!

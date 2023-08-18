@@ -25,6 +25,13 @@ object ModifyBarrageLength : HookRegister() {
                         param.args[1] = minOf(barrageLength, (param.thisObject as String).length)
                     }
                 }
+
+                after {
+                    if (it.throwable != null) {
+                        it.throwable = null
+                        it.result = it.thisObject
+                    }
+                }
             }
 
         clazzString.methodFinder()

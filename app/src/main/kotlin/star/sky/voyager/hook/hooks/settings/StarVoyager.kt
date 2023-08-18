@@ -1,7 +1,6 @@
 package star.sky.voyager.hook.hooks.settings
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.UserHandle
@@ -21,15 +20,13 @@ object StarVoyager : HookRegister() {
     override fun init() {
         val preferenceActivityCls =
             loadClass("com.android.settingslib.miuisettings.preference.PreferenceActivity\$Header")
-        val iconId =
-            moduleRes.getResourceName(R.drawable.voyager_xml_icon).hashCode()
 
         MiuiSettingsCls.methodFinder()
             .filterByName("updateHeaderList")
             .first().createHook {
                 after { param ->
-                    val mContext = (param.thisObject as Activity).baseContext
-                    val modRes = mContext.resources
+//                    val mContext = (param.thisObject as Activity).baseContext
+//                    val modRes = mContext.resources
                     val mIntent = Intent()
                     mIntent.putExtra("isDisplayHomeAsUpEnabled", true)
                     mIntent.setClassName(
@@ -39,7 +36,6 @@ object StarVoyager : HookRegister() {
                     val header = XposedHelpers.newInstance(preferenceActivityCls)
                     XposedHelpers.setLongField(header, "id", 666)
                     XposedHelpers.setObjectField(header, "intent", mIntent)
-                    XposedHelpers.setIntField(header, "iconRes", iconId)
                     XposedHelpers.setObjectField(
                         header,
                         "title",
