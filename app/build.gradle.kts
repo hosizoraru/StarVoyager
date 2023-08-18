@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -35,6 +36,7 @@ android {
         abi {
             isEnable = true
             reset()
+            //noinspection ChromeOsAbiSupport
             include("arm64-v8a")
             isUniversalApk = false
         }
@@ -102,6 +104,7 @@ android {
 
 dependencies {
     compileOnly(libs.xposed)
+    compileOnly(libs.dev.rikka.hidden.stub)
     implementation(project(":blockmiui"))
     implementation(libs.core.ktx)
     implementation(libs.constraintlayout)
@@ -109,4 +112,5 @@ dependencies {
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
+    implementation(libs.dev.rikka.hidden.compat)
 }
