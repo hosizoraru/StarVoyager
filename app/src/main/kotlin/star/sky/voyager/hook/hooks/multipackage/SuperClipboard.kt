@@ -111,7 +111,7 @@ object SuperClipboard : HookRegister() {
             .filter {
                 name in setOf("isPcSupport", "isRegisterCapability", "supportMail", "supportTel")
             }.toList().createHooks {
-                returnConstant(true)
-            }
+            returnConstant(true)
+        }
     }
 }
