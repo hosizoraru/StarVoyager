@@ -193,5 +193,11 @@ class MenuPage : BasePage() {
                 )
             })
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.app_name,
+                tipsId = R.string.xposed_desc,
+            ), SwitchV("star_voyager", false)
+        )
     }
 }
