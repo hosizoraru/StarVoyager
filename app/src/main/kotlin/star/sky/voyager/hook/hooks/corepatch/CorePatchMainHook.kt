@@ -31,6 +31,7 @@ open class CorePatchMainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
         if (startupParam.startsSystemServer) {
             Log.d(TAG, "Current sdk version " + Build.VERSION.SDK_INT)
             when (Build.VERSION.SDK_INT) {
+                Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> CorePatchForU().initZygote(startupParam)
                 Build.VERSION_CODES.TIRAMISU -> CorePatchForT().initZygote(startupParam)
                 Build.VERSION_CODES.S_V2 -> CorePatchForSv2().initZygote(startupParam)
                 Build.VERSION_CODES.S -> CorePatchForS().initZygote(startupParam)
