@@ -16,13 +16,13 @@ object SuperClipboard : HookRegister() {
         when (hostPackageName) {
             "com.miui.gallery" -> {
                 hasEnable("gallery_super_clipboard") {
-                    methodSuperClipboard("com.miui.gallery.util.MiscUtil")
+                    dexKitSuperClipboard()
                 }
             }
 
             "com.android.fileexplorer" -> {
                 hasEnable("file_explorer_super_clipboard") {
-                    methodSuperClipboard("com.android.fileexplorer.model.Util")
+                    dexKitSuperClipboard()
                 }
             }
 
@@ -40,7 +40,7 @@ object SuperClipboard : HookRegister() {
 
             "com.miui.notes" -> {
                 hasEnable("notes_super_clipboard") {
-                    methodSuperClipboard("com.miui.common.tool.Utils")
+                    dexKitSuperClipboard()
                 }
             }
 
@@ -67,11 +67,23 @@ object SuperClipboard : HookRegister() {
     }
 
     private fun dexKitSuperClipboard() {
-        dexKitBridge.findMethodUsingString {
-            usingString = "ro.miui.support_super_clipboard"
-            matchType = MatchType.FULL
-            methodReturnType = "boolean"
-        }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
+        val ro by lazy {
+            dexKitBridge.findMethodUsingString {
+                usingString = "ro.miui.support_super_clipboard"
+                matchType = MatchType.FULL
+                methodReturnType = "boolean"
+            }.firstOrNull()?.getMethodInstance(safeClassLoader)
+        }
+
+        val sys by lazy {
+            dexKitBridge.findMethodUsingString {
+                usingString = "persist.sys.support_super_clipboard"
+                matchType = MatchType.FULL
+                methodReturnType = "boolean"
+            }.firstOrNull()?.getMethodInstance(safeClassLoader)
+        }
+
+        setOf(ro, sys).filterNotNull().createHooks {
             returnConstant(true)
         }
     }
