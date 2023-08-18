@@ -24,6 +24,18 @@ class SecurityPage : BasePage() {
                 onClickListener = { showFragment("game_turbo") }
             )
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.front_camera_assistant,
+                onClickListener = { showFragment("front_camera_assistant") }
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.scope_barrage,
+                onClickListener = { showFragment("barrage") }
+            )
+        )
         Line()
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -42,12 +54,6 @@ class SecurityPage : BasePage() {
                 textId = R.string.lock_one_hundred,
                 tipsId = R.string.lock_one_hundred_summary
             ), SwitchV("lock_one_hundred")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.battery_life_function
-            ),
-            SwitchV("battery_life_function")
         )
         TextSummaryWithSwitch(
             TextSummaryV(

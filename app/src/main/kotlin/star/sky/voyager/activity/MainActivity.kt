@@ -6,8 +6,11 @@ import android.os.Bundle
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
+import star.sky.voyager.activity.pages.ScannerPage
+import star.sky.voyager.activity.pages.apps.AiasstVisionPage
 import star.sky.voyager.activity.pages.apps.AndroidPage
 import star.sky.voyager.activity.pages.apps.AppManagerPage
+import star.sky.voyager.activity.pages.apps.BarragePage
 import star.sky.voyager.activity.pages.apps.GalleryPage
 import star.sky.voyager.activity.pages.apps.HomePage
 import star.sky.voyager.activity.pages.apps.MaxMiPadPage
@@ -15,15 +18,19 @@ import star.sky.voyager.activity.pages.apps.MiAiPage
 import star.sky.voyager.activity.pages.apps.PackageInstallerPage
 import star.sky.voyager.activity.pages.apps.PersonalAssistantPage
 import star.sky.voyager.activity.pages.apps.PowerKeeperPage
+import star.sky.voyager.activity.pages.apps.ScreenRecorderPage
+import star.sky.voyager.activity.pages.apps.ScreenShotPage
 import star.sky.voyager.activity.pages.apps.SecurityPage
 import star.sky.voyager.activity.pages.apps.SettingsPage
 import star.sky.voyager.activity.pages.apps.SmartHubPage
 import star.sky.voyager.activity.pages.apps.SystemUIPage
+import star.sky.voyager.activity.pages.apps.TaplusPage
 import star.sky.voyager.activity.pages.main.AboutPage
 import star.sky.voyager.activity.pages.main.MainPage
 import star.sky.voyager.activity.pages.main.MenuPage
 import star.sky.voyager.activity.pages.sub.ControlCenterPage
 import star.sky.voyager.activity.pages.sub.DisableFixedOrientationPage
+import star.sky.voyager.activity.pages.sub.FrontCameraAssistantPage
 import star.sky.voyager.activity.pages.sub.GalleryUnlockPage
 import star.sky.voyager.activity.pages.sub.GameTurboPage
 import star.sky.voyager.activity.pages.sub.HideIconPage
@@ -89,6 +96,9 @@ class MainActivity : MIUIActivity() {
         registerPage(GalleryPage::class.java)
         registerPage(MiAiPage::class.java)
         registerPage(SmartHubPage::class.java)
+        registerPage(ScannerPage::class.java)
+        registerPage(AiasstVisionPage::class.java)
+        registerPage(TaplusPage::class.java)
         registerPage(MaxMiPadPage::class.java)
         registerPage(DisableFixedOrientationPage::class.java)
         registerPage(NotificationCenterPage::class.java)
@@ -107,11 +117,15 @@ class MainActivity : MIUIActivity() {
         registerPage(HomeModPage::class.java)
         registerPage(SecurityUnlockPage::class.java)
         registerPage(GameTurboPage::class.java)
+        registerPage(FrontCameraAssistantPage::class.java)
+        registerPage(BarragePage::class.java)
         registerPage(PackageInstallerPage::class.java)
         registerPage(SettingsPage::class.java)
         registerPage(SettingsUnlockPage::class.java)
         registerPage(GalleryUnlockPage::class.java)
         registerPage(SuperClipboardPage::class.java)
+        registerPage(ScreenRecorderPage::class.java)
+        registerPage(ScreenShotPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
