@@ -113,7 +113,7 @@ android {
 
 dependencies {
     compileOnly(libs.xposed)
-    compileOnly(libs.dev.rikka.hidden.stub)
+//    compileOnly(libs.dev.rikka.hidden.stub)
     implementation(project(":blockmiui"))
     implementation(libs.core.ktx)
     implementation(libs.constraintlayout)
@@ -121,5 +121,5 @@ dependencies {
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
     implementation(libs.dexkit)
-    implementation(libs.dev.rikka.hidden.compat)
+//    implementation(libs.dev.rikka.hidden.compat)
 }

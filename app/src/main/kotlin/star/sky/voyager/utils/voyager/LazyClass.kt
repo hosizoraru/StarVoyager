@@ -30,4 +30,8 @@ object LazyClass {
     val MiuiSettingsCls by lazy {
         loadClass("com.android.settings.MiuiSettings")
     }
+
+    val ShellResourceFetcher by lazy {
+        loadClass("com.miui.gallery.editor.photo.screen.shell.res.ShellResourceFetcher")
+    }
 }
