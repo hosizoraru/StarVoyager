@@ -14,6 +14,7 @@ import star.sky.voyager.activity.pages.apps.BarragePage
 import star.sky.voyager.activity.pages.apps.GalleryPage
 import star.sky.voyager.activity.pages.apps.HomePage
 import star.sky.voyager.activity.pages.apps.MaxMiPadPage
+import star.sky.voyager.activity.pages.apps.MediaEditorPage
 import star.sky.voyager.activity.pages.apps.MiAiPage
 import star.sky.voyager.activity.pages.apps.PackageInstallerPage
 import star.sky.voyager.activity.pages.apps.PersonalAssistantPage
@@ -126,6 +127,7 @@ class MainActivity : MIUIActivity() {
         registerPage(SuperClipboardPage::class.java)
         registerPage(ScreenRecorderPage::class.java)
         registerPage(ScreenShotPage::class.java)
+        registerPage(MediaEditorPage::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

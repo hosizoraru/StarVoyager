@@ -11,7 +11,7 @@ import star.sky.voyager.R
 class MainPage : BasePage() {
     @SuppressLint("WorldReadableFiles")
     override fun onCreate() {
-        TitleText(textId = R.string.scope)
+//        TitleText(textId = R.string.scope)
         Page(
             activity.getDrawable(R.drawable.ic_systemui_13)!!,
             TextSummaryV(
@@ -49,6 +49,13 @@ class MainPage : BasePage() {
             onClickListener = { showFragment("scope_power_keeper") }
         )
         Page(
+            activity.getDrawable(R.drawable.ic_settings)!!,
+            TextSummaryV(
+                textId = R.string.scope_settings,
+            ), round = 8f,
+            onClickListener = { showFragment("scope_settings") }
+        )
+        Page(
             activity.getDrawable(R.drawable.ic_packageinstaller)!!,
             TextSummaryV(
                 textId = R.string.scope_app_manager
@@ -77,7 +84,7 @@ class MainPage : BasePage() {
             onClickListener = { showFragment("scope_mi_pad") }
         )
         Line()
-        TitleText(textId = R.string.about)
+//        TitleText(textId = R.string.about)
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.about_module,

@@ -1,14 +1,18 @@
 package star.sky.voyager.activity.pages.main
 
+import android.content.ComponentName
 import android.content.Intent
 import android.content.Intent.ACTION_VIEW
+import android.content.pm.PackageManager
 import android.net.Uri.parse
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import star.sky.voyager.BuildConfig
 import star.sky.voyager.BuildConfig.BUILD_TIME
 import star.sky.voyager.BuildConfig.BUILD_TYPE
 import star.sky.voyager.BuildConfig.VERSION_NAME
@@ -45,6 +49,29 @@ class AboutPage : BasePage() {
                     activity.startActivity(intent)
                 }
             })
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.app_name,
+                tipsId = R.string.xposed_desc,
+            ), SwitchV("star_voyager", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.HideLauncherIcon,
+                colorId = R.color.blue
+            ),
+            SwitchV("hLauncherIcon", onClickListener = {
+                activity.packageManager.setComponentEnabledSetting(
+                    ComponentName(activity, "${BuildConfig.APPLICATION_ID}.launcher"),
+                    if (it) {
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                    } else {
+                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                    },
+                    PackageManager.DONT_KILL_APP
+                )
+            })
+        )
         Line()
         TitleText(textId = R.string.developer)
         ImageWithText(
