@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -9,7 +10,8 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-@BMPage("status_bar_battery", "Status Bar Battery", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("status_bar_battery", titleId = R.string.status_bar_battery, hideMenu = false)
 class StatusBarBatteryPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithArrow(

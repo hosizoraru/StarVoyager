@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">StarVoyager</string>
+    <string name="app_name">StarVoyager</string>
     <string name="xposed_desc" translatable="false">Star Sky Voyager</string>
     <string name="dev_name" translatable="false">Voyager</string>
     <string name="dev_desc">A Voyager traveling in the sea of stars, also known as the star sky.</string>

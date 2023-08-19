@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -9,7 +10,8 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-@BMPage("package_installer", "Package Installer", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("package_installer", titleId = R.string.scope_pkg_installer, hideMenu = false)
 class PackageInstallerPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_pkg_installer)

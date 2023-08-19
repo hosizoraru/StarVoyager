@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -12,7 +13,8 @@ import star.sky.voyager.R
 import star.sky.voyager.utils.voyager.SafeSharedPreferences.getResourceString
 import star.sky.voyager.utils.yife.Terminal.exec
 
-@BMPage("scope_settings", "Settings", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scope_settings", titleId = R.string.scope_settings, hideMenu = false)
 class SettingsPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_settings)

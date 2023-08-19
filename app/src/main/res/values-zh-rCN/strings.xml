@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">星旅</string>
     <string name="dev_desc">一位在星海中旅行的旅行者,也叫星空</string>
 
     <string name="scope">作用域</string>

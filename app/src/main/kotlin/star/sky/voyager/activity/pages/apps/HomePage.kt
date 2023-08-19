@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -11,7 +12,8 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-@BMPage("scope_miui_home", "Home", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scope_miui_home", titleId = R.string.scope_miui_home, hideMenu = false)
 class HomePage : BasePage() {
     override fun onCreate() {
         Page(

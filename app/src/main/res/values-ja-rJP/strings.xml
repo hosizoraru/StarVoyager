@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">ほし旅</string>
     <string name="dev_desc">星の海を旅する旅行者\nまたは「星空」とも呼ばれています</string>
 
     <string name="scope">スコープ</string>

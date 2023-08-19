@@ -1,12 +1,14 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@BMPage("super_clipboard", "Super Clipboard", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("super_clipboard", titleId = R.string.super_clipboard, hideMenu = false)
 class SuperClipboardPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_gallery)

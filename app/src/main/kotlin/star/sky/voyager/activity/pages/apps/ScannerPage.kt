@@ -1,5 +1,6 @@
-package star.sky.voyager.activity.pages
+package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -8,7 +9,8 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@BMPage("scanner", "Scanner", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scanner", titleId = R.string.scope_scanner, hideMenu = false)
 class ScannerPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_scanner)

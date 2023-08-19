@@ -1,12 +1,14 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
-@BMPage("icon_position", "Icon Position", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("icon_position", titleId = R.string.icon_position, hideMenu = false)
 class IconPositionPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.at_right_status_bar_icon)

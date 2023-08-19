@@ -7,7 +7,7 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
 @SuppressLint("NonConstantResourceId")
-@BMMainPage("StarVoyager")
+@BMMainPage(titleId = R.string.app_name)
 class MainPage : BasePage() {
     @SuppressLint("WorldReadableFiles")
     override fun onCreate() {

@@ -6,7 +6,6 @@ import android.os.Bundle
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
-import star.sky.voyager.activity.pages.ScannerPage
 import star.sky.voyager.activity.pages.apps.AiasstVisionPage
 import star.sky.voyager.activity.pages.apps.AndroidPage
 import star.sky.voyager.activity.pages.apps.AppManagerPage
@@ -19,6 +18,7 @@ import star.sky.voyager.activity.pages.apps.MiAiPage
 import star.sky.voyager.activity.pages.apps.PackageInstallerPage
 import star.sky.voyager.activity.pages.apps.PersonalAssistantPage
 import star.sky.voyager.activity.pages.apps.PowerKeeperPage
+import star.sky.voyager.activity.pages.apps.ScannerPage
 import star.sky.voyager.activity.pages.apps.ScreenRecorderPage
 import star.sky.voyager.activity.pages.apps.ScreenShotPage
 import star.sky.voyager.activity.pages.apps.SecurityPage

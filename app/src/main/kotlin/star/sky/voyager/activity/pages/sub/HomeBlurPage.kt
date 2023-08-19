@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -8,7 +9,8 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@BMPage("home_blur", "Home blur", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("home_blur", titleId = R.string.blur, hideMenu = false)
 class HomeBlurPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(

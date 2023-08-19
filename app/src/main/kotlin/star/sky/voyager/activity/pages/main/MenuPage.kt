@@ -18,7 +18,8 @@ import star.sky.voyager.utils.key.BackupUtils.recovery
 import star.sky.voyager.utils.yife.Terminal.exec
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
-@BMMenuPage("Menu")
+@SuppressLint("NonConstantResourceId")
+@BMMenuPage(titleId = R.string.menu)
 class MenuPage : BasePage() {
     @SuppressLint("WorldReadableFiles")
     override fun onCreate() {
