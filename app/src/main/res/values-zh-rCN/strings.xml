@@ -162,6 +162,7 @@
     <string name="status_bar_battery">状态栏电池</string>
     <string name="mi_play">小米妙播</string>
     <string name="speed_mode_tile">极致模式</string>
+    <string name="your_product_market_name">机型: </string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
@@ -442,6 +443,7 @@
     <string name="unlock_unlimited_cropping">移除裁剪图片/屏幕截图的限制</string>
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
     <string name="save_to_movies">视频保存到 \nMovies/ScreenRecorder</string>
+    <string name="gallery_frame_market_name">自定义定制画框里显示的机型</string>
 
     <string name="force_enable_native_playback_capture">强制启用原生录音支持</string>
     <string name="change_bitrate_and_frame_rate_range">修改码率与帧率范围</string>

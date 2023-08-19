@@ -162,6 +162,7 @@
     <string name="status_bar_battery">ステータスバーのバッテリー</string>
     <string name="mi_play">Mi Smart Play</string>
     <string name="speed_mode_tile">スピードモード</string>
+    <string name="your_product_market_name">モデル: </string>
 
     <string name="trigger_condition">トリガー条件</string>
     <string name="trigger_action">トリガーアクション</string>
@@ -442,6 +443,7 @@
     <string name="unlock_unlimited_cropping">画像/スクリーンショットのクロップ制限を解除</string>
     <string name="unlock_unlimited_cropping_summary">MIUIが画像のクロップに設けた最小制限を無視します</string>
     <string name="save_to_movies">ビデオは Movies/ScreenRecorder に保存されます</string>
+    <string name="gallery_frame_market_name">ギャラリーフレームに表示されるデバイスをカスタマイズ</string>
 
     <string name="force_enable_native_playback_capture">ネイティブレコーディングサポートを強制的に有効化</string>
     <string name="change_bitrate_and_frame_rate_range">ビットレートとフレームレートの範囲を変更</string>

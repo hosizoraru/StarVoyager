@@ -1,6 +1,9 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.content.ComponentName
+import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -44,10 +47,10 @@ class MediaEditorPage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.Market_As,
+                textId = R.string.your_product_market_name,
                 onClickListener = {
                     MIUIDialog(activity) {
-                        setTitle(R.string.Market_As)
+                        setTitle(R.string.device_shell)
                         setMessage(
                             "${activity.getString(R.string.def)}raphael\n${
                                 activity.getString(
@@ -83,6 +86,83 @@ class MediaEditorPage : BasePage() {
                         }
                     }.show()
                 }), dataBindingRecv = deviceBinding.binding.getRecv(1)
+        )
+        val device2Binding = GetDataBinding({
+            safeSP.getBoolean(
+                "market_name",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.gallery_frame_market_name,
+            ),
+            SwitchV(
+                "market_name",
+                false,
+                dataBindingSend = device2Binding.bindingSend
+            ),
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.your_product_market_name,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.gallery_frame_market_name)
+                        setMessage(
+                            "${activity.getString(R.string.def)}Xiaomi 13 Ultra\n${
+                                activity.getString(
+                                    R.string.current
+                                )
+                            }${
+                                safeSP.getString(
+                                    "product_market_name",
+                                    "Xiaomi 13 Ultra"
+                                )
+                            }"
+                        )
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "product_market_name",
+                                    "Xiaomi 13 Ultra"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "product_market_name",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = device2Binding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.scope_media_editor,
+                onClickListener = {
+                    try {
+                        val intent = Intent()
+                        val comp = ComponentName(
+                            "com.miui.mediaeditor",
+                            "com.miui.mediaeditor.MainActivity"
+                        )
+                        intent.component = comp
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                    }
+                })
         )
     }
 }

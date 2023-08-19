@@ -164,6 +164,7 @@
     <string name="status_bar_battery">Status Bar Battery</string>
     <string name="mi_play">Mi Smart Play</string>
     <string name="speed_mode_tile">Speed Mode</string>
+    <string name="your_product_market_name">Model: </string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>
@@ -443,6 +444,7 @@
     <string name="filter_manager">Filter manager</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="unlock_unlimited_cropping_summary">Ignore the minimum limit on image cropping by MIUI</string>
+    <string name="gallery_frame_market_name">Customize the devices displayed in Gallery Frame</string>
 
     <string name="force_enable_native_playback_capture">Force enable native playback capture</string>
     <string name="change_bitrate_and_frame_rate_range">Change bitrate and frame rate range</string>

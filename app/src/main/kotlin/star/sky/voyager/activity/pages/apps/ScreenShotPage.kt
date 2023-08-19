@@ -45,10 +45,10 @@ class ScreenShotPage : BasePage() {
         )
         TextSummaryWithArrow(
             TextSummaryV(
-                textId = R.string.Market_As,
+                textId = R.string.your_product_market_name,
                 onClickListener = {
                     MIUIDialog(activity) {
-                        setTitle(R.string.Market_As)
+                        setTitle(R.string.device_shell)
                         setMessage(
                             "${activity.getString(R.string.def)}ishtar\n${
                                 activity.getString(
