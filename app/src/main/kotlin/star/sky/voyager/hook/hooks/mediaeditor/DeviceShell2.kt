@@ -25,7 +25,7 @@ object DeviceShell2 : HookRegister() {
         dexKitBridge.findMethodUsingString {
             usingString = "from_partial_screenshot"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader).createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
             returnConstant(true)
         }
 
