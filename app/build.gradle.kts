@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
-val apkId = "starVoyager"
+val apkId = "StarVoyager"
 
 android {
     namespace = "star.sky.voyager"
