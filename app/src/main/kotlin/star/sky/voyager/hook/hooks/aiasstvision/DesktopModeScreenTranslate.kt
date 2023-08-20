@@ -10,7 +10,7 @@ object DesktopModeScreenTranslate : HookRegister() {
     override fun init() = hasEnable("desktop_mode_screen_translate") {
         AiasstVisionSystemUtilsCls.methodFinder()
             .filterByName("isDesktopModeOpen")
-            .first().createHook {
+            .firstOrNull()?.createHook {
                 returnConstant(false)
             }
     }

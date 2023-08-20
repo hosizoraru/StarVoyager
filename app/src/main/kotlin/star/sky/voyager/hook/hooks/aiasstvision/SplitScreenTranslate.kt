@@ -10,7 +10,7 @@ object SplitScreenTranslate : HookRegister() {
     override fun init() = hasEnable("split_screen_translate") {
         AiasstVisionSystemUtilsCls.methodFinder()
             .filterByName("isSupportSplitScreenTranslateDevice")
-            .first().createHook {
+            .firstOrNull()?.createHook {
                 returnConstant(true)
             }
     }

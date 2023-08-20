@@ -12,26 +12,15 @@ object Anti2 : HookRegister() {
         dexKitBridge.findMethodUsingString {
             usingString = "ro.miui.customized.region"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader).createHook {
-            returnConstant(null)
+        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
+            returnConstant(false)
         }
 
-        dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery(
-                "qwq1", setOf(
-                    "AntiDefraudAppManager",
-                    "https://flash.sec.miui.com/detect/app",
-                )
-            )
+        dexKitBridge.findMethodUsingString {
+            usingString = "https://flash.sec.miui.com/detect/app"
             matchType = MatchType.FULL
-        }.forEach { (_, classes1) ->
-            classes1.map {
-                it.getMethodInstance(classLoader)
-            }.forEach {
-                it.createHook {
-                    returnConstant(null)
-                }
-            }
+        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
+            returnConstant(null)
         }
     }
 }
