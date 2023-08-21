@@ -10,10 +10,11 @@ import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 
 object TaplusBrowser : HookRegister() {
+    private val browserPkg by lazy {
+        getString("taplus_browser_pkg", "com.android.browser")!!
+    }
+
     override fun init() = hasEnable("taplus_browser") {
-        val browserPkg by lazy {
-            getString("taplus_browser_pkg", "com.android.browser")!!
-        }
         loadClass("com.miui.contentextension.utils.AppsUtils").methodFinder()
             .filterByName("getIntentWithBrowser")
             .first().createHook {

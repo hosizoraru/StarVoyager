@@ -8,13 +8,16 @@ import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 
 object CustomInstallationSource : HookRegister() {
+    private val yourSource by lazy {
+        getString("your_source", "com.android.fileexplorer")
+    }
+
     override fun init() = hasEnable("custom_installation_source") {
-        val yourSource = getString("your_source", "com.android.fileexplorer")
-        val qwq = loadClass("com.miui.packageInstaller.InstallStart").methodFinder()
-            .filterByName("getCallingPackage").first()
-        qwq.createHook {
-            returnConstant(yourSource)
+        loadClass("com.miui.packageInstaller.InstallStart").methodFinder()
+            .filterByName("getCallingPackage")
+            .first().createHook {
+                returnConstant(yourSource)
 //                Log.i("Source: $yourSource")
-        }
+            }
     }
 }

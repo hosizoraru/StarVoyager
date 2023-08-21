@@ -12,29 +12,33 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import kotlin.math.abs
 
 object BlurPersonalAssistant : HookRegister() {
-    override fun init() = hasEnable("blur_personal_assistant") {
-        val blurRadius = getInt("blur_personal_assistant_radius", 80)
-        var lastBlurRadius = -1
+    private val blurRadius by lazy {
+        getInt("blur_personal_assistant_radius", 80)
+    }
+    private val ScrollStateManager by lazy {
         dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
             matchType = MatchType.FULL
-        }.forEach { (_, methods) ->
-            methods.single()
-                .getMethodInstance(classLoader).createHook {
-                    after { param ->
-                        val scrollX = param.args[0] as Float
-                        val fieldNames = ('a'..'z').map { it.toString() }
-                        val window = getValueByFields(param.thisObject, fieldNames) ?: return@after
-                        if (window.javaClass.name.contains("Window")) {
-                            window as Window
-                            val blurRadius1 = (scrollX * blurRadius).toInt()
-                            if (abs(blurRadius1 - lastBlurRadius) > 2) {
-                                window.setBackgroundBlurRadius(blurRadius1)
-                                lastBlurRadius = blurRadius1
-                            }
-                        }
+        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
+    }
+
+    override fun init() = hasEnable("blur_personal_assistant") {
+        var lastBlurRadius = -1
+        ScrollStateManager.createHook {
+            after { param ->
+                val scrollX = param.args[0] as Float
+                val fieldNames = ('a'..'z').map { it.toString() }
+                val window = getValueByFields(param.thisObject, fieldNames) ?: return@after
+                if (window.javaClass.name.contains("Window")) {
+                    window as Window
+                    val blurRadius1 = (scrollX * blurRadius).toInt()
+                    if (abs(blurRadius1 - lastBlurRadius) > 2) {
+                        window.setBackgroundBlurRadius(blurRadius1)
+                        lastBlurRadius = blurRadius1
                     }
                 }
+            }
         }
+
     }
 }

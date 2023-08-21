@@ -8,11 +8,15 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object VcbAbility : HookRegister() {
-    override fun init() = hasEnable("vcb_ability") {
+    private val vcb by lazy {
         dexKitBridge.findMethodUsingString {
             usingString = "persist.vendor.vcb.ability"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader).createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
+    override fun init() = hasEnable("vcb_ability") {
+        vcb?.createHook {
             returnConstant(true)
         }
     }

@@ -16,12 +16,16 @@ object MoreCard : HookRegister() {
         }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
     }
 
-    override fun init() = hasEnable("more_card") {
+    private val locale by lazy {
         dexKitBridge.findMethod {
             methodDeclareClass = toolsCls.name
             methodParamTypes = arrayOf("android.content.Context")
             methodReturnType = "java.util.Locale"
-        }.single().getMethodInstance(classLoader).createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
+    override fun init() = hasEnable("more_card") {
+        locale?.createHook {
             before {
                 returnConstant(Locale("zh", "CN"))
             }

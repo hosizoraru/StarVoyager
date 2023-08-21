@@ -7,11 +7,15 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ScreenHoldOn : HookRegister() {
-    override fun init() = hasEnable("screen_hold_on") {
+    private val screen by lazy {
         dexKitBridge.findMethodUsingString {
             usingString = "remove_screen_off_hold_on"
             methodReturnType = "boolean"
-        }.single().getMethodInstance(classLoader).createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
+    override fun init() = hasEnable("screen_hold_on") {
+        screen?.createHook {
             before {
                 it.result = false
             }

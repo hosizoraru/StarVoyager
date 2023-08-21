@@ -11,6 +11,13 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object LockOneHundred : HookRegister() {
+    private val score by lazy {
+        dexKitBridge.findMethodUsingString {
+            usingString = "getMinusPredictScore"
+            matchType = MatchType.CONTAINS
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
     override fun init() = hasEnable("lock_one_hundred") {
         loadClass("com.miui.securityscan.ui.main.MainContentFrame").methodFinder()
             .filterByName("onClick")
@@ -21,10 +28,7 @@ object LockOneHundred : HookRegister() {
                 }
             }
 
-        dexKitBridge.findMethodUsingString {
-            usingString = "getMinusPredictScore"
-            matchType = MatchType.CONTAINS
-        }.single().getMethodInstance(classLoader).createHook {
+        score?.createHook {
             returnConstant(0)
         }
     }

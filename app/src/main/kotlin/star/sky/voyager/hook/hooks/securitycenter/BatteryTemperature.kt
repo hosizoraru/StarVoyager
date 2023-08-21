@@ -26,7 +26,8 @@ import star.sky.voyager.utils.key.hasEnable
 
 object BatteryTemperature : HookRegister() {
     override fun init() = hasEnable("battery_life_function") {
-        val batteryFragmentClass = loadClassOrNull("com.miui.powercenter.BatteryFragment")
+        val batteryFragmentClass =
+            loadClassOrNull("com.miui.powercenter.BatteryFragment")
         if (batteryFragmentClass != null) {
             loadClass("com.miui.powercenter.BatteryFragment").methodFinder().first {
                 paramCount == 1 && returnType == String::class.java && isStatic

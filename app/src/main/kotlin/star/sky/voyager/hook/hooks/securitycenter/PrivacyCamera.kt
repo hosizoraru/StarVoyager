@@ -6,27 +6,22 @@ import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import java.lang.reflect.Method
 
 
 object PrivacyCamera : HookRegister() {
-    private lateinit var privateCls: Class<*>
-    private lateinit var R0: Method
-
-    override fun init() = hasEnable("privacy_camera") {
+    private val privateCls by lazy {
         dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq", setOf("persist.sys.privacy_camera"))
-        }.forEach { (_, classes) ->
-            classes.map {
-                privateCls = it.getClassInstance(classLoader)
-            }
-        }
-
-        R0 = dexKitBridge.findMethodUsingString {
+        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+    }
+    private val R0 by lazy {
+        dexKitBridge.findMethodUsingString {
             usingString = "persist.sys.privacy_camera"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+        }.first().getMethodInstance(classLoader)
+    }
 
+    override fun init() = hasEnable("privacy_camera") {
         R0.createHook {
             before {
                 it.args[0] = true

@@ -9,26 +9,26 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
 
 object ScreenTime : HookRegister() {
-    private lateinit var cls: Class<*>
-    private lateinit var method1: Method
-    private lateinit var method2: Method
-    override fun init() = hasEnable("screen_time") {
-        cls = dexKitBridge.batchFindClassesUsingStrings {
+    private val cls by lazy {
+        dexKitBridge.batchFindClassesUsingStrings {
             addQuery("qwq1", setOf("not support screenPowerSplit", "PowerRankHelperHolder"))
             matchType = MatchType.FULL
         }.values
             .flatten()
             .map { it.getClassInstance(classLoader) }
             .firstOrNull()!!
-
-        method1 = dexKitBridge.batchFindMethodsUsingStrings {
+    }
+    private val method1 by lazy {
+        dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq2", setOf("ishtar", "nuwa", "fuxi"))
             matchType = MatchType.FULL
         }.values
             .flatten()
             .map { it.getMethodInstance(classLoader) }
             .firstOrNull()!!
-
+    }
+    private lateinit var method2: Method
+    override fun init() = hasEnable("screen_time") {
         dexKitBridge.findMethod {
             methodDeclareClass = cls.name
             methodReturnType = "boolean"

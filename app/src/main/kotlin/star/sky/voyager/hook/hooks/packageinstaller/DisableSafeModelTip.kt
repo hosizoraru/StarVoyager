@@ -12,6 +12,13 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object DisableSafeModelTip : HookRegister() {
+    private val MiuiSettingsAd by lazy {
+        dexKitBridge.findMethodUsingString {
+            usingString = "android.provider.MiuiSettings\$Ad"
+            matchType = MatchType.FULL
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
     override fun init() = hasEnable("Disable_Safe_Model_Tip") {
         runCatching {
             loadClassOrNull("com.miui.packageInstaller.model.ApkInfo")!!.methodFinder()
@@ -20,10 +27,7 @@ object DisableSafeModelTip : HookRegister() {
                     returnConstant(true)
                 }
 
-            dexKitBridge.findMethodUsingString {
-                usingString = "android.provider.MiuiSettings\$Ad"
-                matchType = MatchType.FULL
-            }.single().getMethodInstance(classLoader).createHook {
+            MiuiSettingsAd?.createHook {
                 returnConstant(false)
             }
 
@@ -31,12 +35,12 @@ object DisableSafeModelTip : HookRegister() {
                 loadClassOrNull("com.miui.packageInstaller.InstallProgressActivity")!!
             installProgressActivityClass.methodFinder()
                 .filterByName("g0")
-                .first().createHook {
+                .firstOrNull()?.createHook {
                     returnConstant(false)
                 }
             installProgressActivityClass.methodFinder()
                 .filterByName("Q1")
-                .first().createHook {
+                .firstOrNull()?.createHook {
                     before {
                         it.result = null
                     }
