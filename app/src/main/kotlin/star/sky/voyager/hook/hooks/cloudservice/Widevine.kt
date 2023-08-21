@@ -8,11 +8,22 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Widevine : HookRegister() {
-    override fun init() = hasEnable("unlock_widevine_l1") {
+    //    private var cache: Map<Int, Method> = emptyMap()
+    private val WideVineL1 by lazy {
+//        val versionCode =
+//            getLoadPackageParam().getAppVersionCode()
+//        val method = cache[versionCode] ?:
         dexKitBridge.findMethodUsingString {
             usingString = "persist.vendor.sys.pay.widevine"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader).createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+//        ?: throw IllegalStateException("Method not found")
+//        cache = cache.plus(versionCode to method)
+//        method
+    }
+
+    override fun init() = hasEnable("unlock_widevine_l1") {
+        WideVineL1?.createHook {
             returnConstant(true)
         }
     }

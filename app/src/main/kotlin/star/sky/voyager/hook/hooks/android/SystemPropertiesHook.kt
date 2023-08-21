@@ -8,8 +8,11 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.LazyClass.SystemProperties
 
 object SystemPropertiesHook : HookRegister() {
+    private val mediaSteps by lazy {
+        getInt("media_volume_steps", 15)
+    }
+
     override fun init() = hasEnable("media_volume_steps_switch") {
-        val mediaSteps = getInt("media_volume_steps", 15)
         SystemProperties.methodFinder()
             .filterByName("getInt")
             .filterByReturnType(Int::class.java)

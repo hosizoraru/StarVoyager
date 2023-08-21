@@ -10,14 +10,15 @@ import star.sky.voyager.utils.key.hasEnable
 
 object AnyWhereBarrage : HookRegister() {
     override fun init() = hasEnable("any_where_barrage") {
-        loadClass("android.provider.Settings\$Secure").methodFinder().filterByName("getInt")
+        loadClass("android.provider.Settings\$Secure").methodFinder()
+            .filterByName("getInt")
             .toList().createHooks {
-            after { param ->
-                if ((param.args[1] as String) == "gb_boosting" && param.result != 1) {
-                    Settings.Secure.putInt(param.args[0] as ContentResolver?, "gb_boosting", 1)
-                    param.result = 1
+                after { param ->
+                    if ((param.args[1] as String) == "gb_boosting" && param.result != 1) {
+                        Settings.Secure.putInt(param.args[0] as ContentResolver?, "gb_boosting", 1)
+                        param.result = 1
+                    }
                 }
             }
-        }
     }
 }
