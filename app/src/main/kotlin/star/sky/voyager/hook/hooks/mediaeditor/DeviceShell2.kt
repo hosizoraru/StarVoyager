@@ -19,13 +19,16 @@ object DeviceShell2 : HookRegister() {
     private val deviceS2 by lazy {
         getString("device_shell_s2", "raphael")
     }
-
-    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-    override fun init() = hasEnable("device_shell2") {
+    private val partial by lazy {
         dexKitBridge.findMethodUsingString {
             usingString = "from_partial_screenshot"
             matchType = MatchType.FULL
-        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+    override fun init() = hasEnable("device_shell2") {
+        partial?.createHook {
             returnConstant(true)
         }
 

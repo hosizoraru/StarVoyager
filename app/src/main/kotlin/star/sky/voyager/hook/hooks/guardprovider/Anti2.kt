@@ -8,18 +8,26 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Anti2 : HookRegister() {
-    override fun init() = hasEnable("Anti_Defraud_App_Manager") {
+    private val region by lazy {
         dexKitBridge.findMethodUsingString {
             usingString = "ro.miui.customized.region"
             matchType = MatchType.FULL
-        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
-            returnConstant(false)
-        }
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
 
+    private val detect by lazy {
         dexKitBridge.findMethodUsingString {
             usingString = "https://flash.sec.miui.com/detect/app"
             matchType = MatchType.FULL
-        }.firstOrNull()?.getMethodInstance(classLoader)?.createHook {
+        }.firstOrNull()?.getMethodInstance(classLoader)
+    }
+
+    override fun init() = hasEnable("Anti_Defraud_App_Manager") {
+        region?.createHook {
+            returnConstant(false)
+        }
+
+        detect?.createHook {
             returnConstant(null)
         }
     }

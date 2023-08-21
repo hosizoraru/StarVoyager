@@ -8,7 +8,9 @@ import star.sky.voyager.utils.key.hasEnable
 
 object IdPhoto : HookRegister() {
     override fun init() = hasEnable("id_photo") {
-        val idPhotoEntranceUtilsClass = loadClass("com.miui.gallery.domain.IDPhotoEntranceUtils")
+        val idPhotoEntranceUtilsClass =
+            loadClass("com.miui.gallery.domain.IDPhotoEntranceUtils")
+
         loadClass("com.miui.mediaeditor.api.MediaEditorApiHelper").methodFinder()
             .filterByName("isIDPhotoAvailable")
             .first().createHook {

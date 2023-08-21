@@ -9,16 +9,15 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.yife.XSharedPreferences.getString
 
 object AsWhat : HookRegister() {
+    private val qwq by lazy {
+        getString("Market_As", "Default")
+    }
+
     override fun init() {
-        val qwq = getString("Market_As", "Default")
+        if (qwq == "Default") return
         loadClass("com.xiaomi.market.MarketApp").constructors.createHooks {
             before {
                 when (qwq) {
-                    "Default" -> {
-                        Log.i("Use Your Default Device.")
-                        return@before
-                    }
-
                     "Mi13Pro" -> {
                         Log.i("Use Mi13Pro.")
                         setStaticObject(Build::class.java, "DEVICE", "nuwa")
