@@ -8,16 +8,17 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Report : HookRegister() {
-    override fun init() = hasEnable("remove_report") {
+    private val report by lazy {
         dexKitBridge.batchFindMethodsUsingStrings {
             addQuery("qwq", setOf("android.intent.action.VIEW", "com.xiaomi.market"))
             matchType = MatchType.FULL
-        }.forEach { (_, classes) ->
-            classes.map {
-                it.getMethodInstance(classLoader)
-            }.createHooks {
-                returnConstant(false)
-            }
+        }.map { (_, methods) -> methods }.flatten().map { it.getMethodInstance(classLoader) }
+            .toList()
+    }
+
+    override fun init() = hasEnable("remove_report") {
+        report.createHooks {
+            returnConstant(false)
         }
     }
 }

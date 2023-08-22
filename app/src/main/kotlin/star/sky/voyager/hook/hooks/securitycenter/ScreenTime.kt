@@ -6,7 +6,6 @@ import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
-import java.lang.reflect.Method
 
 object ScreenTime : HookRegister() {
     private val cls by lazy {
@@ -27,17 +26,19 @@ object ScreenTime : HookRegister() {
             .map { it.getMethodInstance(classLoader) }
             .firstOrNull()!!
     }
-    private lateinit var method2: Method
-    override fun init() = hasEnable("screen_time") {
+    private val method2 by lazy {
         dexKitBridge.findMethod {
             methodDeclareClass = cls.name
             methodReturnType = "boolean"
             methodParamTypes = arrayOf()
-        }.forEach { methods ->
-            method2 = methods.getMethodInstance(classLoader)
-            method2.createHook {
+        }.map { it.getMethodInstance(classLoader) }.toList()
+    }
+
+    override fun init() = hasEnable("screen_time") {
+        method2.forEach {
+            it.createHook {
                 returnConstant(
-                    when (method2) {
+                    when (it) {
                         method1 -> true
                         else -> false
                     }

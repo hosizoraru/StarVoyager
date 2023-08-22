@@ -1,18 +1,39 @@
 package star.sky.voyager.hook.hooks.settings
 
-import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
+import io.luckypray.dexkit.enums.MatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object HpLocation : HookRegister() {
+    private val hp by lazy {
+        dexKitBridge.findMethodUsingString {
+            usingString = "persist.vendor.gnss.hpLocSetUI"
+            matchType = MatchType.FULL
+        }.map { it.getMethodInstance(classLoader) }.toList()
+    }
+
+    private val Zh by lazy {
+        dexKitBridge.findMethodUsingString {
+            usingString = "zh_CN"
+            matchType = MatchType.FULL
+        }.map { it.getMethodInstance(classLoader) }.toList()
+    }
+
     override fun init() = hasEnable("hp_location") {
-        loadClass("com.android.settings.location.XiaomiHpLocationController")
-            .methodFinder().filter {
-                name in setOf("hasXiaomiHpFeature", "isZh")
-            }.toList().createHooks {
+        setOf(hp, Zh).forEach {
+            it.createHooks {
                 returnConstant(true)
             }
+        }
     }
 }
+
+//        loadClass("com.android.settings.location.XiaomiHpLocationController")
+//            .methodFinder().filter {
+//                name in setOf("hasXiaomiHpFeature", "isZh")
+//            }.toList().createHooks {
+//                returnConstant(true)
+//            }
