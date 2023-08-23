@@ -26,25 +26,56 @@ import java.util.TimerTask
 
 object StatusBarTimeCustomization : HookRegister() {
 
-    private val getMode = getInt("custom_clock_mode", 0)
-    private val getClockSize = getInt("status_bar_clock_size", 0)
-    private val getClockDoubleSize = getInt("status_bar_clock_double_line_size", 0)
-    private val isYear = getBoolean("status_bar_time_year", false)
-    private val isMonth = getBoolean("status_bar_time_month", false)
-    private val isDay = getBoolean("status_bar_time_day", false)
-    private val isWeek = getBoolean("status_bar_time_week", false)
-    private val isHideSpace = getBoolean("status_bar_time_hide_space", false)
-    private val isDoubleLine = getBoolean("status_bar_time_double_line", false)
-    private val isSecond = getBoolean("status_bar_time_seconds", false)
-    private val isDoubleHour = getBoolean("status_bar_time_double_hour", false)
-    private val isPeriod = getBoolean("status_bar_time_period", true)
-    private val isCenterAlign =
+    private val getMode by lazy {
+        getInt("custom_clock_mode", 0)
+    }
+    private val getClockSize by lazy {
+        getInt("status_bar_clock_size", 0)
+    }
+    private val getClockDoubleSize by lazy {
+        getInt("status_bar_clock_double_line_size", 0)
+    }
+    private val isYear by lazy {
+        getBoolean("status_bar_time_year", false)
+    }
+    private val isMonth by lazy {
+        getBoolean("status_bar_time_month", false)
+    }
+    private val isDay by lazy {
+        getBoolean("status_bar_time_day", false)
+    }
+    private val isWeek by lazy {
+        getBoolean("status_bar_time_week", false)
+    }
+    private val isHideSpace by lazy {
+        getBoolean("status_bar_time_hide_space", false)
+    }
+    private val isDoubleLine by lazy {
+        getBoolean("status_bar_time_double_line", false)
+    }
+    private val isSecond by lazy {
+        getBoolean("status_bar_time_seconds", false)
+    }
+    private val isDoubleHour by lazy {
+        getBoolean("status_bar_time_double_hour", false)
+    }
+    private val isPeriod by lazy {
+        getBoolean("status_bar_time_period", true)
+    }
+    private val isCenterAlign by lazy {
         getBoolean("status_bar_time_double_line_center_align", false)
+    }
 
     //极客模式
-    private val getGeekClockSize = getInt("status_bar_clock_size_geek", 0)
-    private val getGeekFormat = getString("custom_clock_format_geek", "HH:mm:ss")
-    private val isGeekCenterAlign = getBoolean("status_bar_time_center_align_geek", false)
+    private val getGeekClockSize by lazy {
+        getInt("status_bar_clock_size_geek", 0)
+    }
+    private val getGeekFormat by lazy {
+        getString("custom_clock_format_geek", "HH:mm:ss")
+    }
+    private val isGeekCenterAlign by lazy {
+        getBoolean("status_bar_time_center_align_geek", false)
+    }
 
     private lateinit var nowTime: Date
     private var str = ""

@@ -10,8 +10,11 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getFloat
 
 object BatteryPercentage : HookRegister() {
+    private val size by lazy {
+        getFloat("battery_percentage_font_size", 0f)
+    }
+
     override fun init() {
-        val size = getFloat("battery_percentage_font_size", 0f)
         if (size == 0f) return
         loadClass("com.android.systemui.statusbar.views.MiuiBatteryMeterView").methodFinder()
             .filterByName("updateResources")

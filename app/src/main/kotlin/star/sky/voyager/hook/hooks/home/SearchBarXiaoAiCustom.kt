@@ -11,13 +11,17 @@ import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
 
 object SearchBarXiaoAiCustom : HookRegister() {
+    private val pkgName by lazy {
+        getString("search_bar_pkg_name", "com.google.android.googlequicksearchbox")!!
+    }
+
+    private val clsName by lazy {
+        getString("search_bar_cls_name", "com.google.android.apps.searchlite.SearchActivity")!!
+    }
+
     override fun init() = hasEnable("search_bar_xiaoai_custom") {
         val searchBarXiaoaiLayout =
             loadClass("com.miui.home.launcher.SearchBarXiaoaiLayout")
-        val pkgName =
-            getString("search_bar_pkg_name", "com.google.android.googlequicksearchbox")!!
-        val clsName =
-            getString("search_bar_cls_name", "com.google.android.apps.searchlite.SearchActivity")!!
 
         searchBarXiaoaiLayout.methodFinder()
             .filterByName("launchXiaoAi")

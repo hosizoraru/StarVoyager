@@ -20,14 +20,24 @@ import star.sky.voyager.utils.key.hasEnable
 
 object StatusBarBigMobileTypeIcon : HookRegister() {
 
-    private val getLocation = getInt("big_mobile_type_location", 1)
-    private val upAndDownPosition = getInt("big_mobile_type_icon_up_and_down_position", 0)
-    private val leftAndRightMargin =
+    private val getLocation by lazy {
+        getInt("big_mobile_type_location", 1)
+    }
+    private val upAndDownPosition by lazy {
+        getInt("big_mobile_type_icon_up_and_down_position", 0)
+    }
+    private val leftAndRightMargin by lazy {
         getInt("big_mobile_type_icon_left_and_right_margins", 0)
-    private val isBold = getBoolean("big_mobile_type_icon_bold", true)
-    private val size = getFloat("big_mobile_type_icon_size", 12.5f)
-    private val isOnlyShowNetwork =
+    }
+    private val isBold by lazy {
+        getBoolean("big_mobile_type_icon_bold", true)
+    }
+    private val size by lazy {
+        getFloat("big_mobile_type_icon_size", 12.5f)
+    }
+    private val isOnlyShowNetwork by lazy {
         getBoolean("big_mobile_type_only_show_network_card", false)
+    }
 
     override fun init() = hasEnable("big_mobile_type_icon") {
         //使网络类型单独显示

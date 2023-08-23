@@ -27,8 +27,12 @@ object DoubleLineNetworkSpeed : HookRegister() {
     private var upIcon = ""
     private var downIcon = ""
 
-    private val getDualSize = getInt("status_bar_network_speed_dual_row_size", 0)
-    private val getDualAlign = getInt("status_bar_network_speed_dual_row_gravity", 0)
+    private val getDualSize by lazy {
+        getInt("status_bar_network_speed_dual_row_size", 0)
+    }
+    private val getDualAlign by lazy {
+        getInt("status_bar_network_speed_dual_row_gravity", 0)
+    }
 
     override fun init() = hasEnable("status_bar_dual_row_network_speed") {
 

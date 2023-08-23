@@ -11,13 +11,16 @@ import kotlin.math.roundToInt
 
 
 object BackGestureAreaHeight : HookRegister() {
+    private val wmlpHeight by lazy {
+        getInt("wmlp_height", 60)
+    }
+
     override fun init() = hasEnable("back_gesture_area_height") {
         loadClass("com.miui.home.recents.GestureStubView").methodFinder()
             .filterByName("getGestureStubWindowParam")
             .first().createHook {
                 after { param ->
                     val wmlp = param.result as WindowManager.LayoutParams
-                    val wmlpHeight = getInt("wmlp_height", 60)
                     wmlp.height = (wmlp.height / 60.0F * wmlpHeight).roundToInt()
                     param.result = wmlp
                 }

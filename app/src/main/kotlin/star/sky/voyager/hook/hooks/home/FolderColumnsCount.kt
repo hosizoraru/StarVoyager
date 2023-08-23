@@ -11,8 +11,11 @@ import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object FolderColumnsCount : HookRegister() {
+    private val value by lazy {
+        getInt("home_folder_columns", 3)
+    }
+
     override fun init() {
-        val value = getInt("home_folder_columns", 3)
         if (value == 3) return
         loadClass("com.miui.home.launcher.Folder").methodFinder()
             .filterByName("bind")

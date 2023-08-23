@@ -8,8 +8,11 @@ import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 
 object AlwaysBlurWallpaper : HookRegister() {
+    private val value by lazy {
+        getInt("home_blur_radius", 100)
+    }
+
     override fun init() = hasEnable("home_blur_wallpaper") {
-        val value = getInt("home_blur_radius", 100)
         loadClass("com.miui.home.launcher.common.BlurUtils").methodFinder()
             .filterByName("fastBlur")
             .filterByParamCount(4)

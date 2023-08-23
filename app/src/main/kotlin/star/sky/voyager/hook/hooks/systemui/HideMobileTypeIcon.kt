@@ -14,7 +14,9 @@ import star.sky.voyager.utils.key.hasEnable
 
 object HideMobileTypeIcon : HookRegister() {
 
-    private val isBigType = getBoolean("big_mobile_type_icon", false)
+    private val isBigType by lazy {
+        getBoolean("big_mobile_type_icon", false)
+    }
 
     override fun init() = hasEnable("hide_mobile_type_icon") {
         loadClass("com.android.systemui.statusbar.StatusBarMobileView").methodFinder()
