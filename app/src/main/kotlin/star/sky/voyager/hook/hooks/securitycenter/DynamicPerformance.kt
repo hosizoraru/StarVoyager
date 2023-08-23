@@ -12,20 +12,20 @@ object DynamicPerformance : HookRegister() {
         dexKitBridge.findMethodUsingString {
             usingString = "persist.sys.smartop.support_dynamic_performance"
             matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+        }.firstOrNull()?.getMethodInstance(classLoader)!!
     }
-    
+
     private val c by lazy {
         dexKitBridge.findMethodUsingString {
             methodDeclareClass = d.declaringClass.name
             usingString = "PREF_KEY_DYNAMIC_PERFORMANCE_SWITCH"
             methodReturnType = d.returnType.name
-        }.single().getMethodInstance(classLoader)
+        }.firstOrNull()?.getMethodInstance(classLoader)
     }
 
     override fun init() = hasEnable("dynamic_performance") {
         setOf(c, d).forEach {
-            it.createHook {
+            it?.createHook {
                 returnConstant(true)
             }
         }
