@@ -103,6 +103,12 @@ class LockScreenPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.lock_screen_only_left,
+                tipsId = R.string.lock_screen_only_left_summary,
+            ), SwitchV("lock_screen_only_left")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.remove_lock_screen_camera,
                 tipsId = R.string.only_official_default_themes_are_supported
             ), SwitchV("remove_lock_screen_camera")

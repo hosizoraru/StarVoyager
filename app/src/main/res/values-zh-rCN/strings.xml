@@ -737,6 +737,8 @@
     <string name="lock_screen_hint">隐藏锁屏界面底部的解锁提示</string>
     <string name="lock_screen_uwb">锁屏界面右滑控制手电筒</string>
     <string name="lock_screen_left_button_flash_light">锁屏界面底部左边按钮触发手电筒</string>
+    <string name="lock_screen_only_left">仅移除锁屏界面的左滑</string>
+    <string name="lock_screen_only_left_summary">这会保留锁屏界面左下角的按钮,但无法从左向右滑动</string>
     <string name="enable_wave_charge_animation">启用 Alpha 充电动画</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_mA">电流单位使用 mA</string>

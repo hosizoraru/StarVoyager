@@ -28,6 +28,7 @@ import star.sky.voyager.hook.hooks.systemui.LockScreenDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.LockScreenFont
 import star.sky.voyager.hook.hooks.systemui.LockScreenHint
 import star.sky.voyager.hook.hooks.systemui.LockScreenLeftButtonFlashLight
+import star.sky.voyager.hook.hooks.systemui.LockScreenOnlyLeft
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveCamera
 import star.sky.voyager.hook.hooks.systemui.LockScreenRemoveLeftSide
 import star.sky.voyager.hook.hooks.systemui.LockScreenUwb
@@ -112,6 +113,7 @@ object SystemUI : AppRegister() {
             LockScreenDoubleTapToSleep, // 锁屏-双击锁定屏幕
             LockScreenZenMode, // 隐藏锁屏界面的勿扰模式通知
             LockScreenHint, // 隐藏锁屏界面底部的解锁提示
+            LockScreenOnlyLeft, // 仅移除锁屏界面的左滑
             NoPasswordHook, // 开机免输密码
             OldQSCustom, // 自定义行列数
             // 状态栏网络速度 Start
