@@ -25,6 +25,14 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object AddFreeformShortcut : HookRegister() {
+    private val freeform by lazy {
+        moduleRes.getString(R.string.freeform)
+    }
+
+    private val multiple by lazy {
+        moduleRes.getString(R.string.multiple_instances)
+    }
+
     override fun init() {
         if (IS_TABLET) initForPad() else initForPhone()
         loadClass("com.miui.home.launcher.shortcuts.SystemShortcutMenu").methodFinder()
@@ -103,8 +111,8 @@ object AddFreeformShortcut : HookRegister() {
                     when (val shortTitle =
                         invokeMethodBestMatch(param.thisObject, "getShortTitle")) {
                         in setOf(
-                            moduleRes.getString(R.string.freeform),
-                            moduleRes.getString(R.string.multiple_instances)
+                            freeform,
+                            multiple
                         ) -> {
                             param.result = View.OnClickListener { view ->
                                 val context = view.context
@@ -118,7 +126,7 @@ object AddFreeformShortcut : HookRegister() {
                                     // addCategory("android.intent.category.DEFAULT")
                                     component = componentName
                                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    if (shortTitle == moduleRes.getString(R.string.multiple_instances)) addFlags(
+                                    if (shortTitle == multiple) addFlags(
                                         Intent.FLAG_ACTIVITY_MULTIPLE_TASK
                                     )
                                 }
@@ -155,7 +163,7 @@ object AddFreeformShortcut : HookRegister() {
                                     this,
                                     "setShortTitle",
                                     null,
-                                    moduleRes.getString(R.string.freeform)
+                                    freeform
                                 )
                                 invokeMethodBestMatch(
                                     this,
@@ -179,7 +187,7 @@ object AddFreeformShortcut : HookRegister() {
                                     this,
                                     "setShortTitle",
                                     null,
-                                    moduleRes.getString(R.string.multiple_instances)
+                                    multiple
                                 )
                                 invokeMethodBestMatch(
                                     this,
