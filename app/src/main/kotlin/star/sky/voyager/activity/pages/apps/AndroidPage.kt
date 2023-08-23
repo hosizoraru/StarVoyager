@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -11,8 +10,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_android", titleId = R.string.scope_android, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_android", titleId = R.string.scope_android, hideMenu = false)
+@BMPage("scope_android", "System FrameWork", hideMenu = false)
 class AndroidPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.core_patch)

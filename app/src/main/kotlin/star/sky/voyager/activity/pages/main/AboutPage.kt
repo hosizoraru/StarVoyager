@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.main
 
-import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.content.Intent.ACTION_VIEW
@@ -21,8 +20,9 @@ import star.sky.voyager.R
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("about_module", titleId = R.string.about_module, hideMenu = true)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("about_module", titleId = R.string.about_module, hideMenu = true)
+@BMPage("about_module", "About Module", hideMenu = true)
 class AboutPage : BasePage() {
     override fun onCreate() {
         ImageWithText(

@@ -1,14 +1,14 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_mi_smart_hub", titleId = R.string.scope_mi_smart_hub, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_mi_smart_hub", titleId = R.string.scope_mi_smart_hub, hideMenu = false)
+@BMPage("scope_mi_smart_hub", "Mi Smart Hub", hideMenu = false)
 class SmartHubPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_mi_share)

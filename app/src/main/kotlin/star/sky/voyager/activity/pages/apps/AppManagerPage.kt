@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -9,8 +8,9 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_pkg_installer", titleId = R.string.scope_app_manager, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_pkg_installer", titleId = R.string.scope_app_manager, hideMenu = false)
+@BMPage("scope_pkg_installer", "Application Management", hideMenu = false)
 class AppManagerPage : BasePage() {
     override fun onCreate() {
         Page(

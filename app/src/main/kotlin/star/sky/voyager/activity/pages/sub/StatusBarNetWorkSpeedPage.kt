@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.sub
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -12,8 +11,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("status_bar_network_speed", titleId = R.string.status_bar_network_speed, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("status_bar_network_speed", titleId = R.string.status_bar_network_speed, hideMenu = false)
+@BMPage("status_bar_network_speed", "Status Bar Network Speed", hideMenu = false)
 class StatusBarNetWorkSpeedPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.status_bar_network_speed)

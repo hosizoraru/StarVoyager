@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.sub
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast.LENGTH_SHORT
@@ -16,8 +15,9 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("status_bar_icon", titleId = R.string.status_bar_icon, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("status_bar_icon", titleId = R.string.status_bar_icon, hideMenu = false)
+@BMPage("status_bar_icon", "Status Bar Icons", hideMenu = false)
 class StatusBarIconPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.status_bar_icon)

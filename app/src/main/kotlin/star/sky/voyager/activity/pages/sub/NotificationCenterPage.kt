@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.sub
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -14,8 +13,9 @@ import star.sky.voyager.utils.voyager.LineB.lineB
 import star.sky.voyager.utils.voyager.TabletSeekBar.createTextWithSeekBar
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("notification_center", titleId = R.string.notification_center, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("notification_center", titleId = R.string.notification_center, hideMenu = false)
+@BMPage("notification_center", "Notification Center", hideMenu = false)
 class NotificationCenterPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.notification_center)

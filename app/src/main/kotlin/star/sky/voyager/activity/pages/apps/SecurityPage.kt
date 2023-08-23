@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import android.widget.Toast
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -9,8 +8,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 import star.sky.voyager.utils.yife.Terminal.exec
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_security_center", titleId = R.string.scope_security_center, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_security_center", titleId = R.string.scope_security_center, hideMenu = false)
+@BMPage("scope_security_center", "Security Center", hideMenu = false)
 class SecurityPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_security_center)

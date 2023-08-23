@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.sub
 
-import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -13,8 +12,9 @@ import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("status_bar", titleId = R.string.status_bar, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("status_bar", titleId = R.string.status_bar, hideMenu = false)
+@BMPage("status_bar", "Status Bar", hideMenu = false)
 class StatusBarPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.status_bar)

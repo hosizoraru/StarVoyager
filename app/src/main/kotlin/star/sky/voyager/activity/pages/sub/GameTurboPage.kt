@@ -1,14 +1,14 @@
 package star.sky.voyager.activity.pages.sub
 
-import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("game_turbo", titleId = R.string.game_turbo, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("game_turbo", titleId = R.string.game_turbo, hideMenu = false)
+@BMPage("game_turbo", "Game Turbo", hideMenu = false)
 class GameTurboPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(

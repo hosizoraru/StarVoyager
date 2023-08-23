@@ -1,14 +1,14 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_gallery", titleId = R.string.scope_gallery, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_gallery", titleId = R.string.scope_gallery, hideMenu = false)
+@BMPage("scope_gallery", "Gallery", hideMenu = false)
 class GalleryPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithArrow(

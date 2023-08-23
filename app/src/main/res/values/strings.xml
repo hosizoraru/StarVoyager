@@ -739,7 +739,7 @@
     <string name="lock_screen_uwb">Control flashlight with right swipe on lock screen</string>
     <string name="lock_screen_left_button_flash_light">Trigger flashlight with the bottom left button on lock screen</string>
     <string name="lock_screen_only_left">Remove Only Left Swipe on Lock Screen</string>
-    <string name="lock_screen_only_left_summary">This will keep the button in the bottom-left corner of the lock screen but disable the left-to-right swipe.</string>
+    <string name="lock_screen_only_left_summary">This will keep the button in the bottom-left corner of the lock screen but disable the left-to-right swipe</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
     <string name="current_mA">The current unit uses mA</string>

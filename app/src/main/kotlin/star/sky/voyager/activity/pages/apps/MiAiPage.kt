@@ -1,6 +1,5 @@
 package star.sky.voyager.activity.pages.apps
 
-import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.widget.Toast.LENGTH_LONG
@@ -11,8 +10,9 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-@SuppressLint("NonConstantResourceId")
-@BMPage("scope_mi_ai", titleId = R.string.scope_mi_ai, hideMenu = false)
+//@SuppressLint("NonConstantResourceId")
+//@BMPage("scope_mi_ai", titleId = R.string.scope_mi_ai, hideMenu = false)
+@BMPage("scope_mi_ai", "Mi AI", hideMenu = false)
 class MiAiPage : BasePage() {
     override fun onCreate() {
         Page(
