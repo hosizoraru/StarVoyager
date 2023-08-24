@@ -2,10 +2,10 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
@@ -29,6 +29,12 @@ object AppDisable : HookRegister() {
     }
     private val disableAppSettings by lazy {
         moduleRes.getString(R.string.disable_app_settings)
+    }
+    private val warning by lazy {
+        moduleRes.getString(R.string.warning)
+    }
+    private val disableText by lazy {
+        moduleRes.getString(R.string.disable_app_text)
     }
 
     override fun init() = hasEnable("disable_app_settings") {
@@ -110,7 +116,7 @@ object AppDisable : HookRegister() {
 
                     if (item.itemId == 666) {
                         val act = param.thisObject as Activity
-                        val modRes: Resources = moduleRes
+//                        val modRes: Resources = moduleRes
                         val piField = findFirstFieldByExactType(
                             act.javaClass,
                             PackageInfo::class.java
@@ -134,26 +140,26 @@ object AppDisable : HookRegister() {
                         val isEnabledOrDefault =
                             state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED || state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                         if (isEnabledOrDefault) {
-//                            if (isSystem) {
-//                                val title = modRes.getString(R.string.warning)
-//                                val text = modRes.getString(R.string.disable_app_text)
-//                                AlertDialog.Builder(act)
-//                                    .setTitle(title)
-//                                    .setMessage(text)
-//                                    .setPositiveButton(android.R.string.ok) { _, _ ->
-//                                        setAppState(
-//                                            act,
-//                                            mPackageInfo.packageName,
-//                                            item,
-//                                            false
-//                                        )
-//                                    }
-//                                    .setNegativeButton(android.R.string.cancel, null)
-//                                    .show()
-//                            } else {
-//                                setAppState(act, mPackageInfo.packageName, item, false)
-//                            }
-                            setAppState(act, mPackageInfo.packageName, item, false)
+                            if (isSystem) {
+                                val title = warning
+                                val text = disableText
+                                AlertDialog.Builder(act)
+                                    .setTitle(title)
+                                    .setMessage(text)
+                                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                                        setAppState(
+                                            act,
+                                            mPackageInfo.packageName,
+                                            item,
+                                            false
+                                        )
+                                    }
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show()
+                            } else {
+                                setAppState(act, mPackageInfo.packageName, item, false)
+                            }
+//                            setAppState(act, mPackageInfo.packageName, item, false)
                         } else {
                             setAppState(act, mPackageInfo.packageName, item, true)
                         }
