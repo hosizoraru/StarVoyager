@@ -67,5 +67,12 @@ class HomeBlurPage : BasePage() {
             TextSummaryV(textId = R.string.download_animation),
             SwitchV("download_animation")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.pad_hide_app,
+                tipsId = R.string.open_on_demand,
+            ),
+            SwitchV("pad_hide_app", false)
+        )
     }
 }

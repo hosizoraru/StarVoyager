@@ -610,6 +610,7 @@
     <string name="home_real_memory">バックグラウンドで実際に使用されているメモリと全体のメモリを表示</string>
     <string name="home_real_memory_summary">偽の MIUI メモリを取り払いましょう</string>
     <string name="pad_show_memory">タブレットデバイスでメモリ状況を表示</string>
+    <string name="pad_hide_app">タブレットデバイスのいくつかの設定とドックのぼかしを復元</string>
     <string name="Use_Transition_Animation">すべてのウィジェットに起動アニメーションを追加する</string>
     <string name="Show_MIUI_Widget">Android ウィジェットページに MIUI ウィジェットを表示</string>
     <string name="resizable_widgets">ウィジェットのサイズ制限を解除</string>

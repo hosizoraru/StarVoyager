@@ -611,6 +611,7 @@
     <string name="home_real_memory">Show Real Use and Total Memory</string>
     <string name="home_real_memory_summary">Hacking fake MIUI memory</string>
     <string name="pad_show_memory">Display Memory Status on Tablet Devices</string>
+    <string name="pad_hide_app">Restore Some Settings and Dock Blur for Tablet Devices</string>
     <string name="Use_Transition_Animation">Add startup animation to all widgets</string>
     <string name="Show_MIUI_Widget">Show MIUI widgets on the Classic widgets page</string>
     <string name="resizable_widgets">Resizable miui widgets</string>

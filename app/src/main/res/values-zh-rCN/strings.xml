@@ -610,6 +610,7 @@
     <string name="home_real_memory">后台显示实际使用和总内存</string>
     <string name="home_real_memory_summary">去 TM MIUI 虚假的内存</string>
     <string name="pad_show_memory">平板设备显示内存情况</string>
+    <string name="pad_hide_app">为平板设备恢复一些设置和底栏模糊</string>
     <string name="Use_Transition_Animation">为所有小部件添加启动动画</string>
     <string name="Show_MIUI_Widget">在安卓小部件页面显示 MIUI 小部件</string>
     <string name="resizable_widgets">解除小部件大小限制</string>

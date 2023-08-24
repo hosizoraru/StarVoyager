@@ -35,6 +35,7 @@
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
         <item>com.miui.contentextension</item>
+        <!--        <item>com.android.thememanager</item>-->
         <item>com.android.updater</item>
         <item>com.miui.miwallpaper</item>
         <item>com.miui.weather2</item>

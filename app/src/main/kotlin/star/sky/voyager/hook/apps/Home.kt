@@ -25,6 +25,7 @@ import star.sky.voyager.hook.hooks.home.MonetColor
 import star.sky.voyager.hook.hooks.home.MonoChromeIcon
 import star.sky.voyager.hook.hooks.home.OptimizeUnlockAnim
 import star.sky.voyager.hook.hooks.home.OverlapMode
+import star.sky.voyager.hook.hooks.home.PadHideApp
 import star.sky.voyager.hook.hooks.home.PadShowMemory
 import star.sky.voyager.hook.hooks.home.RealMemory
 import star.sky.voyager.hook.hooks.home.RecentViewRemoveCardAnim
@@ -90,6 +91,7 @@ object Home : AppRegister() {
             FolderAnim, // 文件夹动画修改
             BackGestureAreaHeight, // 自定义返回手势区域高度
             PadShowMemory, // 平板显示内存占用
+            PadHideApp,
             MaxFreeForm, // 解锁小窗数量限制
             // max mi pad
             SetGestureNeedFingerNumTo4, // 交换手势所需的手指数量-Home部分

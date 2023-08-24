@@ -35,6 +35,7 @@ object PackageNameHook {
         "com.android.settings",
         "com.android.systemui",
         "com.miui.contentextension",
+//        "com.android.thememanager",
         "com.android.updater",
         "com.miui.miwallpaper",
         "com.miui.weather2",

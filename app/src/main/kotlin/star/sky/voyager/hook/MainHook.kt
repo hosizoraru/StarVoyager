@@ -83,6 +83,7 @@ class MainHook : EasyXposedInit() {
         Settings, // 设置
         SystemUI, // 系统界面
         TaPlus, // 传送门
+//        Theme, // 主题壁纸
         Updater, // 系统更新
         WallPaper, // 壁纸
         Weather, // 天气
