@@ -24,6 +24,12 @@ import star.sky.voyager.utils.key.hasEnable
 @SuppressLint("DiscouragedApi")
 object AppDisable : HookRegister() {
     private var mMiuiCoreApps: ArrayList<String>? = null
+    private val fail by lazy {
+        moduleRes.getString(R.string.fail)
+    }
+    private val disableAppSettings by lazy {
+        moduleRes.getString(R.string.disable_app_settings)
+    }
 
     override fun init() = hasEnable("disable_app_settings") {
         val lpparam = getLoadPackageParam()
@@ -113,7 +119,7 @@ object AppDisable : HookRegister() {
                         if (mMiuiCoreApps!!.contains(mPackageInfo.packageName)) {
                             makeText(
                                 act,
-                                modRes.getString(R.string.disable_app_settings),
+                                disableAppSettings,
                                 LENGTH_SHORT
                             ).show()
                             return@after
@@ -187,7 +193,7 @@ object AppDisable : HookRegister() {
         } else {
             makeText(
                 act,
-                moduleRes.getString(R.string.fail),
+                fail,
                 LENGTH_LONG
             ).show()
         }

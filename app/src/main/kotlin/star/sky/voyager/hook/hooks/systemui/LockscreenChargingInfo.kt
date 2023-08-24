@@ -24,6 +24,10 @@ import java.io.BufferedReader
 import java.io.FileReader
 
 object LockscreenChargingInfo : HookRegister() {
+    private val noSupport by lazy {
+        moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
+    }
+
     override fun init() = hasEnable("lockscreen_charging_info") {
         val refreshFrequency =
             getInt("lockscreen_charging_info_refresh_frequency", 10).toLong() * 100
@@ -100,7 +104,7 @@ object LockscreenChargingInfo : HookRegister() {
             val watt = current?.let { cur -> voltage?.let { volt -> cur * volt } }
 
             formatChargingInfo(current, voltage, watt, temperature)
-        }.getOrElse { moduleRes.getString(R.string.lockscreen_charging_info_not_supported) }
+        }.getOrElse { noSupport }
     }
 
     private fun String.readFile(): String? = kotlin.runCatching {
@@ -143,7 +147,7 @@ object LockscreenChargingInfo : HookRegister() {
                     }
                 }
             }
-        } ?: moduleRes.getString(R.string.lockscreen_charging_info_not_supported)
+        } ?: noSupport
     }
 }
 

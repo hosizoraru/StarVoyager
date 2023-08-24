@@ -17,6 +17,10 @@ import java.io.FileReader
 import kotlin.math.abs
 
 object LockScreenCurrent : HookRegister() {
+    private val currentString by lazy {
+        moduleRes.getString(R.string.current_current)
+    }
+
     override fun init() = hasEnable("lock_screen_charging_current") {
         loadClass("com.android.keyguard.charge.ChargeUtils").methodFinder()
             .filterByName("getChargingHintText")
@@ -42,7 +46,7 @@ object LockScreenCurrent : HookRegister() {
             .getSystemService(Context.BATTERY_SERVICE) as BatteryManager
         val current =
             abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000)
-        return "${moduleRes.getString(R.string.current_current)} ${current}mA"
+        return "$currentString ${current}mA"
     }
 
     /**

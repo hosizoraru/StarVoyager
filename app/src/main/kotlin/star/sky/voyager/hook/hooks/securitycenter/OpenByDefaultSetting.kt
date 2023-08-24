@@ -23,6 +23,16 @@ import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object OpenByDefaultSetting : HookRegister() {
+    private val openByDefault by lazy {
+        moduleRes.getString(R.string.open_by_default)
+    }
+    private val linkOpenAlways by lazy {
+        moduleRes.getString(R.string.app_link_open_always)
+    }
+    private val linkOpenNever by lazy {
+        moduleRes.getString(R.string.app_link_open_never)
+    }
+
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("open_by_default_setting") {
         val domainVerificationManager: DomainVerificationManager by lazy {
@@ -77,7 +87,7 @@ object OpenByDefaultSetting : HookRegister() {
                         pkgName
                     )?.isLinkHandlingAllowed ?: false
                 val subTextId =
-                    if (isLinkHandlingAllowed) R.string.app_link_open_always else R.string.app_link_open_never
+                    if (isLinkHandlingAllowed) linkOpenAlways else linkOpenNever
                 cleanOpenByDefaultView::class.java.declaredFields.forEach {
                     val view = getObjectOrNull(cleanOpenByDefaultView, it.name)
                     if (view !is TextView) return@forEach
@@ -85,14 +95,14 @@ object OpenByDefaultSetting : HookRegister() {
                         view,
                         "setText",
                         null,
-                        moduleRes.getString(R.string.open_by_default)
+                        openByDefault
                     )
                 }
                 invokeMethodBestMatch(
                     cleanOpenByDefaultView,
                     "setSummary",
                     null,
-                    moduleRes.getString(subTextId)
+                    subTextId
                 )
             }
         }

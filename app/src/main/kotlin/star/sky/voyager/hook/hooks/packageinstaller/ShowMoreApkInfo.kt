@@ -32,6 +32,21 @@ object ShowMoreApkInfo : HookRegister() {
     private var mApkInfo: Class<*>? = null
     private var mAppInfoViewObject: Class<*>? = null
     private var mAppInfoViewObjectViewHolder: Class<*>? = null
+    private val versionName by lazy {
+        moduleRes.getString(R.string.package_installer_app_version_name_title)
+    }
+
+    private val versionCode by lazy {
+        moduleRes.getString(R.string.package_installer_app_version_code_title)
+    }
+
+    private val sdk by lazy {
+        moduleRes.getString(R.string.package_installer_app_sdk_title)
+    }
+
+    private val size by lazy {
+        moduleRes.getString(R.string.package_installer_app_size_title)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun init() = hasEnable("package_installer_show_more_apk_info") {
@@ -149,13 +164,13 @@ object ShowMoreApkInfo : HookRegister() {
             }
             mAppPackageNameView.text = mPackageName
             mAppVersionNameView.text =
-                moduleRes.getString(R.string.package_installer_app_version_name_title) + ": " + mAppVersionName
+                "$versionName: $mAppVersionName"
             mAppVersionCodeView.text =
-                moduleRes.getString(R.string.package_installer_app_version_code_title) + ": " + mAppVersionCode
+                "$versionCode: $mAppVersionCode"
             mAppSdkView.text =
-                moduleRes.getString(R.string.package_installer_app_sdk_title) + ": " + mAppSdk
+                "$sdk: $mAppSdk"
             mAppSizeView.text =
-                moduleRes.getString(R.string.package_installer_app_size_title) + ": " + mOldAppSize + mNewAppSize
+                "$size: $mOldAppSize$mNewAppSize"
             linearLayout2.addView(mAppVersionNameView, 0)
             linearLayout2.addView(mAppVersionCodeView, 1)
             linearLayout2.addView(mAppSdkView, 2)

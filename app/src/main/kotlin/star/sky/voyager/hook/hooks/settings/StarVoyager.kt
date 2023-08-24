@@ -18,6 +18,10 @@ import star.sky.voyager.utils.voyager.LazyClass.MiuiSettingsCls
 
 @SuppressLint("DiscouragedApi")
 object StarVoyager : HookRegister() {
+    private val voyager by lazy {
+        moduleRes.getString(R.string.app_name)
+    }
+
     override fun init() = hasEnable("star_voyager") {
         val preferenceActivityCls =
             loadClass("com.android.settingslib.miuisettings.preference.PreferenceActivity\$Header")
@@ -40,7 +44,7 @@ object StarVoyager : HookRegister() {
                     XposedHelpers.setObjectField(
                         header,
                         "title",
-                        moduleRes.getString(R.string.app_name)
+                        voyager
                     )
                     val bundle = Bundle()
                     val users = ArrayList<UserHandle>()
