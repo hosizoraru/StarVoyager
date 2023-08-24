@@ -14,6 +14,7 @@ import star.sky.voyager.BuildConfig.APPLICATION_ID
 import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 import java.lang.Boolean
 import java.lang.reflect.InvocationTargetException
+import java.util.Arrays
 import kotlin.Any
 import kotlin.Array
 import kotlin.Int
@@ -169,6 +170,42 @@ open class CorePatchForQ : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                     }
                 }
             })
+
+        val keySetManagerClass =
+            findClass("com.android.server.pm.KeySetManagerService", loadPackageParam.classLoader)
+        if (keySetManagerClass != null) {
+            val shouldBypass = ThreadLocal<kotlin.Boolean>()
+            hookAllMethods(
+                keySetManagerClass,
+                "shouldCheckUpgradeKeySetLocked",
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        if (prefs.getBoolean(
+                                "digestCreak",
+                                true
+                            ) && Arrays.stream(Thread.currentThread().stackTrace)
+                                .anyMatch { o: StackTraceElement -> "preparePackageLI" == o.methodName }
+                        ) {
+                            shouldBypass.set(true)
+                            param.result = true
+                        } else {
+                            shouldBypass.set(false)
+                        }
+                    }
+                })
+            hookAllMethods(
+                keySetManagerClass,
+                "checkUpgradeKeySetLocked",
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        if (prefs.getBoolean("digestCreak", true) && shouldBypass.get() == true) {
+                            param.result = true
+                        }
+                    }
+                })
+        }
     }
 
     override fun initZygote(startupParam: StartupParam) {

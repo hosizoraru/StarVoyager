@@ -25,6 +25,7 @@ import java.lang.reflect.Member
 import java.lang.reflect.Method
 import java.security.cert.Certificate
 import java.security.cert.X509Certificate
+import java.util.Arrays
 import java.util.zip.ZipEntry
 
 
@@ -218,8 +219,7 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                                     if (PM == null) {
                                         XposedBridge.log("E: $APPLICATION_ID Cannot get the Package Manager... Are you using MiUI?")
                                     } else {
-                                        val pI: PackageInfo?
-                                        pI = if (parseErr != null) {
+                                        val pI: PackageInfo? = if (parseErr != null) {
                                             PM.getPackageArchiveInfo(
                                                 (methodHookParam.args[1] as String),
                                                 0
@@ -250,22 +250,25 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                                         "findEntry",
                                         "AndroidManifest.xml"
                                     ) as ZipEntry
-                                    val lastCerts: Array<Array<Certificate>>
-                                    lastCerts = if (parseErr != null) {
-                                        XposedHelpers.callMethod(
+                                    val lastCerts: Array<Array<Certificate>> =
+                                        if (parseErr != null) {
+                                            XposedHelpers.callMethod(
+                                                XposedHelpers.callStaticMethod(
+                                                    ASV,
+                                                    "loadCertificates",
+                                                    methodHookParam.args[0],
+                                                    origJarFile,
+                                                    manifestEntry
+                                                ), "getResult"
+                                            ) as Array<Array<Certificate>>
+                                        } else {
                                             XposedHelpers.callStaticMethod(
-                                                ASV, "loadCertificates",
-                                                methodHookParam.args[0], origJarFile, manifestEntry
-                                            ), "getResult"
-                                        ) as Array<Array<Certificate>>
-                                    } else {
-                                        XposedHelpers.callStaticMethod(
-                                            ASV,
-                                            "loadCertificates",
-                                            origJarFile,
-                                            manifestEntry
-                                        ) as Array<Array<Certificate>>
-                                    }
+                                                ASV,
+                                                "loadCertificates",
+                                                origJarFile,
+                                                manifestEntry
+                                            ) as Array<Array<Certificate>>
+                                        }
                                     lastSigs = XposedHelpers.callStaticMethod(
                                         ASV,
                                         "convertToSignatures",
@@ -373,6 +376,42 @@ open class CorePatchForR : XposedHelper(), IXposedHookLoadPackage, IXposedHookZy
                     }
                 }
             }
+        }
+
+        val keySetManagerClass =
+            findClass("com.android.server.pm.KeySetManagerService", loadPackageParam.classLoader)
+        if (keySetManagerClass != null) {
+            val shouldBypass = ThreadLocal<Boolean>()
+            hookAllMethods(
+                keySetManagerClass,
+                "shouldCheckUpgradeKeySetLocked",
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        if (prefs.getBoolean(
+                                "digestCreak",
+                                true
+                            ) && Arrays.stream(Thread.currentThread().stackTrace)
+                                .anyMatch { o: StackTraceElement -> "preparePackageLI" == o.methodName }
+                        ) {
+                            shouldBypass.set(true)
+                            param.result = true
+                        } else {
+                            shouldBypass.set(false)
+                        }
+                    }
+                })
+            hookAllMethods(
+                keySetManagerClass,
+                "checkUpgradeKeySetLocked",
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        if (prefs.getBoolean("digestCreak", true) && shouldBypass.get() == true) {
+                            param.result = true
+                        }
+                    }
+                })
         }
     }
 

@@ -8,13 +8,14 @@ import star.sky.voyager.utils.key.hasEnable
 
 object AiSubtitles : HookRegister() {
     override fun init() = hasEnable("ai_subtitles") {
-        loadClass("com.xiaomi.aiasst.vision.utils.SupportAiSubtitlesUtils").methodFinder().filter {
-            name in setOf(
-                "isSupportAiSubtitles",
-                "isSupportJapanKoreaTranslation",
-            )
-        }.toList().createHooks {
-            returnConstant(true)
-        }
+        loadClass("com.xiaomi.aiasst.vision.utils.SupportAiSubtitlesUtils")
+            .methodFinder().filter {
+                name in setOf(
+                    "isSupportAiSubtitles",
+                    "isSupportJapanKoreaTranslation",
+                )
+            }.toList().createHooks {
+                returnConstant(true)
+            }
     }
 }
