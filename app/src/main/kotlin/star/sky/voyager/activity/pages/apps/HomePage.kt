@@ -87,6 +87,13 @@ class HomePage : BasePage() {
             SwitchV("home_real_memory", false)
         )
         TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.pad_show_memory,
+                tipsId = R.string.open_on_demand,
+            ),
+            SwitchV("pad_show_memory", false)
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.optimize_unlock_anim),
             SwitchV("optimize_unlock_anim")
         )
