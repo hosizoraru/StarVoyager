@@ -12,6 +12,7 @@ import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinde
 import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.yife.Build.IS_TABLET
 
 object RealMemory : HookRegister() {
     @SuppressLint("DiscouragedApi")
@@ -22,7 +23,13 @@ object RealMemory : HookRegister() {
 
         fun Any.formatSize(): String = Formatter.formatFileSize(context, this as Long)
 
-        val recentContainerClass = loadClass("com.miui.home.recents.views.RecentsContainer")
+        val recentContainerClass = loadClass(
+            when (IS_TABLET) {
+                false -> "com.miui.home.recents.views.RecentsContainer"
+                true -> "com.miui.home.recents.views.RecentsDecorations"
+            }
+        )
+
         recentContainerClass.declaredConstructors.constructorFinder()
             .filterByParamCount(2)
             .first().createHook {
