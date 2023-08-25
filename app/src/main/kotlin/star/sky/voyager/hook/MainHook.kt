@@ -27,6 +27,7 @@ import star.sky.voyager.hook.apps.Music
 import star.sky.voyager.hook.apps.Notes
 import star.sky.voyager.hook.apps.PackageInstaller
 import star.sky.voyager.hook.apps.PersonalAssistant
+import star.sky.voyager.hook.apps.Phrase
 import star.sky.voyager.hook.apps.PowerKeeper
 import star.sky.voyager.hook.apps.ProvidersDownloads
 import star.sky.voyager.hook.apps.RearDisplay
@@ -73,6 +74,7 @@ class MainHook : EasyXposedInit() {
         Notes, // 笔记
         PackageInstaller, // 应用包管理组件
         PersonalAssistant, // 智能助理
+        Phrase, // 常用语
         PowerKeeper, // 电量与性能
         ProvidersDownloads, // 下载管理程序
         RearDisplay, // 背屏
