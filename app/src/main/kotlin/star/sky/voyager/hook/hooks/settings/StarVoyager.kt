@@ -1,10 +1,12 @@
 package star.sky.voyager.hook.hooks.settings
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.UserHandle
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
+import com.github.kyuubiran.ezxhelper.EzXHelper.addModuleAssetPath
 import com.github.kyuubiran.ezxhelper.EzXHelper.moduleRes
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -30,8 +32,6 @@ object StarVoyager : HookRegister() {
             .filterByName("updateHeaderList")
             .first().createHook {
                 after { param ->
-//                    val mContext = (param.thisObject as Activity).baseContext
-//                    val modRes = mContext.resources
                     val mIntent = Intent()
                     mIntent.putExtra("isDisplayHomeAsUpEnabled", true)
                     mIntent.setClassName(
@@ -46,6 +46,9 @@ object StarVoyager : HookRegister() {
                         "title",
                         voyager
                     )
+                    val mContext = param.thisObject as Activity
+                    addModuleAssetPath(mContext)
+                    XposedHelpers.setObjectField(header, "iconRes", R.drawable.voyager)
                     val bundle = Bundle()
                     val users = ArrayList<UserHandle>()
                     users.add(XposedHelpers.newInstance(UserHandle::class.java, 0) as UserHandle)
@@ -58,6 +61,7 @@ object StarVoyager : HookRegister() {
                         val id = XposedHelpers.getLongField(head, "id")
                         if (id == -1L) {
                             headers.add(position - 1, header)
+                            return@after
                         }
                     }
                     if (headers.size > 25) {
