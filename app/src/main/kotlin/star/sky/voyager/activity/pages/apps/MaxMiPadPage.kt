@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -9,9 +10,9 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("scope_mi_pad", titleId = R.string.scope_mi_pad, hideMenu = false)
-@BMPage("scope_mi_pad", "Mi Pad", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scope_mi_pad", titleId = R.string.scope_mi_pad, hideMenu = false)
+//@BMPage("scope_mi_pad", "Mi Pad", hideMenu = false)
 class MaxMiPadPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_mi_pad)

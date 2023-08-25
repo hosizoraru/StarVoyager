@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -10,9 +11,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("home_mod", titleId = R.string.mod, hideMenu = false)
-@BMPage("home_mod", "Home Mod", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("home_mod", titleId = R.string.mod, hideMenu = false)
+//@BMPage("home_mod", "Home Mod", hideMenu = false)
 class HomeModPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSeekBar(

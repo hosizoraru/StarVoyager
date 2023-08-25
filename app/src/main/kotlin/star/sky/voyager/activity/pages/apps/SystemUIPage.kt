@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
@@ -13,9 +14,9 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("scope_system_ui", titleId = R.string.scope_system_ui, hideMenu = false)
-@BMPage("scope_system_ui", "System UI", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scope_system_ui", titleId = R.string.scope_system_ui, hideMenu = false)
+//@BMPage("scope_system_ui", "System UI", hideMenu = false)
 class SystemUIPage : BasePage() {
     override fun onCreate() {
         val monetBinding = GetDataBinding({

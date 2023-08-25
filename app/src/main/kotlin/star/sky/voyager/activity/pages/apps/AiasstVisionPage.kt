@@ -1,14 +1,15 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("aiasst_vision", titleId = R.string.scope_aiasst_vision, hideMenu = false)
-@BMPage("aiasst_vision", "Aiasst Vision", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("aiasst_vision", titleId = R.string.scope_aiasst_vision, hideMenu = false)
+//@BMPage("aiasst_vision", "Aiasst Vision", hideMenu = false)
 class AiasstVisionPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_aiasst_vision)

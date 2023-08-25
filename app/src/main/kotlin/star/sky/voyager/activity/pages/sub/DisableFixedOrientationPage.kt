@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.content.pm.ApplicationInfo
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -10,19 +11,20 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextSummaryWithSwitchV
 import io.github.ranlee1.jpinyin.PinyinFormat
 import io.github.ranlee1.jpinyin.PinyinHelper
+import star.sky.voyager.R
 import star.sky.voyager.utils.yife.SharedPreferences.putStringSet
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage(
-//    "DisableFixedOrientationPage",
-//    titleId = R.string.disable_fixed_orientation,
-//    hideMenu = false
-//)
+@SuppressLint("NonConstantResourceId")
 @BMPage(
     "DisableFixedOrientationPage",
-    "Disable Fixed Orientation",
+    titleId = R.string.disable_fixed_orientation,
     hideMenu = false
 )
+//@BMPage(
+//    "DisableFixedOrientationPage",
+//    "Disable Fixed Orientation",
+//    hideMenu = false
+//)
 class DisableFixedOrientationPage : BasePage() {
     init {
         skipLoadItem = true

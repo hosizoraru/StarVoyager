@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.view.View
@@ -12,9 +13,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("media_editor", titleId = R.string.scope_media_editor, hideMenu = false)
-@BMPage("media_editor", "Media Editor", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("media_editor", titleId = R.string.scope_media_editor, hideMenu = false)
+//@BMPage("media_editor", "Media Editor", hideMenu = false)
 class MediaEditorPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_media_editor)

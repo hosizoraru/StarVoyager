@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.widget.Toast.LENGTH_LONG
@@ -10,9 +11,9 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("front_camera_assistant", titleId = R.string.front_camera_assistant, hideMenu = false)
-@BMPage("front_camera_assistant", "Front Camera Assistant", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("front_camera_assistant", titleId = R.string.front_camera_assistant, hideMenu = false)
+//@BMPage("front_camera_assistant", "Front Camera Assistant", hideMenu = false)
 class FrontCameraAssistantPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(

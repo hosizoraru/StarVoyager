@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -13,9 +14,9 @@ import star.sky.voyager.utils.voyager.LineB.lineB
 import star.sky.voyager.utils.voyager.TabletSeekBar.createTextWithSeekBar
 import star.sky.voyager.utils.yife.Build.IS_TABLET
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("control_center", titleId = R.string.control_center, hideMenu = false)
-@BMPage("control_center", "Control Center", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("control_center", titleId = R.string.control_center, hideMenu = false)
+//@BMPage("control_center", "Control Center", hideMenu = false)
 class ControlCenterPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.control_center)

@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -11,9 +12,9 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("settings_unlock", titleId = R.string.unlock, hideMenu = false)
-@BMPage("settings_unlock", "Settings Unlock", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("settings_unlock", titleId = R.string.unlock, hideMenu = false)
+//@BMPage("settings_unlock", "Settings Unlock", hideMenu = false)
 class SettingsUnlockPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(

@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
@@ -10,9 +11,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("lock_screen", titleId = R.string.lock_screen, hideMenu = false)
-@BMPage("lock_screen", "Lock Screen", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("lock_screen", titleId = R.string.lock_screen, hideMenu = false)
+//@BMPage("lock_screen", "Lock Screen", hideMenu = false)
 class LockScreenPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.lock_screen)

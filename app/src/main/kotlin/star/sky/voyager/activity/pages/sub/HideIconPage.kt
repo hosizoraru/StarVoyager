@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
@@ -7,9 +8,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("hide_icon", titleId = R.string.hide_icon, hideMenu = false)
-@BMPage("hide_icon", "Hide Icon", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("hide_icon", titleId = R.string.hide_icon, hideMenu = false)
+//@BMPage("hide_icon", "Hide Icon", hideMenu = false)
 class HideIconPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.status_bar_icon)

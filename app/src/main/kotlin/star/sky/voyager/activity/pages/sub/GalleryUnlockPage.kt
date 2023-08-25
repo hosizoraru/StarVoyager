@@ -1,14 +1,15 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("gallery_unlock", titleId = R.string.unlock, hideMenu = false)
-@BMPage("gallery_unlock", "Gallery Unlock", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("gallery_unlock", titleId = R.string.unlock, hideMenu = false)
+//@BMPage("gallery_unlock", "Gallery Unlock", hideMenu = false)
 class GalleryUnlockPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(

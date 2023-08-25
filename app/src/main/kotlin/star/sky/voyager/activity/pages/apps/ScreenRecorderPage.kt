@@ -1,14 +1,15 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("screen_recorder", titleId = R.string.scope_screen_recorder, hideMenu = false)
-@BMPage("screen_recorder", "Screen Recorder", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("screen_recorder", titleId = R.string.scope_screen_recorder, hideMenu = false)
+//@BMPage("screen_recorder", "Screen Recorder", hideMenu = false)
 class ScreenRecorderPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_screen_recorder)

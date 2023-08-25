@@ -1,14 +1,15 @@
 package star.sky.voyager.activity.pages.sub
 
+import android.annotation.SuppressLint
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("security_unlock", titleId = R.string.unlock, hideMenu = false)
-@BMPage("security_unlock", "Security Unlock", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("security_unlock", titleId = R.string.unlock, hideMenu = false)
+//@BMPage("security_unlock", "Security Unlock", hideMenu = false)
 class SecurityUnlockPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_security_center)

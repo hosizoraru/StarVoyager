@@ -1,5 +1,6 @@
 package star.sky.voyager.activity.pages.apps
 
+import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
 import android.widget.Toast
@@ -12,9 +13,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import star.sky.voyager.R
 import star.sky.voyager.utils.yife.Terminal.exec
 
-//@SuppressLint("NonConstantResourceId")
-//@BMPage("scope_power_keeper", titleId = R.string.scope_power_keeper, hideMenu = false)
-@BMPage("scope_power_keeper", "PowerKeeper", hideMenu = false)
+@SuppressLint("NonConstantResourceId")
+@BMPage("scope_power_keeper", titleId = R.string.scope_power_keeper, hideMenu = false)
+//@BMPage("scope_power_keeper", "PowerKeeper", hideMenu = false)
 class PowerKeeperPage : BasePage() {
     override fun onCreate() {
         TitleText(textId = R.string.scope_power_keeper)
