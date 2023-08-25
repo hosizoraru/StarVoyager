@@ -1,5 +1,6 @@
 package star.sky.voyager.hook.hooks.settings
 
+import com.github.kyuubiran.ezxhelper.ClassUtils.getStaticObjectOrNullAs
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
@@ -10,6 +11,16 @@ object MiGboard : HookRegister() {
     override fun init() = hasEnable("mi_gboard") {
         val availableVirtualKeyboardFragmentCls =
             loadClass("com.android.settings.inputmethod.AvailableVirtualKeyboardFragment")
+        val inputMethodFunctionSelectUtilsCls =
+            loadClass("com.android.settings.inputmethod.InputMethodFunctionSelectUtils")
+        val sCustomIme =
+            getStaticObjectOrNullAs<List<String>>(
+                inputMethodFunctionSelectUtilsCls,
+                "sCustomIme"
+            ) as ArrayList<String>
+//        Log.i("sCustomIme1: $sCustomIme")
+        sCustomIme.add("com.google.android.inputmethod.latin")
+//        Log.i("sCustomIme2: $sCustomIme")
 
         availableVirtualKeyboardFragmentCls.methodFinder()
             .filterByName("updateInputMethodPreferenceViews")
