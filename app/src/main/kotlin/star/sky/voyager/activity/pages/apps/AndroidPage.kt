@@ -2,6 +2,7 @@ package star.sky.voyager.activity.pages.apps
 
 import android.view.View
 import android.widget.Switch
+import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -91,11 +92,23 @@ class AndroidPage : BasePage() {
                             dismiss()
                         }
                         setRButton(textId = R.string.done) {
-                            if (getEditText() != "") {
-                                safeSP.putAny(
-                                    "max_wallpaper_scale",
-                                    getEditText().toFloat()
-                                )
+                            try {
+                                if (getEditText().toFloat() in 1.0..2.0) {
+                                    safeSP.putAny(
+                                        "max_wallpaper_scale",
+                                        getEditText().toFloat()
+                                    )
+                                } else {
+                                    safeSP.putAny(
+                                        "max_wallpaper_scale",
+                                        1.2
+                                    )
+                                    Toast.makeText(activity, "输入有误请重新输入,已经恢复默认值", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+                            } catch (e: NumberFormatException) {
+                                Toast.makeText(activity,"输入有误请重新输入,已经恢复默认值", Toast.LENGTH_SHORT)
+                                    .show()
                             }
                             dismiss()
                         }
