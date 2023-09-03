@@ -25,6 +25,7 @@ import star.sky.voyager.hook.hooks.home.MonetColor
 import star.sky.voyager.hook.hooks.home.MonoChromeIcon
 import star.sky.voyager.hook.hooks.home.OptimizeUnlockAnim
 import star.sky.voyager.hook.hooks.home.OverlapMode
+import star.sky.voyager.hook.hooks.home.PadGestureLine
 import star.sky.voyager.hook.hooks.home.PadHideApp
 import star.sky.voyager.hook.hooks.home.PadShowMemory
 import star.sky.voyager.hook.hooks.home.RealMemory
@@ -98,6 +99,7 @@ object Home : AppRegister() {
             // max mi pad
             BlurWhenOpenFolder, // 文件夹视图模糊
             DownloadAnimation, // 水波纹下载动画
+            PadGestureLine,
 //            MultipleFreeform,
             AospShareSheet,
         )

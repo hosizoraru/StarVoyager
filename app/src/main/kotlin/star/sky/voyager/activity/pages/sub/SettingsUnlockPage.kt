@@ -19,6 +19,11 @@ class SettingsUnlockPage : BasePage() {
     override fun onCreate() {
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.pad_area
+            ), SwitchV("pad_area")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.mi_gboard
             ), SwitchV("mi_gboard")
         )

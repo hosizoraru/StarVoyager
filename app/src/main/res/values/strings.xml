@@ -489,6 +489,7 @@
     <string name="speed_mode_summary">Can find speed mode in Developer options</string>
     <string name="voip_assistant">Unlock network call assistant</string>
     <string name="show_vip_service">Show Vip Service</string>
+    <string name="pad_area">Display Tablet Section</string>
     <string name="battery_style">Unlock Top Battery Style</string>
     <string name="battery_style_top_color">Customize color of top bar battery</string>
 
@@ -624,6 +625,7 @@
     <string name="fake_nav_bar_summary">This will also restore the display of the genuine gesture guide line</string>
     <string name="fake_non_default_icon">Fake non-default icon</string>
     <string name="enable_perfect_icons">Enable perfect icons</string>
+    <string name="pad_gesture_line">Show the Hide Gesture Guide for Pad</string>
     <string name="home_folder_width">Using the full width of the folder view</string>
     <string name="home_folder_columns">Number of rows of icons in the folder view</string>
 
