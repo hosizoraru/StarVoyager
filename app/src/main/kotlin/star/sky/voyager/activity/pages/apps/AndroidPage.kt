@@ -3,6 +3,8 @@ package star.sky.voyager.activity.pages.apps
 import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
@@ -94,11 +96,16 @@ class AndroidPage : BasePage() {
                             dismiss()
                         }
                         setRButton(textId = R.string.done) {
-                            if (getEditText() != "") {
-                                safeSP.putAny(
-                                    "max_wallpaper_scale",
-                                    getEditText().toFloat()
-                                )
+                            if (getEditText().isNotEmpty()) {
+                                runCatching {
+                                    safeSP.putAny(
+                                        "max_wallpaper_scale",
+                                        getEditText().toFloat()
+                                    )
+                                }.onFailure {
+                                    makeText(activity, "Input error", LENGTH_LONG)
+                                        .show()
+                                }
                             }
                             dismiss()
                         }
