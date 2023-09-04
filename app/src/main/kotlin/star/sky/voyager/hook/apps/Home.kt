@@ -19,6 +19,7 @@ import star.sky.voyager.hook.hooks.home.FakeNonDefaultIcon
 import star.sky.voyager.hook.hooks.home.FoldDeviceDock
 import star.sky.voyager.hook.hooks.home.FolderAnim
 import star.sky.voyager.hook.hooks.home.FolderColumnsCount
+import star.sky.voyager.hook.hooks.home.HideNavBar
 import star.sky.voyager.hook.hooks.home.IconCellCount
 import star.sky.voyager.hook.hooks.home.IconCorner
 import star.sky.voyager.hook.hooks.home.MonetColor
@@ -100,6 +101,7 @@ object Home : AppRegister() {
             BlurWhenOpenFolder, // 文件夹视图模糊
             DownloadAnimation, // 水波纹下载动画
             PadGestureLine,
+            HideNavBar,
 //            MultipleFreeform,
             AospShareSheet,
         )
