@@ -401,6 +401,8 @@
 
     <string name="desktop_mode">作業台モード</string>
 
+    <string name="change_browser_for_mi_ai">Mi AI 用のブラウザを変更</string>
+
     <string name="card">名刺スキャンを解除</string>
     <string name="doc_ppt">ファイルスキャンを解除</string>
     <string name="document">ドキュメント変換を解除</string>

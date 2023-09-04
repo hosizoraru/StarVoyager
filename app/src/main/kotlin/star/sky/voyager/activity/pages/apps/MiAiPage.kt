@@ -42,6 +42,13 @@ class MiAiPage : BasePage() {
             )
         )
         Line()
+        TitleText(textId = R.string.scope_mi_ai)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.change_browser_for_mi_ai,
+            ), SwitchV("change_browser_for_mi_ai")
+        )
+        Line()
         TitleText(textId = R.string.scope_cloud_service)
         TextSummaryWithSwitch(
             TextSummaryV(

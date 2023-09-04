@@ -402,6 +402,8 @@
 
     <string name="desktop_mode">Miui Workbench mode</string>
 
+    <string name="change_browser_for_mi_ai">Change browser for Mi Ai</string>
+
     <string name="card">Unlock card</string>
     <string name="doc_ppt">Unlock doc ppt</string>
     <string name="document">Unlock document</string>

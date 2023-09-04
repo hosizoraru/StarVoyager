@@ -401,6 +401,8 @@
 
     <string name="desktop_mode">工作台模式</string>
 
+    <string name="change_browser_for_mi_ai">修改小爱同学使用的浏览器</string>
+
     <string name="card">解锁扫名片</string>
     <string name="doc_ppt">解锁扫文件</string>
     <string name="document">解锁转文档</string>

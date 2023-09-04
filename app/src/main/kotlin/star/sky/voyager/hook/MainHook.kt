@@ -39,6 +39,7 @@ import star.sky.voyager.hook.apps.Settings
 import star.sky.voyager.hook.apps.SystemUI
 import star.sky.voyager.hook.apps.TaPlus
 import star.sky.voyager.hook.apps.Updater
+import star.sky.voyager.hook.apps.VoiceAssistant
 import star.sky.voyager.hook.apps.WallPaper
 import star.sky.voyager.hook.apps.Weather
 import star.sky.voyager.hook.hooks.corepatch.CorePatchMainHook
@@ -87,6 +88,7 @@ class MainHook : EasyXposedInit() {
         TaPlus, // 传送门
 //        Theme, // 主题壁纸
         Updater, // 系统更新
+        VoiceAssistant, // 小爱同学
         WallPaper, // 壁纸
         Weather, // 天气
     )

@@ -38,6 +38,7 @@ object PackageNameHook {
         "com.miui.contentextension",
 //        "com.android.thememanager",
         "com.android.updater",
+        "com.miui.voiceassist",
         "com.miui.miwallpaper",
         "com.miui.weather2",
     )
