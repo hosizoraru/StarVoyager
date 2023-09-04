@@ -170,6 +170,12 @@
     <string name="put_setting_command">システムショートカットジェスチャをカスタマイズ</string>
     <string name="put_setting_command_summary">コマンドを実行してカスタム設定を適用します</string>
 
+    <string name="window_animation_scale">ウィンドウアニメーションのスケール</string>
+    <string name="transition_animation_scale">トランジションアニメーションのスケール</string>
+    <string name="animator_duration_scale">アニメーターの期間スケール</string>
+    <string name="scale_command">カスタムスケール値</string>
+    <string name="scale_unit">単位は 0.25X です</string>
+
     <string name="long_press_power_key">電源ボタンを 0.5 秒間長押し</string>
     <string name="double_knock">指関節でダブルタップ</string>
     <string name="three_gesture_down">3本の指を下にスライド</string>

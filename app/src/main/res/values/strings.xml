@@ -171,6 +171,12 @@
     <string name="put_setting_command">Customize System Shortcut Gesture</string>
     <string name="put_setting_command_summary">Execute the command to apply your custom settings</string>
 
+    <string name="window_animation_scale">Window Animation Scale</string>
+    <string name="transition_animation_scale">Transition Animation Scale</string>
+    <string name="animator_duration_scale">Animator Duration Scale</string>
+    <string name="scale_command">Custom Scale Value</string>
+    <string name="scale_unit">Unit is 0.25X</string>
+
     <string name="long_press_power_key">Press and hold the Power button for 0.5s</string>
     <string name="double_knock">Knuckle double tap</string>
     <string name="three_gesture_down">Slide 3 fingers down</string>

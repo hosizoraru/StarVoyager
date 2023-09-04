@@ -6,6 +6,7 @@ import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SeekBarWithTextV
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
@@ -172,6 +173,42 @@ class SettingsPage : BasePage() {
                 val triggerAction = safeSP.getString("trigger_action", "none")
                 val command = "settings put system $triggerCondition $triggerAction"
                 exec(command)
+                makeText(
+                    activity,
+                    getString(R.string.finished),
+                    LENGTH_SHORT
+                ).show()
+            }
+        )
+        Line()
+        TitleText(textId = R.string.scale_unit)
+        TextSummaryWithSeekBar(
+            TextSummaryV(
+                textId = R.string.window_animation_scale
+            ), SeekBarWithTextV("window_animation_scale", 0, 40, 4)
+        )
+        TextSummaryWithSeekBar(
+            TextSummaryV(
+                textId = R.string.transition_animation_scale
+            ), SeekBarWithTextV("transition_animation_scale", 0, 40, 4)
+        )
+        TextSummaryWithSeekBar(
+            TextSummaryV(
+                textId = R.string.animator_duration_scale
+            ), SeekBarWithTextV("animator_duration_scale", 0, 40, 4)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.scale_command,
+                tipsId = R.string.put_setting_command_summary
+            ) {
+                val wScale = safeSP.getInt("window_animation_scale", 4) * 0.25.toFloat()
+                val tScale = safeSP.getInt("transition_animation_scale", 4) * 0.25.toFloat()
+                val aScale = safeSP.getInt("animator_duration_scale", 4) * 0.25.toFloat()
+                val command1 = "settings put global window_animation_scale $wScale"
+                val command2 = "settings put global transition_animation_scale $tScale"
+                val command3 = "settings put global animator_duration_scale $aScale"
+                exec(arrayOf(command1, command2, command3))
                 makeText(
                     activity,
                     getString(R.string.finished),
