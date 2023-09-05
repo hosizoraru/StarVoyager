@@ -14,8 +14,18 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 object ChangeBrowserForMiAi : HookRegister() {
     override fun init() = hasEnable("change_browser_for_mi_ai") {
         dexKitBridge.findMethod {
-            methodName = "parseIntentData"
-            methodParamTypes = arrayOf("Lcom/xiaomi/ai/api/Template\$AndroidIntent;", "", "")
+            matcher {
+                name = "parseIntentData"
+                parameterCount(3)
+//                parameterTypes = listOf("Lcom/xiaomi/ai/api/Template\$AndroidIntent;", "", "")
+                parameterTypes = listOf(
+                    "com.xiaomi.ai.api.Template\$AndroidIntent",
+                    "com.xiaomi.ai.api.Template\$Task",
+                    "com.xiaomi.ai.api.Template\$FullScreen"
+                )
+            }
+//            methodName = "parseIntentData"
+//            methodParamTypes = arrayOf("Lcom/xiaomi/ai/api/Template\$AndroidIntent;", "", "")
         }.map { it.getMethodInstance(safeClassLoader) }.createHooks {
             before {
                 if (invokeMethodBestMatch(
