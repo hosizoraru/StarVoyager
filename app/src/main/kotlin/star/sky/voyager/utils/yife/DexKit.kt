@@ -1,7 +1,7 @@
 package star.sky.voyager.utils.yife
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
-import io.luckypray.dexkit.DexKitBridge
+import org.luckypray.dexkit.DexKitBridge
 
 /**
  * DexKit 工具

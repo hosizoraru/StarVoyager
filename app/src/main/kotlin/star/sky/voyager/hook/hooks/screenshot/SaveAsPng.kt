@@ -10,7 +10,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -74,11 +74,19 @@ object SaveAsPng : HookRegister() {
                 }
             }
 
-        dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", setOf("context", "bitmap", "uri", "format"))
-            matchType = MatchType.FULL
-        }.forEach { (_, methods) ->
-            methods.map {
+//        dexKitBridge.batchFindMethodsUsingStrings {
+//            addQuery("qwq", setOf("context", "bitmap", "uri", "format"))
+//            matchType = MatchType.FULL
+//        }
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("context", "bitmap", "uri", "format")
+                StringMatchType.Equals
+            }
+        }.forEach {
+//                (_, methods) ->
+//            methods
+//                it.map {
                 val pngMethod = it.getMethodInstance(classLoader)
                 (pngMethod.returnType == Boolean::class.java && pngMethod.paramCount == 7).apply {
                     pngMethod.createHook {
@@ -92,7 +100,7 @@ object SaveAsPng : HookRegister() {
                     }
                 }
             }
-        }
+//        }
 
 //        loadClass("com.miui.screenshot.u0.f\$a").methodFinder()
 //            .filterByName("a")

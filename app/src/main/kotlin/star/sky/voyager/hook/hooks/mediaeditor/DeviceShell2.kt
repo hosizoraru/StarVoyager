@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
@@ -20,9 +20,19 @@ object DeviceShell2 : HookRegister() {
         getString("device_shell_s2", "raphael")
     }
     private val partial by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "from_partial_screenshot"
-            matchType = MatchType.FULL
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "from_partial_screenshot"
+//            matchType = MatchType.FULL
+//        }.firstOrNull()?.getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStringsMatcher {
+                    this.add {
+                        this.value = "from_partial_screenshot"
+                        StringMatchType.Equals
+                    }
+                }
+            }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
 

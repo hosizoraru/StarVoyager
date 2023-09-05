@@ -5,16 +5,22 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object LockOneHundred : HookRegister() {
     private val score by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "getMinusPredictScore"
-            matchType = MatchType.CONTAINS
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "getMinusPredictScore"
+//            matchType = MatchType.CONTAINS
+//        }.firstOrNull()?.getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("getMinusPredictScore")
+                StringMatchType.Contains
+            }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
 

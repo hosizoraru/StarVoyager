@@ -2,23 +2,43 @@ package star.sky.voyager.hook.hooks.settings
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object HpLocation : HookRegister() {
     private val hp by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "persist.vendor.gnss.hpLocSetUI"
-            matchType = MatchType.FULL
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "persist.vendor.gnss.hpLocSetUI"
+//            matchType = MatchType.FULL
+//        }.map { it.getMethodInstance(classLoader) }.toList()
+        dexKitBridge.findMethod {
+            matcher {
+                usingStringsMatcher {
+                    this.add {
+                        this.value = "persist.vendor.gnss.hpLocSetUI"
+                        StringMatchType.Equals
+                    }
+                }
+            }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }
 
     private val Zh by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "zh_CN"
-            matchType = MatchType.FULL
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "zh_CN"
+//            matchType = MatchType.FULL
+//        }.map { it.getMethodInstance(classLoader) }.toList()
+        dexKitBridge.findMethod {
+            matcher {
+                usingStringsMatcher {
+                    this.add {
+                        this.value = "zh_CN"
+                        StringMatchType.Equals
+                    }
+                }
+            }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }
 

@@ -3,7 +3,7 @@ package star.sky.voyager.hook.hooks.personalassistant
 import android.view.Window
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
@@ -16,15 +16,25 @@ object BlurPersonalAssistant : HookRegister() {
         getInt("blur_personal_assistant_radius", 80)
     }
     private val ScrollStateManager by lazy {
-        dexKitBridge.batchFindMethodsUsingStrings {
-            addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
-            matchType = MatchType.FULL
-        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
+//        dexKitBridge.batchFindMethodsUsingStrings {
+//            addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
+//            matchType = MatchType.FULL
+//        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStringsMatcher {
+                    this.add {
+                        StringMatchType.Equals
+                    }
+                }
+                usingStrings = listOf("ScrollStateManager", "Manager must be init before using")
+            }
+        }.firstOrNull()?.getMethodInstance(classLoader)
     }
 
     override fun init() = hasEnable("blur_personal_assistant") {
         var lastBlurRadius = -1
-        ScrollStateManager.createHook {
+        ScrollStateManager?.createHook {
             after { param ->
                 val scrollX = param.args[0] as Float
                 val fieldNames = ('a'..'z').map { it.toString() }

@@ -6,7 +6,7 @@ import com.github.kyuubiran.ezxhelper.EzXHelper.safeClassLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -68,18 +68,32 @@ object SuperClipboard : HookRegister() {
 
     private fun dexKitSuperClipboard() {
         val ro by lazy {
-            dexKitBridge.findMethodUsingString {
-                usingString = "ro.miui.support_super_clipboard"
-                matchType = MatchType.FULL
-                methodReturnType = "boolean"
+//            dexKitBridge.findMethodUsingString {
+//                usingString = "ro.miui.support_super_clipboard"
+//                matchType = MatchType.FULL
+//                methodReturnType = "boolean"
+//            }.firstOrNull()?.getMethodInstance(safeClassLoader)
+            dexKitBridge.findMethod {
+                matcher {
+                    usingStrings = listOf("ro.miui.support_super_clipboard")
+                    StringMatchType.Equals
+                    returnType = "boolean"
+                }
             }.firstOrNull()?.getMethodInstance(safeClassLoader)
         }
 
         val sys by lazy {
-            dexKitBridge.findMethodUsingString {
-                usingString = "persist.sys.support_super_clipboard"
-                matchType = MatchType.FULL
-                methodReturnType = "boolean"
+//            dexKitBridge.findMethodUsingString {
+//                usingString = "persist.sys.support_super_clipboard"
+//                matchType = MatchType.FULL
+//                methodReturnType = "boolean"
+//            }.firstOrNull()?.getMethodInstance(safeClassLoader)
+            dexKitBridge.findMethod {
+                matcher {
+                    usingStrings = listOf("persist.sys.support_super_clipboard")
+                    StringMatchType.Equals
+                    returnType = "boolean"
+                }
             }.firstOrNull()?.getMethodInstance(safeClassLoader)
         }
 
