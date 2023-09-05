@@ -38,6 +38,7 @@ import star.sky.voyager.hook.hooks.home.RestoreSwitchMinusScreen
 import star.sky.voyager.hook.hooks.home.ScrollIconName
 import star.sky.voyager.hook.hooks.home.SearchBarXiaoAiCustom
 import star.sky.voyager.hook.hooks.home.SetDeviceLevel
+import star.sky.voyager.hook.hooks.home.ShareSystemApp
 import star.sky.voyager.hook.hooks.home.ShortCutTitle
 import star.sky.voyager.hook.hooks.home.ShortcutItemCount
 import star.sky.voyager.hook.hooks.home.ShowAllApp
@@ -102,6 +103,7 @@ object Home : AppRegister() {
             DownloadAnimation, // 水波纹下载动画
             PadGestureLine,
             HideNavBar,
+            ShareSystemApp,
 //            MultipleFreeform,
             AospShareSheet,
         )

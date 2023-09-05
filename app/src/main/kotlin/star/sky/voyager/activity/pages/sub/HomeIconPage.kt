@@ -54,6 +54,10 @@ class HomeIconPage : BasePage() {
             SwitchV("enable_perfect_icons")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.share_system_app),
+            SwitchV("share_system_app")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.add_freeform_shortcut
             ),
