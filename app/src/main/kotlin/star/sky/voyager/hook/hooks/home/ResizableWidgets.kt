@@ -16,7 +16,9 @@ object ResizableWidgets : HookRegister() {
                 .filterByName("getAppWidgetInfo").toList()
         val qwq2 =
             dexKitBridge.findMethod {
-                methodName = "getAppWidgetInfo"
+                matcher {
+                    this.name = "getAppWidgetInfo"
+                }
 //                methodReturnType = "android.appwidget.AppWidgetProviderInfo"
             }.map { it.getMethodInstance(classLoader) }.toList()
 

@@ -120,6 +120,6 @@ dependencies {
     implementation(libs.jpinyin)
     implementation(libs.lsposed.hidden.api.bypass)
     implementation(libs.ezxhelper)
-    implementation(libs.dexkit)
+    implementation(libs.dev.dexkit)
 //    implementation(libs.dev.rikka.hidden.compat)
 }

@@ -2,7 +2,7 @@ package star.sky.voyager.hook.hooks.home
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -24,18 +24,34 @@ object ShowAllApp : HookRegister() {
 //    }
 
     private val hideApp by lazy {
-        dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq1", setOf("appInfo.packageName", "com.android.fileexplorer"))
-            matchType = MatchType.FULL
-        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+//        dexKitBridge.batchFindClassesUsingStrings {
+//            addQuery("qwq1", setOf("appInfo.packageName", "com.android.fileexplorer"))
+//            matchType = MatchType.FULL
+//        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+        dexKitBridge.findClass {
+            matcher {
+                StringMatchType.Equals
+                usingStrings = listOf(
+                    "appInfo.packageName",
+                    "com.android.fileexplorer"
+                )
+            }
+        }.first().getInstance(classLoader)
     }
 
     private val hide by lazy {
+//        dexKitBridge.findMethod {
+//            methodName = "isHideAppValid"
+//            methodReturnType = "boolean"
+//            methodDeclareClass = hideApp.name
+//        }.map { it.getMethodInstance(classLoader) }.first()
         dexKitBridge.findMethod {
-            methodName = "isHideAppValid"
-            methodReturnType = "boolean"
-            methodDeclareClass = hideApp.name
-        }.map { it.getMethodInstance(classLoader) }.first()
+            matcher {
+                name = "isHideAppValid"
+                returnType = "boolean"
+                declaredClass = hideApp.name
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     override fun init() = hasEnable("show_all_app_dsm") {
