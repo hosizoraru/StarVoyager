@@ -9,9 +9,15 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ModifyScreenRecorderConfig : HookRegister() {
     override fun init() = hasEnable("modify_screen_recorder_config") {
-        dexKitBridge.findMethodUsingString {
-            usingString = "Error when set frame value, maxValue = "
-            methodParamTypes = arrayOf("I", "I")
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "Error when set frame value, maxValue = "
+//            methodParamTypes = arrayOf("I", "I")
+//        }
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("Error when set frame value, maxValue = ")
+//                parameterTypes = listOf("I", "I")
+            }
         }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
             before { param ->
                 param.args[0] = 3600
@@ -30,8 +36,13 @@ object ModifyScreenRecorderConfig : HookRegister() {
             }
         }
 
-        dexKitBridge.findMethodUsingString {
-            usingString = "defaultBitRate = "
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "defaultBitRate = "
+//        }
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("defaultBitRate = ")
+            }
         }.map {
             it.getMethodInstance(safeClassLoader)
         }.firstOrNull {

@@ -6,16 +6,26 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.FieldFinder.`-Static`.fieldFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object DisableSafeModelTip : HookRegister() {
     private val MiuiSettingsAd by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "android.provider.MiuiSettings\$Ad"
-            matchType = MatchType.FULL
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "android.provider.MiuiSettings\$Ad"
+//            matchType = MatchType.FULL
+//        }.firstOrNull()?.getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStringsMatcher {
+                    this.add {
+                        this.value = "android.provider.MiuiSettings\$Ad"
+                        StringMatchType.Equals
+                    }
+                }
+            }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
 

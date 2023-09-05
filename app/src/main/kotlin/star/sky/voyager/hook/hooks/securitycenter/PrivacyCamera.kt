@@ -2,7 +2,8 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import io.luckypray.dexkit.enums.MatchType
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -10,15 +11,46 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object PrivacyCamera : HookRegister() {
     private val privateCls by lazy {
-        dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq", setOf("persist.sys.privacy_camera"))
-        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+//        dexKitBridge.batchFindClassesUsingStrings {
+//            addQuery("qwq", setOf("persist.sys.privacy_camera"))
+//        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+        dexKitBridge.findClass {
+            matcher {
+                usingStrings = listOf("persist.sys.privacy_camera")
+            }
+        }.first().getInstance(classLoader)
     }
+
     private val R0 by lazy {
-        dexKitBridge.findMethodUsingString {
-            usingString = "persist.sys.privacy_camera"
-            matchType = MatchType.FULL
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "persist.sys.privacy_camera"
+//            matchType = MatchType.FULL
+//        }.first().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("persist.sys.privacy_camera")
+                StringMatchType.Equals
+            }
         }.first().getMethodInstance(classLoader)
+    }
+
+    private val invokeMethod by lazy {
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = privateCls.name
+//                returnType = R0.returnType.name
+//                parameterTypes = listOf(R0.parameterTypes[0].name)
+                parameterTypes = emptyList()
+                returnType = "boolean"
+                addInvoke {
+//                    parameterTypes = emptyList()
+//                    returnType = "boolean"
+                    returnType = R0.returnType.name
+                    parameterTypes = listOf(R0.parameterTypes[0].name)
+                    declaredClass = privateCls.name
+                }
+            }
+        }.map { it.getMethodInstance(classLoader) }.toList()
     }
 
     override fun init() = hasEnable("privacy_camera") {
@@ -33,19 +65,23 @@ object PrivacyCamera : HookRegister() {
 //        Log.i("R0 return type: ${R0.returnType.name}")
 //        Log.i("R0 parameter type: ${R0.parameterTypes[0].name}")
 
-        dexKitBridge.findMethodInvoking {
-            methodDeclareClass = privateCls.name
-            methodReturnType = R0.returnType.name
-            methodParameterTypes = arrayOf(R0.parameterTypes[0].name)
-            beInvokedMethodParameterTypes = null
-            beInvokedMethodReturnType = "boolean"
-            beInvokedMethodDeclareClass = privateCls.name
-        }.forEach { (_, method1) ->
-            method1.map { it1 ->
-                it1.getMethodInstance(classLoader).createHook {
-                    returnConstant(true)
-                }
-            }
+//        dexKitBridge.findMethodInvoking {
+//            methodDeclareClass = privateCls.name
+//            methodReturnType = R0.returnType.name
+//            methodParameterTypes = arrayOf(R0.parameterTypes[0].name)
+//            beInvokedMethodParameterTypes = null
+//            beInvokedMethodReturnType = "boolean"
+//            beInvokedMethodDeclareClass = privateCls.name
+//        }.forEach { (_, method1) ->
+//            method1.map { it1 ->
+//                it1.getMethodInstance(classLoader).createHook {
+//                    returnConstant(true)
+//                }
+//            }
+//        }
+
+        invokeMethod.createHooks {
+            returnConstant(true)
         }
     }
 }

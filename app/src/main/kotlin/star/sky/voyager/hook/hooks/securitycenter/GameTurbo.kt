@@ -3,42 +3,74 @@ package star.sky.voyager.hook.hooks.securitycenter
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.voyager.SetKeyMap.setKeyMap
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object GameTurbo : HookRegister() {
     private val GameBoosterFeatureUtilsCls by lazy {
-        dexKitBridge.batchFindClassesUsingStrings {
-            addQuery("qwq1", setOf("GameBoosterFeatureUtils"))
-            matchType = MatchType.FULL
-        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+//        dexKitBridge.batchFindClassesUsingStrings {
+//            addQuery("qwq1", setOf("GameBoosterFeatureUtils"))
+//            matchType = MatchType.FULL
+//        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
+        dexKitBridge.findClass {
+            matcher {
+                usingStrings = listOf("GameBoosterFeatureUtils")
+                StringMatchType.Equals
+            }
+        }.first().getInstance(classLoader)
     }
 
     private val G by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "support_network_rps_mode"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "support_network_rps_mode"
+//            matchType = MatchType.FULL
+//        }.single().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("support_network_rps_mode")
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                StringMatchType.Equals
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     private val h0 by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "grus"
-            matchType = MatchType.FULL
-        }.single { it.isMethod && it.getMethodInstance(classLoader) != G }
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "grus"
+//            matchType = MatchType.FULL
+//        }.single { it.isMethod && it.getMethodInstance(classLoader) != G }
+//            .getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("grus")
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                StringMatchType.Equals
+            }
+        }.first { it.isMethod && it.getMethodInstance(classLoader) != G }
             .getMethodInstance(classLoader)
     }
 
     private val k by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "cepheus"
-            matchType = MatchType.FULL
-        }.single {
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "cepheus"
+//            matchType = MatchType.FULL
+//        }.single {
+//            it.isMethod &&
+//                    it.getMethodInstance(classLoader) != G &&
+//                    it.getMethodInstance(classLoader) != h0
+//        }.getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("cepheus")
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                StringMatchType.Equals
+            }
+        }.first {
             it.isMethod &&
                     it.getMethodInstance(classLoader) != G &&
                     it.getMethodInstance(classLoader) != h0
@@ -46,43 +78,78 @@ object GameTurbo : HookRegister() {
     }
 
     private val F by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "support_wifi_low_latency_mode"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "support_wifi_low_latency_mode"
+//            matchType = MatchType.FULL
+//        }.single().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("support_wifi_low_latency_mode")
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                StringMatchType.Equals
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     private val PQ by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "support_touchfeature_gamemode"
-            matchType = MatchType.FULL
-        }.map { it.getMethodInstance(classLoader) }
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "support_touchfeature_gamemode"
+//            matchType = MatchType.FULL
+//        }.map { it.getMethodInstance(classLoader) }
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                usingStrings = listOf("support_touchfeature_gamemode")
+                StringMatchType.Equals
+            }
+        }.map { it.getMethodInstance(classLoader) }.toList()
     }
 
     private val l by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "com.xiaomi.aiasst.vision"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "com.xiaomi.aiasst.vision"
+//            matchType = MatchType.FULL
+//        }.single().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                usingStrings = listOf("com.xiaomi.aiasst.vision")
+                StringMatchType.Equals
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     private val M by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "ro.vendor.fps.switch.default"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "ro.vendor.fps.switch.default"
+//            matchType = MatchType.FULL
+//        }.single().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                usingStrings = listOf("ro.vendor.fps.switch.default")
+                StringMatchType.Equals
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     private val i by lazy {
-        dexKitBridge.findMethodUsingString {
-            methodDeclareClass = GameBoosterFeatureUtilsCls.name
-            usingString = "isEnhancedDsdaSupported"
-            matchType = MatchType.FULL
-        }.single().getMethodInstance(classLoader)
+//        dexKitBridge.findMethodUsingString {
+//            methodDeclareClass = GameBoosterFeatureUtilsCls.name
+//            usingString = "isEnhancedDsdaSupported"
+//            matchType = MatchType.FULL
+//        }.single().getMethodInstance(classLoader)
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                usingStrings = listOf("isEnhancedDsdaSupported")
+                StringMatchType.Equals
+            }
+        }.first().getMethodInstance(classLoader)
     }
 
     override fun init() {

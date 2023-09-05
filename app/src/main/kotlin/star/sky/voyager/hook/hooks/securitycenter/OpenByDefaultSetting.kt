@@ -16,7 +16,7 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNull
 import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethodBestMatch
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import io.luckypray.dexkit.enums.MatchType
+import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.R
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -67,12 +67,22 @@ object OpenByDefaultSetting : HookRegister() {
                 }
             }
 
-        dexKitBridge.findMethodUsingString {
-            usingString = "enter_way"
-            matchType = MatchType.CONTAINS
-            methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
-            methodReturnType = "void"
-//            methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
+//        dexKitBridge.findMethodUsingString {
+//            usingString = "enter_way"
+//            matchType = MatchType.CONTAINS
+//            methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
+//            methodReturnType = "void"
+////            methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
+//        }
+        dexKitBridge.findMethod {
+            matcher {
+                usingStrings = listOf("enter_way")
+                StringMatchType.Contains
+//                declaredClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
+                declaredClass = "com.miui.appmanager.ApplicationsDetailsActivity"
+                returnType = "void"
+//                parameterTypes = listOf("", "Ljava/lang/Boolean;")
+            }
         }.firstOrNull()?.getMethodInstance(safeClassLoader)?.createHook {
             after { param ->
                 initAppContext(param.thisObject as Activity)
