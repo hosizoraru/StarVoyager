@@ -18,6 +18,7 @@ object ScreenShot : AppRegister() {
             SuperClipboard,
             SaveToPictures, // 截图保存到 Pictures/Screenshots
             SaveAsPng, // 截图格式为 PNG
+//            Scroll,
             DeviceShell,
         )
     }
