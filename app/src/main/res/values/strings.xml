@@ -165,6 +165,10 @@
     <string name="mi_play">Mi Smart Play</string>
     <string name="speed_mode_tile">Speed Mode</string>
     <string name="your_product_market_name">Model: </string>
+    <string name="recent">Recent</string>
+
+    <string name="recent_hide_gesture_line">Hide Gesture Indicator</string>
+    <string name="recent_show_gesture_line">Show Gesture Indicator</string>
 
     <string name="trigger_condition">Trigger Condition</string>
     <string name="trigger_action">Trigger Action</string>

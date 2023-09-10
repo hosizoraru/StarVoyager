@@ -39,6 +39,7 @@ import star.sky.voyager.activity.pages.sub.HomeBlurPage
 import star.sky.voyager.activity.pages.sub.HomeDockPage
 import star.sky.voyager.activity.pages.sub.HomeIconPage
 import star.sky.voyager.activity.pages.sub.HomeModPage
+import star.sky.voyager.activity.pages.sub.HomeRecentPage
 import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
@@ -116,6 +117,7 @@ class MainActivity : MIUIActivity() {
         registerPage(HomeIconPage::class.java)
         registerPage(HomeDockPage::class.java)
         registerPage(HomeModPage::class.java)
+        registerPage(HomeRecentPage::class.java)
         registerPage(SecurityUnlockPage::class.java)
         registerPage(GameTurboPage::class.java)
         registerPage(FrontCameraAssistantPage::class.java)

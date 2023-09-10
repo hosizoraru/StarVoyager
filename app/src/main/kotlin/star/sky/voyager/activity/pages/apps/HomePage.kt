@@ -48,6 +48,12 @@ class HomePage : BasePage() {
                 onClickListener = { showFragment("home_mod") }
             )
         )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.recent,
+                onClickListener = { showFragment("home_recent") }
+            )
+        )
         Line()
         TitleText(textId = R.string.scope_miui_home)
         TextSummaryWithSwitch(
@@ -64,50 +70,9 @@ class HomePage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.home_recent_view_wallpaper_darkening,
-                tipsId = R.string.home_recent_view_wallpaper_darkening_summary
-            ), SwitchV("home_recent_view_wallpaper_darkening", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.home_recent_view_remove_card_animation,
-                tipsId = R.string.home_recent_view_remove_card_animation_summary
-            ), SwitchV("home_recent_view_remove_card_animation", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
                 textId = R.string.show_all_app_dsm
             ),
             SwitchV("show_all_app_dsm", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.home_real_memory,
-                tipsId = R.string.home_real_memory_summary
-            ),
-            SwitchV("home_real_memory", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.pad_show_memory,
-                tipsId = R.string.open_on_demand,
-            ),
-            SwitchV("pad_show_memory", false)
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.optimize_unlock_anim),
-            SwitchV("optimize_unlock_anim")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.pad_gesture_line),
-            SwitchV("pad_gesture_line")
-        )
-        TextSummaryWithSwitch(
-            TextSummaryV(
-                textId = R.string.fake_nav_bar,
-                tipsId = R.string.fake_nav_bar_summary
-            ),
-            SwitchV("fake_nav_bar")
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.home_folder_width),

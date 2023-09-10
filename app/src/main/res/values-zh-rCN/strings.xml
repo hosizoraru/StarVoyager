@@ -164,6 +164,10 @@
     <string name="mi_play">小米妙播</string>
     <string name="speed_mode_tile">极致模式</string>
     <string name="your_product_market_name">机型: </string>
+    <string name="recent">最近任务</string>
+
+    <string name="recent_hide_gesture_line">隐藏手势提示线</string>
+    <string name="recent_show_gesture_line">显示手势提示线</string>
 
     <string name="trigger_condition">触发条件</string>
     <string name="trigger_action">触发功能</string>
