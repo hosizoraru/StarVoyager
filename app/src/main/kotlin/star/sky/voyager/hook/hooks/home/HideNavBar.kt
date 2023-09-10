@@ -6,19 +6,20 @@ import android.content.res.Configuration
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.MotionEvent
+import com.github.kyuubiran.ezxhelper.ClassUtils.getStaticObjectOrNull
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
-import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.XposedHelpers.findAndHookConstructor
-import de.robv.android.xposed.XposedHelpers.findAndHookMethod
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
+import com.github.kyuubiran.ezxhelper.ObjectUtils.getObjectOrNull
+import com.github.kyuubiran.ezxhelper.ObjectUtils.invokeMethod
+import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
+import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
+import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 
 
 @SuppressLint("StaticFieldLeak")
 object HideNavBar : HookRegister() {
-    var DISABLE_EXPAND = -1
     private var mHideGestureLine = false
     private var sIsNeedInjectMotionEvent = false
     private var hasSIsNeedInjectMotionEvent = true
@@ -28,42 +29,43 @@ object HideNavBar : HookRegister() {
     private var isLandScapeActually = false
     private lateinit var context: Context
     override fun init() {
-        if (DISABLE_EXPAND == -1) {
-            val clazz =
-                loadClass("com.miui.launcher.utils.StatusBarController")
-            DISABLE_EXPAND = XposedHelpers.getStaticIntField(clazz, "DISABLE_EXPAND")
-        }
+        val statusBarControllerCls =
+            loadClass("com.miui.launcher.utils.StatusBarController")
+        val navStubViewCls =
+            loadClass("com.miui.home.recents.NavStubView")
+        val antiMistakeTouchViewCls =
+            loadClass("com.miui.home.recents.AntiMistakeTouchView")
 
-        findAndHookMethod("com.miui.home.recents.NavStubView",
-            classLoader,
-            "injectMotionEvent",
-            Int::class.javaPrimitiveType,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun beforeHookedMethod(param: MethodHookParam) {
-                    super.beforeHookedMethod(param)
+        val DISABLE_EXPAND =
+            getStaticObjectOrNull(statusBarControllerCls, "DISABLE_EXPAND") as Int
+
+        navStubViewCls.methodFinder()
+            .filterByName("injectMotionEvent")
+            .filterByParamTypes(Int::class.javaPrimitiveType)
+            .first().createHook {
+                before { param ->
                     if (hasSIsNeedInjectMotionEvent) try {
                         //旧版系统桌面用sIsNeedInjectMotionEvent判断是否点击
-                        sIsNeedInjectMotionEvent = XposedHelpers.getBooleanField(
-                            param.thisObject,
-                            "sIsNeedInjectMotionEvent"
-                        )
+                        sIsNeedInjectMotionEvent =
+                            getObjectOrNull(
+                                param.thisObject,
+                                "sIsNeedInjectMotionEvent"
+                            ) as Boolean
                     } catch (throwable: Throwable) {
                         hasSIsNeedInjectMotionEvent = false
-                        val packageInfo = context.packageManager.getPackageInfo(
-                            context.packageName, 0
-                        )
-                        XposedBridge.log("MIUI隐藏小白条/MIUI HideNavBar:没有sIsNeedInjectMotionEvent，当前系统桌面版本——" + packageInfo.versionName)
+//                        val packageInfo = context.packageManager.getPackageInfo(
+//                            context.packageName, 0
+//                        )
                     }
 
                     //新版系统桌面用mHideGestureLine判断是否点击
                     mHideGestureLine =
-                        XposedHelpers.getBooleanField(param.thisObject, "mHideGestureLine")
+                        getObjectOrNull(param.thisObject, "mHideGestureLine") as Boolean
                     motionEvent =
-                        XposedHelpers.getObjectField(param.thisObject, "mDownEvent") as MotionEvent
+                        getObjectOrNull(param.thisObject, "mDownEvent") as MotionEvent
                     if (motionEvent.flags and DISABLE_EXPAND == 0) {
-                        XposedHelpers.setBooleanField(param.thisObject, "mHideGestureLine", false)
-                        if (hasSIsNeedInjectMotionEvent) XposedHelpers.setBooleanField(
+                        setObject(param.thisObject, "mHideGestureLine", false)
+                        if (hasSIsNeedInjectMotionEvent) setObject(
                             param.thisObject,
                             "sIsNeedInjectMotionEvent",
                             true
@@ -71,102 +73,83 @@ object HideNavBar : HookRegister() {
                     }
                 }
 
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
+                after { param ->
                     if (motionEvent.flags and DISABLE_EXPAND == 0) {
-                        XposedHelpers.setBooleanField(
+                        setObject(
                             param.thisObject,
                             "mHideGestureLine",
                             mHideGestureLine
                         )
-                        if (hasSIsNeedInjectMotionEvent) XposedHelpers.setBooleanField(
+                        if (hasSIsNeedInjectMotionEvent) setObject(
                             param.thisObject,
                             "sIsNeedInjectMotionEvent",
                             sIsNeedInjectMotionEvent
                         )
                     }
                 }
-            })
+            }
 
         //获取初始横竖屏状态
-        findAndHookConstructor("com.miui.home.recents.NavStubView",
-            classLoader,
-            Context::class.java,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
+        navStubViewCls.constructorFinder()
+            .filterByParamTypes(Context::class.java)
+            .toList().createHooks {
+                after { param ->
                     context = param.args[0] as Context
                     isLandScapeActually =
-                        XposedHelpers.callMethod(param.thisObject, "isLandScapeActually") as Boolean
+                        invokeMethod(param.thisObject, "isLandScapeActually") as Boolean
                 }
-            })
-
+            }
 
         //旋转屏幕时更新横竖屏状态
-        findAndHookMethod("com.miui.home.recents.NavStubView",
-            classLoader,
-            "onConfigurationChanged",
-            Configuration::class.java,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
+        navStubViewCls.methodFinder()
+            .filterByName("onConfigurationChanged")
+            .filterByParamTypes(Configuration::class.java)
+            .first().createHook {
+                after { param ->
                     isLandScapeActually =
-                        XposedHelpers.callMethod(param.thisObject, "isLandScapeActually") as Boolean
+                        invokeMethod(param.thisObject, "isLandScapeActually") as Boolean
                 }
-            })
+            }
 
         //二次滑动确认时上滑显示的view,显示时再hook
-
-        //二次滑动确认时上滑显示的view,显示时再hook
-        findAndHookConstructor("com.miui.home.recents.AntiMistakeTouchView",
-            classLoader,
-            Context::class.java,
-            AttributeSet::class.java,
-            Int::class.javaPrimitiveType,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
-                    mTopMargin = XposedHelpers.getIntField(param.thisObject, "mTopMargin")
+        antiMistakeTouchViewCls.constructorFinder()
+            .filterByParamTypes(
+                Context::class.java,
+                AttributeSet::class.java,
+                Int::class.javaPrimitiveType
+            )
+            .toList().createHooks {
+                after { param ->
+                    mTopMargin =
+                        getObjectOrNull(param.thisObject, "mTopMargin") as Int
                     mCurrentTopMargin = mTopMargin
                 }
-            })
+            }
 
-        findAndHookMethod("com.miui.home.recents.AntiMistakeTouchView",
-            classLoader,
-            "slideUp",
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
+        antiMistakeTouchViewCls.methodFinder()
+            .filterByName("slideUp")
+            .first().createHook {
+                after { param ->
                     mCurrentTopMargin = 0
                 }
-            })
-        findAndHookMethod("com.miui.home.recents.AntiMistakeTouchView",
-            classLoader,
-            "slideDown",
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
+            }
+
+        antiMistakeTouchViewCls.methodFinder()
+            .filterByName("slideDown")
+            .first().createHook {
+                after { param ->
                     mCurrentTopMargin = mTopMargin
                 }
-            })
+            }
 
         //滑动事件
-        findAndHookMethod("com.miui.home.recents.NavStubView",
-            classLoader,
-            "onTouchEvent",
-            MotionEvent::class.java,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun beforeHookedMethod(param: MethodHookParam) {
-                    super.beforeHookedMethod(param)
+        navStubViewCls.methodFinder()
+            .filterByName("onTouchEvent")
+            .filterByParamTypes(MotionEvent::class.java)
+            .first().createHook {
+                before { param ->
                     mHideGestureLine =
-                        XposedHelpers.getBooleanField(param.thisObject, "mHideGestureLine")
+                        getObjectOrNull(param.thisObject, "mHideGestureLine") as Boolean
                     //横屏
                     if (isLandScapeActually) {
                         //需要二次滑动确认
@@ -178,14 +161,14 @@ object HideNavBar : HookRegister() {
                         ) {
                             //二次滑动确认时上滑的view已经显示出来
                             if (mCurrentTopMargin == 0) {
-                                XposedHelpers.setBooleanField(
+                                setObject(
                                     param.thisObject,
                                     "mHideGestureLine",
                                     false
                                 )
                             }
                         } else {
-                            XposedHelpers.setBooleanField(
+                            setObject(
                                 param.thisObject,
                                 "mHideGestureLine",
                                 false
@@ -193,43 +176,36 @@ object HideNavBar : HookRegister() {
                         }
                     } else {
                         //二次滑动确认打开了，但是不像横屏一样显示一个view以及再划一次，是我机子的问题还是本身逻辑如此？
-                        XposedHelpers.setBooleanField(param.thisObject, "mHideGestureLine", false)
+                        setObject(param.thisObject, "mHideGestureLine", false)
                     }
                 }
 
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
-                    XposedHelpers.setBooleanField(
+                after { param ->
+                    setObject(
                         param.thisObject,
                         "mHideGestureLine",
                         mHideGestureLine
                     )
                 }
-            })
+            }
 
-        findAndHookMethod("com.miui.home.recents.NavStubView",
-            classLoader,
-            "getWindowParam",
-            Int::class.javaPrimitiveType,
-            object : XC_MethodHook() {
-                @Throws(Throwable::class)
-                override fun beforeHookedMethod(param: MethodHookParam) {
-                    super.beforeHookedMethod(param)
+        navStubViewCls.methodFinder()
+            .filterByName("getWindowParam")
+            .filterByParamTypes(Int::class.javaPrimitiveType)
+            .first().createHook {
+                before { param ->
                     mHideGestureLine =
-                        XposedHelpers.getBooleanField(param.thisObject, "mHideGestureLine")
-                    XposedHelpers.setBooleanField(param.thisObject, "mHideGestureLine", false)
+                        getObjectOrNull(param.thisObject, "mHideGestureLine") as Boolean
+                    setObject(param.thisObject, "mHideGestureLine", false)
                 }
 
-                @Throws(Throwable::class)
-                override fun afterHookedMethod(param: MethodHookParam) {
-                    super.afterHookedMethod(param)
-                    XposedHelpers.setBooleanField(
+                after { param ->
+                    setObject(
                         param.thisObject,
                         "mHideGestureLine",
                         mHideGestureLine
                     )
                 }
-            })
+            }
     }
 }
