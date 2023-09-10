@@ -1,4 +1,13 @@
-### StarVoyager
+![StarVoyager](https://socialify.git.ci/hosizoraru/StarVoyager/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
+<a href="https://star-history.com/#hosizoraru/StarVoyager&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hosizoraru/StarVoyager&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hosizoraru/StarVoyager&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hosizoraru/StarVoyager&type=Date" />
+  </picture>
+</a>
+
 
 [![version](https://img.shields.io/github/v/release/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/releases) [![stars](https://img.shields.io/github/stars/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/stargazers) [![download-all](https://img.shields.io/github/downloads/hosizoraru/StarVoyager/total?style=for-the-badge)](https://t.me/VoyagerMIUIUpdate) [![download-lsposed-all](https://img.shields.io/github/downloads/Xposed-Modules-Repo/star.sky.voyager/total?style=for-the-badge)](https://modules.lsposed.org/module/star.sky.voyager) [![kotlin](https://img.shields.io/github/languages/top/hosizoraru/StarVoyager?style=for-the-badge)](https://github.com/search?q=repo%3Ahosizoraru%2FStarVoyager++language%3AKotlin&type=code) [![CI](https://img.shields.io/github/actions/workflow/status/hosizoraru/StarVoyager/android.yml?branch=star&style=for-the-badge)](https://github.com/hosizoraru/StarVoyager/actions)   
 全名为 StarSkyVoyager  
