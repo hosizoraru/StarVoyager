@@ -40,13 +40,13 @@ object PrivacyCamera : HookRegister() {
                 declaredClass = privateCls.name
 //                returnType = R0.returnType.name
 //                parameterTypes = listOf(R0.parameterTypes[0].name)
-                parameterTypes = emptyList()
+                paramTypes = emptyList()
                 returnType = "boolean"
                 addInvoke {
 //                    parameterTypes = emptyList()
 //                    returnType = "boolean"
                     returnType = R0.returnType.name
-                    parameterTypes = listOf(R0.parameterTypes[0].name)
+                    paramTypes = listOf(R0.parameterTypes[0].name)
                     declaredClass = privateCls.name
                 }
             }

@@ -39,7 +39,7 @@ object GameBoxVisionEnhance : HookRegister() {
 //                returnType = g.returnType.name
                 declaredClass = gameBoxVisionEnhanceUtilsCls.name
                 returnType = "boolean"
-                parameterTypes = emptyList()
+                paramTypes = emptyList()
 //                addInvoke {
 ////                    declaredClass = gameBoxVisionEnhanceUtilsCls.name
 ////                    returnType = "boolean"

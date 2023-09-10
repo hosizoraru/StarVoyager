@@ -29,7 +29,7 @@ object MoreCard : HookRegister() {
 //            methodReturnType = "java.util.Locale"
             matcher {
                 declaredClass = toolsCls.name
-                parameterTypes = listOf("android.content.Context")
+                paramTypes = listOf("android.content.Context")
                 returnType = "java.util.Locale"
             }
         }.firstOrNull()?.getMethodInstance(classLoader)

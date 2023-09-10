@@ -26,12 +26,8 @@ object DeviceShell2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "from_partial_screenshot"
-                        StringMatchType.Equals
-                    }
-                }
+                StringMatchType.Equals
+                usingStrings = listOf("from_partial_screenshot")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

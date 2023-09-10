@@ -43,7 +43,7 @@ object ScreenTime : HookRegister() {
             matcher {
                 declaredClass = cls.name
                 returnType = "boolean"
-                parameterTypes = listOf()
+                paramTypes = listOf()
             }
 //            methodDeclareClass = cls.name
 //            methodReturnType = "boolean"

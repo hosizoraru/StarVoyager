@@ -15,12 +15,8 @@ object VcbAbility : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.vendor.vcb.ability"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.vendor.vcb.ability")
+                StringMatchType.Equals
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

@@ -15,12 +15,8 @@ object Anti2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "ro.miui.customized.region"
-                        StringMatchType.Equals
-                    }
-                }
+                StringMatchType.Equals
+                usingStrings = listOf("ro.miui.customized.region")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
@@ -32,12 +28,8 @@ object Anti2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "https://flash.sec.miui.com/detect/app"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("https://flash.sec.miui.com/detect/app")
+                StringMatchType.Equals
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

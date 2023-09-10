@@ -11,12 +11,8 @@ object CameraFaceTracker : HookRegister() {
     private val tracker by lazy {
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.vendor.camera.facetracker.support"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.vendor.camera.facetracker.support")
+                StringMatchType.Equals
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

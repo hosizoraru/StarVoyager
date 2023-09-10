@@ -22,7 +22,7 @@ object Macro : HookRegister() {
             matcher {
                 usingStrings = listOf("pref_gb_unsupport_macro_apps")
 //                parameterTypes = listOf("Ljava/util/ArrayList;")
-                parameterTypes = listOf("java.util.ArrayList")
+                paramTypes = listOf("java.util.ArrayList")
                 returnType = "void"
             }
         }.first().getMethodInstance(classLoader).createHook {

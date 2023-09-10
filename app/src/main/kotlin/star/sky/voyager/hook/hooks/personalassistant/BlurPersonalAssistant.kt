@@ -22,11 +22,7 @@ object BlurPersonalAssistant : HookRegister() {
 //        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        StringMatchType.Equals
-                    }
-                }
+                StringMatchType.Equals
                 usingStrings = listOf("ScrollStateManager", "Manager must be init before using")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)

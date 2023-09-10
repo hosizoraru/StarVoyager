@@ -19,12 +19,8 @@ object DisableSafeModelTip : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "android.provider.MiuiSettings\$Ad"
-                        StringMatchType.Equals
-                    }
-                }
+                StringMatchType.Equals
+                usingStrings = listOf("android.provider.MiuiSettings\$Ad")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

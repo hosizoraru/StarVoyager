@@ -25,7 +25,7 @@ object GunService : HookRegister() {
                 matcher {
                     declaredClass = qaq.name
                     returnType = "boolean"
-                    parameterTypes = listOf("java.lang.String")
+                    paramTypes = listOf("java.lang.String")
                 }
             }.single().getMethodInstance(classLoader).createHook {
                 returnConstant(true)

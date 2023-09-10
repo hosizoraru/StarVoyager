@@ -22,12 +22,8 @@ object Widevine : HookRegister() {
 //        method
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.vendor.sys.pay.widevine"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.vendor.sys.pay.widevine")
+                StringMatchType.Equals
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

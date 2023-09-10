@@ -12,6 +12,7 @@ object UnlockSuperWallpaper : HookRegister() {
     override fun init() = hasEnable("unlock_super_wallpaper") {
         val superWallpaperUtilsClass =
             loadClass("com.miui.superwallpaper.SuperWallpaperUtils")
+
         superWallpaperUtilsClass.methodFinder()
             .filterByName("initEnableSuperWallpaper")
             .filterByParamTypes(Context::class.java)

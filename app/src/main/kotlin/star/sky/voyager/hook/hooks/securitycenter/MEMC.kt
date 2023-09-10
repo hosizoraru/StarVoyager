@@ -26,7 +26,7 @@ object MEMC : HookRegister() {
                 matcher {
                     declaredClass = qaq.name
                     returnType = "boolean"
-                    parameterTypes = listOf("java.lang.String")
+                    paramTypes = listOf("java.lang.String")
                 }
             }.forEach { methods ->
                 counter++

@@ -15,12 +15,8 @@ object DynamicPerformance : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)!!
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.sys.smartop.support_dynamic_performance"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.sys.smartop.support_dynamic_performance")
+                StringMatchType.Equals
             }
         }.firstOrNull()?.getMethodInstance(classLoader)!!
     }
@@ -33,12 +29,8 @@ object DynamicPerformance : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.sys.smartop.support_dynamic_performance"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.sys.smartop.support_dynamic_performance")
+                StringMatchType.Equals
                 declaredClass = d.declaringClass.name
                 returnType = d.returnType.name
             }

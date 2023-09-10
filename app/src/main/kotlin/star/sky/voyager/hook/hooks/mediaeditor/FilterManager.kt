@@ -20,12 +20,8 @@ object FilterManager : HookRegister() {
 //            .firstOrNull()
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "wayne"
-                        StringMatchType.Equals
-                    }
-                }
+                StringMatchType.Equals
+                usingStrings = listOf("wayne")
             }
         }.filter { it.isMethod }.map { it.getMethodInstance(safeClassLoader) }.toTypedArray()
             .firstOrNull()

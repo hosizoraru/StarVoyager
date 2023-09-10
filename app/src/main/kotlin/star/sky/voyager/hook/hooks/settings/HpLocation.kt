@@ -15,12 +15,8 @@ object HpLocation : HookRegister() {
 //        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "persist.vendor.gnss.hpLocSetUI"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("persist.vendor.gnss.hpLocSetUI")
+                StringMatchType.Equals
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }
@@ -32,12 +28,8 @@ object HpLocation : HookRegister() {
 //        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
-                usingStringsMatcher {
-                    this.add {
-                        this.value = "zh_CN"
-                        StringMatchType.Equals
-                    }
-                }
+                usingStrings = listOf("zh_CN")
+                StringMatchType.Equals
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }

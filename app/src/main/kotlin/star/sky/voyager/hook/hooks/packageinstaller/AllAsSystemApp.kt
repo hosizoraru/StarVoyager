@@ -13,7 +13,7 @@ object AllAsSystemApp : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
 //                parameterTypes = listOf("Landroid/content/pm/ApplicationInfo;")
-                parameterTypes = listOf("android.content.pm.ApplicationInfo")
+                paramTypes = listOf("android.content.pm.ApplicationInfo")
                 returnType = "boolean"
             }
         }.map { it.getMethodInstance(safeClassLoader) }

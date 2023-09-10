@@ -16,9 +16,9 @@ object ChangeBrowserForMiAi : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 name = "parseIntentData"
-                parameterCount(3)
+                paramCount(3)
 //                parameterTypes = listOf("Lcom/xiaomi/ai/api/Template\$AndroidIntent;", "", "")
-                parameterTypes = listOf(
+                paramTypes = listOf(
                     "com.xiaomi.ai.api.Template\$AndroidIntent",
                     "com.xiaomi.ai.api.Template\$Task",
                     "com.xiaomi.ai.api.Template\$FullScreen"
