@@ -4,9 +4,9 @@ import java.time.format.DateTimeFormatter
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.kotlin.serialization)
+    autowire("android-application")
+    autowire("kotlin-android")
+    autowire("kotlin-serialization")
 }
 
 val apkId = "StarVoyager"
@@ -112,14 +112,14 @@ android {
 }
 
 dependencies {
-    compileOnly(libs.xposed)
+    compileOnly(de.robv.android.xposed.api)
 //    compileOnly(libs.dev.rikka.hidden.stub)
     implementation(project(":blockmiui"))
-    implementation(libs.core.ktx)
-    implementation(libs.constraintlayout)
-    implementation(libs.jpinyin)
-    implementation(libs.lsposed.hidden.api.bypass)
-    implementation(libs.ezxhelper)
-    implementation(libs.dev.dexkit)
+    implementation(androidx.core.core.ktx)
+    implementation(androidx.constraintlayout.constraintlayout)
+    implementation(org.luckypray.dexkit)
+    implementation(com.github.kyuubiran.ezXHelper)
+    implementation(io.github.ranlee1.jpinyin)
+    implementation(org.lsposed.hiddenapibypass.hiddenapibypass)
 //    implementation(libs.dev.rikka.hidden.compat)
 }

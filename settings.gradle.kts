@@ -5,17 +5,10 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven("https://api.xposed.info/")
     }
 }
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-        maven("https://api.xposed.info/")
-    }
+plugins {
+    id("com.highcapable.sweetdependency") version "1.0.1"
 }
 
 rootProject.name = "StarSkyVoyager"

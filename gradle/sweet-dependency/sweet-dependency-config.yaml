@@ -1,0 +1,46 @@
+preferences:
+  autowire-on-sync-mode: UPDATE_OPTIONAL_DEPENDENCIES
+  repositories-mode: FAIL_ON_PROJECT_REPOS
+
+repositories:
+  gradle-plugin-portal:
+    scope: PLUGINS
+  google:
+  maven-central:
+  maven-central-branch:
+    url: "https://api.xposed.info/"
+
+plugins:
+  com.android.application:
+    alias: android-application
+    version: 8.3.0-alpha03
+    auto-update: true
+  org.jetbrains.kotlin.android:
+    alias: kotlin-android
+    version: 1.9.10
+  org.jetbrains.kotlin.plugin.serialization:
+    alias: kotlin-serialization
+    version: 1.9.10
+
+libraries:
+  androidx.core:
+    core-ktx:
+      version: 1.12.0
+  androidx.constraintlayout:
+    constraintlayout:
+      version: 2.2.0-alpha12
+  org.luckypray:
+    dexkit:
+      version: 2.0.0-rc
+  com.github.kyuubiran:
+    EzXHelper:
+      version: 2.0.7
+  io.github.ranlee1:
+    jpinyin:
+      version: 1.0.1
+  org.lsposed.hiddenapibypass:
+    hiddenapibypass:
+      version: 4.3
+  de.robv.android.xposed:
+    api:
+      version: 82
