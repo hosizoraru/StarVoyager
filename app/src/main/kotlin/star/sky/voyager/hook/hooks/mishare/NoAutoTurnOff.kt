@@ -2,6 +2,7 @@ package star.sky.voyager.hook.hooks.mishare
 
 import android.content.Context
 import com.github.kyuubiran.ezxhelper.ClassLoaderProvider.classLoader
+import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import org.luckypray.dexkit.query.enums.StringMatchType
@@ -16,7 +17,7 @@ object NoAutoTurnOff : HookRegister() {
                 usingStrings = listOf("EnabledState", "mishare_enabled")
                 StringMatchType.Equals
             }
-        }.map { it.getMethodInstance(classLoader) }.toList()
+        }.map { it.getMethodInstance(classLoader) }.first()
     }
 
     private val toastClass by lazy {
@@ -25,59 +26,25 @@ object NoAutoTurnOff : HookRegister() {
                 usingStrings = listOf("null context", "cta_agree")
                 StringMatchType.Equals
             }
-        }.map { it.getInstance(classLoader) }.toList()
+        }.map { it.getInstance(classLoader) }.first()
     }
     override fun init() = hasEnable("No_Auto_Turn_Off") {
-//        dexKitBridge.batchFindMethodsUsingStrings {
-//            addQuery("qwq", setOf("EnabledState", "mishare_enabled"))
-//            matchType = MatchType.FULL
-//        }.forEach { (_, classes) ->
-//            classes.map {
-//                it.getMethodInstance(classLoader)
-//            }.createHooks {
-//                before {
-//                    it.result = null
-//                }
-//            }
-//        }
-
-        nullMethod.createHooks {
+        nullMethod.createHook {
             before {
                 it.result = null
             }
         }
 
-        toastClass.forEach {
-            it.methodFinder()
-                .filterByReturnType(Boolean::class.java)
-                .filterByParamCount(2)
-                .filterByParamTypes(Context::class.java, String::class.java)
-                .toList().createHooks {
-                    before { param ->
-                        if (param.args[1].equals("security_agree")) {
-                            param.result = false
-                        }
+        toastClass.methodFinder()
+            .filterByReturnType(Boolean::class.java)
+            .filterByParamCount(2)
+            .filterByParamTypes(Context::class.java, String::class.java)
+            .toList().createHooks {
+                before { param ->
+                    if (param.args[1].equals("security_agree")) {
+                        param.result = false
                     }
                 }
-        }
-
-//        dexKitBridge.batchFindClassesUsingStrings {
-//            addQuery("qwq", setOf("null context", "cta_agree"))
-//            matchType = MatchType.FULL
-//        }.forEach { (_, classes) ->
-//            classes.map {
-//                it.getClassInstance(classLoader).methodFinder()
-//                    .filterByReturnType(Boolean::class.java)
-//                    .filterByParamCount(2)
-//                    .filterByParamTypes(Context::class.java, String::class.java)
-//                    .toList().createHooks {
-//                        before { param ->
-//                            if (param.args[1].equals("security_agree")) {
-//                                param.result = false
-//                            }
-//                        }
-//                    }
-//            }
-//        }
+            }
     }
 }
