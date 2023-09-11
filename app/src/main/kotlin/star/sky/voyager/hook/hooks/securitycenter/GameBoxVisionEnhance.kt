@@ -4,9 +4,9 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object GameBoxVisionEnhance : HookRegister() {
@@ -18,8 +18,7 @@ object GameBoxVisionEnhance : HookRegister() {
     private val l6g by lazy {
         dexKitBridge.findClass {
             matcher {
-                usingStrings = listOf("GBToolsFunctionManager")
-                StringMatchType.Equals
+                addUsingStringsEquals("GBToolsFunctionManager")
             }
         }.first().getInstance(classLoader)
     }

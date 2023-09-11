@@ -3,11 +3,11 @@ package star.sky.voyager.hook.hooks.personalassistant
 import android.view.Window
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getInt
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.BlurDraw.getValueByFields
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import kotlin.math.abs
 
@@ -22,8 +22,10 @@ object BlurPersonalAssistant : HookRegister() {
 //        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                StringMatchType.Equals
-                usingStrings = listOf("ScrollStateManager", "Manager must be init before using")
+                addUsingStringsEquals(
+                    "ScrollStateManager",
+                    "Manager must be init before using"
+                )
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

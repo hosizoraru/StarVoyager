@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.settings
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object HpLocation : HookRegister() {
@@ -15,8 +15,7 @@ object HpLocation : HookRegister() {
 //        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("persist.vendor.gnss.hpLocSetUI")
-                StringMatchType.Equals
+                addUsingStringsEquals("persist.vendor.gnss.hpLocSetUI")
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }
@@ -28,8 +27,7 @@ object HpLocation : HookRegister() {
 //        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("zh_CN")
-                StringMatchType.Equals
+                addUsingStringsEquals("zh_CN")
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }

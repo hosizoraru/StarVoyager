@@ -76,8 +76,7 @@ object OpenByDefaultSetting : HookRegister() {
 //        }
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("enter_way")
-                StringMatchType.Contains
+                addUsingString("enter_way", StringMatchType.Contains)
 //                declaredClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
                 declaredClass = "com.miui.appmanager.ApplicationsDetailsActivity"
                 returnType = "void"

@@ -9,9 +9,9 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isFinal
 import com.github.kyuubiran.ezxhelper.MemberExtensions.isStatic
 import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object CustomRefreshRate : HookRegister() {
@@ -20,8 +20,10 @@ object CustomRefreshRate : HookRegister() {
             "com.miui.powerkeeper" -> {
                 dexKitBridge.findMethod {
                     matcher {
-                        usingStrings = listOf("custom_mode_switch", "fucSwitch")
-                        StringMatchType.Equals
+                        addUsingStringsEquals(
+                            "custom_mode_switch",
+                            "fucSwitch"
+                        )
                     }
                 }.filter { it.isMethod }.map { it.getMethodInstance(safeClassLoader) }.createHooks {
                     before { param ->
@@ -64,8 +66,7 @@ object CustomRefreshRate : HookRegister() {
 
                 dexKitBridge.findMethod {
                     matcher {
-                        usingStrings = listOf("btn_preferce_category")
-                        StringMatchType.Equals
+                        addUsingStringsEquals("btn_preferce_category")
                     }
                 }.first().getMethodInstance(classLoader).createHook {
                     before {

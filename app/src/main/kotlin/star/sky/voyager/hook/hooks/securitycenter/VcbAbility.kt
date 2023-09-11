@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object VcbAbility : HookRegister() {
@@ -15,8 +15,9 @@ object VcbAbility : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("persist.vendor.vcb.ability")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "persist.vendor.vcb.ability"
+                )
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

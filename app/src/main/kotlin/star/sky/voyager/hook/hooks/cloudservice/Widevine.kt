@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.cloudservice
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Widevine : HookRegister() {
@@ -22,8 +22,7 @@ object Widevine : HookRegister() {
 //        method
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("persist.vendor.sys.pay.widevine")
-                StringMatchType.Equals
+                addUsingStringsEquals("persist.vendor.sys.pay.widevine")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

@@ -10,9 +10,9 @@ import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
 import com.github.kyuubiran.ezxhelper.MemberExtensions.paramCount
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object SaveAsPng : HookRegister() {
@@ -80,8 +80,9 @@ object SaveAsPng : HookRegister() {
 //        }
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("context", "bitmap", "uri", "format")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "context", "bitmap", "uri", "format"
+                )
             }
         }.forEach {
 //                (_, methods) ->

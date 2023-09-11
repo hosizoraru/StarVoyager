@@ -18,8 +18,7 @@ object LockOneHundred : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("getMinusPredictScore")
-                StringMatchType.Contains
+                addUsingString("getMinusPredictScore", StringMatchType.Contains)
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

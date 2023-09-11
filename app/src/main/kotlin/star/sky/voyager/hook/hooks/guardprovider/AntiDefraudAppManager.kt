@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.guardprovider
 
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.api.replaceMethod
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.closeDexKit
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.lang.reflect.Method
@@ -25,11 +25,10 @@ class AntiDefraudAppManager : IXposedHookLoadPackage {
 //            }
             val result = dexKitBridge.findMethod {
                 matcher {
-                    usingStrings = listOf(
+                    addUsingStringsEquals(
                         "AntiDefraudAppManager",
                         "https://flash.sec.miui.com/detect/app"
                     )
-                    StringMatchType.Equals
                 }
             }
 //            val antiDefraudAppManager = resultMap["AntiDefraudAppManager"]!!

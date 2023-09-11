@@ -6,10 +6,10 @@ import com.github.kyuubiran.ezxhelper.ClassUtils.setStaticObject
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.XSPUtils.getString
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.voyager.LazyClass.AndroidBuildCls
 import star.sky.voyager.utils.voyager.LazyClass.ShellResourceFetcher
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
@@ -26,8 +26,7 @@ object DeviceShell2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                StringMatchType.Equals
-                usingStrings = listOf("from_partial_screenshot")
+                addUsingStringsEquals("from_partial_screenshot")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

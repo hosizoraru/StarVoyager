@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object DynamicPerformance : HookRegister() {
@@ -15,8 +15,9 @@ object DynamicPerformance : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)!!
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("persist.sys.smartop.support_dynamic_performance")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "persist.sys.smartop.support_dynamic_performance"
+                )
             }
         }.firstOrNull()?.getMethodInstance(classLoader)!!
     }
@@ -29,8 +30,9 @@ object DynamicPerformance : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("persist.sys.smartop.support_dynamic_performance")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "persist.sys.smartop.support_dynamic_performance"
+                )
                 declaredClass = d.declaringClass.name
                 returnType = d.returnType.name
             }

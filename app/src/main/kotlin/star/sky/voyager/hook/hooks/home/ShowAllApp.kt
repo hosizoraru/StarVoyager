@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.home
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ShowAllApp : HookRegister() {
@@ -30,8 +30,7 @@ object ShowAllApp : HookRegister() {
 //        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
         dexKitBridge.findClass {
             matcher {
-                StringMatchType.Equals
-                usingStrings = listOf(
+                addUsingStringsEquals(
                     "appInfo.packageName",
                     "com.android.fileexplorer"
                 )

@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.guardprovider
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Anti2 : HookRegister() {
@@ -15,8 +15,7 @@ object Anti2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                StringMatchType.Equals
-                usingStrings = listOf("ro.miui.customized.region")
+                addUsingStringsEquals("ro.miui.customized.region")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
@@ -28,8 +27,7 @@ object Anti2 : HookRegister() {
 //        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("https://flash.sec.miui.com/detect/app")
-                StringMatchType.Equals
+                addUsingStringsEquals("https://flash.sec.miui.com/detect/app")
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }

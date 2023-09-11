@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.securitycenter
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ScreenTime : HookRegister() {
@@ -18,8 +18,9 @@ object ScreenTime : HookRegister() {
 //            .firstOrNull()!!
         dexKitBridge.findClass {
             matcher {
-                usingStrings = listOf("not support screenPowerSplit", "PowerRankHelperHolder")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "not support screenPowerSplit", "PowerRankHelperHolder"
+                )
             }
         }.first().getInstance(classLoader)
     }
@@ -33,8 +34,9 @@ object ScreenTime : HookRegister() {
 //            .firstOrNull()!!
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("ishtar", "nuwa", "fuxi")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "ishtar", "nuwa", "fuxi"
+                )
             }
         }.first().getMethodInstance(classLoader)
     }

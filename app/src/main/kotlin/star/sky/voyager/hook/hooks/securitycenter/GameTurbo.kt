@@ -3,8 +3,8 @@ package star.sky.voyager.hook.hooks.securitycenter
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.voyager.SetKeyMap.setKeyMap
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
@@ -16,8 +16,7 @@ object GameTurbo : HookRegister() {
 //        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
         dexKitBridge.findClass {
             matcher {
-                usingStrings = listOf("GameBoosterFeatureUtils")
-                StringMatchType.Equals
+                addUsingStringsEquals("GameBoosterFeatureUtils")
             }
         }.first().getInstance(classLoader)
     }
@@ -30,9 +29,8 @@ object GameTurbo : HookRegister() {
 //        }.single().getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("support_network_rps_mode")
+                addUsingStringsEquals("support_network_rps_mode")
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                StringMatchType.Equals
             }
         }.first().getMethodInstance(classLoader)
     }
@@ -46,9 +44,8 @@ object GameTurbo : HookRegister() {
 //            .getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("grus")
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                StringMatchType.Equals
+                addUsingStringsEquals("grus")
             }
         }.first { it.isMethod && it.getMethodInstance(classLoader) != G }
             .getMethodInstance(classLoader)
@@ -66,9 +63,8 @@ object GameTurbo : HookRegister() {
 //        }.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("cepheus")
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                StringMatchType.Equals
+                addUsingStringsEquals("cepheus")
             }
         }.first {
             it.isMethod &&
@@ -85,9 +81,8 @@ object GameTurbo : HookRegister() {
 //        }.single().getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
-                usingStrings = listOf("support_wifi_low_latency_mode")
+                addUsingStringsEquals("support_wifi_low_latency_mode")
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                StringMatchType.Equals
             }
         }.first().getMethodInstance(classLoader)
     }
@@ -101,8 +96,7 @@ object GameTurbo : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                usingStrings = listOf("support_touchfeature_gamemode")
-                StringMatchType.Equals
+                addUsingStringsEquals("support_touchfeature_gamemode")
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
     }
@@ -116,8 +110,7 @@ object GameTurbo : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                usingStrings = listOf("com.xiaomi.aiasst.vision")
-                StringMatchType.Equals
+                addUsingStringsEquals("com.xiaomi.aiasst.vision")
             }
         }.first().getMethodInstance(classLoader)
     }
@@ -131,8 +124,7 @@ object GameTurbo : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                usingStrings = listOf("ro.vendor.fps.switch.default")
-                StringMatchType.Equals
+                addUsingStringsEquals("ro.vendor.fps.switch.default")
             }
         }.first().getMethodInstance(classLoader)
     }
@@ -146,8 +138,7 @@ object GameTurbo : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = GameBoosterFeatureUtilsCls.name
-                usingStrings = listOf("isEnhancedDsdaSupported")
-                StringMatchType.Equals
+                addUsingStringsEquals("isEnhancedDsdaSupported")
             }
         }.first().getMethodInstance(classLoader)
     }

@@ -2,9 +2,9 @@ package star.sky.voyager.hook.hooks.weather
 
 import com.github.kyuubiran.ezxhelper.EzXHelper.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
-import org.luckypray.dexkit.query.enums.StringMatchType
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
+import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 import java.util.Locale
 
@@ -16,8 +16,9 @@ object MoreCard : HookRegister() {
 //        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
         dexKitBridge.findClass {
             matcher {
-                usingStrings = listOf("ro.miui.ui.version.name", "Wth2:ToolUtils")
-                StringMatchType.Equals
+                addUsingStringsEquals(
+                    "ro.miui.ui.version.name", "Wth2:ToolUtils"
+                )
             }
         }.first()
     }
