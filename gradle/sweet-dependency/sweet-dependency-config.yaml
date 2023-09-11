@@ -18,29 +18,38 @@ plugins:
   org.jetbrains.kotlin.android:
     alias: kotlin-android
     version: 1.9.10
+    auto-update: true
   org.jetbrains.kotlin.plugin.serialization:
     alias: kotlin-serialization
     version-ref: kotlin-android
+    auto-update: true=-09`  1q2w3e4r5678
+    ';lsa '
 
 libraries:
   androidx.core:
     core-ktx:
       version: 1.12.0
+      auto-update: true
   androidx.constraintlayout:
     constraintlayout:
       version: 2.2.0-alpha12
+      auto-update: true
   org.luckypray:
     dexkit:
       version: 2.0.0-rc
+      auto-update: true
   com.github.kyuubiran:
     EzXHelper:
       version: 2.0.7
+      auto-update: true
   io.github.ranlee1:
     jpinyin:
       version: 1.0.1
+      auto-update: true
   org.lsposed.hiddenapibypass:
     hiddenapibypass:
       version: 4.3
+      auto-update: true
   de.robv.android.xposed:
     api:
       version: 82
