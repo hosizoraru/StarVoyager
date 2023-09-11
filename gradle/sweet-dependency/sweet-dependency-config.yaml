@@ -22,8 +22,7 @@ plugins:
   org.jetbrains.kotlin.plugin.serialization:
     alias: kotlin-serialization
     version-ref: kotlin-android
-    auto-update: true=-09`  1q2w3e4r5678
-    ';lsa '
+    auto-update: true
 
 libraries:
   androidx.core:
