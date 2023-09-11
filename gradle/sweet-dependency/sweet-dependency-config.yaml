@@ -20,7 +20,7 @@ plugins:
     version: 1.9.10
   org.jetbrains.kotlin.plugin.serialization:
     alias: kotlin-serialization
-    version: 1.9.10
+    version-ref: kotlin-android
 
 libraries:
   androidx.core:
