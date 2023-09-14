@@ -467,6 +467,10 @@
     <string name="device_shell">Customize device with shell for screenshots</string>
 
     <string name="Market_As">Disguise your model as what in the GetApps</string>
+    <string name="device_market">Device Market Models</string>
+    <string name="device_market_recommend">Select from Recommended Models</string>
+    <string name="device_market_mod">Customize Market Models</string>
+    <string name="device_market_mod_summary">Custom models have higher priority.</string>
 
     <string name="package_installer_remove_check">Disable the app installation\'s count checking</string>
     <string name="package_installer_remove_ads">Remove ads</string>

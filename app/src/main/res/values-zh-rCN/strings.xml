@@ -466,6 +466,10 @@
     <string name="device_shell">自定义带壳截图的机型</string>
 
     <string name="Market_As">伪装机型为:</string>
+    <string name="device_market">商店推送的机型</string>
+    <string name="device_market_recommend">从推荐里的机型选择</string>
+    <string name="device_market_mod">自定义推送的机型</string>
+    <string name="device_market_mod_summary">自定义的优先级更高</string>
 
     <string name="package_installer_remove_check">禁用频繁安装应用检查</string>
     <string name="package_installer_remove_ads">去广告/移除安全守护提示</string>

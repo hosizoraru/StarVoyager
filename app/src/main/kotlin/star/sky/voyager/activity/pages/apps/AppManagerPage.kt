@@ -1,12 +1,14 @@
 package star.sky.voyager.activity.pages.apps
 
 import android.annotation.SuppressLint
+import android.view.View
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.dialog.MIUIDialog
 import star.sky.voyager.R
 
 @SuppressLint("NonConstantResourceId")
@@ -23,6 +25,50 @@ class AppManagerPage : BasePage() {
         )
         Line()
         TitleText(textId = R.string.scope_market)
+        val deviceMarketBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "device_market",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        val deviceMarketRecommendBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "device_market_recommend",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        val deviceMarketModBinding = GetDataBinding({
+            safeSP.getBoolean(
+                "device_market_mod",
+                false
+            )
+        }) { view, flags, data ->
+            if (flags == 1) view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.device_market,
+            ),
+            SwitchV(
+                "device_market",
+                false,
+                dataBindingSend = deviceMarketBinding.bindingSend
+            ),
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.device_market_recommend,
+            ),
+            SwitchV(
+                "device_market_recommend",
+                false,
+                dataBindingSend = deviceMarketRecommendBinding.bindingSend
+            ), deviceMarketBinding.binding.getRecv(1)
+        )
         TextSummaryWithSpinner(
             TextSummaryV(
                 textId = R.string.Market_As,
@@ -46,7 +92,60 @@ class AppManagerPage : BasePage() {
                 add("MixFold3") {
                     safeSP.putAny("Market_As", "MixFold3")
                 }
-            },
+            }, deviceMarketRecommendBinding.binding.getRecv(1)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.device_market_mod,
+                tipsId = R.string.device_market_mod_summary,
+            ),
+            SwitchV(
+                "device_market_mod",
+                false,
+                dataBindingSend = deviceMarketModBinding.bindingSend
+            ), deviceMarketBinding.binding.getRecv(1)
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.your_product_market_name,
+                onClickListener = {
+                    MIUIDialog(activity) {
+                        setTitle(R.string.device_market_mod)
+                        setMessage(
+                            "${activity.getString(R.string.def)}ishtar\n${
+                                activity.getString(
+                                    R.string.current
+                                )
+                            }${
+                                safeSP.getString(
+                                    "market_as_device",
+                                    "ishtar"
+                                )
+                            }"
+                        )
+                        setEditText(
+                            "",
+                            "${activity.getString(R.string.current)}${
+                                safeSP.getString(
+                                    "market_as_device",
+                                    "ishtar"
+                                )
+                            }"
+                        )
+                        setLButton(textId = R.string.cancel) {
+                            dismiss()
+                        }
+                        setRButton(textId = R.string.done) {
+                            if (getEditText() != "") {
+                                safeSP.putAny(
+                                    "market_as_device",
+                                    getEditText()
+                                )
+                            }
+                            dismiss()
+                        }
+                    }.show()
+                }), dataBindingRecv = deviceMarketModBinding.binding.getRecv(1)
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.remove_open_ad),

@@ -466,6 +466,10 @@
     <string name="device_shell">カスタムシェル付きのスクリーンショット機種</string>
 
     <string name="Market_As">デバイスを偽装:</string>
+    <string name="device_market">商店提供モデル</string>
+    <string name="device_market_recommend">おすすめモデルから選択</string>
+    <string name="device_market_mod">カスタム提供モデル</string>
+    <string name="device_market_mod_summary">カスタムモデルは優先されます。</string>
 
     <string name="package_installer_remove_check">頻繁なアプリインストールチェックを無効化</string>
     <string name="package_installer_remove_ads">広告削除/セキュリティガードヒントの削除</string>
