@@ -16,6 +16,7 @@ object DisableRecentViewWallpaperDarkening : HookRegister() {
                 before {
                     it.args[0] = 0.0f
                     it.thisObject.setObjectField("mCurrentAlpha", 0.0f)
+//                    it.thisObject.objectHelper().setObject("mCurrentAlpha", 0.0f)
                 }
             }
     }

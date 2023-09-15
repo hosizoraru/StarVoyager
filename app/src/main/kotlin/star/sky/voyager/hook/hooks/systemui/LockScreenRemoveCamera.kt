@@ -26,16 +26,12 @@ object LockScreenRemoveCamera : HookRegister() {
             .filterByName("onTouchMove")
             .filterByParamCount(2)
             .first().createHook {
-                before {
-                    it.result = false
-                }
+                returnConstant(false)
             }
         loadClass("com.android.keyguard.KeyguardMoveRightController").methodFinder()
             .filterByName("reset")
             .first().createHook {
-                before {
-                    it.result = null
-                }
+                returnConstant(null)
             }
     }
 }

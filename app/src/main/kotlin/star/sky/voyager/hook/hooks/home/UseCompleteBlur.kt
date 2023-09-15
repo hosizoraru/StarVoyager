@@ -5,9 +5,9 @@ import android.view.MotionEvent
 import com.github.kyuubiran.ezxhelper.ClassUtils.invokeStaticMethodBestMatch
 import com.github.kyuubiran.ezxhelper.ClassUtils.loadClass
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
+import com.github.kyuubiran.ezxhelper.ObjectHelper.Companion.objectHelper
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.api.callStaticMethod
-import star.sky.voyager.utils.api.getObjectField
 import star.sky.voyager.utils.api.hookBeforeMethod
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
@@ -29,7 +29,9 @@ object UseCompleteBlur : HookRegister() {
                 val motionEvent = it.args[0] as MotionEvent
                 val action = motionEvent.action
                 if (action == 2) Thread.currentThread().priority = 10
-                if (it.thisObject.getObjectField("mWindowMode") == 2 && action == 2) {
+                if (it.thisObject.objectHelper()
+                        .getObjectOrNull("mWindowMode") == 2 && action == 2
+                ) {
                     blurUtilsClass.callStaticMethod("fastBlurDirectly", 1.0f, mLauncher.window)
                 }
             }
