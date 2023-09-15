@@ -1,7 +1,7 @@
 package star.sky.voyager.activity.pages.sub
 
 import android.annotation.SuppressLint
-import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import android.widget.Toast.makeText
 import cn.fkj233.ui.activity.MIUIActivity.Companion.safeSP
@@ -220,7 +220,7 @@ class SettingsModPage : BasePage() {
                                         getEditText().toInt()
                                     )
                                 }.onFailure {
-                                    makeText(activity, "Input error", Toast.LENGTH_LONG)
+                                    makeText(activity, "Input error", LENGTH_LONG)
                                         .show()
                                 }
                             }
