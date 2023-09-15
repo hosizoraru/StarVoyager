@@ -44,6 +44,7 @@ import star.sky.voyager.activity.pages.sub.IconPositionPage
 import star.sky.voyager.activity.pages.sub.LockScreenPage
 import star.sky.voyager.activity.pages.sub.NotificationCenterPage
 import star.sky.voyager.activity.pages.sub.SecurityUnlockPage
+import star.sky.voyager.activity.pages.sub.SettingsModPage
 import star.sky.voyager.activity.pages.sub.SettingsUnlockPage
 import star.sky.voyager.activity.pages.sub.StatusBarBatteryPage
 import star.sky.voyager.activity.pages.sub.StatusBarIconPage
@@ -125,6 +126,7 @@ class MainActivity : MIUIActivity() {
         registerPage(PackageInstallerPage::class.java)
         registerPage(SettingsPage::class.java)
         registerPage(SettingsUnlockPage::class.java)
+        registerPage(SettingsModPage::class.java)
         registerPage(GalleryUnlockPage::class.java)
         registerPage(SuperClipboardPage::class.java)
         registerPage(ScreenRecorderPage::class.java)

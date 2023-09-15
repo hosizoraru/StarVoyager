@@ -167,6 +167,10 @@
     <string name="your_product_market_name">Model: </string>
     <string name="recent">Recent</string>
 
+    <string name="screen_off_timeout">Screen Off Timeout</string>
+    <string name="screen_off_timeout_command">Customize Auto Lock Screen After Inactivity</string>
+    <string name="screen_off_timeout_summary">Time unit: 1 second</string>
+
     <string name="recent_hide_gesture_line">Hide Gesture Indicator</string>
     <string name="recent_show_gesture_line">Show Gesture Indicator</string>
 

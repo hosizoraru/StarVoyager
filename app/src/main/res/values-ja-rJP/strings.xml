@@ -166,6 +166,10 @@
     <string name="your_product_market_name">モデル: </string>
     <string name="recent">最近の画面</string>
 
+    <string name="screen_off_timeout">自動スクリーンオフ時間</string>
+    <string name="screen_off_timeout_command">非アクティブ状態後の自動ロックスクリーンをカスタマイズ</string>
+    <string name="screen_off_timeout_summary">時間単位：1秒</string>
+
     <string name="recent_hide_gesture_line">ジェスチャーインジケータを非表示</string>
     <string name="recent_show_gesture_line">ジェスチャーインジケータを表示</string>
 

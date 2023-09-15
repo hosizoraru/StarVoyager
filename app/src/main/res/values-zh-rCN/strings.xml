@@ -166,6 +166,10 @@
     <string name="your_product_market_name">机型: </string>
     <string name="recent">最近任务</string>
 
+    <string name="screen_off_timeout">自动锁屏时间</string>
+    <string name="screen_off_timeout_command">自定义在无操作多久后自动锁屏</string>
+    <string name="screen_off_timeout_summary">单位为 1s</string>
+
     <string name="recent_hide_gesture_line">隐藏手势提示线</string>
     <string name="recent_show_gesture_line">显示手势提示线</string>
 
