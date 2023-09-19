@@ -1,10 +1,8 @@
 package star.sky.voyager.hook.hooks.mishare
 
-import android.content.Context
 import com.github.kyuubiran.ezxhelper.ClassLoaderProvider.classLoader
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHook
 import com.github.kyuubiran.ezxhelper.HookFactory.`-Static`.createHooks
-import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
@@ -32,23 +30,28 @@ object NoAutoTurnOff : HookRegister() {
             }
         }.map { it.getInstance(classLoader) }.first()
     }
+    private val toastMethods by lazy {
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = toastClass.name
+                returnType = "boolean"
+                paramCount = 2
+                paramTypes = listOf("android.content.Context", "java.lang.String")
+            }
+        }.map { it.getMethodInstance(classLoader) }.toList()
+    }
+
     override fun init() = hasEnable("No_Auto_Turn_Off") {
         nullMethod.createHook {
-            before {
-                it.result = null
-            }
+            returnConstant(null)
         }
 
-        toastClass.methodFinder()
-            .filterByReturnType(Boolean::class.java)
-            .filterByParamCount(2)
-            .filterByParamTypes(Context::class.java, String::class.java)
-            .toList().createHooks {
-                before { param ->
-                    if (param.args[1].equals("security_agree")) {
-                        param.result = false
-                    }
+        toastMethods.createHooks {
+            before { param ->
+                if (param.args[1].equals("security_agree")) {
+                    param.result = false
                 }
             }
+        }
     }
 }
