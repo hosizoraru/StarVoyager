@@ -67,17 +67,9 @@ object OpenByDefaultSetting : HookRegister() {
                 }
             }
 
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "enter_way"
-//            matchType = MatchType.CONTAINS
-//            methodDeclareClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
-//            methodReturnType = "void"
-////            methodParamTypes = arrayOf("", "Ljava/lang/Boolean;")
-//        }
         dexKitBridge.findMethod {
             matcher {
                 addUsingString("enter_way", StringMatchType.Contains)
-//                declaredClass = "Lcom/miui/appmanager/ApplicationsDetailsActivity;"
                 declaredClass = "com.miui.appmanager.ApplicationsDetailsActivity"
                 returnType = "void"
 //                parameterTypes = listOf("", "Ljava/lang/Boolean;")

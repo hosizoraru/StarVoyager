@@ -12,7 +12,6 @@ object AllAsSystemApp : HookRegister() {
     private val systemMethod by lazy {
         dexKitBridge.findMethod {
             matcher {
-//                parameterTypes = listOf("Landroid/content/pm/ApplicationInfo;")
                 paramTypes = listOf("android.content.pm.ApplicationInfo")
                 returnType = "boolean"
             }
@@ -20,19 +19,7 @@ object AllAsSystemApp : HookRegister() {
     }
 
     override fun init() = hasEnable("all_as_system_app") {
-//        dexKitBridge.findMethod {
-//            methodParamTypes = arrayOf("Landroid/content/pm/ApplicationInfo;")
-//            methodReturnType = "boolean"
-//        }.forEach {
-//            it.getMethodInstance(safeClassLoader).createHook {
-//                before { param ->
-//                    (param.args[0] as ApplicationInfo).flags =
-//                        (param.args[0] as ApplicationInfo).flags.or(ApplicationInfo.FLAG_SYSTEM)
 ////                    Log.i("看看行不行，被叫方法：" + param.method.declaringClass + "." + param.method.name)
-//                }
-////                returnConstant(true)
-//            }
-//        }
 
         systemMethod.createHooks {
             before { param ->

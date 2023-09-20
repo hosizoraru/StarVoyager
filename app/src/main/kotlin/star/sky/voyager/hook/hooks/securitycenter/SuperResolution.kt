@@ -8,10 +8,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object SuperResolution : HookRegister() {
     override fun init() = hasEnable("super_resolution") {
-//        dexKitBridge.batchFindClassesUsingStrings {
-//            addQuery("qwq", setOf("ro.vendor.media.video.frc.support"))
-//        }.forEach { (_, classes) ->
-//            classes
         dexKitBridge.findClass {
             matcher {
                 usingStrings = listOf("ro.vendor.media.video.frc.support")
@@ -20,9 +16,6 @@ object SuperResolution : HookRegister() {
             val qaq = it.getInstance(classLoader)
             var counter = 0
             dexKitBridge.findMethod {
-//                    methodDeclareClass = qaq.name
-//                    methodReturnType = "boolean"
-//                    methodParamTypes = arrayOf("java.lang.String")
                 matcher {
                     declaredClass = qaq.name
                     returnType = "boolean"
@@ -36,12 +29,6 @@ object SuperResolution : HookRegister() {
                     }
                 }
             }
-//                dexKitBridge.findMethodUsingString {
-//                    methodDeclareClass = qaq.name
-//                    usingString = "debug.config.media.video.ais.support"
-//                }.single().getMethodInstance(classLoader).createHook {
-//                    returnConstant(true)
-//                }
             dexKitBridge.findMethod {
                 matcher {
                     declaredClass = qaq.name
@@ -51,6 +38,5 @@ object SuperResolution : HookRegister() {
                 returnConstant(true)
             }
         }
-//        }
     }
 }

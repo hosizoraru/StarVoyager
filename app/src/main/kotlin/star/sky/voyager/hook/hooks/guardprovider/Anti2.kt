@@ -9,10 +9,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Anti2 : HookRegister() {
     private val region by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "ro.miui.customized.region"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("ro.miui.customized.region")
@@ -21,10 +17,6 @@ object Anti2 : HookRegister() {
     }
 
     private val detect by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "https://flash.sec.miui.com/detect/app"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("https://flash.sec.miui.com/detect/app")

@@ -9,11 +9,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object RiskPkg : HookRegister() {
     private val pkg by lazy {
-//        dexKitBridge.batchFindMethodsUsingStrings {
-//            addQuery("qwq", setOf("riskPkgList", "key_virus_pkg_list", "show_virus_notification"))
-//            matchType = MatchType.FULL
-//        }.map { (_, methods) -> methods }.flatten().map { it.getMethodInstance(classLoader) }
-//            .toList()
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals(

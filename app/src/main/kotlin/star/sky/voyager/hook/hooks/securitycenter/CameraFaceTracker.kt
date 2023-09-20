@@ -15,13 +15,8 @@ object CameraFaceTracker : HookRegister() {
             }
         }.firstOrNull()?.getMethodInstance(classLoader)
     }
+
     override fun init() = hasEnable("camera_face_tracker") {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "persist.vendor.camera.facetracker.support"
-//            matchType = MatchType.FULL
-//        }.single().getMethodInstance(classLoader).createHook {
-//            returnConstant(true)
-//        }
         tracker?.createHook {
             returnConstant(true)
         }

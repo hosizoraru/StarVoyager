@@ -20,9 +20,6 @@ class AntiDefraudAppManager : IXposedHookLoadPackage {
                     "https://flash.sec.miui.com/detect/app"
                 ),
             )
-//            val resultMap = dexKitBridge.batchFindMethodsUsingStrings {
-//                queryMap(map)
-//            }
             val result = dexKitBridge.findMethod {
                 matcher {
                     addUsingStringsEquals(
@@ -31,8 +28,6 @@ class AntiDefraudAppManager : IXposedHookLoadPackage {
                     )
                 }
             }
-//            val antiDefraudAppManager = resultMap["AntiDefraudAppManager"]!!
-//            assert(antiDefraudAppManager.size == 1)
             val antiDefraudAppManagerDescriptor = result.first()
             val antiDefraudAppManagerMethod: Method =
                 antiDefraudAppManagerDescriptor.getMethodInstance(lpparam.classLoader)

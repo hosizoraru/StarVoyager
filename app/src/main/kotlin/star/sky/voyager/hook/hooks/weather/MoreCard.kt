@@ -10,10 +10,6 @@ import java.util.Locale
 
 object MoreCard : HookRegister() {
     private val toolsCls by lazy {
-//        dexKitBridge.batchFindClassesUsingStrings {
-//            addQuery("qwq", setOf("ro.miui.ui.version.name", "Wth2:ToolUtils"))
-//            matchType = MatchType.FULL
-//        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
         dexKitBridge.findClass {
             matcher {
                 addUsingStringsEquals(
@@ -25,9 +21,6 @@ object MoreCard : HookRegister() {
 
     private val locale by lazy {
         dexKitBridge.findMethod {
-//            methodDeclareClass = toolsCls.name
-//            methodParamTypes = arrayOf("android.content.Context")
-//            methodReturnType = "java.util.Locale"
             matcher {
                 declaredClass = toolsCls.name
                 paramTypes = listOf("android.content.Context")

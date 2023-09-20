@@ -9,10 +9,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object VcbAbility : HookRegister() {
     private val vcb by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "persist.vendor.vcb.ability"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals(

@@ -9,10 +9,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object HpLocation : HookRegister() {
     private val hp by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "persist.vendor.gnss.hpLocSetUI"
-//            matchType = MatchType.FULL
-//        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("persist.vendor.gnss.hpLocSetUI")
@@ -21,10 +17,6 @@ object HpLocation : HookRegister() {
     }
 
     private val Zh by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "zh_CN"
-//            matchType = MatchType.FULL
-//        }.map { it.getMethodInstance(classLoader) }.toList()
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("zh_CN")

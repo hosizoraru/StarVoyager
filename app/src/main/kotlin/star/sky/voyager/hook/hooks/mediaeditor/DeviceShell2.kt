@@ -20,10 +20,6 @@ object DeviceShell2 : HookRegister() {
         getString("device_shell_s2", "raphael")
     }
     private val partial by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "from_partial_screenshot"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("from_partial_screenshot")

@@ -8,10 +8,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object ScreenHoldOn : HookRegister() {
     private val screen by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "remove_screen_off_hold_on"
-//            methodReturnType = "boolean"
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 usingStrings = listOf("remove_screen_off_hold_on")

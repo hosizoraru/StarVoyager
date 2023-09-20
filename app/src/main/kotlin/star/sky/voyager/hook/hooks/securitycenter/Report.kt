@@ -9,11 +9,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Report : HookRegister() {
     private val report by lazy {
-//        dexKitBridge.batchFindMethodsUsingStrings {
-//            addQuery("qwq", setOf("android.intent.action.VIEW", "com.xiaomi.market"))
-//            matchType = MatchType.FULL
-//        }.map { (_, methods) -> methods }.flatten().map { it.getMethodInstance(classLoader) }
-//            .toList()
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("android.intent.action.VIEW", "com.xiaomi.market")

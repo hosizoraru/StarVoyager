@@ -8,10 +8,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object MEMC : HookRegister() {
     override fun init() = hasEnable("MEMC") {
-//        dexKitBridge.batchFindClassesUsingStrings {
-//            addQuery("qwq", setOf("ro.vendor.media.video.frc.support"))
-//        }.forEach { (_, classes) ->
-//            classes
         dexKitBridge.findClass {
             matcher {
                 usingStrings = listOf("ro.vendor.media.video.frc.support")
@@ -20,9 +16,6 @@ object MEMC : HookRegister() {
             val qaq = it.getInstance(classLoader)
             var counter = 0
             dexKitBridge.findMethod {
-//                methodDeclareClass = qaq.name
-//                methodReturnType = "boolean"
-//                methodParamTypes = arrayOf("java.lang.String")
                 matcher {
                     declaredClass = qaq.name
                     returnType = "boolean"
@@ -37,6 +30,5 @@ object MEMC : HookRegister() {
                 }
             }
         }
-//        }
     }
 }

@@ -12,10 +12,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object LockOneHundred : HookRegister() {
     private val score by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "getMinusPredictScore"
-//            matchType = MatchType.CONTAINS
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingString("getMinusPredictScore", StringMatchType.Contains)

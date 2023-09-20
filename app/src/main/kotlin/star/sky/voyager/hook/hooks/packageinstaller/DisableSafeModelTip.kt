@@ -13,10 +13,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object DisableSafeModelTip : HookRegister() {
     private val MiuiSettingsAd by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "android.provider.MiuiSettings\$Ad"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("android.provider.MiuiSettings\$Ad")

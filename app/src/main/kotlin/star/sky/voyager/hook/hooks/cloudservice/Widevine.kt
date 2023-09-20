@@ -8,18 +8,7 @@ import star.sky.voyager.utils.voyager.DexKitS.addUsingStringsEquals
 import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object Widevine : HookRegister() {
-    //    private var cache: Map<Int, Method> = emptyMap()
     private val WideVineL1 by lazy {
-//        val versionCode =
-//            getLoadPackageParam().getAppVersionCode()
-//        val method = cache[versionCode] ?:
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "persist.vendor.sys.pay.widevine"
-//            matchType = MatchType.FULL
-//        }.firstOrNull()?.getMethodInstance(classLoader)
-//        ?: throw IllegalStateException("Method not found")
-//        cache = cache.plus(versionCode to method)
-//        method
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("persist.vendor.sys.pay.widevine")

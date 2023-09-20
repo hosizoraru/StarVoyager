@@ -16,10 +16,6 @@ object BlurPersonalAssistant : HookRegister() {
         getInt("blur_personal_assistant_radius", 80)
     }
     private val ScrollStateManager by lazy {
-//        dexKitBridge.batchFindMethodsUsingStrings {
-//            addQuery("qwq", setOf("ScrollStateManager", "Manager must be init before using"))
-//            matchType = MatchType.FULL
-//        }.firstNotNullOf { (_, methods) -> methods.firstOrNull() }.getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals(

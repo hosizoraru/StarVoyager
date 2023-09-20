@@ -36,9 +36,6 @@ object ModifyScreenRecorderConfig : HookRegister() {
             }
         }
 
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "defaultBitRate = "
-//        }
         dexKitBridge.findMethod {
             matcher {
                 usingStrings = listOf("defaultBitRate = ")

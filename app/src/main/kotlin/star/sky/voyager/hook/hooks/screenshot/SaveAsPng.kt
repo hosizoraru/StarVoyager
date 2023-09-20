@@ -74,10 +74,6 @@ object SaveAsPng : HookRegister() {
                 }
             }
 
-//        dexKitBridge.batchFindMethodsUsingStrings {
-//            addQuery("qwq", setOf("context", "bitmap", "uri", "format"))
-//            matchType = MatchType.FULL
-//        }
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals(
@@ -85,22 +81,19 @@ object SaveAsPng : HookRegister() {
                 )
             }
         }.forEach {
-//                (_, methods) ->
-//            methods
-//                it.map {
-                val pngMethod = it.getMethodInstance(classLoader)
-                (pngMethod.returnType == Boolean::class.java && pngMethod.paramCount == 7).apply {
-                    pngMethod.createHook {
-                        after { param ->
-                            val compress =
-                                Bitmap.CompressFormat.PNG
+            val pngMethod = it.getMethodInstance(classLoader)
+            (pngMethod.returnType == Boolean::class.java && pngMethod.paramCount == 7).apply {
+                pngMethod.createHook {
+                    after { param ->
+                        val compress =
+                            Bitmap.CompressFormat.PNG
 //                            Log.i("qwq!!!!: ${param.args[4]}")
-                            param.args[4] = compress
+                        param.args[4] = compress
 //                            Log.i("qwq!!!!: ${param.args[4]}")
-                        }
                     }
                 }
             }
+        }
 //        }
 
 //        loadClass("com.miui.screenshot.u0.f\$a").methodFinder()

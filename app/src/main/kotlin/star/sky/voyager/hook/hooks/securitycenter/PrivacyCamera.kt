@@ -11,9 +11,6 @@ import star.sky.voyager.utils.yife.DexKit.dexKitBridge
 
 object PrivacyCamera : HookRegister() {
     private val privateCls by lazy {
-//        dexKitBridge.batchFindClassesUsingStrings {
-//            addQuery("qwq", setOf("persist.sys.privacy_camera"))
-//        }.firstNotNullOf { (_, classes1) -> classes1.firstOrNull() }
         dexKitBridge.findClass {
             matcher {
                 usingStrings = listOf("persist.sys.privacy_camera")
@@ -22,10 +19,6 @@ object PrivacyCamera : HookRegister() {
     }
 
     private val R0 by lazy {
-//        dexKitBridge.findMethodUsingString {
-//            usingString = "persist.sys.privacy_camera"
-//            matchType = MatchType.FULL
-//        }.first().getMethodInstance(classLoader)
         dexKitBridge.findMethod {
             matcher {
                 addUsingStringsEquals("persist.sys.privacy_camera")
@@ -37,13 +30,9 @@ object PrivacyCamera : HookRegister() {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = privateCls.name
-//                returnType = R0.returnType.name
-//                parameterTypes = listOf(R0.parameterTypes[0].name)
                 paramTypes = emptyList()
                 returnType = "boolean"
                 addInvoke {
-//                    parameterTypes = emptyList()
-//                    returnType = "boolean"
                     returnType = R0.returnType.name
                     paramTypes = listOf(R0.parameterTypes[0].name)
                     declaredClass = privateCls.name
@@ -58,26 +47,6 @@ object PrivacyCamera : HookRegister() {
                 it.args[0] = true
             }
         }
-
-//        Log.i("cls name: ${privateCls.name}")
-//        Log.i("R0 name: ${R0.name}")
-//        Log.i("R0 return type: ${R0.returnType.name}")
-//        Log.i("R0 parameter type: ${R0.parameterTypes[0].name}")
-
-//        dexKitBridge.findMethodInvoking {
-//            methodDeclareClass = privateCls.name
-//            methodReturnType = R0.returnType.name
-//            methodParameterTypes = arrayOf(R0.parameterTypes[0].name)
-//            beInvokedMethodParameterTypes = null
-//            beInvokedMethodReturnType = "boolean"
-//            beInvokedMethodDeclareClass = privateCls.name
-//        }.forEach { (_, method1) ->
-//            method1.map { it1 ->
-//                it1.getMethodInstance(classLoader).createHook {
-//                    returnConstant(true)
-//                }
-//            }
-//        }
 
         invokeMethod.createHooks {
             returnConstant(true)

@@ -30,39 +30,11 @@ object CustomRefreshRate : HookRegister() {
                         setObject(param.thisObject, "mIsCustomFpsSwitch", "true")
                     }
                 }
-//                dexKitBridge.batchFindMethodsUsingStrings {
-//                    addQuery("qwq0", setOf("custom_mode_switch", "fucSwitch"))
-//                    matchType = MatchType.FULL
-//                }.forEach { (_, methods) ->
-//                    methods.filter { it.isMethod }.map {
-//                        it.getMethodInstance(safeClassLoader).createHook {
-//                            before { param ->
-//                                setObject(param.thisObject, "mIsCustomFpsSwitch", "true")
-////                                setObject(param.thisObject, "fucSwitch", true)
-////                                val qwq =
-////                                    getObjectOrNull(
-////                                        param.thisObject,
-////                                        "mIsCustomFpsSwitch"
-////                                    )
-////                                Log.i("hook mIsCustomFpsSwitch success, its:$qwq")
-//                            }
-//                        }
-//                    }
-//                }
             }
 
             "com.xiaomi.misettings" -> {
                 val refreshRateActivity =
                     loadClass("com.xiaomi.misettings.display.RefreshRate.RefreshRateActivity")
-
-//                dexKitBridge.findMethodUsingString {
-//                    usingString = "btn_preferce_category"
-//                    matchType = MatchType.FULL
-//                }.single().getMethodInstance(classLoader).createHook {
-//                    before {
-//                        it.args[0] = true
-//                    }
-//                }
 
                 dexKitBridge.findMethod {
                     matcher {

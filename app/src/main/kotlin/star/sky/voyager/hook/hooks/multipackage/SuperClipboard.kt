@@ -68,11 +68,6 @@ object SuperClipboard : HookRegister() {
 
     private fun dexKitSuperClipboard() {
         val ro by lazy {
-//            dexKitBridge.findMethodUsingString {
-//                usingString = "ro.miui.support_super_clipboard"
-//                matchType = MatchType.FULL
-//                methodReturnType = "boolean"
-//            }.firstOrNull()?.getMethodInstance(safeClassLoader)
             dexKitBridge.findMethod {
                 matcher {
                     addUsingStringsEquals("ro.miui.support_super_clipboard")
@@ -82,11 +77,6 @@ object SuperClipboard : HookRegister() {
         }
 
         val sys by lazy {
-//            dexKitBridge.findMethodUsingString {
-//                usingString = "persist.sys.support_super_clipboard"
-//                matchType = MatchType.FULL
-//                methodReturnType = "boolean"
-//            }.firstOrNull()?.getMethodInstance(safeClassLoader)
             dexKitBridge.findMethod {
                 matcher {
                     addUsingStringsEquals("persist.sys.support_super_clipboard")
@@ -123,7 +113,7 @@ object SuperClipboard : HookRegister() {
             .filter {
                 name in setOf("isPcSupport", "isRegisterCapability", "supportMail", "supportTel")
             }.toList().createHooks {
-            returnConstant(true)
-        }
+                returnConstant(true)
+            }
     }
 }
