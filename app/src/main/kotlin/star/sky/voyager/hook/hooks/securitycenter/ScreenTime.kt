@@ -32,7 +32,7 @@ object ScreenTime : HookRegister() {
             matcher {
                 declaredClass = cls.name
                 returnType = "boolean"
-//                paramTypes = listOf()
+//                paramTypes = listOf() 2.0.0-rc3 已经修复此错误，可以使用
                 paramCount = 0
             }
         }.map { it.getMethodInstance(classLoader) }.toList()
