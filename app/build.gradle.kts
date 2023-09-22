@@ -15,7 +15,7 @@ android {
     namespace = "star.sky.voyager"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
-    ndkVersion = "26.0.10636728 rc2"
+    ndkVersion = "26.0.10792818"
 
     buildFeatures {
         prefab = true
