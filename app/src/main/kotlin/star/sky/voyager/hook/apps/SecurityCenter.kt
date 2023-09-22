@@ -21,6 +21,7 @@ import star.sky.voyager.hook.hooks.securitycenter.RiskPkg
 import star.sky.voyager.hook.hooks.securitycenter.ScreenHoldOn
 import star.sky.voyager.hook.hooks.securitycenter.ScreenTime
 import star.sky.voyager.hook.hooks.securitycenter.SkipWaitingTime
+import star.sky.voyager.hook.hooks.securitycenter.SmartDischarge
 import star.sky.voyager.hook.hooks.securitycenter.SuperResolution
 import star.sky.voyager.hook.hooks.securitycenter.VcbAbility
 import star.sky.voyager.utils.init.AppRegister
@@ -52,6 +53,7 @@ object SecurityCenter : AppRegister() {
             GameBoxVisionEnhance, // 画面增强
             DynamicPerformance, // 动态性能
             GameTurbo, // 游戏加速相关
+            SmartDischarge, // 智能断充保护
             GetDefaultBubbles, // 去除气泡通知应用限制
         )
     }

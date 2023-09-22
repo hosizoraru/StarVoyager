@@ -587,6 +587,7 @@
     <string name="ai_subtitles_videomode">视频工具箱里显示实时字幕</string>
     <string name="fps_switch">游戏自定义设置里开放自定义帧率</string>
     <string name="enhanced_dsda">非数据卡VoLTE来电自动拒接 -> 来电不断网</string>
+    <string name="smart_discharge">智能断充保护</string>
 
     <string name="any_app_barrage">允许所有应用使用弹幕通知</string>
     <string name="any_where_barrage">允许任何地方使用弹幕通知</string>

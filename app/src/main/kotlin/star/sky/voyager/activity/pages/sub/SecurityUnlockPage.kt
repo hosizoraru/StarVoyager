@@ -22,6 +22,12 @@ class SecurityUnlockPage : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
+                textId = R.string.smart_discharge
+            ),
+            SwitchV("smart_discharge")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
                 textId = R.string.battery_life_function
             ),
             SwitchV("battery_life_function")
