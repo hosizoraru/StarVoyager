@@ -407,6 +407,7 @@
     <string name="split_screen_translate">Unlock split-screen translation</string>
     <string name="split_screen_translate_summary">Allow translation for a single application when splitting the screen</string>
     <string name="ai_subtitles">Unlock Ai Subtitles</string>
+    <string name="offline_ai_subtitles">Offline Ai Subtitles</string>
 
     <string name="unlock_widevine_l1">Unlock Widevine (L1) Interface</string>
     <string name="widevine_l1">Widevine (L1) Interface</string>

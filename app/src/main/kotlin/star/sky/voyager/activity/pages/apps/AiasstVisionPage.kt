@@ -34,5 +34,10 @@ class AiasstVisionPage : BasePage() {
                 textId = R.string.ai_subtitles,
             ), SwitchV("ai_subtitles")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.offline_ai_subtitles,
+            ), SwitchV("offline_ai_subtitles")
+        )
     }
 }

@@ -406,6 +406,7 @@
     <string name="split_screen_translate">分割画面翻訳のロックを解除する</string>
     <string name="split_screen_translate_summary">画面を分割するときに、単一のアプリケーションの翻訳を許可する</string>
     <string name="ai_subtitles">リアルタイム字幕をアンロックします</string>
+    <string name="offline_ai_subtitles">オフラインリアルタイム字幕</string>
 
     <string name="unlock_widevine_l1">Widevine（L1）インターフェースのロック解除</string>
     <string name="widevine_l1">Widevine（L1）インターフェース</string>

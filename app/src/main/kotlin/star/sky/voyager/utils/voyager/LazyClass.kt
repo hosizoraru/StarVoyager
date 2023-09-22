@@ -27,6 +27,10 @@ object LazyClass {
         loadClass("com.xiaomi.aiasst.vision.utils.SystemUtils")
     }
 
+    val SupportAiSubtitlesUtils by lazy {
+        loadClass("com.xiaomi.aiasst.vision.utils.SupportAiSubtitlesUtils")
+    }
+
     val MiuiSettingsCls by lazy {
         loadClass("com.android.settings.MiuiSettings")
     }
