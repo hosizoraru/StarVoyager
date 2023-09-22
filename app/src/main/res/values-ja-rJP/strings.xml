@@ -165,6 +165,7 @@
     <string name="speed_mode_tile">スピードモード</string>
     <string name="your_product_market_name">モデル: </string>
     <string name="recent">最近の画面</string>
+    <string name="miui_method">Xiaomi の 方法</string>
 
     <string name="screen_off_timeout">自動スクリーンオフ時間</string>
     <string name="screen_off_timeout_command">非アクティブ状態後の自動ロックスクリーンをカスタマイズ</string>

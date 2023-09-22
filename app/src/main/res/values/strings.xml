@@ -166,6 +166,7 @@
     <string name="speed_mode_tile">Speed Mode</string>
     <string name="your_product_market_name">Model: </string>
     <string name="recent">Recent</string>
+    <string name="miui_method">Xiaomi\'s Approach</string>
 
     <string name="screen_off_timeout">Screen Off Timeout</string>
     <string name="screen_off_timeout_command">Customize Auto Lock Screen After Inactivity</string>

@@ -165,6 +165,7 @@
     <string name="speed_mode_tile">极致模式</string>
     <string name="your_product_market_name">机型: </string>
     <string name="recent">最近任务</string>
+    <string name="miui_method">使用小米的方案</string>
 
     <string name="screen_off_timeout">自动锁屏时间</string>
     <string name="screen_off_timeout_command">自定义在无操作多久后自动锁屏</string>

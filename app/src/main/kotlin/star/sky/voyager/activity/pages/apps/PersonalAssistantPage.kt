@@ -77,6 +77,15 @@ class PersonalAssistantPage : BasePage() {
                 dataBindingSend = blurPersonalAssistantBinding.bindingSend
             )
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.miui_method,
+            ),
+            SwitchV(
+                "blur_personal_assistant_xiaomi_method",
+                false,
+            ), dataBindingRecv = blurPersonalAssistantBinding.binding.getRecv(1)
+        )
         TextWithSeekBar(
             TextV(textId = R.string.blur_personal_assistant_radius),
             SeekBarWithTextV("blur_personal_assistant_radius", 30, 99, 80),

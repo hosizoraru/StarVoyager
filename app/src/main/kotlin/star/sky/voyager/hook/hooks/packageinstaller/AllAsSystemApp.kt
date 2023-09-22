@@ -19,7 +19,7 @@ object AllAsSystemApp : HookRegister() {
     }
 
     override fun init() = hasEnable("all_as_system_app") {
-////                    Log.i("看看行不行，被叫方法：" + param.method.declaringClass + "." + param.method.name)
+//                    Log.i("看看行不行，被叫方法：" + param.method.declaringClass + "." + param.method.name)
 
         systemMethod.createHooks {
             before { param ->
