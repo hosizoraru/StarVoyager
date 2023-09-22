@@ -589,7 +589,7 @@
     <string name="ai_subtitles_videomode">ビデオツールボックスでリアルタイム字幕を表示</string>
     <string name="fps_switch">ゲームカスタム設定でカスタムフレームレートを開放</string>
     <string name="enhanced_dsda">データカードでないVoLTE着信自動拒否 -> 着信時にネットワークが切断されない</string>
-    <string name="smart_discharge">スマート放電保護</string>
+    <string name="smart_discharge">スマート放電保護と低バッテリー高速充電</string>
 
     <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
     <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>
