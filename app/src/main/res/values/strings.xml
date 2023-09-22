@@ -648,6 +648,7 @@
     <string name="enable_perfect_icons">Enable perfect icons</string>
     <string name="pad_gesture_line">Show the Hide Gesture Guide for Pad</string>
     <string name="share_system_app">System apps can be shared</string>
+    <string name="app_quick_switch">Quick app switching</string>
     <string name="home_folder_width">Using the full width of the folder view</string>
     <string name="home_folder_columns">Number of rows of icons in the folder view</string>
 

@@ -38,6 +38,10 @@ class HomeRecentPage : BasePage() {
             SwitchV("pad_gesture_line")
         )
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.app_quick_switch),
+            SwitchV("app_quick_switch")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.fake_nav_bar,
                 tipsId = R.string.fake_nav_bar_summary

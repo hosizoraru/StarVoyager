@@ -16,6 +16,7 @@ import com.github.kyuubiran.ezxhelper.ObjectUtils.setObject
 import com.github.kyuubiran.ezxhelper.finders.ConstructorFinder.`-Static`.constructorFinder
 import com.github.kyuubiran.ezxhelper.finders.MethodFinder.`-Static`.methodFinder
 import star.sky.voyager.utils.init.HookRegister
+import star.sky.voyager.utils.key.hasEnable
 
 
 @SuppressLint("StaticFieldLeak")
@@ -28,7 +29,7 @@ object HideNavBar : HookRegister() {
     private var mCurrentTopMargin = 0
     private var isLandScapeActually = false
     private lateinit var context: Context
-    override fun init() {
+    override fun init() = hasEnable("app_quick_switch") {
         val statusBarControllerCls =
             loadClass("com.miui.launcher.utils.StatusBarController")
         val navStubViewCls =
@@ -36,7 +37,7 @@ object HideNavBar : HookRegister() {
         val antiMistakeTouchViewCls =
             loadClass("com.miui.home.recents.AntiMistakeTouchView")
 
-        val DISABLE_EXPAND =
+        val disableExpand =
             getStaticObjectOrNull(statusBarControllerCls, "DISABLE_EXPAND") as Int
 
         navStubViewCls.methodFinder()
@@ -63,7 +64,7 @@ object HideNavBar : HookRegister() {
                         getObjectOrNull(param.thisObject, "mHideGestureLine") as Boolean
                     motionEvent =
                         getObjectOrNull(param.thisObject, "mDownEvent") as MotionEvent
-                    if (motionEvent.flags and DISABLE_EXPAND == 0) {
+                    if (motionEvent.flags and disableExpand == 0) {
                         setObject(param.thisObject, "mHideGestureLine", false)
                         if (hasSIsNeedInjectMotionEvent) setObject(
                             param.thisObject,
@@ -74,7 +75,7 @@ object HideNavBar : HookRegister() {
                 }
 
                 after { param ->
-                    if (motionEvent.flags and DISABLE_EXPAND == 0) {
+                    if (motionEvent.flags and disableExpand == 0) {
                         setObject(
                             param.thisObject,
                             "mHideGestureLine",
