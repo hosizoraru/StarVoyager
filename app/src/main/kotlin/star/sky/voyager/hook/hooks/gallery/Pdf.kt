@@ -11,9 +11,7 @@ object Pdf : HookRegister() {
         loadClass("com.miui.gallery.request.PicToPdfHelper").methodFinder()
             .filterByName("isPicToPdfSupport")
             .first().createHook {
-                before {
-                    it.result = true
-                }
+                returnConstant(true)
             }
     }
 }

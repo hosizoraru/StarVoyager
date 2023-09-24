@@ -166,6 +166,7 @@
     <string name="your_product_market_name">机型: </string>
     <string name="recent">最近任务</string>
     <string name="miui_method">使用小米的方案</string>
+    <string name="game_turbo_summary">这是一个只在游戏中生效的特殊功能，如果你想具体了解这个功能可以在开启后去看小米的官方描述</string>
 
     <string name="screen_off_timeout">自动锁屏时间</string>
     <string name="screen_off_timeout_command">自定义在无操作多久后自动锁屏</string>
@@ -590,6 +591,8 @@
     <string name="fps_switch">游戏自定义设置里开放自定义帧率</string>
     <string name="enhanced_dsda">非数据卡VoLTE来电自动拒接 -> 来电不断网</string>
     <string name="smart_discharge">智能断充保护和低电疾充</string>
+    <string name="game_dim">自动降低屏幕亮度</string>
+    <string name="disable_ndds_sim">禁用副卡</string>
 
     <string name="any_app_barrage">允许所有应用使用弹幕通知</string>
     <string name="any_where_barrage">允许任何地方使用弹幕通知</string>

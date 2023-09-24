@@ -94,6 +94,24 @@ object GameTurbo : HookRegister() {
         }.first().getMethodInstance(classLoader)
     }
 
+    private val o by lazy {
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                addUsingStringsEquals("support_game_dim")
+            }
+        }.first().getMethodInstance(classLoader)
+    }
+
+    private val s by lazy {
+        dexKitBridge.findMethod {
+            matcher {
+                declaredClass = GameBoosterFeatureUtilsCls.name
+                addUsingStringsEquals("support_disable_ndds_sim")
+            }
+        }.first().getMethodInstance(classLoader)
+    }
+
     override fun init() {
         setKeyMap(
             mapOf(
@@ -132,6 +150,18 @@ object GameTurbo : HookRegister() {
                         returnConstant(true)
                     }
                 },
+
+                "game_dim" to {
+                    o.createHook {
+                        returnConstant(true)
+                    }
+                },
+
+                "disable_ndds_sim" to {
+                    s.createHook {
+                        returnConstant(true)
+                    }
+                }
             )
         )
     }

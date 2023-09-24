@@ -11,9 +11,7 @@ object DocPpt : HookRegister() {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder()
             .filterByName("isPPTModuleAvailable")
             .first().createHook {
-                before {
-                    it.result = true
-                }
+                returnConstant(true)
             }
     }
 }

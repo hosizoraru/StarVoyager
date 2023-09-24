@@ -11,9 +11,7 @@ object Ppt : HookRegister() {
         loadClass("com.xiaomi.scanner.settings.FeatureManager").methodFinder()
             .filterByName("isAddTextExtractionFunction")
             .first().createHook {
-                before {
-                    it.result = true
-                }
+                returnConstant(true)
             }
     }
 }

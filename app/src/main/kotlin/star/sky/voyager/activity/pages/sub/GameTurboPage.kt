@@ -80,5 +80,18 @@ class GameTurboPage : BasePage() {
             ),
             SwitchV("enhanced_dsda", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.game_dim,
+            ),
+            SwitchV("game_dim", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.disable_ndds_sim,
+                tipsId = R.string.game_turbo_summary,
+            ),
+            SwitchV("disable_ndds_sim", false)
+        )
     }
 }

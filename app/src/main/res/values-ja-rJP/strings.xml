@@ -166,6 +166,7 @@
     <string name="your_product_market_name">モデル: </string>
     <string name="recent">最近の画面</string>
     <string name="miui_method">Xiaomi の 方法</string>
+    <string name="game_turbo_summary">これはゲーム中のみ動作する特別な機能です。\nこの機能について詳しく知りたい場合は、有効にした後に Xiaomi の公式説明をご確認いただけます。</string>
 
     <string name="screen_off_timeout">自動スクリーンオフ時間</string>
     <string name="screen_off_timeout_command">非アクティブ状態後の自動ロックスクリーンをカスタマイズ</string>
@@ -590,6 +591,8 @@
     <string name="fps_switch">ゲームカスタム設定でカスタムフレームレートを開放</string>
     <string name="enhanced_dsda">データカードでないVoLTE着信自動拒否 -> 着信時にネットワークが切断されない</string>
     <string name="smart_discharge">スマート放電保護と低バッテリー高速充電</string>
+    <string name="game_dim">自動的に画面の明るさを低くする</string>
+    <string name="disable_ndds_sim">セカンダリSIMを無効にする</string>
 
     <string name="any_app_barrage">すべてのアプリに弾幕通知の使用を許可する</string>
     <string name="any_where_barrage">どこでも弾幕通知を有効にする</string>
