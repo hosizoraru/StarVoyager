@@ -2,7 +2,6 @@
 <resources>
     <string-array name="xposed_scope">
         <item>com.xiaomi.aiasst.vision</item>
-        <item>com.xiaomi.aicr</item>
         <item>com.xiaomi.aireco</item>
         <item>android</item>
         <item>com.miui.aod</item>
