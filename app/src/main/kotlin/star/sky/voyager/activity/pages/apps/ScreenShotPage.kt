@@ -31,6 +31,7 @@ class ScreenShotPage : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.privacy_mosaic,
+                tipsId = R.string.privacy_mosaic_summary,
             ),
             SwitchV("privacy_mosaic", false)
         )

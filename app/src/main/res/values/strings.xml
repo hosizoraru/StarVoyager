@@ -473,6 +473,7 @@
     <string name="save_as_png">Save screenshots as PNG</string>
     <string name="device_shell">Customize device with shell for screenshots</string>
     <string name="privacy_mosaic">Intelligent Privacy Mosaic</string>
+    <string name="privacy_mosaic_summary">Requires a newer version of the Mi AI Engine in the system.</string>
 
     <string name="Market_As">Disguise your model as what in the GetApps</string>
     <string name="device_market">Device Market Models</string>
