@@ -4,6 +4,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import star.sky.voyager.hook.hooks.mediaeditor.UnlockUnlimitedCropping
 import star.sky.voyager.hook.hooks.multipackage.SuperClipboard
 import star.sky.voyager.hook.hooks.screenshot.DeviceShell
+import star.sky.voyager.hook.hooks.screenshot.PrivacyMosaic
 import star.sky.voyager.hook.hooks.screenshot.SaveAsPng
 import star.sky.voyager.hook.hooks.screenshot.SaveToPictures
 import star.sky.voyager.utils.init.AppRegister
@@ -18,6 +19,7 @@ object ScreenShot : AppRegister() {
             SuperClipboard,
             SaveToPictures, // 截图保存到 Pictures/Screenshots
             SaveAsPng, // 截图格式为 PNG
+            PrivacyMosaic, // 智能隐私打码
 //            Scroll,
             DeviceShell,
         )

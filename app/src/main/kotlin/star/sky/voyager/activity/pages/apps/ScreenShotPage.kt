@@ -28,6 +28,12 @@ class ScreenShotPage : BasePage() {
             ),
             SwitchV("save_as_png", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.privacy_mosaic,
+            ),
+            SwitchV("privacy_mosaic", false)
+        )
         val deviceBinding = GetDataBinding({
             safeSP.getBoolean(
                 "device_shell",
