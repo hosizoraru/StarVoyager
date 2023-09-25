@@ -3,6 +3,7 @@ package star.sky.voyager.utils.init
 object PackageNameHook {
     val PACKAGE_NAME_HOOKED = setOf(
         "com.xiaomi.aiasst.vision",
+        "com.xiaomi.aicr",
         "com.xiaomi.aireco",
         "com.miui.aod",
         "com.xiaomi.barrage",
