@@ -21,6 +21,7 @@ object PackageNameHook {
         "com.xiaomi.mirror",
         "com.xiaomi.misettings",
         "com.miui.mishare.connectivity",
+        "com.android.mms",
         "com.miui.player",
         "com.miui.notes",
         "com.miui.packageinstaller",

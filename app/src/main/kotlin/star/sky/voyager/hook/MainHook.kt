@@ -18,6 +18,7 @@ import star.sky.voyager.hook.apps.Gallery
 import star.sky.voyager.hook.apps.GuardProvider
 import star.sky.voyager.hook.apps.Home
 import star.sky.voyager.hook.apps.Lbe
+import star.sky.voyager.hook.apps.MMS
 import star.sky.voyager.hook.apps.Market
 import star.sky.voyager.hook.apps.MediaEditor
 import star.sky.voyager.hook.apps.MiSettings
@@ -71,6 +72,7 @@ class MainHook : EasyXposedInit() {
         Mirror, // Miui+ Beta
         MiSettings, // 小米设置
         MiShare, // 小米互传
+        MMS, // 短信
         Music, // 音乐
         Notes, // 笔记
         PackageInstaller, // 应用包管理组件

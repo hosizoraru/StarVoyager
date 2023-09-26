@@ -50,6 +50,12 @@ object SuperClipboard : HookRegister() {
                 }
             }
 
+            "com.android.mms" -> {
+                hasEnable("mms_super_clipboard") {
+                    dexKitSuperClipboard()
+                }
+            }
+
             "com.miui.contentextension" -> {
                 hasEnable("something") {
                     nothing()

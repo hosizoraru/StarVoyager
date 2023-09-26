@@ -45,6 +45,7 @@
     <string name="scope_cloud_service">小米云服务</string>
     <string name="scope_providers_downloads">下载管理程序</string>
     <string name="scope_miui_creation">小米创作</string>
+    <string name="scope_text_message">短信</string>
 
     <string name="reboot">重启</string>
     <string name="reboot_system">重启系统</string>
@@ -437,6 +438,8 @@
     <string name="album_optimize_summary">Pictures/Screenshots 里的图片也会被认为是截图\nMovies/ScreenRecorder 里的视频也会被认为是录屏\n你可以在录屏截图这个相册里找到他们</string>
     <string name="open_video_self">播放视频不再依赖小米视频</string>
     <string name="open_video_self_summary">播放视频时可以选择其他打开方式</string>
+    <string name="gallery_backup_select">更多备份方式选择</string>
+    <string name="gallery_backup_select_summary">比如 Microsoft OneDrive/Google Photos</string>
     <string name="hdr_enhance">超动态显示</string>
     <string name="hdr_enhance_summary">以 HDR 高动态范围，呈现更多明暗细节，使画面更加真实</string>
     <string name="ocr">解锁提取文字</string>
