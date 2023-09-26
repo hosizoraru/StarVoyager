@@ -15,19 +15,21 @@ object DynamicPerformance : HookRegister() {
                     "persist.sys.smartop.support_dynamic_performance"
                 )
             }
-        }.firstOrNull()?.getMethodInstance(classLoader)!!
+        }.firstOrNull()?.getMethodInstance(classLoader)
     }
 
     private val c by lazy {
-        dexKitBridge.findMethod {
-            matcher {
-                addUsingStringsEquals(
-                    "persist.sys.smartop.support_dynamic_performance"
-                )
-                declaredClass = d.declaringClass.name
-                returnType = d.returnType.name
-            }
-        }.firstOrNull()?.getMethodInstance(classLoader)
+        d?.let {
+            dexKitBridge.findMethod {
+                matcher {
+                    addUsingStringsEquals(
+                        "persist.sys.smartop.support_dynamic_performance"
+                    )
+                    declaredClass = d!!.declaringClass.name
+                    returnType = d!!.returnType.name
+                }
+            }.firstOrNull()?.getMethodInstance(classLoader)
+        }
     }
 
     override fun init() = hasEnable("dynamic_performance") {
