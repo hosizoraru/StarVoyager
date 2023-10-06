@@ -128,6 +128,7 @@
     <string name="unlock_for_pad">主要是给Pad解锁的</string>
     <string name="only_compatible_phone">暂时只适配了手机</string>
     <string name="require_hardware_support">需要硬件支持</string>
+    <string name="require_system_support">需要系统底层支持</string>
     <string name="camera_sensor">摄像头传感器</string>
     <string name="mic_sensor">麦克风传感器</string>
     <string name="multiple_instances">多开</string>
@@ -781,4 +782,5 @@
     <string name="current_mA">电流单位使用 mA</string>
     <string name="no_need_to_enter_password_when_power_on">开机免输密码</string>
     <string name="no_need_to_enter_password_when_power_on_summary">手机没启用加密才会生效</string>
+    <string name="super_volume">超大音量</string>
 </resources>

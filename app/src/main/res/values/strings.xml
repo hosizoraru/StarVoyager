@@ -129,6 +129,7 @@
     <string name="unlock_for_pad">It is mainly for the Pad to be unlocked</string>
     <string name="only_compatible_phone">Temporarily only compatible with phone</string>
     <string name="require_hardware_support">Hardware support is required</string>
+    <string name="require_system_support">Requires System-level Support</string>
     <string name="camera_sensor">Camera Sensor</string>
     <string name="mic_sensor">Mic Sensor</string>
     <string name="multiple_instances">Multi-instance</string>
@@ -782,4 +783,5 @@
     <string name="current_mA">The current unit uses mA</string>
     <string name="no_need_to_enter_password_when_power_on">No need to enter password when power on</string>
     <string name="no_need_to_enter_password_when_power_on_summary">The phone is not encrypted to take effect</string>
+    <string name="super_volume">Super Volume</string>
 </resources>

@@ -69,6 +69,13 @@ class ControlCenterPage : BasePage() {
             ),
             SwitchV("control_center_style"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.super_volume,
+                tipsId = R.string.require_system_support,
+            ),
+            SwitchV("super_volume"),
+        )
         Line()
         val ccBinding = GetDataBinding({
             safeSP.getBoolean(

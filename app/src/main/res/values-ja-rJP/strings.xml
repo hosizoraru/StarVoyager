@@ -128,6 +128,7 @@
     <string name="unlock_for_pad">主に Pad のロックを解除するためです</string>
     <string name="only_compatible_phone">一時的にスマートフォンに対応しました</string>
     <string name="require_hardware_support">ハードウェアサポートが必要です</string>
+    <string name="require_system_support">システムレベルのサポートが必要です</string>
     <string name="camera_sensor">カメラセンサー</string>
     <string name="mic_sensor">マイクセンサー</string>
     <string name="multiple_instances">複数起動</string>
@@ -781,4 +782,5 @@
     <string name="current_mA">電流単位は mA を使用</string>
     <string name="no_need_to_enter_password_when_power_on">電源を入れるときにパスワードを入力する必要はありません</string>
     <string name="no_need_to_enter_password_when_power_on_summary">端末が暗号化されていない場合のみ有効</string>
+    <string name="super_volume">スーパーボリューム</string>
 </resources>

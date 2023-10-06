@@ -53,6 +53,7 @@ import star.sky.voyager.hook.hooks.systemui.StatusBarDoubleTapToSleep
 import star.sky.voyager.hook.hooks.systemui.StatusBarLayout
 import star.sky.voyager.hook.hooks.systemui.StatusBarNetworkSpeedRefreshSpeed
 import star.sky.voyager.hook.hooks.systemui.StatusBarTimeCustomization
+import star.sky.voyager.hook.hooks.systemui.SuperVolume
 import star.sky.voyager.hook.hooks.systemui.UseNewHD
 import star.sky.voyager.hook.hooks.systemui.WaveCharge
 import star.sky.voyager.utils.init.AppRegister
@@ -116,6 +117,7 @@ object SystemUI : AppRegister() {
             LockScreenOnlyLeft, // 仅移除锁屏界面的左滑
             NoPasswordHook, // 开机免输密码
             OldQSCustom, // 自定义行列数
+            SuperVolume,
             // 状态栏网络速度 Start
             StatusBarNetworkSpeedRefreshSpeed,
             HideStatusBarNetworkSpeedSecond,
