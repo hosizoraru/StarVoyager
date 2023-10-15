@@ -19,7 +19,7 @@ object MoreCard : HookRegister() {
         }.first()
     }
 
-    private val locale by lazy {
+    private val localeMethod by lazy {
         dexKitBridge.findMethod {
             matcher {
                 declaredClass = toolsCls.name
@@ -30,7 +30,7 @@ object MoreCard : HookRegister() {
     }
 
     override fun init() = hasEnable("more_card") {
-        locale?.createHook {
+        localeMethod?.createHook {
             before {
                 returnConstant(Locale("zh", "CN"))
             }

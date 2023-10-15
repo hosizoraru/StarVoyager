@@ -23,6 +23,10 @@ plugins:
     alias: kotlin-serialization
     version-ref: kotlin-android
     auto-update: true
+  com.highcapable.flexilocale:
+    alias: flexi-locale
+    version: 1.0.1
+    auto-update: true
 
 libraries:
   androidx.core:
@@ -31,11 +35,11 @@ libraries:
       auto-update: true
   androidx.constraintlayout:
     constraintlayout:
-      version: 2.2.0-alpha12
+      version: 2.2.0-alpha13
       auto-update: true
   org.luckypray:
     dexkit:
-      version: 2.0.0-rc3
+      version: 2.0.0-rc6
       auto-update: true
   com.github.kyuubiran:
     EzXHelper:

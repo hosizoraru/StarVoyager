@@ -7,6 +7,7 @@ plugins {
     autowire("android-application")
     autowire("kotlin-android")
     autowire("kotlin-serialization")
+    autowire("flexi-locale")
 }
 
 val apkId = "StarVoyager"
@@ -15,7 +16,11 @@ android {
     namespace = "star.sky.voyager"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
-    ndkVersion = "26.0.10792818"
+    ndkVersion = "26.1.10909125"
+
+    flexiLocale {
+        isEnable = true
+    }
 
     buildFeatures {
         prefab = true
@@ -75,13 +80,13 @@ android {
         jvmTarget = "20"
     }
 
-    kotlin {
-        sourceSets.all {
-            languageSettings {
-                languageVersion = "2.0"
-            }
-        }
-    }
+//    kotlin {
+//        sourceSets.all {
+//            languageSettings {
+//                languageVersion = "2.0"
+//            }
+//        }
+//    }
 
     packaging {
         resources {

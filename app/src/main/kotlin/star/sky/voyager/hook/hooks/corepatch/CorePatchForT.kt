@@ -10,7 +10,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.InvocationTargetException
 
 
-open class CorePatchForT : CorePatchForSv2() {
+open class CorePatchForT : CorePatchForS() {
     @Throws(
         IllegalAccessException::class,
         InvocationTargetException::class,
@@ -33,8 +33,10 @@ open class CorePatchForT : CorePatchForSv2() {
                 // Don't handle PERMISSION (grant SIGNATURE permissions to pkgs with this cert)
                 // Or applications will have all privileged permissions
                 // https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/content/pm/PackageParser.java;l=5947?q=CertCapabilities
-                if (param.args[1] as Int != 4 && prefs.getBoolean("digestCreak", true)) {
-                    param.result = true
+                if (prefs.getBoolean("digestCreak", true)) {
+                    if (param.args[1] as Int != 4) {
+                        param.result = true
+                    }
                 }
             }
         })

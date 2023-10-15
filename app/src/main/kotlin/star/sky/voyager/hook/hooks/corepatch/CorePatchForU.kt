@@ -14,6 +14,8 @@ open class CorePatchForU : CorePatchForT() {
     )
     override fun handleLoadPackage(loadPackageParam: XC_LoadPackage.LoadPackageParam) {
         super.handleLoadPackage(loadPackageParam)
+
+        // ee11a9c (Rename AndroidPackageApi to AndroidPackage)
         findAndHookMethod(
             "com.android.server.pm.PackageManagerServiceUtils", loadPackageParam.classLoader,
             "checkDowngrade",

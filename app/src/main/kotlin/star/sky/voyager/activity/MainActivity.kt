@@ -51,6 +51,7 @@ import star.sky.voyager.activity.pages.sub.StatusBarIconPage
 import star.sky.voyager.activity.pages.sub.StatusBarNetWorkSpeedPage
 import star.sky.voyager.activity.pages.sub.StatusBarPage
 import star.sky.voyager.activity.pages.sub.SuperClipboardPage
+import star.sky.voyager.generated.locale.AppLocale
 import star.sky.voyager.utils.key.BackupUtils.CREATE_DOCUMENT_CODE
 import star.sky.voyager.utils.key.BackupUtils.OPEN_DOCUMENT_CODE
 import star.sky.voyager.utils.key.BackupUtils.handleCreateDocument
@@ -59,9 +60,11 @@ import star.sky.voyager.utils.yife.XSharedPreferences.prefFileName
 
 class MainActivity : MIUIActivity() {
     private val activity = this
+    lateinit var locale: AppLocale
     override fun onCreate(savedInstanceState: Bundle?) {
         if (!checkLSPosed()) isLoad = false
         super.onCreate(savedInstanceState)
+        locale = AppLocale.attach(this)
     }
 
     @SuppressLint("WorldReadableFiles")

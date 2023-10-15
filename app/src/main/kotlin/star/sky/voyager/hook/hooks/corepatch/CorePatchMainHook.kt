@@ -17,7 +17,6 @@ open class CorePatchMainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
             when (Build.VERSION.SDK_INT) {
                 Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> CorePatchForU().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.TIRAMISU -> CorePatchForT().handleLoadPackage(lpparam)
-                Build.VERSION_CODES.S_V2 -> CorePatchForSv2().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.S -> CorePatchForS().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.R -> CorePatchForR().handleLoadPackage(lpparam)
                 Build.VERSION_CODES.Q -> CorePatchForQ().handleLoadPackage(lpparam)
@@ -33,7 +32,6 @@ open class CorePatchMainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
             when (Build.VERSION.SDK_INT) {
                 Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> CorePatchForU().initZygote(startupParam)
                 Build.VERSION_CODES.TIRAMISU -> CorePatchForT().initZygote(startupParam)
-                Build.VERSION_CODES.S_V2 -> CorePatchForSv2().initZygote(startupParam)
                 Build.VERSION_CODES.S -> CorePatchForS().initZygote(startupParam)
                 Build.VERSION_CODES.R -> CorePatchForR().initZygote(startupParam)
                 Build.VERSION_CODES.Q -> CorePatchForQ().initZygote(startupParam)
