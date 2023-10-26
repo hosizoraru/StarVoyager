@@ -1,5 +1,6 @@
 package star.sky.voyager.hook.hooks.securitycenter
 
+import android.annotation.SuppressLint
 import android.app.AndroidAppHelper
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -25,6 +26,7 @@ import star.sky.voyager.utils.init.HookRegister
 import star.sky.voyager.utils.key.hasEnable
 
 object BatteryTemperature : HookRegister() {
+    @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("battery_life_function") {
         val batteryFragmentClass =
             loadClassOrNull("com.miui.powercenter.BatteryFragment")
