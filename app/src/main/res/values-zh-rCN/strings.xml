@@ -169,6 +169,8 @@
     <string name="recent">最近任务</string>
     <string name="miui_method">使用小米的方案</string>
     <string name="game_turbo_summary">这是一个只在游戏中生效的特殊功能，如果你想具体了解这个功能可以在开启后去看小米的官方描述</string>
+    <string name="hyperos_miui">MIUI -> HyperOS</string>
+    <string name="hyperos_miui_summary">让该作用域识别你的系统为 HyperOS\n这可以让 MIUI 用上一部分 HyperOS 的功能</string>
 
     <string name="screen_off_timeout">自动锁屏时间</string>
     <string name="screen_off_timeout_command">自定义在无操作多久后自动锁屏</string>

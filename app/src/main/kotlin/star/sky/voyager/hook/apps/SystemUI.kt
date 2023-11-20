@@ -20,6 +20,7 @@ import star.sky.voyager.hook.hooks.systemui.HideStatusBarIcon
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarNetworkSpeedSecond
 import star.sky.voyager.hook.hooks.systemui.HideStatusBarWhenScreenShot
 import star.sky.voyager.hook.hooks.systemui.HideWifiActivityIcon
+import star.sky.voyager.hook.hooks.systemui.HyperOSMIUI
 import star.sky.voyager.hook.hooks.systemui.IconPosition
 import star.sky.voyager.hook.hooks.systemui.LockScreenBlurButton
 import star.sky.voyager.hook.hooks.systemui.LockScreenClockDisplaySeconds
@@ -118,6 +119,7 @@ object SystemUI : AppRegister() {
             NoPasswordHook, // 开机免输密码
             OldQSCustom, // 自定义行列数
             SuperVolume,
+            HyperOSMIUI,
             // 状态栏网络速度 Start
             StatusBarNetworkSpeedRefreshSpeed,
             HideStatusBarNetworkSpeedSecond,

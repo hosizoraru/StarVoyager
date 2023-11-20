@@ -170,6 +170,8 @@
     <string name="recent">Recent</string>
     <string name="miui_method">Xiaomi\'s Approach</string>
     <string name="game_turbo_summary">This is a special feature that only works during games.\nIf you\'d like to learn more about this feature, you can check Xiaomi\'s official description after enabling it.</string>
+    <string name="hyperos_miui">MIUI -> HyperOS</string>
+    <string name="hyperos_miui_summary">Let this scope identify your system as HyperOS\nallows MIUI to use some of the functions of HyperOS.</string>
 
     <string name="screen_off_timeout">Screen Off Timeout</string>
     <string name="screen_off_timeout_command">Customize Auto Lock Screen After Inactivity</string>

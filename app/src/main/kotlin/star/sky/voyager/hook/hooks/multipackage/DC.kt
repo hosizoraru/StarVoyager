@@ -20,6 +20,9 @@ object DC : HookRegister() {
                             if (it.args[0] == "support_dc_backlight") {
                                 it.result = true
                             }
+                            if (it.args[0] == "support_dc_backlight_sec") {
+                                it.result = true
+                            }
                         }
                     }
             }

@@ -76,6 +76,13 @@ class ControlCenterPage : BasePage() {
             ),
             SwitchV("super_volume"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.hyperos_miui,
+                tipsId = R.string.hyperos_miui_summary,
+            ),
+            SwitchV("hyperos_miui"),
+        )
         Line()
         val ccBinding = GetDataBinding({
             safeSP.getBoolean(

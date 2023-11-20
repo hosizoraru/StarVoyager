@@ -8,7 +8,7 @@ pluginManagement {
     }
 }
 plugins {
-    id("com.highcapable.sweetdependency") version "1.0.2"
+    id("com.highcapable.sweetdependency") version "1.0.4"
 }
 
 rootProject.name = "StarSkyVoyager"

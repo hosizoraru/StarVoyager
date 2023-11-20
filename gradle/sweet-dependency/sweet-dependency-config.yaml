@@ -13,7 +13,7 @@ repositories:
 plugins:
   com.android.application:
     alias: android-application
-    version: 8.1.2
+    version: 8.1.4
     auto-update: true
   org.jetbrains.kotlin.android:
     alias: kotlin-android
