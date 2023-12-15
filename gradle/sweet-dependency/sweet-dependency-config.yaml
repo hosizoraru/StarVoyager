@@ -13,7 +13,7 @@ repositories:
 plugins:
   com.android.application:
     alias: android-application
-    version: 8.1.4
+    version: 8.2.0
     auto-update: true
   org.jetbrains.kotlin.android:
     alias: kotlin-android
@@ -39,11 +39,11 @@ libraries:
       auto-update: true
   org.luckypray:
     dexkit:
-      version: 2.0.0-rc7
+      version: 2.0.0
       auto-update: true
   com.github.kyuubiran:
     EzXHelper:
-      version: 2.0.7
+      version: 2.0.8
       auto-update: true
   io.github.ranlee1:
     jpinyin:

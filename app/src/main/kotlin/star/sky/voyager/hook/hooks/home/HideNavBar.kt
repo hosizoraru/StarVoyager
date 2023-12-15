@@ -54,9 +54,9 @@ object HideNavBar : HookRegister() {
                             ) as Boolean
                     } catch (throwable: Throwable) {
                         hasSIsNeedInjectMotionEvent = false
-//                        val packageInfo = context.packageManager.getPackageInfo(
-//                            context.packageName, 0
-//                        )
+                        // val packageInfo = context.packageManager.getPackageInfo(
+                        //     context.packageName, 0
+                        // )
                     }
 
                     //新版系统桌面用mHideGestureLine判断是否点击
