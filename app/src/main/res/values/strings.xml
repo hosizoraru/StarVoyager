@@ -404,6 +404,7 @@
 
     <string name="high_animation">Animation level is set to high</string>
     <string name="more_card">Show more information cards in non-Simplified Chinese languages</string>
+    <string name="global_weather_flag">Remove international identification testing</string>
 
     <string name="device_modify">Remove the restriction</string>
     <string name="device_modify_summary">For Aireco, it is recommended to disguise your model as Xiaomi 13 Pro to remove its restrictions on the model and account.</string>

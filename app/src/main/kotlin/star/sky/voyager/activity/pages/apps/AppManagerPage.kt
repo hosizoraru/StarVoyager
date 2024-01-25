@@ -199,6 +199,11 @@ class AppManagerPage : BasePage() {
                 textId = R.string.more_card,
             ), SwitchV("more_card")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.global_weather_flag,
+            ), SwitchV("global_weather_flag")
+        )
         Line()
         TitleText(textId = R.string.scope_external_storage)
         TextSummaryWithSwitch(

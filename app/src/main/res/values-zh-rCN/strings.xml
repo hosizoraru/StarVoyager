@@ -403,6 +403,7 @@
 
     <string name="high_animation">动画等级为高</string>
     <string name="more_card">在非简体中文语言下显示更多信息卡片</string>
+    <string name="global_weather_flag">去掉国际标识检测</string>
 
     <string name="device_modify">移除限制</string>
     <string name="device_modify_summary">对小爱建议伪装你的机型为小米13 Pro,以移除它对机型和账号的限制</string>
