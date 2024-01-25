@@ -31,10 +31,10 @@ android {
 
     defaultConfig {
         applicationId = "star.sky.voyager"
-        minSdk = 33
+        minSdk = 31
         targetSdk = 34
         versionCode = 32
-        versionName = "3.7"
+        versionName = "3.71"
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
     }
 
