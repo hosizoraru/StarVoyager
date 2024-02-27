@@ -15,8 +15,8 @@ val apkId = "StarVoyager"
 android {
     namespace = "star.sky.voyager"
     compileSdk = 34
-    buildToolsVersion = "34.0.0"
-    ndkVersion = "26.1.10909125"
+    buildToolsVersion = "35.0.0-rc1"
+    ndkVersion = "26.2.11394342"
 
     flexiLocale {
         isEnable = true
