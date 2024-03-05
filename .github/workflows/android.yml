@@ -27,10 +27,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      #      - name: Set up environment variables
-      #        run: |
-      #          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-      #          echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
+      - name: Set up environment variables
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
       #          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
 
       - name: Accept licenses
