@@ -33,8 +33,8 @@ jobs:
       #          echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
       #          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
 
-      #      - name: Accept licenses
-      #        run: yes | sdkmanager --licenses
+      - name: Accept licenses
+        run: yes | sdkmanager --licenses
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
