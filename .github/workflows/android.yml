@@ -21,20 +21,20 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '21'
-          distribution: 'adopt'
+          distribution: 'temurin'
           cache: gradle
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Set up environment variables
-        run: |
-          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-          echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
-          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
+      #      - name: Set up environment variables
+      #        run: |
+      #          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+      #          echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
+      #          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
 
-      - name: Accept licenses
-        run: yes | sdkmanager --licenses
+      #      - name: Accept licenses
+      #        run: yes | sdkmanager --licenses
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
