@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           echo "$ANDROID_HOME/tools/bin" >> $GITHUB_PATH
-          echo "$ANDROID_HOME/cmdline-tools/7.0/bin" >> $GITHUB_PATH
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
 
       - name: Accept licenses
         run: yes | sdkmanager --licenses
