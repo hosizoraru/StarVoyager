@@ -28,7 +28,7 @@ object HideBatteryIcon : HookRegister() {
                     }
                     //隐藏电池内的百分比
                     hasEnable("hide_battery_percentage_icon") {
-                        (it.thisObject.getObjectFieldAs<TextView>("mBatteryPercentMarkView")).textSize =
+                        (it.thisObject.getObjectFieldAs<TextView>("mBatteryPercentView")).textSize =
                             0F
                     }
                     //隐藏电池百分号
